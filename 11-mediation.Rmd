@@ -21,7 +21,7 @@ Mediation models help us to think about the different ways in which a variable m
 
 #### Essential Analytics {.unnumbered}
 
-We can analyze a mediation model with a series of regression analysis in SPSS (the *Linear* option in the *Regression* submenu). We need one regression model for each variable that is predicted by one or more other variables in the model. The predicted variable is the dependent variable and as independent variables we use all variables that we think are causally prior to the dependent variable.
+We can analyze a mediation model with a series of regression analyses in SPSS (the *Linear* option in the *Regression* submenu). We need one regression model for each variable that is predicted by one or more other variables in the model. The predicted variable is the dependent variable and as independent variables we use all variables that we think are causally prior to the dependent variable.
 
 As an alternative, we may use the PROCESS macro for SPSS. The macro requires that we distinguish between parallel mediation (each indirect effect has just one mediator) and serial mediation (at least one indirect effect includes two or more mediators). PROCESS gives us the size and bootstrapped confidence intervals for all indirect effects of the selected predictor via mediators on the final outcome variable.
 
@@ -29,7 +29,7 @@ As an alternative, we may use the PROCESS macro for SPSS. The macro requires tha
 knitr::include_graphics("figures/S11_AE1.png")
 ```
 
-Figure \@ref(fig:mediationtable) shows the results of a model in which political interest and news site use mediate the effect of age on nespaper reading time. Apart from a direct effect (_b_ = 4.55, 95%CI[3.62, 5.47], red box in Figure \@ref(fig:mediationtable)), three indirect effects have been estimated. Clearly the strongest indirect effect of age is the effect mediated by news site use (Figure \@ref(fig:mediationtable), green boxes). An additional unit of age increases predicted newspaper reading time by 1.44. The 95% confidence interval (95%CI[0.64, 2.24], bootstrapped) does not include zero, so this indirect effect is statistically significant at the .05 significance level.
+Figure \@ref(fig:mediationtable) shows the results of a model in which political interest and news site use mediate the effect of age on newspaper reading time. Apart from a direct effect (_b_ = 4.55, 95%CI[3.62, 5.47], red box in Figure \@ref(fig:mediationtable)), three indirect effects have been estimated. Clearly the strongest indirect effect of age is the effect mediated by news site use (Figure \@ref(fig:mediationtable), green boxes). An additional unit of age increases predicted newspaper reading time by 1.44. The 95% confidence interval (95%CI[0.64, 2.24], bootstrapped) does not include zero, so this indirect effect is statistically significant at the .05 significance level.
 
 ## Mediation as Causal Process
 
@@ -79,7 +79,7 @@ In the context of causality, spuriousness is linked to a confounder that is a _c
 
 This effect is probably not causal: We do not spend more time reading newspapers because we have more (grand)children. Unless we use newspaper reading to ignore our children and grandchildren when they are around. Most if not all of the effect of (grand)children on newspaper reading is spurious because it results from a common cause, namely age or the habits and opportunities represented by age.
 
-To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem. Unfortunately, we cannot be sure that we have included all common causes in our model. The best we can do is using experimental randomization to minimize the chance of having confounders (Section \@ref(randomization)).
+To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem (Chapter \@ref(confounder)). With non-experimental data, for example data on newspaper reading habits gathered in a survey, we cannot be sure that we have included all common causes in our model. In this situation, we should always keep in mind that the effects that we find may be caused by variables not included in our regression model. In an experiment, however, we can use experimental randomization to minimize the chance of having any confounders at all (Section \@ref(randomization)).
 
 ### Mediation as indirect effect {#indirecteffect}
 
@@ -480,7 +480,7 @@ This sounds like a paradox but it should not upset you. The unstandardized indir
 Answer to Question 1. 
 
 * There are four variables with incoming arrows in this model. Each of them can be a dependent variable in a regression model, so we can estimate four regression models.
-* The unstandardized and standardized regression coefficients tell us the (unstandardized or standardized) sizes of the direct effects in the path model.
+* The unstandardized regression coefficients tell us the (unstandardized) sizes of the direct effects in the path model.
 * For example, news site use has an unstandardized effect of -1.55 on newspaper reading time in the diagram. A difference of one unit of news site use predicts a decrease in newspaper reading time of 1.55 units. We are 95 per cent confident that this decrease is in between 0.6 and 2.5 units in the population. [<img src="icons/2question.png" width=161px align="right">](#question9.6.1)
 ```
   
@@ -570,7 +570,7 @@ results <- rbind(
   c("Age > News Site Use > Reading Time", "1.44", "", "[0.61; 2.17]")
 )
 knitr::kable(results, booktabs = TRUE,
-             caption = "Unstandardized effects in a model regressing newspaper reading time on age with one mediator (News Site Use) and two covariates (Education, Political Interest). OLS estimates for direct effects, bootstrap results for indirect effects, using 5,000 bootstraps and a bias-corrected method.", col.names = c("", "B", "", "95% CI"), align = c("l", "r", "l", "c")) %>%
+             caption = "Unstandardized effects in a model regressing newspaper reading time on age with one mediator (News Site Use) and two covariates (Education, Political Interest). Theoretical approximation for direct effects, bootstrap results for indirect effects, using 5,000 bootstraps.", col.names = c("", "B", "", "95% CI"), align = c("l", "r", "l", "c")) %>%
   footnote(general = "\\* _p_ < .05. \\*\\* _p_ < .01. \\*** _p_ < .001.",
            general_title = "Note.", title_format = c("italic"),
            footnote_as_chunk = T) %>%
@@ -640,7 +640,7 @@ SPSS cannot apply statistical inference to indirect effects, so we use the PROCE
 ----
 
 ```{r SPSSmediatpar, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:mediatparSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/8g8JWflvKmg", height = "360px")
+knitr::include_url("https://www.youtube.com/embed/YLxODUTflbQ", height = "360px")
 # Goal: Estimating a single or parallel mediation model with PROCESS (Model 4).
 # Example: readers.sav, the effect of age on newspaper reading time mediated by political interest and news site use (in parallel). 
 # SPSS menu: Regression > PROCESS, 
@@ -666,7 +666,7 @@ knitr::include_url("https://www.youtube.com/embed/8g8JWflvKmg", height = "360px"
 ----
 
 ```{r SPSSmediatserial, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:mediatserialSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/Cl0qU9nn1FA", height = "360px")
+knitr::include_url("https://www.youtube.com/embed/VN_mgu5CQ4Y", height = "360px")
 # Goal: Estimating a serial mediation model with PROCESS (Model 6).
 # Example: readers.sav, the effect of age on newspaper reading time mediated by political interest and news site use (in serial). 
 # SPSS menu: Regression > PROCESS ; 
@@ -829,8 +829,7 @@ In the PROCESS menu:
 * Select age as independent variable (X variable),  
 * Select newssite as mediator (M),  
 * Select 4 under Model number (model with only one mediator).  
-* Under __Options__: Select Effect size (for standardized effect sizes) 
-  and 3 decimal places in output.
+* Under __Options__: Select Standardized effects and 3 decimal places in output.
 * Under __Long variable names__ (PROCESS V3.5 and higher), check the box labelled _I accept the risk of incorrect output_.
   
 Check data: See Exercise 1.  
@@ -862,10 +861,18 @@ Note that these are bootstrap results, so they may change from
 one analysis to the next. Your results are most likely to be
 not exactly the same as the ones reported here.
   
-* An age difference of ten years (remember that age was measured in decades)
-increases the predicted average newspaper reading time through news site use
-with slightly more than one minute. With 95% confidence, the increase is between 0.3 and 1.9 additional minutes.
-* The indirect effect is weak to moderate, *b\** = 0.16, 95% CI [0.05; 0.28] (bootstrapped). [<img src="icons/2question.png" width=161px align="right">](#question9.9.2)
+* An age difference of ten years (remember that age was measured in decades) increases the predicted average newspaper reading time through news site use with slightly more than one minute. With 95% confidence, the increase is between 0.3 and 1.9 additional minutes.
+* The indirect effect is weak to moderate, *b\** = 0.16, 95% CI [0.05; 0.28] (bootstrapped). 
+
+Direct effect of X on Y 
+
+<div style="font-size: 0.8em">
+| | Effect | se | t | p | LLCI | ULCI | c\'_cs
+|:----|----:|----:|----:|----:|----:|----:|----:|
+|  | 4.5450 | .4701 | 9.6672 | .0000 | 3.6199 | 5.4701 | .6670
+</div>
+
+If we compare the indirect effect to the direct effect (above table), the indirect (mediated) unstandardized effect (*b* = 1.12) is clearly smaller than the direct effect (*b* = 4.55); about 20 per cent (1.21) of the total effect (1.12 + 4.55) is mediated. [<img src="icons/2question.png" width=161px align="right">](#question9.9.2)
 ```
 
 <A name="answer9.9.3"></A>
@@ -1033,7 +1040,7 @@ In the PROCESS menu:
 * Select age as independent variable (X variable).  
 * Select supervision as mediator (M).  
 * Select 4 under Model number (model with only one mediator).  
-* Under __Options__: Select Effect size and 3 decimal places in output.  
+* Under __Options__: Select Standardized effects and 3 decimal places in output.  
 * Under __Long variable names__ (PROCESS V3.5 and higher), check the box labelled _I accept the risk of incorrect output_.
   
 Check data:  
@@ -1112,11 +1119,11 @@ The indicators of a scale are correlated because they have a common cause, namel
 
 In Chapter \@ref(confounder), you learned that the estimated regression coefficients can be too small, too large, or have the wrong sign (direction) if there are confounders: variables not included in the regression model that are correlated with the predictor and outcome variable. If we analyze a path model with a series of regression models, there can be confounders for each regression model. Every estimated direct effect can be wrong. As a consequence, every indirect effect, which is the product of direct effects, can be wrong.
 
-The surest way to get rid of a confounder is adding it to the regression model. In a path model, we can add a variable that we expect to be a confounder as a covariate (Section \@ref(mediationcovariate)) or as an additional mediator. If a confounder comes after the outcome variable in the causal order of the path model, it cannot confound the effects within the path model; after all, we would not use it as a predictor (cause) in any of the regression models. In this situation, the confounder can be ignored. This underlines the importance of choosing a correct causal order when we construct a path model. Unfortunately, we can never be sure about this.
+The surest way to get rid of a confounder is adding it to the regression model. In a path model, we can add a variable that we expect to be a confounder as a covariate (Section \@ref(mediationcovariate)) or as an additional mediator. If a confounder comes after the outcome variable in the causal order of the path model, it cannot be a common cause to both a predictor and the outcome variable. In this situation, the confounder can be ignored. This underlines the importance of choosing a correct causal order when we construct a path model. Unfortunately, we can never be sure about this.
 
 In practice, we do not know all confounders and we cannot include all of them in our regression models. We can minimize the risk of having confounders if we use randomization in an experiment. Section \@ref(randomization) explained how randomization of the experimental treatment variable helps to eliminate confounders for the effect of the experimental treatment (predictor variable) on the dependent variable. We expect that this effect is not confounded. 
 
-In a path model, a mediator also serves as a predictor, so we also have to randomize the mediator variable to get correct estimates for the effect of the mediator on the outcome variable. With randomized predictor and mediator variables, the direct effects are probably not confounded, so the indirect effects calculated from the direct effects are also unlikely to be confounded.
+In a path model, a mediator also serves as a predictor, so we also have to randomize the mediator variable to get correct estimates for the causal effect of the mediator on the outcome variable. With randomized predictor and mediator variables, the direct effects are probably not confounded, so the indirect effects calculated from the direct effects are also unlikely to be confounded.
 
 It is difficult to manipulate a mediator in an experiment [@bullock_ha_2011]. If we hypothesize, for example, that political interest mediates the effect of age on newspaper reading time, how can we assign a random level of political interest to a participant in an experiment? By the way, it will also be impossible to randomize participant age in this example. 
 

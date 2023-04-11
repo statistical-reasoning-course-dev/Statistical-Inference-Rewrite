@@ -19,7 +19,7 @@ The statistical significance of a null hypothesis test depends strongly on the s
 
 Among the alternatives to null hypothesis significance testing, using a confidence interval to estimate effects in the population is easiest to apply. It is closely related to null hypothesis testing, as we have seen in Section \@ref(null-ci0), but it offers us information with which we can draw a more nuanced conclusion about our results. 
 
-## Criticisms of Null Hypothesis Significance Testing
+## Criticisms of Null Hypothesis Significance Testing {#criticismsNHST}
 
 In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video.
 
@@ -254,7 +254,7 @@ Figure \@ref(fig:ci-nullhyp) shows six confidence intervals for a population val
 
 A confidence interval shows us whether or not our null hypothesis must be rejected (see Section \@ref(null-ci0)). The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil (Section \@ref(strawmen)). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1.
 
-At the same time, however, confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis near one of its boundaries (e.g., Confidence Interval D in Figure \@ref(null-ci0)), we do not reject the null hypothesis but it still is plausible that the population value is substantially larger (or substantially smaller) than the hypothesized value. 
+At the same time, however, confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis near one of its boundaries (e.g., Confidence Interval D in Figure \@ref(fig:ci-nullhyp)), we do not reject the null hypothesis but it still is plausible that the population value is substantially larger (or substantially smaller) than the hypothesized value. 
 
 For example, we could interpret Confidence Interval D in Figure \@ref(fig:ci-nullhyp) in the following way:
 
@@ -275,7 +275,7 @@ Or it might be:
 
 [@RefWorks:3907: 73]
 
-[Sir Ronald Aylmer Fisher, Wikimedia Commons]()
+Sir Ronald Aylmer Fisher, Wikimedia Commons
 ```
 
 In a similar way, a very narrow confidence interval including the null hypothesis (e.g., Confidence Interval B in Figure \@ref(null-ci0)) and a very narrow confidence interval near the null hypothesis but excluding it (e.g., Confidence Interval C in Figure \@ref(null-ci0)) should not yield opposite conclusions because the statistical test is significant in the second but not in the first situation. After all, even for the significant situation, we know with high confidence (narrow confidence interval) that the population value is close to the hypothesized value.
@@ -292,7 +292,7 @@ If results are not published, they cannot be used to design new research project
 
 Meta-analysis is a method that capitalizes on previous knowledge. In this method, we collect previous studies on the same topic that use the same or highly similar variables. Combining the results of these studies, we can make statements with higher precision about the population. Basically, we combine the separate samples used for each single study into a large sample, which reduces the uncertainty and allows more precise inferences about the population.
 
-Meta-analysis is a good example of combining research efforts to increase our understanding. It favours estimation over hypothesis testing because the goal is to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept _New Statistics_. See Cumming's book [-@RefWorks:3883], [website](http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci), or [YouTube channel](https://www.youtube.com/user/geoffdcumming) if you are curious to learn more. The video at the start of this chapter is made by Geoff Cumming.
+Meta-analysis is a good example of combining research efforts to increase our understanding. It favours estimation over hypothesis testing because the goal is to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept _New Statistics_. See Cumming's book [-@RefWorks:3883], [website](http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci), or [YouTube channel](https://www.youtube.com/user/geoffdcumming) if you are curious to learn more. The video at the start of Section \@ref(criticismsNHST) was made by Geoff Cumming.
 
 ### Replication
 Another approach that builds upon previous results is _replication_. If we collect new data on variables that are central in prior research and we execute the same analyses, we _replicate_ previous research.
@@ -364,7 +364,7 @@ If it is plausible that our data set can be regarded as a random sample from a t
 
 ### Data generating process {#datageneratingprocess}
 
-An alternative approach disregards generalization to a population. Instead, it regards our observed data set as the result of a theoretical _data generating process_ [for instance, see @RefWorks:3925; @RefWorks:3873: 50-51]. Think, for example, of an experiment where the experimental treatment is exposure to a celebrity endorsing a fundraising campaign. The campaign triggers a process within the participants that results in a particular willingness to donate. Under similar circumstances and personal characteristics, this process yields the same outcomes, that is, generates the same data set. 
+An alternative approach disregards generalization to a population. Instead, it regards our observed data set as the result of a theoretical _data generating process_ [for instance, see @RefWorks:3925; @RefWorks:3873: 50-51]. Think, for example, of an experiment where the experimental treatment is exposure to a celebrity endorsing a fundraising campaign. Exposure to the campaign triggers a process within the participants that results in a particular willingness to donate. Under similar circumstances and personal characteristics, this process yields the same outcomes, that is, generates the same data set. 
 
 There is a complication. The circumstances and personal characteristics are very unlikely to be the same every time the process is at work (generates data). A person may pay more or less attention to the stimulus material, she may be more or less susceptible to this type of message, or in a better or worse mood for caring about other people, and so on. 
 
@@ -416,7 +416,7 @@ Figure \@ref(fig:power-problem) displays the sampling distribution for candy wei
 
 <A name="question6.4.4"></A>
 ```{block2, type='rmdquestion'}
-4. When is a large effect in the population more likely: with a statistically significant effect in a small sample or in a large sample? To answer this question, find the lowest true population value with at least 80 per cent test power for a sample of size 10 and size 100. Which sample requires the largest effect for obtaining good test power? (Press _Take 5 new samples_ after you adjust a slider to see the changes.) [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.4)
+4. When is a large effect in the population more likely: with a statistically significant effect in a small sample or in a large sample? To answer this question, find the lowest true population value with at least 80 per cent test power for a sample of size 10 and size 100. Which sample size requires the largest effect for obtaining good test power? (Press _Take 5 new samples_ after you adjust a slider to see the changes.) [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.4)
 ```
 
 ### Answers {-}
