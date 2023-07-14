@@ -196,7 +196,7 @@ Mediation or, more generally, path models can be estimated with a series of regr
 # Goal: Exemplify the different regression models required to estimate the direct effects in a path model.
 # Image of path model with age, education level (in years), political interest, news site use, and (current) newspaper reading time. Distinguish between hypothesized direct effects and non-hypothesized direct effects. Display the unstandardized regression coefficients with their 95% confidence intervals for the direct effects of all variables that are causally prior to the selected dependent variable.
 # Basic colours and layout.
-source("../apps/plottheme/styling.R")
+source("apps/plottheme/styling.R")
 # Create effect sizes.
 readers <- haven::read_spss("data/readers.sav")
 model_1 <- lm(education ~ age, data = readers)

@@ -51,7 +51,7 @@ library(visNetwork)
 library(bookdown)
 library(haven)
 # Basic colors and layout.
-source("../apps/plottheme/styling.R")
+source("apps/plottheme/styling.R")
 # Chunks with answers to Test Your Understanding questions are set to a boolean variable for each chapter, which can be set to TRUE for showing the answers.
 # Show TYU answers per chapter. Change between FALSE and TRUE.
 ch1 <- FALSE

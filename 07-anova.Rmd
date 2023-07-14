@@ -1179,7 +1179,7 @@ The main purpose of reporting a two-way analysis of variance is to show the read
 
 ```{r 2way-meansplot, echo=FALSE, message=FALSE, warning=FALSE, out.width="70%", fig.asp=0.6, fig.pos='H', fig.align='center', fig.cap="An example of a means plot."}
 # Basic colours and layout.
-source("../apps/plottheme/styling.R")
+source("apps/plottheme/styling.R")
 # Create effect sizes.
 donors <- haven::read_spss("data/donors.sav")
 donors$sex <- factor(donors$sex, labels = names(attributes(donors$sex)$labels))
@@ -1447,7 +1447,7 @@ Note that the proportions of explained variance (eta^2^) have been calculated ma
 
 ```{r anova-overview, fig.pos='H', fig.align='center', fig.cap="How do we recognize main effects and interaction effects in a means plot and in a table of means?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="780px"}
 # Use app anova-interaction. Manipulate group means in a a means plot of a 3x2 design. Create main and interaction effects and inspect effect size and statistical significance.
-source("../apps/plottheme/styling.R")
+source("apps/plottheme/styling.R")
 knitr::include_app("http://82.196.4.233:3838/apps/anova-interaction/", height="380px")
 ```
 
