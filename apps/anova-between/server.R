@@ -3,7 +3,8 @@ library(ggplot2)
 
 shinyServer(function(input, output) {
   
-  source("../plottheme/styling.R", local = TRUE)
+#  source("../plottheme/styling.R", local = TRUE)
+  source("styling.R", local = TRUE)
   
   n <- 4 #sample size per category
   categories <- 3 #categories

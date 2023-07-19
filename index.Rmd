@@ -16,7 +16,7 @@ output:
         collapse: section
       sharing: no
     includes:
-      in_header: hypothesis.html
+#      in_header: hypothesis.html
   bookdown::pdf_book:
     keep_tex: yes
     toc : TRUE
