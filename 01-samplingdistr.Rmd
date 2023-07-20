@@ -45,7 +45,9 @@ We are usually interested in a particular characteristic of the sample rather th
 
 ```{r random-variable, fig.pos='H', fig.align='center', fig.cap="How many yellow candies will our sample bag contain?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 #interactive content: a button to draw a sample from a population of points uniformly distributed over five colours, display the sample (as a set of coloured circles) and the number of yellow candies with each sample ; relevant expectations: (1) number of yellow candies per sample varies (variable), (2) this number depends on chance (random variable), (3) the number may range from 0 to 10 (sampling space), (4) the most likely number of yellow candies is two (expected value, expectation).
-knitr::include_app("http://82.196.4.233:3838/apps/random-variable/", height="360px")
+# knitr::include_app("http://82.196.4.233:3838/apps/random-variable/", height="360px")
+
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/random-variable/", height="360px")
 ```
 
 <A name="question1.2.1"></A>
