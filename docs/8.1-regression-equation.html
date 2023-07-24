@@ -604,7 +604,7 @@ Figure 8.3: A conceptual model with some hypothesized causes of attitude towards
 <h3><span class="header-section-number">8.1.1</span> A numerical predictor<a href="8.1-regression-equation.html#a-numerical-predictor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let us first have a close look at a <em>simple regression equation</em>, that is, a regression equation with just one predictor (<span class="math inline">\(x\)</span>). Let us try to predict attitude towards smoking from exposure to an anti-smoking campaign.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:regression-continuous"></span>
-<iframe src="http://82.196.4.233:3838/apps/regression-continuous/?showcase=0" width="775px" height="408px" data-external="1">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-continuous/?showcase=0" width="775px" height="408px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 8.4: Predicting attitude towards smoking from exposure to an anti-smoking campaign. The orange dot represents the predicted attitude for the selected value of exposure.
@@ -676,7 +676,7 @@ It is the slope of the regression line.
 <h3><span class="header-section-number">8.1.2</span> Dichotomous predictors<a href="8.1-regression-equation.html#dichpredictor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Instead of a numerical independent variable, we can use a dichotomy as an independent variable in a regression model. The dichotomy is preferably coded as 1 versus 0, for example, 1 for smokers and 0 for non-smokers among our respondents.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:regression-dichotomy"></span>
-<iframe src="http://82.196.4.233:3838/apps/regression-dichotomy/?showcase=0" width="775px" height="330px" data-external="1">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-dichotomy/?showcase=0" width="775px" height="330px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 8.5: What is the difference in attitude between non-smokers and smokers?
@@ -732,7 +732,7 @@ The unstandardized regression coefficient for a dummy (0/1) variable represents 
 <h3><span class="header-section-number">8.1.3</span> A categorical independent variable and dummy variables<a href="8.1-regression-equation.html#categorical-predictor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How about a categorical variable containing three or more groups, for example, the distinction between respondents who smoke (smokers), stopped smoking (former smokers), and respondents who never smoked (non-smokers)? Can we include a categorical variable as an independent variable in a regression model? Yes, we can but we need a trick.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:regression-categorical"></span>
-<iframe src="http://82.196.4.233:3838/apps/regression-categorical/?showcase=0" width="775px" height="325px" data-external="1">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-categorical/?showcase=0" width="775px" height="325px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 8.6: What are the predictive effects of smoking status?
@@ -895,7 +895,7 @@ The category without dummy variable is the <em>reference group</em>.
 <h4><span class="header-section-number">8.1.4.2</span> Identically distributed observations<a href="8.1-regression-equation.html#identically-distributed-observations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>To check the assumption of identically distributed observations, we inspect the residuals. Remember, the residuals are represented by the error term (<span class="math inline">\(e\)</span>) in the regression equation. They are the difference between the scores that we observe for our respondents and the scores that we predict for them with our regression model.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:resid-normal"></span>
-<iframe src="http://82.196.4.233:3838/apps/resid-normal/?showcase=0" width="775px" height="264px" data-external="1">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/resid-normal/?showcase=0" width="775px" height="264px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 8.7: What are the residuals and how are they distributed?
@@ -933,7 +933,7 @@ Figure 8.7: What are the residuals and how are they distributed?
 <p>The other two assumptions that we use tell us about problems in our model rather than problems in our statistical inferences. Our regression model assumes a linear effect of the independent variables on the dependent variable (<em>linearity</em>) and it assumes that we can predict the dependent variable equally well or equally badly for all levels of the dependent variable (<em>homoscedasticity</em>, next section).</p>
 <p>The regression models that we estimate assume a linear model. This means that an additional unit of the independent variable always increases or decreases the predicted value by the same amount. If our regression coefficient for the effect of exposure on attitude is -0.25, an exposure score of one predicts a 0.25 more negative attitude towards smoking than zero exposure. Exposure score five predicts the same difference in comparison to score four as exposure score ten in comparison to exposure score nine, and so on. Because of the linearity assumption, we can draw a regression model as a straight line. Residuals of the regression model help us to see whether the assumption of a linear effect is plausible.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pred-linearity"></span>
-<iframe src="http://82.196.4.233:3838/apps/pred-linearity/?showcase=0" width="775px" height="460px" data-external="1">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pred-linearity/?showcase=0" width="775px" height="460px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 8.8: How do residuals tell us whether the relation is linear?
@@ -961,7 +961,7 @@ Figure 8.8: How do residuals tell us whether the relation is linear?
 <h4><span class="header-section-number">8.1.4.4</span> Homoscedasticity and prediction errors<a href="8.1-regression-equation.html#homoscedasticity-and-prediction-errors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The plot of residuals by predicted values of the dependent variable tells us more than whether a linear model fits the data.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pred-homoscedasticity"></span>
-<iframe src="http://82.196.4.233:3838/apps/pred-homoscedasticity/?showcase=0" width="775px" height="460px" data-external="1">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pred-homoscedasticity/?showcase=0" width="775px" height="460px" data-external="1">
 </iframe>
 <p class="caption">
 Figure 8.9: How do residuals tell us that we predict all values equally well?

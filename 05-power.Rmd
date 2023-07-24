@@ -49,7 +49,7 @@ The variation of sample size across groups is important in analysis of variance 
 
 ```{r sample-size-unstand, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average candy weight under the null hypothesis that average candy weight is 2.8 grams in the population.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Average candy weight sampling distribution approximated by a t distribution with two-sided 5% significance tails. Weak, moderate, and strong effect sizes (under null hypothesis that average candy weight is 2.8 in the population) marked by vertical red lines.
-knitr::include_app("http://82.196.4.233:3838/apps/sample-size-unstand/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-unstand/", height="268px")
 ```
 
 <A name="question5.2.1"></A>
@@ -228,7 +228,7 @@ If we know the effect size in the sample for which we want statistically signifi
 
 ```{r sample-size, fig.pos='H', fig.align='center', fig.cap="What is the minimum sample size required for a significant two-sided test result if the sample mean has a particular effect size? The _p_ values belong to two-sided tests.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Average candy weight sampling distribution approximated by a t distribution with two-sided 5% significance tails. Weak, moderate, and strong effect sizes (under null hypothesis that average candy weight is 2.8 in the population) marked by vertical red lines with two-sided p values for a smaple with this average.
-knitr::include_app("http://82.196.4.233:3838/apps/sample-size/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size/", height="268px")
 ```
 
 <A name="question5.2.6"></A>
@@ -381,7 +381,7 @@ Figure \@ref(fig:TypeI-II-errors) illustrates this situation. Before reading on,
 ```{r TypeI-II-errors, echo=FALSE,fig.pos='H', fig.align='center', fig.cap="The relation between significance tests, effect size, Type II error, and power.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 #This Shiny app illustrates Type I and Type II Error. Interaction helps to understand how significance level and power are related.  
 #Source: Adapted from Tarik Gouhier, type1vs2-master, https://github.com/tgouhier/type1vs2
-knitr::include_app("http://82.196.4.233:3838/apps/type1vs2/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/type1vs2/", height="310px")
 ```
 
 <A name="question5.3.1"></A>
@@ -571,7 +571,7 @@ Finally, after all these sections, we can answer the question raised in the begi
 # 80%, 90%, 95%, 99%}.
 # simplify PS.shiny_master (doesn't work yet?) Use R code from
 # http://powerandsamplesize.com/Calculators/ in our own app?
-knitr::include_app("http://82.196.4.233:3838/apps/sample-size-power2/", height="385px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
 ```
 
 <A name="question5.4.1"></A>
@@ -768,7 +768,7 @@ We need not go into the details of how to calculate the sample size to obtain a 
 
 ```{r test-power, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Effect size, power, Type I and Type II error.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Use app type1vs2.
-knitr::include_app("http://82.196.4.233:3838/apps/type1vs2fixed/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/type1vs2fixed/", height="310px")
 ```
 
 Figure \@ref(fig:test-power) shows sampling distributions for two worlds. To the left is the hypothetical world of the researcher. In this hypothetical world, the researcher's null hypothesis is true, namely that average candy weight is 2.8 grams in the population. To the right is the real world in which average candy weight is 2.9 grams. The standard deviation of candy weights in the sample is 0.5.
@@ -814,7 +814,7 @@ Figure \@ref(fig:test-power) shows sampling distributions for two worlds. To the
 # 80%, 90%, 95%, 99%}.
 # simplify PS.shiny_master (doesn't work yet?) Use R code from
 # http://powerandsamplesize.com/Calculators/ in our own app?
-knitr::include_app("http://82.196.4.233:3838/apps/sample-size-power2/", height="385px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
 ```
 
 <A name="question5.6.6"></A>

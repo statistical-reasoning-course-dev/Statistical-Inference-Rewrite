@@ -79,7 +79,7 @@ We can test this statement about the population with a random sample of children
 ```{r nullsampling, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9.
 # Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
-knitr::include_app("http://82.196.4.233:3838/apps/nullsampling/", height="410px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", height="410px")
 ```
 
 <A name="question4.2.2"></A>
@@ -137,7 +137,7 @@ How do we know that the sample that we have drawn is among the five percent most
 ```{r twosided, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
 # Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
-knitr::include_app("http://82.196.4.233:3838/apps/twosided/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="268px")
 ```
 
 <A name="question4.2.8"></A>
@@ -428,7 +428,7 @@ By contrast, the null hypothesis stating that the population mean is 5.5 or high
 
 ```{r nonsig-1sided, fig.pos='H', fig.align='center', fig.cap="One-sided and two-sided tests of a null hypothesis.", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 # Display the sampling distribution of average media literacy as a normal curve with 5% two-sided significance areas dark blue and 5% one-sided significance areas light blue. Generate randomly one out of six possible values for the sample mean: (from left to right) in the 0-2.5% region, 2.5%-5%, 5%-50%, 50%-95%, 95%-97.5%, 97.5%-100%. Let the user select the answers (Yes/No) to three questions: Is this sample mean significant at a 5% significance level? "Left-sided test?", "Right-sided test?",  "Two-sided test?". Give feedback when the user presses the submit button. 
-knitr::include_app("http://82.196.4.233:3838/apps/nonsig-1sided/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/", height="310px")
 ```
 
 <A name="question4.4.1"></A>
@@ -455,7 +455,7 @@ If it is deemed important to note values well over 5.5 as well as values well be
 ```{r sign-left, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 5% of the area situated in the left tail, add 5% as text. Add a vertical line representing the sample mean, initially 3.9, and display the percentage of the area under the curve to the left of this line.
 # Let the user manipulate the sample mean (range 1-10) and the population mean according to the null hypothesis (range 1-10).
-knitr::include_app("http://82.196.4.233:3838/apps/sign-left/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sign-left/", height="268px")
 ```
 
 <A name="question4.4.4"></A>
@@ -486,7 +486,7 @@ In Figure \@ref(fig:onetwosided), the sample mean is 3.9 and we have .015 probab
 ```{r onetwosided, fig.pos='H', fig.align='center', fig.cap="Halve a two-sided _p_ value to obtain a one-sided _p_ value, double a one-sided _p_ value to obtain a two-sided _p_ value.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour the area in each tail according to the p value. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
 # Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
-knitr::include_app("http://82.196.4.233:3838/apps/onetwosided/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/onetwosided/", height="268px")
 ```
 
 <A name="question4.4.5"></A>
@@ -601,7 +601,7 @@ A theoretical probability distribution links sample outcomes such as a sample me
 ```{r crit-df, fig.pos='H', fig.align='center', fig.cap="Sample size and critical values in a one-sample _t_ test.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
 # Compare app crit-values in Ch. 3.
 # Draw a t distribution with mean 5.5, standard deviation 0.4, and degrees of freedom equal to selected sample size minus 1 ; x-axis with scale and labelled "Average media literacy" ; second x axis reflecting t values ; vertical lines with values for critical values (two-sided, 5% significance level) ; colour areas outside the critical values ; add a slider to adjust sample size (range [5, 50], initial setting 25) ; update the t distribution, the critical values (vertical lines), the areas outside the critical values, and the scale of the t axis if the slider position changes.
-knitr::include_app("http://82.196.4.233:3838/apps/crit-df/", height="405px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-df/", height="405px")
 ```
 
 Figure \@ref(fig:crit-df) uses the _t_ distribution to approximate the sampling distribution of average media literacy in a random sample of children.
@@ -704,7 +704,7 @@ Figure \@ref(fig:null-ci) shows media literacy scores in a random sample of chil
 
 ```{r null-ci, fig.pos='H', fig.align='center', fig.cap="How does null hypothesis significance relate to confidence intervals?", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Draw three horizontal lines, the top line labeled 'population', the middle one labeled 'sampling distribution', and the bottom line labeled 'sample'. All lines have a numerical scale (1-10). Add a normal curve to the sampling distribution axis with 2.5% of each tail area coloured and the mean indicated by a vertical line extending to the population axis and labeled there by 'Mean = <number>'. Generate a sample mean within the range [4.5, 6.5] and mark it with a number on the lower line and a vertical line from the sample to well above the sampling distribution line (so it cuts through the normal curve). Add a slider to adjust the hypothesized population mean (range [3, 7]). The slider adjusts the horizontal position of the normal curve and population mean.
-knitr::include_app("http://82.196.4.233:3838/apps/null-ci/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/null-ci/", height="268px")
 ```
 
 <A name="question4.6.1"></A>
@@ -1219,7 +1219,7 @@ It occurs more strongly if we first have a look at our sample data and then form
 
 ```{r hypo-testing, fig.pos='H', fig.align='center', fig.cap="Testing null hypotheses.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Use app null-ci.
-knitr::include_app("http://82.196.4.233:3838/apps/null-ci/", height="268px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/null-ci/", height="268px")
 ```
 
 Figure \@ref(fig:hypo-testing) displays a random sample of media literacy scores (red) and a sampling distribution if the null hypothesis is true.

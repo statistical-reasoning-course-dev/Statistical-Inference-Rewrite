@@ -74,7 +74,7 @@ Figure \@ref(fig:anova-means) shows the willingness to donate scores for twelve 
 ```{r anova-means, fig.pos='H', fig.align='center', fig.cap="How do group means relate to effect size?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="540px"}
 # Goal: Illustrate that differences between group means represent effects (effect size given by eta^2).
 # Generate 4 randomobservations with mean 6.4 (Clooney), 4 observations with mean 6.8 (Jolie), and 4 observations with mean 3.3 (no endorser). Use colour for the treatment factor (3 levels). Represent observations in a dotplot, each with a separate value on the x axis, clustered by factor level (experimental condition). Display group means as horizontal line segments (coloured by factor level). Add vertical double-sided arrows between each pair of group means to illustrate group differences. Display eta^2 for the data. Allow user to change the group means and update the plot, mean (difference) lines, and eta^2.
-knitr::include_app("http://82.196.4.233:3838/apps/anova-means/", height="490px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-means/", height="490px")
 ```
 
 <A name="question7.1.1"></A>
@@ -155,7 +155,7 @@ For a better understanding of eta^2^ and the statistical test of an analysis of 
 # Goal: Illustrate that between-groups variance represents differences between group means and the grand mean. And that it is a (smaller or larger) proportion of total variance.
 # App anova-means: Generate 4 random observations from a normally distributed population with mean 6.4, sd = 1 (Clooney), 4 observations from a population N(m = 6.8, sd = 1) (Jolie), and 4 observations from N(m = 3.3, sd = 1) (no endorser). Use colour for the treatment factor (3 levels). Represent observations in a dotplot, each with a separate value on the x axis, clustered by factor level (experimental condition). Display group means as horizontal line segments (coloured by factor level). Display eta^2 for the data. Allow user to change the group means and update the plot, mean (difference) lines, and eta^2.
 # Extension/replacement: Add horizontal line for grand mean, vertical red solid double-sided arrows between each observation and the grand mean (total variance), vertical black solid double-sided arrows for each observation between its group mean and the grand mean (between variance), and vertical black dotted double-sided arrows for each observation between the dot and its group mean (within variance). 
-knitr::include_app("http://82.196.4.233:3838/apps/anova-between/", height="490px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-between/", height="490px")
 ```
 
 <A name="question7.1.4"></A>
@@ -312,7 +312,7 @@ Analysis of variance tests the null hypothesis of equal population means but it 
 # Display the model F test and the results of three t-tests (without Bonferroni
 # correction) for pairwise comparisons (if feasible: as labels to the vertical
 # arrows between group means in the plot).
-knitr::include_app("http://82.196.4.233:3838/apps/anova-posthoc/", height="485px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-posthoc/", height="485px")
 ```
 
 <A name="question7.1.8"></A>
@@ -634,7 +634,7 @@ The participants in the experiment do not only differ because they see different
 # group variation indicated by double-sided arrows between group mean and grand
 # mean for each dot (between). Add subgroup (endorser by sex) means if both
 # factors are selected.
-knitr::include_app("http://82.196.4.233:3838/apps/anova-twoway/", height="408px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-twoway/", height="408px")
 ```
 
 <A name="question7.3.1"></A>
@@ -851,7 +851,7 @@ In a means plot, we use the groups of the predictor on the horizontal axis, for 
 # Create a means plot with 3x2 means, willingness on Y axis, endorser (nobody, Clooney, Jolie) on X axis, and different colours for sex. Initial means have main effects but no interaction effect.Connect the means per sex by line segments. Link the female & male mean for the same group by a vertical double-sided arrow. Allow user to change all six means (if possible, by dragging them vertically?). Display marginal (total) means for each sex and endorser.
 # Initial means.
 # d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(3, 5, 7, 4.5, 6.5, 8.5))
-knitr::include_app("http://82.196.4.233:3838/apps/anova-moderation/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-moderation/", height="305px")
 ```
 
 <A name="question7.4.1"></A>
@@ -1022,7 +1022,7 @@ For moderation, however, we compare average scores of subgroups, that is, groups
 # Exactly the same app as anova-moderation but now add Eta^2 and the _F_ value plus _p_ value of the main and interaction effects.
 # Initial means.
 # d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(3, 5, 7, 4.5, 6.5, 8.5))
-knitr::include_app("http://82.196.4.233:3838/apps/anova-interaction/", height="380px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/", height="380px")
 ```
 
 <A name="question7.4.5"></A>
@@ -1448,7 +1448,7 @@ Note that the proportions of explained variance (eta^2^) have been calculated ma
 ```{r anova-overview, fig.pos='H', fig.align='center', fig.cap="How do we recognize main effects and interaction effects in a means plot and in a table of means?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="780px"}
 # Use app anova-interaction. Manipulate group means in a a means plot of a 3x2 design. Create main and interaction effects and inspect effect size and statistical significance.
 source("apps/plottheme/styling.R")
-knitr::include_app("http://82.196.4.233:3838/apps/anova-interaction/", height="380px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/", height="380px")
 ```
 
 <A name="question7.7.1"></A>

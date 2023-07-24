@@ -36,7 +36,7 @@ Figure \@ref(fig:mediationtable) shows the results of a model in which political
 ```{r mediation-commoncause, fig.pos='H', fig.align='center', fig.cap="How does a common cause affect regression coefficients? The values in this path diagram represent standardized regression coefficients.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Goal: Sensitize students to the concept of a common cause creating a spurious effect and mediation as indirect effect.
 # Display causal diagram of age (predictor), political interest (mediator), and newspaper reading time (outcome) including a curved arrow representing the indirect effect of the predictor via the mediator on the outcome (if difficult to program, then just add label: "Indirect efect: 0.24"). If easy to program: relate width of arrows to the effect size (with some minimum width). Add values of partial effect sizes as labels to all direct effects and the indirect effect. Allow the user to change the correlations among the three variables (sliders with range [-.9, .9], initial values random choice in more limited range) and adjust the effect sizes to them.
-knitr::include_app("http://82.196.4.233:3838/apps/mediation-commoncause/", height="325px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncause/", height="325px")
 # # Initial correlations.
 # #correlation between Predictor and mediator.
 # r_PM <- round(runif(n = 1, min = -.7, max = .7), digits = 2)
@@ -1210,7 +1210,7 @@ rm(variables)
 
 ```{r mediation-selftest, fig.pos='H', fig.align='center', fig.cap="How does mediation work and how can we analyze mediation with regression models? The values to the arrows in the diagram are standardized regression coefficients.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Use app mediation-commoncause.
-knitr::include_app("http://82.196.4.233:3838/apps/mediation-commoncause/", height="325px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncause/", height="325px")
 ```
 
 <A name="question11.8.4"></A>

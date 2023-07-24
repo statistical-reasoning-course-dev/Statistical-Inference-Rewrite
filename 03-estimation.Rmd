@@ -50,7 +50,7 @@ Between which boundaries do we find the sample statistic values that are closest
 
 ```{r ci-borders, fig.pos='H', fig.align='center', fig.cap="Within which interval do we find the sample results that are closest to the population value?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 # Graph a normal distribution with mean 2.8 and standard deviation equal to a random number between 0.05 and 0.2 ; x-axis with scale and labelled "Average candy weight"; add two vertical lines, one to the extreme left, one to the extreme right with their values on the x-axis displayed and the percentage of observations (area) between the two lines displayed (initially near 50%) ; slider moves right line and left line (in opposite directions) and adjusts percentage of area between lines ; note that the lines cannot be moved across the centre of the distribution
-knitr::include_app("http://82.196.4.233:3838/apps/ci-borders/", height="290px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/ci-borders/", height="290px")
 ```
 
 Figure \@ref(fig:ci-borders) shows the sampling distribution of average sample candy weight.
@@ -101,7 +101,7 @@ The width of the estimated interval represents the _precision_ of our estimate. 
 
 ```{r interval-level, fig.pos='H', fig.align='center', fig.cap="How does the confidence level affect the precision of an interval estimate?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 # (as in ci-borders) Graph a normal distribution with mean 2.8 and standard deviation equal to a random number between 0.05 and 0.2 ; x-axis with scale and labelled "Average candy weight" ; vertical lines for boundaries  interval estimate ; show a double-pointed arrow on top of or above/under the x-axis representing the confidence interval for the initial confidence level (95%) and sample size (30); add a slider to adjust the confidence level (50%-100%?) ; update the vertical lines (boundaries ) and the arrow representing the precision of the confidence interval if the slider position changes.
-knitr::include_app("http://82.196.4.233:3838/apps/interval-level/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-level/", height="310px")
 ```
 
 <A name="question3.3.1"></A>
@@ -126,7 +126,7 @@ A less practical but very useful method of narrowing the interval estimate is in
 
 ```{r interval-size, fig.pos='H', fig.align='center', fig.cap="How does sample size affect the precision of an interval estimate?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 # same as interval-level but the slider adjusts sample size (N between 5 and 100, steps of 5) ; update the line/arrow representing the precision of the confidence interval if the slider position changes ; also update the normal curve and ensure that the scale of the x-axis remains the same, so it is clear that the sampling distribution becomes more peaked for larger samples. 
-knitr::include_app("http://82.196.4.233:3838/apps/interval-size/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-size/", height="310px")
 ```
 
 Figure \@ref(fig:interval-size) shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.
@@ -157,7 +157,7 @@ Now, we start looking at the standard deviation of the sampling distribution as 
 
 ```{r se-point-est, fig.pos='H', fig.align='center', fig.cap="How does sample size affect the standard error?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 # Show how the standard error depends on sample size.
-knitr::include_app("http://82.196.4.233:3838/apps/se-point-est/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/se-point-est/", height="310px")
 ```
 
 <A name="question3.3.5"></A>
@@ -257,7 +257,7 @@ In theoretical probability distributions like the normal distribution, the perce
 
 ```{r crit-values, fig.pos='H', fig.align='center', fig.cap="Standardized sample outcomes and the standard error.", echo=FALSE, out.width="440px", screenshot.opts = list(delay = 5), dev="png"}
 # same as interval-size but the slider adjusts the standard error (start value = 0.1, so one standard error aligns with 0.1 grams above or below average; slider range 0.05 and 0.15?) ; the vertical lines are fixed at 2.5% and 97.5% of the cumulative area under the normal curve ; first x-axis has fixed scale in grams (population mean is 2.8) ; add a second x-axis representing z scores with values -1.96, -1.0, 0, 1.0, 1.96 ; if the standard error is adjusted, the normal curve changes as well as the scale of the second x-axis and the two vertical lines at -1.96 and 1.96. 
-knitr::include_app("http://82.196.4.233:3838/apps/crit-values/", height="360px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-values/", height="360px")
 ```
 
 Figure \@ref(fig:crit-values) shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called _z_ scores (top).
@@ -370,7 +370,7 @@ How can we find plausible population means? Figure \@ref(fig:pop-means-ci) shows
 
 ```{r pop-means-ci, fig.pos='H', fig.align='center', fig.cap="For which population means is our sample mean plausible?", echo=FALSE, out.width="630px", screenshot.opts = list(delay = 5), dev="png"}
 # draw two horizontal lines, the top line labeled 'population' and the bottom line labeled 'sample', both lines with a numerical scale (0-5) ; generate a sample mean and standard error within a particular range, say 1-4 for the sample mean and the standard error in a range convenient to have interval estimates within the 0-5 or -1-6 range ; mark the sample mean on the lower line and show the value of the standard error somewhere in the app ; if the user clicks on the upper line, the corresponding number is shown as an (imaginary) population mean ; the 95% probability interval estimate for the sample mean is shown as a horizontal line segment on top/near the lower line (plus a light triangle starting at the population value) ; if the line segment overlaps with the sample mean, the selected population value is marked by a green dot and the line segment is green, they are red dots otherwise ; also show the z value of the sample mean for the chosen population mean ; at next click, remove old interval estimate (line segment plus triangle) but keep the prevously selected population mean ; a 'Reset' button generates new values to restart the interaction (repeat the assignment with different values for the sample mean and standard error to emphasize that the z values remain the same)
-knitr::include_app("http://82.196.4.233:3838/apps/pop-means-ci/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pop-means-ci/", height="310px")
 ```
 
 <A name="question3.5.1"></A>
@@ -738,7 +738,7 @@ We are not confident about the direction of the effect of candy weight on colour
 
 ```{r estimation, fig.pos='H', fig.align='center', fig.cap="Point and interval estimates, confidence intervals.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Combination of apps interval-level, interval-size, and crit-values: A normal curve (M = 2.8, SE = 0.1 (SD population = 0.5 and sample size = 25)) as sampling distribution with two vertical lines marking interval limits (initially set at 2.5%/95%/2.5%) ; percentages indicating the area under the curve within and outside the limits ; double arrow from mean to interval limits indicating the interval estimate ; double x-axis: the first in grams and the second in standard errors, both axes labelled ; 2 sliders: confidence level and sample size ; any slider change will change the position of the interval limits (to represent the selected confidence level) ; changing confidence level also changes the percentages ; changing sample size also changes the scale of the x-axis in standard errors ; the value of the standard error is shown to highlight its relation with sample size.
-knitr::include_app("http://82.196.4.233:3838/apps/estimation/", height="258px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/estimation/", height="258px")
 ```
 
 Figure \@ref(fig:estimation) shows the sampling distribution of average candy weight in a sample bag, which is a normal distribution. 

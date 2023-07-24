@@ -127,7 +127,7 @@ Let us first have a close look at a *simple regression equation*, that is, a reg
 # Add the line of a simple regression of attitude on exposure for the generated data.
 # Allow the user to change the value of exposure.
 # A change to the exposure value triggers the app to add/reposition the predicted value as a dot (on the regression line), and show the contribution of b*x to the predicted value as a 'triangle' anchored on (0, constant). In addition, the values between parentheses of x and y are updated.
-knitr::include_app("http://82.196.4.233:3838/apps/regression-continuous/", height="408px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-continuous/", height="408px")
 ```
 
 <A name="question8.1.1"></A>
@@ -218,7 +218,7 @@ Instead of a numerical independent variable, we can use a dichotomy as an indepe
 # Display the current regression equation beneath or in the plot. 
 # Allow the user to change the average score per group. Update the scatterplot,
 # regression line and equation, and the horizontal/vertical lines.
-knitr::include_app("http://82.196.4.233:3838/apps/regression-dichotomy/", height="330px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-dichotomy/", height="330px")
 ```
 
 <A name="question8.1.4"></A>
@@ -296,7 +296,7 @@ How about a categorical variable containing three or more groups, for example, t
 # Add input to select the reference group, initially set to group (1). Update
 # regression lines and their p values on selection of a new reference group.
 # Add button to generate a new plot (with a new scenario).
-knitr::include_app("http://82.196.4.233:3838/apps/regression-categorical/", height="325px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-categorical/", height="325px")
 ```
 
 <A name="question8.1.6"></A>
@@ -455,7 +455,7 @@ To check the assumption of identically distributed observations, we inspect the 
 # residuals also as a histogram with normal curve. Hovering over/clicking a line
 # segment (residual) in the scatterplot should highlight the corresponding bar
 # in the histogram. Add a button to draw a new sample.
-knitr::include_app("http://82.196.4.233:3838/apps/resid-normal/", height="264px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/resid-normal/", height="264px")
 ```
 
 <A name="question8.1.9"></A>
@@ -495,7 +495,7 @@ The regression models that we estimate assume a linear model. This means that an
 ```{r pred-linearity, fig.pos='H', fig.align='center', fig.cap="How do residuals tell us whether the relation is linear?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Goal: Understand the relation between linear model (scatterplot) and residuals plot by manipulating the shape of the association.
 # Generate a sample (N = 20?) with a weak negative effect (-0.6) of exposure on attitude, with a sizable error term to have residuals that are clearly visible. Generate either a sample with (1) linear, (2) curved, (3) U-shaped association. Display the sample as a scatterplot with the regression line and (red) line segments linking the dots vertically to the regression line. Display the residuals also in a residuals (Y) by predicted values (X) plot. Hovering over/clicking a dot in the scatterplot should highlight the corresponding dot in the residuals plot. Add a button to select a different association shape. Upon selection of a shape, generate & display new sample data.
-knitr::include_app("http://82.196.4.233:3838/apps/pred-linearity/", height="460px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pred-linearity/", height="460px")
 
 #ADD OPTION: LINEAR POSITIVE?
 ```
@@ -525,7 +525,7 @@ The plot of residuals by predicted values of the dependent variable tells us mor
 ```{r pred-homoscedasticity, fig.pos='H', fig.align='center', fig.cap="How do residuals tell us that we predict all values equally well?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Goal: Understand the relation between linear model (scatterplot) and residuals plot by manipulating homoscedasticity.
 # Generate a sample (N = 20) with a weak negative effect (-0.6) of exposure on attitude and exposure, with a sizable error term to have residuals that are clearly visible. Generate error terms with a dependency on the independent variable ranging from -1 to +1. Display the sample as a scatterplot with the regression line and (red) line segments linking the dots vertically to the regression line. Display the residuals also in a residuals (Y) by predicted values (X) plot. Hovering over/clicking a dot in the scatterplot should highlight the corresponding dot in the residuals plot. Add a slider (range [-@, 0], initial value 0) to set the levl of heteroscedasticity. Upon slider change, generate & display new sample data.
-knitr::include_app("http://82.196.4.233:3838/apps/pred-homoscedasticity/", height="460px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pred-homoscedasticity/", height="460px")
 ```
 
 <A name="question8.1.14"></A>
@@ -1171,7 +1171,7 @@ In the current section, we discuss regression models with a numerical predictor 
 # opposite signs) and the constant difference (positive, nearly zero,
 # negative).
 # Add a Generate New button to replace the regression lines by a new pair of lines.
-knitr::include_app("http://82.196.4.233:3838/apps/dichotomous-moderator/", height="350px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/dichotomous-moderator/", height="350px")
 ```
 
 <A name="question8.3.1"></A>
@@ -1211,7 +1211,7 @@ How do we obtain different regression coefficients and lines for smokers and non
 # conditional and interaction effect, e.g., "Slope: 0.5 * exposure + 0.3 * 1 *
 # exposure".
 
-knitr::include_app("http://82.196.4.233:3838/apps/interaction-var/", height="440px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interaction-var/", height="440px")
 
 # 1. In Figure \@ref(fig:interaction-var-effect), does the fat grey line represent the effect of exposure on attitude in a simple regression model, a multiple regression model, or both?
 # 
@@ -1436,7 +1436,7 @@ What if we have three or more groups on our moderator? For example, smoking stat
 # opposite signs) and the constant difference (positive, nearly zero,
 # negative).
 # Add a Generate New button to replace the regression lines by a new pair of lines.
-knitr::include_app("http://82.196.4.233:3838/apps/categorical-moderator/", height="350px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/categorical-moderator/", height="350px")
 ```
 
 <A name="question8.3.4"></A>
@@ -1532,7 +1532,7 @@ For example, we need quite some observations for smokers to estimate the conditi
 # histogram. Note that the scale of the histogram and the x axisof the
 # scatterplot must be fixed to [0, 10].
 # Add a Generate New button to generate a new dataset.
-knitr::include_app("http://82.196.4.233:3838/apps/common-support/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/common-support/", height="305px")
 ```
 
 <A name="question8.3.5"></A>
@@ -2354,7 +2354,7 @@ Figure \@ref(fig:regression-predict2) shows how much respondents were exposed to
 # Add the multiple regression line.
 # Display the multiple regression equation: (see above). 'smoker' is a selection box with two options: 0 = non-smoker, 1 = smoker. 'contact' is followed by a numerical input that accepts values between 0 and 10.
 # A change to the smoker selection or contact value triggers the app to redraw the regression line for attitude by exposure for these values of smoking status and (smoker)contact.
-knitr::include_app("http://82.196.4.233:3838/apps/regression-predict2/", height="375px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-predict2/", height="375px")
 ```
 
 <A name="question8.5.1"></A>

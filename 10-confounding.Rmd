@@ -40,7 +40,7 @@ For example, European citizens who are more interested in politics spend more ti
 # the regression model. For outcome Newspaper reading time, display the simple
 # regression effect of interest in politics and the partial effects if we
 # control for one or more other variables (age, education, news site use).
-knitr::include_app("http://82.196.4.233:3838/apps/mediation-multipleregression/", height="405px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-multipleregression/", height="405px")
 ```
 
 <A name="question9.1.1"></A>
@@ -104,7 +104,7 @@ Answer to Question 2.
 # Pol. Interest -> Reading Time with Age: 0.04
 # Pol. Interest -> Reading Time with Educ: 0.19
 # Pol. Interest -> Reading Time with News: 0.15
-knitr::include_app("http://82.196.4.233:3838/apps/mediation-indirectcorrelation/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-indirectcorrelation/", height="305px")
 ```
 
 <A name="question9.2.1"></A>
@@ -178,7 +178,7 @@ strongly. [<img src="icons/2question.png" width=161px align="right">](#question9
 # is selected. This helps to discover that a positive indirect correlation
 # (blue-blue or red-red) decreases the partial effect whereas a negative
 # indirect correlation (blue-red) increases it.
-knitr::include_app("http://82.196.4.233:3838/apps/mediation-confoundertypes/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/", height="305px")
 ```
 
 <A name="question9.3.1"></A>
@@ -558,7 +558,7 @@ political cynicism suppressed part of the effect of education. [<img src="icons/
 # is selected. This helps to discover that a positive indirect correlation
 # (blue-blue or red-red) decreases the partial effect whereas a negative
 # indirect correlation (blue-red) increases it.
-knitr::include_app("http://82.196.4.233:3838/apps/mediation-confoundertypes/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/", height="305px")
 ```
 
 <A name="question10.5.1"></A>

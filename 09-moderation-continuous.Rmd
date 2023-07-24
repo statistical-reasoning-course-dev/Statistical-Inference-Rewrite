@@ -66,7 +66,7 @@ With a categorical moderator, it is quite obvious for which values of the modera
 # # Create dependent variable.
 # set.seed(390)
 # attitude <- -0.26*exposure + 0.15*contact + 0.04*exposure*contact + rnorm(n, mean = 2, sd = 0.5)
-knitr::include_app("http://82.196.4.233:3838/apps/continuous-moderator/", height="350px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-moderator/", height="350px")
 ```
 
 <A name="question9.1.1"></A>
@@ -146,7 +146,7 @@ Because the effect of a predictor involved in an interaction is a conditional ef
 # Display a scatterplot with a line representing the conditional regression line for exposure at moderator (contact) value = 0. Shade dots in scatterplot in accordance with distance of their moderator score to the moderator reference value. 
 # Display the current reference value of the moderator: "Line for contact = 0"
 # Add a slider 'Contact - x' (equal length as x axis, range [0, 10], initial value 0), labeled with values 0, M - SD, M, M + SD, and 10 (use nice round numbers for SD and M, not exactly the true values). Adjusting the slider updates the regression line in the scatterplot and the reference value label.
-knitr::include_app("http://82.196.4.233:3838/apps/mean-centering-moderator/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-centering-moderator/", height="310px")
 ```
 
 <A name="question9.1.4"></A>
@@ -287,7 +287,7 @@ It can be quite tricky to interpret regression coefficients in a regression mode
 # several values for the moderator from a list containing: minimum, maximum,
 # first tercile, second tercile, M - 2SD, M - 1SD, M, M + 1SD, M
 # + 2SD. Display the selected lines in different colours.
-knitr::include_app("http://82.196.4.233:3838/apps/continuous-interaction-visualization/", height="308px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-interaction-visualization/", height="308px")
 ```
 
 <A name="question9.1.9"></A>
@@ -1461,7 +1461,7 @@ Figure \@ref(fig:moderator-overview) shows the relation between exposure to an a
 
 ```{r moderator-overview, fig.pos='H', fig.align='center', fig.cap="How does moderation work in a regression model?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Use app continuous-moderator.
-knitr::include_app("http://82.196.4.233:3838/apps/continuous-moderator1/", height="325px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-moderator1/", height="325px")
 ```
 
 <A name="question9.4.1"></A>
@@ -1495,7 +1495,7 @@ knitr::include_app("http://82.196.4.233:3838/apps/continuous-moderator1/", heigh
 ```
 
 ```{r mean-centering-moderator2, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="What does mean-centering do to regression results?", out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-knitr::include_app("http://82.196.4.233:3838/apps/mean-centering-moderator/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-centering-moderator/", height="310px")
 ```
 
 <A name="question9.4.6"></A>

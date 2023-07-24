@@ -36,7 +36,7 @@ If our sample is large or very large (a few thousand cases), small differences b
 ```{r tiny-effects, fig.pos='H', fig.align='center', fig.cap="Any effect can be statistically significant.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Illustrate that even tiny effects can yield statistically significant test results if the sample is sufficiently large.
 # Generate a normal distribution as hypothesized sampling distribution (M = 2.8, SE = SD / sqrt(N) = 0.6 / sqrt(10) = 0.2) with 2.5% of each tail area coloured. Add a vertical line with value for the sample average linked to a slider (range [2.82, 3.00] initial value 2.90). Add a sample size slider (range [10, 5,000], initial value 10), which is linked to the standard error of the normal curve. With slider for (assumed) true population mean and test power.
-knitr::include_app("http://82.196.4.233:3838/apps/tiny-effects/", height="340px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/tiny-effects/", height="340px")
 ```
 
 <A name="question6.1.1"></A>
@@ -394,7 +394,7 @@ Bottom: [Pierre-Simon Laplace. Painting by James Posselwhite, public domain. Wik
 
 ```{r power-problem, fig.pos='H', fig.align='center', fig.cap="How do statistical significance, effect size, sample size, and power relate?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Use app sig-effect-power.
-knitr::include_app("http://82.196.4.233:3838/apps/sig-effect-power/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sig-effect-power/", height="305px")
 ```
 
 Figure \@ref(fig:power-problem) displays the sampling distribution for candy weight under the null hypothesis that average candy weight is 2.8 in the population. The horizontal axis shows average candy weight and the standardized effect size (Cohen's _d_) in a sample: weak, moderate, or strong. Five samples are drawn from a population with the average candy weight specified by the top slider. The samples' average candy weights are represented by coloured line segments on the horizontal axis.
