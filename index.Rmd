@@ -434,7 +434,11 @@ readers <- readers %>%
   )
 # save SPSS data file
 haven::write_sav(readers, "data/readers.sav")
+
+# move all created example data files to the build folder docs/ so the files are excessable through the published URL
+file.copy("data/", "docs/", recursive=TRUE)
 ```
+
 
 # Introduction and Reader's Guide {-}
 

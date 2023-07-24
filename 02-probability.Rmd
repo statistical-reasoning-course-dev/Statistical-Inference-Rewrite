@@ -1,4 +1,5 @@
 # Probability Models: How Do I Get a Sampling Distribution? {#probmodels}
+
 > Key concepts: bootstrapping/bootstrap sample, sampling with replacement, exact approach, approximation with a theoretical probability distribution, binomial distribution, (standard) normal distribution, (Student) _t_ distribution, _F_ distribution, chi-squared distribution, condition checks for theoretical probability distributions, sample size, equal population variances, independent samples, dependent/paired samples.
 
 Watch this micro lecture on probability models for an overview of the chapter.
@@ -275,7 +276,7 @@ SPSS reports bootstrapping results as confidence intervals. We will discuss conf
 
 <A name="question2.2.1"></A>
 ```{block2, type='rmdquestion'}
-1. Download the data set [candies.sav](http://82.196.4.233:3838/data/candies.sav) and use SPSS to bootstrap the _t_ test on average weight of yellow and red candies (the example above). The test is available in the _Analyze>Compare Means_ menu. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.1)
+1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to bootstrap the _t_ test on average weight of yellow and red candies (the example above). The test is available in the _Analyze>Compare Means_ menu. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.1)
 ```
 
 <A name="question2.2.2"></A>
@@ -452,7 +453,7 @@ knitr::include_url("https://www.youtube.com/embed/PlT28wfc6K4", height = "360px"
 
 <A name="question2.4.1"></A>
 ```{block2, type='rmdquestion'}
-1. Download the data set [candies.sav](http://82.196.4.233:3838/data/candies.sav) and use SPSS to apply a Fisher-exact test to the association between candy colour and candy stickiness. [<img src="icons/2answer.png" width=115px align="right">](#answer2.4.1)
+1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to apply a Fisher-exact test to the association between candy colour and candy stickiness. [<img src="icons/2answer.png" width=115px align="right">](#answer2.4.1)
 ```
 
 <A name="question2.4.2"></A>
