@@ -1,4 +1,5 @@
 #Create a flow chart for selecting tests in SPSS.
+library("ggplot2")
 
 #Left-hand x positions of columns.
 x <- c(0.1, 0.275, 0.45, 0.6)
