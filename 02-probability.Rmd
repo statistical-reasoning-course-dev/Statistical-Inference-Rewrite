@@ -26,7 +26,7 @@ The first way to obtain a sampling distribution is still based on the idea of dr
 ```{r bootstrapping, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we create a sampling distribution with bootstrapping?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Variant of app random-variable (Ch. 1).
 # Generate and display a not too small (N = 50?) representative sample from a uniformly distributed population of five colours (don't show the population). Add a button to draw one bootstrap sample with replacement at a time, showing the distribution of colours in the sample (dotplot with coloured dots) and adding the proportion of yellow candies to the histogram of the sampling distribution (y-axis percentage of cases?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background. Allow the user to draw one thousand bootstrap samples and add the results to the histogram. Finally, allow the user to draw a new random initial sample.
-knitr::include_app("http://82.196.4.233:3838/apps/bootstrapping/", height="462px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
 ```
 
 In Figure \@ref(fig:bootstrapping), an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
@@ -69,7 +69,7 @@ How can we draw many different bootstrap samples from the original sample if eac
 # Add a button to create three (bootstrap) samples with replacement and a button
 # to create three (bootstrap) samples without replacement.
 # Show the three samples: coloured dots with their ID numbers.
-knitr::include_app("http://82.196.4.233:3838/apps/bootstrapping-replacement/", height="448px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/", height="448px")
 ```
 
 <A name="question2.1.5"></A>
@@ -92,7 +92,7 @@ Does the bootstrapped sampling distribution always reflect the true sampling dis
 ```{r bootstrap-lim, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
 # variant of app sampling-distribution.
 # Draw a sample of the user-specified size (slider) from a uniformly distributed population (five candy colours) ; show the sample (as dot plot) and collect the proportion of yellow candies for 1,000 bootstrap samples into a histogram (bin width = 0.1?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background.
-knitr::include_app("http://82.196.4.233:3838/apps/bootstrap-lim/", height="560px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/", height="560px")
 ```
 
 <A name="question2.1.6"></A>
@@ -520,7 +520,7 @@ Because bootstrapping and exact approaches to the sampling distribution require 
 ```{r normal-approximation, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Normal curve as theoretical approximation of a sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
 # Variant of app: p-values.
 # Let a button generate a normal sampling distribution (with mean 2.8 and a random SD between 0.2 and 0.8) representing average candy weight in a sample bag ; represent it as a histogram (with fixed x-axis, so distributions with different SD have different widths, and number of bins such that the outer (2) bin(s) contain(s) 2.5% of the area under the normal curve) ; colour the bars for the upper and lower 2.5% of cases in the histogram (to draw attention to the tails as important areas) ; project the normal function on top of it ; add two vertical lines to the graph demarcating the outer 2.5% of the area under the normal curve (display the probabilities to left and to right)
-knitr::include_app("http://82.196.4.233:3838/apps/normal-approximation/", height="300px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation/", height="300px")
 ```
 
 <A name="question2.5.1"></A>
@@ -567,7 +567,7 @@ Figure \@ref(fig:normal-approx-proportion) shows an example in which the normal 
 # curve.
 #perhaps adapt/simplify CLT_prop from Shiny-Ed on GitHub,
 #https://github.com/ShinyEd/ShinyEd/tree/master/CLT_prop
-knitr::include_app("http://82.196.4.233:3838/apps/normal-approx-proportion/", height="305px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/", height="305px")
 ```
 
 <A name="question2.5.4"></A>
@@ -615,7 +615,7 @@ If we compare two groups, for instance, the average weight of yellow and red can
 
 ```{r mean-independent, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we obtain a sampling distribution for the mean difference of two independent samples?", out.width="550px", screenshot.opts = list(delay = 5), dev="png"}
 # Demonstrate the construction of a sampling distribution of mean differences for independent samples; generate more or less normal dotplots for two populations (normal distributions): weight of red candies and yellow candies; a button allows to draw a random sample from each population, showing a dotplot for each sample (first draw the reds, then the yellows) with the mean added as vertical line with value ; then calculate the difference of the two means and store this difference in a sampling distribution, which is also shown as a histogram. Add a button to draw 1,000 samples and show the resulting sampling distribution.
-knitr::include_app("http://82.196.4.233:3838/apps/mean-independent/", height="580px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-independent/", height="580px")
 ```
 
 <A name="question2.5.6"></A>
@@ -666,7 +666,7 @@ The example of a manipulated second toss is applicable to repeated measurements.
  # Add button to draw 1,00 samples, with results displayed in the sampling
  # distribution (histogram in 3rd ro wof the app). Only store the totals of the
  # bars in the histogram, get rid of the original samples to save on memory?
-knitr::include_app("http://82.196.4.233:3838/apps/mean-dependent/", height="580px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-dependent/", height="580px")
 ```
 
 <A name="question2.5.10"></A>
@@ -841,7 +841,7 @@ If the conditions for using a theoretical probability distribution are not met o
 ## Test Your Understanding
 
 ```{r models-summary1, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we bootstrap a sampling distribution?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-knitr::include_app("http://82.196.4.233:3838/apps/bootstrapping/", height="462px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
 ```
 
 <A name="question2.8.1"></A>
@@ -878,7 +878,7 @@ knitr::kable(d, caption = "Number of heads for a toss of three coins.", col.name
 ```
 
 ```{r models-summary2, echo=FALSE, out.width="420px", fig.pos='H', fig.align='center', fig.cap="How do we approximate a sampling distribution with a theoretical probability distribution?", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-knitr::include_app("http://82.196.4.233:3838/apps/normal-approximation/", height="300px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation/", height="300px")
 ```
 
 <A name="question2.8.6"></A>
