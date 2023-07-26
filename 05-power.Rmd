@@ -71,12 +71,12 @@ A larger sample offers more precision, so the difference between our sample outc
 ::: {style="column-count: 2; -moz-column-count: 2"}
 The larger our sample, the more sensitive our test will be, so we will get statistically significant results more often. If we think of our statistical test as a security metal detector, a more sensitive detector will go off more often.
 
-Of course, the size of the difference between our sample outcome and the hypothesized population value matters as well. This difference is called *effect size*. If average candy weight in our sample bag deviates more from the average weight specified in the null hypothesis, we are more likely to reject the null hypothesis. In terms of a security metal detector: Our test will pick up large pieces of metal more easily than small pieces.
+Of course, the size of the difference between our *sample outcome* and the *hypothesized population value* matters as well. This difference is called *observed effect size*. If average candy weight in our sample bag deviates more from the average weight specified in the null hypothesis, we are more likely to reject the null hypothesis. In terms of a security metal detector: Our test will pick up large pieces of metal more easily than small pieces.
 
 ![Security metal detector. [Jason Lander from Portland, United States, Wikimedia CommonsCC BY 2.0](https://upload.wikimedia.org/wikipedia/commons/c/c0/Security_%282363676375%29.jpg)](figures/metaldetector.jpg)
 :::
 
-The _p_ value and rejection of the null hypothesis based on the _p_ value, then, depend both on sample size and effect size.
+The _p_ value and rejection of the null hypothesis based on the _p_ value, then, depend both on sample size and observed effect size.
 
 ```{block2, type='rmdimportant'}
 * A larger sample size makes a statistical test more sensitive. The test will pick up (be statistically significant for) smaller effect sizes.
@@ -100,7 +100,7 @@ Statistical significance is just a tool that we use to signal practically releva
 
 ### Unstandardized effect size
 
-The difference between our sample outcome and the hypothesized value is the *unstandardized effect size*. If we test a mean, the unstandardized effect size is just the difference between our sample mean and the hypothesized population mean. For example, if we hypothesize that average candy weight in the population is 2.8 grams and we find an average candy weight in our sample bag of 2.75 grams, the unstandardized effect size is -0.05 grams. If a difference of 0.05 grams is a great deal to us, the effect is practically relevant.
+The difference between our sample outcome and the hypothesized value is the *unstandardized observed effect size*. If we test a mean, the unstandardized observed effect size is just the difference between our sample mean and the hypothesized population mean. For example, if we hypothesize that average candy weight in the population is 2.8 grams and we find an average candy weight in our sample bag of 2.75 grams, the unstandardized effect size is -0.05 grams. If a difference of 0.05 grams is a great deal to us, the effect is practically relevant.
 
 Unstandardized effect sizes depend on the scale on which we measure the sample outcome. The unstandardized effect size of average candy weight changes if we measure candy weight in grams, micro grams, kilograms, or ounces. Of course, changing the scale does not affect the meaning of the effect size but the number that we are looking at is very different: 0.05 grams, 50 milligrams, 0.00005 kilos, or 0.00176 ounces. For this reason, we do not have rules of thumb for interpreting unstandardized effect sizes in terms of small, medium, or large effects.
 
@@ -110,7 +110,7 @@ In scientific research, we rarely have precise norms for raw differences (unstan
 
 To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.
 
-For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized effect size for tests on one or two means is known as *Cohen's* d.
+For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as *Cohen's* d.
 
 ------------------------------------------------------------------------
 
@@ -241,7 +241,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size/", heigh
 7. What is the meaning of the _p_ values and why do they decrease if we increase sample size? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.7)
 ```
 
-Effect size as well as test statistics reflect the difference between what we expect according to the null hypothesis and what we observe in our sample. As a consequence, effect size indicators and test statistics are related. In some cases, such as Cohen's *d*, the relation between effect size and test statistic is very simple.
+Observed effect size as well as test statistics reflect the difference between what we expect according to the null hypothesis and what we observe in our sample. As a consequence, effect size indicators and test statistics are related. In some cases, such as Cohen's *d*, the relation between effect size and test statistic is very simple.
 
 The test statistic *t* for a *t* test on one mean, for example, is equal to Cohen's *d* times the square root of sample size. Here, the only difference between the two is sample size! Sample size influences the test statistic---the larger the sample, the larger the test statistic--- but it does not influence effect size. This is an important difference.
 
@@ -446,11 +446,11 @@ Now let us ask ourselves: What is going to happen to our statistical test if the
 
 If we actually sample from this imaginary true population, the sampling distribution centered around the alternative hypothesis (H~1~) in Figure \@ref(fig:TypeI-II-errors) represents our true sampling distribution. It shows us the true probabilities (areas under the curve) of drawing a sample with a particular minimum or maximum value. These are the probabilities of our sample if there is a small effect in the population.
 
-Now that we know the true sampling distribution if there is a small effect in the population, we can foresee what is going to happen when we enter the world of the researcher. The researcher is going to use the rejection region to decide on the null hypothesis. If the sample mean is in the rejection region, the researcher is going to reject the null hypothesis. Otherwise, the null hypothesis is not rejected.
+Now that we know the true sampling distribution if there is a small true effect in the population, we can foresee what is going to happen when we enter the world of the researcher. The researcher is going to use the rejection region to decide on the null hypothesis. If the sample mean is in the rejection region, the researcher is going to reject the null hypothesis. Otherwise, the null hypothesis is not rejected.
 
 ### Type II error {#typeIIerror}
 
-If there is a (small) effect in the population, the null hypothesis is not true. For example, average candy weight is not 2.8 grams, it is 2.9 grams in the population. If our sample mean is close to 2.8 grams, we may not reject the null hypothesis even if it is not true. This is a *Type II error*: not rejecting a false null hypothesis.
+If there is a (small) true effect in the population, the null hypothesis is not true. For example, average candy weight is not 2.8 grams, it is 2.9 grams in the population. If our sample mean is close to 2.8 grams, we may not reject the null hypothesis even if it is not true. This is a *Type II error*: not rejecting a false null hypothesis.
 
 The probability that we make a Type II error if there is a small effect is expressed by the yellow section in Figure \@ref(fig:TypeI-II-errors), Steps 3 and 4. It is usually denoted by the Greek letter beta ($\beta$). The yellow section represents the probability of drawing a sample from the population with a small effect size that is *not* in the rejection region, so the null hypothesis is *not* rejected.
 
@@ -467,6 +467,14 @@ knitr::kable(rbind(c("Null is rejected", "Type I error, Significance level (alph
 The probability of *not* making a Type II error is called the *power of the test*. It is equal to one minus the probability of making a Type II error, that is, 1 - $\beta$. The power of the test is represented by the green section in Figure \@ref(fig:TypeI-II-errors), Step 4. It represents the probability of getting a sample that makes the researcher reject the null hypothesis. So a false null hypothesis is rejected and we do not make an error.
 
 In the example of Figure \@ref(fig:TypeI-II-errors) Step 4, the power of the test is 84 per cent (0.84). If average candy weight is 2.9 grams in the population, we have 84 per cent probability of rejecting the null hypothesis that it is 2.8 grams if we draw a sample (of the current size) from this population. This is usually considered an acceptable level of power (see Section \@ref(sizeeffectpower)).
+
+Note that the power of a test is defined in relation to the *true* value in the population in, in this case an avarage candy weight of 2.9 grams, with a true effect size of (2.8 - 2.9) 0.1 gram. In research we often have no idea about the actual value in the population. We therefore often report the post hoc power and the observed effect size.
+
+### Post hoc power
+
+The post hoc power refers to probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed semple mean or more accurately the observed test statistic. Though an often used approach, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the acutal power of a test should not vary.
+
+<!-- create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 
 ### Answers {.unnumbered}
 
@@ -920,11 +928,13 @@ Answer to Question 8.
 
 ## Take-Home Points
 
--   Effect size is the difference between the hypothesized value and the true (population) or observed (sample) value.
+-   True effect size is the difference between the hypothesized value and the true (population) value.
+
+-   Observed effect size is the difference between the hypothesized value and the observed (sample) value.
 
 -   Effect size is related to practical relevance. Effect sizes are expressed by (standardized) mean differences, regression coefficients, and measures of association such as the correlation coefficient, *R*^2^, and eta^2^.
 
--   Statistical significance of a test depends on effect size and sample size. Because sample size affects statistical significance, it is wrong to use significance or a *p* value as an indication of effect size.
+-   Statistical significance of a test depends on the observed effect size and sample size. Because sample size affects statistical significance, it is wrong to use significance or a *p* value as an indication of effect size.
 
 -   If we do not reject a null hypothesis, this does *not* mean that the null hypothesis is true. We may make a Type II error: not rejecting a false null hypothesis. A researcher can make this error only if the null hypothesis is not rejected.
 
