@@ -379,7 +379,7 @@ Figure \@ref(fig:TypeI-II-errors) illustrates this situation. Before reading on,
 ```{r TypeI-II-errors, echo=FALSE,fig.pos='H', fig.align='center', fig.cap="The relation between significance tests, effect size, Type II error, and power.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 #This Shiny app illustrates Type I and Type II Error. Interaction helps to understand how significance level and power are related.  
 #Source: Adapted from Tarik Gouhier, type1vs2-master, https://github.com/tgouhier/type1vs2
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/type1vs2/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/type1vs2fixed/", height="310px")
 ```
 
 <A name="question5.3.1"></A>
