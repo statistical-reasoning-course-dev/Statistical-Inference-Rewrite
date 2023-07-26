@@ -146,12 +146,10 @@ Where:
 
 The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section \@ref(dependentsamples)). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (*pooled*) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the *t* value and degrees of freedom to calculate Cohen's *d*.
 
-Using an inventory of published results of tests on one or two means, Cohen [-\@RefWorks:3933] proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):
+Using an inventory of published results of tests on one or two means, @RefWorks:3933 proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):
 
 -   0.2: weak (small) effect,
-
 -   0.5: moderate (medium) effect,
-
 -   0.8: strong (large) effect.
 
 Note that Cohen's *d* can take values above one. These are not errors, they reflect very strong or huge effects [@sawilowskyNewEffectSize2009].

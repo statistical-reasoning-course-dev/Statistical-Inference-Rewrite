@@ -29,27 +29,27 @@ Estimation is one of two types of statistical inference, the other being null hy
 
 Hypothesis testing, however, is more in line with this conceptualization of scientific progress. It requires the researcher to formulate an expectation about the population, usually called a _hypothesis_. If the hypothesis is based on theory and previous research, the scientist uses previous knowledge. As a next step, the researcher tests the hypothesis against data collected for this purpose. If the data contradict the hypothesis, the hypothesis is rejected and the researcher has to improve the theory. If the data does not contradict the hypothesis, it is not rejected and, for the time being, the researcher does not have to change the theory.  
 
-Hypothesis testing, then, amounts to choosing one of two options: reject or not reject the hypothesis. This is a binary decision between believing that the population is as it is described in the hypothesis, or believing that it is not. This is quite a different approach than estimating a confidence interval as a range of plausible population values. Nevertheless, hypothesis testing and confidence intervals are tightly related as we will see later on in this chapter (Section \@ref(null-ci0)).
+Hypothesis testing, then, amounts to choosing one of two options: reject or not reject the hypothesis. This is a binary decision between concluding that the population is as it is described in the hypothesis, or concluding that it is not. This is quite a different approach than estimating a confidence interval as a range of plausible population values. Nevertheless, hypothesis testing and confidence intervals are tightly related as we will see later on in this chapter (Section \@ref(null-ci0)).
 
 ## Statistical Tests
 
-A statistical test determines whether a statement about a population is plausible given a sample that is drawn from this population. In essence, a statistical test answers the question: Is the sample that we have drawn sufficiently probable if the statement about the population would be true?
+A statistical test determines whether a statement about a population is plausible given a sample that is drawn from this population. In essence, a statistical test answers the question: Is the sample that we have drawn sufficiently probable if the assumption about the population would be true?
 
 We need several ingredients to apply a statistical test:
 
-1. A statement about a population.
+1. An assumption about a population.
 
-2. A criterion to decide if the statement is sufficiently plausible.
+2. A criterion to decide if the assumption is sufficiently plausible.
 
-3. A sample from the population supplying information about the statement.
+3. A sample from the population supplying information about the assumption
 
-4. A probability for the sample showing how plausible the statement is.
+4. A probability for the sample showing how plausible the assumption is.
 
-This section discusses these four ingredients of a statistical test. The statement about a population is the null hypothesis of the test (Section \@ref(nullhypothesis)). We select a significance level, usually five per cent, as criterion to decide whether the null hypothesis is sufficiently plausible or not. If it is not sufficiently plausible, we reject the null hypothesis. The values for which we reject the null hypothesis constitute the *rejection region* of the test (Section \@ref(sig-typeI)). We need a sample to test whether the population statement is sufficiently plausible. Finally, we let the computer calculate a probability (_p_ value) of drawing a sample that differs at least as much from the null hypothesis as the sample that we have drawn. If this probability is smaller than the selected significance level, the sample is in the rejection region, so we must reject the null hypothesis (Section \@ref(pvalue)). This concludes the statistical test.
+This section discusses these four ingredients of a statistical test. The assumption about a population is the null hypothesis of the test (Section \@ref(nullhypothesis)). We select a significance level, usually five per cent, as criterion to decide whether the null hypothesis is sufficiently plausible or not. If it is not sufficiently plausible, we reject the null hypothesis. The values for which we reject the null hypothesis constitute the *rejection region* of the test (Section \@ref(sig-typeI)). We need a sample to test whether the assumption about the population is sufficiently plausible. Finally, we let the computer calculate a probability (_p_ value) of drawing a sample that differs at least as much from the null hypothesis as the sample that we have drawn. If this probability is smaller than the selected significance level, the sample is in the rejection region, so we must reject the null hypothesis (Section \@ref(pvalue)). This concludes the statistical test.
 
 ### The null hypothesis {#nullhypothesis}
 
-The statement that a researcher wants to test is called a _research hypothesis_. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:  
+The assumption that a researcher wants to test is called a _research hypothesis_. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:  
 
 * a television station reaches half of all households in a country,
 
@@ -364,6 +364,10 @@ Statistical hypotheses, however, come in pairs: a null hypothesis (_H_~0~) and a
 _The alternative hypothesis covers all situations not covered by the null hypothesis_. The null hypothesis stating that average media literacy in a population of children is 5.5, is paired with the alternative hypothesis stating that the average is not 5.5. In this way, we cover all possible outcomes.
 
 If we reject the null hypothesis, we say that our data lend support to the alternative hypothesis. We doubt that the null hypothesis is true. Of course, we know that we can be mistaken. There is five per cent chance that we reject a null hypothesis that is actually true (Type I error, Section \@ref(sig-typeI)). Rejecting the null hypothesis does not mean that this hypothesis is false or that the alternative hypothesis is true. Please, never forget this.
+
+```{block2, type='rmdimportant'}
+Rejecting the null hypothesis __does not mean that this hypothesis is false or that the alternative hypothesis is true__. Please, never forget this.
+```
 
 <A name="question4.3.1"></A>
 ```{block2, type='rmdquestion'}
@@ -868,7 +872,7 @@ Imagine that we know from previous research that females tend to score one point
 
 In SPSS, the analyst has to specify the null hypothesis in tests on one variable, namely tests on one proportion, one mean, or one categorical variable. The following instructions explain how to do this.
 
-### Instructions
+### Specify null for binomial test
 
 A proportion is the statistic best suited to test research hypotheses addressing the share of a category in the population. The hypothesis that a television station reaches half of all households in a country provides an example. All households in the country constitute the population. The share of the television station is the proportion or percentage of all households watching this television station.  
 
