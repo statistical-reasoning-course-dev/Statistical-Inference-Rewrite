@@ -1,6 +1,149 @@
-# Appendix: Test Overview {-}
+# Appendix {-}
 
-This appendix offers an overview over all statistical tests in the Bachelor programme Communication Science at the University of Amsterdam.
+## Flow chart statistical test selection {-}
+
+The flow chart in figure \@ref(fig:choice-diagram-copy) helps you select the appropriate statistical test based on the type of dependent and independent variables. 
+
+It helps in the learning proces to think of different research designs for each test. Try to think of one for the independent samples _t_-test. Work your way from right to left to determine the type of variables and think of some research that conforms to this.
+
+```{r choice-diagram-copy, fig.width=9, echo=FALSE, fig.cap="Flow chart for statistical test selection."}
+source("flowchart.R")
+p
+rm(p)
+```
+
+An interactive tool for test selection made by [Matt Jackson-Wood](https://scholar.google.co.uk/citations?user=MUanZDgAAAAJ&hl=en) can be found [here](https://www.statsflowchart.co.uk).
+
+## All SPSS Tutorial Videos List {-}
+
+__Chapter \@ref(probmodels): Probability Models: How Do I Get a Sampling Distribution?__
+
+(ref:bootstrap1SPSS) Bootstrapping in SPSS.
+
+(ref:bootstrap2SPSS) Interpreting bootstrap results in SPSS.
+
+(ref:Exact1SPSS) Performing an exact test in SPSS.
+
+(ref:Exact2SPSS) Interpreting exact test results in SPSS.
+
+* Video \@ref(fig:SPSSbootstrap1): (ref:bootstrap1SPSS)
+* Video \@ref(fig:SPSSbootstrap2): (ref:bootstrap2SPSS)
+* Video \@ref(fig:SPSSExact1): (ref:Exact1SPSS)
+* Video \@ref(fig:SPSSExact2): (ref:Exact2SPSS)
+
+__Chapter \@ref(param-estim): Estimating a Parameter: Which Population Values Are Plausible?__
+
+(ref:conflevelSPSS) Setting the confidence level in SPSS.
+
+* Video \@ref(fig:SPSSconflevel): (ref:conflevelSPSS)
+
+__Chapter \@ref(hypothesis): Testing a Null Hypothesis: Am I Right or Am I Wrong?__
+
+(ref:binomialSPSS) A binomial test on a single proportion in SPSS.
+
+(ref:chisq1SPSS) A chi-squared test on a frequency distribution in SPSS.
+
+(ref:1meanSPSS) A one-sample _t_ test in SPSS.
+
+* Video \@ref(fig:SPSSbinomial): (ref:binomialSPSS)
+* Video \@ref(fig:SPSSchisq1): (ref:chisq1SPSS)
+* Video \@ref(fig:SPSS1mean): (ref:1meanSPSS)
+
+__Chapter \@ref(power): Which Sample Size Do I Need? Power!__
+
+(ref:cohendtitle) Obtaining Cohen's _d_ with SPSS.
+
+* Video \@ref(fig:cohend): (ref:cohendtitle)
+
+__Chapter \@ref(anova): Moderation with Analysis of Variance__
+
+(ref:1waySPSS) One-way analysis of variance (ANOVA) in SPSS.
+
+(ref:2waySPSS) Two-way analysis of variance with moderation in SPSS.
+
+(ref:eta2SPSS) Calculating eta^2^ from SPSS output.
+
+* Video \@ref(fig:SPSS1way): (ref:1waySPSS)
+* Video \@ref(fig:SPSS2way): (ref:2waySPSS)
+* Video \@ref(fig:SPSSeta2): (ref:eta2SPSS)
+
+__Chapter \@ref(moderationcat): Regression Analysis And A Categorical Moderator__
+
+(ref:regsimpleSPSS) Executing and interpreting regression analysis in SPSS.
+
+(ref:regdummy2SPSS) Creating dummy variables in SPSS.
+
+(ref:regdummySPSS) Using dummy variables in a regression model in SPSS.
+
+(ref:regassumptSPSS) Checking assumptions for regression models in SPSS.
+
+(ref:regpredSPSS) Creating categorical by numerical interaction predictors for regression in SPSS.
+
+(ref:regcatmodSPSS) Estimating categorical by numerical moderation with regression in SPSS.
+
+(ref:regmodlinesSPSS) Representing moderation by regression lines in a scatterplot in SPSS.
+
+(ref:regSupport1SPSS) Checking common support for a predictor at different moderator values in SPSS.
+
+* Video \@ref(fig:SPSSregsimple): (ref:regsimpleSPSS)
+* Video \@ref(fig:SPSSregdummy2): (ref:regdummy2SPSS)
+* Video \@ref(fig:SPSSregdummy): (ref:regdummySPSS)
+* Video \@ref(fig:SPSSregassumpt): (ref:regassumptSPSS)
+* Video \@ref(fig:SPSSregpred): (ref:regpredSPSS)
+* Video \@ref(fig:SPSSregcatmod): (ref:regcatmodSPSS)
+* Video \@ref(fig:SPSSregmodlines): (ref:regmodlinesSPSS)
+* Video \@ref(fig:SPSSregSupport1): (ref:regSupport1SPSS)
+
+__Chapter \@ref(moderationcont): Regression Analysis With A Numerical Moderator__
+
+(ref:regcenterSPSS) Mean-centering variables for regression analysis in SPSS.
+
+(ref:reglines2SPSS) Regression lines for a numerical moderator in a scatterplot in SPSS.
+
+(ref:regSupport2SPSS) Checking common support with a numerical moderator in SPSS.
+
+* Video \@ref(fig:SPSSregcenter): (ref:regcenterSPSS)
+* Video \@ref(fig:SPSSreglines2): (ref:reglines2SPSS)
+* Video \@ref(fig:SPSSregSupport2): (ref:regSupport2SPSS)
+
+__Chapter \@ref(confounder): Regression Analysis And Confounders__
+
+(ref:regconfoundSPSS) Identifying confounders with regression in SPSS.
+
+* Video \@ref(fig:SPSSregconfound): (ref:regconfoundSPSS)
+
+__Chapter \@ref(mediation): Mediation with Regression Analysis__
+
+(ref:mediatparSPSS) Estimating a single or parallel mediation model with PROCESS (Model 4).
+
+(ref:mediatserialSPSS) Estimating a serial mediation model with PROCESS (Model 6).
+
+(ref:mediatcovSPSS) Estimating a mediation model including covariates with PROCESS.
+
+(ref:pathSPSS) Estimating a path model in SPSS.
+
+* Video \@ref(fig:SPSSmediatpar): (ref:mediatparSPSS)
+* Video \@ref(fig:SPSSmediatserial): (ref:mediatserialSPSS)
+* Video \@ref(fig:SPSSmediatcov): (ref:mediatcovSPSS)
+* Video \@ref(fig:SPSSpath): (ref:pathSPSS)
+
+__Appendix: Variance / Association__
+
+(ref:SPSSLevene) Levene's _F_ test on equal variances in SPSS.
+
+(ref:SPSSTindep) Independent samples _t_ test on two means.
+
+(ref:SPSSTpaired) Paired samples _t_ test on two means.
+
+(ref:SPSScorrelation) Test on a correlation.
+
+(ref:SPSSchisqcross) Chi-squared test on a contingency table (crosstab).
+
+* Video \@ref(fig:SPSSLevene): (ref:SPSSLevene)
+* Video \@ref(fig:SPSSTindep): (ref:SPSSTindep)
+* Video \@ref(fig:SPSSTpaired): (ref:SPSSTpaired)
+* Video \@ref(fig:SPSScorrelation): (ref:SPSScorrelation)
+* Video \@ref(fig:SPSSchisqcross): (ref:SPSSchisqcross)
 
 ## Formulating Statistical Hypotheses {-}
 
@@ -22,19 +165,13 @@ As these examples illustrate, research hypotheses seldom refer to statistics suc
 
 Translating the research hypothesis into a statistical hypothesis is perhaps the most creative part of statistical analysis, which is just a fancy way of saying that it is difficult to give general guidelines stating which statistic fits which research hypothesis. All we can do is give some hints.  
 
-Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see Figure \@ref(fig:choice-diagram-copy2)).
+Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see Figure \@ref(fig:choice-diagram-copy)).
 
 If a research question asks how high a group scores or whether one group scores higher than another group, we are dealing with score levels. The variable of central interest usually is numerical (interval or ratio measurement level) and we are concerned with mean or median scores. There is a range of tests that we can apply, depending on the number of groups that we want to compare (one, two, three or more): _t_ tests or analysis of variance. 
 
 Instead of comparing mean scores of groups, a research question about score levels can address associations between numerical variables, for example, Are heavier candies more sticky? Here, the score level on one variable (candy weight) is linked to the score level on another variable (candy stickiness). This is where we use correlations or regression analysis.
 
 Finally, a research question may address the variation of numeric scores, for example, Does the weight of yellow candies vary more strongly than the weight of red candies? Variance is the statistic that we use to measure variation in numeric scores.
-
-```{r choice-diagram-copy2, fig.width=9, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Flow chart for selecting a test in SPSS."}
-source("flowchart.R")
-p
-rm(p)
-```
 
 ## Proportions: shares {-}
 

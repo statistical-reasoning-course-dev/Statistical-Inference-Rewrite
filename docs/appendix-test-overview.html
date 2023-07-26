@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Regression Analysis With A Numerical Moderator | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation</title>
-  <meta name="description" content="Chapter 9 Regression Analysis With A Numerical Moderator | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation" />
+  <title>Appendix: Test Overview | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation</title>
+  <meta name="description" content="Appendix: Test Overview | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation" />
   <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Regression Analysis With A Numerical Moderator | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation" />
+  <meta property="og:title" content="Appendix: Test Overview | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Regression Analysis With A Numerical Moderator | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation" />
+  <meta name="twitter:title" content="Appendix: Test Overview | A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation" />
   
   
   
@@ -28,8 +28,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8.6-take-home-points-7.html"/>
-<link rel="next" href="9.1-cont-moderator-regression.html"/>
+<link rel="prev" href="11.9-take-home-points-10.html"/>
+<link rel="next" href="flow-chart-statistical-test-selection.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -530,10 +530,10 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="11.9" data-path="11.9-take-home-points-10.html"><a href="11.9-take-home-points-10.html"><i class="fa fa-check"></i><b>11.9</b> Take-Home Points</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<li class="chapter" data-level="" data-path="appendix-test-overview.html"><a href="appendix-test-overview.html"><i class="fa fa-check"></i>Appendix: Test Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="flow-chart-statistical-test-selection.html"><a href="flow-chart-statistical-test-selection.html"><i class="fa fa-check"></i>Flow chart statistical test selection</a></li>
-<li class="chapter" data-level="" data-path="all-spss-tutorial-videos-list.html"><a href="all-spss-tutorial-videos-list.html"><i class="fa fa-check"></i>All SPSS Tutorial Videos List</a></li>
+<li class="chapter" data-level="" data-path="spss-tutorial-videos-list.html"><a href="spss-tutorial-videos-list.html"><i class="fa fa-check"></i>SPSS Tutorial Videos List</a></li>
 <li class="chapter" data-level="" data-path="formulating-statistical-hypotheses.html"><a href="formulating-statistical-hypotheses.html"><i class="fa fa-check"></i>Formulating Statistical Hypotheses</a></li>
 <li class="chapter" data-level="" data-path="proportions-shares.html"><a href="proportions-shares.html"><i class="fa fa-check"></i>Proportions: shares</a>
 <ul>
@@ -576,56 +576,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="moderationcont" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Regression Analysis With A Numerical Moderator<a href="9-moderationcont.html#moderationcont" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<blockquote>
-<p>Key concepts: interaction variable, common support, simple slope, conditional effect, mean-centering.</p>
-</blockquote>
-<p>Watch this micro lecture on regression models with a numerical moderator for an overview of the chapter.</p>
-<iframe src="https://www.youtube.com/embed/sEwvuItAq6w" width="640px" height="360px" data-external="1">
-</iframe>
-<div id="summary-8" class="section level3 unnumbered hasAnchor">
-<h3>Summary<a href="9-moderationcont.html#summary-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-
-<div class="rmdimportant">
-My moderator is numerical. How can I construct different regression lines for different moderator values?
-</div>
-<p>Chapter <a href="8-moderationcat.html#moderationcat">8</a> shows us how we can include dichotomous and categorical variables as predictors and moderators in a regression model. Using dummy variables, we can analyze mean differences between groups and we can construct different regression lines for different groups (moderation). A graph showing the different regression models for different moderator groups communicates the results of a moderation model in an attractive way.</p>
-<p>What if our moderator is not dichotomous or categorical but numerical? For example, the effect of exposure to an anti-smoking campaign on attitude towards smoking can be different for people of different age or for people who spend more time with smokers.</p>
-<p>We can include a numerical moderator in a regression model just like a dichotomous moderator. Add the predictor, the moderator, and an interaction variable, which is the product of the moderator and the predictor. If both the predictor and moderator are numerical, the interaction variable is numerical. It gives us numbers, not groups.</p>
-<p>The interpretation of an interaction effect is different if the moderator is numerical instead of dichotomous or categorical. In general, the regression coefficient of a numerical variable expresses the effect of a one unit change. For a numerical predictor, this is the predicted change in the dependent variable. For a numerical moderator, however, it is the predicted change in the effect of the predictor. The unstandardized regression coefficient for a numerical moderator, then, tells us the predicted change in the effect of the predictor for a one unit increase in the moderator.</p>
-<p>This interpretation is quite abstract and not easy to understand. It is better to visualize the regression lines for different values of the moderator. We usually draw regression lines for three interesting moderator values. The mean value of the moderator shows us the effect at a medium level of the moderator. One standard deviation below or above the mean of the moderator represent attractive low and high moderator values.</p>
-<p>Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect for one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.</p>
-<div id="essential-analytics-2" class="section level4 unnumbered hasAnchor">
-<h4>Essential Analytics<a href="9-moderationcont.html#essential-analytics-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>As in Chapter <a href="8-moderationcat.html#moderationcat">8</a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
-<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure <a href="9-moderationcont.html#fig:meancentertable">9.1</a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:meancentertable"></span>
-<img src="figures/S9_AE1.png" alt="SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right)." width="100%" />
-<p class="caption">
-Figure 9.1: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
-</p>
-</div>
-<p>It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
-<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (Figure <a href="9-moderationcont.html#fig:meancentertable">9.1</a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
-<p>The regression coefficient of the interaction effect (Figure <a href="9-moderationcont.html#fig:meancentertable">9.1</a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
-<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (Figure <a href="9-moderationcont.html#fig:nummoderatorplot">9.2</a>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nummoderatorplot"></span>
-<img src="figures/S9_AE2.png" alt="Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers." width="100%" />
-<p class="caption">
-Figure 9.2: Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers.
-</p>
-</div>
-</div>
-</div>
+<div id="appendix-test-overview" class="section level1 unnumbered hasAnchor">
+<h1>Appendix: Test Overview<a href="appendix-test-overview.html#appendix-test-overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This appendix offers an overview over all statistical tests in the Bachelor programme Communication Science at the University of Amsterdam.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="8.6-take-home-points-7.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="9.1-cont-moderator-regression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="11.9-take-home-points-10.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="flow-chart-statistical-test-selection.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
