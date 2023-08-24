@@ -597,9 +597,33 @@ Figure 7.12: How can we recognize main effects and moderation in a means plot?
 </p>
 </div>
 <p><A name="question7.4.1"></A></p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>Does the plot in Figure <a href="7.4-moderationanova.html#fig:anova-moderation">7.12</a> display a main effect of the factor sex? Motivate your answer with numbers from the table and/or the lines in the plot. If sex has a main effect in this sample, describe the effect: What is the difference between women and men here? <a href="#answer7.4.1"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.4.2"></A></p>
+
+<div class="rmdquestion">
+<ol start="2" style="list-style-type: decimal">
+<li>Is there a main effect of endorser? Again, motivate your answer and describe the effect if there is one. <a href="#answer7.4.2"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.4.3"></A></p>
+
+<div class="rmdquestion">
+<ol start="3" style="list-style-type: decimal">
+<li>Is the effect of participant’s sex the same for all three types of endorser in Figure <a href="7.4-moderationanova.html#fig:anova-moderation">7.12</a>? How can you tell? <a href="#answer7.4.3"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.4.4"></A></p>
+
+<div class="rmdquestion">
+<ol start="4" style="list-style-type: decimal">
+<li>Adjust the means in such a way that the effect of sex is different for different endorsers. In other words, adjust the means such that sex moderates the effect of endorser on willingness to donate. <a href="#answer7.4.4"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>Moderation happens a lot in communication science for the simple reason that the effects of messages are stronger for people who are more susceptible to the message. If you know more people who have adopted a new product or a healthy/risky lifestyle, you are more likely to be persuaded by media campaigns to also adopt that product or lifestyle. If you are more impressionable in general, media messages are more effective.</p>
 <div id="effect-strength-moderation" class="section level4 hasAnchor" number="7.4.1.1">
 <h4><span class="header-section-number">7.4.1.1</span> Effect strength moderation<a href="7.4-moderationanova.html#effect-strength-moderation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -649,12 +673,34 @@ Figure 7.16: How can we recognize main effects and moderation in a means plot?
 </p>
 </div>
 <p><A name="question7.4.5"></A></p>
+
+<div class="rmdquestion">
+<ol start="5" style="list-style-type: decimal">
+<li>Adjust the means in Figure <a href="7.4-moderationanova.html#fig:anova-interaction">7.16</a> in such a way that the main effect of endorser and the interaction effect of endorser and sex are statistically significant. <a href="#answer7.4.5"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.4.6"></A></p>
+
+<div class="rmdquestion">
+<ol start="6" style="list-style-type: decimal">
+<li>Adjust the means in such a way that the main effect of endorser is <em>not</em> statistically significant but the interaction effect of endorser and sex is statistically significant. <a href="#answer7.4.6"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.4.7"></A></p>
+
+<div class="rmdquestion">
+<ol start="7" style="list-style-type: decimal">
+<li>Is it possible to have a statistically significant interaction effect but no statistically significant main effects? If so, adjust the scores in Figure <a href="7.4-moderationanova.html#fig:anova-interaction">7.16</a> to prove your case. <a href="#answer7.4.7"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in Figure <a href="7.4-moderationanova.html#fig:anova-interaction">7.16</a> is not relevant to moderation.</p>
 <p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in Figure <a href="7.4-moderationanova.html#fig:anova-interaction">7.16</a> because the willingness scores of the individual participants are not shown.</p>
 <p>We can use the between-groups and within-groups variances to execute an <em>F</em> test just like the <em>F</em> test we use for main effects. The <em>null hypothesis</em> of the <em>F</em> test on an interaction effect states that the subgroups have the same population averages if we correct for the main effects. Our statistical software takes care of this correction if we include the main effects in the model, which we should always do.</p>
 <p>Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of endorser is the same for both sexes in the population. Or, the other way around, that the effect of sex is the same for different endorser groups in the population.</p>
+
+<div class="rmdimportant">
+Null hypothesis of the test on the interaction effect: equal effects of the predictor for all moderator groups in the population.
+</div>
 <p>Moderation between three or more factors is possible. These are called <em>higher-order interactions</em>. It is wise to include all main effects and lower-order interactions if we test a higher-order interaction. As a result, our model becomes very complicated and hard to interpret. If a (first-order) interaction between two predictors must be interpreted as different differences, an interaction between three factors must be interpreted as different differences in differences. That’s difficult to imagine, so let us avoid them.</p>
 </div>
 <div id="assumptions-for-two-way-analysis-of-variance" class="section level3 hasAnchor" number="7.4.3">

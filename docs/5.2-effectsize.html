@@ -583,7 +583,19 @@ Figure 5.1: Sampling distribution of average candy weight under the null hypothe
 </p>
 </div>
 <p><A name="question5.2.1"></A></p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>If we draw a sample of twenty candies, which average candy weight in our sample rejects the null hypothesis according to Figure <a href="5.2-effectsize.html#fig:sample-size-unstand">5.1</a>: 2.40, 2.70, or 3.05 grams? <a href="#answer5.2.1"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question5.2.2"></A></p>
+
+<div class="rmdquestion">
+<ol start="2" style="list-style-type: decimal">
+<li>Imagine that legal regulations allow average candy weight in a sample bag to differ 0.10 grams but not 0.25 grams from the weight reported on the sample bag. Our statistical test should pick up (be significant) differences of at least 0.25 grams, but not differences of 0.10 grams or less. What is the minimum and maximum size of our sample? Use the slider to find the answer. <a href="#answer5.2.2"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>We have learned that larger samples have smaller standard errors (Section <a href="3.3-precisionsesamplesize.html#sample-size">3.3.1</a>). Smaller standard errors yield larger test statistic values and larger test statistics have smaller <em>p</em> values. In other words, a test on a larger sample is more often statistically significant.</p>
 <p>A larger sample offers more precision, so the difference between our sample outcome and the hypothesized value is more often sufficient to reject the null hypothesis. For example, we would reject the null hypothesis that average candy weight is 2.8 grams in the population if average weight in our sample bag is 2.70 grams and our sample is large. But we may not reject this null hypothesis if we have the same outcome in a small sample bag.</p>
 <div style="column-count: 2; -moz-column-count: 2">
@@ -595,6 +607,13 @@ Figure 5.1: Sampling distribution of average candy weight under the null hypothe
 </div>
 </div>
 <p>The <em>p</em> value and rejection of the null hypothesis based on the <em>p</em> value, then, depend both on sample size and observed effect size.</p>
+
+<div class="rmdimportant">
+<ul>
+<li><p>A larger sample size makes a statistical test more sensitive. The test will pick up (be statistically significant for) smaller effect sizes.</p></li>
+<li><p>A larger effect size is more easily picked up by a statistical test. Larger effect sizes yield statistically significant results more easily, so they require smaller samples.</p>
+</div></li>
+</ul>
 <p>Deciding on our sample size, we should ask ourselves this question: What effect size should produce a significant test result? In the security metal detector example, at what minimum quantity of metal should the alert sound? To answer this question, we should consider the practical aims and context of our research.</p>
 <div id="practical-relevance" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Practical relevance<a href="5.2-effectsize.html#practical-relevance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -658,8 +677,26 @@ Figure 5.2: Obtaining Cohen’s <em>d</em> with SPSS.
 <div id="exercises-4" class="section level4 hasAnchor" number="5.2.4.2">
 <h4><span class="header-section-number">5.2.4.2</span> Exercises<a href="5.2-effectsize.html#exercises-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><A name="question5.2.3"></A></p>
+
+<div class="rmdquestion">
+<ol start="3" style="list-style-type: decimal">
+<li>Open data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav">voters.sav</a> that contains information about the attitude towards immigration among a random sample of voters. What are the unstandardized and standardized effect sizes if the hypothesized average attitude towards immigrants in the population is 6.0? <a href="#answer5.2.3"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question5.2.4"></A></p>
+
+<div class="rmdquestion">
+<ol start="4" style="list-style-type: decimal">
+<li>What are the effect sizes if the null hypothesis states that the average attitude towards immigrants in the population is at least 6.0? And what if it states that average attitude is at most 6.0? <a href="#answer5.2.4"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question5.2.5"></A></p>
+
+<div class="rmdquestion">
+<ol start="5" style="list-style-type: decimal">
+<li>What are the unstandardized and standardized effect sizes of a test in which we compare the attitude towards immigrants of young voters to the attitude of old voters? Again, use data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav">voters.sav</a>. <a href="#answer5.2.5"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 </div>
 </div>
 <div id="assoc-size" class="section level3 hasAnchor" number="5.2.5">
@@ -680,7 +717,19 @@ Figure 5.3: What is the minimum sample size required for a significant two-sided
 </p>
 </div>
 <p><A name="question5.2.6"></A></p>
+
+<div class="rmdquestion">
+<ol start="6" style="list-style-type: decimal">
+<li>Use the slider in Figure <a href="5.2-effectsize.html#fig:sample-size">5.3</a> to find the minimum sample size that we need for a statistically significant test result for each of the three effect sizes represented by red lines. <a href="#answer5.2.6"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question5.2.7"></A></p>
+
+<div class="rmdquestion">
+<ol start="7" style="list-style-type: decimal">
+<li>What is the meaning of the <em>p</em> values and why do they decrease if we increase sample size? <a href="#answer5.2.7"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>Observed effect size as well as test statistics reflect the difference between what we expect according to the null hypothesis and what we observe in our sample. As a consequence, effect size indicators and test statistics are related. In some cases, such as Cohen’s <em>d</em>, the relation between effect size and test statistic is very simple.</p>
 <p>The test statistic <em>t</em> for a <em>t</em> test on one mean, for example, is equal to Cohen’s <em>d</em> times the square root of sample size. Here, the only difference between the two is sample size! Sample size influences the test statistic—the larger the sample, the larger the test statistic— but it does not influence effect size. This is an important difference.</p>
 </div>

@@ -595,10 +595,26 @@ Figure 4.7: Probabilities of a sample with a particular number of yellow candies
 Figure 4.8: How does null hypothesis significance relate to confidence intervals?
 </p>
 </div>
-<p><A name="question4.6.1"></A></p>
-<p><A name="question4.6.2"></A></p>
+<A name="question4.6.1"></A>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>What are the lowest and highest hypothesized population means for which the null hypothesis is <em>not</em> rejected? Use the slider to find the answer. <a href="#answer4.6.1"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
+<A name="question4.6.2"></A>
+
+<div class="rmdquestion">
+<ol start="2" style="list-style-type: decimal">
+<li>The interval between the lowest and highest hypothesized population means of Question 1 is the 95% confidence interval (see Section <a href="3.5-ci-parameter.html#ci-parameter">3.5</a>). Is a null hypothesis statistically significant if the hypothesized population value is within the 95% confidence interval or outside of this interval? <a href="#answer4.6.2"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>Do you remember how we constructed a confidence interval in Chapter <a href="3-param-estim.html#param-estim">3</a>, Section <a href="3.5-ci-parameter.html#imag-pop-values">3.5.1</a>? We looked for all population values for which the sample outcome is sufficiently plausible. Sufficiently plausible means that our observed sample outcome is among the sample outcomes that are closest to the population value. By convention, we use a confidence level of 95 per cent, which means that our observed sample is among the 95 per cent of all samples that have outcomes closest to the population value.</p>
 <p>But wait a minute. If the sample outcome is among the 95 per cent of samples in the middle of the sampling distribution, it is NOT among the extreme five percent of all samples. This is simply another way of saying that the observed sample outcome is not statistically significant at the five per cent significance level. A 95% confidence interval contains all null hypothesis values for which our sample outcome is not statistically significant at the 5% significance level. Confidence levels and significance levels are related.</p>
+
+<div class="rmdimportant">
+A 95% confidence interval contains all null hypotheses that would <em>not</em> be rejected with the current sample at the 5% significance level, two-sided.
+</div>
 <p>If we know the 95% confidence interval, we can immediately see if our null hypothesis must be rejected or not. If the population value in our null hypothesis lies within the 95% confidence interval, the null hypothesis is NOT rejected. The sample that we have drawn is sufficiently plausible if our null hypothesis is true. In contrast, we must reject the null hypothesis if the hypothesized population value is NOT in the 95% confidence interval.</p>
 <p>Let us assume, for example, that average media literacy in our sample is 3.0 and that the 95% confidence interval for average media literacy ranges from 1.0 to 5.0. A null hypothesis specifying 2.5 as population average must not be rejected at the five percent significance level because 2.5 is in between 1.0 and 5.0, that is, inside the 95% confidence interval. If our null hypothesis says that average media literacy in the population is 5.5, we must reject this null hypothesis because it is outside the 95% confidence interval. The null hypothesis that average media literacy in the population is 0.0 must be rejected for the same reason.</p>
 <p>Note that the hypothesized value can be too high or too low for the confidence interval, so a hypothesis test using a confidence interval is two-sided.</p>
@@ -607,7 +623,7 @@ Figure 4.8: How does null hypothesis significance relate to confidence intervals
 <h3><span class="header-section-number">4.6.2</span> Testing a null hypothesis with bootstrapping<a href="4.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#testing-a-null-hypothesis-with-bootstrapping" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.</p>
 <p>Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section <a href="3.5-ci-parameter.html#bootstrap-confidenceinterval">3.5.3</a>). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it.</p>
-<p>For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution <span class="citation">(<a href="references.html#ref-RefWorks:3929" role="doc-biblioref">Neyman, 1937</a>: 376-378)</span>, but this is not always the case if we calculate the confidence interval with the critical values of a <em>t</em> distribution <span class="citation">(see, for example, <a href="references.html#ref-smithsonCorrectConfidenceIntervals2001" role="doc-biblioref">Smithson, 2001</a>)</span> or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.</p>
+<p>For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution <span class="citation">(<a href="references.html#ref-RefWorks:3929" role="doc-biblioref">Jerzy Neyman, 1937</a>: 376-378)</span>, but this is not always the case if we calculate the confidence interval with the critical values of a <em>t</em> distribution <span class="citation">(see, for example, <a href="references.html#ref-smithsonCorrectConfidenceIntervals2001" role="doc-biblioref">Smithson, 2001</a>)</span> or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.</p>
 </div>
 <div id="answers-16" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="4.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#answers-16" class="anchor-section" aria-label="Anchor link to header"></a></h3>

@@ -560,7 +560,7 @@ Why do we use the residuals and predicted values instead of a scatterplot for ea
 
 <A name="answer8.1.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 1. 
 
 * The predicted attitude is 1.6.
@@ -573,7 +573,7 @@ Answer to Question 1.
 
 <A name="answer8.1.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 2. 
 
 * The vertical orange line shows the difference between the predicted attitude if exposure is one and the predicted attitude if exposure is zero.
@@ -588,7 +588,7 @@ Answer to Question 2.
 
 <A name="answer8.1.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 3. 
 
 * Just replace exposure by 10 in the equation and calculate the result: 
@@ -600,7 +600,7 @@ Answer to Question 3.
 
 <A name="answer8.1.4"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 4. 
 
 * Here, the constant is equal to the average attitude of non-smokers.
@@ -622,7 +622,7 @@ model contains only one independent variable (simple regression model). [<img sr
 
 <A name="answer8.1.5"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 5. 
 
 * In this example, the unstandardized regression coefficient (_b_) is equal to
@@ -644,7 +644,7 @@ average (= predicted value) for non-smokers.
 
 <A name="answer8.1.6"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 6. 
 
 * The precise answer to this question obviously depends on the group means in your plot.
@@ -659,7 +659,7 @@ Answer to Question 6.
 
 <A name="answer8.1.7"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 7. 
 
 * In the initial state of this figure, non-smokers are the reference group. The _p_ values, then, are associated with differences between on the one hand non-smokers and on the other hand people who stopped smoking or are still smoking. The comparison between the latter two is not included.
@@ -670,7 +670,7 @@ that you want to compare as reference group. If former smokers or smokers are th
 
 <A name="answer8.1.8"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 8. 
 
 There is not one right way of choosing a reference group; think about
@@ -696,7 +696,7 @@ similar means is a good reference group. [<img src="icons/2question.png" width=1
 
 <A name="answer8.1.9"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 9. 
 
 * A red line depicts the residual or prediction error: The difference between
@@ -707,7 +707,7 @@ independent variable score (exposure) of the respondent. [<img src="icons/2quest
 
 <A name="answer8.1.10"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 10. 
 
 * The residuals represented by the red lines in the scatterplot are counted in
@@ -721,7 +721,7 @@ histogram. [<img src="icons/2question.png" width=161px align="right">](#question
 
 <A name="answer8.1.11"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 11. 
 
 * No, sometimes the distribution is clearly skewed (asymmetrical). The top of the histogram is to the right or to the left of the center of the normal distribution and the right tail is shorter and fatter than the left tail or the other way around. [<img src="icons/2question.png" width=161px align="right">](#question8.1.11)
@@ -729,7 +729,7 @@ Answer to Question 11.
 
 <A name="answer8.1.12"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 12. 
 
 * The blue regression line in the top graph represents the predicted values on
@@ -750,7 +750,7 @@ left-most observation in the residuals plot. [<img src="icons/2question.png" wid
 
 <A name="answer8.1.13"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 13. 
 
 ![](figures/S8_1Q13.png)
@@ -762,7 +762,7 @@ Answer to Question 13.
 
 <A name="answer8.1.14"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 14. 
 
 ![](figures/S8_1Q14.png)
@@ -776,7 +776,7 @@ Answer to Question 14.
 
 <A name="answer8.1.15"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 15. 
 
 * The pattern reverses. Now, residuals are larger for low values of exposure
@@ -789,7 +789,7 @@ well. [<img src="icons/2question.png" width=161px align="right">](#question8.1.1
 
 <A name="answer8.1.16"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 16. 
 
 ![](figures/S8_1Q16.png)
@@ -878,7 +878,7 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 
 <A name="answer8.2.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -924,7 +924,7 @@ well, *R*^2^ = .32, *F* (1, 310) = 143.05, *p* < .001.
 
 <A name="answer8.2.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 2. 
 
 SPSS syntax:  
@@ -1008,7 +1008,7 @@ approximation of the sampling distributions may not have been met. [<img src="ic
 
 <A name="answer8.2.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 3. 
 
 * The analysis method that you choose depends on your substantive decision on the direction of the association.
@@ -1084,7 +1084,7 @@ regression model if you use supervision or media literacy as dependent variable.
 
 <A name="answer8.2.4"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 4. 
 
 SPSS syntax:  
@@ -1799,7 +1799,7 @@ The calculated slope and constant constitute the simple regression equation of t
 
 <A name="answer8.3.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 1. 
 
 * Remember: The slope of the regression line represents the effect (the
@@ -1811,7 +1811,7 @@ regression coefficient) of the predictor. Parallel lines mean equal slopes.
 
 <A name="answer8.3.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 2. 
 
 * When you move the slider, the regression line for smokers rotates. In mathematical terms, the slope of the regression line changes.
@@ -1824,7 +1824,7 @@ Answer to Question 2.
 
 <A name="answer8.3.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 3. 
 
 * _Smoker_ is a dummy variable with smokers coded '1' and non-smokers coded '0' as shown in the legend of the figure. If we replace the _smoker_ variable in the equation by zero, we get the predicted attitudes for non-smokers.
@@ -1852,7 +1852,7 @@ Note:
 
 <A name="answer8.3.4"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 4. 
 
 * If the regression lines for all three smoking status groups are parallel, the (predictive) effect of exposure on attitude is the same for all groups. There is no moderation.
@@ -1866,7 +1866,7 @@ parallel to the other two lines. [<img src="icons/2question.png" width=161px ali
 
 <A name="answer8.3.5"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 5. 
 
 * The histogram shows the counts of cases with particular exposure values.
@@ -1876,7 +1876,7 @@ Answer to Question 5.
 
 <A name="answer8.3.6"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 6. 
 
 * The answer depends on the sample that was drawn.
@@ -1885,7 +1885,7 @@ Answer to Question 6.
 
 <A name="answer8.3.7"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Question 7. 
 
 * We may erroneously believe that the moderation effect applies to the entire
@@ -1996,7 +1996,7 @@ knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px"
 
 <A name="answer8.4.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -2073,7 +2073,7 @@ interaction effects. Contact with smokers is not involved in an interaction in t
 
 <A name="answer8.4.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 2. 
 
 * First of all, you must write out the regression equations for different
@@ -2154,7 +2154,7 @@ is more strongly negative (*b* = -0.47) than for non-smokers (*b* = -0.28). An a
 
 <A name="answer8.4.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 3. 
 
 SPSS syntax:  
@@ -2179,7 +2179,7 @@ blue dots across the entire width of the plot. [<img src="icons/2question.png" w
 
 <A name="answer8.4.4"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch8}
 Answer to Exercise 4. 
 
 SPSS syntax:  

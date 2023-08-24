@@ -583,8 +583,20 @@ div.csl-indent {
 Figure 11.5: Path diagram with unstandardized effect sizes and their 95% confidence intervals.
 </p>
 </div>
-<p><A name="question9.6.1"></A></p>
-<p><A name="question9.6.2"></A></p>
+<A name="question9.6.1"></A>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>In the causal diagram depicted in Figure <a href="11.2-path-model-with-regression-analysis.html#fig:mediation-regression">11.5</a>, click on a variable name to highlight the effects in a regression analysis with this variable as the outcome. How many regression analyses does the causal diagram include and what do the results mean? <a href="#answer9.6.1"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
+<A name="question9.6.2"></A>
+
+<div class="rmdquestion">
+<ol start="2" style="list-style-type: decimal">
+<li>The fat arrows were hypothesized whereas the thin ones were not. Why are the thin ones included in the regression analyses (they have coefficient estimates too)? <a href="#answer9.6.2"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>In the path diagram displayed in Figure <a href="11.2-path-model-with-regression-analysis.html#fig:mediation-regression">11.5</a>, we would regress newspaper reading time, the final dependent variable, on all other variables. As a next step, we would predict news site use as outcome from all variables except reading time.</p>
 <p>Note that we include education level as predictor of news site use and newspaper reading even if we did not draw a direct arrow. Education level is theorized to be causally prior to news use site, so it can have a direct effect. We hypothesized that it did not have a direct effect on news site use and reading time, so we omitted arrows in our hypothesized model. We must include education as a predictor to check that it does not have these direct effects.</p>
 <p>A third regression model would predict political interest from education level and age. The final regression model predicts education level from age.</p>
@@ -610,7 +622,13 @@ Figure 11.5: Path diagram with unstandardized effect sizes and their 95% confide
 Figure 11.6: Path diagram with unstandardized effect sizes and their 95% confidence intervals.
 </p>
 </div>
-<p><A name="question9.6.3"></A></p>
+<A name="question9.6.3"></A>
+
+<div class="rmdquestion">
+<ol start="3" style="list-style-type: decimal">
+<li>Calculate the size of each indirect effect of age on news site use in Figure <a href="11.2-path-model-with-regression-analysis.html#fig:pathdiagram-unstandardized">11.6</a>. <a href="#answer9.6.3"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>It may sound weird that we can multiply the unstandardized regression coefficients but it really works. In Figure <a href="11.2-path-model-with-regression-analysis.html#fig:pathdiagram-unstandardized">11.6</a>, for instance, the unstandardized partial effect of age (measured in tens of years) on interest in politics is 0.14. This means that an additional 10 years of life predict an average increase in interest in politics of 0.14.</p>
 <p>In its turn, interest in politics has an unstandardized effect of 0.52 on reading time (in minutes). An additional unit of interest in politics predicts an average increase in reading time of 0.52 minutes.</p>
 <p>Ten additional years of life only predict an increase of 0.14 in political interest, not a full unit increase. The predicted increase of 0.14 in political interest predicts 0.14 * 0.52 = 0.07 minutes of additional newspaper reading time. As a result, an additional ten years of life predict 0.14 * 0.52 = 0.07 minutes of additional newspaper reading time as an indirect effect via political interest.</p>

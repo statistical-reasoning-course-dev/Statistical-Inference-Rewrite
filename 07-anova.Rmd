@@ -365,7 +365,7 @@ A statistically significant *F* test tells us that we may be quite confident tha
 
 <A name="answer7.1.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 1. 
 
 * The double-sided vertical arrows represent the differences in average
@@ -375,7 +375,7 @@ Clooney as endorser, Jolie as endorser, or no celebrity endorser. [<img src="ico
 
 <A name="answer7.1.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 2. 
 
 * Yes, a celebrity endorser seems to matter to participants’ willingness to donate.
@@ -384,7 +384,7 @@ Answer to Question 2.
 
 <A name="answer7.1.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 3. 
 
 * The more different the group means, the larger the red arrows, the larger the
@@ -400,7 +400,7 @@ group (or, from some point, closer to the bottom group). [<img src="icons/2quest
 
 <A name="answer7.1.4"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 4. 
 
 ![](figures/S7_1Q4.png)
@@ -417,7 +417,7 @@ arrows (within-groups differences) yields the within-groups variance. [<img src=
 
 <A name="answer7.1.5"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 5. 
 
 * The solid black arrows represent the difference between an individual's group
@@ -430,7 +430,7 @@ group means, which is called the between-groups variance. [<img src="icons/2ques
 
 <A name="answer7.1.6"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 6. 
 
 * The dotted black arrows represent the difference between individual
@@ -441,7 +441,7 @@ root of the variance to obtain the overall standard deviation. [<img src="icons/
 
 <A name="answer7.1.7"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 7. 
 
 * The solid black arrows relate to eta^2^. Eta^2^ is larger if the
@@ -459,7 +459,7 @@ dotted black arrows are not clearly related to eta^2^. [<img src="icons/2questio
 
 <A name="answer7.1.8"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 8. 
 
 * If the _F_ test in analysis of variance is statistically significant, we
@@ -475,7 +475,7 @@ balanced design). [<img src="icons/2question.png" width=161px align="right">](#q
 
 <A name="answer7.1.9"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 9. 
 
 * Yes, this is possible. For example, set the mean score of the No Endorser
@@ -490,7 +490,7 @@ boundary. [<img src="icons/2question.png" width=161px align="right">](#question7
 
 <A name="answer7.1.10"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 10. 
 
 * This is okay provided that we correct for capitalization on chance (see Section \@ref(cap-chance)). [<img src="icons/2question.png" width=161px align="right">](#question7.1.10)
@@ -530,7 +530,7 @@ knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px"
 
 <A name="answer7.2.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -572,7 +572,7 @@ Note that eta^2^ must be calculated by hand in SPSS version 26 or older: Divide 
 
 <A name="answer7.2.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Exercise 2. 
 
 SPSS syntax:  
@@ -768,7 +768,7 @@ We could have used two separate one-way analyses of variance to test the same ef
 
 <A name="answer7.3.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 1. 
 
 * Analysis of variance tests the variance (variation, spread) in the mean
@@ -784,7 +784,7 @@ distance between the three celebrity group means and the grand mean. [<img src="
 
 <A name="answer7.3.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 2. 
 
 * The effect of endorser is probably stronger than the effect of sex because
@@ -801,7 +801,7 @@ grand mean, and there is little variation in sex group means.
 
 <A name="answer7.3.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 3. 
 
 * If both boxes are ticked, the scores are grouped by the combination of
@@ -1065,7 +1065,7 @@ The assumptions for two-way analysis of variance are the same as for one-way ana
 
 <A name="answer7.4.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 1. 
 
 * A main effect exists if the groups on one predictor (factor) have unequal
@@ -1084,7 +1084,7 @@ blue line) to see whether females score on average higher than males. [<img src=
 
 <A name="answer7.4.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 2. 
 
 * Now we have to look at the average scores for the three endorsers, which are quite clearly different (bottom row of the table). So yes, there is a main effect of endorser on willingness.
@@ -1097,7 +1097,7 @@ somewhere in the middle of the green arrow linking the score of females to the s
 
 <A name="answer7.4.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 3. 
 
 * The difference between average willingness to donate for females and average willingness to donate for males expresses the effect of sex. The green arrows represent these differences.
@@ -1107,7 +1107,7 @@ Answer to Question 3.
 
 <A name="answer7.4.4"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 4. 
 
 * Change the means for the males or females such that the green arrows have different lengths. Now, the red and dashed blue lines are no longer parallel. 
@@ -1116,7 +1116,7 @@ Answer to Question 4.
 
 <A name="answer7.4.5"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 5. 
 
 * If the app loads, there is a main effect of endorser. The effect size
@@ -1143,7 +1143,7 @@ for that endorser such that the average for the endorser remains the same. [<img
 
 <A name="answer7.4.6"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 6. 
 
 * To obtain a non-significant main effect of endorser, the mean scores for the
@@ -1159,7 +1159,7 @@ the female scores with the same amount. [<img src="icons/2question.png" width=16
 
 <A name="answer7.4.7"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Question 7. 
 
 * Yes, it is possible to have a statistically significant interaction effect but no statistically significant main effects.
@@ -1281,7 +1281,7 @@ knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px"
 
 <A name="answer7.6.1"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -1327,7 +1327,7 @@ Note that eta^2^ was calculated by hand, dividing the sum of squares of the inte
 
 <A name="answer7.6.2"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Exercise 2. 
 
 SPSS syntax:  
@@ -1368,7 +1368,7 @@ Note that eta^2^ was calculated by hand, dividing the sum of squares of the inte
 
 <A name="answer7.6.3"></A>
 
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch7}
 Answer to Exercise 3. 
 
 SPSS syntax:  

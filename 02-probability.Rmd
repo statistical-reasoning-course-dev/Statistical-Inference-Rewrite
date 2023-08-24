@@ -126,7 +126,7 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 ### Answers {-}
 
 <A name="answer2.1.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 1. 
 
 * A bootstrap sample must be just as large as the initial sample. In this
@@ -138,7 +138,7 @@ number of observations as the initial sample. [<img src="icons/2question.png" wi
 ```
 
 <A name="answer2.1.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 2. 
 
 * The sampling distribution of a sample proportion is an exact distribution
@@ -148,7 +148,7 @@ as a grey histogram at the right of the figure. [<img src="icons/2question.png" 
 ```
 
 <A name="answer2.1.3"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 3. 
 
 * The proportion of yellow candies in the (first) initial sample is .2, that
@@ -160,7 +160,7 @@ very similar to the true (exact) sampling distribution (grey histogram). [<img s
 ```
 
 <A name="answer2.1.4"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 4. 
 
 * If the proportion of yellow candies in the original sample is
@@ -179,7 +179,7 @@ remains the same, namely 20 per cent. [<img src="icons/2question.png" width=161p
 ```
 
 <A name="answer2.1.5"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 5. 
 
 * If we draw a sample without replacement from our initial sample of the same
@@ -199,7 +199,7 @@ align="right">](#question2.1.5)
 ```
 
 <A name="answer2.1.6"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 6. 
 
 * If you change sample size repeatedly between 15 and 45, you will see that
@@ -214,7 +214,7 @@ But even then, it can sometimes be quite off the mark. [<img src="icons/2questio
 ```
 
 <A name="answer2.1.7"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 7. 
 
 * The proportion of yellow candies in larger samples is more often close to
@@ -224,7 +224,7 @@ distribution more often for a larger sample. [<img src="icons/2question.png" wid
 ```
 
 <A name="answer2.1.8"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 8. 
 
 * If we draw an initial sample without any yellow candies, none of the
@@ -289,7 +289,7 @@ Tip: Speed up bootstrapping in SPSS by deselecting the option _Display frequency
 ### Answers {-}
 
 <A name="answer2.2.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -327,7 +327,7 @@ Note that your results can be slightly different because bootstrapping creates r
 ```
 
 <A name="answer2.2.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Exercise 2. 
 
 SPSS syntax:  
@@ -402,7 +402,7 @@ It is usually wise to set a limit to the time you allow your computer to work on
 ### Answers {-}
 
 <A name="answer2.3.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 1. 
 
 * The column "Combination" lists all posible outcomes if we toss three coins.
@@ -413,7 +413,7 @@ appear in the combination.
 ```
 
 <A name="answer2.3.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 2. 
 
 * There are eight combinations. If the coins are fair, each combination has
@@ -464,7 +464,7 @@ knitr::include_url("https://www.youtube.com/embed/PlT28wfc6K4", height = "360px"
 ### Answers {-}
 
 <A name="answer2.4.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -489,7 +489,7 @@ There is a strong association (Cramer's V = .52) between candy colour and candy 
 ```
 
 <A name="answer2.4.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Exercise 2. 
 
 SPSS syntax:  
@@ -694,7 +694,7 @@ For other applications, the actual sampling distributions can become quite compl
 ### Answers {-}
 
 <A name="answer2.5.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 1. 
 
 * The curve fits the histogram of observed sample means quite well.
@@ -706,7 +706,7 @@ _t_ distribution represents the sampling distribution very accurately. [<img src
 ```
 
 <A name="answer2.5.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 2. 
 
 * The borders demarcating the lowest and highest 2.5% of sample means in the
@@ -716,14 +716,14 @@ sampling distributions that we generate with this app. [<img src="icons/2questio
 ```
 
 <A name="answer2.5.3"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 3. 
 
 * The width/peakedness of the sampling distribution changes but the normal curve fits the distribution well. [<img src="icons/2question.png" width=161px align="right">](#question2.5.3)
 ```
 
 <A name="answer2.5.4"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 4. 
 
 * A larger sample produces a sampling distribution that is more peaked. This means that the sample statistic outcomes are closer to the true population value (which is the mean of the sampling distribution).
@@ -732,7 +732,7 @@ Answer to Question 4.
 ```
 
 <A name="answer2.5.5"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 5. 
 
 * The population proportion (parameter value) is equal to the average of the
@@ -746,7 +746,7 @@ remain symmetrical if the population proportion is near zero or one. [<img src="
 ```
 
 <A name="answer2.5.6"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 6. 
 
 * It is in principle possible to draw a random sample of red candies
@@ -754,7 +754,7 @@ separately from a random sample of yellow candies. [<img src="icons/2question.pn
 ```
 
 <A name="answer2.5.7"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 7. 
 
 * It is the difference between average weight of red candies and average
@@ -766,7 +766,7 @@ is added to the sampling distribution. [<img src="icons/2question.png" width=161
 ```
 
 <A name="answer2.5.8"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 8. 
 
 * The sampling distribution has a bell shape like the normal or (Student) _t_
@@ -774,7 +774,7 @@ distribution. [<img src="icons/2question.png" width=161px align="right">](#quest
 ```
 
 <A name="answer2.5.9"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 9. 
 
 * The true difference in averages in the population is what we expect as the
@@ -788,7 +788,7 @@ thousands of samples. [<img src="icons/2question.png" width=161px align="right">
 ```
 
 <A name="answer2.5.10"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 10. 
 
 * The numbers on the horizontal axis in the sample histogram represent the
@@ -801,7 +801,7 @@ represented by a dot in the figure in the middle. [<img src="icons/2question.png
 ```
  
 <A name="answer2.5.11"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 11. 
 
 * A case appears both in the before and after population: We have a before and
@@ -813,7 +813,7 @@ sample. [<img src="icons/2question.png" width=161px align="right">](#question2.5
 ```
 
 <A name="answer2.5.12"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch2}
 Answer to Question 12. 
 
 * The numbers on the horizontal axis in the histogram of the sampling

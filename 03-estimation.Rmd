@@ -72,7 +72,7 @@ We now have boundary values, that is, a range of sample statistic values, and a 
 ### Answers {-}
 
 <A name="answer3.2.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 1. 
 
 * A sample mean is an unbiased estimator of the population mean. As a
@@ -85,7 +85,7 @@ the population. [<img src="icons/2question.png" width=161px align="right">](#que
 ```
 
 <A name="answer3.2.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 2. 
 
 * The value of the upper (right) limit is 4.37. With this slider setting, the area in the center of the graph represents 95 per cent of all samples.
@@ -184,7 +184,7 @@ The standard error may also depend on other factors, such as the variation in po
 
 ### Answers {-}
 <A name="answer3.3.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 1. 
 
 * The lower our confidence level, the more population values we exclude, the
@@ -194,7 +194,7 @@ broader the interval estimate: precision is smaller. [<img src="icons/2question.
 ```
 
 <A name="answer3.3.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 2. 
 
 * If we want to be 100% sure, we cannot rule out any possible average weight
@@ -208,7 +208,7 @@ width=161px align="right">](#question3.3.2)
 ```
 
 <A name="answer3.3.3"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 3. 
 
 * Larger samples offer more information, so they allow a more precise estimate
@@ -220,7 +220,7 @@ become shorter.
 ```
 
 <A name="answer3.3.4"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 4. 
 
 * Remember that the sampling distribution represents the sample statistic
@@ -232,14 +232,14 @@ peaked/less flat. [<img src="icons/2question.png" width=161px align="right">](#q
 ```
 
 <A name="answer3.3.5"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 5. 
 
 * If we increase sample size, the standard error becomes smaller. Conversely, the smaller the sample, the larger the standard error. [<img src="icons/2question.png" width=161px align="right">](#question3.3.5)
 ```
 
 <A name="answer3.3.6"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 6. 
 
 * The larger the standard error, the f(l)atter the sampling distribution. In contrast, a smaller standard error yields a more peaked sampling distribution.
@@ -302,7 +302,7 @@ Critical values make it easy to calculate an interval estimate if we know the st
 ### Answers {-}
 
 <A name="answer3.4.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 1. 
 
 * The axis at the bottom gives average candy weight in grams and the axis at the top shows average candy weight in standard errors from the population mean.
@@ -311,7 +311,7 @@ Answer to Question 1.
 ```
 
 <A name="answer3.4.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 2. 
 
 * If we increase the standard error, one standard error coincides with more
@@ -470,7 +470,7 @@ It is also possible to construct the entire sampling distribution in exact appro
 ### Answers {-}
 
 <A name="answer3.5.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 1. 
 
 * The closer the sample mean is to the population mean, the higher the
@@ -485,7 +485,7 @@ be drawn from a population with the selected population mean. [<img src="icons/2
 ```
 
 <A name="answer3.5.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 2. 
 
 * The arrow represents the distance (difference) between the mean of the sample (black dot in the bottom of the figure) and the lowest or highest plausible population value given our sample mean (the green dot in the top of the figure).
@@ -494,7 +494,7 @@ Answer to Question 2.
 ```
 
 <A name="answer3.5.3"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 3. 
 
 * In a standard-normal distribution, _z_ standardizes scores and 95% of all
@@ -506,7 +506,7 @@ most plausible samples, then, are reached if the _z_ value of the sample mean is
 ```
 
 <A name="answer3.5.4"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 4. 
 
 * The interval estimate shows the width of the interval between the lowest and
@@ -521,7 +521,7 @@ right limit of the interval. [<img src="icons/2question.png" width=161px align="
 ```
 
 <A name="answer3.5.5"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Question 5. 
 
 Using the answer to Question 3, we may use the following steps to find the
@@ -598,7 +598,7 @@ knitr::include_url("https://www.youtube.com/embed/GoGrsHpfIWM", height = "360px"
 
 ### Answers {-}
 <A name="answer3.6.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -639,7 +639,7 @@ If we want to be more confident, we must allow for a broader range of values, so
 ```
 
 <A name="answer3.6.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Exercise 2. 
 
 SPSS syntax:  
@@ -673,7 +673,7 @@ The 95% interval borders can be slightly different because bootstrapping takes r
 ```
 
 <A name="answer3.6.3"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Exercise 3. 
 
 SPSS syntax:  
@@ -702,7 +702,7 @@ We are 95% confident that candy colourfulness in the population fades under sunl
 ```
 
 <A name="answer3.6.4"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch3}
 Answer to Exercise 4. 
 
 SPSS syntax:  

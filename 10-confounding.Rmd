@@ -70,7 +70,7 @@ If we want to interpret regression coefficients as causal effects, for example, 
 ### Answers {-}
 
 <A name="answer9.1.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Question 1. 
 
 * If we add age as a second predictor, the effect of interest in politics changes: 
@@ -81,7 +81,7 @@ Answer to Question 1.
 ```
   
 <A name="answer9.1.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Question 2. 
 
 * If we only add education to the model, the blue line is steeper than the grey line. The standardized regression coefficient (b*) becomes stronger; it changes from 0.14 to 0.19. The partial effect of political interest on newspaper reading time becomes stronger if we control for education.
@@ -153,7 +153,7 @@ We have learned about probabilities and expectations in previous chapters. These
 ### Answers {-}
 
 <A name="answer9.2.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Question 1. 
 
 * Age is the strongest confounder in this example. If we add age as a
@@ -331,7 +331,7 @@ To summarize the two types of confounders:
 ### Answers {-}
 
 <A name="answer9.3.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Question 1. 
 
 * Note that the simple effect is the regression coefficient if we do not control for any confounders, so political interest is the only predictor. The partial effect is the regression coefficient for the effect of political interest on reading time if we control for at least one other predictor. Then, political interest is not the only predictor in the regression model.
@@ -341,7 +341,7 @@ Answer to Question 1.
 ```
   
 <A name="answer9.3.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Question 2. 
 
 * The indirect correlation between political interest and reading time created by interest in sports is negative. It is the opposite of the sign of the direct effect, so the partial effect is stronger if we include interest in sports as a predictor in the regression model. [<img src="icons/2question.png" width=161px align="right">](#question9.3.2)
@@ -383,7 +383,7 @@ knitr::include_url("https://www.youtube.com/embed/Du2mzxWifCM", height = "360px"
 ### Answers {-}
 
 <A name="answer9.4.1"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Exercise 1. 
 
 SPSS syntax:  
@@ -459,7 +459,7 @@ interpretation.
 ```
 
 <A name="answer9.4.2"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Exercise 2. 
 
 * If the partial effect of a predictor increases (becomes more strongly
@@ -482,7 +482,7 @@ news site use but they are actually effects of age. [<img src="icons/2question.p
 ```
 
 <A name="answer9.4.3"></A>
-```{block2, type='rmdanswer'}
+```{block2, type='rmdanswer', echo=ch10}
 Answer to Exercise 3. 
 
 SPSS syntax:  

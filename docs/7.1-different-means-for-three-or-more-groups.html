@@ -585,7 +585,7 @@ Figure 7.3: George Clooney and Angelina Jolie. Photo Clooney by Angela George <a
 </div>
 <p>Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group—the control group—sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.</p>
 <p>Our dependent variable is a numeric scale assessing the participant’s willingness to donate to the fund raiser on a scale from 1 (“absolutely certain that I will not donate”) to 10 (“absolutely certain that I will donate”). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.</p>
-<p>In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data <span class="citation">(<a href="references.html#ref-RefWorks:3955" role="doc-biblioref">Fisher, 1919</a>)</span>, so it is widely used in the context of experiments.</p>
+<p>In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data <span class="citation">(<a href="references.html#ref-RefWorks:3955" role="doc-biblioref">R. A. Fisher, 1919</a>)</span>, so it is widely used in the context of experiments.</p>
 <div id="anova-meandiffs" class="section level3 hasAnchor" number="7.1.1">
 <h3><span class="header-section-number">7.1.1</span> Mean differences as effects<a href="7.1-different-means-for-three-or-more-groups.html#anova-meandiffs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-means">7.4</a> shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.</p>
@@ -597,8 +597,26 @@ Figure 7.4: How do group means relate to effect size?
 </p>
 </div>
 <p><A name="question7.1.1"></A></p>
+
+<div class="rmdquestion">
+<ol style="list-style-type: decimal">
+<li>In the sample of (12) participants displayed as dots in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-means">7.4</a>, what do the double-sided vertical arrows represent? <a href="#answer7.1.1"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.2"></A></p>
+
+<div class="rmdquestion">
+<ol start="2" style="list-style-type: decimal">
+<li>According to this figure, does a celebrity endorser matter to the willingness to donate? Explain your answer. <a href="#answer7.1.2"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.3"></A></p>
+
+<div class="rmdquestion">
+<ol start="3" style="list-style-type: decimal">
+<li>How do the double-sided vertical arrows relate to effect size (eta<sup>2</sup>)? Change the group means (and update the graph) and explain what you see. <a href="#answer7.1.3"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>A group’s average score on the dependent variable represents the group’s score level. The group averages in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-means">7.4</a> tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.</p>
 <p>Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.</p>
 <p>If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in Chapter <a href="10-confounder.html#confounder">10</a>). Mean differences are said to represent the <em>effect</em> of experimental treatment in analysis of variance.</p>
@@ -629,9 +647,33 @@ Figure 7.6: Which part of score differences tells us about the differences betwe
 </p>
 </div>
 <p><A name="question7.1.4"></A></p>
+
+<div class="rmdquestion">
+<ol start="4" style="list-style-type: decimal">
+<li>In Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-between">7.6</a>, what do the solid red arrows represent? <a href="#answer7.1.4"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.5"></A></p>
+
+<div class="rmdquestion">
+<ol start="5" style="list-style-type: decimal">
+<li>What do the solid black arrows represent? <a href="#answer7.1.5"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.6"></A></p>
+
+<div class="rmdquestion">
+<ol start="6" style="list-style-type: decimal">
+<li>What do the dotted black arrows in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-between">7.6</a> represent? <a href="#answer7.1.6"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.7"></A></p>
+
+<div class="rmdquestion">
+<ol start="7" style="list-style-type: decimal">
+<li>Which arrows relate to effect size eta<sup>2</sup>? Change group means (and press the <em>Update graph</em> button) and describe what happens. <a href="#answer7.1.7"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-between">7.6</a>. Once we have our data, we first have a look at the percentage of variance that is explained, eta<sup>2</sup>. What does it mean if we say that a percentage of the variance is explained when we interpret eta<sup>2</sup>?</p>
 <p>The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-between">7.6</a> express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.</p>
 <p>The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-between">7.6</a>) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.</p>
@@ -679,8 +721,26 @@ Figure 7.7: Which groups have different average outcome scores in the population
 </p>
 </div>
 <p><A name="question7.1.8"></A></p>
+
+<div class="rmdquestion">
+<ol start="8" style="list-style-type: decimal">
+<li>Does the <em>F</em> test in analysis of variance tell us which groups have significantly different average population outcome scores? Can we have the same <em>F</em> test result with different sets of group means? Adjust group means in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-posthoc">7.7</a> to demonstrate your answer. <a href="#answer7.1.8"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.9"></A></p>
+
+<div class="rmdquestion">
+<ol start="9" style="list-style-type: decimal">
+<li>Is it possible that the <em>F</em> test is statistically significant but none of the <em>t</em> tests that compare groups one by one? Can you obtain this situation in Figure <a href="7.1-different-means-for-three-or-more-groups.html#fig:anova-posthoc">7.7</a>? <a href="#answer7.1.9"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p><A name="question7.1.10"></A></p>
+
+<div class="rmdquestion">
+<ol start="10" style="list-style-type: decimal">
+<li>Is it okay that we apply both an <em>F</em> test and several <em>t</em> tests to the same group differences? <a href="#answer7.1.10"><img src="icons/2answer.png" width=115px align="right"></a>
+</div></li>
+</ol>
 <p>If the <em>F</em> test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average willingness to donate is equal for people who saw George Clooney, Angelina Jolie, or no endorser for the fund raiser. In other words, we <em>reject</em> the null hypothesis that the endorser does <em>not</em> matter to willingness to donate.</p>
 <div id="pairwise-comparisons-as-post-hoc-tests" class="section level4 hasAnchor" number="7.1.5.1">
 <h4><span class="header-section-number">7.1.5.1</span> Pairwise comparisons as post-hoc tests<a href="7.1-different-means-for-three-or-more-groups.html#pairwise-comparisons-as-post-hoc-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
