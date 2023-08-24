@@ -600,67 +600,18 @@ Figure 6.1: The dance of the <em>p</em> values by Geoff Cumming.
 Figure 6.2: Any effect can be statistically significant.
 </p>
 </div>
-<A name="question6.1.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>What is the null hypothesis in Figure <a href="6.1-criticismsNHST.html#fig:tiny-effects">6.2</a> and how can you tell? <a href="#answer6.1.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question6.1.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>In Figure <a href="6.1-criticismsNHST.html#fig:tiny-effects">6.2</a>, what should you do to obtain a statistically significant result for a sample average of 2.9 grams if the null hypothesis states that average candy weight is 2.8? <a href="#answer6.1.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question6.1.3"></A>
-
-<div class="rmdquestion">
-<ol start="3" style="list-style-type: decimal">
-<li>Can you get a statistically significant result for the smallest effect size, that is, for the smallest non-zero difference between the observed sample average and the hypothesized population average that you can set with the slider in Figure <a href="6.1-criticismsNHST.html#fig:tiny-effects">6.2</a>? <a href="#answer6.1.3"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question6.1.4"></A>
-
-<div class="rmdquestion">
-<ol start="4" style="list-style-type: decimal">
-<li>There is one sample mean for which we can never reject the null hypothesis, no matter how large we make the sample. Which sample mean would that be? <a href="#answer6.1.4"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question6.1.5"></A>
-
-<div class="rmdquestion">
-<ol start="5" style="list-style-type: decimal">
-<li>When is a statistically significant result more surprising: in a small sample or in a large sample? Select the option to show test power and compare test power with a small sample to test power with a large sample. <a href="#answer6.1.5"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question6.1.6"></A>
-
-<div class="rmdquestion">
-<ol start="6" style="list-style-type: decimal">
-<li>When do we have stronger evidence that an effect is zero or nearly zero in the population: with a statistically non-significant result in a small sample or in a large sample? Use Figure <a href="6.1-criticismsNHST.html#fig:tiny-effects">6.2</a> to find the answer (select the option to show test power):
-<ul>
-<li>Choose a small sample size, say, 20. Change the true population mean such that the power of the test is at least .80 (a smaller value would result in test power below .80). This is the smallest effect size in the population for which we have sufficient test power to obtain a significant result.</li>
-<li>Repeat this for a large sample size, say, around 2,000.</li>
-<li>Compare the effect sizes in the population for the small and large sample. Which one is closer to zero? <a href="#answer6.1.6"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ul></li>
-</ol>
+<p><A name="question6.1.1"></A></p>
+<p><A name="question6.1.2"></A></p>
+<p><A name="question6.1.3"></A></p>
+<p><A name="question6.1.4"></A></p>
+<p><A name="question6.1.5"></A></p>
+<p><A name="question6.1.6"></A></p>
 <p>It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (Figure <a href="6.1-criticismsNHST.html#fig:pdance">6.1</a>), this mistaken interpretation is expressed by the type of sound associated with a <em>p</em> value: the lower the <em>p</em> value of the test, the more joyous the sound.</p>
 <p>It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be highly significant and in small samples, as demonstrated in the video, results can sometimes be highly significant and sometimes be insignificant. Never forget:</p>
-
-<div class="rmdimportant">
-A statistically significant result ONLY means that the null hypothesis must be rejected.
-</div>
 <p>If we want to say something about the magnitude of an effect in the population, we should use effect size. All we have is the effect size measured in our sample and a statistical test usually telling us whether or not we should reject the null hypothesis that there is no effect in the population.</p>
 <p>If the statistical test is significant, we conclude that an effect probably exists in the population. We may use the effect size in the sample as a point estimate of the population effect. This effect size should be at the core of our interpretation. Is it large (strong), small (weak), or perhaps tiny and practically irrelevant?</p>
 <p>If the statistical test is not significant, it is tempting to conclude that the null hypothesis is true, namely, that there is no effect in the population. If so, we do not have to interpret the effect that we find in our sample. But this is not right. Finding insufficient evidence for rejecting the null hypothesis does not prove that the null hypothesis is true. Even if the null hypothesis is false, we can draw a sample that does not reject the null hypothesis.</p>
 <p>In a two-sided significance test, the null hypothesis specifies one particular value for the sample outcome. If the outcome is continuous, for instance, a mean or regression coefficient, the null hypothesis can hardly ever be true, strictly speaking. The true population value is very likely not exactly the same as the hypothesized value. It may be only slightly different, but it is different.</p>
-
-<div class="rmdimportant">
-A statistically non-significant result does NOT mean that the null hypothesis is true.
-</div>
 <p>When we evaluate a <em>p</em> value, we had better take into account the probability that we reject the null hypothesis, which is test power. If test power is low, as it often is in social scientific research with small effect sizes and not very large samples, we should realize that there can be an interesting difference between true and hypothesized population values even if the test is not statistically significant.</p>
 <p>With low power, we have high probability of not rejecting a false null hypothesis (Type II error) even if the true population value is quite different from the hypothesized value. For example, a small sample of candies drawn from a population with average candy weight of 3.0 grams may not reject the null hypothesis that average candy weight is 2.8 grams in the population. The non-significant test result should not make us conclude that there is no interesting effect. The test may not pick up substantively interesting effects.</p>
 <p>In contrast, if our test has very high power, we should expect effects to be statistically significant, even tiny effects that are totally irrelevant from a substantive point of view. For example, an effect of exposure on attitude of 0.01 on a 10-point scale is likely to be statistically significant in a very large sample but it is probably substantively uninteresting.</p>
@@ -679,90 +630,12 @@ A statistically non-significant result does NOT mean that the null hypothesis is
 </div>
 <div id="answers-27" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="6.1-criticismsNHST.html#answers-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer6.1.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>The null hypothesis states that average candy weight is 2.8 (gram) in the
-population.</li>
-<li>In a statistical test, the sampling distribution has the hypothesized value
-as its mean (as its expected value). <a href="#question6.1.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer6.1.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>Increase sample size. Already at a sample size of 140, a sample with average
-candy weight of 2.9 grams differs significantly from the hypothesized 2.8 grams.
-In other words, a sample of this size with an average of (at least) 2.9 is quite unlikely
-to be drawn from the hypothesized population with an average of 2.8.</li>
-<li>Note that the true population mean does not matter to the significance of a particular sample outcome. In a significance test, we compare the sample mean to the null hypothesis using the sampling distribution based on the null hypothesis. <a href="#question6.1.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer6.1.3"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 3.</p>
-<ul>
-<li>The smallest sample mean larger than 2.8 that we can select with the sample
-average slider is 2.81. The smallest difference between sample mean
-and hypothesized population average, then, is .01 (grams).</li>
-<li>A sample of about 14,000 observations will give a statistically significant
-test result. Use the slider to check this.</li>
-<li>So yes, we can get a statistically significant result for the smallest
-non-zero effect size.</li>
-<li>A difference of 0.01 grams (less than 0.4% of the hypothesized weight) may
-not be practically relevant. <a href="#question6.1.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer6.1.4"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 4.</p>
-<ul>
-<li>If the sample mean is exactly equal to the hypothesized population mean, in
-this example, exactly 2.8 grams, the null hypothesis will never be rejected.
-This makes sense because we find exactly what we expect.</li>
-<li>Increasing sample size reduces the width of the interval between the
-rejection regions (between the blue tails in this graph). But the hypothesized
-value at the centre of this interval will always fall in between the rejection
-regions. <a href="#question6.1.4"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer6.1.5"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 5.</p>
-<ul>
-<li>A statistically significant result is more surprising in a small sample.</li>
-<li>This follows from the power of the test: the probability of rejecting a false null hypothesis. With low power, we have a low probability of drawing a sample that rejects the null hypothesis.</li>
-<li>Remember that test power depends both on sample size and effect size in the population (Chapter <a href="5-power.html#power">5</a>). A large sample has higher test power than a small sample for the same true effect in the population. In addition, a large effect in the population has higher test power than a small effect with the same sample size. You can check this in the figure: Change the sample size or the true population mean and watch what happens to test power.</li>
-<li>With a small sample and small effect size, we must be lucky to obtain a statistically significant result because we have low power. We do not expect a significant result, it is surprising to get one.</li>
-<li>But we do not always have to be lucky to get a significant test result in a small sample. If the effect is large in the population, we have good test power notwithstanding the small size of our sample. For this reason, a significant test result in a small sample suggests a not-so-small effect in the population. In the social and behavioural sciences, small effect sizes are much more common than large effects. Also in this sense, a statistically significant result is more surprising in a small sample than in a large sample. <a href="#question6.1.5"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer6.1.6"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 6.</p>
-<ul>
-<li>A statistically non-significant result in a large sample provides stronger evidence for an effect near zero in the population than in a small sample.</li>
-<li>Let us follow the steps outlined in the question:
-<ul>
-<li>If we choose a small sample size of 20 candies, we have to set the true population mean to at least 3.2 to obtain test power that meets the minimum requirement of .80. For all population values between 2.8 and 3.2, we have insufficient test power, so the chance of drawing a sample that rejects the null hypothesis is too low. We expect (too many) non-significant test results for population values between 2.8 and 3.2, so these population values are plausible if the test result turns out to be not statistically significant.</li>
-<li>For a sample of 2,000 candies, the minimum value for the population mean is 2.84 to obtain test power of at least .80. Now population means between 2.8 and 2.84 are plausible if we have a non-significant test result.</li>
-<li>True effect size in the case of a test on one mean is the difference between the mean in the population and the hypothesized mean, so we are dealing with effect sizes between 2.8 - 2.8 = 0 and 2.84 - 2.8 = 0.04 in the large sample. These values are much closer to zero than in the small sample situation: 3.2 - 2.8 = 0.4.</li>
-</ul></li>
-<li>We can also reason why we should expect an effect near zero with a non-significant result in a large sample:
-<ul>
-<li>A large sample has higher test power than a small sample, so it is easier to get a statistically significant test result for a small effect. In other words, a large sample picks up small effects more easily than a small sample.</li>
-<li>If the result is not significant in a large sample, the population effect is probably less than small, otherwise the test result would probably have been significant. In a small sample, however, we can get non-significant results also for small or larger effects. <a href="#question6.1.6"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul></li>
-</ul>
+<p><A name="answer6.1.1"></A></p>
+<p><A name="answer6.1.2"></A></p>
+<p><A name="answer6.1.3"></A></p>
+<p><A name="answer6.1.4"></A></p>
+<p><A name="answer6.1.5"></A></p>
+<p><A name="answer6.1.6"></A></p>
 </div>
 </div>
             </section>

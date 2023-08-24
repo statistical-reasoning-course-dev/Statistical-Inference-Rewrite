@@ -590,26 +590,8 @@ Figure 9.3: How do contact values affect the conditional effect of exposure on a
 </p>
 </div>
 <p><A name="question9.1.1"></A></p>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>The regression line depicted in Figure <a href="9.1-cont-moderator-regression.html#fig:continuous-moderator">9.3</a> represents the conditional effect of exposure on attitude for the value of contact with smokers selected with the slider. How many different conditional effects are there? <a href="#answer9.1.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question9.1.2"></A></p>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>Is the effect of campaign exposure on attitude towards smoking always negative? Or does more exposure lead to a more positive attitude (higher score) in some cases? If so, in which cases? Use the slider to find the answer. <a href="#answer9.1.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question9.1.3"></A></p>
-
-<div class="rmdquestion">
-<ol start="3" style="list-style-type: decimal">
-<li>How much does the slope increase if the moderator value is changed from 0 to 1? And how much if it changes from 6 to 7? <a href="#answer9.1.3"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>People hanging around a lot with smokers may have a more positive attitude towards smoking than people who have little contact with smokers. If people whose company you value are smokers, you are less likely to condemn smoking. This is an overall effect of contact with smokers on attitude towards smoking.</p>
 <p>In addition, the anti-smoking campaign may be less effective for people who spend a lot of time with smokers. The attitude towards smoking may be stronger among people who spend more time with smokers, so it is more difficult to change the attitude. In this situation, contact with smokers decreases the effect of campaign exposure on attitude. The effect of exposure is moderated by contact with smokers.</p>
 <p>Our moderator, contact with smokers, is numerical. As a consequence, we can have an endless number of contact levels as groups for which the slope may change. This is the only difference with a categorical moderator. Other than that, we will analyze a numerical moderator in the same way as we analyzed a categorical moderator.</p>
@@ -656,40 +638,10 @@ Figure 9.4: What happens if you mean-center the moderator variable?
 </p>
 </div>
 <p><A name="question9.1.4"></A></p>
-
-<div class="rmdquestion">
-<ol start="4" style="list-style-type: decimal">
-<li>What is the correct interpretation of the estimated regression coefficient of exposure in Figure <a href="9.1-cont-moderator-regression.html#fig:mean-centering-moderator">9.4</a>? <a href="#answer9.1.4"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question9.1.5"></A></p>
-
-<div class="rmdquestion">
-<ol start="5" style="list-style-type: decimal">
-<li>Participants with moderator scores that are very close to the selected moderator value are dark blue in the plot. Participants with scores that are quite close to the selected value are light blue. Would you conclude that the regression line represents a sizable group of participants? <a href="#answer9.1.5"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question9.1.6"></A></p>
-
-<div class="rmdquestion">
-<ol start="6" style="list-style-type: decimal">
-<li>Check the <strong>Show the mean-centered line</strong> box in Figure <a href="9.1-cont-moderator-regression.html#fig:mean-centering-moderator">9.4</a>. A red regression line and equation appear that represent the effect of exposure on attitude if the moderator variable contact is mean-centered and zero (as indicated between brackets in the red equation). Plug in zero for contact in the red regression equation and simplify the equation. <a href="#answer9.1.6"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question9.1.7"></A></p>
-
-<div class="rmdquestion">
-<ol start="7" style="list-style-type: decimal">
-<li>If mean-centered contact is zero (Question 6), the regression coefficient of exposure represents the effect of exposure on attitude for respondents with a particular score on the original contact variable. What is this original contact score? Use the slider <strong>Adjust the value of Contact (Moderator):</strong> to drag the blue regression line towards the red regression line. If the two lines coincide, you have found the contact value that is the reference value if contact is mean-centered. <a href="#answer9.1.7"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question9.1.8"></A></p>
-
-<div class="rmdquestion">
-<ol start="8" style="list-style-type: decimal">
-<li>If you have dragged the blue regression line to the red regression line, participants with moderator values close to the mean are (dark) blue (see Question 5). Would you conclude that the regression line represents a sizable group of participants now? <a href="#answer9.1.8"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>What if there are no people with zero contact? Then, the interpretation of the regression coefficient <span class="math inline">\(b_1\)</span> for exposure does not make sense. In this situation, it is better to mean-center the moderator (contact) before you add it to the regression equation and before you calculate the interaction variable.</p>
 <p>To <em>mean-center</em> a variable, you subtract the variable’s mean from all scores on the variable. As a result, a mean score on the original variable becomes a zero score on the mean-centered variable.</p>
 <span class="math display">\[\begin{equation*}
@@ -742,12 +694,6 @@ Figure 9.7: Which moderator values are helpful for visualizing moderation?
 </p>
 </div>
 <p><A name="question9.1.9"></A></p>
-
-<div class="rmdquestion">
-<ol start="9" style="list-style-type: decimal">
-<li>Select one or more options in Figure <a href="9.1-cont-moderator-regression.html#fig:continuous-interaction-visualization">9.7</a> to represent regression lines predicting attitude from exposure at different values of the moderator (contact with smokers). Respondents with moderator values close to the selected value are coloured. Which moderator values would you pick to communicate the results of moderation? Motivate your answer. <a href="#answer9.1.9"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>As we have seen in Section <a href="9.1-cont-moderator-regression.html#interpret-cont-interaction">9.1.1</a>, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.</p>
 <p>The size of the interaction effect tells us the moderation trend, for instance, people who are more around smokers tend to be less opposed to smoking if they are exposed to the anti-smoking campaign. But we do not know how much an anti-smoking attitude is fostered by exposure to a campaign and whether exposure to the campaign increases anti-smoking attitude for everyone. Perhaps, people hanging out with smokers a lot may even get a more positive attitude towards smoking from campaign exposure.</p>
 <p>We can be more specific about exposure effects at different levels of contact with smokers if we pick some interesting values of the moderator and calculate the conditional effects at these levels.</p>
@@ -1359,146 +1305,14 @@ Figure 9.8: Common support of the predictor variable (exposure) at three levels 
 <div id="answers-41" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="9.1-cont-moderator-regression.html#answers-41" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="answer9.1.1"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>In principle, there is an unlimited number of conditional effects if the moderator is a continuous variable.</li>
-<li>In the app, however, the slider allows you to increase or decrease contact score by 0.1. In the app, there are effectively 101 (0 to 10 in steps of 0.1) moderator values that you can select, so there are 101 different regression lines that can be depicted. <a href="#question9.1.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer9.1.2"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>Move the slider from left to right to find the moderator value at which the
-regression line is horizontal. This happens if contact is 6.5. For higher values of contact as moderator, the slope of the regression line is positive. Here, more exposure leads to a more positive attitude.</li>
-<li>Or have a close look at the equations. The regression coefficient of the (simple) slope of the exposure effect is zero if (<em>b</em><sub>1</sub> + <em>b</em><sub>3</sub> * contact) is zero. We know <em>b</em><sub>1</sub> and <em>b</em><sub>3</sub>, so we can solve the equation:</li>
-</ul>
-<blockquote>
-<p>-0.26 + 0.04 * contact = 0</p>
-</blockquote>
-<p>Your high-school algebra may help you:</p>
-<blockquote>
-<p>0.04 * contact = 0.26</p>
-</blockquote>
-<blockquote>
-contact = 0.26 / 0.04 = 6.5 <a href="#question9.1.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-</blockquote>
 <p><A name="answer9.1.3"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 3.</p>
-<ul>
-<li>Each increment of 1 unit of contact increases the (simple) slope of the
-exposure effect on attitude by 0.04, that is, by the value of the interaction
-effect.</li>
-<li>This is easy to see in the equation for the effect of exposure:</li>
-</ul>
-<blockquote>
-<p>-0.26 + 0.04 * contact</p>
-</blockquote>
-<ul>
-<li>Plug in 0 for contact: The simple slope is -0.26.</li>
-<li>Plug in 1 for contact: The simple slope is -0.26 + 0.04 * 1.</li>
-<li>The difference is 0.04. This difference is the same for every increase of
-one unit in contact, so it is also the difference between the slopes at
-contact levels six and seven. <a href="#question9.1.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer9.1.4"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 4.</p>
-<ul>
-<li>In the initial situation, the regression line in this figure represents the
-predictive effect of exposure on attitude for respondents who score zero on the
-moderator (contact with smokers).</li>
-<li>In this regression model, the regression coefficient of exposure is -0.26,
-so an additional unit of exposure decreases the predicted attitude by 0.26 for
-respondents who have no (zero) contacts with smokers. <a href="#question9.1.4"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer9.1.5"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 5.</p>
-<ul>
-<li>We can spot some light-blue dots in the graph but no dark blue dots. There is no sizable set of participants with (hardly) any contact with smokers. There are (hardly) any participants to whom the effect expressed by -.26 applies.</li>
-<li>In other words, this regression coefficient is hardly supported by data, so it is quite meaningless. <a href="#question9.1.5"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer9.1.6"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 6.</p>
-<ul>
-<li>Plug in zero for the mean-centered contact variable:</li>
-</ul>
-<blockquote>
-<p>Attitude = 1.10 + -0.06 * Exposure + 0.14 * Contact_c + 0.04 * Exposure * Contact_c</p>
-</blockquote>
-<blockquote>
-<p>Attitude = 1.10 + -0.06 * Exposure + 0.14 * 0 + 0.04 * Exposure * 0</p>
-</blockquote>
-<ul>
-<li>And simplify:</li>
-</ul>
-<blockquote>
-<p>Attitude = 1.10 + -0.06 * Exposure + 0 + 0</p>
-</blockquote>
-<blockquote>
-<p>Attitude = 1.10 + -0.06 * Exposure</p>
-</blockquote>
-Note that the effect of exposure on attitude is less strongly negative (-0.06) if mean-centered contact is zero than for the original contact variable at zero (-0.26, see the blue equation). <a href="#question9.1.6"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
 <p><A name="answer9.1.7"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 7.</p>
-<ul>
-<li>The regression line for the mean-centered contact moderator coincides with the blue regression line if we select 5 as value for the original contact variable.</li>
-<li>Apparently, the reference group (scoring zero) on the mean-centered contact variable consists of respondents who score 5 on the original <em>Contact with smokers</em> variable.</li>
-<li>By mean centering, we assign the score zero to respondents who have a mean score on the original variable. Apparently, the mean of the original contact variable is 5.</li>
-<li>Now that they score zero on the new mean-centered variable, they have become the reference group. The regression coefficient of the simple regression equation with mean-centered contact as moderator (see Question 6) is the effect for people with average contacts with smokers: An additional unit of exposure predicts a decrease of 0.06 in the attitude towards smokers for people who have average contact with smokers. <a href="#question9.1.7"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer9.1.8"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 8.</p>
-<ul>
-<li>Now there are many (dark) blue dots, so there is a sizable number of participants who have around average contact with smokers. The regression coefficient for the effect of exposure applies to quite some participants in the sample, so it is meaningful.</li>
-<li>The mean of a variable is usually a value with a lot of observations nearby. This makes it a good reference value in a moderation model. <a href="#question9.1.8"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer9.1.9"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 9.</p>
-<ul>
-<li>The important thing is to understand that a regression line that depends on
-few observations is not very trustworthy. The line usually does not represent
-the observations well. In addition, these few observations may have different
-predictor and dependent variable values in a new sample, so the regression line may be
-quite different at this moderator value in a new sample.</li>
-<li>The minimum and maximum value observed in the current sample represent
-regression lines that are quite outside the dot cloud. They are based on very
-few observations, so they are not very trustworthy.</li>
-<li>Observations with moderator values at two standard deviations away from the
-mean (options: M - 2SD and M + 2SD) are still quite rare.</li>
-<li>Observations with moderator values at one standard deviations away from the
-mean (options: M - 1SD and M + 1SD) are quite common. These regression
-lines are nicely embedded in the dot cloud. They are good candidates for
-interpreting moderation.</li>
-<li>Of course, moderator values even closer to the mean, such as moderator values
-below or above which we find one third of all scores (the first and third
-terciles) are also well supported by observations, as is the moderator mean
-itself. <a href="#question9.1.9"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 </div>
 </div>
             </section>

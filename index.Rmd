@@ -39,7 +39,7 @@ link-citations: TRUE
 ```{r setup, include=FALSE, echo=FALSE}
 # All code chunks that should never be shown must have the echo=FALSE option.
 # Chunks with answers to exercises have the echo option not set, so their visibility depends on the the echo option set for all chunks here. Set it to FALSE if the answers are always visible.
-knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, eval=TRUE, tidy=TRUE)
+knitr::opts_chunk$set(echo=FALSE, warning=FALSE, message=FALSE, eval=TRUE, tidy=TRUE)
 # Set output format for kableExtra tables: "html" or "latex"
 options(knitr.table.format = "latex")
 # Don't show NAs in kable tables.
@@ -53,20 +53,24 @@ library(bookdown)
 library(haven)
 # Basic colors and layout.
 source("apps/plottheme/styling.R")
+
 # Chunks with answers to Test Your Understanding questions are set to a boolean variable for each chapter, which can be set to TRUE for showing the answers.
 # Show TYU answers per chapter. Change between FALSE and TRUE.
-ch1 <- FALSE
-ch2 <- FALSE
-ch3 <- FALSE
-ch4 <- FALSE
-ch5 <- FALSE
-ch6 <- FALSE
-ch7 <- FALSE
-ch8 <- FALSE
-ch9 <- FALSE
+ch1  <- FALSE
+ch2  <- FALSE
+ch3  <- FALSE
+ch4  <- FALSE
+ch5  <- FALSE
+ch6  <- FALSE
+ch7  <- FALSE
+ch8  <- FALSE
+ch9  <- FALSE
 ch10 <- FALSE
 ch11 <- FALSE
 ```
+
+
+
 
 ```{r include=FALSE, echo=FALSE, eval=FALSE}
 # Notes
@@ -470,3 +474,4 @@ This book is a modification of the original work by Wouter de Nooy. His publicat
 This version of the book is hosted by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). Modifications are collaboratively done by assigned teacher from the statistical modelling course of the College of Communication Science at the University of Amsterdam.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+

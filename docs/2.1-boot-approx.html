@@ -590,39 +590,10 @@ Figure 2.1: How do we create a sampling distribution with bootstrapping?
 </p>
 </div>
 <p>In Figure <a href="2.1-boot-approx.html#fig:bootstrapping">2.1</a>, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.</p>
-<A name="question2.1.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>How large is a bootstrap sample in Figure <a href="2.1-boot-approx.html#fig:bootstrapping">2.1</a>? Use the <em>Bootstrap one sample</em> button. <a href="#answer2.1.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.1.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>What element in Figure <a href="2.1-boot-approx.html#fig:bootstrapping">2.1</a> represents the true sampling distribution in this example? If in doubt, see Figure <a href="1.2-discreterandomvariable.html#fig:probability-distribution">1.3</a>. <a href="#answer2.1.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.1.3"></A>
-
-<div class="rmdquestion">
-<ol start="3" style="list-style-type: decimal">
-<li>Does the bootstrap sampling distribution resemble the true sampling distribution? Use the “Bootstrap 5,000 samples” button and justify your answer. <a href="#answer2.1.3"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.1.4"></A>
-
-<div class="rmdquestion">
-<ol start="4" style="list-style-type: decimal">
-<li>Draw a new initial sample. This sample is probably not representative of the distribution of candy colour in the population. What happens to the bootstrap samples and the bootstrap sampling distribution? <a href="#answer2.1.4"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-
-<div class="rmdmunchhausen">
-<p>The <em>bootstrap</em> concept refers to the story in which Baron von Münchhausen saves himself by pulling himself and his horse by his bootstraps (or hair) out of a swamp. In a similar miraculous way, bootstrap samples resemble the sampling distribution even though they are drawn from a sample instead of the population. This miracle requires some explanation and it does not work always, as we will discuss in the remainder of this section.</p>
-<a href="https://commons.wikimedia.org/wiki/File:M%C3%BCnchhausen-Sumpf-Hosemann.png">Picture: Baron von Münchhausen pulls himself and his horse out of a swamp. Theodor Hosemann (1807-1875), public domain, via Wikimedia Commons</a>
-</div>
+<p><A name="question2.1.1"></A></p>
+<p><A name="question2.1.2"></A></p>
+<p><A name="question2.1.3"></A></p>
+<p><A name="question2.1.4"></A></p>
 <div id="sampling-with-and-without-replacement" class="section level3 hasAnchor" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Sampling with and without replacement<a href="2.1-boot-approx.html#sampling-with-and-without-replacement" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>As we will see in Chapter <a href="3-param-estim.html#param-estim">3</a>, for example Section <a href="3.3-precisionsesamplesize.html#precisionsesamplesize">3.3</a>, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.</p>
@@ -634,13 +605,7 @@ Figure 2.1: How do we create a sampling distribution with bootstrapping?
 Figure 2.2: Sampling with and without replacement.
 </p>
 </div>
-<A name="question2.1.5"></A>
-
-<div class="rmdquestion">
-<ol start="5" style="list-style-type: decimal">
-<li>What are the differences between sampling with and without replacement (Figure <a href="2.1-boot-approx.html#fig:replacement">2.2</a>)? Press the buttons <em>Draw Without Replacement</em> and <em>Draw With Replacement</em> once or several times to see the differences. <a href="#answer2.1.5"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question2.1.5"></A></p>
 <p>If we allow every case in the original sample to be sampled only once, each bootstrap sample contains all cases of the original sample, so it is an exact copy of the original sample. Thus, we cannot create different bootstrap samples.</p>
 <p>By the way, we often use the type of sampling described above, which is called <em>sampling without replacement</em>. If a person is (randomly) chosen for our sample, we do not put this person back into the population so she or he can be chosen again. We want our respondents to fill out our questionnaire only once or participate in our experiment only once.</p>
 <p>If we do allow the same person to be chosen more than once, we sample <em>with replacement</em>. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in Figure <a href="2.1-boot-approx.html#fig:replacement">2.2</a>. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.</p>
@@ -656,27 +621,9 @@ Figure 2.2: Sampling with and without replacement.
 Figure 2.3: How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.
 </p>
 </div>
-<A name="question2.1.6"></A>
-
-<div class="rmdquestion">
-<ol start="6" style="list-style-type: decimal">
-<li>When does the bootstrap sampling distribution (yellow histogram) reflect the true sampling distribution (grey histogram) better: at small or large sample sizes? Play with sample size in Figure <a href="2.1-boot-approx.html#fig:bootstrap-lim">2.3</a> to check your answer. <a href="#answer2.1.6"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.1.7"></A>
-
-<div class="rmdquestion">
-<ol start="7" style="list-style-type: decimal">
-<li>How does sample size relate to representativeness of the sample in terms of the proportion of yellow candies? Note that twenty per cent of the candies in the population are yellow. <a href="#answer2.1.7"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.1.8"></A>
-
-<div class="rmdquestion">
-<ol start="8" style="list-style-type: decimal">
-<li>If you use a very small sample size, it may happen that there is no yellow histogram in the bottom graph. Why is that? <a href="#answer2.1.8"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question2.1.6"></A></p>
+<p><A name="question2.1.7"></A></p>
+<p><A name="question2.1.8"></A></p>
 <p>We can create a sampling distribution by sampling from our original sample with replacement. It is hardly a miracle that we obtain different samples with different sample statistics if we sample with replacement. Much more miraculous, however, is that this bootstrap distribution resembles the true sampling distribution that we would get if we draw lots of samples directly from the population.</p>
 <p>Does this miracle always happen? No. The original sample that we have drawn from the population must be more or less representative of the population. The variables of interest in the sample should be distributed more or less the same as in the population. If this is not the case, the sampling distribution may give a distorted view of the true sampling distribution. This is the main limitation to the bootstrap approach to sampling distributions.</p>
 <p>A sample is more likely to be representative of the population if the sample is drawn in a truly random fashion and if the sample is large. But we can never be sure. There always is a chance that we have drawn a sample that does not reflect the population well.</p>
@@ -688,123 +635,14 @@ Figure 2.3: How is bootstrapping influenced by sample size? In the population, t
 </div>
 <div id="answers-4" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="2.1-boot-approx.html#answers-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer2.1.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>A bootstrap sample must be just as large as the initial sample. In this
-example, the initial sample contains twenty-five candies, so the bootstrap sample
-must also contain twenty-five candies.</li>
-<li>As we will find out later, the size of a sample is very important to the
-sampling distribution, so we must draw bootstrap samples with exactly the same
-number of observations as the initial sample. <a href="#question2.1.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>The sampling distribution of a sample proportion is an exact distribution
-(named binomial distribution): the probabilities of every number or proportion
-of yellow candies in the sample can be calculated. The results are displayed
-as a grey histogram at the right of the figure. <a href="#question2.1.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.3"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 3.</p>
-<ul>
-<li>The proportion of yellow candies in the (first) initial sample is .2, that
-is, five out of twenty-five candies in the sample are yellow.</li>
-<li>The initial sample is representative of the population with respect to candy
-colour, because the proportion of yellow candies in the population is also .2.</li>
-<li>As a result, the bootstrapped sampling distribution (yellow histogram) is
-very similar to the true (exact) sampling distribution (grey histogram). <a href="#question2.1.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.4"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 4.</p>
-<ul>
-<li>If the proportion of yellow candies in the original sample is
-close to .2, that is, five out of twenty-five candies in the sample are yellow, the
-bootstrapped sampling distribution (yellow histogram) is very similar to the
-true (exact) sampling distribution (grey histogram).</li>
-<li>If there are considerably less or more than five yellow candies in the sample,
-however, the bootstrapped sampling distribution is quite different from the
-true sampling distribution. Conclusions based on the bootstrapped sampling
-distribution will be wrong. Especially the mean (horizontal location) of the
-bootstrapped sampling distribution is different. The shape of the distribution
-may still be nearly the same.</li>
-<li>Note that the true sampling distribution, represented by the grey histogram,
-remains the same because the proportion of yellow candies in the population
-remains the same, namely 20 per cent. <a href="#question2.1.4"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.5"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 5.</p>
-<ul>
-<li>If we draw a sample without replacement from our initial sample of the same
-size as the initial sample, the new sample must contain all observations from
-the initial sample. As a result, the new sample is identical to the initial
-sample. All samples that we draw are identical. This does not provide an
-interesting sampling distribution.</li>
-<li>Drawing with replacement, an observation can be drawn more than once. As a
-result, the same candy number may appear more than once in the new sample.
-Otherwise, we could never have more candies of a particular color in the
-bootstrapped sample than in the original sample (five candies of each color).
-Each new sample drawn with replacement from the original sample can be
-different, so the proportion of yellow candies varies across these bootstrap
-samples. We can create a meaningful sampling distribution from these varying
-proportions of yellow candies. <a href="#question2.1.5"><img src="icons/2question.png" width=161px
-align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.6"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 6.</p>
-<ul>
-<li>If you change sample size repeatedly between 15 and 45, you will see that
-the bootstrapped sampling distribution (yellow histogram) jumps around the
-true sampling distribution (grey histogram).</li>
-<li>For relatively small sample sizes, the bootstrapped sampling distribution is
-often quite different from the true sampling distribution.</li>
-<li>At larger sample sizes, say between 120 and 150, the bootstrapped sampling
-distribution overlaps the true sampling distribution much more frequently. So
-for larger samples, we can trust the bootstrapped sampling distribution more.
-But even then, it can sometimes be quite off the mark. <a href="#question2.1.6"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.7"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 7.</p>
-<ul>
-<li>The proportion of yellow candies in larger samples is more often close to
-the proportion in the population: 0.2. This is the reason that the
-bootstrapped sampling distribution resembles the true sampling
-distribution more often for a larger sample. <a href="#question2.1.7"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer2.1.8"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 8.</p>
-<ul>
-<li>If we draw an initial sample without any yellow candies, none of the
-bootstrap samples can include yellow candies. As a result, the count of
-samples with yellow candies is always zero.</li>
-<li>The smaller the initial sample, the greater the chance of having a sample
-without yellow candies. <a href="#question2.1.8"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
+<p><A name="answer2.1.1"></A></p>
+<p><A name="answer2.1.2"></A></p>
+<p><A name="answer2.1.3"></A></p>
+<p><A name="answer2.1.4"></A></p>
+<p><A name="answer2.1.5"></A></p>
+<p><A name="answer2.1.6"></A></p>
+<p><A name="answer2.1.7"></A></p>
+<p><A name="answer2.1.8"></A></p>
 </div>
 </div>
             </section>

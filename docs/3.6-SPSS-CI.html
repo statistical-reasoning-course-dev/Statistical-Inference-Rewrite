@@ -593,148 +593,17 @@ Figure 3.8: Setting the confidence level in SPSS.
 </div>
 <div id="exercises-2" class="section level3 hasAnchor" number="3.6.2">
 <h3><span class="header-section-number">3.6.2</span> Exercises<a href="3.6-SPSS-CI.html#exercises-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="question3.6.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li><p>Download the data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav">candies.sav</a> and use SPSS to calculate the 95% and 99% confidence intervals of average candy weight.</p>
-<p>Hint: Use the <em>Analyze &gt; Compare Means &gt; One-Sample T Test</em> command and leave the test value at zero. As an alternative, use <em>Analyze &gt; Descriptive statistics &gt; Explore</em>.</p>
-<p>Interpret the results and explain why the 99% confidence interval is wider than the 95% confidence interval. <a href="#answer3.6.1"><img src="icons/2answer.png" width=115px align="right"></a></p>
-</div></li>
-</ol>
-<A name="question3.6.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li><p>Let SPSS calculate the 95% confidence interval for median candy weight. Interpret the result. The data are in “candies.sav”.</p>
-<p>Remember the SPSS exercises in Section <a href="2.2-boot-spss.html#boot-spss">2.2</a>. <a href="#answer3.6.2"><img src="icons/2answer.png" width=115px align="right"></a></p>
-</div></li>
-</ol>
-<A name="question3.6.3"></A>
-
-<div class="rmdquestion">
-<ol start="3" style="list-style-type: decimal">
-<li><p>Use SPSS to determine the 95% confidence interval for a paired-samples <em>t</em> test on candy colour fading under sunlight (variables colour_pre and colour_post in “candies.sav”). In your interpretation of the confidence interval, clarify the meaning of the statistic for which the confidence interval was calculated.</p>
-<p>The paired-samples <em>t</em> test is available in SPSS under <em>Analyze &gt; Compare Means</em>. <a href="#answer3.6.3"><img src="icons/2answer.png" width=115px align="right"></a></p>
-</div></li>
-</ol>
-<A name="question3.6.4"></A>
-
-<div class="rmdquestion">
-<ol start="4" style="list-style-type: decimal">
-<li><p>Use SPSS to determine if candy colourfulness after exposure to sunlight (colour_post) depends on candy weight and candy sweetness. Interpret the 95% confidence intervals for both effects.</p>
-<p>Hint: Use regression analysis, which is available under <em>Analyze &gt; Regression &gt; Linear</em> in SPSS. <a href="#answer3.6.4"><img src="icons/2answer.png" width=115px align="right"></a></p>
-</div></li>
-</ol>
+<p><A name="question3.6.1"></A></p>
+<p><A name="question3.6.2"></A></p>
+<p><A name="question3.6.3"></A></p>
+<p><A name="question3.6.4"></A></p>
 </div>
 <div id="answers-14" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="3.6-SPSS-CI.html#answers-14" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer3.6.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 1.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=weight<br />
-/FORMAT=NOTABLE<br />
-/HISTOGRAM NORMAL<br />
-/ORDER=ANALYSIS.<br />
-* 95% CI.<br />
-T-TEST<br />
-/TESTVAL=0<br />
-/MISSING=ANALYSIS<br />
-/VARIABLES=weight<br />
-/CRITERIA=CI(.95).<br />
-* 99% CI.<br />
-T-TEST<br />
-/TESTVAL=0<br />
-/MISSING=ANALYSIS<br />
-/VARIABLES=weight<br />
-/CRITERIA=CI(.99).</p>
-<p>Check data:</p>
-<p>There are no impossible values on variable weight.</p>
-<p>Check assumptions:</p>
-<p>This is a <em>t</em> test, so sample size should be over 30 or the variable should be
-normally distributed in the population. The size of this sample (<em>N</em> = 50) is
-well over 30, so we do not have to worry about the normal distribution of candy
-weight in the population.</p>
-<p>Interpret the results:</p>
-Average weight of candies in the population is between 2.79 and 2.88 grams with 95% confidence and between 2.77 and 2.90 grams with 99% confidence.<br />
-If we want to be more confident, we must allow for a broader range of values, so the confidence interval is wider. <a href="#question3.6.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-<A name="answer3.6.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 2.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=weight<br />
-/ORDER=ANALYSIS.<br />
-* Bootstrap on median candy weight.<br />
-BOOTSTRAP<br />
-/SAMPLING METHOD=SIMPLE<br />
-/VARIABLES INPUT=weight<br />
-/CRITERIA CILEVEL=95 CITYPE=BCA NSAMPLES=5000<br />
-/MISSING USERMISSING=EXCLUDE.<br />
-FREQUENCIES VARIABLES=weight<br />
-/FORMAT=NOTABLE<br />
-/STATISTICS=MEDIAN<br />
-/ORDER=ANALYSIS.</p>
-<p>Check data:</p>
-<p>There are no impossible values on the weight variable.</p>
-<p>Check assumptions:</p>
-<p>The measurement level of variable weight is OK.</p>
-<p>Interpret the results:</p>
-Median candy weight in the sample is 2.81 grams. With 95% confidence, we expect median candy weight to be between 2.77 (or 2.78) and 2.92 (or 2.91) grams in the population of all candies.
-The 95% interval borders can be slightly different because bootstrapping takes random samples. <a href="#question3.6.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-<A name="answer3.6.3"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 3.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=colour_pre colour_post<br />
-/FORMAT=NOTABLE<br />
-/HISTOGRAM NORMAL<br />
-/ORDER=ANALYSIS.<br />
-* Paired-samples t test.<br />
-T-TEST PAIRS=colour_pre WITH colour_post (PAIRED)<br />
-/CRITERIA=CI(.9500)<br />
-/MISSING=ANALYSIS.</p>
-<p>Check data:</p>
-<p>There are no impossible values on variable weight.</p>
-<p>Check assumptions:</p>
-<p>Sample size (<em>N</em> = 50) is well over 30, so we do not have to worry about the normal distribution of candy weight in the population.</p>
-<p>Interpret the results:</p>
-We are 95% confident that candy colourfulness in the population fades under sunlight by 1.59 to 2.17 points on average. <a href="#question3.6.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-<A name="answer3.6.4"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 4.</p>
-<p>SPSS syntax:</p>
-<p>* Check data: Assumption checks in Chapter 8.<br />
-* Check for impossible values.<br />
-FREQUENCIES VARIABLES=weight sweetness colour_post<br />
-/ORDER=ANALYSIS.<br />
-* Regression of colour_post on weight and sweetness.<br />
-REGRESSION<br />
-/MISSING LISTWISE<br />
-/STATISTICS COEFF OUTS CI(95) R ANOVA<br />
-/CRITERIA=PIN(.05) POUT(.10)<br />
-/NOORIGIN<br />
-/DEPENDENT colour_post<br />
-/METHOD=ENTER weight sweetness.</p>
-<p>Do not forget to ask for the confidence intervals under the <em>Statistics</em> button in the regression dialog screen!</p>
-<p>Check data:</p>
-<p>There are no impossible values on the variables.</p>
-<p>Check assumptions:</p>
-<p>Assumptions are presented later (Chapter 8).</p>
-<p>Interpret the results:</p>
-We are 95% confident that candy colourfulness decreases by 0.19 to 0.46 for each additional unit of sweetness in the population.<br />
-We are not confident about the direction of the effect of candy weight on colourfulness. This effect can be negative (up to a 1.15 decrease for each additional candy weight gram with 95% confidence) or positive (up to a 2.28 increase for each additional candy weight gram with 95% confidence). <a href="#question3.6.4"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
+<p><A name="answer3.6.1"></A></p>
+<p><A name="answer3.6.2"></A></p>
+<p><A name="answer3.6.3"></A></p>
+<p><A name="answer3.6.4"></A></p>
 </div>
 </div>
             </section>

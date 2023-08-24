@@ -588,20 +588,8 @@ div.csl-indent {
 Figure 10.4: When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
 </p>
 </div>
-<A name="question9.3.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>If you add a confounder, when is a partial regression effect weaker than the simple regression effect and when is it stronger? Experiment with Figure <a href="10.3-confounders.html#fig:mediation-confoundertypes">10.4</a> and try to formulate a general rule. <a href="#answer9.3.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question9.3.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>According to your general rule, what happens to the partial regression effect if we would add interest in sports as a predictor, which is negatively correlated with interest in politics but positively correlated with newspaper reading time? <a href="#answer9.3.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question9.3.1"></A></p>
+<p><A name="question9.3.2"></A></p>
 <p>In the preceding section, we learned that a partial effect expressed by a regression coefficient may change if a new predictor is added to the regression model. The partial effect of a predictor changes if the added variable is a confounder: It is correlated both with the predictor and dependent variable. In other words, there is an indirect correlation between the predictor and dependent variable due to the confounding variable.</p>
 <p>The partial effect of a predictor can become stronger, weaker, or even change direction if we add a confounder to the regression model. The following sections describe the two types of confounders that are responsible for these changes: suppressors and reinforcers.</p>
 <div id="suppression" class="section level3 hasAnchor" number="10.3.1">
@@ -630,10 +618,6 @@ Figure 10.6: Interest in politics as a confounder of the effect of news site use
 </p>
 </div>
 <p>Now, let us have a look at the situation in which the indirect correlation is positive but the regression effect of the predictor is negative. Just reverse the example and make news site use the predictor and political interest the confounder. The regression effect of news site use on newspaper reading time is negative if people tend to use news sites instead of newspapers as sources of information. The indirect correlation due to political interest, however, is positive if politically interested people use news sites more and spend more time on reading newspapers. In this scenario, the negative effect of news site use on newspaper reading is underestimated if we do not control for political interest.</p>
-
-<div class="rmdimportant">
-A variable is a suppressor (1) if it is not included in the regression model and (2) it establishes an indirect correlation between predictor and dependent variable that has the opposite sign of the current effect of the predictor on the dependent variable.
-</div>
 <p>Suppression can have surprising effects. If the predictor’s original effect was close to zero, adding a suppressor variable to the model will strengthen the effect. An effect that we initially believed to be absent may turn out to be substantial and statistically significant. If our regression model tells us that our predictor does not have an effect, we cannot rule out that it does have an effect that is suppressed by a suppressor variable.</p>
 <p>In addition, indirect correlations due to other predictors can add so much to the original partial effect of a predictor that the standardized regression coefficient becomes higher than 1 or lower than -1. This illustrates that standardized regression coefficients are not correlations in multiple regression models because correlations can never be higher than 1 or lower than -1. In contrast, the standardized regression coefficient in a simple regression model is equal to the correlation between predictor and outcome. This is an important difference between simple and multiple regression models.</p>
 </div>
@@ -659,40 +643,12 @@ Figure 10.8: Political cynicism as a confounder of the effect of interest in pol
 <p>As with suppression, spuriousness can have surprising results. It may happen that the entire estimated effect of a predictor is spurious. Adding a reinforcer variable to the regression model may make the entire effect of a predictor disappear. In other words, an effect that we initially thought was substantial may turn out to be too weak to be of interest.</p>
 <p>Actually, the indirect correlation between a predictor and dependent variable due to a confounding variable can be so strong that a positive effect in a model without the confounder changes into a negative effect in a model that includes the variable. Adding the reinforcer to the model, the effect of the predictor not only moves towards zero (becoming weaker), but it moves beyond zero into a negative effect. It may even move so far beyond zero that the new negative effect is stronger than the reinforced positive effect.</p>
 <p>The opposite may happen as well: An initially negative effect may become positive if a strong reinforcer variable is added to the model. This would be the case if the indirect correlation between political interest and newspaper reading time via news site use is strongly negative, resulting in a negative effect of political interest on reading time if news site use is left out of the model. Adding news site use to the model may then result in a positive effect of political interest.</p>
-
-<div class="rmdimportant">
-A variable is a reinforcer (1) if it is not included in the regression model and (2) it establishes an indirect correlation between predictor and dependent variable that has the same sign as the current effect of the predictor on the dependent variable.
-</div>
 <p>To summarize the two types of confounders:</p>
-
-<div class="rmdimportant">
-<ul>
-<li><p>If we add a <em>suppressor</em> to the model, the suppressed effect moves away from zero because suppression disappears. A positive effect becomes more strongly positive, a negative effect becomes more strongly negative.</p></li>
-<li><p>If we add a <em>reinforcer</em> to the model, the reinforced effect moves towards the opposite side because reinforcement disappears. A positive effect becomes less strongly positive or even negative and a negative effect becomes less strongly negative or even positive.</p>
-</div></li>
-</ul>
 </div>
 <div id="answers-46" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="10.3-confounders.html#answers-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer9.3.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>Note that the simple effect is the regression coefficient if we do not control for any confounders, so political interest is the only predictor. The partial effect is the regression coefficient for the effect of political interest on reading time if we control for at least one other predictor. Then, political interest is not the only predictor in the regression model.</li>
-<li>If the indirect correlation has the opposite sign of the direct effect of political interest on reading time, which is positive here, the partial effect is stronger than the simple effect. An indirect correlation is negative if one of its two correlations is negative and the other is positive.</li>
-<li>If the indirect correlation has the same sign as the direct effect of political interest on reading time, the partial effect is weaker than the simple effect. It can also change sign, which happens when we add political cynicism to the model. An indirect correlation is positive if none or both of its two correlations are negative.</li>
-<li>Note that we compare the signs of the correlations of the confounder with the sign of the regression effect of the predictor in the model without the confounder. A variable is no longer a confounder if it is included in the model. <a href="#question9.3.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer9.3.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>The indirect correlation between political interest and reading time created by interest in sports is negative. It is the opposite of the sign of the direct effect, so the partial effect is stronger if we include interest in sports as a predictor in the regression model. <a href="#question9.3.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
+<p><A name="answer9.3.1"></A></p>
+<p><A name="answer9.3.2"></A></p>
 </div>
 </div>
             </section>

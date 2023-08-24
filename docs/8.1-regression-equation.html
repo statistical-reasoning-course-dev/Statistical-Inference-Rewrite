@@ -614,26 +614,8 @@ Figure 8.4: Predicting attitude towards smoking from exposure to an anti-smoking
 </p>
 </div>
 <p><A name="question8.1.1"></A></p>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>What is the predicted attitude for a person with zero exposure to the campaign? Explain why this value equals the constant of the regression equation. <a href="#answer8.1.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.2"></A></p>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>What does the vertical orange line in Figure <a href="8.1-regression-equation.html#fig:regression-continuous">8.4</a> mean if exposure is set to 1? <a href="#answer8.1.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.3"></A></p>
-
-<div class="rmdquestion">
-<ol start="3" style="list-style-type: decimal">
-<li>Use the equation to calculate the predicted attitude if exposure is 10. Check your answer using the exposure slider. What is troublesome about this predicted value? <a href="#answer8.1.3"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation [Eq. <a href="8.1-regression-equation.html#eq:regrexample">(8.3)</a>]. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.</p>
 <span class="math display" id="eq:regrexample">\[\begin{equation}
 \small
@@ -664,11 +646,6 @@ Figure 8.4: Predicting attitude towards smoking from exposure to an anti-smoking
 \tag{8.5}
 \normalsize
 \end{equation}\]</span>
-
-<div class="rmdimportant">
-<p>The unstandardized regression coefficient <span class="math inline">\(b\)</span> represents the predicted difference in the dependent variable for a difference of one unit in the independent variable.</p>
-It is the slope of the regression line.
-</div>
 <p>Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in Figure <a href="8.1-regression-equation.html#fig:regression-continuous">8.4</a>, one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.</p>
 <p>In the data, the smallest exposure score is (about) zero, predicting a positive attitude of 1.6. The largest observed exposure score is around eight, predicting a negative attitude of -3.2. If exposure causes the predicted differences in attitude, the campaign would have interesting effects. It may change a positive attitude into a rather strong negative attitude.</p>
 <p>If we want to apply a rule of thumb for the strength of the effect, we usually look at the standardized regression coefficient (<span class="math inline">\(b^*\)</span> according to APA, <em>Beta</em> in SPSS output). See Section <a href="5.2-effectsize.html#assoc-size">5.2.5</a> for some rules of thumb for effect size interpretation.</p>
@@ -686,19 +663,7 @@ Figure 8.5: What is the difference in attitude between non-smokers and smokers?
 </p>
 </div>
 <p><A name="question8.1.4"></A></p>
-
-<div class="rmdquestion">
-<ol start="4" style="list-style-type: decimal">
-<li>What is the relation between the constant of the regression line in Figure <a href="8.1-regression-equation.html#fig:regression-dichotomy">8.5</a> and group averages? Motivate your answer by changing the average attitude towards smoking for non-smokers in Figure <a href="8.1-regression-equation.html#fig:regression-dichotomy">8.5</a>. <a href="#answer8.1.4"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.5"></A></p>
-
-<div class="rmdquestion">
-<ol start="5" style="list-style-type: decimal">
-<li>Change the slider for smokers to detect the relation between group means and the unstandardized regression coefficient (<span class="math inline">\(b\)</span>). How can we calculate the unstandardized regression coefficient (<span class="math inline">\(b\)</span>) from the group averages? <a href="#answer8.1.5"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>The interpretation of the effect of a dichotomous independent variable in a regression model is quite different from the interpretation of a numerical independent variable’s effect.</p>
 <p>It does not make sense to interpret the unstandardized regression coefficient of, for example, smoking status as predicted difference in attitude for a difference of one ‘more’ smoking status. After all, the 0 and 1 scores do not mean that there is one unit ‘more’ smoking. Instead, the coefficient indicates that we are dealing with different groups: smokers versus non-smokers.</p>
 <p>If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first equation <a href="8.1-regression-equation.html#eq:regdicho1">(8.6)</a> represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely <span class="math inline">\(b\)</span>.</p>
@@ -724,10 +689,6 @@ Figure 8.5: What is the difference in attitude between non-smokers and smokers?
 \normalsize
 \end{equation}\]</span>
 <p>If you compare the final equations for smokers [Eq. <a href="8.1-regression-equation.html#eq:regdicho1">(8.6)</a>] and non-smokers [Eq. <a href="8.1-regression-equation.html#eq:regdicho0">(8.7)</a>], the only difference is <span class="math inline">\(b\)</span>, which is present for smokers but absent for non-smokers. It is the difference between the average score on the dependent variable (attitude) for smokers and the average score for non-smokers. We are testing a mean difference. Actually, this is exactly the same as an independent-samples <em>t</em> test!</p>
-
-<div class="rmdimportant">
-The unstandardized regression coefficient for a dummy (0/1) variable represents the difference between the average outcome score of the group coded as ‘1’ and the average outcome score of the group coded as ‘0’.
-</div>
 <p>Imagine that <span class="math inline">\(b\)</span> equals 1.6. This indicates that the average attitude towards smoking among smokers (coded ‘1’) is 1.6 units above the average attitude among non-smokers (coded ‘0’). Is this a small or large effect? In the case of a dichotomous independent variable, we should <strong>not</strong> use the standardized regression coefficient to evaluate effect size. The standardized coefficient depends on the distribution of 1s and 0s, that is, which part of the respondents are smokers. But this should be irrelevant to the size of the effect.</p>
 <p>Therefore, it is recommended to interpret only the unstandardized regression coefficient for a dichotomous independent variable. Interpret it as the difference in average scores for two groups.</p>
 </div>
@@ -742,26 +703,8 @@ Figure 8.6: What are the predictive effects of smoking status?
 </p>
 </div>
 <p><A name="question8.1.6"></A></p>
-
-<div class="rmdquestion">
-<ol start="6" style="list-style-type: decimal">
-<li>Interpret the effects of smoking status (grey and black <em>b</em>’s) in Figure <a href="8.1-regression-equation.html#fig:regression-categorical">8.6</a>. <a href="#answer8.1.6"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.7"></A></p>
-
-<div class="rmdquestion">
-<ol start="7" style="list-style-type: decimal">
-<li>In the initial state of Figure <a href="8.1-regression-equation.html#fig:regression-categorical">8.6</a>, can you tell whether the attitude of smokers is significantly different from the attitude of former smokers? If not, how can you get the <em>p</em> value that you need? <a href="#answer8.1.7"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.8"></A></p>
-
-<div class="rmdquestion">
-<ol start="8" style="list-style-type: decimal">
-<li>Select some new plots. For each plot, determine which reference group you think is most convenient for summarizing the results. <a href="#answer8.1.8"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>In this example, smoking status is measured with three categories: (1) non-smokers, (2) former smokers, and (3) smokers. Let us use the term <em>categorical variable</em> only for variables containing three or more categories or groups. This makes it easy to distinguish them from dichotomous variables. This distinction is important because we can include a dichotomous variable straight away as a predictor in a regression model but we cannot do so for a variable with more than two categories. We can only include such a categorical independent variable if we change it into a set of dichotomies.</p>
 <p>We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables <em>neversmoked</em>, <em>smokesnomore</em>, and <em>smoking</em>. Every respondent would score 1 on one of the three variables and 0 on the other two variables (Table <a href="8.1-regression-equation.html#tab:dummytable">8.1</a>). These variables are called <em>dummy variables</em> or <em>indicator variables</em>.</p>
 <table class="table" style="font-size: 12px; width: auto !important; float: right; margin-left: 10px;">
@@ -830,11 +773,6 @@ smoking
 </tbody>
 </table>
 <p>If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables <strong>except one</strong>. In the example, we must include two out of the three dummy variables. Equation <a href="8.1-regression-equation.html#eq:regcat">(8.8)</a> includes dummy variables for former smokers (<span class="math inline">\(smokesnomore\)</span>) and smokers (<span class="math inline">\(smoking\)</span>).</p>
-
-<div class="rmdimportant">
-<p>Include dummy variables as independent variables for <em>all except one</em> categories of a categorical variable.</p>
-The category without dummy variable is the <em>reference group</em>.
-</div>
 <span class="math display" id="eq:regcat">\[\begin{equation}
 \small
 \begin{split}
@@ -905,26 +843,8 @@ Figure 8.7: What are the residuals and how are they distributed?
 </p>
 </div>
 <p><A name="question8.1.9"></A></p>
-
-<div class="rmdquestion">
-<ol start="9" style="list-style-type: decimal">
-<li>What do the lines between the dots and the (blue) regression line represent in the scatter plot at the left of Figure <a href="8.1-regression-equation.html#fig:resid-normal">8.7</a>? <a href="#answer8.1.9"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.10"></A></p>
-
-<div class="rmdquestion">
-<ol start="10" style="list-style-type: decimal">
-<li>What is the relation between the scatter plot and the histogram? Can you point out the dot in the scatter plot that belongs to the leftmost bar in the histogram? Tip: Drag your mouse around a dot while pressing the left mouse button to see its residual in the histogram. <a href="#answer8.1.10"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.11"></A></p>
-
-<div class="rmdquestion">
-<ol start="11" style="list-style-type: decimal">
-<li>Draw some new samples. Are the residuals always normally distributed: Does the top of the histogram coincide with the center of the normal distribution and are the left and right tails equally “fat”? <a href="#answer8.1.11"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>If we sample from a population where attitude towards smoking depends on exposure, smoking status, and contact with smokers, we will be able to predict attitude from the independent variables in our sample. Our predictions will not be perfect, sometimes too high and sometimes too low. The differences between predicted and observed attitude scores are the residuals.</p>
 <p>If our sample is truly a random sample with independent and identically distributed observations, the sizes of our errors (residuals) should be normally distributed for each value of the dependent variable, that is, attitude in our example. The residuals should result from chance (see Section <a href="6.3-no-random-sample.html#datageneratingprocess">6.3.2</a> for the relation between chance and a normal distribution).</p>
 <p>So for all possible values of the dependent variable, we must collect the residuals for the observations that have this score on the dependent variable. For example, we should select all respondents who score 4.5 on the attitude towards smoking scale. Then, we select the residuals for these respondents and see whether they are approximately normally distributed.</p>
@@ -943,19 +863,7 @@ Figure 8.8: How do residuals tell us whether the relation is linear?
 </p>
 </div>
 <p><A name="question8.1.12"></A></p>
-
-<div class="rmdquestion">
-<ol start="12" style="list-style-type: decimal">
-<li>Which dot in the plot of residuals (Figure <a href="8.1-regression-equation.html#fig:pred-linearity">8.8</a> bottom) corresponds with the left-most observation (dot) in the scatter plot of attitude by exposure (Figure <a href="8.1-regression-equation.html#fig:pred-linearity">8.8</a> top)? Drag your mouse around the left-most dot while pressing the left mouse button to check your choice. Repeat for more dots until you understand the relation between the two plots. <a href="#answer8.1.12"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.13"></A></p>
-
-<div class="rmdquestion">
-<ol start="13" style="list-style-type: decimal">
-<li>Select a U-shaped curve in Figure <a href="8.1-regression-equation.html#fig:pred-linearity">8.8</a>. Explain how the plot of residuals tells you that the association is not linear. Do the same for a curved association. <a href="#answer8.1.13"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>The relation between an independent and dependent variable, for example, exposure and attitude towards smoking, does not have to be linear. It can be curved or have some other fancy shape. Then, the linearity assumption is not met. A straight regression line does not nicely fit such data.</p>
 <p>We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in Figure <a href="8.1-regression-equation.html#fig:pred-linearity">8.8</a>. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.</p>
 <p>This indicates that our linear model does not fit the data. If it would fit, the average prediction error is zero for all predicted levels of the dependent variable. Graphically speaking, our linear model matches the data if positive prediction errors (residuals) are more or less balanced by negative prediction errors everywhere along the regression line.</p>
@@ -971,26 +879,8 @@ Figure 8.9: How do residuals tell us that we predict all values equally well?
 </p>
 </div>
 <p><A name="question8.1.14"></A></p>
-
-<div class="rmdquestion">
-<ol start="14" style="list-style-type: decimal">
-<li>What strikes you about the residuals in Figure <a href="8.1-regression-equation.html#fig:pred-homoscedasticity">8.9</a>? Remember that residuals represent prediction errors. <a href="#answer8.1.14"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.15"></A></p>
-
-<div class="rmdquestion">
-<ol start="15" style="list-style-type: decimal">
-<li>What happens if you move the slider to the far left? <a href="#answer8.1.15"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question8.1.16"></A></p>
-
-<div class="rmdquestion">
-<ol start="16" style="list-style-type: decimal">
-<li>At which slider position are all attitude levels predicted more or less equally well or equally badly? <a href="#answer8.1.16"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p>The other assumption states that we can predict the dependent variable equally well at all dependent variable levels. In other words, the prediction errors (residuals) are more or less the same at all levels of the dependent variable. This is called <em>homoscedasticity</em>. If we have large prediction errors at some levels of the dependent variable, we should also have large prediction errors at other levels. As a result, the vertical width of the residuals by predictions scatter plot should be more or less the same from left to right. The dots representing residuals resemble a more or less rectangular band.</p>
 <p>If the prediction errors are not more or less equal for all levels of the predicted scores, our model is better at predicting some values than other values. For example, low values can be predicted better than high values of the dependent variable. The dots representing residuals resemble a cone. This may signal, among other things, that we need to include moderation in the model.</p>
 </div>
@@ -998,248 +888,21 @@ Figure 8.9: How do residuals tell us that we predict all values equally well?
 <div id="answers-36" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="8.1-regression-equation.html#answers-36" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="answer8.1.1"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>The predicted attitude is 1.6.</li>
-<li>This equals the constant of a regression equation because we plug in zero (0) as the value of exposure, so the regression equation simplifies to:</li>
-</ul>
-<blockquote>
-<p><em>attitude</em> = 1.6 + <em>b</em> * 0 = 1.6 + 0.</p>
-</blockquote>
-<ul>
-<li>In other words, the constant is the predicted value of the dependent variable if all predictors are zero. <a href="#question8.1.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.2"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>The vertical orange line shows the difference between the predicted attitude if exposure is one and the predicted attitude if exposure is zero.</li>
-</ul>
-<p><img src="figures/S8_1Q2.png" /></p>
-<ul>
-<li>This difference is captured by the unstandardized regression coefficient, denoted by the symbol <span class="math inline">\(b\)</span>.</li>
-<li>More generally, this coefficient tells us the predicted difference in the dependent variable for a difference of one unit in the independent variable.</li>
-<li>According to the equation, the predicted attitude decreases by 0.6 for a one unit difference (0 to 1) in exposure.</li>
-<li>This is the decrease from 1.6 to 1.0 signalled by the vertical orange line. <a href="#question8.1.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.3"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 3.</p>
-<ul>
-<li>Just replace exposure by 10 in the equation and calculate the result:</li>
-</ul>
-<blockquote>
-<p><em>attitude</em> = 1.6 + (-0.6) * 10 = 1.6 + -6.0 = -4.4</p>
-</blockquote>
-<ul>
-<li>It is troublesome that we do not have any respondents with exposure scores near 10. The highest exposure scores are below 8. We cannot check that the regression line still fits the observations. We should not trust the regression line outside the range of values that we have observed for the predictor. <a href="#question8.1.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.4"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 4.</p>
-<ul>
-<li>Here, the constant is equal to the average attitude of non-smokers.</li>
-<li>Use the slider to change the average attitude towards smoking for
-non-smokers.</li>
-<li>This will change the value of the constant in the regression equation. Why?</li>
-<li>Non-smokers score 0 on the (smoking) status variable. The regression
-equation for non-smokers, then, is:</li>
-</ul>
-<blockquote>
-<p><em>attitude</em> = <em>constant</em> + <em>b</em> * <em>status</em> = <em>constant</em> + <em>b</em> * 0 = <em>constant</em></p>
-</blockquote>
-<ul>
-<li>Thus, we see that the predicted attitude for non-smokers equals the
-constant. In addition, we know that the predicted value for a group
-equals the average score of the group. As a result, the constant equals
-the average score of non-smokers in this example.</li>
-<li>Note that this is true only if the group is coded zero and if the regression
-model contains only one independent variable (simple regression model). <a href="#question8.1.4"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.5"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 5.</p>
-<ul>
-<li><p>In this example, the unstandardized regression coefficient (<em>b</em>) is equal to
-the average attitude score of smokers minus the average attitude score of
-non-smokers.</p></li>
-<li><p>This is so because smokers are coded as ones and non-smokers are coded as
-zeros. The difference between smokers and non-smokers on the smoking status
-variable is one. The regression coefficient (<em>b</em>) tells us the difference in
-predicted attitude scores for a difference of one unit on the independent
-variable. As a result, the unstandardized regression coefficient (<em>b</em>) tells us
-the difference between the average (= predicted value) for smokers and the
-average (= predicted value) for non-smokers.</p></li>
-<li><p>With equations:</p></li>
-<li><p>Smokers average: <em>attitude</em> = <em>constant</em> + <em>b</em> * <em>status</em> = <em>constant</em> + <em>b</em> * 1 = <em>constant</em> + <em>b</em></p></li>
-<li><p>Non-smokers average: <em>attitude</em> = <em>constant</em> + <em>b</em> * <em>status</em> = <em>constant</em> + <em>b</em> * 0 = <em>constant</em></p></li>
-<li><p>Smokers - Non-smokers: <em>(constant + b)</em> - <em>constant</em> = <em>b</em> <a href="#question8.1.5"><img src="icons/2question.png" width=161px align="right"></a></p>
-</div></li>
-</ul>
 <p><A name="answer8.1.6"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 6.</p>
-<ul>
-<li>The precise answer to this question obviously depends on the group means in your plot.</li>
-<li>In general, the interpretation focuses on differences between the mean score of the reference group and the mean scores of the other groups. In this example, we are talking about average attitude towards smoking for each group defined by their smoking status. The reference group is selected with the Select reference drop-down list.</li>
-</ul>
-<p><img src="figures/S8_1Q6.png" /></p>
-<ul>
-<li>The unstandardized regression coefficient (<em>b</em>) tells us how much larger (positive coefficient) or smaller (negative coefficient) the mean score of a group is in comparison to the reference group. In the above figure, the regression coefficient for smokers versus non-smokers (<em>b</em> = 4.39) is equal to the average of the non-reference group (smokers: mean = 1.40) minus the average of the reference group (non-smokers: mean = -2.99).</li>
-<li>The associated <em>p</em> value tells us how uncertain we are that there truly is a mean difference in the population. It tests the null hypothesis that the two groups have the same mean score on the dependent variable in the population.
-<a href="#question8.1.6"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.7"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 7.</p>
-<ul>
-<li>In the initial state of this figure, non-smokers are the reference group. The <em>p</em> values, then, are associated with differences between on the one hand non-smokers and on the other hand people who stopped smoking or are still smoking. The comparison between the latter two is not included.</li>
-<li>It is hazardous to derive the <em>p</em> value of the difference between two non-reference groups from the <em>p</em> values of the differences between these groups and the reference group. Remember that a <em>p</em> value depends on both effect size (difference between group means) and on the standard error. The latter depends, among other things, on the sample size per group. All of these aspects may vary across groups, so we cannot guess the <em>p</em> value of the mean difference between two groups.</li>
-<li>The solution is to re-estimate the regression model with one of the groups
-that you want to compare as reference group. If former smokers or smokers are the reference group, you obtain a <em>p</em> value for the difference between former smokers and smokers. Select one of these groups in the drop-down list and there you go. <a href="#question8.1.7"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.8"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 8.</p>
-<p>There is not one right way of choosing a reference group; think about
-arguments.</p>
-<ol style="list-style-type: decimal">
-<li>Substantive interest: Does your research focus on one particular group? If
-so, use this group as the reference group, so it is included in all
-comparisons. If, for example, the research is meant to support an anti-smoking
-campaign, the group of current smokers is probably of central interest. Make
-them your reference group.</li>
-<li>If you expect a particular order in the group means, the group that you
-expect to be in the middle is a good choice as reference group. If, for
-example, you expect that attitude towards smoking is more positive for smokers
-than for former smokers, and the latter are more positive than people who never
-smoked, the former smokers are expected to be in the middle. If we use them as
-reference group, we can test if they are more positive than people who never
-smoked, and more negative than people who are currently smoking. If both differences are statistically significant, the difference between the highest scoring group and the lowest scoring group must also be statistically significant.</li>
-<li>If two groups have relatively similar means in comparison to the third
-group, you may be interested to know if the relatively small difference is
-statistically significant. In this case, one of the two groups that have
-similar means is a good reference group. <a href="#question8.1.8"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ol>
 <p><A name="answer8.1.9"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 9.</p>
-<ul>
-<li>A red line depicts the residual or prediction error: The difference between
-the actual dependent variable score (attitude) for a respondent (dot) and the
-dependent variable score predicted by the regression line (blue) for the
-independent variable score (exposure) of the respondent. <a href="#question8.1.9"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.10"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 10.</p>
-<ul>
-<li>The residuals represented by the red lines in the scatterplot are counted in
-the histogram.</li>
-<li>Drag the mouse pointer around one or more dots in the scatterplot while
-pressing the left mouse button to select one or more observations (dots). You
-will see where they are featured in the histogram (blue). The dot that is
-furthest below the regression line is counted in the left-most bar of the
-histogram. <a href="#question8.1.10"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.11"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 11.</p>
-<ul>
-<li>No, sometimes the distribution is clearly skewed (asymmetrical). The top of the histogram is to the right or to the left of the center of the normal distribution and the right tail is shorter and fatter than the left tail or the other way around. <a href="#question8.1.11"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.12"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 12.</p>
-<ul>
-<li>The blue regression line in the top graph represents the predicted values on
-the attitude variable from exposure scores. The predicted attitude value for
-the left-most observation is the value at which the blue line intersects with
-the vertical red line dropping down from that observation.</li>
-<li>The left-most observation is the highest predicted value because the
-regression line slopes down to the right. The highest predicted value is at
-the far right of the residuals by predicted attitude graph (bottom graph)
-because the predicted values are on the horizontal axis of this graph. The
-left-most observation in the top graph, then, must correspond with the
-right-most observation in the bottom graph.</li>
-<li>Note that this is not always true. If the regression slope is positive, that
-is, the regression line goes up from left to right, the left-most observation
-in the top graph has the lowest predicted value, so it corresponds to the
-left-most observation in the residuals plot. <a href="#question8.1.12"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.13"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 13.</p>
-<p><img src="figures/S8_1Q13.png" /></p>
-<ul>
-<li>If the association between two variables is U-shaped, the regression line underestimates the attitude for observations with low exposure, overestimates the attitude for medium values of exposure, and underestimates the attitude for high exposure values. As a result, the residuals have a marked pattern from left to right: a set of positive residuals, followed by a set of negative residuals, followed by a set of positive residuals.</li>
-<li>The same phenomenon occurs for a curved association.</li>
-<li>In contrast, a linear association yields residuals without a clear pattern. At all levels of exposure and, hence, at all predicted levels of attitude, we may encounter both positive and negative residuals. In the residuals by predicted values plot, we have positive and negative residuals everywhere. We may underestimate as well as overestimate the dependent variable everywhere. <a href="#question8.1.13"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.14"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 14.</p>
-<p><img src="figures/S8_1Q14.png" /></p>
-<ul>
-<li>The residuals are larger for higher values of exposure. Residuals are prediction errors, so larger residuals mean worse predictions.</li>
-<li>In the top graph, the residuals tend to become larger from left to right: The residuals are larger for larger exposure scores (horizontal axis in the top graph).</li>
-<li>In this particular example, larger exposure scores predict more negative (‘lower’) attitudes towards smoking (vertical axis in the top graph). We can predict high attitude levels better (smaller residuals) than low attitude levels (larger residuals).</li>
-<li>Attitudes are on the horizontal axis in the bottom graph, so the residuals tend to become smaller if we go from left (low attitude scores) to right (high attitude scores).</li>
-<li>The regression model seems to predict attitude better for participants with low exposure scores than for participants with high exposure scores. <a href="#question8.1.14"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.15"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 15.</p>
-<ul>
-<li>The pattern reverses. Now, residuals are larger for low values of exposure
-or, equivalently in this model with a negative slope, for higher predicted
-values of attitude.</li>
-<li>In this situation, we are better at predicting low attitude levels than high
-attitude levels. Note that we prefer to predict all attitude levels equally
-well. <a href="#question8.1.15"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.1.16"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 16.</p>
-<p><img src="figures/S8_1Q16.png" /></p>
-<ul>
-<li>If the slider is positioned at or around zero, the residuals are more or less equal for low, medium, or high predicted values of attitude.
-Here, we can predict all levels of attitude equally well or equally badly.</li>
-<li>This is best seen in the bottom graph: The vertical spread of observations is more or less the same at the left, middle, and right of the graph. The vertical diameter of the dot cloud is more or less equal from left to right.</li>
-<li>This is how we like the plot to look. <a href="#question8.1.16"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 </div>
 </div>
             </section>

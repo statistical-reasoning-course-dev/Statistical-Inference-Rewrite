@@ -589,20 +589,8 @@ div.csl-indent {
 Figure 11.5: Path diagram with unstandardized effect sizes and their 95% confidence intervals.
 </p>
 </div>
-<A name="question9.6.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>In the causal diagram depicted in Figure <a href="11.2-path-model-with-regression-analysis.html#fig:mediation-regression">11.5</a>, click on a variable name to highlight the effects in a regression analysis with this variable as the outcome. How many regression analyses does the causal diagram include and what do the results mean? <a href="#answer9.6.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question9.6.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>The fat arrows were hypothesized whereas the thin ones were not. Why are the thin ones included in the regression analyses (they have coefficient estimates too)? <a href="#answer9.6.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question9.6.1"></A></p>
+<p><A name="question9.6.2"></A></p>
 <p>In the path diagram displayed in Figure <a href="11.2-path-model-with-regression-analysis.html#fig:mediation-regression">11.5</a>, we would regress newspaper reading time, the final dependent variable, on all other variables. As a next step, we would predict news site use as outcome from all variables except reading time.</p>
 <p>Note that we include education level as predictor of news site use and newspaper reading even if we did not draw a direct arrow. Education level is theorized to be causally prior to news use site, so it can have a direct effect. We hypothesized that it did not have a direct effect on news site use and reading time, so we omitted arrows in our hypothesized model. We must include education as a predictor to check that it does not have these direct effects.</p>
 <p>A third regression model would predict political interest from education level and age. The final regression model predicts education level from age.</p>
@@ -628,13 +616,7 @@ Figure 11.5: Path diagram with unstandardized effect sizes and their 95% confide
 Figure 11.6: Path diagram with unstandardized effect sizes and their 95% confidence intervals.
 </p>
 </div>
-<A name="question9.6.3"></A>
-
-<div class="rmdquestion">
-<ol start="3" style="list-style-type: decimal">
-<li>Calculate the size of each indirect effect of age on news site use in Figure <a href="11.2-path-model-with-regression-analysis.html#fig:pathdiagram-unstandardized">11.6</a>. <a href="#answer9.6.3"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question9.6.3"></A></p>
 <p>It may sound weird that we can multiply the unstandardized regression coefficients but it really works. In Figure <a href="11.2-path-model-with-regression-analysis.html#fig:pathdiagram-unstandardized">11.6</a>, for instance, the unstandardized partial effect of age (measured in tens of years) on interest in politics is 0.14. This means that an additional 10 years of life predict an average increase in interest in politics of 0.14.</p>
 <p>In its turn, interest in politics has an unstandardized effect of 0.52 on reading time (in minutes). An additional unit of interest in politics predicts an average increase in reading time of 0.52 minutes.</p>
 <p>Ten additional years of life only predict an increase of 0.14 in political interest, not a full unit increase. The predicted increase of 0.14 in political interest predicts 0.14 * 0.52 = 0.07 minutes of additional newspaper reading time. As a result, an additional ten years of life predict 0.14 * 0.52 = 0.07 minutes of additional newspaper reading time as an indirect effect via political interest.</p>
@@ -1273,45 +1255,9 @@ Figure 11.9: Causal diagram for the effects of age and interest in politics on n
 </div>
 <div id="answers-50" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="11.2-path-model-with-regression-analysis.html#answers-50" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer9.6.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>There are four variables with incoming arrows in this model. Each of them can be a dependent variable in a regression model, so we can estimate four regression models.</li>
-<li>The unstandardized regression coefficients tell us the (unstandardized) sizes of the direct effects in the path model.</li>
-<li>For example, news site use has an unstandardized effect of -1.55 on newspaper reading time in the diagram. A difference of one unit of news site use predicts a decrease in newspaper reading time of 1.55 units. We are 95 per cent confident that this decrease is in between 0.6 and 2.5 units in the population. <a href="#question9.6.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer9.6.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>If we do not include effects between variables that were not hypothesized in our regression model, we actually assume that the effects are zero.</li>
-<li>If this assumption is not correct, the results for hypothesized effects are wrong.</li>
-<li>If we exclude the effect of a predictor on an outcome from the model, we deny this predictor the opportunity to be a common cause to the outcome and another predictor. Thus, we fail to signal and filter out the spurious correlation due to this common cause.</li>
-<li>For these reasons, it is better to include all variables that are causally prior to the dependent variable as predictors. <a href="#question9.6.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
-<A name="answer9.6.3"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 3.</p>
-<ul>
-<li>Calculate the size of a indirect effect by multiplying the regression coefficients of all direct effects that make up the indirect effect.</li>
-<li>Indirect effects:</li>
-</ul>
-<blockquote>
-<p>Age &gt; Education &gt; Pol. Interest &gt; News Site Use: -0.13 * 0.28 * 0.12 = -0.004
-Age &gt; Education &gt; News Site Use: -0.13 * 0.06 = -0.008
-Age &gt; Pol. Interest &gt; News Site Use: 0.14 * 0.12 = 0.017</p>
-</blockquote>
-<ul>
-<li>All indirects effects are close to zero. An additional 10 years (age is measured in decades) predicts a small decrease in news site use via education (-0.008) and via education via political interest (-0.004). It predicts a small increase via political interest (0.017).</li>
-<li>Be sure not to forget one of the indirect effects! <a href="#question9.6.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
+<p><A name="answer9.6.1"></A></p>
+<p><A name="answer9.6.2"></A></p>
+<p><A name="answer9.6.3"></A></p>
 </div>
 </div>
             </section>

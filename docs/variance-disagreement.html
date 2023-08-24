@@ -597,81 +597,14 @@ Figure 11.20: Levene’s <em>F</em> test on equal variances in SPSS.
 </div>
 <div id="exercises-12" class="section level4 unnumbered hasAnchor">
 <h4>Exercises<a href="variance-disagreement.html#exercises-12" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<A name="question10.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>Data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav">voters.sav</a> contains information about the age and attitude towards immigration among a random sample of voters. Is the attitude towards immigrants equally polarized among young (under 30) and old (30+) voters? Justify your answer with a statistical test. <a href="#answer10.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question10.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>Use the data of Exercise 1. Create a new variable grouping voter’s age with classes 18-35, 36-65, and 66+ years. Is the attitude towards immigrants equally polarized among these three age groups in the population? Justify your answer with a statistical test. <a href="#answer10.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question10.1"></A></p>
+<p><A name="question10.2"></A></p>
 </div>
 </div>
 <div id="answers-53" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="variance-disagreement.html#answers-53" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer10.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 1.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=age_group immigrant<br />
-/ORDER=ANALYSIS.<br />
-* Independent-samples t test with Levene s test.<br />
-T-TEST GROUPS=age_group(1 2)<br />
-/MISSING=ANALYSIS<br />
-/VARIABLES=immigrant<br />
-/CRITERIA=CI(.95).</p>
-<p>Check data:</p>
-<p>There are no impossible values on the variables.</p>
-<p>Check assumptions:</p>
-<p>There are no assumptions that we have to check for<br />
-the Levene test.</p>
-<p>Interpret the results:</p>
-The attitude towards immigrants is more polarized among older voters (<em>SD</em> = 2.06) than among young voters (<em>SD</em> = 1.26).<br />
-The difference in variation is statistically significant, <em>F</em> = 4.99, <em>p</em> = .029.<br />
-Note that SPSS does not report the (two) degrees of freedom of the <em>F</em> test, so we cannot report them either.<br />
-SPSS, however, does report the degrees of freedom of Levene’s <em>F</em> test in a one-way analysis of variance. We could have used that approach here as well. <a href="#question10.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-<A name="answer10.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 2.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=age immigrant<br />
-/ORDER=ANALYSIS.<br />
-* Group age.<br />
-RECODE age (Lowest thru 35=1) (36 thru 65=2)<br />
-(66 thru Highest=3) INTO age3.<br />
-VARIABLE LABELS age3 ‘Voter ages in three groups’.<br />
-EXECUTE.<br />
-* Define Variable Properties.<br />
-*age3.<br />
-VALUE LABELS age3<br />
-1.00 ‘18-35’<br />
-2.00 ‘36-65’<br />
-3.00 ‘66+’.<br />
-EXECUTE.<br />
-* ANOVA with descriptives.<br />
-ONEWAY immigrant BY age3<br />
-/STATISTICS DESCRIPTIVES HOMOGENEITY<br />
-/MISSING ANALYSIS.</p>
-<p>Check data:</p>
-<p>There are no impossible values on the variables.</p>
-<p>Check assumptions:</p>
-<p>There are no assumptions that we have to check for the Levene test.</p>
-<p>Interpret the results:</p>
-<p>The attitude towards immigrants seems to be more polarized among middle-aged (<em>SD</em> = 2.17) and aged voters (<em>SD</em> = 2.06) than among young voters (<em>SD</em> = 1.37).</p>
-<p>The difference in variation, however, is not statistically significant, <em>F</em> (2, 63) = 2.77, <em>p</em> = .070.</p>
-This result seems to contradict the statistically significant test result that we found in Exercise 1, comparing only young to old voters. There is no contradiction, however. We merely see that the classification into groups can matter to the significance of results. <a href="#question10.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
+<p><A name="answer10.1"></A></p>
+<p><A name="answer10.2"></A></p>
 </div>
 </div>
             </section>

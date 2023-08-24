@@ -589,10 +589,6 @@ div.csl-indent {
 </iframe>
 <div id="summary-9" class="section level3 unnumbered hasAnchor">
 <h3>Summary<a href="10-confounder.html#summary-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-
-<div class="rmdimportant">
-What happens if I use more than one predictor in a regression model? And do variables matter that are not in the regression model?
-</div>
 <p>If we analyze the effects of two or more predictors on a dependent variable in a regression model, the effect of a predictor is adjusted for the effects of other predictors. Each predictor only predicts the part of the scores on the dependent variable that cannot be predicted by the other predictors. If we predict newspaper reading time, for example, from age and interest in politics, age predicts the part of newspaper reading time that interest in politics cannot predict.</p>
 <p>Because the effects of predictors are adjusted for the effects of other predictors, the effects of predictors may change if a new predictor is added to a regression model. The effects can become stronger (the new variable was a suppressor) or weaker and even change direction (the new variable was a reinforcer). For example, adding respondents’ news site use to the regression model predicting newspaper reading time from age may change the effect of age on newspaper reading time.</p>
 <p>Indirect correlations play a central role here: the correlation between a predictor (age) and the dependent variable (newspaper reading time) due to a third variable (news site use) that is correlated both with the predictor and the dependent variable. The size of the indirect correlation is the product of the correlation between the predictor (age) and third variable (news site use) and the correlation between the third variable (news site use) and the dependent variable (newspaper reading time).</p>

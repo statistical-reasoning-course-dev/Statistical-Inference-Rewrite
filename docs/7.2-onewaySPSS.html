@@ -594,85 +594,12 @@ Figure 7.8: One-way analysis of variance (ANOVA) in SPSS.
 <div id="exercises-5" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> Exercises<a href="7.2-onewaySPSS.html#exercises-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="question7.2.1"></A></p>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>How does celebrity endorsement affect the willingness to donate and is one celebrity more effective than the other? Use the data in <a href="https://shklinkenberg.github.io/Statistical-Inference/data/donors.sav">donors.sav</a>. <a href="#answer7.2.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 <p><A name="question7.2.2"></A></p>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>The data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/smokers.sav">smokers.sav</a> contains information on smoking behaviour and attitude towards smoking for a random sample of adults. Does the attitude towards smoking differ among smokers, former smokers, and non-smokers (variable: <em>status3</em>)? <a href="#answer7.2.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
 </div>
 <div id="answers-31" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="7.2-onewaySPSS.html#answers-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="answer7.2.1"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 1.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=willing_post endorser<br />
-/ORDER=ANALYSIS.<br />
-* One-way analysis of variance.<br />
-ONEWAY willing_post BY endorser<br />
-/ES=OVERALL
-/STATISTICS DESCRIPTIVES HOMOGENEITY<br />
-/PLOT MEANS<br />
-/MISSING ANALYSIS<br />
-/POSTHOC=BONFERRONI ALPHA(0.05).<br />
-* Note: ES=OVERALL gives eta<sup>2</sup> (SPSS version 27 and higher)</p>
-<p>Check data:</p>
-<p>There are no impossible values on the variables.</p>
-<p>Check assumptions:</p>
-<p>The three groups are more or less of equal size: The largest difference is 4
-participants, which is less than ten per cent of the largest group (<em>N</em> = 49).
-Anyway, we may assume equal population variances, Levene <em>F</em> (2, 140) = .02, <em>p</em> =
-.978. Note that the results of this test can be slightly different in
-different versions of SPSS.</p>
-<p>Interpret the results:</p>
-<ul>
-<li>Willingness to donate depends on the endorsing celebrity. There is a statistically significant difference between average willingness to donate for the three endorsers, <em>F</em> (2, 140) = 7.44, <em>p</em> = .001, eta<sup>2</sup> = 0.10, 95% CI [0.02, 0.19].<br />
-</li>
-<li>People are more willing to donate if they have seen Clooney (<em>M</em> = 4.99, <em>SD</em> = 1.64) or Jolie (<em>M</em> = 4.95, <em>SD</em> = 1.63) endorse the fund raiser than people who do not see a celebrity endorser (<em>M</em> = 3.87, <em>SD</em> = 1.47). The differences between, on the one hand, no celebrity endorser and, on the other hand, Clooney (<em>p</em> = .002, 95% CI [-1.91, -0.33]) or Jolie (<em>p</em> = .004, 95% CI [-1.88, -0.29]) are statistically significant and range between circa 0.3 and 1.9 with 95% confidence in the population.</li>
-<li>However, there is not a substantial or statistically significant difference between Clooney and Jolie with respect to their effect on willingness to donate (mean difference = 0.04, <em>p</em> = 1.000, 95% CI [-0.74, 0.81]); participants seeing Clooney may just as well have higher as lower willingness to donate than participants seeing Jolie.</li>
-</ul>
-<p>Instead of reporting the <em>F</em> test result in the text, the ANOVA table can be included.</p>
-Note that eta<sup>2</sup> must be calculated by hand in SPSS version 26 or older: Divide the sum of squares of the main effect (between groups) by the total sum of squares. The confidence interval for eta<sup>2</sup> cannot be calculated by hand. <a href="#question7.2.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
 <p><A name="answer7.2.2"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 2.</p>
-<p>SPSS syntax:</p>
-<p>* Check data.<br />
-FREQUENCIES VARIABLES=attitude status3<br />
-/ORDER=ANALYSIS.<br />
-* One-way analysis of variance.<br />
-ONEWAY attitude BY status3<br />
-/ES=OVERALL
-/STATISTICS DESCRIPTIVES HOMOGENEITY<br />
-/PLOT MEANS<br />
-/MISSING ANALYSIS<br />
-/POSTHOC=BONFERRONI ALPHA(0.05).<br />
-* Note: ES=OVERALL gives eta<sup>2</sup> (SPSS version 27 and higher)</p>
-<p>Check data:</p>
-<p>There are no impossible scores on the two variables.</p>
-<p>Check assumptions:</p>
-<p>The Levene test is not statistically significant, <em>F</em> (2, 82) = 2.82, <em>p</em> = .066,
-so we assume that smoking attitude for the three groups have equal population
-variances. Note that different versions of SPSS may give slightly different
-results, but the test is never statistically significant.</p>
-<p>Interpret the results:</p>
-<p>In the sample, former smokers have a much more negative attitude towards smoking (<em>M</em> = -1.69, <em>SD</em> = 1.71) than non-smokers (<em>M</em> = 0.64, <em>SD</em> = 1.17) and smokers (<em>M</em> = 0.80, <em>SD</em> = 1.67).</p>
-<p>With 95% confidence, the attitude towards smoking for former smokers is on average at least 1.35 points more negative on a scale from -5 to +5 than for non-smokers and the difference can be as large as 3.3 points in the population (mean difference = -2.33, <em>p</em> &lt; .001, 95% CI [-3.31, -1.35]). Similarly, former smokers have an attitude that is on average 1.3 to 3.7 points more negative than smokers (mean difference = -2.49, <em>p</em> &lt; .001, 95% CI [-3.66, -1.32]). The difference in attitude towards smoking between smokers and non-smokers in the population is not clear. Smokers can on average be up to 0.78 points more negative about smoking than non-smokers, but they can also be up to 1.09 points more positive (mean difference = 0.16, <em>p</em> = 1.000, 95% CI [-0.78, 1.09]). We need a larger sample to be more specific about the difference between smokers and non-smokers.</p>
-<p>Due to the differences between on the one hand former smokers and on the other hand smokers and non-smokers, average attitude towards smoking scores are significantly different across smoking status, <em>F</em> (2, 82) = 18.85, <em>p</em> &lt; .001, eta<sup>2</sup> = 0.31 (SPSS yields 0.31498, which is rounded to 0.315). We have sufficient evidence to conclude that former smokers have a more negative attitude towards smoking than the other groups in the population of adults. The differences are substantial (a strong effect, <em>eta</em> = square root of 0.31 = 0.56).</p>
-Note that eta<sup>2</sup> must be calculated by hand in SPSS version 26 or older: Divide the sum of squares of the main effect (between groups) by the total sum of squares. The confidence interval for eta<sup>2</sup> cannot be calculated by hand. <a href="#question7.2.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
 </div>
 </div>
             </section>

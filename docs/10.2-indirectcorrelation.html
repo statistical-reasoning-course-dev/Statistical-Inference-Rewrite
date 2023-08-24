@@ -588,18 +588,8 @@ div.csl-indent {
 Figure 10.3: What happens to the regression coefficient for the effect of political interest if we add a confounder to the model? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
 </p>
 </div>
-<A name="question9.2.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>Which variable changes the effect of political interest on newspaper reading time most when added to the model? And why is that so? Add confounders to the model in Figure <a href="10.2-indirectcorrelation.html#fig:mediation-indirectcorrelation">10.3</a> and try to explain why the change is small or large. <a href="#answer9.2.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question9.2.1"></A></p>
 <p>When is a variable a confounder and when does it change the effect of another predictor a lot if it is added to the regression model? The answer to the first part of this question is easy: A <em>confounder</em> is a variable that is correlated with both the predictor and dependent variable but is not (yet) included in the regression model. Because of the correlations, a confounder establishes an <em>indirect correlation</em> between the predictor and dependent variable.</p>
-
-<div class="rmdimportant">
-A confounder is a variable that is correlated with both the predictor and dependent variable but is not included in the regression model.
-</div>
 <p>The size of the indirect correlation equals the product of the correlation between confounder and predictor and the correlation between confounder and dependent variable. In Figure <a href="10.2-indirectcorrelation.html#fig:mediation-indirectcorrelation">10.3</a>, the correlation between age and political interest is .12 and the correlation between age and newspaper reading time is .88, the indirect correlation between interest in politics and reading time established by age is .12 * .88 = .11.</p>
 <div id="indirect-correlation-and-size-of-confounding" class="section level3 hasAnchor" number="10.2.1">
 <h3><span class="header-section-number">10.2.1</span> Indirect correlation and size of confounding<a href="10.2-indirectcorrelation.html#indirect-correlation-and-size-of-confounding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -624,22 +614,7 @@ A confounder is a variable that is correlated with both the predictor and depend
 </div>
 <div id="answers-45" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="10.2-indirectcorrelation.html#answers-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer9.2.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>Age is the strongest confounder in this example. If we add age as a
-predictor to the model, the partial effect of political interest on reading
-time is 0.04. The (simple) effect of this predictor is 0.14 if we do not
-control for age, so the effect difference is 0.10.</li>
-<li>The difference between the simple and partial effect of political interest
-on reading time is smaller for news site use and education.</li>
-<li>Because age is most strongly related to both political interest and reading
-time, it affects the effect of political interest on reading time most
-strongly. <a href="#question9.2.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
+<p><A name="answer9.2.1"></A></p>
 </div>
 </div>
             </section>

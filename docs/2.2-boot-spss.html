@@ -602,77 +602,13 @@ Figure 2.5: Interpreting bootstrap results in SPSS.
 </div>
 <div id="exercises" class="section level3 hasAnchor" number="2.2.2">
 <h3><span class="header-section-number">2.2.2</span> Exercises<a href="2.2-boot-spss.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="question2.2.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>Download the data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav">candies.sav</a> and use SPSS to bootstrap the <em>t</em> test on average weight of yellow and red candies (the example above). The test is available in the <em>Analyze&gt;Compare Means</em> menu. <a href="#answer2.2.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.2.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>Use the same data set to bootstrap the median of candy weight. Remember that measures of central tendency can be obtained with the <em>Frequencies&gt;Statistics</em> command in the <em>Analyze&gt;Descriptive Statistics</em> menu.</li>
-</ol>
-Tip: Speed up bootstrapping in SPSS by deselecting the option <em>Display frequency tables</em>. <a href="#answer2.2.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div>
+<p><A name="question2.2.1"></A></p>
+<p><A name="question2.2.2"></A></p>
 </div>
 <div id="answers-5" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="2.2-boot-spss.html#answers-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer2.2.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 1.</p>
-<p>SPSS syntax:</p>
-<p>* Exercise 1: Bootstrap different averages.<br />
-* Check data.<br />
-FREQUENCIES VARIABLES=colour weight<br />
-/ORDER=ANALYSIS.<br />
-* Execute independent-samples t test with bootstrap.<br />
-BOOTSTRAP<br />
-/SAMPLING METHOD=SIMPLE<br />
-/VARIABLES TARGET=weight INPUT=colour<br />
-/CRITERIA CILEVEL=95 CITYPE=BCA NSAMPLES=5000<br />
-/MISSING USERMISSING=EXCLUDE.<br />
-T-TEST GROUPS=colour(4 5)<br />
-/MISSING=ANALYSIS<br />
-/VARIABLES=weight<br />
-/CRITERIA=CI(.95).</p>
-<p>Check data:</p>
-<p>There are no impossible values on the two variables.</p>
-<p>Interpret the results:</p>
-<p>The table “Bootstrap for Independent Samples Test” contains the results that we are interested in.</p>
-<p>Levene’s test on homogeneity of variances is not statistically significant, so we may assume that the population variances of red and yellow candy weight are equal. So we interpret the top row in table “Bootstrap for Independent Samples Test”.</p>
-<p>The mean difference between red and yellow candy weight is 0.05 grams. In our sample, red candies are just a little heavier than yellow candies.</p>
-<p>The bootstrapped 95% confidence interval for this difference is -0.11 to 0.21. With 95% confidence, we can say that red candies can be on average 0.11 grams lighter than yellow candies or up to 0.21 grams heavier. We cannot tell which of the two are heavier in the population with sufficient confidence.</p>
-Note that your results can be slightly different because bootstrapping creates random samples. <a href="#question2.2.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-<A name="answer2.2.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 2.</p>
-<p>SPSS syntax:</p>
-<p>* Exercise 2: Bootstrap on median candy weight.<br />
-* Check data.<br />
-FREQUENCIES VARIABLES=weight<br />
-/ORDER=ANALYSIS.<br />
-* Bootstrap the median.<br />
-BOOTSTRAP<br />
-/SAMPLING METHOD=SIMPLE<br />
-/VARIABLES INPUT=weight<br />
-/CRITERIA CILEVEL=95 CITYPE=BCA NSAMPLES=5000<br />
-/MISSING USERMISSING=EXCLUDE.<br />
-FREQUENCIES VARIABLES=weight<br />
-/FORMAT=NOTABLE<br />
-/STATISTICS=MEDIAN<br />
-/ORDER=ANALYSIS.</p>
-<p>Check data:</p>
-<p>There are no impossible values on the weight variable.</p>
-<p>Interpret the results:</p>
-Median candy weight in the sample is 2.81 grams. With 95% confidence, we expect median candy weight to be between 2.78 and 2.92 grams in the population of all candies.<br />
-The 95% interval borders can be slightly different because bootstrapping takes random samples. <a href="#question2.2.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
+<p><A name="answer2.2.1"></A></p>
+<p><A name="answer2.2.2"></A></p>
 </div>
 </div>
             </section>

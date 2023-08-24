@@ -600,62 +600,13 @@ Figure 2.7: Interpreting exact test results in SPSS.
 </div>
 <div id="exercises-1" class="section level3 hasAnchor" number="2.4.2">
 <h3><span class="header-section-number">2.4.2</span> Exercises<a href="2.4-SPSS-exact.html#exercises-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="question2.4.1"></A>
-
-<div class="rmdquestion">
-<ol style="list-style-type: decimal">
-<li>Download the data set <a href="https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav">candies.sav</a> and use SPSS to apply a Fisher-exact test to the association between candy colour and candy stickiness. <a href="#answer2.4.1"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
-<A name="question2.4.2"></A>
-
-<div class="rmdquestion">
-<ol start="2" style="list-style-type: decimal">
-<li>With the same data, apply a Fisher-exact test to the association between candy colour and candy spottiness. <a href="#answer2.4.2"><img src="icons/2answer.png" width=115px align="right"></a>
-</div></li>
-</ol>
+<p><A name="question2.4.1"></A></p>
+<p><A name="question2.4.2"></A></p>
 </div>
 <div id="answers-7" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="2.4-SPSS-exact.html#answers-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<A name="answer2.4.1"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 1.</p>
-<p>SPSS syntax:</p>
-<p>* Exact test on the relation between candy colour<br />
-* and candy stickiness.<br />
-CROSSTABS<br />
-/TABLES=colour BY sticky<br />
-/FORMAT=AVALUE TABLES<br />
-/STATISTICS=CHISQ PHI<br />
-/CELLS=COUNT COLUMN<br />
-/COUNT ROUND CELL<br />
-/METHOD=EXACT TIMER(5).</p>
-<p>Check data:</p>
-<p>The contingency table does not show any impossible values for the two categorical variables.</p>
-<p>Interpret the results:</p>
-There is a strong association (Cramer’s V = .52) between candy colour and candy stickiness, which is statistically significant, <em>p</em> = .010 (exact). If we look at the percentages in the contingency table, we see that yellow and red candies are less often sticky than blue, green, and orange candies. <a href="#question2.4.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
-<A name="answer2.4.2"></A>
-
-<div class="rmdanswer">
-<p>Answer to Exercise 2.</p>
-<p>SPSS syntax:</p>
-<p>* Exact test on the relation between candy colour<br />
-* and candy spottiness.<br />
-CROSSTABS<br />
-/TABLES=colour BY spotted<br />
-/FORMAT=AVALUE TABLES<br />
-/STATISTICS=CHISQ PHI<br />
-/CELLS=COUNT COLUMN<br />
-/COUNT ROUND CELL<br />
-/METHOD=EXACT TIMER(5).</p>
-<p>Check data:</p>
-<p>The contingency table does not show any impossible values for the two categorical variables.</p>
-<p>Interpret the results:</p>
-There is a weak association (Cramer’s V = .27) between candy colour and candy spottiness, which is not statistically significant, <em>p</em> = .480 (exact) or (using chi-square) <em>p</em> = .555.<br />
-Candy colour may be relevant to having spots (weak association) but we are unsure (not statistically significant). <a href="#question2.4.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div>
+<p><A name="answer2.4.1"></A></p>
+<p><A name="answer2.4.2"></A></p>
 </div>
 </div>
             </section>
