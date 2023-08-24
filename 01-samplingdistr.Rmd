@@ -189,7 +189,9 @@ A sample is _representative_ of a population (in the strict sense) if variables 
 
 But we should expect it to be representative, so we say that it is _in principle representative_ or _representative in the statistical sense_ of the population. We can use probability theory to account for the misrepresentation in the actual sample that we draw. This is what we do when we use statistical inference to construct confidence intervals and test null hypotheses, as we will learn in later chapters.
 
-### Answers {-}
+```{r, results = 'asis', eval=ch1, echo=FALSE}
+cat("### Answers 1 {-}")
+```
 
 <A name="answer1.2.1"></A>
 ```{block2, type='rmdanswer'}
@@ -423,7 +425,9 @@ While you were playing with Figure \@ref(fig:p-values), you may have noticed tha
 
 In addition, you may have realized that we can use probability distributions in two ways. We can use them to say how likely or unlikely we are to draw a sample with the sample statistic value in a particular range. For example, what is the chance that we draw a sample bag with average candy weight over 2.9 grams? But we can also use a probability distribution to find the threshold values that separate the top ten per cent or the bottom five per cent in a distribution. If we want a sample bag with highest average candy weight, say, belonging to the ten per cent bags with highest average candy weight, what should be the minimum average candy weight in the sample bag?
 
-### Answers {-}
+```{r, results = 'asis', eval=ch1, echo=FALSE} 
+cat("### Answers 1 {-}") 
+```
 
 <A name="answer1.3.1"></A>
 ```{block2, type='rmdanswer'}
@@ -502,7 +506,9 @@ Remember this: The population and the sample consist of the same type of observa
 
 The sampling distribution is the crucial link between the sample and the population. On the one hand the sampling distribution is connected to the population because the population statistic (parameter), for example, average weight of all candies, is equal to the mean of the sampling distribution. On the other hand, it is linked to the sample because it tells us which sample means we will find with what probabilities. We need the sampling distribution to make statements about the population based on our sample.
 
-### Answers {-}
+```{r, results = 'asis', eval=ch1, echo=FALSE} 
+cat("### Answers 1 {-}") 
+```
 
 <A name="answer1.4.1"></A>
 ```{block2, type='rmdanswer'}
@@ -620,7 +626,9 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/p-values/", height="
 12. Why is the vertical axis labelled with "Probability density" instead of "Probability"? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.12)
 ```
 
-### Answers {-}
+```{r, results = 'asis', eval=ch1, echo=FALSE} 
+cat("### Answers 1 {-}") 
+```
 
 ```{block2, type='rmdanswer', echo=!ch1}
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
