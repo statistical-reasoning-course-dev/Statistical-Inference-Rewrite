@@ -844,118 +844,18 @@ Figure 8.28: Four examples of common support.
 </ol>
 <div id="answers-40" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="8.5-test-your-understanding-7.html#answers-40" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+<div class="rmdanswer">
+Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
+</div>
 <p><A name="answer8.5.1"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 1.</p>
-<ul>
-<li>If you change smoking status from non-smoker to smoker, the regression line shifts up. This means that the predicted values of attitude increase. Smokers tend to have a more positive attitude towards smoking than non-smokers.</li>
-<li>The (red) multiple regression equation tells you the same story. The unstandardized regression coefficient for smoking status is 0.5. This is the average difference in attitude between smokers (coded ‘1’) and non-smokers (coded ‘0’). In other words, the attitude of smokers is on average 0.5 higher (more positive towards smoking) than the attitude of non-smokers. <a href="#question8.5.1"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.2"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 2.</p>
-<ul>
-<li>Plug in 1 for smoking status, 0 for exposure, and 4 for contact in the equation and simplify the equation:</li>
-</ul>
-<blockquote>
-<p>attitude = 0.65 - 0.6 * exposure + 0.5 * smoker + 0.15 * contact
-attitude = 0.65 - 0.6 * 0 + 0.5 * 1 + 0.15 * 4<br />
-attitude = 0.65 - 0 + 0.5 + 0.6<br />
-attitude = 1.75</p>
-</blockquote>
-<ul>
-<li>The predicted value for smokers who are not exposed to the campaign and who have 4 contacts with smokers is 1.75.</li>
-<li>If you select the right values in the figure, the (blue) simple regression equation will read <em>attitude</em> = 1.75 - 0.6 * <em>exposure</em>. If exposure is zero, the predicted attitude equals the constant, which is 1.75. <a href="#question8.5.2"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.3"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 3.</p>
-<ul>
-<li>The regression coefficient for contact with smokers is 0.15, which is positive. More contacts, then, have higher predicted attitudes, that is, a more positive attitude towards smoking.</li>
-<li>In this model, contact with smokers has a positive effect regardless of a person’s exposure and smoking status because the effect of contact is not moderated by exposure or smoking status. There is no interaction variable in the equation. <a href="#question8.5.3"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.4"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 4.</p>
-<ul>
-<li>We have to leave one category of a categorical (or dichotomous) predictor out of the regression model. This is the reference category or group.</li>
-<li>The left-out category is perfectly predicted by the dummy variables for the included categories. After all, the non-smokers are the people scoring “No” (zero) on the <em>former smoker</em> and <em>smoker</em> variables. If an independent variable can be perfectly predicted by other independent variables, the model is multicollinear and it cannot be estimated. <a href="#question8.5.4"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.5"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 5.</p>
-<ul>
-<li>Non-smokers are the reference group (see Question 4), so the interaction effects represent the differences with non-smokers.</li>
-<li>The regression coefficient -0.304 for <em>Exposure * Smoker</em> is the difference between the effect of exposure for smokers and the effect of exposure for non-smokers (the reference group). This coefficient is negative, so the effect of exposure is more strongly negative for smokers than for non-smokers. The difference is statistically significant, <em>t</em> = -3.62, <em>p</em> = .002, 95% CI [-0.49, -0.12].</li>
-<li>If we want to test the difference between the effects of exposure for smokers and former smokers, one of these two categories must be left out as reference group. We cannot obtain the test results from Table <a href="8.5-test-your-understanding-7.html#tab:exampleresults">8.6</a>. We need a new regression model for this. <a href="#question8.5.5"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.6"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 6.</p>
-<ul>
-<li>We only need the unstandardized regression coeficients (<em>b</em>) from the table.</li>
-<li>Create an equation with the unstandardized regression coeficients:</li>
-</ul>
-<blockquote>
-<p>attitude = .550 + -.137 * exposure + -1.139 * former + 1.223 * smoker + -.402 * exposure * former + -.304 * exposure * smoker + .171 * contact</p>
-</blockquote>
-<ul>
-<li>To select former smokers, replace the variable <em>former</em> by 1 (represents “Yes”) and replace the variabe <em>smoker</em> by 0 (represents “No”):</li>
-</ul>
-<blockquote>
-<p>attitude = .550 + -.137 * exposure + -1.139 * 1 + 1.223 * 0 + -.402 * exposure * 1 + -.304 * exposure * 0 + .171 * contact</p>
-</blockquote>
-<ul>
-<li>Note that multiplication with 0 yields 0, so we can drop these terms and multiplication by 1 does not change the result, so we can drop the ones:</li>
-</ul>
-<blockquote>
-<p>attitude = .550 + -.137 * exposure + -1.139 + -.402 * exposure + .171 * contact</p>
-</blockquote>
-<ul>
-<li>Replace the variable <em>contact</em> by 2, so the equation applies to people with two contacts:</li>
-</ul>
-<blockquote>
-<p>attitude = .550 + -.137 * exposure + -1.139 + -.402 * exposure + .171 * 2</p>
-</blockquote>
-<ul>
-<li>Now, simplify the equation. Join the two exposure effects and join all other elements into a new constant (intercept).</li>
-</ul>
-<blockquote>
-<p>attitude = -0.247 + -0.539 * exposure</p>
-</blockquote>
-<ul>
-<li>This is the regression equation we are looking for. Former smokers having two contacts with smokers and who are not exposed to the campaign, have a predicted attitude of -0.25. An additional unit of exposure decreases the predicted attitude by 0.54 on a scale from -5 to +5. <a href="#question8.5.6"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.7"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 7.</p>
-<ul>
-<li>Common support is best in bottom-right panel because there are observations across the entire range of exposure scores for all three smoking groups.</li>
-<li>Common support is worst in the upper-right and bottom-left panels because they contain one group with exposure scores confined to a narrow range. <a href="#question8.5.7"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 <p><A name="answer8.5.8"></A></p>
-
-<div class="rmdanswer">
-<p>Answer to Question 8.</p>
-<ul>
-<li>You should report the range for which all three groups have exposure scores. This would be the range from approximately 2.5 to 7.5. Our conclusions must be restricted to this range of exposure scores. For lower or higher exposure scores, we do not know the exposure effect or how it is moderated by smoking status.</li>
-<li>In addition, you may (but do not have to) note that we have observed highest exposure scores only for smokers. <a href="#question8.5.8"><img src="icons/2question.png" width=161px align="right"></a>
-</div></li>
-</ul>
 </div>
 </div>
             </section>
