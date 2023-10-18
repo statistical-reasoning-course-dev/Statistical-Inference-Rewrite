@@ -646,9 +646,485 @@ Figure 8.26: Checking common support for a predictor at different moderator valu
 <div id="answers-36" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="8.4-catmodSPSS.html#answers-36" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="answer8.4.1"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 1.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=exposure status2 contact attitude<br />
+/ORDER=ANALYSIS.<br />
+* Compute interaction variable.<br />
+COMPUTE expo_status=exposure * status2.<br />
+VARIABLE LABELS expo_status ‘Interaction exposure * smoker’.<br />
+EXECUTE.<br />
+* Multiple regression.<br />
+REGRESSION<br />
+/MISSING LISTWISE<br />
+/STATISTICS COEFF OUTS CI(95) R ANOVA<br />
+/CRITERIA=PIN(.05) POUT(.10)<br />
+/NOORIGIN<br />
+/DEPENDENT attitude<br />
+/METHOD=ENTER exposure status2 expo_status contact<br />
+/SCATTERPLOT=(*ZRESID ,*ZPRED)<br />
+/RESIDUALS HISTOGRAM(ZRESID).</p>
+<p>Check data:</p>
+<p>All values seem to be valid.</p>
+<p>Check assumptions:</p>
+<p><img src="figures/S8_4Q1.png" /></p>
+<ul>
+<li>The residuals are skewed (long tail to the left).</li>
+<li>The residuals seem to average to zero at most levels of the predicted
+scores, so a linear model seems to fit.</li>
+<li>However, the lower attitude values are predicted worse (more variation) than
+the highest levels. The assumption of homoscedasticity seems to be violated.</li>
+</ul>
+<p>Interpret the results:</p>
+<ul>
+<li>Summarize the tests on the regression coefficients in a table:</li>
+</ul>
+<div style="font-size: 0.8em">
+<table>
+<colgroup>
+<col width="27%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right"><em>b</em></th>
+<th align="right">SE</th>
+<th align="right"><em>b*</em></th>
+<th align="right"><em>t</em></th>
+<th align="right"><em>p</em></th>
+<th align="center">95%CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Constant</td>
+<td align="right">0.13</td>
+<td align="right">0.35</td>
+<td align="right"></td>
+<td align="right">0.36</td>
+<td align="right">.716</td>
+<td align="center">[-0.56, 0.81]</td>
+</tr>
+<tr class="even">
+<td align="left">Exposure to anti-smoking campaign</td>
+<td align="right">-0.28</td>
+<td align="right">0.04</td>
+<td align="right">-0.41</td>
+<td align="right">-7.67</td>
+<td align="right">&lt; .001</td>
+<td align="center">[-0.35, -0.21]</td>
+</tr>
+<tr class="odd">
+<td align="left">Smokings status</td>
+<td align="right">1.23</td>
+<td align="right">0.41</td>
+<td align="right">0.27</td>
+<td align="right">3.01</td>
+<td align="right">.003</td>
+<td align="center">[0.43, 2.03]</td>
+</tr>
+<tr class="even">
+<td align="left">Exposure * Smoker</td>
+<td align="right">-0.20</td>
+<td align="right">0.07</td>
+<td align="right">-0.26</td>
+<td align="right">-2.79</td>
+<td align="right">.006</td>
+<td align="center">[-0.34, -0.06]</td>
+</tr>
+<tr class="odd">
+<td align="left">Contact with smokers</td>
+<td align="right">0.23</td>
+<td align="right">0.05</td>
+<td align="right">0.23</td>
+<td align="right">4.73</td>
+<td align="right">&lt; .001</td>
+<td align="center">[.13, .32]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>We can predict smoking attitude for about 38 per cent with the regression
+model, <em>R</em><sup>2</sup> = .38, <em>F</em> (4, 307) = 47.72, <em>p</em> &lt; .001.</li>
+<li>The predictive effect of exposure to the anti-smoking campaign on smoking
+attitude for non-smokers is negative and significantly different from zero, <em>b</em> = -0.28, <em>t</em> = -7.67, <em>p</em> &lt; .001, 95% CI [-0.35, -0.21]. More exposure tends to yield a more negative attitude among non-smokers.</li>
+<li>For smokers, the predictive effect of campaign exposure on smoking attitude
+is more strongly negative. The moderation of the exposure effect by smoking
+status is negative, ranging from -0.06 to -0.34 in the population (with 95%
+confidence), and it is statistically significant, <em>b</em> = -0.20, <em>t</em> = -2.79, <em>p</em> = .006, 95% CI [-0.34, -0.06].</li>
+<li>More contact with smokers is associated with a more positive attitude
+towards smoking rather than a negative attitude in the population. The predictive effect is weak (<em>b*</em> = 0.23) and significantly different from zero, so we may assume a positive effect in the population, <em>b</em> = 0.23, <em>t</em> = 4.73, <em>p</em> &lt; .001, 95% CI [0.13, 0.32].</li>
+<li>Smokers have a more positive attitude than non-smokers if they are not
+exposed to the campaign; an attitude that is on average circa 1.2 (0.4 to 2.0) points more positive. This difference is statistically significant, so we are sufficiently confident that the effect is positive in the population, <em>b</em> = 1.23, <em>t</em> = 3.01, <em>p</em> = .003, 95% CI [0.43, 2.03].</li>
+</ul>
+<p>Remember:</p>
+<ul>
+<li>In the presence of an interaction effect, the effect of a predictor is the
+effect for the reference group or value on the moderator. It is NOT an overall
+or average effect (main effect) as in analysis of variance.</li>
+<li>Standardized regression coefficients reported by SPSS are not correct for
+interaction effects or effects of predictors that are involved in interaction
+effects. They can only be used for predictors that are not involved in
+interaction effects. Contact with smokers is not involved in an interaction in this model, so we can interpret the standardized regression coefficient for this effect. <a href="#question8.4.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.4.2"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 2.</p>
+<ul>
+<li>First of all, you must write out the regression equations for different
+values of the moderator. Plug in the estimated values of the regression
+coefficients and the means of covariates (here: average contact with smokers).</li>
+</ul>
+<p>* SPSS syntax to get the average value of contact with smokers:</p>
+<p>FREQUENCIES VARIABLES=contact<br />
+/FORMAT=NOTABLE<br />
+/STATISTICS=MEAN<br />
+/ORDER=ANALYSIS.</p>
+<ul>
+<li>Copy the equation from the SPSS output:</li>
+</ul>
+<blockquote>
+<p>attitude = constant + -.278*exposure + 1.225*status + -.197*exposure*status + .225*contact</p>
+</blockquote>
+<ul>
+<li>Plug in the average value of the covariate contact (4.995):</li>
+</ul>
+<blockquote>
+<p>attitude = .127 + -.278*exposure + 1.225*status + -.197*exposure*status + .225*4.995</p>
+</blockquote>
+<ul>
+<li>Calculate the product for the covariate:</li>
+</ul>
+<blockquote>
+<p>attitude = .127 + -.278*exposure + 1.225*status + -.197*exposure*status + 1.124</p>
+</blockquote>
+<ul>
+<li>And add the result for the covariate to the intercept (constant):</li>
+</ul>
+<blockquote>
+<p>attitude = 1.251 + -.278*exposure + 1.225*status + -.197*exposure*status</p>
+</blockquote>
+<ul>
+<li><p>Use the resulting equation to create a simple regression equation for each
+category of the moderator. Remember that a simple regression equation contains
+only one independent variable.</p></li>
+<li><p>Replace status by 0 for non-smokers:</p></li>
+</ul>
+<blockquote>
+<p>attitude = 1.251 + -.278*exposure + 1.225*0 + -.197*exposure*0</p>
+</blockquote>
+<blockquote>
+<p>attitude = 1.251 + -.278*exposure</p>
+</blockquote>
+<ul>
+<li>Replace status by 1 for smokers:</li>
+</ul>
+<blockquote>
+<p>attitude = 1.251 + -.278*exposure + 1.225*1 + -.197*exposure*1</p>
+</blockquote>
+<blockquote>
+<p>attitude = 1.251 + 1.225 + -.278*exposure + -.197*exposure</p>
+</blockquote>
+<blockquote>
+<p>attitude = 2.476 + (-.278 + -.197)*exposure</p>
+</blockquote>
+<blockquote>
+<p>attitude = 2.476 + -.475*exposure</p>
+</blockquote>
+<ul>
+<li>Finally, create a scatterplot of attitude by exposure, colouring the dots by
+smoking status. Use the calculated two equations in the SPSS Chart Editor to
+create two lines. Use the icon “Add a reference line from Equation” for each
+line. Enter the equation using x instead of exposure as the predictor. Colour
+the lines with the colours of the dots in the scatterplot.</li>
+</ul>
+<p>SPSS syntax:</p>
+<p>* Scatterplot with dots coloured by smoking status.<br />
+GRAPH<br />
+/SCATTERPLOT(BIVAR)=exposure WITH attitude BY status2<br />
+/MISSING=LISTWISE.</p>
+<p><img src="figures/S8_4Q2.png" /></p>
+<p>Check data:</p>
+<p>See Exercise 1.</p>
+<p>Check assumptions:</p>
+<p>See Exercise 1.</p>
+<p>Interpret the results:</p>
+<ul>
+<li>For smokers, the predictive effect of campaign exposure on smoking attitude
+is more strongly negative (<em>b</em> = -0.47) than for non-smokers (<em>b</em> = -0.28). An additional unit of exposure decreases the predicted attitude by 0.47 for smokers, whereas the predicted decrease is only 0.28 for non-smokers. <a href="#question8.4.2"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.4.3"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 3.</p>
+<p>SPSS syntax:</p>
+<p>* Histogram of predictor (exposure) for each smoking status.<br />
+GRAPH<br />
+/HISTOGRAM=exposure<br />
+/PANEL ROWVAR=status2 ROWOP=CROSS.</p>
+<p><img src="figures/S8_4Q3.png" /></p>
+<p>Interpret the results:</p>
+<ul>
+<li><p>Even for smokers, the much smaller group, we have exposure scores over
+the entire range. We have good coverage both for smokers and
+non-smokers. Do not mind the gap in scores around 6: we have plenty of
+observations around 5 and 7.</p></li>
+<li><p>We could have seen this result in the scatterplot because we had red and
+blue dots across the entire width of the plot. <a href="#question8.4.3"><img src="icons/2question.png" width=161px align="right"></a></p>
+</div></li>
+</ul>
 <p><A name="answer8.4.4"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 4.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=exposure status3 contact attitude<br />
+/ORDER=ANALYSIS.<br />
+* Create dummies and interaction variables.</p>
+<p>* With Create Dummy Variables.<br />
+* ENSURE THAT MEASUREMENT LEVEL IS SET TO NOMINAL OR ORDINAL FOR A CATEGORICAL VARIABLE.<br />
+* SELECT THE PREDICTOR AND MODERATOR FOR CREATING DUMMY VARIABLES.<br />
+* ADD A ROOTNAME FOR BOTH PREDICTOR AND MODERATOR.<br />
+* CHECK THE BOX FOR TWO-WAY INTERACTIONS AND ADD A ROOTNAME.</p>
+<p>* Define Variable Properties.<br />
+*status3.<br />
+VARIABLE LEVEL status3(ORDINAL).<br />
+EXECUTE.<br />
+SPSSINC CREATE DUMMIES VARIABLE=exposure status3<br />
+ROOTNAME1=exposure, status ROOTNAME2=expo_status<br />
+/OPTIONS ORDER=A USEVALUELABELS=YES USEML=YES OMITFIRST=NO.</p>
+<p>* With Recode.<br />
+RECODE status3 (1=1) (ELSE=0) INTO status_3.<br />
+VARIABLE LABELS status_3 ‘Former smoker’.<br />
+EXECUTE.<br />
+RECODE status3 (2=1) (ELSE=0) INTO status_4.<br />
+VARIABLE LABELS status_4 ‘Smoker’.<br />
+EXECUTE.<br />
+* Interaction variables (same name as those given by Create Dummy Variables).<br />
+COMPUTE expo_status_2_2=exposure * status_3.<br />
+VARIABLE LABELS expo_status_2_2 ‘expo * formersmoker’.<br />
+EXECUTE.<br />
+COMPUTE expo_status_2_3=exposure * status_4.<br />
+VARIABLE LABELS expo_status_2_3 ‘expo * smoker’.<br />
+EXECUTE.</p>
+<p>* Multiple regression.<br />
+* Statistic Descriptives is added to get the means that we need<br />
+* to plug into the regression equation in the moderation plot.<br />
+REGRESSION<br />
+/DESCRIPTIVES MEAN STDDEV CORR SIG N<br />
+/MISSING LISTWISE<br />
+/STATISTICS COEFF OUTS CI(95) R ANOVA<br />
+/CRITERIA=PIN(.05) POUT(.10)<br />
+/NOORIGIN<br />
+/DEPENDENT attitude<br />
+/METHOD=ENTER exposure status_3 status_4 expo_status_2_2 expo_status_2_3 contact<br />
+/SCATTERPLOT=(*ZRESID ,*ZPRED)<br />
+/RESIDUALS HISTOGRAM(ZRESID).<br />
+* Scatterplot with dots coloured by smoking status.<br />
+GRAPH<br />
+/SCATTERPLOT(BIVAR)=exposure WITH attitude BY status3<br />
+/MISSING=LISTWISE.<br />
+* Histogram of predictor (exposure) for each smoking status.<br />
+GRAPH<br />
+/HISTOGRAM=exposure<br />
+/PANEL ROWVAR=status3 ROWOP=CROSS.</p>
+<ul>
+<li>Write out the regression equations for all three groups of the moderator.
+Plug in the estimated values of the constant and the regression coefficients.</li>
+</ul>
+<blockquote>
+<p>attitude = 0.623 + -0.183*exposure + -1.554*former + 0.989*smoker +
+-0.259*exposure*former + -0.302*exposure*smoker + 0.186*contact</p>
+</blockquote>
+<p>Plug in the means of covariates (contact: 4.995, see Exercise 2) and add to constant:</p>
+<blockquote>
+<p>attitude = 0.623 + -0.183*exposure + -1.554*former + 0.989*smoker +
+-0.259*exposure*former + -0.302*exposure*smoker + 0.186*4.995</p>
+</blockquote>
+<blockquote>
+<p>attitude = 1.552 + -0.183*exposure + -1.554*former + 0.989*smoker +
+-0.259*exposure*former + -0.302*exposure*smoker</p>
+</blockquote>
+<p>Non-smokers (former = 0, smoker = 0):</p>
+<blockquote>
+<p>attitude = 1.552 + -0.183*exposure + -1.554*0 + 0.989*0 + -0.259*exposure*0 +
+-0.302*exposure*0</p>
+</blockquote>
+<blockquote>
+<p>attitude = 1.552 + -0.183*exposure</p>
+</blockquote>
+<p>Former smokers (former = 1, smoker = 0):</p>
+<blockquote>
+<p>attitude = 1.552 + -0.183*exposure + -1.554*1 + 0.989*0 + -0.259*exposure*1 +
+-0.302*exposure*0</p>
+</blockquote>
+<blockquote>
+<p>attitude = 1.552 + -1.554 + -0.183*exposure + -0.259*exposure</p>
+</blockquote>
+<blockquote>
+<p>attitude = -0.002 + (-0.183 + -0.259)*exposure</p>
+</blockquote>
+<blockquote>
+<p>attitude = -0.002 + -0.442*exposure</p>
+</blockquote>
+<p>Smokers (former = 0, smoker = 1):</p>
+<blockquote>
+<p>attitude = 1.552 + -0.183*exposure + -1.554*0 + 0.989*1 + -0.259*exposure*0 + -0.302*exposure*1</p>
+</blockquote>
+<blockquote>
+<p>attitude = 1.552 + 0.989 + (-0.183 + -0.302)*exposure</p>
+</blockquote>
+<blockquote>
+<p>attitude = 2.541 + -0.485*exposure</p>
+</blockquote>
+<ul>
+<li>Create a scatterplot of attitude by exposure, colouring the dots by smoking
+status.</li>
+<li>Use the calculated three equations in the SPSS Chart Editor to create three
+lines. Use the icon “Add a reference line from Equation” for each line. Enter
+the the equation using x instead of exposure as the predictor. Colour the
+lines with the colours of the dots in the scatterplot.</li>
+</ul>
+<p>Check data:</p>
+<p>All values seem to be valid.</p>
+<p>Check assumptions:</p>
+<p><img src="figures/S8_4Q4a.png" /></p>
+<ul>
+<li>The residuals seem to be skewed a little bit.<br />
+</li>
+<li>The residuals by predicted values plot gives no reason to doubt the
+linearity of the model but the problem of predicting higher values less
+accurately than lower values seems to be worse than in Exercise 1. We should
+warn the reader that the assumptions seem to be violated.</li>
+</ul>
+<p>Interpret the results:</p>
+<ul>
+<li>Again, summarize the tests on the regression coefficients in a table.</li>
+</ul>
+<div style="font-size: 0.8em">
+<table>
+<colgroup>
+<col width="27%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right"><em>b</em></th>
+<th align="right">SE</th>
+<th align="right"><em>b*</em></th>
+<th align="right"><em>t</em></th>
+<th align="right"><em>p</em></th>
+<th align="center">95%CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Constant</td>
+<td align="right">0.62</td>
+<td align="right">0.24</td>
+<td align="right"></td>
+<td align="right">2.63</td>
+<td align="right">.009</td>
+<td align="center">[0.16, 1.09]</td>
+</tr>
+<tr class="even">
+<td align="left">Exposure to anti-smoking campaign</td>
+<td align="right">-0.18</td>
+<td align="right">0.03</td>
+<td align="right">-0.27</td>
+<td align="right">-6.74</td>
+<td align="right">&lt; .001</td>
+<td align="center">[-0.24, -0.13]</td>
+</tr>
+<tr class="odd">
+<td align="left">Former smoker</td>
+<td align="right">-1.55</td>
+<td align="right">0.30</td>
+<td align="right">-0.32</td>
+<td align="right">-5.11</td>
+<td align="right">&lt; .001</td>
+<td align="center">[-2.15, -0.96]</td>
+</tr>
+<tr class="even">
+<td align="left">Smoker</td>
+<td align="right">0.99</td>
+<td align="right">0.28</td>
+<td align="right">0.22</td>
+<td align="right">3.57</td>
+<td align="right">&lt; .001</td>
+<td align="center">[0.44, 1.53]</td>
+</tr>
+<tr class="odd">
+<td align="left">Exposure * Former smoker</td>
+<td align="right">-0.26</td>
+<td align="right">0.05</td>
+<td align="right">-0.33</td>
+<td align="right">-5.00</td>
+<td align="right">&lt; .001</td>
+<td align="center">[-0.36, -0.16]</td>
+</tr>
+<tr class="even">
+<td align="left">Exposure * Smoker</td>
+<td align="right">-0.30</td>
+<td align="right">0.05</td>
+<td align="right">-0.40</td>
+<td align="right">-6.23</td>
+<td align="right">&lt; .001</td>
+<td align="center">[-0.40, -0.21]</td>
+</tr>
+<tr class="odd">
+<td align="left">Contact with smokers</td>
+<td align="right">0.19</td>
+<td align="right">0.03</td>
+<td align="right">0.19</td>
+<td align="right">5.91</td>
+<td align="right">&lt; .001</td>
+<td align="center">[0.12, 0.25]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>With three smoking status groups, we can predict attitude towards smoking
+much better (<em>R</em><sup>2</sup> = 0.74) than with the two groups in Exercise 1 (<em>R</em><sup>2</sup> = .38).</p></li>
+<li><p>There is an important difference between non-smokers and former smokers
+(they were lumped together in the preceding exercises). On average, former
+smokers have a substantially more negative attitude than non-smokers, ranging from 0.9 to 2.15 points lower on a scale from -5 to +5) if they are not exposed to the campaign.</p></li>
+<li><p>In addition, exposure has a stronger negative predictive effect on smoking
+attitude among former smokers than among non-smokers (the interaction effect
+of <em>Exposure</em> with <em>Former smoker</em> has a negative unstandardized regression
+coefficient; remember that non-smokers are the reference group). Exposure also
+has a stronger negative effect on attitude among smokers than among
+non-smokers (again, a negative unstandardized regression coefficient for the
+interaction effect). For short, exposure to the campaign has less impact on
+attitude towards smoking for non-smokers than for former smokers or smokers.</p></li>
+</ul>
+<p><img src="figures/S8_4Q4b.png" /></p>
+<ul>
+<li>The coverage of exposure is good for non-smokers and smokers but former
+smokers with high exposure are rare. <a href="#question8.4.4"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 </div>
 </div>
             </section>

@@ -627,8 +627,209 @@ Recode exposure scores into three groups: low exposure (scores 3 or less), mediu
 <div id="answers-31" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="7.6-twowaySPSS.html#answers-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="answer7.6.1"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 1.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=willing_post endorser sex<br />
+/ORDER=ANALYSIS.<br />
+* Two-way analysis of variance.<br />
+UNIANOVA willing_post BY endorser sex<br />
+/METHOD=SSTYPE(3)<br />
+/INTERCEPT=INCLUDE<br />
+/POSTHOC=endorser(BONFERRONI)<br />
+/PLOT=PROFILE(endorser*sex)<br />
+/PRINT=HOMOGENEITY DESCRIPTIVE<br />
+/CRITERIA=ALPHA(.05)<br />
+/DESIGN=endorser sex endorser*sex.</p>
+<p>Check data:</p>
+<p>There are no impossible values on the three variables.</p>
+<p>Check assumptions:</p>
+<ul>
+<li><p>All six subgroups are of nearly equal size and/or the Levene test on
+homogeneity of variances is not statistically significant, <em>F</em> (5, 137) = 0.43,
+<em>p</em> = .825, so the most important assumption is met. Note that different
+versions of SPSS may give slightly different results, but the <em>p</em> values are all
+around .830.</p></li>
+<li><p>The females and males could have been drawn independently and each experimental group could have been drawn independently as well: The samples are independent. Because this is usually the case, this assumption is not always explicitly checked. But do note it if the samples are not independent.</p></li>
+</ul>
+<p>Interpret the results:</p>
+<p>The question is about moderation, so let us focus our interpretation on the<br />
+interaction effect.</p>
+<ul>
+<li>Our two-way analysis of variance shows a statistically significant interaction effect of endorser and sex of the participant, <em>F</em> (2, 137) = 4.63, <em>p</em> = .011, eta<sup>2</sup> = 0.05. We may conclude that the effect of the endorsing celebrity on an adult’s willingness to donate is different for females and males in the population. The differences are substantial (a medium-sized effect, eta = 0.22).</li>
+<li>Females who saw George Clooney are more strongly willing to donate (<em>M</em> = 5.84, <em>SD</em> = 1.48) than males (<em>M</em> = 4.09, <em>SD</em> = 1.30). In contrast, there is hardly any difference in willingness to donate between males (<em>M</em> = 4.99, <em>SD</em> = 1.77) and females (<em>M</em> = 4.91, <em>SD</em> = 1.51) who see Angelina Jolie endorse the fund raiser.<br />
+</li>
+<li>This result suggests that females are more sensitive to George Clooney as endorser than males but the opposite does not apply to Angelina Jolie as endorser.</li>
+</ul>
+Note that eta<sup>2</sup> was calculated by hand, dividing the sum of squares of the interaction effect by the sum of squares of the corrected total. Eta is the square root of eta<sup>2</sup>. We do not have post-hoc tests for the interaction effect, so we do not have a confidence interval for the differences between subgroups. <a href="#question7.6.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div>
 <p><A name="answer7.6.2"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 2.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=willing_post endorser remember<br />
+/ORDER=ANALYSIS.<br />
+* Two-way analysis of variance.<br />
+UNIANOVA willing_post BY endorser remember<br />
+/METHOD=SSTYPE(3)<br />
+/INTERCEPT=INCLUDE<br />
+/POSTHOC=endorser(BONFERRONI)<br />
+/PLOT=PROFILE(endorser*remember)<br />
+/PRINT=HOMOGENEITY DESCRIPTIVE<br />
+/CRITERIA=ALPHA(.05)<br />
+/DESIGN=endorser remember endorser*remember.</p>
+<p>Check data:</p>
+<p>There are no impossible values on the three variables.</p>
+<p>Check assumptions:</p>
+<p>The six subggroups are not nearly of equal size but the Levene test on homogeneity of variances is not statistically significant, <em>F</em> (5, 137) = 0.06, <em>p</em> = .997, so the most important assumptions are met. Note that different versions of SPSS may give slightly different results, but the <em>p</em> values are all around .997.</p>
+<p>Interpret the results for the interaction effect:</p>
+<ul>
+<li>For adults who do not remember the campaign, the effect of seeing Angelina Jolie endorse the fund raiser seems to be relatively low (<em>M</em> = 4.40, <em>SD</em> = 1.57) in comparison to the effect for adults who do remember the campaign (<em>M</em> = 5.48, <em>SD</em> = 1.54). This can be seen in the means plot.</li>
+</ul>
+<p><img src="figures/S7_6Q2.png" /></p>
+<ul>
+<li>However, a two-way analysis of variance tells us that the interaction effect of endorser with campaign remembrance on willingness to donate is weak and not statistically significant, <em>F</em> (2, 137) = 0.67, <em>p</em> = .514, eta<sup>2</sup> = .01.<br />
+</li>
+<li>Both the endorsing celebrity and campaign remembrance seem to have statistically significant effects on willingness to donate, but the effect of celebrity endorser on willingness to donate is not clearly different for adults who remember the campaign and those who do not remember the campaign.</li>
+<li>Our sample (<em>N</em> = 143) is not very small, so it is not very likely that the test would have been non-significant if the effect in the population is moderate or strong.</li>
+</ul>
+Note that eta<sup>2</sup> was calculated by hand, dividing the sum of squares of the interaction effect by the sum of squares of the corrected total. <a href="#question7.6.2"><img src="icons/2question.png" width=161px align="right"></a>
+</div>
 <p><A name="answer7.6.3"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 3.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=status3 exposure attitude<br />
+/ORDER=ANALYSIS.<br />
+* Group exposure to anti-smoking campaign.<br />
+RECODE exposure (Lowest thru 3=1) (3 thru 7 = 2) (ELSE=3) INTO exposure3.<br />
+VARIABLE LABELS exposure3 ‘Exposure to anti-smoking campaign’.<br />
+EXECUTE.<br />
+* Define Variable Properties.<br />
+*exposure3.<br />
+VALUE LABELS exposure3<br />
+1.00 ‘Low exposure’<br />
+2.00 ‘Medium exposure’<br />
+3.00 ‘High exposure’.<br />
+EXECUTE.<br />
+* Two-way analysis of variance.<br />
+UNIANOVA attitude BY status3 exposure3<br />
+/METHOD=SSTYPE(3)<br />
+/INTERCEPT=INCLUDE<br />
+/POSTHOC=status3 exposure3(BONFERRONI)<br />
+/PLOT=PROFILE(status3*exposure3)<br />
+/PRINT=HOMOGENEITY DESCRIPTIVE<br />
+/CRITERIA=ALPHA(.05)<br />
+/DESIGN=status3 exposure3 status3*exposure3.</p>
+<p>Check data:</p>
+<p>All values on the variables seem to be valid.</p>
+<p>Check assumptions:</p>
+<ul>
+<li>The nine subgroups (defined by combinations of smoking status and exposure)
+are definitely not of equal size. The test on homogeneity of variances is
+statistically significant, <em>F</em> (8, 76) = 2.17, <em>p</em> = .039 according to SPSS V24.
+SPSS V25, however, reports four versions of the test with <em>F</em> values ranging
+between 1.849 and 2.109 and <em>p</em> values ranging from .053 to .091. None of these
+is statistically significant at the .05 level. Which makes you realize again
+that statistical significance is a tricky criterion.</li>
+<li>We are quite confident that the variance of smoking attitude in the
+population is (un)equal for all subgroups.<br />
+</li>
+<li>We do not meet the assumptions (or we do, if we believe SPSS V25), so we
+should report this as a disclaimer with our results.</li>
+</ul>
+<p>Interpret the results:</p>
+<p>Because we are going to interpret all effects, it is recommended to present the table with between-participants effects instead of reporting all <em>F</em> test results in the text. The interpretation can then focus on the group averages and their differences (from the post-hoc tests).</p>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">SS</th>
+<th align="right">df</th>
+<th align="right">MS</th>
+<th align="right"><em>F</em></th>
+<th align="right"><em>p</em></th>
+<th align="right">Eta-squared</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Exposure</td>
+<td align="right">50.050</td>
+<td align="right">2</td>
+<td align="right">25.025</td>
+<td align="right">26.768</td>
+<td align="right">&lt;.001</td>
+<td align="right">0.21</td>
+</tr>
+<tr class="even">
+<td align="left">Smoking status</td>
+<td align="right">58.75</td>
+<td align="right">2</td>
+<td align="right">29.38</td>
+<td align="right">31.42</td>
+<td align="right">&lt;.001</td>
+<td align="right">0.25</td>
+</tr>
+<tr class="odd">
+<td align="left">Smoking status * Exposure</td>
+<td align="right">29.991</td>
+<td align="right">4</td>
+<td align="right">7.498</td>
+<td align="right">8.020</td>
+<td align="right">&lt;.001</td>
+<td align="right">0.13</td>
+</tr>
+<tr class="even">
+<td align="left">Error</td>
+<td align="right">71.051</td>
+<td align="right">76</td>
+<td align="right">.935</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Total</td>
+<td align="right">233.413</td>
+<td align="right">84</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note</em>. <em>N</em> = 85.</p>
+<ul>
+<li><p>Exposure clearly matters to smoking attitude according to our two-way analysis of variance. High exposure is associated with a more negative attitude towards smoking (<em>M</em> = -0.52, <em>SD</em> = 1.26) than medium exposure (<em>M</em> = 0.18, <em>SD</em> = 1.95). With 95% confidence, the difference ranges from as little as 0.07 to not less than 1.3 points on a scale of ten points in the population (average difference = -0.70, <em>p</em> = .024, 95% CI [-1.33, -0.07]). At medium exposure, the attitude towards smoking is more negative than the attitude of adults with low exposure (<em>M</em> = 0.99, <em>SD</em> = 1.34). Here, the difference in the population ranges from 0.2 to 1.4 points with 95% confidence (average difference = -0.81, <em>p</em> = .006, 95% CI [-1.43, -0.19]).</p></li>
+<li><p>Exposure accounts for 21 per cent of the variation in attitude towards smoking.</p></li>
+<li><p>Smoking status also matters for attitude towards smoking. It accounts for 25 per cent of the differences in smoking attitude, which is quite a lot.<br />
+</p></li>
+<li><p>Former smokers (<em>M</em> = -1.69, <em>SD</em> = 1.71) are significantly more negative towards smoking than smokers (<em>M</em> = 0.80, <em>SD</em> = 1.67) and non-smokers (<em>M</em> = 0.64, <em>SD</em> = 1.17). The differences with former smokers range from 1.7 to 3.3 points (on a scale with ten points) for smokers (average difference = -2.49, <em>p</em> &lt; .001, 95% CI [-3.30, -1.68]) and from 1.7 to 3.0 points for non-smokers (average difference = -2.33, <em>p</em> &lt; .001, 95% CI [-3.01, -1.65] in the population).</p></li>
+<li><p>The difference between smokers and non-smokers is not statistically significant, although smokers seem to have a more positive rather than a more negative attitude towards smoking than non-smokers (average difference = 0.16, <em>p</em> = 1.000, 95% CI [-0.49, 0.81]). Our sample is not so large (<em>N</em> = 85), so the power of the test is probably not high.</p></li>
+<li><p>There is a moderate to high (eta<sup>2</sup> = 0.13, eta = 0.36) and statistically significant interaction effect of smoking status with exposure on attitude towards smoking.<br />
+</p></li>
+<li><p>If we inspect the means plot, we see that the effect of exposure on attitude is moderated by smoking status. Former smokers with low exposure are much more positive (less negative) about smoking than we would expect. In other words, medium and high exposure to the campaign decreases the attitude of former smokers more than the attitudes of smokers or non-smokers.</p></li>
+</ul>
+<p><img src="figures/S7_6Q3.png" /></p>
+Note that the proportions of explained variance (eta<sup>2</sup>) have been calculated manually. Eta is the square root of eta<sup>2</sup>. <a href="#question7.6.3"><img src="icons/2question.png" width=161px align="right"></a>
+</div>
 </div>
 </div>
             </section>

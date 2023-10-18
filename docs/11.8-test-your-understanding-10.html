@@ -650,18 +650,137 @@ Extra Question (Optional). The standardized effect of political interest on read
 </div>
 <div id="answers-49" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="11.8-test-your-understanding-10.html#answers-49" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<A name="answer11.8.1"></A>
 
 <div class="rmdanswer">
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-</div>
-<p><A name="answer11.8.1"></A></p>
-<p><A name="answer11.8.2"></A></p>
-<p><A name="answer11.8.3"></A></p>
-<p><A name="answer11.8.4"></A></p>
-<p><A name="answer11.8.5"></A></p>
-<p><A name="answer11.8.6"></A></p>
-<p><A name="answer11.8.7"></A></p>
-<p><A name="answer11.8.extra"></A></p>
+<p>Answer to Question 1.</p>
+<ul>
+<li>Figure <a href="11.8-test-your-understanding-10.html#fig:mediationserial2">11.17</a> represents serial mediation because there is (at least) one indirect effect with more than one mediator: Age &gt; Supervision &gt; Screen time &gt; media literacy. <a href="#question11.8.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.2"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 2.</p>
+<ul>
+<li>Age has three indirect effects on media literacy in Figure <a href="11.8-test-your-understanding-10.html#fig:mediationserial2">11.17</a>:</li>
+</ul>
+<blockquote>
+<p>Age &gt; Screen time &gt; Media literacy
+Age &gt; Supervision &gt; Screen time &gt; Media literacy
+Age &gt; Supervision &gt; Media literacy</p>
+</blockquote>
+<ul>
+<li>Sex has only one indirect effect on media literacy in Figure <a href="11.8-test-your-understanding-10.html#fig:mediationserial2">11.17</a>:</li>
+</ul>
+<blockquote>
+<p>Sex &gt; Screen time &gt; Media literacy</p>
+</blockquote>
+<ul>
+<li>Note that there is no arrow from sex to supervision. Apparently, this effect is zero, so sex does not have indirect effects via supervision. <a href="#question11.8.2"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.3"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 3.</p>
+<ul>
+<li>The total effect is the sum of the direct effect and all indirect effects.</li>
+<li>The effects of (parental) supervision on media literacy:</li>
+</ul>
+<blockquote>
+<p>Supervision &gt; Media literacy (direct): 0.3.
+Supervision &gt; Screen time &gt; Media literacy (indirect): -0.5 * 0.2 = -0.1.
+Total effect: 0.3 + -0.1 = 0.2.</p>
+</blockquote>
+<ul>
+<li>The total effect of supervision on media literacy is smaller (less strongly positive) than the direct effect. If we assume causality, we may conclude that the desired effect of supervision on media literacy, namely, more supervision leads to higher media literacy, is partly undone by the fact that supervision decreases screen time, which decreases media literacy. <a href="#question11.8.3"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.4"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 4.</p>
+<ul>
+<li>The curved arrow is the standardized indirect (predictive) effect of age on reading time. It represents the predicted change (in standard deviations) of reading time that results from a change in political interest that results from a change of one standard deviation in age.</li>
+<li>To obtain the value of the indirect standardized effect, multiply the
+standardized effect of age on political interest by the standardized effect of political interest on reading time. <a href="#question11.8.4"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.5"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 5.</p>
+<ul>
+<li>No, we cannot calculate the standard error or confidence interval of an indirect effect from the standard errors and confidence intervals of direct effects.</li>
+<li>For this reason, we have to use bootstrapping in PROCESS. <a href="#question11.8.5"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.6"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 6.</p>
+<ul>
+<li>The correlation between political interest and reading time is completely
+spurious in this model if the entire correlation is due to a common cause.</li>
+<li>The indirect correlation created by a common cause is equal to the product
+of the correlations between, on the one hand, the common cause (here: age)
+and, on the other hand, the other two variables (political interest and
+reading time).</li>
+<li>The correlation between political interest and reading time, then, is
+completely spurious in this model if this correlation equals the product of
+the correlations with age.</li>
+<li>Check this by adjusting the three correlations until the correlation between political interest and reading time equals the product of the other two correlations. Set, for instance, the correlation between political interest and reading time to 0.1, the correlation between age and political interest to 0.4 and the correlation between age and reading time to 0.25. Note that 0.4 * 0.25 = 0.1.</li>
+<li>In the plot, the standardized regression coefficient for the effect of
+political interest on reading time (b<sub>MO</sub>) should become zero. There is no
+effect if we control for age even though the correlation is 0.1.</li>
+<li>Note that the standardized regression effect of political interest on
+reading time does not have to be zero if the correlation between these two variables is zero. <a href="#question11.8.6"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.7"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 7.</p>
+<ul>
+<li>We must estimate a regression model for each variable that has at least one predictor in the model.</li>
+<li>So we need two regression models: one with newspaper reading time as
+dependent variable and the other with political interest as dependent
+variable. <a href="#question11.8.7"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer11.8.extra"></A>
+
+<div class="rmdanswer">
+<p>Answer to the Extra Question.</p>
+<ul>
+<li>If age would be a strong suppressor of the effect of political interest on
+reading time, including age in the model terminates the suppression, so the
+partial effect of political interest on reading time becomes more strongly
+positive or more strongly negative. It may become larger than 1.0 or smaller
+than -1.0.</li>
+<li>You can create a strong suppression effect by selecting high correlations
+between age and reading time, and between age and political interest. Ensure
+that the effect direction (sign) is the opposite of the sign of the effect of
+political interest on reading time.</li>
+<li>If the correlation between political interest and reading time is positive,
+age suppresses the regression if the indirect correlation between political
+interest due to age with reading time is negative. So one of the correlations
+of age with political interest and reading time must be positive, the other
+must be negative. Just increase the size of the positive and negative
+correlations to obtain a standardized regression coefficient for the effect of
+political interest on reading time well above one.</li>
+<li>If the correlation between political interest on reading time is negative,
+age suppresses the regression if the indirect correlation between political
+interest due to age on reading time is positive. Make both the correlation
+between age and reading time and the correlation between age and political
+interest positive or negative. The standardized regression effect of political
+interest on reading time will become more strongly negative than its
+correlation. Again make the correlations stronger to obtain a standardized
+regression coefficient for the effect of political interest on reading time
+well below minus one. <a href="#question11.8.extra"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 </div>
 </div>
             </section>

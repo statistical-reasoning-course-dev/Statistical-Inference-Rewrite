@@ -1273,9 +1273,45 @@ Figure 11.9: Causal diagram for the effects of age and interest in politics on n
 </div>
 <div id="answers-47" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="11.2-path-model-with-regression-analysis.html#answers-47" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><A name="answer9.6.1"></A></p>
-<p><A name="answer9.6.2"></A></p>
-<p><A name="answer9.6.3"></A></p>
+<A name="answer9.6.1"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 1.</p>
+<ul>
+<li>There are four variables with incoming arrows in this model. Each of them can be a dependent variable in a regression model, so we can estimate four regression models.</li>
+<li>The unstandardized regression coefficients tell us the (unstandardized) sizes of the direct effects in the path model.</li>
+<li>For example, news site use has an unstandardized effect of -1.55 on newspaper reading time in the diagram. A difference of one unit of news site use predicts a decrease in newspaper reading time of 1.55 units. We are 95 per cent confident that this decrease is in between 0.6 and 2.5 units in the population. <a href="#question9.6.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer9.6.2"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 2.</p>
+<ul>
+<li>If we do not include effects between variables that were not hypothesized in our regression model, we actually assume that the effects are zero.</li>
+<li>If this assumption is not correct, the results for hypothesized effects are wrong.</li>
+<li>If we exclude the effect of a predictor on an outcome from the model, we deny this predictor the opportunity to be a common cause to the outcome and another predictor. Thus, we fail to signal and filter out the spurious correlation due to this common cause.</li>
+<li>For these reasons, it is better to include all variables that are causally prior to the dependent variable as predictors. <a href="#question9.6.2"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer9.6.3"></A>
+
+<div class="rmdanswer">
+<p>Answer to Question 3.</p>
+<ul>
+<li>Calculate the size of a indirect effect by multiplying the regression coefficients of all direct effects that make up the indirect effect.</li>
+<li>Indirect effects:</li>
+</ul>
+<blockquote>
+<p>Age &gt; Education &gt; Pol. Interest &gt; News Site Use: -0.13 * 0.28 * 0.12 = -0.004
+Age &gt; Education &gt; News Site Use: -0.13 * 0.06 = -0.008
+Age &gt; Pol. Interest &gt; News Site Use: 0.14 * 0.12 = 0.017</p>
+</blockquote>
+<ul>
+<li>All indirects effects are close to zero. An additional 10 years (age is measured in decades) predicts a small decrease in news site use via education (-0.008) and via education via political interest (-0.004). It predicts a small increase via political interest (0.017).</li>
+<li>Be sure not to forget one of the indirect effects! <a href="#question9.6.3"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 </div>
 </div>
             </section>

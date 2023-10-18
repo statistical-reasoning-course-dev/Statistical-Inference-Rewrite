@@ -617,9 +617,510 @@ Figure 10.9: Identifying confounders with regression in SPSS.
 </div>
 <div id="answers-44" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="10.4-compmodelSSPSS.html#answers-44" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><A name="answer9.4.1"></A></p>
-<p><A name="answer9.4.2"></A></p>
-<p><A name="answer9.4.3"></A></p>
+<A name="answer9.4.1"></A>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 1.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=age education polinterest newssite readingtime<br />
+/ORDER=ANALYSIS.<br />
+* Multiple regression.<br />
+REGRESSION<br />
+/MISSING LISTWISE<br />
+/STATISTICS COEFF OUTS CI(95) R ANOVA<br />
+/CRITERIA=PIN(.05) POUT(.10)<br />
+/NOORIGIN<br />
+/DEPENDENT readingtime<br />
+/METHOD=ENTER education<br />
+/METHOD=ENTER polinterest<br />
+/METHOD=ENTER newssite<br />
+/METHOD=ENTER age<br />
+/SCATTERPLOT=(*ZRESID ,*ZPRED)<br />
+/RESIDUALS HISTOGRAM(ZRESID).</p>
+<p>Check data:</p>
+<p>* The variabes do not have impossible values.</p>
+<p>Check assumptions:</p>
+<p>* The residuals are quite normally distributed.<br />
+* They are centered around zero at all levels of the predicted outcome, so a
+linear model seems to fit the data.<br />
+* The variation in residuals is about the same at all levels of the predicted
+outcome, so the outcome is more or less equally well predicted at all levels
+of the dependent variable.<br />
+* As a conclusion, there are no clear indications that the assumptions for a
+linear regression model are violated.</p>
+<p>Interpret the results:</p>
+<ul>
+<li>Given the number of regression coefficients that are estimated, it is
+helpful to present them as a table instead of reporting all results in the
+interpretation.</li>
+</ul>
+<div style="font-size: 0.8em">
+<table>
+<colgroup>
+<col width="29%" />
+<col width="7%" />
+<col width="12%" />
+<col width="12%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="right"><em>b</em>     </th>
+<th align="right">95% CI</th>
+<th align="left">for <em>b</em></th>
+<th align="right">SE <em>b</em></th>
+<th align="right"><em>b*</em>     </th>
+<th align="right"><em>R</em><sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"></td>
+<td align="right"></td>
+<td align="right">LL</td>
+<td align="left">UL</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Step 1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.01</td>
+</tr>
+<tr class="odd">
+<td align="left">   Constant</td>
+<td align="right">46.21***</td>
+<td align="right">35.14</td>
+<td align="left">57.28</td>
+<td align="right">5.63</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Education (in years)</td>
+<td align="right">-0.86*   </td>
+<td align="right">-1.66</td>
+<td align="left">-0.05</td>
+<td align="right">0.41</td>
+<td align="right">-0.12*  </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Step 2</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.05</td>
+</tr>
+<tr class="even">
+<td align="left">   Constant</td>
+<td align="right">43.74***</td>
+<td align="right">32.75</td>
+<td align="left">54.74</td>
+<td align="right">5.59</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Education (in years)</td>
+<td align="right">-1.25**  </td>
+<td align="right">-2.07</td>
+<td align="left">-0.42</td>
+<td align="right">0.42</td>
+<td align="right">-0.17** </td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Interest in politics</td>
+<td align="right">1.51**  </td>
+<td align="right">0.61</td>
+<td align="left">2.41</td>
+<td align="right">0.46</td>
+<td align="right">0.19**  </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Step 3</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.73</td>
+</tr>
+<tr class="even">
+<td align="left">   Constant</td>
+<td align="right">45.74***</td>
+<td align="right">39.85</td>
+<td align="left">51.63</td>
+<td align="right">2.99</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Education (in years)</td>
+<td align="right">0.16    </td>
+<td align="right">-0.29</td>
+<td align="left">0.62</td>
+<td align="right">0.23</td>
+<td align="right">0.02    </td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Interest in politics</td>
+<td align="right">1.13***</td>
+<td align="right">0.65</td>
+<td align="left">1.61</td>
+<td align="right">0.25</td>
+<td align="right">0.14***</td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   News sites use</td>
+<td align="right">-5.72***</td>
+<td align="right">-6.12</td>
+<td align="left">-5.31</td>
+<td align="right">0.21</td>
+<td align="right">-0.85***</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Step 4</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.79</td>
+</tr>
+<tr class="odd">
+<td align="left">   Constant</td>
+<td align="right">13.59***</td>
+<td align="right">5.26</td>
+<td align="left">21.93</td>
+<td align="right">4.24</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Education (in years)</td>
+<td align="right">0.06    </td>
+<td align="right">-0.34</td>
+<td align="left">0.46</td>
+<td align="right">0.20</td>
+<td align="right">0.01    </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Interest in politics</td>
+<td align="right">0.52*   </td>
+<td align="right">0.07</td>
+<td align="left">0.96</td>
+<td align="right">0.23</td>
+<td align="right">0.07*   </td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   News sites use</td>
+<td align="right">-1.55**  </td>
+<td align="right">-2.47</td>
+<td align="left">-0.64</td>
+<td align="right">0.47</td>
+<td align="right">-0.23**  </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Age (in decades)</td>
+<td align="right">4.55***</td>
+<td align="right">3.62</td>
+<td align="left">5.47</td>
+<td align="right">0.47</td>
+<td align="right">0.67***</td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p><i>Note.</i> CI = confidence interval; <i>LL</i> = lower limit; <i>UL</i> = upper limit; <i>b</i>* = standardized regression coefficient.<br />
+* <i>p</i> &lt; .05. ** <i>p</i> &lt; .01. *** <i>p</i> &lt; .001.</p>
+</div>
+<ul>
+<li>Education has a weak negative predictive effect on newspaper reading time until news site use is introduced as a predictor. Then its effect becomes very small and statistically insignificant.</li>
+<li>Interest in politics has a positive predictive effect on newspaper reading time. This effect becomes weaker when news site use is added as a predictor and especially when age is added.</li>
+<li>Initially, news site use has a strong negative predictive effect on newspaper reading time but the effect is much weaker when age is added as a predictor.</li>
+<li>Age has a strong positive effect on newspaper reading time if we control for all other predictors in the model. <a href="#question9.4.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
+<A name="answer9.4.2"></A>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 2.</p>
+<ul>
+<li><p>If the partial effect of a predictor increases (becomes more strongly
+positive or more strongly negative) when a new predictor is added to the
+regression model, the added predictor was a suppressor while it was not yet
+included in the model.</p></li>
+<li><p>When age is added as a predictor to the model, none of the partial effects
+of other predictors increases, so age did not suppress any of the effects in
+the models that did not include age yet.</p></li>
+<li><p>If the partial effect of a predictor decreases (becomes less strongly
+positive or less strongly negative) or it changes sign when a new predictor is
+added to the regression model, the added predictor was a reinforcer while it
+was not yet included in the model.</p></li>
+<li><p>This happens to the partial effects of education, interest in politics, and
+news site use when age is added as a predictor. For these three predictors,
+age was a reinforcer. Part of their effects were spurious in the models
+without age. They seemed to be effects of education, political interest, and
+news site use but they are actually effects of age. <a href="#question9.4.2"><img src="icons/2question.png" width=161px align="right"></a></p>
+</div></li>
+</ul>
+<A name="answer9.4.3"></A>
+
+<div class="rmdanswer">
+<p>Answer to Exercise 3.</p>
+<p>SPSS syntax:</p>
+<p>* Check data.<br />
+FREQUENCIES VARIABLES=age education polcynic newssite readingtime<br />
+/ORDER=ANALYSIS.<br />
+* Multiple regression.<br />
+REGRESSION<br />
+/MISSING LISTWISE<br />
+/STATISTICS COEFF OUTS CI(95) R ANOVA<br />
+/CRITERIA=PIN(.05) POUT(.10)<br />
+/NOORIGIN<br />
+/DEPENDENT readingtime<br />
+/METHOD=ENTER education<br />
+/METHOD=ENTER polcynic<br />
+/METHOD=ENTER newssite<br />
+/METHOD=ENTER age<br />
+/SCATTERPLOT=(*ZRESID ,*ZPRED)<br />
+/RESIDUALS HISTOGRAM(ZRESID).</p>
+<p>Check data:</p>
+<ul>
+<li>In addition to the other variables (see Exercise 1), political cynicism does
+not have impossible values.</li>
+</ul>
+<p>Check assumptions:</p>
+<ul>
+<li>The residuals are similarly distributed as in Exercise 1, so we may assume
+that assumptions are met.</li>
+</ul>
+<p>Interpret the results:</p>
+<div style="font-size: 0.8em">
+<table>
+<colgroup>
+<col width="29%" />
+<col width="7%" />
+<col width="12%" />
+<col width="12%" />
+<col width="14%" />
+<col width="10%" />
+<col width="12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Variable</th>
+<th align="right"><em>b</em>     </th>
+<th align="right">95% CI</th>
+<th align="left">for <em>b</em></th>
+<th align="right">SE <em>b</em></th>
+<th align="right"><em>b*</em>     </th>
+<th align="right"><em>R</em><sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"></td>
+<td align="right"></td>
+<td align="right">LL</td>
+<td align="left">UL</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Step 1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.01</td>
+</tr>
+<tr class="odd">
+<td align="left">   Constant</td>
+<td align="right">46.21***</td>
+<td align="right">35.14</td>
+<td align="left">57.28</td>
+<td align="right">5.63</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Education (in years)</td>
+<td align="right">-0.86*   </td>
+<td align="right">-1.66</td>
+<td align="left">-0.05</td>
+<td align="right">0.41</td>
+<td align="right">-0.12*  </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Step 2</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.05</td>
+</tr>
+<tr class="even">
+<td align="left">   Constant</td>
+<td align="right">60.98***</td>
+<td align="right">47.05</td>
+<td align="left">74.91</td>
+<td align="right">7.08</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Education (in years)</td>
+<td align="right">-1.30**  </td>
+<td align="right">-2.14</td>
+<td align="left">-0.46</td>
+<td align="right">0.43</td>
+<td align="right">-0.18** </td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Political cynicism</td>
+<td align="right">-1.68**  </td>
+<td align="right">-2.67</td>
+<td align="left">-0.69</td>
+<td align="right">0.50</td>
+<td align="right">-0.20**  </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">Step 3</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.72</td>
+</tr>
+<tr class="even">
+<td align="left">   Constant</td>
+<td align="right">53.65***</td>
+<td align="right">46.00</td>
+<td align="left">61.31</td>
+<td align="right">3.89</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Education (in years)</td>
+<td align="right">0.27    </td>
+<td align="right">-0.21</td>
+<td align="left">0.74</td>
+<td align="right">0.24</td>
+<td align="right">0.04    </td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Political cynicism</td>
+<td align="right">-0.69*   </td>
+<td align="right">-1.24</td>
+<td align="left">-0.14</td>
+<td align="right">0.28</td>
+<td align="right">-0.08*   </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   News sites use</td>
+<td align="right">-5.70***</td>
+<td align="right">-6.12</td>
+<td align="left">-5.28</td>
+<td align="right">0.21</td>
+<td align="right">-0.84***</td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">Step 4</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="left"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">.79</td>
+</tr>
+<tr class="odd">
+<td align="left">   Constant</td>
+<td align="right">15.45**</td>
+<td align="right">5.65</td>
+<td align="left">25.26</td>
+<td align="right">4.98</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   Education (in years)</td>
+<td align="right">0.10    </td>
+<td align="right">-0.31</td>
+<td align="left">0.51</td>
+<td align="right">0.21</td>
+<td align="right">0.01    </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Political cynicism</td>
+<td align="right">-0.30    </td>
+<td align="right">-0.78</td>
+<td align="left">0.18</td>
+<td align="right">0.24</td>
+<td align="right">-0.03    </td>
+<td align="right"></td>
+</tr>
+<tr class="even">
+<td align="left">   News sites use</td>
+<td align="right">-1.35**  </td>
+<td align="right">-2.25</td>
+<td align="left">-0.45</td>
+<td align="right">0.46</td>
+<td align="right">-0.20**  </td>
+<td align="right"></td>
+</tr>
+<tr class="odd">
+<td align="left">   Age (in decades)</td>
+<td align="right">4.76***</td>
+<td align="right">3.86</td>
+<td align="left">5.67</td>
+<td align="right">0.46</td>
+<td align="right">0.70***</td>
+<td align="right"></td>
+</tr>
+</tbody>
+</table>
+<p><i>Note.</i> CI = confidence interval; <i>LL</i> = lower limit; <i>UL</i> = upper limit; <i>b</i>* = standardized regression coefficient.<br />
+* <i>p</i> &lt; .05. ** <i>p</i> &lt; .01. *** <i>p</i> &lt; .001.</p>
+</div>
+<ul>
+<li>When political cynicism is added as a predictor, the negative effect of
+education becomes stronger. In the model without political cynicism,
+political cynicism suppressed part of the effect of education. <a href="#question9.4.3"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 </div>
 </div>
             </section>

@@ -1550,12 +1550,116 @@ Result (sum)
 <div id="answers-35" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="8.3-categoricalmoderator.html#answers-35" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><A name="answer8.3.1"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 1.</p>
+<ul>
+<li>Remember: The slope of the regression line represents the effect (the
+regression coefficient) of the predictor. Parallel lines mean equal slopes.</li>
+<li>The answer depends on the sample drawn:
+<ul>
+<li>If the regression lines for the two smoking status groups are more or less parallel, the (predictive) effect of exposure on attitude is more or less the same for both groups. In this case, there is no moderation.</li>
+<li>If the regression lines for the two smoking status groups are clearly not parallel, there is moderation. <a href="#question8.3.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul></li>
+</ul>
 <p><A name="answer8.3.2"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 2.</p>
+<ul>
+<li>When you move the slider, the regression line for smokers rotates. In mathematical terms, the slope of the regression line changes.</li>
+<li>If you move the slider to the right, the regression coefficient of the interaction variable (<em>exposure*smoker</em>) becomes (more) positive.</li>
+<li>What does that mean? According to the general interpretation of a regression coefficient, an additional unit of <em>exposure*smoker</em> has a (more) positive contribution to the predicted attitude.</li>
+<li>We are only dealing with smokers here, so dummy variable <em>smoker</em> is 1. The interaction variable <em>exposure*smoker</em> reduces to <em>exposure</em>*1 = <em>exposure</em>. The regression coefficient of the interaction variable represents the <strong>additional effect of exposure for smokers</strong>.</li>
+<li>As a result, the slope of the regression line for smokers becomes more positive (rotates counterclockwise) if the regression coefficient for the interaction variable becomes more positive.</li>
+<li>In the same way, moving the slider to the left makes the slope of the regression line for smokers more negative (rotating it clockwise). <a href="#question8.3.2"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.3.3"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 3.</p>
+<ul>
+<li><em>Smoker</em> is a dummy variable with smokers coded ‘1’ and non-smokers coded ‘0’ as shown in the legend of the figure. If we replace the <em>smoker</em> variable in the equation by zero, we get the predicted attitudes for non-smokers.</li>
+<li>For example, assume that the equation is as follows:</li>
+</ul>
+<blockquote>
+<p><em>attitude</em> = 0.78 + -0.54*<em>exposure</em> + 2.85*<em>smoker</em> + 0.23*<em>exposure</em>*<em>smoker</em></p>
+</blockquote>
+<ul>
+<li>If we replace <em>smoker</em> by zero in the equation, we obtain:</li>
+</ul>
+<blockquote>
+<p><em>attitude</em> = 0.78 + -0.54*<em>exposure</em> + 2.85*0 + 0.23*<em>exposure</em>*0</p>
+</blockquote>
+<ul>
+<li>This can be simplified to:</li>
+</ul>
+<blockquote>
+<p><em>attitude</em> = 0.78 + -0.54*<em>exposure</em> + 0 + 0
+<em>attitude</em> = 0.78 + -0.54*<em>exposure</em></p>
+</blockquote>
+<ul>
+<li>The slope or effect of exposure on attitude for non-smokers is simply the regression coefficient for the <em>smoker</em> variable!</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li>The effect of a variable like <em>exposure</em> that is also included in an interaction variable is <strong>not</strong> a general effect of this variable like a main effect in analysis of variance. It does <strong>not</strong> represent the average effect of exposure for all participants.</li>
+<li>Instead, the effect of <em>exposure</em> is the effect for one particular group of participants, the non-smokers in this example. This is called a <em>conditional effect</em>.</li>
+<li>More generally, the effect of <em>exposure</em> is the effect for the participants who score zero on the other variable included in the interaction (<em>smoker</em> in this example). These participants are called the <em>reference group</em>. <a href="#question8.3.3"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.3.4"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 4.</p>
+<ul>
+<li>If the regression lines for all three smoking status groups are parallel, the (predictive) effect of exposure on attitude is the same for all groups. There is no moderation.</li>
+</ul>
+<p><img src="figures/S8_3Q4.png" /></p>
+<ul>
+<li>In all other situations, there is moderation. There is an interaction
+effect, for example, if two lines are parallel but the third line is not
+parallel to the other two lines. <a href="#question8.3.4"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.3.5"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 5.</p>
+<ul>
+<li>The histogram shows the counts of cases with particular exposure values.</li>
+<li>The counts are subdivided (coloured) by their score on the moderator variable
+(smoking status). <a href="#question8.3.5"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.3.6"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 6.</p>
+<ul>
+<li>The answer depends on the sample that was drawn.</li>
+<li>For one moderator (smoking status) group, the predictor (exposure) may have scores for the entire range, that is, from 0 to 10. But scores may also be available only for part of this range, for example, from 1 to 6 or from 4 to 8. <a href="#question8.3.6"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer8.3.7"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 7.</p>
+<ul>
+<li>We may erroneously believe that the moderation effect applies to the entire
+range of scores. For example, we may conclude that there is a negative effect
+for smokers versus a positive effect for non-smokers. However, the effect for
+smokers may be based on a range of exposure values that is different from and
+perhaps hardly overlaps with the range of exposure values for non-smokers.
+In this case, the effect difference may be due to the level of predictor scores
+instead of the moderator.</li>
+<li>In extreme cases, we may have only very few observations for a moderator
+group, for example, only a handful of smokers. In this situation, the
+regression effect for this group is not to be trusted. <a href="#question8.3.7"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 </div>
 </div>
             </section>

@@ -647,17 +647,103 @@ Figure 9.15: What does mean-centering do to regression results?
 </ol>
 <div id="answers-40" class="section level3 unnumbered hasAnchor">
 <h3>Answers<a href="9.4-test-your-understanding-8.html#answers-40" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><A name="answer9.4.1"></A></p>
 
 <div class="rmdanswer">
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-</div>
-<p><A name="answer9.4.1"></A></p>
+<p>Answer to Question 1.</p>
+<ul>
+<li>The (red) regression line represents the (estimated) predictive effect of
+exposure on attitude for a particular value of contact (with smokers).</li>
+<li>Contact is a moderator of the effect of exposure on attitude. In the initial
+plot after loading the app, the value of contact is zero, so the regression
+line expresses the predictive effect of exposure on attitude for respondents
+who have no contact with smokers. <a href="#question9.4.1"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer9.4.2"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 2.</p>
+<ul>
+<li>A change of the slider changes the moderator value, so the regression line
+is re-estimated for respondents with another number of contacts with smokers.
+As a result, the regression line is redrawn (the previous regression line is
+shown in grey).</li>
+<li>Because the regression line represents respondents with a different
+moderator score, the regression line is based on other observations (dots in
+the plot). The observations with scores closest to the selected moderator
+value are coloured blue. Changing the moderator value changes the relevant
+observations.</li>
+<li>If the moderator value increases, the regression line’s decrease is less
+steep and at some point changes into an increase from left to right. <a href="#question9.4.2"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer9.4.3"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 3.</p>
+<ul>
+<li>Due to the interaction effect between exposure and contact in the model, the
+predictive effect of exposure depends on the respondent’s contact score. For
+this reason, the respondent’s contact score and its interaction regression
+coefficient are included in the (conditional) predictive effect of exposure.
+Thus, contact adds to (or subtracts from) the predictive effect of exposure.</li>
+<li>The slope of the regression line becomes less negative or more positive for
+higher moderator (contact) values because the interaction effect is positive
+(0.04). Every additional unit on the moderator adds 0.04 to the regression
+slope of the conditional effect of exposure. <a href="#question9.4.3"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer9.4.4"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 4.</p>
+<ul>
+<li>The effects of exposure (<em>b</em><sub>1</sub>) and contact (<em>b</em><sub>2</sub>) are conditional because both variables are included in an interaction effect.</li>
+<li>The effect of exposure on attitude represents the effect for one particular value of the moderator variable contact.</li>
+<li>But moderation is symmetrical in the sense that we can also see exposure as moderator of the effect of contact, so the contact effect (<em>b</em><sub>2</sub>) is the predictive effect of contact for respondents scoring zero on the exposure predictor. <a href="#question9.4.4"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer9.4.5"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 5.</p>
+<ul>
+<li>The null hypothesis of an interaction effect in a (multiple) regression
+model is that there is no interaction effect between these predictors at all
+in the population.</li>
+<li>In other words, the null hypothesis states that the effect of a predictor is
+the same at all levels of the moderator in the population. <a href="#question9.4.5"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer9.4.6"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 6.</p>
+<ul>
+<li>If we mean-center contact (the moderator), the reference group changes for effects that are moderated by contact.</li>
+<li>In the model, exposure is the only variable that interacts with contact, so its regression coefficient changes.</li>
+</ul>
+<p><img src="figures/S9_4Q6.png" /></p>
+<ul>
+<li>This regression coefficient changes from -0.26 to -0.06. Each aditional unit of contact increases the effect of exposure on attitude by 0.04, which is the regression coefficient of the interaction effect. Mean contact score is 5.0, so we add five times 0.04 (= 0.20) to the effect of exposure if we proceed from zero as reference group in the original regression model to 5.0 (on the original contact variable) as reference group in the model with mean-centered contact.</li>
+<li>In addition, the constant changes. Plug the value 5 for <em>Contact (0)</em> in the blue equation: 0.14 * 5 = 0.70. This value must be added to the constant in the blue equation (0.40 + 0.70), which yields the constant in the red equation: 1.10. <a href="#question9.4.6"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 <p><A name="answer9.4.7"></A></p>
+
+<div class="rmdanswer">
+<p>Answer to Question 7.</p>
+<ul>
+<li>If contact is set to zero, the blue regression line represents the effect of exposure on attitude for the minimum value of the moderator <em>contact</em> (figure below, left panel). Observations with contact scores near zero are blue. There are only a few of them, so we have very few observations for the regression line at this moderator value. These observations do not cover the entire range of exposure values; there are two in the center and one at the right. The regression line has bad common support.</li>
+</ul>
+<p><img src="figures/S9_4Q7.png" /></p>
+<ul>
+<li>If you compare the <strong>Center Contact</strong> slider to the <strong>Adjust the value of Contact</strong> slider, you can see that <em>M - SD</em> equals 3 here. Three contacts is one standard deviation below the average number of contacts.</li>
+<li>Set the <strong>Adjust the value of Contact</strong> slider to 3 to obtain the (blue) regression line expressing the effect of exposure on attitude for people with 3 contacts with smokers (figure above, right panel).</li>
+<li>Now we can see which observations have contact scores close to 3. There are many blue and dark blue (contact scores very close to 3) dots and they are nicely distributed across the entire range of exposure scores. This regression line has good common support; it is more reliable than the one for minimum (0) number of contacts. <a href="#question9.4.7"><img src="icons/2question.png" width=161px align="right"></a>
+</div></li>
+</ul>
 </div>
 </div>
             </section>
