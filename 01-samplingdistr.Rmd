@@ -52,12 +52,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/random-variable/", h
 
 <A name="question1.2.1"></A>
 ```{block2, type='rmdquestion'}
-1. Figure \@ref(fig:random-variable) shows a population of candies. What do you expect the number of yellow candies to be in a random sample of ten candies from this population? Draw several samples and check whether your expectation comes true. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.1)
+1. Figure \@ref(fig:random-variable) shows a population of candies. What do you expect the number of yellow candies to be in a random sample of ten candies from this population? Draw several samples and check whether your expectation comes true. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.1){.buttonToAnswer}
 ```
 
 <A name="question1.2.2"></A>
 ```{block2, type='rmdquestion'}
-2. What are all the possible outcomes for the number of yellow candies in our sample? The collection of all possible outcome scores is called the _sampling space_. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.2)
+2. What are all the possible outcomes for the number of yellow candies in our sample? The collection of all possible outcome scores is called the _sampling space_. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.2){.buttonToAnswer}
 ```
 
 The number of yellow candies in a bag is an example of a _sample statistic_: a value describing a characteristic of the sample. Each bag, that is, each sample, has one outcome score on the sample statistic. For instance, one bag contains four yellow candies, another bag contains seven, and so on. All possible outcome scores constitute the _sampling space_. A bag of ten candies may contain 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10 yellow candies. The numbers 0 to 10 are the sampling space of the sample statistic _number of yellow candies in a bag_.
@@ -74,17 +74,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distributio
 
 <A name="question1.2.3"></A>
 ```{block2, type='rmdquestion'}
-3. Draw a random sample of ten candies in Figure \@ref(fig:sampling-distribution). What do the numbers on the horizontal axis of the bottom-right histogram mean? And what does the vertical axis of this histogram represent? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.3)
+3. Draw a random sample of ten candies in Figure \@ref(fig:sampling-distribution). What do the numbers on the horizontal axis of the bottom-right histogram mean? And what does the vertical axis of this histogram represent? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.3){.buttonToAnswer}
 ```
 
 <A name="question1.2.4"></A>
 ```{block2, type='rmdquestion'}
-4. What are the cases (the 'things' that are counted) in the three histograms? Hint: There are two different types of cases. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.4)
+4. What are the cases (the 'things' that are counted) in the three histograms? Hint: There are two different types of cases. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.4){.buttonToAnswer}
 ```
 
 <A name="question1.2.5"></A>
 ```{block2, type='rmdquestion'}
-5. Guess the most likely and most unlikely outcome scores for the number of yellow candies in a sample bag containing ten candies in Figure \@ref(fig:sampling-distribution). Check your intuitions by drawing 1,000 samples. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.5)
+5. Guess the most likely and most unlikely outcome scores for the number of yellow candies in a sample bag containing ten candies in Figure \@ref(fig:sampling-distribution). Check your intuitions by drawing 1,000 samples. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.5){.buttonToAnswer}
 ```
 
 ### Probability and probability distribution {#probdistribution}
@@ -100,27 +100,27 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/probability-distribu
 
 <A name="question1.2.6"></A>
 ```{block2, type='rmdquestion'}
-6. In Figure \@ref(fig:probability-distribution), what is the sample statistic and what is the sampling space? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.6)
+6. In Figure \@ref(fig:probability-distribution), what is the sample statistic and what is the sampling space? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.6){.buttonToAnswer}
 ```
 
 <A name="question1.2.7"></A>
 ```{block2, type='rmdquestion'}
-7. Which number of yellow candies is most likely to be found in a sample bag of ten candies (before you change the slider setting)? How does this relate to the proportion of candies in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.7)
+7. Which number of yellow candies is most likely to be found in a sample bag of ten candies (before you change the slider setting)? How does this relate to the proportion of candies in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.7){.buttonToAnswer}
 ```
 
 <A name="question1.2.8"></A>
 ```{block2, type='rmdquestion'}
-8. What is the probability that a sample bag of ten candies contains at most three yellow candies if the proportion in the population is .2? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.8)
+8. What is the probability that a sample bag of ten candies contains at most three yellow candies if the proportion in the population is .2? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.8){.buttonToAnswer}
 ```
 
 <A name="question1.2.9"></A>
 ```{block2, type='rmdquestion'}
-9. What do you expect to happen to the probabilities if you increase the proportion of yellow candies in the population (factory stock)? Use the slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.9)
+9. What do you expect to happen to the probabilities if you increase the proportion of yellow candies in the population (factory stock)? Use the slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.9){.buttonToAnswer}
 ```
 
 <A name="question1.2.10"></A>
 ```{block2, type='rmdquestion'}
-10. What is special about the distribution if the proportion of yellow candies in the population is .5? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.10)
+10. What is special about the distribution if the proportion of yellow candies in the population is .5? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.10){.buttonToAnswer}
 ```
 
 The sampling distribution tells us all possible samples that we could have drawn. We can use the distribution of all samples to get the probability of buying a bag with exactly five yellow candies from the sampling distribution: We divide the number of samples with five yellow candies by the total number of samples we have drawn. For example, if 26 out of all 1000 samples have five yellow candies, the proportion of samples with five yellow candies is 26 / 1000 = 0.026. Then, the probability of drawing a sample with five yellow candies is 0.026 (we usually write: .026).
@@ -144,17 +144,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/expected-value/", he
 
 <A name="question1.2.11"></A>
 ```{block2, type='rmdquestion'}
-11. In Figure \@ref(fig:expected-value), which number of yellow candies is most likely to occur in a sample bag of ten candies (before you change the slider setting)? How does this number change if you change the proportion of yellow candies in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.11)
+11. In Figure \@ref(fig:expected-value), which number of yellow candies is most likely to occur in a sample bag of ten candies (before you change the slider setting)? How does this number change if you change the proportion of yellow candies in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.11){.buttonToAnswer}
 ```
 
 <A name="question1.2.12"></A>
 ```{block2, type='rmdquestion'}
-12. How does the mean of the sampling distribution relate to the expected value? Experiment with different values for the population proportion. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.12)
+12. How does the mean of the sampling distribution relate to the expected value? Experiment with different values for the population proportion. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.12){.buttonToAnswer}
 ```
 
 <A name="question1.2.13"></A>
 ```{block2, type='rmdquestion'}
-13. How does the mean of the sampling distribution relate to the population proportion? Experiment with different values for the population proportion. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.13)
+13. How does the mean of the sampling distribution relate to the population proportion? Experiment with different values for the population proportion. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.13){.buttonToAnswer}
 ```
 
 If the share of yellow candies in the population is 0.20 (or 20%), we expect one out of each five candies in a bag (sample) to be yellow. In a bag with 10 candies, we would expect two candies to be yellow: one out of each five candies or the population proportion times the total number of candies in the sample = 0.20 * 10 = 2.0. This is the expected value. 
@@ -400,17 +400,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/p-values/", height="
 
 <A name="question1.3.1"></A>
 ```{block2, type='rmdquestion'}
-1. In Figure \@ref(fig:p-values), what is the probability of buying a bag with average candy weight of 2.8 grams or more? [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.1)
+1. In Figure \@ref(fig:p-values), what is the probability of buying a bag with average candy weight of 2.8 grams or more? [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.1){.buttonToAnswer}
 ```
 
 <A name="question1.3.2"></A>
 ```{block2, type='rmdquestion'}
-2. Use the sliders to find the probability of buying a bag with average candy weight between 2.6 and 3.7 grams. [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.2)
+2. Use the sliders to find the probability of buying a bag with average candy weight between 2.6 and 3.7 grams. [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.2){.buttonToAnswer}
 ```
 
 <A name="question1.3.3"></A>
 ```{block2, type='rmdquestion'}
-3. What is the minimum average weight of the 10% heaviest candy bags? [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.3)
+3. What is the minimum average weight of the 10% heaviest candy bags? [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.3){.buttonToAnswer}
 ```
 
 A probability density function can give us the probability of values between two thresholds. It can also give us the probability of values up to (and including) a threshold value, which is known as a _left-hand probability_, or the probability of values above (and including) a threshold value, which is called a _right-hand probability_. In a null hypothesis significance test (Chapter \@ref(hypothesis)), right-hand and left-hand probabilities are used to calculate _p_ values.
@@ -487,17 +487,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/three-means/", heigh
 
 <A name="question1.4.1"></A>
 ```{block2, type='rmdquestion'}
-1. In Figure \@ref(fig:three-means), explain the meaning of the three means (dotted red lines). Which mean is a mean of means? [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.1)
+1. In Figure \@ref(fig:three-means), explain the meaning of the three means (dotted red lines). Which mean is a mean of means? [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.1){.buttonToAnswer}
 ```
 
 <A name="question1.4.2"></A>
 ```{block2, type='rmdquestion'}
-2. Is it a coincidence that the mean of the population and sampling distribution are the same? Use a slider to check if these means are the same. [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.2)
+2. Is it a coincidence that the mean of the population and sampling distribution are the same? Use a slider to check if these means are the same. [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.2){.buttonToAnswer}
 ```
 
 <A name="question1.4.3"></A>
 ```{block2, type='rmdquestion'}
-3. How does the sample mean relate to the population mean and the mean of the sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.3)
+3. How does the sample mean relate to the population mean and the mean of the sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.3){.buttonToAnswer}
 ```
 
 The sampling distribution, here, is a distribution of sample means but the sampling distribution itself also has a mean, which is called the expected value or expectation of the sampling distribution. Don't let this confuse you. The mean of the sampling distribution is the average of the average weight of candies in every possible sample bag. This mean of means has the same value as our first mean, namely the average weight of the candies in the population because a sample mean is an unbiased estimator of the population mean.  
@@ -563,32 +563,32 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distributio
 
 <A name="question1.5.1"></A>
 ```{block2, type='rmdquestion'}
-1. The top-left histogram in Figure \@ref(fig:sampling-distribution-summary1) shows a simulated population distribution. What would be the real-world population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.1)
+1. The top-left histogram in Figure \@ref(fig:sampling-distribution-summary1) shows a simulated population distribution. What would be the real-world population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.1){.buttonToAnswer}
 ```
 
 <A name="question1.5.2"></A>
 ```{block2, type='rmdquestion'}
-2. Use the button in Figure \@ref(fig:sampling-distribution-summary1) to draw one random sample of ten candies from the population. What do the numbers on the horizontal axis of the bottom-right histogram represent? What is the statistical name of the variable *Number of yellow candies in the sample*? What is the unit of analysis for this characteristic? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.2)
+2. Use the button in Figure \@ref(fig:sampling-distribution-summary1) to draw one random sample of ten candies from the population. What do the numbers on the horizontal axis of the bottom-right histogram represent? What is the statistical name of the variable *Number of yellow candies in the sample*? What is the unit of analysis for this characteristic? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.2){.buttonToAnswer}
 ```
 
 <A name="question1.5.3"></A>
 ```{block2, type='rmdquestion'}
-3. Which values can the sample characteristic take here and what is the statistical name for this set of values? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.3)
+3. Which values can the sample characteristic take here and what is the statistical name for this set of values? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.3){.buttonToAnswer}
 ```
 
 <A name="question1.5.4"></A>
 ```{block2, type='rmdquestion'}
-4. If you would draw many samples from this population each containing ten candies, what is the number of yellow candies per sample that appears most frequently? Draw 1,000 samples to verify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.4)
+4. If you would draw many samples from this population each containing ten candies, what is the number of yellow candies per sample that appears most frequently? Draw 1,000 samples to verify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.4){.buttonToAnswer}
 ```
 
 <A name="question1.5.5"></A>
 ```{block2, type='rmdquestion'}
-5. Is the colour distribution in each sample that you draw representative (in the strict sense) of the colour distribution in the stock of candies? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.5)
+5. Is the colour distribution in each sample that you draw representative (in the strict sense) of the colour distribution in the stock of candies? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.5){.buttonToAnswer}
 ```
 
 <A name="question1.5.6"></A>
 ```{block2, type='rmdquestion'}
-6. Why, do you think, is a sample characteristic (sample statistic) called a _random variable_? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.6)
+6. Why, do you think, is a sample characteristic (sample statistic) called a _random variable_? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.6){.buttonToAnswer}
 ```
 
 ```{r sampling-distribution-summary2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A continuous sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
@@ -598,32 +598,32 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/p-values/", height="
 
 <A name="question1.5.7"></A>
 ```{block2, type='rmdquestion'}
-7. Use your own words to explain what the sampling distribution in Figure \@ref(fig:sampling-distribution-summary2) represents. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.7)
+7. Use your own words to explain what the sampling distribution in Figure \@ref(fig:sampling-distribution-summary2) represents. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.7){.buttonToAnswer}
 ```
 
 <A name="question1.5.8"></A>
 ```{block2, type='rmdquestion'}
-8. What do you think is the average weight of all candies in the population? Justify your answer using the concepts _expected value_ and _unbiased estimator_. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.8)
+8. What do you think is the average weight of all candies in the population? Justify your answer using the concepts _expected value_ and _unbiased estimator_. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.8){.buttonToAnswer}
 ```
 
 <A name="question1.5.9"></A>
 ```{block2, type='rmdquestion'}
-9. Use the sliders to find the probability of drawing a sample with average candy weight between 2.0 and 2.9 grams. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.9)
+9. Use the sliders to find the probability of drawing a sample with average candy weight between 2.0 and 2.9 grams. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.9){.buttonToAnswer}
 ```
 
 <A name="question1.5.10"></A>
 ```{block2, type='rmdquestion'}
-10. What, do you expect, is the probability of drawing a sample with average candy weight of exactly 2.9 grams? Use the sliders to check your expectation. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.10)
+10. What, do you expect, is the probability of drawing a sample with average candy weight of exactly 2.9 grams? Use the sliders to check your expectation. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.10){.buttonToAnswer}
 ```
 
 <A name="question1.5.11"></A>
 ```{block2, type='rmdquestion'}
-11. Why is this graph an example of a continuous probability distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.11)
+11. Why is this graph an example of a continuous probability distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.11){.buttonToAnswer}
 ```
 
 <A name="question1.5.12"></A>
 ```{block2, type='rmdquestion'}
-12. Why is the vertical axis labelled with "Probability density" instead of "Probability"? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.12)
+12. Why is the vertical axis labelled with "Probability density" instead of "Probability"? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.12){.buttonToAnswer}
 ```
 
 ```{r, results = 'asis', eval=ch1, echo=FALSE} 

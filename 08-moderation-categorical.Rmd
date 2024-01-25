@@ -133,19 +133,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-continuou
 <A name="question8.1.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. What is the predicted attitude for a person with zero exposure to the campaign? Explain why this value equals the constant of the regression equation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.1)
+1. What is the predicted attitude for a person with zero exposure to the campaign? Explain why this value equals the constant of the regression equation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.1){.buttonToAnswer}
 ```
 
 <A name="question8.1.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. What does the vertical orange line in Figure \@ref(fig:regression-continuous) mean if exposure is set to 1? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.2)
+2. What does the vertical orange line in Figure \@ref(fig:regression-continuous) mean if exposure is set to 1? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.2){.buttonToAnswer}
 ```
 
 <A name="question8.1.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. Use the equation to calculate the predicted attitude if exposure is 10. Check your answer using the exposure slider. What is troublesome about this predicted value? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.3)
+3. Use the equation to calculate the predicted attitude if exposure is 10. Check your answer using the exposure slider. What is troublesome about this predicted value? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.3){.buttonToAnswer}
 ```
 
 Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation [Eq. \@ref(eq:regrexample)]. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.
@@ -224,13 +224,13 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-dichotomy
 <A name="question8.1.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. What is the relation between the constant of the regression line in Figure \@ref(fig:regression-dichotomy) and group averages? Motivate your answer by changing the average attitude towards smoking for non-smokers in Figure \@ref(fig:regression-dichotomy). [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.4)
+4. What is the relation between the constant of the regression line in Figure \@ref(fig:regression-dichotomy) and group averages? Motivate your answer by changing the average attitude towards smoking for non-smokers in Figure \@ref(fig:regression-dichotomy). [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.4){.buttonToAnswer}
 ```
 
 <A name="question8.1.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. Change the slider for smokers to detect the relation between group means and the unstandardized regression coefficient ($b$). How can we calculate the unstandardized regression coefficient ($b$) from the group averages? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.5)
+5. Change the slider for smokers to detect the relation between group means and the unstandardized regression coefficient ($b$). How can we calculate the unstandardized regression coefficient ($b$) from the group averages? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.5){.buttonToAnswer}
 ```
 
 The interpretation of the effect of a dichotomous independent variable in a regression model is quite different from the interpretation of a numerical independent variable's effect.
@@ -302,19 +302,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-categoric
 <A name="question8.1.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. Interpret the effects of smoking status (grey and black *b*'s) in Figure \@ref(fig:regression-categorical). [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.6)
+6. Interpret the effects of smoking status (grey and black *b*'s) in Figure \@ref(fig:regression-categorical). [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.6){.buttonToAnswer}
 ```
 
 <A name="question8.1.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. In the initial state of Figure \@ref(fig:regression-categorical), can you tell whether the attitude of smokers is significantly different from the attitude of former smokers? If not, how can you get the _p_ value that you need? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.7)
+7. In the initial state of Figure \@ref(fig:regression-categorical), can you tell whether the attitude of smokers is significantly different from the attitude of former smokers? If not, how can you get the _p_ value that you need? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.7){.buttonToAnswer}
 ```
 
 <A name="question8.1.8"></A>
 
 ```{block2, type='rmdquestion'}
-8. Select some new plots. For each plot, determine which reference group you think is most convenient for summarizing the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.8)
+8. Select some new plots. For each plot, determine which reference group you think is most convenient for summarizing the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.8){.buttonToAnswer}
 ```
 
 In this example, smoking status is measured with three categories: (1) non-smokers, (2) former smokers, and (3) smokers. Let us use the term *categorical variable* only for variables containing three or more categories or groups. This makes it easy to distinguish them from dichotomous variables. This distinction is important because we can include a dichotomous variable straight away as a predictor in a regression model but we cannot do so for a variable with more than two categories. We can only include such a categorical independent variable if we change it into a set of dichotomies.
@@ -461,19 +461,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/resid-normal/", heig
 <A name="question8.1.9"></A>
 
 ```{block2, type='rmdquestion'}
-9. What do the lines between the dots and the (blue) regression line represent in the scatter plot at the left of Figure \@ref(fig:resid-normal)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.9)
+9. What do the lines between the dots and the (blue) regression line represent in the scatter plot at the left of Figure \@ref(fig:resid-normal)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.9){.buttonToAnswer}
 ```
 
 <A name="question8.1.10"></A>
 
 ```{block2, type='rmdquestion'}
-10. What is the relation between the scatter plot and the histogram? Can you point out the dot in the scatter plot that belongs to the leftmost bar in the histogram? Tip: Drag your mouse around a dot while pressing the left mouse button to see its residual in the histogram. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.10)
+10. What is the relation between the scatter plot and the histogram? Can you point out the dot in the scatter plot that belongs to the leftmost bar in the histogram? Tip: Drag your mouse around a dot while pressing the left mouse button to see its residual in the histogram. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.10){.buttonToAnswer}
 ```
 
 <A name="question8.1.11"></A>
 
 ```{block2, type='rmdquestion'}
-11. Draw some new samples. Are the residuals always normally distributed: Does the top of the histogram coincide with the center of the normal distribution and are the left and right tails equally "fat"?  [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.11)
+11. Draw some new samples. Are the residuals always normally distributed: Does the top of the histogram coincide with the center of the normal distribution and are the left and right tails equally "fat"?  [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.11){.buttonToAnswer}
 ```
 
 If we sample from a population where attitude towards smoking depends on exposure, smoking status, and contact with smokers, we will be able to predict attitude from the independent variables in our sample. Our predictions will not be perfect, sometimes too high and sometimes too low. The differences between predicted and observed attitude scores are the residuals.
@@ -503,13 +503,13 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pred-linearity/", he
 <A name="question8.1.12"></A>
 
 ```{block2, type='rmdquestion'}
-12. Which dot in the plot of residuals (Figure \@ref(fig:pred-linearity) bottom) corresponds with the left-most observation (dot) in the scatter plot of attitude by exposure (Figure \@ref(fig:pred-linearity) top)? Drag your mouse around the left-most dot while pressing the left mouse button to check your choice. Repeat for more dots until you understand the relation between the two plots. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.12)
+12. Which dot in the plot of residuals (Figure \@ref(fig:pred-linearity) bottom) corresponds with the left-most observation (dot) in the scatter plot of attitude by exposure (Figure \@ref(fig:pred-linearity) top)? Drag your mouse around the left-most dot while pressing the left mouse button to check your choice. Repeat for more dots until you understand the relation between the two plots. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.12){.buttonToAnswer}
 ```
 
 <A name="question8.1.13"></A>
 
 ```{block2, type='rmdquestion'}
-13. Select a U-shaped curve in Figure \@ref(fig:pred-linearity). Explain how the plot of residuals tells you that the association is not linear. Do the same for a curved association. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.13)
+13. Select a U-shaped curve in Figure \@ref(fig:pred-linearity). Explain how the plot of residuals tells you that the association is not linear. Do the same for a curved association. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.13){.buttonToAnswer}
 ```
 
 The relation between an independent and dependent variable, for example, exposure and attitude towards smoking, does not have to be linear. It can be curved or have some other fancy shape. Then, the linearity assumption is not met. A straight regression line does not nicely fit such data.
@@ -531,19 +531,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pred-homoscedasticit
 <A name="question8.1.14"></A>
 
 ```{block2, type='rmdquestion'}
-14. What strikes you about the residuals in Figure \@ref(fig:pred-homoscedasticity)? Remember that residuals represent prediction errors. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.14)
+14. What strikes you about the residuals in Figure \@ref(fig:pred-homoscedasticity)? Remember that residuals represent prediction errors. [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.14){.buttonToAnswer}
 ```
 
 <A name="question8.1.15"></A>
 
 ```{block2, type='rmdquestion'}
-15. What happens if you move the slider to the far left? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.15)
+15. What happens if you move the slider to the far left? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.15){.buttonToAnswer}
 ```
 
 <A name="question8.1.16"></A>
 
 ```{block2, type='rmdquestion'}
-16. At which slider position are all attitude levels predicted more or less equally well or equally badly? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.16)
+16. At which slider position are all attitude levels predicted more or less equally well or equally badly? [<img src="icons/2answer.png" width=115px align="right">](#answer8.1.16){.buttonToAnswer}
 ```
 
 The other assumption states that we can predict the dependent variable equally well at all dependent variable levels. In other words, the prediction errors (residuals) are more or less the same at all levels of the dependent variable. This is called *homoscedasticity*. If we have large prediction errors at some levels of the dependent variable, we should also have large prediction errors at other levels. As a result, the vertical width of the residuals by predictions scatter plot should be more or less the same from left to right. The dots representing residuals resemble a more or less rectangular band.
@@ -855,25 +855,25 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 <A name="question8.2.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. Use the data in [allsmokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allsmokers.sav) to predict the attitude towards smoking from exposure to an anti-smoking campaign. Check the assumptions and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.1)
+1. Use the data in [allsmokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allsmokers.sav) to predict the attitude towards smoking from exposure to an anti-smoking campaign. Check the assumptions and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.1){.buttonToAnswer}
 ```
 
 <A name="question8.2.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. Add smoking status (variable _status3_), and contact with smokers as predictors to the regression model of Exercise 1. Check the assumptions and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.2)
+2. Add smoking status (variable _status3_), and contact with smokers as predictors to the regression model of Exercise 1. Check the assumptions and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.2){.buttonToAnswer}
 ```
 
 <A name="question8.2.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. The data set [allchildren.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allchildren.sav) contains information about media literacy of children and parental supervision of their media use. Are the two related? Check the assumptions and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.3)
+3. The data set [allchildren.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allchildren.sav) contains information about media literacy of children and parental supervision of their media use. Are the two related? Check the assumptions and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.3){.buttonToAnswer}
 ```
 
 <A name="question8.2.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. How well can we predict brand awareness with ad exposure? Use [allconsumers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allconsumers.sav) to answer this question. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.4)
+4. How well can we predict brand awareness with ad exposure? Use [allconsumers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allconsumers.sav) to answer this question. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.4){.buttonToAnswer}
 ```
 
 ```{html, echo=ch8} 
@@ -1181,7 +1181,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/dichotomous-moderato
 <A name="question8.3.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. Is the effect of exposure on attitude moderated by the smoking status of respondents (smokers versus non-smokers) in Figure \@ref(fig:dichotomous-moderator)? Motivate your answer. Press the *Take new sample* button to practice some more with recognizing moderation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.1)
+1. Is the effect of exposure on attitude moderated by the smoking status of respondents (smokers versus non-smokers) in Figure \@ref(fig:dichotomous-moderator)? Motivate your answer. Press the *Take new sample* button to practice some more with recognizing moderation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.1){.buttonToAnswer}
 ```
 
 In Section \@ref(regression-equation), we have analyzed the predictive effects of exposure to an anti-smoking campaign and smoking status on a person's attitude towards smoking. We have found a negative effect for exposure and a positive effect for smoking. More exposure predicts a more negative attitude whereas smokers have on average a more positive attitude towards smoking than non-smokers.
@@ -1229,14 +1229,14 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interaction-var/", h
 ```{block2, type='rmdquestion'}
 2. Change the slider position to make the regression line for smokers fit the dot cloud representing smokers. The grey line is your target. 
     - What happens if you move the slider? 
-    - Can you explain when you have to move the slider to the right and when you have to move it to the left? [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.2)
+    - Can you explain when you have to move the slider to the right and when you have to move it to the left? [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.2){.buttonToAnswer}
 ```
 
 <A name="question8.3.3"></A>
 
 ```{block2, type='rmdquestion'}
 3. The regression line for non-smokers always has the correct slope to fit the dot cloud representing non-smokers. Draw some new samples to verify this. 
-    - What is the slope of the regression line for non-smokers? In other words, what is the effect (regression coefficient) of exposure on attitude for non-smokers? Tip: Replace the variable *smoker* in the regression equation by zero and simplify the equation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.3)
+    - What is the slope of the regression line for non-smokers? In other words, what is the effect (regression coefficient) of exposure on attitude for non-smokers? Tip: Replace the variable *smoker* in the regression equation by zero and simplify the equation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.3){.buttonToAnswer}
 ```
 
 The interaction variable must be included together with the original predictor and moderator variables, see Equation \@ref(eq:intvar). This is also visible in the statistical diagram (Figure \@ref(fig:moderator-statistical)) for moderation in a regression model.
@@ -1446,7 +1446,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/categorical-moderato
 <A name="question8.3.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. If we have exposure effects within three groups, as in Figure \@ref(fig:categorical-moderator), when do we have an interaction effect (moderation) and when do we not have an interaction effect? Motivate your answer. Press the **Take new sample** button to practice recognizing moderation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.4)
+4. If we have exposure effects within three groups, as in Figure \@ref(fig:categorical-moderator), when do we have an interaction effect (moderation) and when do we not have an interaction effect? Motivate your answer. Press the **Take new sample** button to practice recognizing moderation. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.4){.buttonToAnswer}
 ```
 
 In Section \@ref(categorical-predictor), we learned that we must create dummy variables for all but one groups of a categorical predictor in a regression model. This is what we have to do also for a categorical moderator. If the effect of a predictor, such as exposure, is moderated by a categorical variable, we have to create an interaction variable for each dummy variable in the equation. To create the interaction variables, we multiply the predictor by each of the dummy variables.
@@ -1542,19 +1542,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/common-support/", he
 <A name="question8.3.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. What does the histogram represent at the right of Figure \@ref(fig:common-support)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.5)
+5. What does the histogram represent at the right of Figure \@ref(fig:common-support)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.5){.buttonToAnswer}
 ```
 
 <A name="question8.3.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. Are the exposure values nicely spread for each smoke status group? Inspect each smoke status group separately with the "Choose group" option. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.6)
+6. Are the exposure values nicely spread for each smoke status group? Inspect each smoke status group separately with the "Choose group" option. [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.6){.buttonToAnswer}
 ```
 
 <A name="question8.3.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. What is the problem if exposure scores are not nicely spread over the same range for all smoke status groups? [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.7)
+7. What is the problem if exposure scores are not nicely spread over the same range for all smoke status groups? [<img src="icons/2answer.png" width=115px align="right">](#answer8.3.7){.buttonToAnswer}
 ```
 
 The variation of predictor scores for a particular value of the moderator is called *common support* [@RefWorks:3838]. If common support for predictors involved in moderation is poor, we should hesitate to draw conclusions from the estimated effects. Guidelines for good common support are hard to give. Common support is usually acceptable if there are observations over the entire range of the predictor.
@@ -1977,25 +1977,25 @@ knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px"
 <A name="question8.4.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. Use the data in [allsmokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allsmokers.sav) to predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_). Use contact with smokers as a covariate. Check the assumptions for regression analysis and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.1)
+1. Use the data in [allsmokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allsmokers.sav) to predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_). Use contact with smokers as a covariate. Check the assumptions for regression analysis and interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.1){.buttonToAnswer}
 ```
 
 <A name="question8.4.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. Visualize the moderated effects of exposure on attitude (Exercise 1). Create a scatter plot with two regression lines and use the average value for the covariate (contact with smokers). Colour the regression lines and the dots (respondents) according to their smoking status category. Interpret how smoking status moderates the effect of exposure on attitude. [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.2)
+2. Visualize the moderated effects of exposure on attitude (Exercise 1). Create a scatter plot with two regression lines and use the average value for the covariate (contact with smokers). Colour the regression lines and the dots (respondents) according to their smoking status category. Interpret how smoking status moderates the effect of exposure on attitude. [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.2){.buttonToAnswer}
 ```
 
 <A name="question8.4.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. Check common support of the predictor (exposure) in all groups of the moderator (smoking status). Could you also check common support with the scatter plot you made for Exercise 2? [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.3)
+3. Check common support of the predictor (exposure) in all groups of the moderator (smoking status). Could you also check common support with the scatter plot you made for Exercise 2? [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.3){.buttonToAnswer}
 ```
 
 <A name="question8.4.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. Repeat the analyses of Exercises 1 through 3 but use smoking status with three categories (_status3_). [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.4)
+4. Repeat the analyses of Exercises 1 through 3 but use smoking status with three categories (_status3_). [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.4){.buttonToAnswer}
 ```
 
 ```{html, echo=ch8} 
@@ -2368,19 +2368,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-predict2/
 <A name="question8.5.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. Do smokers or non-smokers have a more positive attitude towards smoking according to Figure \@ref(fig:regression-predict2)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.1)
+1. Do smokers or non-smokers have a more positive attitude towards smoking according to Figure \@ref(fig:regression-predict2)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.1){.buttonToAnswer}
 ```
 
 <A name="question8.5.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. What is the predicted attitude for smokers who are not exposed to the campaign and who have 4 contacts with smokers? Use the equation in Figure \@ref(fig:regression-predict2) and see if you can easily check your answer in this figure. [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.2)
+2. What is the predicted attitude for smokers who are not exposed to the campaign and who have 4 contacts with smokers? Use the equation in Figure \@ref(fig:regression-predict2) and see if you can easily check your answer in this figure. [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.2){.buttonToAnswer}
 ```
 
 <A name="question8.5.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. Do people with more contacts with smokers have a more positive or a more negative attitude towards smoking? Does this apply to all people or only to people with a particular smoking status or a particular level of exposure? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.3)
+3. Do people with more contacts with smokers have a more positive or a more negative attitude towards smoking? Does this apply to all people or only to people with a particular smoking status or a particular level of exposure? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.3){.buttonToAnswer}
 ```
 
 ```{r exampleresults, echo=FALSE, eval=TRUE}
@@ -2401,19 +2401,19 @@ data.frame(
 <A name="question8.5.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. Why is the third category _Non-smoker_ not included as a predictor in Table \@ref(tab:exampleresults)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.4)
+4. Why is the third category _Non-smoker_ not included as a predictor in Table \@ref(tab:exampleresults)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.4){.buttonToAnswer}
 ```
 
 <A name="question8.5.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. Can you tell from this table whether the effect of exposure for smokers is statistically significantly stronger than the effect of exposure for non-smokers? And is it significantly stronger than the effect of exposure for former smokers?. [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.5)
+5. Can you tell from this table whether the effect of exposure for smokers is statistically significantly stronger than the effect of exposure for non-smokers? And is it significantly stronger than the effect of exposure for former smokers?. [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.5){.buttonToAnswer}
 ```
 
 <A name="question8.5.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. Calculate the regression equation for the effect of exposure on attitude for former smokers who have two contacts with smokers using the results summarized in Table \@ref(tab:exampleresults). [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.6)
+6. Calculate the regression equation for the effect of exposure on attitude for former smokers who have two contacts with smokers using the results summarized in Table \@ref(tab:exampleresults). [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.6){.buttonToAnswer}
 ```
 
 ```{r supportexamples, echo=FALSE, eval=TRUE, out.width="640px", out.height="478px", fig.pos='H', fig.align='center', fig.cap="Four examples of common support."}
@@ -2423,13 +2423,13 @@ include_graphics("figures/Q8.5.7.png")
 <A name="question8.5.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. In which panel of Figure \@ref(fig:supportexamples) is common support best? In which panel is it worst? Motivate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.7)
+7. In which panel of Figure \@ref(fig:supportexamples) is common support best? In which panel is it worst? Motivate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.7){.buttonToAnswer}
 ```
 
 <A name="question8.5.8"></A>
 
 ```{block2, type='rmdquestion'}
-8. What would you report about common support based on the histogram in the bottom-left panel of Figure \@ref(fig:supportexamples)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.8)
+8. What would you report about common support based on the histogram in the bottom-left panel of Figure \@ref(fig:supportexamples)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.8){.buttonToAnswer}
 ```
 
 ```{html, echo=ch8} 

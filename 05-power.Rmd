@@ -55,13 +55,13 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-unstand/
 <A name="question5.2.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. If we draw a sample of twenty candies, which average candy weight in our sample rejects the null hypothesis according to Figure \@ref(fig:sample-size-unstand): 2.40, 2.70, or 3.05 grams? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.1)
+1. If we draw a sample of twenty candies, which average candy weight in our sample rejects the null hypothesis according to Figure \@ref(fig:sample-size-unstand): 2.40, 2.70, or 3.05 grams? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.1){.buttonToAnswer}
 ```
 
 <A name="question5.2.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. Imagine that legal regulations allow average candy weight in a sample bag to differ 0.10 grams but not 0.25 grams from the weight reported on the sample bag. Our statistical test should pick up (be significant) differences of at least 0.25 grams, but not differences of 0.10 grams or less. What is the minimum and maximum size of our sample? Use the slider to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.2)
+2. Imagine that legal regulations allow average candy weight in a sample bag to differ 0.10 grams but not 0.25 grams from the weight reported on the sample bag. Our statistical test should pick up (be significant) differences of at least 0.25 grams, but not differences of 0.10 grams or less. What is the minimum and maximum size of our sample? Use the slider to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.2){.buttonToAnswer}
 ```
 
 We have learned that larger samples have smaller standard errors (Section \@ref(sample-size)). Smaller standard errors yield larger test statistic values and larger test statistics have smaller *p* values. In other words, a test on a larger sample is more often statistically significant.
@@ -195,19 +195,19 @@ knitr::include_url("https://www.youtube.com/embed/HmyW7HRM64Q", height = "360px"
 <A name="question5.2.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. Open data set [voters.sav](https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav) that contains information about the attitude towards immigration among a random sample of voters. What are the unstandardized and standardized effect sizes if the hypothesized average attitude towards immigrants in the population is 6.0? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.3)
+3. Open data set [voters.sav](https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav) that contains information about the attitude towards immigration among a random sample of voters. What are the unstandardized and standardized effect sizes if the hypothesized average attitude towards immigrants in the population is 6.0? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.3){.buttonToAnswer}
 ```
 
 <A name="question5.2.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. What are the effect sizes if the null hypothesis states that the average attitude towards immigrants in the population is at least 6.0? And what if it states that average attitude is at most 6.0? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.4)
+4. What are the effect sizes if the null hypothesis states that the average attitude towards immigrants in the population is at least 6.0? And what if it states that average attitude is at most 6.0? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.4){.buttonToAnswer}
 ```
 
 <A name="question5.2.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. What are the unstandardized and standardized effect sizes of a test in which we compare the attitude towards immigrants of young voters to the attitude of old voters? Again, use data set [voters.sav](https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav). [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.5)
+5. What are the unstandardized and standardized effect sizes of a test in which we compare the attitude towards immigrants of young voters to the attitude of old voters? Again, use data set [voters.sav](https://shklinkenberg.github.io/Statistical-Inference/data/voters.sav). [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.5){.buttonToAnswer}
 ```
 
 ### Association as effect size {#assoc-size}
@@ -232,13 +232,13 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size/", heigh
 <A name="question5.2.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. Use the slider in Figure \@ref(fig:sample-size) to find the minimum sample size that we need for a statistically significant test result for each of the three effect sizes represented by red lines. [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.6)
+6. Use the slider in Figure \@ref(fig:sample-size) to find the minimum sample size that we need for a statistically significant test result for each of the three effect sizes represented by red lines. [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.6){.buttonToAnswer}
 ```
 
 <A name="question5.2.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. What is the meaning of the _p_ values and why do they decrease if we increase sample size? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.7)
+7. What is the meaning of the _p_ values and why do they decrease if we increase sample size? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.7){.buttonToAnswer}
 ```
 
 Observed effect size as well as test statistics reflect the difference between what we expect according to the null hypothesis and what we observe in our sample. As a consequence, effect size indicators and test statistics are related. In some cases, such as Cohen's *d*, the relation between effect size and test statistic is very simple.
@@ -387,49 +387,49 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/type1vs2fixed/", hei
 <A name="question5.3.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. What is the rejection region in the graph provided in Step 1 of Figure \@ref(fig:TypeI-II-errors)? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.1)
+1. What is the rejection region in the graph provided in Step 1 of Figure \@ref(fig:TypeI-II-errors)? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.1){.buttonToAnswer}
 ```
 
 <A name="question5.3.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. Is the null hypothesis true or false if the sample mean is not in the rejection region? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.2)
+2. Is the null hypothesis true or false if the sample mean is not in the rejection region? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.2){.buttonToAnswer}
 ```
 
 <A name="question5.3.3"></A>
 
 ```{block2, type='rmdquestion'}
-3.  Can we make a Type I error if the sample mean is not in the rejection region? Explain the meaning of a Type I error in your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.3)
+3.  Can we make a Type I error if the sample mean is not in the rejection region? Explain the meaning of a Type I error in your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.3){.buttonToAnswer}
 ```
 
 <A name="question5.3.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. What is the size of the unstandardized effect size that is deemed practically relevant in Step 2? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.4)
+4. What is the size of the unstandardized effect size that is deemed practically relevant in Step 2? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.4){.buttonToAnswer}
 ```
 
 <A name="question5.3.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. If H~1~ is true, which area under the sampling distributions represents the probability that we draw a sample with average candy weight that is less than the average of our sample (2.84 grams)? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.5)
+5. If H~1~ is true, which area under the sampling distributions represents the probability that we draw a sample with average candy weight that is less than the average of our sample (2.84 grams)? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.5){.buttonToAnswer}
 ```
 
 <A name="question5.3.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. In Step 3, the yellow area represents a set of samples. What will researchers do with the null hypothesis if they draw one of these samples? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.6)
+6. In Step 3, the yellow area represents a set of samples. What will researchers do with the null hypothesis if they draw one of these samples? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.6){.buttonToAnswer}
 ```
 
 <A name="question5.3.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. If H~1~ is true, the yellow area is a probability. A probability of what? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.7)
+7. If H~1~ is true, the yellow area is a probability. A probability of what? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.7){.buttonToAnswer}
 ```
 
 <A name="question5.3.8"></A>
 
 ```{block2, type='rmdquestion'}
-8. The green area represents the power of a test in Step 4. Describe what power is in terms of rejecting the null hypothesis. [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.8)
+8. The green area represents the power of a test in Step 4. Describe what power is in terms of rejecting the null hypothesis. [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.8){.buttonToAnswer}
 ```
 
 ### The world of the researcher
@@ -587,43 +587,43 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/"
 <A name="question5.4.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. Figure \@ref(fig:sample-size-power) shows the sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve). Explain the meaning of the yellow and green surfaces in the graph. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.1)
+1. Figure \@ref(fig:sample-size-power) shows the sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve). Explain the meaning of the yellow and green surfaces in the graph. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.1){.buttonToAnswer}
 ```
 
 <A name="question5.4.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. How does test power change if we want our statistical test to detect a smaller effect, for example, a standardized effect of 0.2 instead of 0.5? Move the standardized effect size slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.2)
+2. How does test power change if we want our statistical test to detect a smaller effect, for example, a standardized effect of 0.2 instead of 0.5? Move the standardized effect size slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.2){.buttonToAnswer}
 ```
 
 <A name="question5.4.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. How does test power change if we change our two-sided test into a one-sided test? Change the test type to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.3)
+3. How does test power change if we change our two-sided test into a one-sided test? Change the test type to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.3){.buttonToAnswer}
 ```
 
 <A name="question5.4.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. How does test power change if we select a lower significance level (lower probability of making a Type I error), for example, $\alpha$ = 0.01? Move the significance level slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.4)
+4. How does test power change if we select a lower significance level (lower probability of making a Type I error), for example, $\alpha$ = 0.01? Move the significance level slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.4){.buttonToAnswer}
 ```
 
 <A name="question5.4.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. How does test power change if we increase sample size? Explain what happens. Move the sample size slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.5)
+5. How does test power change if we increase sample size? Explain what happens. Move the sample size slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.5){.buttonToAnswer}
 ```
 
 <A name="question5.4.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. Which minimum sample size do we need to have 80% probability that a one-sided test is statistically significant at the 5% significance level if there is a moderately strong effect (standardized effect size 0.5) in the population? Use the sample size slider in Figure \@ref(fig:sample-size-power) to find the minimum sample size. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.6)
+6. Which minimum sample size do we need to have 80% probability that a one-sided test is statistically significant at the 5% significance level if there is a moderately strong effect (standardized effect size 0.5) in the population? Use the sample size slider in Figure \@ref(fig:sample-size-power) to find the minimum sample size. [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.6){.buttonToAnswer}
 ```
 
 <A name="question5.4.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. Effects tend to be small (0.2) rather than moderate (0.5) in communication science. What is the test power for a small effect with the sample size that you obtained in Question 6 and how large must the sample be if we want 80% test power for a test with a small effect? [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.7)
+7. Effects tend to be small (0.2) rather than moderate (0.5) in communication science. What is the test power for a small effect with the sample size that you obtained in Question 6 and how large must the sample be if we want 80% test power for a test with a small effect? [<img src="icons/2answer.png" width=115px align="right">](#answer5.4.7){.buttonToAnswer}
 ```
 
 Sample size, statistical significance, effect size, and test power are related. To determine the size of your sample, you have three sliders that you should adjust simultaneously. Statistical significance is the easiest slider to decide on; we usually leave the significance level at .05. We do not select a smaller value because it will reduce the power of the test (with the same sample size and effect size) as you may have noticed while answering Question 4.
@@ -788,31 +788,31 @@ Figure \@ref(fig:test-power) shows sampling distributions for two worlds. To the
 <A name="question5.6.1"></A>
 
 ```{block2, type='rmdquestion'}
-1. What do the values on the horizontal axes (top and bottom) mean? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.1)
+1. What do the values on the horizontal axes (top and bottom) mean? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.1){.buttonToAnswer}
 ```
 
 <A name="question5.6.2"></A>
 
 ```{block2, type='rmdquestion'}
-2. What is the unstandardized and standardized effect size in the sample? Is the effect weak, moderate, or strong? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.2)
+2. What is the unstandardized and standardized effect size in the sample? Is the effect weak, moderate, or strong? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.2){.buttonToAnswer}
 ```
 
 <A name="question5.6.3"></A>
 
 ```{block2, type='rmdquestion'}
-3. What do the blue horizontal lines in Figure \@ref(fig:test-power) represent? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.3)
+3. What do the blue horizontal lines in Figure \@ref(fig:test-power) represent? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.3){.buttonToAnswer}
 ```
 
 <A name="question5.6.4"></A>
 
 ```{block2, type='rmdquestion'}
-4. What does the yellow section in the graph mean? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.4)
+4. What does the yellow section in the graph mean? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.4){.buttonToAnswer}
 ```
 
 <A name="question5.6.5"></A>
 
 ```{block2, type='rmdquestion'}
-5. What does the green section in the graph mean? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.5)
+5. What does the green section in the graph mean? [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.5){.buttonToAnswer}
 ```
 
 ```{r sample-size-power2, fig.pos='H', fig.align='center', fig.cap="How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
@@ -832,19 +832,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/"
 <A name="question5.6.6"></A>
 
 ```{block2, type='rmdquestion'}
-6. Which test has higher power: a one-sided test at 5% significance level or a two-sided test at 1% significance level? Explain how significance level and type of test (one-sided versus two-sided) affect test power. Use Figure \@ref(fig:sample-size-power2) to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.6)
+6. Which test has higher power: a one-sided test at 5% significance level or a two-sided test at 1% significance level? Explain how significance level and type of test (one-sided versus two-sided) affect test power. Use Figure \@ref(fig:sample-size-power2) to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.6){.buttonToAnswer}
 ```
 
 <A name="question5.6.7"></A>
 
 ```{block2, type='rmdquestion'}
-7. Explain what happens to the two sampling distributions in Figure \@ref(fig:sample-size-power2) when you change the standardized effect size. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.7)
+7. Explain what happens to the two sampling distributions in Figure \@ref(fig:sample-size-power2) when you change the standardized effect size. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.7){.buttonToAnswer}
 ```
 
 <A name="question5.6.8"></A>
 
 ```{block2, type='rmdquestion'}
-8. Explain what happens to the two sampling distributions in Figure \@ref(fig:sample-size-power2) when you change the size of the sample. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.8)
+8. Explain what happens to the two sampling distributions in Figure \@ref(fig:sample-size-power2) when you change the size of the sample. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.8){.buttonToAnswer}
 ```
 
 ```{html, echo=ch5} 

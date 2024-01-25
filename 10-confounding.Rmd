@@ -45,12 +45,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-multiplere
 
 <A name="question9.1.1"></A>
 ```{block2, type='rmdquestion'}
-1. The grey line in Figure \@ref(fig:mediation-multipleregression) represents the effect of interest in politics on newspaper reading time if interest in politics is the only independent variable. Check the box for age to add it as a second independent variable. What happens to the regression lines and the standardized regression coefficient (b*)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.1)
+1. The grey line in Figure \@ref(fig:mediation-multipleregression) represents the effect of interest in politics on newspaper reading time if interest in politics is the only independent variable. Check the box for age to add it as a second independent variable. What happens to the regression lines and the standardized regression coefficient (b*)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.1){.buttonToAnswer}
 ```
 
 <A name="question9.1.2"></A>
 ```{block2, type='rmdquestion'}
-2. Remove age from the model (uncheck its box) and add the other additional predictors to the model, one at a time. What happens to the effect of political interest? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.2)
+2. Remove age from the model (uncheck its box) and add the other additional predictors to the model, one at a time. What happens to the effect of political interest? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.2){.buttonToAnswer}
 ```
 
 ### Partial effect {#partialeffect}  
@@ -111,7 +111,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-indirectco
 
 <A name="question9.2.1"></A>
 ```{block2, type='rmdquestion'}
-1. Which variable changes the effect of political interest on newspaper reading time most when added to the model? And why is that so? Add confounders to the model in Figure \@ref(fig:mediation-indirectcorrelation) and try to explain why the change is small or large. [<img src="icons/2answer.png" width=115px align="right">](#answer9.2.1)
+1. Which variable changes the effect of political interest on newspaper reading time most when added to the model? And why is that so? Add confounders to the model in Figure \@ref(fig:mediation-indirectcorrelation) and try to explain why the change is small or large. [<img src="icons/2answer.png" width=115px align="right">](#answer9.2.1){.buttonToAnswer}
 ```
 
 When is a variable a confounder and when does it change the effect of another predictor a lot if it is added to the regression model? The answer to the first part of this question is easy: A _confounder_ is a variable that is correlated with both the predictor and dependent variable but is not (yet) included in the regression model. Because of the correlations, a confounder establishes an _indirect correlation_ between the predictor and dependent variable.
@@ -187,12 +187,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confounder
 
 <A name="question9.3.1"></A>
 ```{block2, type='rmdquestion'}
-1. If you add a confounder, when is a partial regression effect weaker than the simple regression effect and when is it stronger? Experiment with Figure \@ref(fig:mediation-confoundertypes) and try to formulate a general rule. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.1)
+1. If you add a confounder, when is a partial regression effect weaker than the simple regression effect and when is it stronger? Experiment with Figure \@ref(fig:mediation-confoundertypes) and try to formulate a general rule. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.1){.buttonToAnswer}
 ```
 
 <A name="question9.3.2"></A>
 ```{block2, type='rmdquestion'}
-2. According to your general rule, what happens to the partial regression effect if we would add interest in sports as a predictor, which is negatively correlated with interest in politics but positively correlated with newspaper reading time? [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.2)
+2. According to your general rule, what happens to the partial regression effect if we would add interest in sports as a predictor, which is negatively correlated with interest in politics but positively correlated with newspaper reading time? [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.2){.buttonToAnswer}
 ```
 
 In the preceding section, we learned that a partial effect expressed by a regression coefficient may change if a new predictor is added to the regression model. The partial effect of a predictor changes if the added variable is a confounder: It is correlated both with the predictor and dependent variable. In other words, there is an indirect correlation between the predictor and dependent variable due to the confounding variable.
@@ -373,17 +373,17 @@ knitr::include_url("https://www.youtube.com/embed/Du2mzxWifCM", height = "360px"
 
 <A name="question9.4.1"></A>
 ```{block2, type='rmdquestion'}
-1. The file [readers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/readers.sav) contains the data on newspaper reading time that we have used as example in this chapter. Predict average newspaper reading time from education, interest in politics, news site use, and age. Add the predictors one by one to the regression model in the order specified in the preceding sentence. How do the regression coefficients change when new predictors are added? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.1)
+1. The file [readers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/readers.sav) contains the data on newspaper reading time that we have used as example in this chapter. Predict average newspaper reading time from education, interest in politics, news site use, and age. Add the predictors one by one to the regression model in the order specified in the preceding sentence. How do the regression coefficients change when new predictors are added? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.1){.buttonToAnswer}
 ```
 
 <A name="question9.4.2"></A>
 ```{block2, type='rmdquestion'}
-2. In the series of models that you estimated in Exercise 1, for which predictors is age a suppressor or reinforcer? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.2)
+2. In the series of models that you estimated in Exercise 1, for which predictors is age a suppressor or reinforcer? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.2){.buttonToAnswer}
 ```
 
 <A name="question9.4.3"></A>
 ```{block2, type='rmdquestion'}
-3. Predict average newspaper reading time from education, political cynicism, news site use, and age. Add the predictors one by one to the regression model in the order specified in the preceding sentence. Does suppression occur here? If so, for which predictor and confounder and in which model(s)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.3)
+3. Predict average newspaper reading time from education, political cynicism, news site use, and age. Add the predictors one by one to the regression model in the order specified in the preceding sentence. Does suppression occur here? If so, for which predictor and confounder and in which model(s)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.3){.buttonToAnswer}
 ```
 
 ```{html, echo=ch10} 
@@ -571,22 +571,22 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confounder
 
 <A name="question10.5.1"></A>
 ```{block2, type='rmdquestion'}
-1. Calculate the value of the indirect correlation between political interest and reading time due to news site use in Figure \@ref(fig:mediation-confoundertypes2). [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.1)
+1. Calculate the value of the indirect correlation between political interest and reading time due to news site use in Figure \@ref(fig:mediation-confoundertypes2). [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.1){.buttonToAnswer}
 ```
 
 <A name="question10.5.2"></A>
 ```{block2, type='rmdquestion'}
-2. Does news site use suppress or reinforce the effect of political interest on newspaper reading time if it is not included in the regression model? Explain why it is a suppressor or reinforcer. [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.2)
+2. Does news site use suppress or reinforce the effect of political interest on newspaper reading time if it is not included in the regression model? Explain why it is a suppressor or reinforcer. [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.2){.buttonToAnswer}
 ```
 
 <A name="question10.5.3"></A>
 ```{block2, type='rmdquestion'}
-3. If news site use has been added to the regression model, the effect of political interest on newspaper reading time is indicated as a partial effect. What does a partial effect mean?  [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.3)
+3. If news site use has been added to the regression model, the effect of political interest on newspaper reading time is indicated as a partial effect. What does a partial effect mean?  [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.3){.buttonToAnswer}
 ```
 
 <A name="question10.5.4"></A>
 ```{block2, type='rmdquestion'}
-4. The effect of political interest on newspaper reading time becomes negative if a confounder is added to the regression model. Which confounder in Figure \@ref(fig:mediation-confoundertypes2) accomplishes this? Why does the effect of political interest becomes negative when this confounder is added? Support your argument with calculations. [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.4)
+4. The effect of political interest on newspaper reading time becomes negative if a confounder is added to the regression model. Which confounder in Figure \@ref(fig:mediation-confoundertypes2) accomplishes this? Why does the effect of political interest becomes negative when this confounder is added? Support your argument with calculations. [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.4){.buttonToAnswer}
 ```
 
 ```{html, echo=ch10} 

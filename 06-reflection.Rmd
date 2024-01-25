@@ -41,27 +41,27 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/tiny-effects/", heig
 
 <A name="question6.1.1"></A>
 ```{block2, type='rmdquestion'}
-1. What is the null hypothesis in Figure \@ref(fig:tiny-effects) and how can you tell? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.1)
+1. What is the null hypothesis in Figure \@ref(fig:tiny-effects) and how can you tell? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.1){.buttonToAnswer}
 ```
 
 <A name="question6.1.2"></A>
 ```{block2, type='rmdquestion'}
-2. In Figure \@ref(fig:tiny-effects), what should you do to obtain a statistically significant result for a sample average of 2.9 grams if the null hypothesis states that average candy weight is 2.8? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.2)
+2. In Figure \@ref(fig:tiny-effects), what should you do to obtain a statistically significant result for a sample average of 2.9 grams if the null hypothesis states that average candy weight is 2.8? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.2){.buttonToAnswer}
 ```
 
 <A name="question6.1.3"></A>
 ```{block2, type='rmdquestion'}
-3. Can you get a statistically significant result for the smallest effect size, that is, for the smallest non-zero difference between the observed sample average and the hypothesized population average that you can set with the slider in Figure \@ref(fig:tiny-effects)? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.3)
+3. Can you get a statistically significant result for the smallest effect size, that is, for the smallest non-zero difference between the observed sample average and the hypothesized population average that you can set with the slider in Figure \@ref(fig:tiny-effects)? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.3){.buttonToAnswer}
 ```
 
 <A name="question6.1.4"></A>
 ```{block2, type='rmdquestion'}
-4. There is one sample mean for which we can never reject the null hypothesis, no matter how large we make the sample. Which sample mean would that be? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.4)
+4. There is one sample mean for which we can never reject the null hypothesis, no matter how large we make the sample. Which sample mean would that be? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.4){.buttonToAnswer}
 ```
 
 <A name="question6.1.5"></A>
 ```{block2, type='rmdquestion'}
-5. When is a statistically significant result more surprising: in a small sample or in a large sample? Select the option to show test power and compare test power with a small sample to test power with a large sample. [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.5)
+5. When is a statistically significant result more surprising: in a small sample or in a large sample? Select the option to show test power and compare test power with a small sample to test power with a large sample. [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.5){.buttonToAnswer}
 ```
 
 <A name="question6.1.6"></A>
@@ -69,7 +69,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/tiny-effects/", heig
 6. When do we have stronger evidence that an effect is zero or nearly zero in the population: with a statistically non-significant result in a small sample or in a large sample? Use Figure \@ref(fig:tiny-effects) to find the answer (select the option to show test power):
     - Choose a small sample size, say, 20. Change the true population mean such that the power of the test is at least .80 (a smaller value would result in test power below .80). This is the smallest effect size in the population for which we have sufficient test power to obtain a significant result.
     - Repeat this for a large sample size, say, around 2,000. 
-    - Compare the effect sizes in the population for the small and large sample. Which one is closer to zero? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.6)
+    - Compare the effect sizes in the population for the small and large sample. Which one is closer to zero? [<img src="icons/2answer.png" width=115px align="right">](#answer6.1.6){.buttonToAnswer}
 ```
 
 It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (Figure \@ref(fig:pdance)), this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
@@ -246,12 +246,12 @@ Figure \@ref(fig:ci-nullhyp) shows six confidence intervals for a population val
 
 <A name="question6.2.1"></A>
 ```{block2, type='rmdquestion'}
-1. For each of the estimates depicted in Figure \@ref(fig:ci-nullhyp), would you advise the company to use the advertisement based on a null hypothesis significance test? [<img src="icons/2answer.png" width=115px align="right">](#answer6.2.1)
+1. For each of the estimates depicted in Figure \@ref(fig:ci-nullhyp), would you advise the company to use the advertisement based on a null hypothesis significance test? [<img src="icons/2answer.png" width=115px align="right">](#answer6.2.1){.buttonToAnswer}
 ```
 
 <A name="question6.2.2"></A>
 ```{block2, type='rmdquestion'}
-2. Would you advise the company to use the advertisement based on the confidence intervals in Figure \@ref(fig:ci-nullhyp)? [<img src="icons/2answer.png" width=115px align="right">](#answer6.2.2)
+2. Would you advise the company to use the advertisement based on the confidence intervals in Figure \@ref(fig:ci-nullhyp)? [<img src="icons/2answer.png" width=115px align="right">](#answer6.2.2){.buttonToAnswer}
 ```
 
 A confidence interval shows us whether or not our null hypothesis must be rejected (see Section \@ref(null-ci0)). The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil (Section \@ref(strawmen)). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1.
@@ -405,22 +405,22 @@ Figure \@ref(fig:power-problem) displays the sampling distribution for candy wei
 
 <A name="question6.4.1"></A>
 ```{block2, type='rmdquestion'}
-1. Which sample means are statistically significant (5% two-sided) and which are not? [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.1)
+1. Which sample means are statistically significant (5% two-sided) and which are not? [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.1){.buttonToAnswer}
 ```
 
 <A name="question6.4.2"></A>
 ```{block2, type='rmdquestion'}
-2. Is the null hypothesis true for samples with non-significant mean scores? [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.2)
+2. Is the null hypothesis true for samples with non-significant mean scores? [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.2){.buttonToAnswer}
 ```
 
 <A name="question6.4.3"></A>
 ```{block2, type='rmdquestion'}
-3. What happens to the statistical significance of the sample means and to test power if you change sample size? (Press _Take 5 new samples_ after you adjust a slider to see the changes.) [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.3)
+3. What happens to the statistical significance of the sample means and to test power if you change sample size? (Press _Take 5 new samples_ after you adjust a slider to see the changes.) [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.3){.buttonToAnswer}
 ```
 
 <A name="question6.4.4"></A>
 ```{block2, type='rmdquestion'}
-4. When is a large effect in the population more likely: with a statistically significant effect in a small sample or in a large sample? To answer this question, find the lowest true population value with at least 80 per cent test power for a sample of size 10 and size 100. Which sample size requires the largest effect for obtaining good test power? (Press _Take 5 new samples_ after you adjust a slider to see the changes.) [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.4)
+4. When is a large effect in the population more likely: with a statistically significant effect in a small sample or in a large sample? To answer this question, find the lowest true population value with at least 80 per cent test power for a sample of size 10 and size 100. Which sample size requires the largest effect for obtaining good test power? (Press _Take 5 new samples_ after you adjust a slider to see the changes.) [<img src="icons/2answer.png" width=115px align="right">](#answer6.4.4){.buttonToAnswer}
 ```
 
 ```{html, echo=ch6} 
