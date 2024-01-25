@@ -556,7 +556,9 @@ If the prediction errors are not more or less equal for all levels of the predic
 Why do we use the residuals and predicted values instead of a scatterplot for each dependent-independent variable pair to assess linearity and homoscedasticity? The reason is that some independent variables may predict low values and other independent variables may predict high values. This is perfectly OK if together they predict low and high values equally well.
 ```
 
-### Answers {.unnumbered}
+```{html, echo=ch8}
+### Answers {-}
+```
 
 <A name="answer8.1.1"></A>
 
@@ -874,7 +876,9 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 4. How well can we predict brand awareness with ad exposure? Use [allconsumers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allconsumers.sav) to answer this question. [<img src="icons/2answer.png" width=115px align="right">](#answer8.2.4)
 ```
 
-### Answers {.unnumbered}
+```{html, echo=ch8} 
+### Answers {-}
+```
 
 <A name="answer8.2.1"></A>
 
@@ -1795,7 +1799,9 @@ rm(smokers, model_1, results)
 
 The calculated slope and constant constitute the simple regression equation of the effect of the predictor for the selected values of the moderator and covariates (see the footnotes to Table \@ref(tab:cat-moderator-results2)). You can interpret the slopes, which are unstandardized regression coefficients ($b$), or use the equations to draw regression lines.
 
-### Answers {.unnumbered}
+```{html, echo=ch8} 
+### Answers {-}
+```
 
 <A name="answer8.3.1"></A>
 
@@ -1992,7 +1998,9 @@ knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px"
 4. Repeat the analyses of Exercises 1 through 3 but use smoking status with three categories (_status3_). [<img src="icons/2answer.png" width=115px align="right">](#answer8.4.4)
 ```
 
-### Answers {.unnumbered}
+```{html, echo=ch8} 
+### Answers {-}
+```
 
 <A name="answer8.4.1"></A>
 
@@ -2424,9 +2432,11 @@ include_graphics("figures/Q8.5.7.png")
 8. What would you report about common support based on the histogram in the bottom-left panel of Figure \@ref(fig:supportexamples)? [<img src="icons/2answer.png" width=115px align="right">](#answer8.5.8)
 ```
 
-### Answers {.unnumbered}
+```{html, echo=ch8} 
+### Answers {-}
+```
 
-```{block2, type='rmdanswer', echo=!ch8}
+```{block2, type='rmdanswer', echo=ch8}
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
 ```
 

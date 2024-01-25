@@ -245,7 +245,9 @@ Observed effect size as well as test statistics reflect the difference between w
 
 The test statistic *t* for a *t* test on one mean, for example, is equal to Cohen's *d* times the square root of sample size. Here, the only difference between the two is sample size! Sample size influences the test statistic---the larger the sample, the larger the test statistic--- but it does not influence effect size. This is an important difference.
 
-### Answers {.unnumbered}
+```{html, echo=ch5}
+### Answers {-}
+```
 
 <A name="answer5.2.1"></A>
 
@@ -476,7 +478,9 @@ The post hoc power refers to probability of rejecting the null hypothesis assumi
 
 <!-- create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 
-### Answers {.unnumbered}
+```{html, echo=ch5} 
+### Answers {-} 
+```
 
 <A name="answer5.3.1"></A>
 
@@ -642,7 +646,9 @@ Does this mean that all we have learned about effect size and test power is usel
 
 Second, test power and Type II errors are important in situations in which we do not reject the null hypothesis. Then, we should calculate test power to get an impression of our confidence in the result. Is our test of sufficient power to yield significant results if there is an effect in the population? This is the topic of the next section.
 
-### Answers {.unnumbered}
+```{html, echo=ch5} 
+### Answers {-} 
+```
 
 <A name="answer5.4.1"></A>
 
@@ -841,9 +847,11 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/"
 8. Explain what happens to the two sampling distributions in Figure \@ref(fig:sample-size-power2) when you change the size of the sample. [<img src="icons/2answer.png" width=115px align="right">](#answer5.6.8)
 ```
 
-### Answers {.unnumbered}
+```{html, echo=ch5} 
+### Answers {-} 
+```
 
-```{block2, type='rmdanswer', echo=!ch5}
+```{block2, type='rmdanswer', echo=ch5}
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
 ```
 

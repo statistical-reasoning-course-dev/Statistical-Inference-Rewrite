@@ -67,7 +67,9 @@ If we include a confounder as a new independent variable in the model, the parti
 
 If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in Chapter \@ref(mediation) (Section \@ref(causalcriteria)).
 
+```{html, echo=ch10}
 ### Answers {-}
+```
 
 <A name="answer9.1.1"></A>
 ```{block2, type='rmdanswer', echo=ch10}
@@ -150,7 +152,9 @@ Let us now turn to the definition of a confounder: A confounder is a variable th
 
 We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of females and males seeing Angelina Jolie in our example experiment, we can end up with more females than males seeing Jolie in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the sex of the participant, so participant sex is a confounder if it is also correlated with the dependent variable (willingness to donate) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders. 
 
-### Answers {-}
+```{html, echo=ch10} 
+### Answers {-} 
+```
 
 <A name="answer9.2.1"></A>
 ```{block2, type='rmdanswer', echo=ch10}
@@ -328,7 +332,9 @@ To summarize the two types of confounders:
 * If we add a *reinforcer* to the model, the reinforced effect moves towards the opposite side because reinforcement disappears. A positive effect becomes less strongly positive or even negative and a negative effect becomes less strongly negative or even positive.
 ```
 
-### Answers {-}
+```{html, echo=ch10} 
+### Answers {-} 
+```
 
 <A name="answer9.3.1"></A>
 ```{block2, type='rmdanswer', echo=ch10}
@@ -380,7 +386,9 @@ knitr::include_url("https://www.youtube.com/embed/Du2mzxWifCM", height = "360px"
 3. Predict average newspaper reading time from education, political cynicism, news site use, and age. Add the predictors one by one to the regression model in the order specified in the preceding sentence. Does suppression occur here? If so, for which predictor and confounder and in which model(s)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.3)
 ```
 
-### Answers {-}
+```{html, echo=ch10} 
+### Answers {-} 
+```
 
 <A name="answer9.4.1"></A>
 ```{block2, type='rmdanswer', echo=ch10}
@@ -581,9 +589,11 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confounder
 4. The effect of political interest on newspaper reading time becomes negative if a confounder is added to the regression model. Which confounder in Figure \@ref(fig:mediation-confoundertypes2) accomplishes this? Why does the effect of political interest becomes negative when this confounder is added? Support your argument with calculations. [<img src="icons/2answer.png" width=115px align="right">](#answer10.5.4)
 ```
 
-### Answers {-}
+```{html, echo=ch10} 
+### Answers {-} 
+```
 
-```{block2, type='rmdanswer', echo=!ch10}
+```{block2, type='rmdanswer', echo=ch10}
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
 ```
 

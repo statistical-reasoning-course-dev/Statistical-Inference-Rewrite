@@ -178,7 +178,9 @@ Compare it to the probability that we throw sixes with a dice. This probability 
 
 If the dice is not fair, we don't know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
 <A name="answer4.2.1"></A>
 ```{block2, type='rmdanswer', echo=ch4}
@@ -392,7 +394,9 @@ If we expect that groups have different average scores on a dependent variable, 
 
 If the research hypothesis is the alternative hypothesis, we have to choose a value for the null hypothesis ourselves. This is very important, because the null hypothesis is actually tested. If statistical software does not report the null hypothesis that is being tested, you may assume that it equates the parameter of interest to zero (see Section \@ref(nullSPSS) on null hypotheses in SPSS).
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
 <A name="answer4.3.1"></A>
 ```{block2, type='rmdanswer', echo=ch4}
@@ -509,7 +513,9 @@ In contrast, if our statistical software tells us the two-sided _p_ value and we
 
 Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided _p_ value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
 <A name="answer4.4.1"></A>
 ```{block2, type='rmdanswer', echo=ch4}
@@ -647,7 +653,9 @@ The _t_ distribution is an example of a probability distribution for which the c
 
 APA requires us to report the degrees of freedom. If SPSS reports the degrees of freedom, usually in a column with the header _df_, you should include the number between brackets after the name of the test statistic. If, for example, a _t_ test has 18 degrees of freedom and the _t_ value is 0.63, you report: _t_ (18) = 0.63. Note that the _F_ test statistic has two degrees of freedom, both of which should be reported (separated by a comma and a blank space), for example, _F_ (2, 87) = 3.13.
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
 <A name="answer4.5.1"></A>
 ```{block2, type='rmdanswer', echo=ch4}
@@ -751,7 +759,9 @@ Bootstrapping creates an empirical sampling distribution: a lot of samples with 
 
 For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution [@RefWorks:3929: 376-378], but this is not always the case if we calculate the confidence interval with the critical values of a _t_ distribution [see, for example, @smithsonCorrectConfidenceIntervals2001] or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
 <A name="answer4.6.1"></A>
 ```{block2, type='rmdanswer', echo=ch4}
@@ -962,7 +972,9 @@ knitr::include_url("https://www.youtube.com/embed/Gupx40D5bLY", height = "360px"
 6. If you would test the hypothesis that average parental supervision in the population is 4.5, would the test be statistically significant according to the confidence interval reported for Exercise 5? Check your answer by carrying out the test. [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.6)
 ```
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
 <A name="answer4.8.1"></A>
 ```{block2, type='rmdanswer', echo=ch4}
@@ -1258,9 +1270,11 @@ Figure \@ref(fig:hypo-testing) displays a random sample of media literacy scores
 6. Is it OK to change your null hypothesis when you know your sample mean? Why is it OK or not OK? [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.6)
 ```
 
-### Answers {-}
+```{html, echo=ch4} 
+### Answers {-} 
+```
 
-```{block2, type='rmdanswer', echo=!ch4}
+```{block2, type='rmdanswer', echo=ch4}
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
 ```
 
