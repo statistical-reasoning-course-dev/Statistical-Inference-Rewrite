@@ -4,8 +4,6 @@ fig:probability-distribution
 fig:expected-value
 fig:p-values
 fig:three-means
-fig:sampling-distribution-summary1
-fig:sampling-distribution-summary2
 fig:bootstrapping
 fig:replacement
 fig:bootstrap-lim
@@ -20,9 +18,6 @@ tab:thumb
 fig:mean-independent
 fig:mean-dependent
 fig:decisionscheme
-fig:models-summary1
-tab:models-summary-3
-fig:models-summary2
 fig:ci-borders
 fig:interval-level
 fig:interval-size
@@ -31,7 +26,6 @@ fig:crit-values
 fig:exactapproachfigure
 fig:pop-means-ci
 fig:SPSSconflevel
-fig:estimation
 fig:nullsampling
 fig:twosided
 fig:nonsig-1sided
@@ -45,7 +39,6 @@ fig:SPSSbinomial
 tab:hypo-freq
 fig:SPSSchisq1
 fig:SPSS1mean
-fig:hypo-testing
 tab:thumbsize
 fig:sample-size-unstand
 fig:cohend
@@ -53,12 +46,9 @@ fig:sample-size
 fig:TypeI-II-errors
 tab:errortable
 fig:sample-size-power
-fig:test-power
-fig:sample-size-power2
 fig:pdance
 fig:tiny-effects
 fig:ci-nullhyp
-fig:power-problem
 fig:ANOVAtable
 fig:ANOVAplots
 fig:clooneyjolie
@@ -80,7 +70,6 @@ fig:2way-meansplot
 tab:2way-table
 fig:SPSS2way
 fig:SPSSeta2
-fig:anova-overview
 fig:regressiontable
 fig:regressionplot
 fig:concept-smoke
@@ -131,9 +120,6 @@ fig:SPSSregpred
 fig:SPSSregcatmod
 fig:SPSSregmodlines
 fig:SPSSregSupport1
-fig:regression-predict2
-tab:exampleresults
-fig:supportexamples
 fig:meancentertable
 fig:nummoderatorplot
 fig:continuous-moderator
@@ -156,8 +142,6 @@ fig:report-moderator-visual
 fig:SPSSregcenter
 fig:SPSSreglines2
 fig:SPSSregSupport2
-fig:moderator-overview
-fig:mean-centering-moderator2
 fig:confounderstable
 fig:mediation-multipleregression
 fig:mediation-indirectcorrelation
@@ -167,7 +151,6 @@ fig:suppression2
 fig:reinforcement1
 fig:reinforcement2
 fig:SPSSregconfound
-fig:mediation-confoundertypes2
 fig:mediationtable
 fig:mediation-commoncause
 fig:causaldiagram
@@ -187,8 +170,6 @@ fig:SPSSmediatserial
 fig:SPSSmediatcov
 fig:SPSSpath
 fig:causaldiagram5
-fig:mediationserial2
-fig:mediation-selftest
 fig:choice-diagram-copy
 tab:hypo-freq2
 fig:SPSSLevene
@@ -213,7 +194,6 @@ probabilities-always-sum-to-1
 concluding-remarks
 sample-characteristics-as-observations
 means-at-three-levels
-test-your-understanding
 take-home-points
 probmodels
 boot-approx
@@ -222,13 +202,11 @@ limitations-to-bootstrapping
 any-sample-statistic-can-be-bootstrapped
 boot-spss
 instructions
-exercises
 exact-approaches-to-the-sampling-distribution
 exact-approaches-for-categorical-data
 computer-intensive
 SPSS-exact
 instructions-1
-exercises-1
 theoretical-approximations-of-the-sampling-distribution
 reasons-for-a-bell-shaped-probability-distribution
 cond-probdistr
@@ -238,7 +216,6 @@ independent-samples
 dependentsamples
 spss-and-theoretical-approximation-of-the-sampling-distribution
 when-do-we-use-which-approach-to-the-sampling-distribution
-test-your-understanding-1
 take-home-points-1
 param-estim
 point-estimate
@@ -255,8 +232,6 @@ conf-interval
 bootstrap-confidenceinterval
 SPSS-CI
 instruction
-exercises-2
-test-your-understanding-2
 take-home-points-2
 hypothesis
 binarydecision
@@ -278,12 +253,10 @@ reporting-to-fellow-scientists
 reporting-to-the-general-reader
 nullSPSS
 specify-null-for-binomial-test
-exercises-3
 cap-chance
 example-of-capitalization-on-chance
 correcting-for-capitalization-on-chance
 specifying-hypotheses-afterwards
-test-your-understanding-3
 take-home-points-3
 power
 size-test-req
@@ -293,7 +266,6 @@ unstandardized-effect-size
 standardized-effect-size-cohens-d-for-one-or-two-means
 obtaining-cohens-d-with-spss
 instructions-2
-exercises-4
 assoc-size
 standardized-effect-size-and-sample-size
 hypothetical-world-versus-imaginary-true-world
@@ -306,7 +278,6 @@ post-hoc-power
 sizeeffectpower
 so-how-do-we-determine-sample-size
 research-hypothesis-as-null-hypothesis
-test-your-understanding-4
 take-home-points-4
 crit-discus
 criticismsNHST
@@ -320,7 +291,6 @@ bayesian-inference
 no-random-sample
 theoretical-population
 datageneratingprocess
-test-your-understanding-5
 take-home-points-5
 anova
 different-means-for-three-or-more-groups
@@ -336,7 +306,6 @@ two-steps-in-analysis-of-variance
 contradictory-results
 onewaySPSS
 instructions-3
-exercises-5
 different-means-for-two-factors
 anova2way
 balanced
@@ -350,8 +319,6 @@ assumptions-for-two-way-analysis-of-variance
 reporting-two-way-analysis-of-variance
 twowaySPSS
 instructions-4
-exercises-6
-test-your-understanding-6
 take-home-points-6
 moderationcat
 regression-equation
@@ -365,7 +332,6 @@ linearity-and-prediction-errors
 homoscedasticity-and-prediction-errors
 SPSS-regression
 instructions-5
-exercises-7
 categoricalmoderator
 a-dichotomous-moderator-and-numerical-predictor
 interaction-variable
@@ -376,8 +342,6 @@ commonsupportdichotomous
 visualizing-moderation-and-covariates
 catmodSPSS
 instructions-6
-exercises-8
-test-your-understanding-7
 take-home-points-7
 moderationcont
 cont-moderator-regression
@@ -393,8 +357,6 @@ higher-order-interaction-effects
 reportmoderation
 RegressionContModSPSS
 instructions-7
-exercises-9
-test-your-understanding-8
 take-home-points-8
 confounder
 controlling
@@ -409,8 +371,6 @@ suppression
 spuriousness
 compmodelSSPSS
 instructions-8
-exercises-10
-test-your-understanding-9
 take-home-points-9
 mediation
 mediation-as-causal-process
@@ -428,7 +388,6 @@ mediationcovariate
 reporting-mediation-results
 SPSSPROCESS
 instructions-9
-exercises-11
 criticisms-of-mediation
 causal-order-assumed
 time-order
@@ -436,5 +395,4 @@ causality-or-underlying-construct
 every-effect-in-a-path-model-can-be-confounded
 recommendations
 combining-mediation-and-moderation
-test-your-understanding-10
 take-home-points-10

@@ -71,19 +71,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-moderator
 
 <A name="question9.1.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 1. The regression line depicted in Figure \@ref(fig:continuous-moderator) represents the conditional effect of exposure on attitude for the value of contact with smokers selected with the slider. How many different conditional effects are there? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.1){.buttonToAnswer}
 ```
 
 <A name="question9.1.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 2. Is the effect of campaign exposure on attitude towards smoking always negative? Or does more exposure lead to a more positive attitude (higher score) in some cases? If so, in which cases? Use the slider to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.2){.buttonToAnswer}
 ```
 
 <A name="question9.1.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 3. How much does the slope increase if the moderator value is changed from 0 to 1? And how much if it changes from 6 to 7? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.3){.buttonToAnswer}
 ```
 
@@ -151,31 +151,31 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-centering-moder
 
 <A name="question9.1.4"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 4. What is the correct interpretation of the estimated regression coefficient of exposure in Figure \@ref(fig:mean-centering-moderator)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.4){.buttonToAnswer}
 ```
 
 <A name="question9.1.5"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 5. Participants with moderator scores that are very close to the selected moderator value are dark blue in the plot. Participants with scores that are quite close to the selected value are light blue. Would you conclude that the regression line represents a sizable group of participants? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.5){.buttonToAnswer}
 ```
 
 <A name="question9.1.6"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 6. Check the **Show the mean-centered line** box in Figure \@ref(fig:mean-centering-moderator). A red regression line and equation appear that represent the effect of exposure on attitude if the moderator variable contact is mean-centered and zero (as indicated between brackets in the red equation). Plug in zero for contact in the red regression equation and simplify the equation. [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.6){.buttonToAnswer}
 ```
 
 <A name="question9.1.7"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 7. If mean-centered contact is zero (Question 6), the regression coefficient of exposure represents the effect of exposure on attitude for respondents with a particular score on the original contact variable. What is this original contact score? Use the slider **Adjust the value of Contact (Moderator):** to drag the blue regression line towards the red regression line. If the two lines coincide, you have found the contact value that is the reference value if contact is mean-centered. [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.7){.buttonToAnswer}
 ```
 
 <A name="question9.1.8"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 8. If you have dragged the blue regression line to the red regression line, participants with moderator values close to the mean are (dark) blue (see Question 5). Would you conclude that the regression line represents a sizable group of participants now? [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.8){.buttonToAnswer}
 ```
 
@@ -292,7 +292,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-interacti
 
 <A name="question9.1.9"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 9. Select one or more options in Figure \@ref(fig:continuous-interaction-visualization) to represent regression lines predicting attitude from exposure at different values of the moderator (contact with smokers). Respondents with moderator values close to the selected value are coloured. Which moderator values would you pick to communicate the results of moderation? Motivate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer9.1.9){.buttonToAnswer}
 ```
 
@@ -900,35 +900,37 @@ knitr::include_url("https://www.youtube.com/embed/x45Tv6nvta4", height = "360px"
 # : (for enthusiasts?) don't interpret the standardized regression coefficients (Beta) for interaction variables in SPSS because they are calculated in the wrong way ; the predictor and moderator variables are multiplied to obtain the interaction variable and aferwards they are standardized ; instead, the predictor and moderator variables should be standardized before they are multiplied ; if you want to interpret the standardized regression coefficients, you have to standardize _all_ numerical variables yourself (Analyze > Descriptive Statistics > Descriptives with option 'Save standardized values as variables' checked) before you calculate the interaction variable and include them in the regression analysis ; in this situation, the output of the regression analysis lists the standardized regression weights in the column 'Unstandardized Coefficients'. 
 ```
 
+```{html, echo = Qch9}
 ### Exercises
+```
 
 <A name="question9.3.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 1. With the data in [allsmokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allsmokers.sav), check if the effect of campaign exposure on attitude towards smoking depends on the contacts that people have with smokers. __For now, do not mean-center the variables.__ Use the respondent's smoking status (_status2_) as covariate. Interpret the regression coefficients and check the assumptions of the regression model. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.1){.buttonToAnswer}
 ```
 
 <A name="question9.3.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 2. Visualize the moderating effect of contact with smokers on the exposure effect (Exercise 1) in a scatter plot with three regression lines. Explain the information conveyed by the plot to your reader. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.2){.buttonToAnswer}
 ```
 
 <A name="question9.3.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 3. Mean-center the predictor and moderator and repeat the regression analysis of Exercise 1. Explain the differences in the results. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.3){.buttonToAnswer}
 ```
 
 <A name="question9.3.4"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 4. Check common support of the predictor for the moderator. Divide the moderator into three groups, each containing about a third of all observations. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.4){.buttonToAnswer}
 ```
 
 <A name="question9.3.5"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 5. Let us hypothesize that children's media literacy depends on sex, age, and parental supervision. Is the effect of parental supervision moderated by the child's age?
     Use [allchildren.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allchildren.sav) to answer this research question and apply mean-centering. 
     Report the results as required in this course (APA), include a moderation plot, and discuss common support. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.5){.buttonToAnswer}
@@ -936,7 +938,7 @@ knitr::include_url("https://www.youtube.com/embed/x45Tv6nvta4", height = "360px"
 
 <A name="question9.3.6"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 6. How does intention to buy a product depend on exposure to brand advertisements and brand awareness? Do the two variables interact and, if so, how?
     Use [allconsumers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allconsumers.sav) to answer this research question. Apply mean-centering to the numeric predictors/moderators and use gender as covariate.
     Report the results as required in this course (APA), include a moderation plot, and discuss common support. [<img src="icons/2answer.png" width=115px align="right">](#answer9.3.6){.buttonToAnswer}
@@ -1459,7 +1461,7 @@ intention = (5.896 + 0.456) + (0.122 + -0.151) * brand_aw_c
 intention = 6.352 + -0.029 * brand_aw_c [<img src="icons/2question.png" width=161px align="right">](#question9.3.6)
 ```
 
-## Test Your Understanding
+<!-- ## Test Your Understanding
 
 Figure \@ref(fig:moderator-overview) shows the relation between exposure to an anti-smoking campaign and attitude towards smoking. The effect of exposure on attitude is moderated by daily contacts with people who smoke.
 
@@ -1470,31 +1472,31 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-moderator
 
 <A name="question9.4.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 1. What does the red line in Figure \@ref(fig:moderator-overview) mean? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.1){.buttonToAnswer}
 ```
 
 <A name="question9.4.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 2. What happens if you change the position on the slider? Explain your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.2){.buttonToAnswer}
 ```
 
 <A name="question9.4.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 3. Why does _contact_ (with smokers) appear in between brackets together with the regression coefficient for exposure in the regression equation? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.3){.buttonToAnswer}
 ```
 
 <A name="question9.4.4"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 4. Which of the regression coefficients represent(s) a conditional effect? Explain your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.4){.buttonToAnswer}
 ```
 
 <A name="question9.4.5"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 5. What is the null hypothesis of a significance test on the interaction effect ($b_3$)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.5){.buttonToAnswer}
 ```
 
@@ -1504,13 +1506,13 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-centering-moder
 
 <A name="question9.4.6"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 6. If we mean-center contact, which regression coefficients change? Check the box in Figure \@ref(fig:mean-centering-moderator2) and compare the red and blue regression equations. Why do they change? [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.6){.buttonToAnswer}
 ```
 
 <A name="question9.4.7"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch9}
 7. If we want to visualize the effect of a predictor on a dependent variable for a low moderator score, we prefer to use a moderator score of one standard deviation below the mean instead of the minimum value of the moderator. Use Figure \@ref(fig:mean-centering-moderator2) to show why this is the case. Hint: common support. [<img src="icons/2answer.png" width=115px align="right">](#answer9.4.7){.buttonToAnswer}
 ```
 
@@ -1618,6 +1620,8 @@ Answer to Question 7.
 * Set the **Adjust the value of Contact** slider to 3 to obtain the (blue) regression line expressing the effect of exposure on attitude for people with 3 contacts with smokers (figure above, right panel). 
 * Now we can see which observations have contact scores close to 3. There are many blue and dark blue (contact scores very close to 3) dots and they are nicely distributed across the entire range of exposure scores. This regression line has good common support; it is more reliable than the one for minimum (0) number of contacts. [<img src="icons/2question.png" width=161px align="right">](#question9.4.7)
 ```
+
+-->
 
 ## Take-Home Points
 

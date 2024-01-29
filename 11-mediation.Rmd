@@ -52,17 +52,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncaus
 ```
 
 <A name="question9.5.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 1. Why is political interest called a mediator in Figure \@ref(fig:mediation-commoncause)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.5.1){.buttonToAnswer}
 ```
 
 <A name="question9.5.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 2. In Figure \@ref(fig:mediation-commoncause), what does the long, curved arrow represent? Can you motivate your answer with the values that are linked to the arrows? [<img src="icons/2answer.png" width=115px align="right">](#answer9.5.2){.buttonToAnswer}
 ```
 
 <A name="question9.5.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 3. Adjust the correlations in such a way that the effect of age on reading time is zero. In this situation, we say that the effect is fully mediated. [<img src="icons/2answer.png" width=115px align="right">](#answer9.5.3){.buttonToAnswer}
 ```
 
@@ -259,12 +259,12 @@ visNetwork(nodes, edges, width = "100%") %>%
 ```
 
 <A name="question9.6.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 1. In the causal diagram depicted in Figure \@ref(fig:mediation-regression), click on a variable name to highlight the effects in a regression analysis with this variable as the outcome. How many regression analyses does the causal diagram include and what do the results mean? [<img src="icons/2answer.png" width=115px align="right">](#answer9.6.1){.buttonToAnswer}
 ```
 
 <A name="question9.6.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 2. The fat arrows were hypothesized whereas the thin ones were not. Why are the thin ones included in the regression analyses (they have coefficient estimates too)? [<img src="icons/2answer.png" width=115px align="right">](#answer9.6.2){.buttonToAnswer}
 ```
 
@@ -303,7 +303,7 @@ rm(nodes, edges)
 ``` 
 
 <A name="question9.6.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 3. Calculate the size of each indirect effect of age on news site use in Figure \@ref(fig:pathdiagram-unstandardized). [<img src="icons/2answer.png" width=115px align="right">](#answer9.6.3){.buttonToAnswer}
 ```
 
@@ -720,30 +720,32 @@ knitr::include_url("https://www.youtube.com/embed/olOEqeZE9WE", height = "360px"
 # (Windows) Paint does not have arrows that can be rotated. 
 ```
 
+```{html, echo = Qch11}
 ### Exercises
+```
 
 <A name="question9.9.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 1. Use [readers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/readers.sav) to analyze the causal model depicted in Figure \@ref(fig:results-pathdiagram) with a series of regression models in SPSS. Create a table and draw a path diagram to present the direct effects. [<img src="icons/2answer.png" width=115px align="right">](#answer9.9.1){.buttonToAnswer}
 ```
 
 <A name="question9.9.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 2. To what extent is the effect of age on newspaper reading time mediated by news site use? Use the data of Exercise 1 and PROCESS to estimate both the unstandardized and standardized indirect effect in a model containing only these three variables. Interpret the results. [<img src="icons/2answer.png" width=115px align="right">](#answer9.9.2){.buttonToAnswer}
 ```
 
 <A name="question9.9.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 3. Add interest in politics as a covariate to the model of Exercise 2. Does PROCESS use the covariate as predictor for the mediator (news site use), for the dependent variable (newspaper reading time), or both? Present the unstandardized effects as a path diagram and add the indirect effect to it. [<img src="icons/2answer.png" width=115px align="right">](#answer9.9.3){.buttonToAnswer}
 ```
 
 <A name="question9.9.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 4. Add political interest to the model of Exercise 2 such that it mediates the effect of age on news site use: Age > Political Interest > News Site Use > Reading Time. Estimate the model with PROCESS. Report the unstandardized indirect effects as a table and interpret them. [<img src="icons/2answer.png" width=115px align="right">](#answer9.9.4){.buttonToAnswer}
 ```
 
 <A name="question9.9.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 5. The data set [allchildren.sav](https://shklinkenberg.github.io/Statistical-Inference/data/allchildren.sav) contains information about the media literacy of children and parental supervision of their media use. Is the effect of age on media literacy fully or partially mediated by parental supervision? 
    Use PROCESS and SPSS to estimate the model and check the assumptions. Motivate your answer to the question. [<img src="icons/2answer.png" width=115px align="right">](#answer9.9.5){.buttonToAnswer}
 ```
@@ -1170,7 +1172,7 @@ rm(variables)
 
 Several models with more than one mediator or with moderated mediation can be estimated with PROCESS. For an overview of the models, see Appendix A in Hayes [-@RefWorks:3873]. The models, however, are quite complex, so we leave them for enthusiasts.
 
-## Test Your Understanding
+<!-- ## Test Your Understanding
 
 ```{r mediationserial2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A path model with unstandardized regression coefficients.", fig.asp=0.3}
 library(ggplot2)
@@ -1200,17 +1202,17 @@ rm(variables)
 ```
 
 <A name="question11.8.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 1. Does Figure \@ref(fig:mediationserial2) represent parallel mediation or  serial mediation? Explain your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.1){.buttonToAnswer}
 ```
 
 <A name="question11.8.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 2. How many indirect effects does age have on media literacy in Figure \@ref(fig:mediationserial2)? And how many indirect effects does sex (variable _Girl_) have on media literacy? [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.2){.buttonToAnswer}
 ```
 
 <A name="question11.8.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 3. Calculate the total effect of (parental) supervision on media literacy  in Figure \@ref(fig:mediationserial2) and compare this effect to the direct effect of supervision on media literacy.  [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.3){.buttonToAnswer}
 ```
 
@@ -1220,27 +1222,27 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncaus
 ```
 
 <A name="question11.8.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 4. In Figure \@ref(fig:mediation-selftest), what does the curved arrow represent? How is its value calculated? [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.4){.buttonToAnswer}
 ```
 
 <A name="question11.8.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 5. If we know the standard errors and confidence intervals for all direct effects in the model of Figure \@ref(fig:mediation-selftest), can we calculate the standard error or confidence interval of the indirect effect? If so, how? [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.5){.buttonToAnswer}
 ```
 
 <A name="question11.8.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 6. When is the correlation between political interest and reading time completely spurious in this model? Use the sliders to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.6){.buttonToAnswer}
 ```
 
 <A name="question11.8.7"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 7. How many regression models do we need to estimate the path model of Figure \@ref(fig:mediation-selftest)? [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.7){.buttonToAnswer}
 ```
 
 <A name="question11.8.extra"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch11}
 Extra Question (Optional). The standardized effect of political interest on reading time can be larger than 1.0 or smaller than -1.0. In which situation? Use the sliders to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer11.8.extra){.buttonToAnswer}
 ```
 
@@ -1368,6 +1370,8 @@ correlation. Again make the correlations stronger to obtain a standardized
 regression coefficient for the effect of political interest on reading time
 well below minus one. [<img src="icons/2question.png" width=161px align="right">](#question11.8.extra)
 ```
+
+-->
 
 ## Take-Home Points  
 

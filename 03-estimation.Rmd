@@ -56,12 +56,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/ci-borders/", height
 Figure \@ref(fig:ci-borders) shows the sampling distribution of average sample candy weight.
 
 <A name="question3.2.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 1. What is the average candy weight in the population of candies? [<img src="icons/2answer.png" width=115px align="right">](#answer3.2.1){.buttonToAnswer}{.buttonToAnswer}
 ```
 
 <A name="question3.2.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 2. Move the slider until you have found the interval containing 95% of all samples that are closest to the (true) population value. What are the upper and lower limits of the interval that contains these samples? [<img src="icons/2answer.png" width=115px align="right">](#answer3.2.2){.buttonToAnswer}{.buttonToAnswer}
 ```
 
@@ -107,12 +107,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-level/", he
 ```
 
 <A name="question3.3.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 1. How does the precision (width) of the interval estimate (represented by the double-sided arrow) change if you change the confidence level? Check what happens if you change the confidence level slider in Figure \@ref(fig:interval-level). [<img src="icons/2answer.png" width=115px align="right">](#answer3.3.1){.buttonToAnswer}
 ```
 
 <A name="question3.3.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 2. What happens if we want to be 100% certain that our interval contains the average candy weight of the next sample that we will draw? [<img src="icons/2answer.png" width=115px align="right">](#answer3.3.2){.buttonToAnswer}
 ```
 
@@ -134,12 +134,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-size/", hei
 Figure \@ref(fig:interval-size) shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.
 
 <A name="question3.3.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 3. How does the precision of the interval estimate change if you change the size of the sample? Check what happens if you change the sample size slider. [<img src="icons/2answer.png" width=115px align="right">](#answer3.3.3){.buttonToAnswer}
 ```
 
 <A name="question3.3.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 4. How does the shape of the sampling distribution change if you change sample size? Explain what this means for the values of the sample statistic. [<img src="icons/2answer.png" width=115px align="right">](#answer3.3.4){.buttonToAnswer}
 ```
 
@@ -163,12 +163,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/se-point-est/", heig
 ```
 
 <A name="question3.3.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 5. How does the standard error depend on the size of the sample? Play around with the sample size slider in Figure \@ref(fig:se-point-est) to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer3.3.5){.buttonToAnswer}
 ```
 
 <A name="question3.3.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 6. How does the shape of the sampling distribution express the standard error? Can you explain why the standard error, which is the standard deviation of the sampling distribution, affects the shape of the sampling distribution in this way? [<img src="icons/2answer.png" width=115px align="right">](#answer3.3.6){.buttonToAnswer}
 ```
 
@@ -268,12 +268,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-values/", heigh
 Figure \@ref(fig:crit-values) shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called _z_ scores (top).
 
 <A name="question3.4.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 1. How do the two horizontal axes tell you the size of the standard error in grams? [<img src="icons/2answer.png" width=115px align="right">](#answer3.4.1){.buttonToAnswer}
 ```
 
 <A name="question3.4.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 2. How do you expect the location of the vertical lines to change if you change the size of the standard error? Check your expectation by using the slider. [<img src="icons/2answer.png" width=115px align="right">](#answer3.4.2){.buttonToAnswer}
 ```
 
@@ -381,28 +381,28 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pop-means-ci/", heig
 ```
 
 <A name="question3.5.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 1. Click repeatedly on Figure \@ref(fig:pop-means-ci) to find the highest and lowest value of the population mean for which the sample mean is in the interval of sample means that have 95% probability of occurring. [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.1){.buttonToAnswer}
 ```
 
 <A name="question3.5.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 2. If you find the highest or lowest value of the population mean for which the sample mean is in the interval of sample means that have 95% probability of occurring, a horizontal arrow appears with the label: 1.96 * SE.  
 What does this arrow represent and why does it carry this label? [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.2){.buttonToAnswer}
 ```
 
 <A name="question3.5.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 3. How does the _z_ value of the sample mean help you to minimize the number of clicks you need? [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.3){.buttonToAnswer}
 ```
 
 <A name="question3.5.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 4. How does the depicted interval estimate help you to minimize the number of clicks you need? [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.4){.buttonToAnswer}
 ```
 
 <A name="question3.5.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 5. What is the most efficient strategy (minimum number of clicks) to determine the lower and upper limits of the population means for which the sample mean is among the 95% most likely samples? Explain why this is the most efficient strategy. [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.5){.buttonToAnswer}
 ```
 
@@ -573,10 +573,12 @@ knitr::include_url("https://www.youtube.com/embed/GoGrsHpfIWM", height = "360px"
 # * non-parametric tests (just categorical variables - irrelevant)
 ```
 
+```{html, echo = Qch3}
 ### Exercises
+```
 
 <A name="question3.6.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to calculate the 95% and 99% confidence intervals of average candy weight. 
 
     Hint: Use the *Analyze > Compare Means > One-Sample T Test* command and leave the test value at zero. As an alternative, use *Analyze > Descriptive statistics > Explore*.
@@ -585,21 +587,21 @@ knitr::include_url("https://www.youtube.com/embed/GoGrsHpfIWM", height = "360px"
 ```
 
 <A name="question3.6.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 2. Let SPSS calculate the 95% confidence interval for median candy weight. Interpret the result. The data are in "candies.sav". 
 
     Remember the SPSS exercises in Section \@ref(boot-spss). [<img src="icons/2answer.png" width=115px align="right">](#answer3.6.2){.buttonToAnswer}
 ```
 
 <A name="question3.6.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 3. Use SPSS to determine the 95% confidence interval for a paired-samples _t_ test on candy colour fading under sunlight (variables colour_pre and colour_post in "candies.sav"). In your interpretation of the confidence interval, clarify the meaning of the statistic for which the confidence interval was calculated.
 
     The paired-samples _t_ test is available in SPSS under *Analyze > Compare Means*. [<img src="icons/2answer.png" width=115px align="right">](#answer3.6.3){.buttonToAnswer}
 ```
 
 <A name="question3.6.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 4. Use SPSS to determine if candy colourfulness after exposure to sunlight (colour_post) depends on candy weight and candy sweetness. Interpret the 95% confidence intervals for both effects. 
 
     Hint: Use regression analysis, which is available under *Analyze > Regression > Linear* in SPSS. [<img src="icons/2answer.png" width=115px align="right">](#answer3.6.4){.buttonToAnswer}
@@ -748,7 +750,7 @@ We are 95% confident that candy colourfulness decreases by 0.19 to 0.46 for each
 We are not confident about the direction of the effect of candy weight on colourfulness. This effect can be negative (up to a 1.15 decrease for each additional candy weight gram with 95% confidence) or positive (up to a 2.28 increase for each additional candy weight gram with 95% confidence). [<img src="icons/2question.png" width=161px align="right">](#question3.6.4)
 ```
 
-## Test Your Understanding  
+<!-- ## Test Your Understanding  
 
 ```{r estimation, fig.pos='H', fig.align='center', fig.cap="Point and interval estimates, confidence intervals.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Combination of apps interval-level, interval-size, and crit-values: A normal curve (M = 2.8, SE = 0.1 (SD population = 0.5 and sample size = 25)) as sampling distribution with two vertical lines marking interval limits (initially set at 2.5%/95%/2.5%) ; percentages indicating the area under the curve within and outside the limits ; double arrow from mean to interval limits indicating the interval estimate ; double x-axis: the first in grams and the second in standard errors, both axes labelled ; 2 sliders: confidence level and sample size ; any slider change will change the position of the interval limits (to represent the selected confidence level) ; changing confidence level also changes the percentages ; changing sample size also changes the scale of the x-axis in standard errors ; the value of the standard error is shown to highlight its relation with sample size.
@@ -758,37 +760,37 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/estimation/", height
 Figure \@ref(fig:estimation) shows the sampling distribution of average candy weight in a sample bag, which is a normal distribution. 
 
 <A name="question3.7.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 1. What is the most likely estimate for average candy weight in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.1){.buttonToAnswer}
 ```
 
 <A name="question3.7.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 2. The percentage in between the two vertical lines can be interpreted as a probability. A probability of what? [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.2){.buttonToAnswer}
 ```
 
 <A name="question3.7.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 3. The double arrow represents an interval of sample means, in this example, average candy weight. What happens if you change the confidence level? Explain why this makes sense. [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.3){.buttonToAnswer}
 ```
 
 <A name="question3.7.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 4. What happens to the graph if you change sample size? [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.4){.buttonToAnswer}
 ```
 
 <A name="question3.7.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 5. What happens to the standard error if you change sample size? How are sample size and standard error linked? What characteristic of the sampling distribution is expressed by the standard error? [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.5){.buttonToAnswer}
 ```
 
 <A name="question3.7.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 6. The values of the interval limits---average candy weights in this example---on the scale in standard errors are called critical values. What happens to the critical values if you change sample size? [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.6){.buttonToAnswer}
 ```
 
 <A name="question3.7.7"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch3}
 7. What happens to the critical values if you change the confidence level? [<img src="icons/2answer.png" width=115px align="right">](#answer3.7.7){.buttonToAnswer}
 ```
 
@@ -879,6 +881,8 @@ Answer to Question 7.
 * Higher confidence levels yield more extreme critical values because 
 the interval must cover a larger proportion of all possible samples. [<img src="icons/2question.png" width=161px align="right">](#question3.7.7)
 ```
+
+-->
 
 ## Take-Home Points  
 

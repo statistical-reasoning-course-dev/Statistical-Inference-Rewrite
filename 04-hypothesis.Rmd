@@ -66,7 +66,7 @@ The assumption that a researcher wants to test is called a _research hypothesis_
 These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a _statistical hypothesis_.
 
 <A name="question4.2.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. Which statistics are addressed in the examples of research hypotheses above? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.1){.buttonToAnswer}
 ```
 
@@ -83,32 +83,32 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", heig
 ```
 
 <A name="question4.2.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 2. Figure \@ref(fig:nullsampling) shows the hypothesized population mean and the associated sampling distribution. Formulate the null hypothesis represented by this figure and explain why the hypothesized value is in the middle of the sampling distribution. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.2){.buttonToAnswer}
 ```
 
 <A name="question4.2.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 3. If the null hypothesis is true, what does the sampling distribution tell us? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.3){.buttonToAnswer}
 ```
 
 <A name="question4.2.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 4. In the second step of hypothesis testing (click on *Step 2*), we formulate a decision rule for rejecting the null hypothesis. The decision rule is graphically represented by the blue tails in Figure \@ref(fig:nullsampling). What is the probability that we draw a sample that is part of the blue tails? Note that this probability is called the *significance level* of the test. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.4){.buttonToAnswer}
 ```
 
 <A name="question4.2.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 5. If a sample is part of the blue tails, we reject the null hypothesis. We say that the test is statistically significant. How low or high must the sample mean be to have a statistically significant test result? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.5){.buttonToAnswer}
 ```
 
 <A name="question4.2.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 6.  Go to Step 3 in the figure, which adds the sample. Is the test statistically significant for this sample? Explain your answer. Take some more samples to practice recognizing statistically significant results.[<img src="icons/2answer.png" width=115px align="right">](#answer4.2.6){.buttonToAnswer}
 ```
 
 <A name="question4.2.7"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 7. Go to Step 4 in the figure, which shows the decision on the null hypothesis. Is it always possible to formulate a null hypothesis such that the sample mean is statistically significant? Take some new samples and change the value of the null hypothesis to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.7){.buttonToAnswer}
 ```
 
@@ -141,22 +141,22 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="
 ```
 
 <A name="question4.2.8"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 8. What does the red number next to the solid red vertical line represent in Figure \@ref(fig:twosided)? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.8){.buttonToAnswer}
 ```
 
 <A name="question4.2.9"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 9. What is the relation between the red number next to the solid red vertical line and the two-sided _p_ value reported in the figure? Pay attention to the dashed red vertical line in your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.9){.buttonToAnswer}
 ```
 
 <A name="question4.2.10"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 10. Is the test on average media literacy statistically significant in the initial situation of Figure \@ref(fig:twosided)? If so, at which significance level? Use the rejection region, the number to the vertical red line, and the two-sided _p_ value to motivate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.10){.buttonToAnswer}
 ```
 
 <A name="question4.2.11"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 11. What happens to the two-sided _p_ value if you change the hypothesized population mean? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.11){.buttonToAnswer}
 ```
 
@@ -372,7 +372,7 @@ Rejecting the null hypothesis __does not mean that this hypothesis is false or t
 ```
 
 <A name="question4.3.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. Have another look at the research hypotheses. Which ones are null hypotheses, which ones are alternative hypotheses?
 
     + a television station reaches half of all households in a country,
@@ -440,17 +440,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/", hei
 ```
 
 <A name="question4.4.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. The sampling distribution in Figure \@ref(fig:nonsig-1sided) contains dark-blue tails that represent 2.5 per cent of the sampling distribution and light-blue tails representing five per cent of the sampling distribution. Note that the light-blue (5%) tails include the dark-blue (2.5%) tails. Which coloured tails do we use for a two-sided test, a left-sided test, and a right-sided test at a five per cent significance level? [<img src="icons/2answer.png" width=115px align="right">](#answer4.4.1){.buttonToAnswer}
 ```
 
 <A name="question4.4.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 2. Practice recognizing significant test results in Figure \@ref(fig:nonsig-1sided). Draw some samples and decide if a two-sided, right-sided, or left-sided test is statistically significant at the 5% significance level. [<img src="icons/2answer.png" width=115px align="right">](#answer4.4.2){.buttonToAnswer}
 ```
 
 <A name="question4.4.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 3. In which situation is a one-sided test statistically significant whereas a two-sided test is not statistically significant at the five per cent significance level? [<img src="icons/2answer.png" width=115px align="right">](#answer4.4.3){.buttonToAnswer}
 ```
 
@@ -467,7 +467,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sign-left/", height=
 ```
 
 <A name="question4.4.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 4. Figure \@ref(fig:sign-left) shows the sampling distribution and the rejection region for a left-sided test at five per cent significance level. If we reject the null hypothesis that average media literacy in the population is 5.5, do we also reject a null hypothesis that this average is larger than 5.5? Change the slider to demonstrate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.4.4){.buttonToAnswer}
 ```
 
@@ -498,12 +498,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/onetwosided/", heigh
 ```
 
 <A name="question4.4.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 5. Explain why the two-sided _p_ value is twice the one-sided _p_ value. [<img src="icons/2answer.png" width=115px align="right">](#answer4.4.5){.buttonToAnswer}
 ```
 
 <A name="question4.4.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 6. If the sample mean was 7.10, would we reject the one-sided null hypothesis that average media literacy is at least 5.5 in the population? And would we reject the two-sided null hypothesis that average media literacy score in the population is 5.5? [<img src="icons/2answer.png" width=115px align="right">](#answer4.4.6){.buttonToAnswer}
 ```
 
@@ -617,27 +617,27 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-df/", height="4
 Figure \@ref(fig:crit-df) uses the _t_ distribution to approximate the sampling distribution of average media literacy in a random sample of children.
 
 <A name="question4.5.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. What is the null hypothesis in a test that uses the sampling distribution depicted in Figure \@ref(fig:crit-df)? [<img src="icons/2answer.png" width=115px align="right">](#answer4.5.1){.buttonToAnswer}
 ```
 
 <A name="question4.5.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 2. What is the value of _t_ if average media literacy in our sample is 5.5? [<img src="icons/2answer.png" width=115px align="right">](#answer4.5.2){.buttonToAnswer}
 ```
 
 <A name="question4.5.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 3. What is the meaning of the coloured tails? [<img src="icons/2answer.png" width=115px align="right">](#answer4.5.3){.buttonToAnswer}
 ```
 
 <A name="question4.5.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 4. How can we use _t~c~_ (the critical value of the test statistic) to test the null hypothesis? [<img src="icons/2answer.png" width=115px align="right">](#answer4.5.4){.buttonToAnswer}
 ```
 
 <A name="question4.5.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 5.  What is the relation between sample size and critical _t_ values? Change the sample size to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.5.5){.buttonToAnswer}
 ```
 
@@ -720,12 +720,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/null-ci/", height="2
 ```
 
 <A name="question4.6.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. What are the lowest and highest hypothesized population means for which the null hypothesis is _not_ rejected? Use the slider to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.6.1){.buttonToAnswer}
 ```
 
 <A name="question4.6.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 2. The interval between the lowest and highest hypothesized population means of Question 1 is the 95% confidence interval (see Section \@ref(ci-parameter)). Is a null hypothesis statistically significant if the hypothesized population value is within the 95% confidence interval or outside of this interval? [<img src="icons/2answer.png" width=115px align="right">](#answer4.6.2){.buttonToAnswer}
 ```
   
@@ -940,35 +940,37 @@ knitr::include_url("https://www.youtube.com/embed/Gupx40D5bLY", height = "360px"
 
 ```
 
+```{html, echo = Qch4}
 ### Exercises
+```
 
 <A name="question4.8.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. Use the data set [households.sav](https://shklinkenberg.github.io/Statistical-Inference/data/households.sav) to test the research hypothesis that the TV station reaches 50 per cent of all households in the population. [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.1){.buttonToAnswer}
 ```
 
 <A name="question4.8.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 2. Test the hypothesis that the TV station reaches at least 55 per cent of all households in the population. [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.2){.buttonToAnswer}
 ```
 
 <A name="question4.8.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 3. Does half of the households have an income of at most 40,000? [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.3){.buttonToAnswer}
 ```
 
 <A name="question4.8.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 4. According to information from the National Bureau of Statistics, 20 per cent of all households have incomes up to 30,000, 50 per cent have incomes between 30,000 and 50,000, and 30 per cent has incomes over 50,000. Use a test to decide if our sample is representative with respect to income. Hint: recode income first. [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.4){.buttonToAnswer}
 ```
 
 <A name="question4.8.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 5. Use the data set [children.sav](https://shklinkenberg.github.io/Statistical-Inference/data/children.sav) to test the hypothesis that average parental supervision of the child's media use is 5.5 (on a scale from 1 to 10) in the population. [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.5){.buttonToAnswer}
 ```
 
 <A name="question4.8.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 6. If you would test the hypothesis that average parental supervision in the population is 4.5, would the test be statistically significant according to the confidence interval reported for Exercise 5? Check your answer by carrying out the test. [<img src="icons/2answer.png" width=115px align="right">](#answer4.8.6){.buttonToAnswer}
 ```
 
@@ -1231,7 +1233,7 @@ Capitalization on chance occurs if we apply different tests to the same variable
 
 It occurs more strongly if we first have a look at our sample data and then formulate the hypothesis. Knowing the sample outcome, it is easy to specify a null hypothesis that will be rejected. This is plain cheating and it must be avoided at all times.
 
-## Test Your Understanding
+<!-- ## Test Your Understanding
 
 ```{r hypo-testing, fig.pos='H', fig.align='center', fig.cap="Testing null hypotheses.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Use app null-ci.
@@ -1241,32 +1243,32 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/null-ci/", height="2
 Figure \@ref(fig:hypo-testing) displays a random sample of media literacy scores (red) and a sampling distribution if the null hypothesis is true.
 
 <A name="question4.10.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 1. What are the null and alternative hypotheses in Figure \@ref(fig:hypo-testing)? Is the null hypothesis a nil hypothesis here? [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.1){.buttonToAnswer}
 ```
 
 <A name="question4.10.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 2. What represents the _p_ value of the sample mean that we have found in Figure \@ref(fig:hypo-testing)? Does the _p_ value depend on the type of null hypothesis: one-sided or two-sided? [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.2){.buttonToAnswer}
 ```
 
 <A name="question4.10.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 3. Which parts of Figure \@ref(fig:hypo-testing) represent the significance level and rejection region? [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.3){.buttonToAnswer}
 ```
 
 <A name="question4.10.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 4. Is the test statistically significant? How do you decide? [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.4){.buttonToAnswer}
 ```
 
 <A name="question4.10.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 5. What happens if you change the hypothesized population mean? Check your answer by using the slider. [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.5){.buttonToAnswer}
 ```
 
 <A name="question4.10.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch4}
 6. Is it OK to change your null hypothesis when you know your sample mean? Why is it OK or not OK? [<img src="icons/2answer.png" width=115px align="right">](#answer4.10.6){.buttonToAnswer}
 ```
 
@@ -1345,6 +1347,8 @@ in the (blue) region outside the critical values.
 wrong if you (re)formulate the null hypothesis when you know your sample.
 * This would be an example of capitalization on chance. [<img src="icons/2question.png" width=161px align="right">](#question4.10.6)
 ```
+
+-->
 
 ## Take-Home Points  
 

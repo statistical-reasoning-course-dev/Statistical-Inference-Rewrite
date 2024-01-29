@@ -33,22 +33,22 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", hei
 In Figure \@ref(fig:bootstrapping), an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
 
 <A name="question2.1.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 1. How large is a bootstrap sample in Figure \@ref(fig:bootstrapping)? Use the _Bootstrap one sample_ button. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.1){.buttonToAnswer}{.buttonToAnswer}
 ```
 
 <A name="question2.1.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 2. What element in Figure \@ref(fig:bootstrapping) represents the true sampling distribution in this example? If in doubt, see Figure \@ref(fig:probability-distribution). [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.2){.buttonToAnswer}
 ```
 
 <A name="question2.1.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 3. Does the bootstrap sampling distribution resemble the true sampling distribution? Use the "Bootstrap 5,000 samples" button and justify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.3){.buttonToAnswer}
 ```
 
 <A name="question2.1.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 4. Draw a new initial sample. This sample is probably not representative of the distribution of candy colour in the population. What happens to the bootstrap samples and the bootstrap sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.4){.buttonToAnswer}
 ```
 
@@ -74,7 +74,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping-replac
 ```
 
 <A name="question2.1.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 5. What are the differences between sampling with and without replacement (Figure \@ref(fig:replacement))? Press the buttons *Draw Without Replacement* and *Draw With Replacement* once or several times to see the differences. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.5){.buttonToAnswer}
 ```
 
@@ -97,17 +97,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/", hei
 ```
 
 <A name="question2.1.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 6. When does the bootstrap sampling distribution (yellow histogram) reflect the true sampling distribution (grey histogram) better: at small or large sample sizes? Play with sample size in Figure \@ref(fig:bootstrap-lim) to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.6){.buttonToAnswer}
 ```
 
 <A name="question2.1.7"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 7. How does sample size relate to representativeness of the sample in terms of the proportion of yellow candies? Note that twenty per cent of the candies in the population are yellow. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.7){.buttonToAnswer}
 ```
 
 <A name="question2.1.8"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 8. If you use a very small sample size, it may happen that there is no yellow histogram in the bottom graph. Why is that? [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.8){.buttonToAnswer}
 ```
 
@@ -274,15 +274,17 @@ In principle, any sample statistic can be bootstrapped. SPSS, however, does not 
 
 SPSS reports bootstrapping results as confidence intervals. We will discuss confidence intervals in detail in the next chapter.
 
-### Exercises 
+```{html, echo = Qch2}
+### Exercises
+```
 
 <A name="question2.2.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to bootstrap the _t_ test on average weight of yellow and red candies (the example above). The test is available in the _Analyze>Compare Means_ menu. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.1){.buttonToAnswer}
 ```
 
 <A name="question2.2.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 2. Use the same data set to bootstrap the median of candy weight. Remember that measures of central tendency can be obtained with the _Frequencies>Statistics_ command in the _Analyze>Descriptive Statistics_ menu. 
 
 Tip: Speed up bootstrapping in SPSS by deselecting the option _Display frequency tables_. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.2){.buttonToAnswer}
@@ -380,12 +382,12 @@ knitr::kable(d, booktabs = TRUE, caption = "Number of heads for a toss of three 
 ```
 
 <A name="question2.3.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 1. Explain the meaning of the entries in the column __Combination__ and how they relate to the entries in the __Outcome__ column. [<img src="icons/2answer.png" width=115px align="right">](#answer2.3.1){.buttonToAnswer}
 ```
 
 <A name="question2.3.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 2. Explain how the combinations relate to the probabilities. [<img src="icons/2answer.png" width=115px align="right">](#answer2.3.2){.buttonToAnswer}
 ```
 
@@ -455,15 +457,17 @@ knitr::include_url("https://www.youtube.com/embed/PlT28wfc6K4", height = "360px"
 # For the test result, you should interpret the p value reported in the table __Chi-Square Tests__. This value is clearly below .05 so we conclude that the test is statistically significant. It is unlikely that all colours are equally sticky in the population (_p_ = .010). According to the percentages in the contingency table, blue, red, and yellow candies are more often sticky than orange and green candies and the association is strong (Phi = .52). 
 ```
 
-### Exercises 
+```{html, echo = Qch2}
+### Exercises
+```
 
 <A name="question2.4.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to apply a Fisher-exact test to the association between candy colour and candy stickiness. [<img src="icons/2answer.png" width=115px align="right">](#answer2.4.1){.buttonToAnswer}
 ```
 
 <A name="question2.4.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 2. With the same data, apply a Fisher-exact test to the association between candy colour and candy spottiness. [<img src="icons/2answer.png" width=115px align="right">](#answer2.4.2){.buttonToAnswer}
 ```
 
@@ -533,17 +537,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation
 ```
 
 <A name="question2.5.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 1. Figure \@ref(fig:normal-approximation) displays a simulated sampling distribution of sample means and the normal approximation of this distribution (curve). Check if the normal curve is a good approximation of the sampling distribution. [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.1){.buttonToAnswer}
 ```
 
 <A name="question2.5.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 2. While checking the distribution, pay special attention to the tails because these are used for significance tests (see Chapter \@ref(hypothesis)). The red and green bars represent the 2.5 per cent samples with the lowest or highest average weights. The vertical lines mark the outer 2.5 per cent according to the normal distribution. Do the tail borders of the sampling distribution and normal distribution match? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.2){.buttonToAnswer}
 ```
 
 <A name="question2.5.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 3. Generate some new sampling distributions to see if the normal function always yields a good approximation. Does the bell-shaped curve fit the histogram? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.3){.buttonToAnswer}
 ```
 
@@ -580,12 +584,12 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approx-propor
 ```
 
 <A name="question2.5.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 4. How does sample size affect the shape of the sampling distribution? See what happens if you change sample size in the interactive content. [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.4){.buttonToAnswer}
 ```
 
 <A name="question2.5.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 5. How does the population proportion affect the shape of the sampling distribution? See what happens if you change the population proportion in the interactive content. [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.5){.buttonToAnswer}
 ```
 
@@ -628,22 +632,22 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-independent/", 
 ```
 
 <A name="question2.5.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 6. Click on the button once. Why are these samples called independent? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.6){.buttonToAnswer}
 ```
 
 <A name="question2.5.7"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 7. Click on the button several times. What exactly is the sample statistic in the histogram at the bottom of the app? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.7){.buttonToAnswer}
 ```
 
 <A name="question2.5.8"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 8. Click on the button to draw one thousand samples once or more often. Does the sampling distribution look familiar to you? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.8){.buttonToAnswer}
 ```
 
 <A name="question2.5.9"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 9. What, do you expect, is the mean of the sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.9){.buttonToAnswer}
 ```
 
@@ -679,17 +683,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-dependent/", he
 ```
 
 <A name="question2.5.10"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 10. In Figure \@ref(fig:mean-dependent), use the __Sample 1 case__ button repeatedly to draw a sample of five observations. What is the precise meaning of the numbers on the horizontal axis in the dot plot representing the sample (in the middle of Figure \@ref(fig:mean-dependent))? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.10){.buttonToAnswer}
 ```
 
 <A name="question2.5.11"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 11. Why is the sample called dependent or paired? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.11){.buttonToAnswer}
 ```
 
 <A name="question2.5.12"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 12. Draw 1,000 samples to obtain a sampling distribution. What is the precise meaning of the numbers on the horizontal axis in the histogram of the sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.12){.buttonToAnswer}
 ```
 
@@ -849,24 +853,24 @@ By default, SPSS uses a theoretical approximation of the sampling distribution. 
 
 If the conditions for using a theoretical probability distribution are not met or if we do not have a theoretical approximation to the sampling distribution, we use bootstrapping or an exact approach. We can always use bootstrapping but an exact approach is available only if the variables are categorical. An exact approach is more accurate than bootstrapping and approximation with a theoretical probability distribution, for example, the chi-squared distribution, so we prefer the exact approach over bootstrapping if we are dealing with categorical variables.
 
-## Test Your Understanding
+<!-- ## Test Your Understanding
 
 ```{r models-summary1, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we bootstrap a sampling distribution?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
 ```
 
 <A name="question2.8.1"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 1. Why does Figure \@ref(fig:models-summary1) not show a population? [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.1){.buttonToAnswer}
 ```
 
 <A name="question2.8.2"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 2. Which type of bootstrap sampling is better here: with or without replacement? Justify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.2){.buttonToAnswer}
 ```
 
 <A name="question2.8.3"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 3. Draw a new initial sample in Figure \@ref(fig:models-summary1). Is the bootstrapped sampling distribution going to resemble the true sampling distribution? Note that twenty per cent of the candies in the population are yellow. Motivate your answer. Draw 1,000 bootstrap samples to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.3){.buttonToAnswer}
 ```
 
@@ -879,12 +883,12 @@ knitr::kable(d, caption = "Number of heads for a toss of three coins.", col.name
 ```
 
 <A name="question2.8.4"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 4. Calculate the exact probability distribution of the number of heads in a toss of three fair coins (Table \@ref(tab:models-summary-3)). [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.4){.buttonToAnswer}
 ```
 
 <A name="question2.8.5"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 5. In which situations can we use exact probabilities as a sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.5){.buttonToAnswer}
 ```
 
@@ -893,17 +897,17 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation
 ```
 
 <A name="question2.8.6"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 6. Generate a sampling distribution of average sample candy weight in Figure \@ref(fig:models-summary2). Try to explain in your own words why the sampling distribution of a sample mean has a bell shape. [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.6){.buttonToAnswer}
 ```
 
 <A name="question2.8.7"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 7. Which part of the graph in Figure \@ref(fig:models-summary2) represents the theoretical probability distribution and what is the name of this distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.7){.buttonToAnswer}
 ```
 
 <A name="question2.8.8"></A>
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch2}
 8. Does this theoretical probability distribution always fit the simulated sampling distribution in Figure \@ref(fig:models-summary2)? Create several sampling distributions and explain why we pay special attention to the lowest (red) and highest (green) 2.5% of the sample means. [<img src="icons/2answer.png" width=115px align="right">](#answer2.8.8){.buttonToAnswer}
 ```
 
@@ -1013,6 +1017,8 @@ sampling distributions that we generate with this app.
 * These borders are important because we use them for confidence intervals and
 for statistical tests. [<img src="icons/2question.png" width=161px align="right">](#question2.8.8){.buttonToAnswer}
 ```
+
+-->
 
 ## Take-Home Points  
 

@@ -79,19 +79,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-means/", heigh
 
 <A name="question7.1.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 1. In the sample of (12) participants displayed as dots in Figure \@ref(fig:anova-means), what do the double-sided vertical arrows represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.1){.buttonToAnswer}
 ```
 
 <A name="question7.1.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 2. According to this figure, does a celebrity endorser matter to the willingness to donate? Explain your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.2){.buttonToAnswer}
 ```
 
 <A name="question7.1.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 3. How do the double-sided vertical arrows relate to effect size (eta^2^)? Change the group means (and update the graph) and explain what you see. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.3){.buttonToAnswer}
 ```
 
@@ -160,25 +160,25 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-between/", hei
 
 <A name="question7.1.4"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 4. In Figure \@ref(fig:anova-between), what do the solid red arrows represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.4){.buttonToAnswer}
 ```
 
 <A name="question7.1.5"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 5. What do the solid black arrows represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.5){.buttonToAnswer}
 ```
 
 <A name="question7.1.6"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 6. What do the dotted black arrows in Figure \@ref(fig:anova-between) represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.6){.buttonToAnswer}
 ```
 
 <A name="question7.1.7"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 7. Which arrows relate to effect size eta^2^? Change group means (and press the _Update graph_ button) and describe what happens. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.7){.buttonToAnswer}
 ```
 
@@ -317,19 +317,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-posthoc/", hei
 
 <A name="question7.1.8"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 8. Does the _F_ test in analysis of variance tell us which groups have significantly different average population outcome scores? Can we have the same _F_ test result with different sets of group means? Adjust group means in Figure \@ref(fig:anova-posthoc) to demonstrate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.8){.buttonToAnswer}
 ```
 
 <A name="question7.1.9"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 9. Is it possible that the _F_ test is statistically significant but none of the _t_ tests that compare groups one by one? Can you obtain this situation in Figure \@ref(fig:anova-posthoc)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.9){.buttonToAnswer}
 ```
 
 <A name="question7.1.10"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 10. Is it okay that we apply both an _F_ test and several _t_ tests to the same group differences? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.10){.buttonToAnswer}
 ```
 
@@ -514,17 +514,19 @@ knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px"
 # Interpret output: F test on the null hypothesis that all groups have equal population means - point out between groups sum of squares? ; post-hoc t test for pairwise comparison of (population) means ; test result and significance, confidence interval.
 ```
 
+```{html, echo = Qch7}
 ### Exercises
+```
 
 <A name="question7.2.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 1. How does celebrity endorsement affect the willingness to donate and is one celebrity more effective than the other? Use the data in [donors.sav](https://shklinkenberg.github.io/Statistical-Inference/data/donors.sav). [<img src="icons/2answer.png" width=115px align="right">](#answer7.2.1){.buttonToAnswer}
 ```
 
 <A name="question7.2.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 2. The data set [smokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/smokers.sav) contains information on smoking behaviour and attitude towards smoking for a random sample of adults. Does the attitude towards smoking differ among smokers, former smokers, and non-smokers (variable: *status3*)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.2.2){.buttonToAnswer}
 ```
 
@@ -643,19 +645,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-twoway/", heig
 
 <A name="question7.3.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 1. How does an analysis of variance test the effect of endorser on willingness to donate with the data displayed in Figure \@ref(fig:anova-twoway)? Select the endorser factor to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer7.3.1){.buttonToAnswer}
 ```
 
 <A name="question7.3.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 2. Compare a plot with the endorser factor selected to a plot with the sex factor selected. Which effect on willingness to donate is probably stronger: the effect of endorser or of sex? Motivate your answer, for example, using the grey arrows in the plots. [<img src="icons/2answer.png" width=115px align="right">](#answer7.3.2){.buttonToAnswer}
 ```
 
 <A name="question7.3.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 3. Where do you expect the group means to show up in the graph if you select both the Endorser and Sex check boxes? [<img src="icons/2answer.png" width=115px align="right">](#answer7.3.3){.buttonToAnswer}
 ```
 
@@ -862,25 +864,25 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-moderation/", 
 
 <A name="question7.4.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 1. Does the plot in Figure \@ref(fig:anova-moderation) display a main effect of the factor sex? Motivate your answer with numbers from the table and/or the lines in the plot. If sex has a main effect in this sample, describe the effect: What is the difference between women and men here? [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.1){.buttonToAnswer}
 ```
 
 <A name="question7.4.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 2. Is there a main effect of endorser? Again, motivate your answer and describe the effect if there is one. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.2){.buttonToAnswer}
 ```
 
 <A name="question7.4.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 3. Is the effect of participant's sex the same for all three types of endorser in Figure \@ref(fig:anova-moderation)? How can you tell? [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.3){.buttonToAnswer}
 ```
 
 <A name="question7.4.4"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 4. Adjust the means in such a way that the effect of sex is different for different endorsers. In other words, adjust the means such that sex moderates the effect of endorser on willingness to donate. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.4){.buttonToAnswer}
 ```
 
@@ -1033,19 +1035,19 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/",
 
 <A name="question7.4.5"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 5. Adjust the means in Figure \@ref(fig:anova-interaction) in such a way that the main effect of endorser and the interaction effect of endorser and sex are statistically significant. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.5){.buttonToAnswer}
 ```
 
 <A name="question7.4.6"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 6. Adjust the means in such a way that the main effect of endorser is _not_ statistically significant but the interaction effect of endorser and sex is statistically significant. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.6){.buttonToAnswer}
 ```
 
 <A name="question7.4.7"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 7. Is it possible to have a statistically significant interaction effect but no statistically significant main effects? If so, adjust the scores in Figure \@ref(fig:anova-interaction) to prove your case. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.7){.buttonToAnswer}
 ```
 
@@ -1264,23 +1266,25 @@ knitr::include_url("https://www.youtube.com/embed/BUqAm1H7FW8", height = "360px"
 knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px")
 ```
 
+```{html, echo = Qch7}
 ### Exercises
+```
 
 <A name="question7.6.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 1. Use the data in [donors.sav](https://shklinkenberg.github.io/Statistical-Inference/data/donors.sav) to test if the effect of celebrity endorsement on adults' willingness to donate after seeing the campaign (variable *willing_post*) is different for females than for males. Check the assumptions and interpret the results. Create a plot to communicate your results. [<img src="icons/2answer.png" width=115px align="right">](#answer7.6.1){.buttonToAnswer}
 ```
 
 <A name="question7.6.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 2. Use the same data as in Exercise 1 to test if the effect of celebrity endorsement on willingness to donate depends on remembering the campaign. Check the assumptions and interpret the results. Again, create a plot to communicate your results. [<img src="icons/2answer.png" width=115px align="right">](#answer7.6.2){.buttonToAnswer}
 ```
 
 <A name="question7.6.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 3. Data set [smokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/smokers.sav) contains information about smoking for a random sample of adults. Does the attitude towards smoking depend on the adult's smoking behaviour (smoker, former smoker, or non-smoker) and on exposure to an anti-smoking campaign? 
   Recode exposure scores into three groups: low exposure (scores 3 or less), medium exposure (scores above 3 up to and including 7), and high exposure (scores above 7). [<img src="icons/2answer.png" width=115px align="right">](#answer7.6.3){.buttonToAnswer}
 ```
@@ -1453,7 +1457,7 @@ _Note_. _N_ = 85.
 Note that the proportions of explained variance (eta^2^) have been calculated manually. Eta is the square root of eta^2^. [<img src="icons/2question.png" width=161px align="right">](#question7.6.3)
 ```
 
-## Test Your Understanding
+<!-- ## Test Your Understanding
 
 ```{r anova-overview, fig.pos='H', fig.align='center', fig.cap="How do we recognize main effects and interaction effects in a means plot and in a table of means?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="780px"}
 # Use app anova-interaction. Manipulate group means in a a means plot of a 3x2 design. Create main and interaction effects and inspect effect size and statistical significance.
@@ -1463,25 +1467,25 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/",
 
 <A name="question7.7.1"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 1. What is or are the main effects in Figure \@ref(fig:anova-overview)? Explain how you can recognize main effects both in the means plot and in the table of means. [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.1){.buttonToAnswer}
 ```
 
 <A name="question7.7.2"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 2. Change some group means to create substantial and statistically significant moderation of the effect of endorser (Nobody, Clooney, or Jolie) on willingness. [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.2){.buttonToAnswer}
 ```
 
 <A name="question7.7.3"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 3. What is the null hypothesis of the _F_ tests reported in Figure \@ref(fig:anova-overview)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.3){.buttonToAnswer}
 ```
 
 <A name="question7.7.4"></A>
 
-```{block2, type='rmdquestion'}
+```{block2, type='rmdquestion', echo = Qch7}
 4. How should we interpret the eta^2^ values in Figure \@ref(fig:anova-overview)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.4){.buttonToAnswer}
 ```
 
@@ -1594,6 +1598,8 @@ predicted or explained by the factor.
 differences between participants' willingness to donate scores in the sample can
 be predicted for 47 per cent by the endorser that they were exposed to. [<img src="icons/2question.png" width=161px align="right">](#question7.7.4)
 ```
+
+-->
 
 ## Take-Home Points
 
