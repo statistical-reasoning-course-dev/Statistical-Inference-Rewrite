@@ -1,4 +1,5 @@
-# Testing a Null Hypothesis: Am I Right or Am I Wrong? {#hypothesis}
+# Hypothesis testing {#hypothesis}
+
 > Key concepts: research hypothesis, statistical null and alternative hypothesis, nil hypothesis, test statistic, _p_ value, conditional probability, significance level (Type I error rate), Type I error, inflated Type I error, capitalization on chance, one-sided and two-sided tests and tests to which this distinction does not apply, rejection region.  
 
 Watch this micro lecture on hypothesis testing for an overview of the chapter.
@@ -20,6 +21,76 @@ The expectation is usually called a (research) hypothesis and it must be transla
 We test a null hypothesis in the following way. We construct a sampling distribution in one of the ways we have learned in Chapter \@ref(probmodels) using the value specified in the null hypothesis as the hypothetical population value. In other words, we act as if the null hypothesis is true. 
 
 Then, we calculate the probability of drawing a sample such as the one we have drawn or a sample that differs even more from the hypothesized population value. If this probability (p value) is very low, say, below 5%, we reject the null hypothesis because our sample would be too unlikely if the null hypothesis is true. In this case, the test is statistically significant. The probability threshold that we use is called the significance level of the test.
+
+## Null Hypothesis Significance Testing
+
+Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach [@RefWorks:3930]. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.
+
+The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criteria and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the $H_0$ hypothesis.
+
+The Neyman Pearson approach considers the following:
+
+* The $H_0$
+* The true alternative $H_A$
+* The true effect size
+* Desired type I error ($\alpha$)
+* Desired Power ($1 - \beta$)
+* Required sample size for the desired type I error and Power
+* Data collection with the appropriate sample size
+* Test statistic
+* The $p$-value
+* Conclusion
+
+This results in a $2 \times 2$ decision table where in reality $H_0$ can be true or false ($H_A$ is true), and the decision can either be to reject $H_0$ or not. Figure \@ref(fig:decisiontable) illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is infact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
+
+```{r decisiontable, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center', fig.cap="NHST decision table."}
+knitr::include_graphics("figures/decision_table.svg")
+```
+
+Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Lets consider the amount of yellow candies from the candy factory again. In chapter \@ref(discreterandomvariable) we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don't know this and our null hypothesis would be that half or the candies would be yellow. 
+
+### Hypothesis
+
+As the candy factory produces bags with ten candies, we can now formulate the following two hypothesis:
+
+* $H_0$
+    * Half of the candies in the bag are yellow
+    * Our expected value is 5
+    * The parameter of the candy machine is .5
+* $H_A$
+    * One fifth of the candies in the bag are yellow
+    * Our expected value is 2
+    * The parameter of the candy machine is .2
+
+In figure \@ref(fig:expected-value) you can set the parameter values to .5 and .2 and see what the discreet probability distribution looks like.
+
+
+### True effect size
+
+### Alpha
+
+### Power
+
+### 1 - Alpha
+
+### Beta
+
+### Test statistic
+
+#### Observed power
+
+#### Observed effect size
+
+##### Meta analysis
+
+### P-value
+
+
+
+
+
+
+
 
 ## A Binary Decision {#binarydecision}
 
