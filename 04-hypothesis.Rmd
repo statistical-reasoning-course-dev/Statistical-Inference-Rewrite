@@ -41,29 +41,114 @@ The Neyman Pearson approach considers the following:
 * The $p$-value
 * Conclusion
 
-This results in a $2 \times 2$ decision table where in reality $H_0$ can be true or false ($H_A$ is true), and the decision can either be to reject $H_0$ or not. Figure \@ref(fig:decisiontable) illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is infact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
+The two decisions can be visualized in a $2 \times 2$ table where in reality $H_0$ can be true or false ($H_A$ is true), and the decision can either be to reject $H_0$ or not. Figure \@ref(fig:decisiontable) illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is infact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
 
 ```{r decisiontable, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center', fig.cap="NHST decision table."}
 knitr::include_graphics("figures/decision_table.svg")
 ```
 
-Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Lets consider the amount of yellow candies from the candy factory again. In chapter \@ref(discreterandomvariable) we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don't know this and our null hypothesis would be that half or the candies would be yellow. 
+Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Lets consider the amount of yellow candies from the candy factory again. In chapter \@ref(discreterandomvariable) we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don't know this and our null hypothesis would be that half or the candies would be yellow. In figure \@ref(fig:expected-value) you can set the parameter values to .5 and .2 and see what the discreet probability distributions look like.
 
-### Hypothesis
 
-As the candy factory produces bags with ten candies, we can now formulate the following two hypothesis:
+As the candy factory produces bags with ten candies, we can look at both probability distributions. Figure \@ref(fig:twobinom) shows both distributions. 
 
-* $H_0$
+:::: {.columns}
+
+::: {.column width="50%"}
+
+* $H_0$ Distribution
     * Half of the candies in the bag are yellow
     * Our expected value is 5
     * The parameter of the candy machine is .5
-* $H_A$
+
+:::
+    
+::: {.column width="50%"}    
+    
+* $H_A$ Distribution
     * One fifth of the candies in the bag are yellow
     * Our expected value is 2
     * The parameter of the candy machine is .2
 
-In figure \@ref(fig:expected-value) you can set the parameter values to .5 and .2 and see what the discreet probability distribution looks like.
+:::
 
+::::
+
+```{r twobinom, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Both distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( rbind(dbinom(0:10, 10, .5),
+               dbinom(0:10, 10, .2)), 
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of head", 
+         ylab      = "P(%)", 
+         col       = rbind(colh0,colha),
+         beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+
+```
+
+We will use both distributions in figure \@ref(fig:twobinom) to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 2 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies. 
+
+Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent ($H_0 = \text{true}$) or that there is something going on ($H_0 \neq \text{true}$).
+
+### Hypothesis
+
+Statistical hypotheses come in pairs: a null hypothesis (_H_~0~) and an _alternative hypothesis_ (_H_~1~ or _H_~A~). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, .5 or .2 as the proportion of yellow candies.
+
+#### Null hypothesis
+
+The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental condition, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. Though a null hypothesis can be expressed as a single value, that does not mean that we always get that specific value when we take a random sample. 
+
+If our null assumption of our candy factory machine is that it produces bags with 5 out of 10 yellow candies, then there is still a chance that some bags will contain just one yellow candy of even 0 yellow candies. As can be seen in figure \@ref(fig:nulldistribution).
+
+```{r nulldistribution, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Null distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( dbinom(0:10, 10, .5),
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of head", 
+         ylab      = "P(%)", 
+         col       = colh0
+         # beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+legend("topright", legend=c("H0"), fill=c(colh0))
+
+```
+
+#### Alternative hypotesis
+
+The assumption that a researcher wants to test is called a _research hypothesis_. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:  
+
+* a television station reaches half of all households in a country,
+* media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children, 
+* opinions about immigrants are not equally polarized among young and old voters,  
+* the celebrity endorsing a fundraising campaign makes a difference to adult's willingness to donate,  
+* more exposure to brand advertisements increases brand awareness among consumers,
+* and so on.  
+
+These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a _statistical hypothesis_.
 
 ### True effect size
 
@@ -120,26 +205,7 @@ This section discusses these four ingredients of a statistical test. The assumpt
 
 ### The null hypothesis {#nullhypothesis}
 
-The assumption that a researcher wants to test is called a _research hypothesis_. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:  
 
-* a television station reaches half of all households in a country,
-
-* media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children, 
-
-* opinions about immigrants are not equally polarized among young and old voters,  
-
-* the celebrity endorsing a fundraising campaign makes a difference to adult's willingness to donate,  
-
-* more exposure to brand advertisements increases brand awareness among consumers,
-
-* and so on.  
-
-These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a _statistical hypothesis_.
-
-<A name="question4.2.1"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-1. Which statistics are addressed in the examples of research hypotheses above? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.1){.buttonToAnswer}
-```
 
 The most important statistical hypothesis is called the _null hypothesis_ (_H_~0~). The null hypothesis specifies one value for a population statistic. Let us focus on the null hypothesis that average media literacy in the population of children equals 5.5 on a scale from one to ten. If 5.5 distinguishes between sufficient and insufficient media literacy on a ten-point scale, it is interesting to know whether average media literacy of children is close to this threshold, and thus just sufficient, or not.
 
@@ -153,35 +219,7 @@ We can test this statement about the population with a random sample of children
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", height="410px")
 ```
 
-<A name="question4.2.2"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-2. Figure \@ref(fig:nullsampling) shows the hypothesized population mean and the associated sampling distribution. Formulate the null hypothesis represented by this figure and explain why the hypothesized value is in the middle of the sampling distribution. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.2){.buttonToAnswer}
-```
 
-<A name="question4.2.3"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-3. If the null hypothesis is true, what does the sampling distribution tell us? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.3){.buttonToAnswer}
-```
-
-<A name="question4.2.4"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-4. In the second step of hypothesis testing (click on *Step 2*), we formulate a decision rule for rejecting the null hypothesis. The decision rule is graphically represented by the blue tails in Figure \@ref(fig:nullsampling). What is the probability that we draw a sample that is part of the blue tails? Note that this probability is called the *significance level* of the test. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.4){.buttonToAnswer}
-```
-
-<A name="question4.2.5"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-5. If a sample is part of the blue tails, we reject the null hypothesis. We say that the test is statistically significant. How low or high must the sample mean be to have a statistically significant test result? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.5){.buttonToAnswer}
-```
-
-<A name="question4.2.6"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-6.  Go to Step 3 in the figure, which adds the sample. Is the test statistically significant for this sample? Explain your answer. Take some more samples to practice recognizing statistically significant results.[<img src="icons/2answer.png" width=115px align="right">](#answer4.2.6){.buttonToAnswer}
-```
-
-<A name="question4.2.7"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-7. Go to Step 4 in the figure, which shows the decision on the null hypothesis. Is it always possible to formulate a null hypothesis such that the sample mean is statistically significant? Take some new samples and change the value of the null hypothesis to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.7){.buttonToAnswer}
-```
 
 How far apart must the sample statistic value and the hypothesized population value be to conclude that the null hypothesis is not plausible? The null hypothesis is implausible if the sample that we have drawn is among the samples that are very unlikely if the null hypothesis is true. A commonly accepted threshold value is that the sample is among the five per cent most unlikely samples. This threshold is called the _significance level_ of the test. It is often represented by the symbol $\alpha$ (the Greek letter alpha). If our sample is among the five per cent most unlikely samples, we reject the null hypothesis and we say that the test is _statistically significant_.
 
@@ -209,26 +247,6 @@ How do we know that the sample that we have drawn is among the five percent most
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
 # Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="268px")
-```
-
-<A name="question4.2.8"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-8. What does the red number next to the solid red vertical line represent in Figure \@ref(fig:twosided)? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.8){.buttonToAnswer}
-```
-
-<A name="question4.2.9"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-9. What is the relation between the red number next to the solid red vertical line and the two-sided _p_ value reported in the figure? Pay attention to the dashed red vertical line in your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.9){.buttonToAnswer}
-```
-
-<A name="question4.2.10"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-10. Is the test on average media literacy statistically significant in the initial situation of Figure \@ref(fig:twosided)? If so, at which significance level? Use the rejection region, the number to the vertical red line, and the two-sided _p_ value to motivate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.10){.buttonToAnswer}
-```
-
-<A name="question4.2.11"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-11. What happens to the two-sided _p_ value if you change the hypothesized population mean? [<img src="icons/2answer.png" width=115px align="right">](#answer4.2.11){.buttonToAnswer}
 ```
 
 In the previous section, we learned that a test is statistically significant if the sample statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
@@ -432,7 +450,7 @@ null hypothesis. [<img src="icons/2question.png" width=161px align="right">](#qu
 
 The null hypothesis is central to significance testing. If the test is statistically significant, that is, if the _p_ value is below the significance level, we reject the null hypothesis.
 
-Statistical hypotheses, however, come in pairs: a null hypothesis (_H_~0~) and an _alternative hypothesis_ (_H_~1~ or _H_~A~). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, 5.5 as the average media literacy in a population of children.
+
 
 _The alternative hypothesis covers all situations not covered by the null hypothesis_. The null hypothesis stating that average media literacy in a population of children is 5.5, is paired with the alternative hypothesis stating that the average is not 5.5. In this way, we cover all possible outcomes.
 

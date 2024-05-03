@@ -509,32 +509,73 @@ div.csl-indent {
 <li>The <span class="math inline">\(p\)</span>-value</li>
 <li>Conclusion</li>
 </ul>
-<p>This results in a <span class="math inline">\(2 \times 2\)</span> decision table where in reality <span class="math inline">\(H_0\)</span> can be true or false (<span class="math inline">\(H_A\)</span> is true), and the decision can either be to reject <span class="math inline">\(H_0\)</span> or not. Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:decisiontable">4.1</a> illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject <span class="math inline">\(H_0\)</span> when it is infact false, and not to reject <span class="math inline">\(H_0\)</span> if it is in reality true. And the red squares indicate that it is a wrong decision to reject <span class="math inline">\(H_0\)</span> when it is actually true (Type I error), or not reject <span class="math inline">\(H_0\)</span> if it is in reality false (Type II error).</p>
+<p>The two decisions can be visualized in a <span class="math inline">\(2 \times 2\)</span> table where in reality <span class="math inline">\(H_0\)</span> can be true or false (<span class="math inline">\(H_A\)</span> is true), and the decision can either be to reject <span class="math inline">\(H_0\)</span> or not. Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:decisiontable">4.1</a> illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject <span class="math inline">\(H_0\)</span> when it is infact false, and not to reject <span class="math inline">\(H_0\)</span> if it is in reality true. And the red squares indicate that it is a wrong decision to reject <span class="math inline">\(H_0\)</span> when it is actually true (Type I error), or not reject <span class="math inline">\(H_0\)</span> if it is in reality false (Type II error).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:decisiontable"></span>
 <img src="figures/decision_table.svg" alt="NHST decision table." width="300px" />
 <p class="caption">
 Figure 4.1: NHST decision table.
 </p>
 </div>
-<p>Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Lets consider the amount of yellow candies from the candy factory again. In chapter <a href="1.2-discreterandomvariable.html#discreterandomvariable">1.2</a> we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don’t know this and our null hypothesis would be that half or the candies would be yellow.</p>
-<div id="hypothesis-1" class="section level3 hasAnchor" number="4.1.1">
-<h3><span class="header-section-number">4.1.1</span> Hypothesis<a href="4.1-null-hypothesis-significance-testing.html#hypothesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As the candy factory produces bags with ten candies, we can now formulate the following two hypothesis:</p>
+<p>Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Lets consider the amount of yellow candies from the candy factory again. In chapter <a href="1.2-discreterandomvariable.html#discreterandomvariable">1.2</a> we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don’t know this and our null hypothesis would be that half or the candies would be yellow. In figure <a href="1.2-discreterandomvariable.html#fig:expected-value">1.4</a> you can set the parameter values to .5 and .2 and see what the discreet probability distributions look like.</p>
+<p>As the candy factory produces bags with ten candies, we can look at both probability distributions. Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinom">4.2</a> shows both distributions.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li><span class="math inline">\(H_0\)</span>
+<li><span class="math inline">\(H_0\)</span> Distribution
 <ul>
 <li>Half of the candies in the bag are yellow</li>
 <li>Our expected value is 5</li>
 <li>The parameter of the candy machine is .5</li>
 </ul></li>
-<li><span class="math inline">\(H_A\)</span>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(H_A\)</span> Distribution
 <ul>
 <li>One fifth of the candies in the bag are yellow</li>
 <li>Our expected value is 2</li>
 <li>The parameter of the candy machine is .2</li>
 </ul></li>
 </ul>
-<p>In figure <a href="1.2-discreterandomvariable.html#fig:expected-value">1.4</a> you can set the parameter values to .5 and .2 and see what the discreet probability distribution looks like.</p>
+</div>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobinom"></span>
+<img src="GentleIntro_files/figure-html/twobinom-1.png" alt="Discrete binomial distributions" width="420px" />
+<p class="caption">
+Figure 4.2: Discrete binomial distributions
+</p>
+</div>
+<p>We will use both distributions in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinom">4.2</a> to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 2 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies.</p>
+<p>Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent (<span class="math inline">\(H_0 = \text{true}\)</span>) or that there is something going on (<span class="math inline">\(H_0 \neq \text{true}\)</span>).</p>
+<div id="hypothesis-1" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Hypothesis<a href="4.1-null-hypothesis-significance-testing.html#hypothesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Statistical hypotheses come in pairs: a null hypothesis (<em>H</em><sub>0</sub>) and an <em>alternative hypothesis</em> (<em>H</em><sub>1</sub> or <em>H</em><sub>A</sub>). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, .5 or .2 as the proportion of yellow candies.</p>
+<div id="null-hypothesis" class="section level4 hasAnchor" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Null hypothesis<a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental condition, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. Though a null hypothesis can be expressed as a single value, that does not mean that we always get that specific value when we take a random sample.</p>
+<p>If our null assumption of our candy factory machine is that it produces bags with 5 out of 10 yellow candies, then there is still a chance that some bags will contain just one yellow candy of even 0 yellow candies. As can be seen in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nulldistribution"></span>
+<img src="GentleIntro_files/figure-html/nulldistribution-1.png" alt="Discrete binomial distributions" width="420px" />
+<p class="caption">
+Figure 4.3: Discrete binomial distributions
+</p>
+</div>
+</div>
+<div id="alternative-hypotesis" class="section level4 hasAnchor" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> Alternative hypotesis<a href="4.1-null-hypothesis-significance-testing.html#alternative-hypotesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The assumption that a researcher wants to test is called a <em>research hypothesis</em>. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:</p>
+<ul>
+<li>a television station reaches half of all households in a country,</li>
+<li>media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children,</li>
+<li>opinions about immigrants are not equally polarized among young and old voters,<br />
+</li>
+<li>the celebrity endorsing a fundraising campaign makes a difference to adult’s willingness to donate,<br />
+</li>
+<li>more exposure to brand advertisements increases brand awareness among consumers,</li>
+<li>and so on.</li>
+</ul>
+<p>These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a <em>statistical hypothesis</em>.</p>
+</div>
 </div>
 <div id="true-effect-size" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> True effect size<a href="4.1-null-hypothesis-significance-testing.html#true-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
