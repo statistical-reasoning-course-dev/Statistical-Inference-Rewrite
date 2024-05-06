@@ -52,8 +52,6 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -494,117 +492,8 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="size-test-req" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Sample Size and Test Requirements<a href="5.1-size-test-req.html#size-test-req" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Table <a href="2.5-theoretical-approximations-of-the-sampling-distribution.html#tab:thumb">2.2</a> in Chapter <a href="2-probmodels.html#probmodels">2</a> (summarised in Table <a href="5.1-size-test-req.html#tab:thumbsize">5.1</a> below) shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.</p>
-<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-<span id="tab:thumbsize">Table 5.1: </span>Rules of thumb for minimum sample sizes.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Distribution
-</th>
-<th style="text-align:left;">
-Sample statistic
-</th>
-<th style="text-align:left;">
-Minimum sample size
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Binomial distribution
-</td>
-<td style="text-align:left;">
-proportion
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(Standard) normal distribution
-</td>
-<td style="text-align:left;">
-proportion
-</td>
-<td style="text-align:left;">
-&gt;= 5 divided by test proportion (&lt;= .5)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(Standard) normal distribution
-</td>
-<td style="text-align:left;">
-one or two means
-</td>
-<td style="text-align:left;">
-&gt; 100
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-one or two means
-</td>
-<td style="text-align:left;">
-each group &gt; 30
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-(Spearman) rank correlation coefficient
-</td>
-<td style="text-align:left;">
-&gt; 30
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-regression coefficient
-</td>
-<td style="text-align:left;">
-20+ per independent variable
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-F distribution
-</td>
-<td style="text-align:left;">
-3+ means
-</td>
-<td style="text-align:left;">
-all groups are more or less of equal size
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-chi-squared distribution
-</td>
-<td style="text-align:left;">
-row or cell frequencies
-</td>
-<td style="text-align:left;">
-expected frequency &gt;= 1 and 80% &gt;= 5 (sample 5+ observations per category or cell)
-</td>
-</tr>
-</tbody>
-</table></li>
-</ul>
-<p>Conditions often include sample size. Table <a href="5.1-size-test-req.html#tab:thumbsize">5.1</a> reproduces the size requirements from Table <a href="2.5-theoretical-approximations-of-the-sampling-distribution.html#tab:thumb">2.2</a>. If you plan to do a <em>t</em> test, each group should contain more than thirty cases. So if you intend to apply <em>t</em> tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.</p>
+<p>Table <a href="#tab:thumb"><strong>??</strong></a> in Chapter <a href="2-probmodels.html#probmodels">2</a> (summarised in Table <a href="#tab:thumbsize"><strong>??</strong></a> below) shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.</p>
+<p>Conditions often include sample size. Table <a href="#tab:thumbsize"><strong>??</strong></a> reproduces the size requirements from Table <a href="#tab:thumb"><strong>??</strong></a>. If you plan to do a <em>t</em> test, each group should contain more than thirty cases. So if you intend to apply <em>t</em> tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.</p>
 <p>Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.</p>
 <p>The variation of sample size across groups is important in analysis of variance (ANOVA), which uses the <em>F</em> distribution. If the number of cases is more or less the same across all groups, we do not have to worry about the variances of the dependent variable for the groups in the population. To be on the safe side, then, it is recommended to design your sampling strategy in such a way that you end up with more or less equal group sizes if you plan to use analysis of variance.</p>
 </div>

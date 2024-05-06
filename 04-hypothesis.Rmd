@@ -30,7 +30,7 @@ The Neyman Pearson approach ensures tight control on the probability of making c
 
 The Neyman Pearson approach considers the following:
 
-* The $H_0$
+* $H_0$
 * The true alternative $H_A$
 * The true effect size
 * Desired type I error ($\alpha$)
@@ -115,7 +115,7 @@ If our null assumption of our candy factory machine is that it produces bags wit
 
 ```{r nulldistribution, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
-title = "Null distributions"
+title = expression(paste("Null distributions ", theta, " = .5"))
 
 colh0 = 'yellow'
 colha = 'lightyellow'
@@ -124,7 +124,7 @@ barplot( dbinom(0:10, 10, .5),
          main=title, 
          names.arg = 0:10, 
          xlab      = "number of head", 
-         ylab      = "P(%)", 
+         ylab      = "Probability", 
          col       = colh0
          # beside    = TRUE
          # density   = c(0, 10)
@@ -133,7 +133,7 @@ barplot( dbinom(0:10, 10, .5),
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
 
-legend("topright", legend=c("H0"), fill=c(colh0))
+# legend("topright", legend=c("H0"), fill=c(colh0))
 
 ```
 
@@ -148,7 +148,8 @@ The assumption that a researcher wants to test is called a _research hypothesis_
 * more exposure to brand advertisements increases brand awareness among consumers,
 * and so on.  
 
-These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a _statistical hypothesis_.
+These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The alternative hypothesis therefore indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalisation of what you expect to find if your theory would be accurate.
+
 
 ### True effect size
 
