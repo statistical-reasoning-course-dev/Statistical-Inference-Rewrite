@@ -197,14 +197,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="5-hypothesis.html"><a href="5-hypothesis.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="5.1" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>5.1</b> Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="5.1.1" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#hypothesis-1"><i class="fa fa-check"></i><b>5.1.1</b> Hypothesis</a></li>
-<li class="chapter" data-level="5.1.2" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>5.1.2</b> True effect size</a></li>
+<li class="chapter" data-level="5.1.1" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#null-hypothesis"><i class="fa fa-check"></i><b>5.1.1</b> Null hypothesis</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#alternative-hypotesis"><i class="fa fa-check"></i><b>5.1.2</b> Alternative hypotesis</a></li>
 <li class="chapter" data-level="5.1.3" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#alpha"><i class="fa fa-check"></i><b>5.1.3</b> Alpha</a></li>
 <li class="chapter" data-level="5.1.4" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>5.1.4</b> Power</a></li>
 <li class="chapter" data-level="5.1.5" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#alpha-1"><i class="fa fa-check"></i><b>5.1.5</b> 1 - Alpha</a></li>
 <li class="chapter" data-level="5.1.6" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#beta"><i class="fa fa-check"></i><b>5.1.6</b> Beta</a></li>
 <li class="chapter" data-level="5.1.7" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#test-statistic"><i class="fa fa-check"></i><b>5.1.7</b> Test statistic</a></li>
 <li class="chapter" data-level="5.1.8" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#p-value"><i class="fa fa-check"></i><b>5.1.8</b> P-value</a></li>
+<li class="chapter" data-level="5.1.9" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>5.1.9</b> True effect size</a></li>
+<li class="chapter" data-level="5.1.10" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>5.1.10</b> Observed effect size</a></li>
+<li class="chapter" data-level="5.1.11" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#observed-power"><i class="fa fa-check"></i><b>5.1.11</b> Observed power</a></li>
+<li class="chapter" data-level="5.1.12" data-path="5.1-null-hypothesis-significance-testing.html"><a href="5.1-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>5.1.12</b> Meta analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="5.2" data-path="5.2-binarydecision.html"><a href="5.2-binarydecision.html"><i class="fa fa-check"></i><b>5.2</b> A Binary Decision</a></li>
 <li class="chapter" data-level="5.3" data-path="5.3-statistical-tests.html"><a href="5.3-statistical-tests.html"><i class="fa fa-check"></i><b>5.3</b> Statistical Tests</a>
@@ -539,13 +543,11 @@ Figure 5.1: NHST decision table.
 Figure 5.2: Discrete binomial distributions
 </p>
 </div>
-<p>We will use both distributions in figure <a href="5.1-null-hypothesis-significance-testing.html#fig:twobinom">5.2</a> to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 2 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies.</p>
+<p>We will use both distributions in figure <a href="5.1-null-hypothesis-significance-testing.html#fig:twobinom">5.2</a> to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 4 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies.</p>
 <p>Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent (<span class="math inline">\(H_0 = \text{true}\)</span>) or that there is something going on (<span class="math inline">\(H_0 \neq \text{true}\)</span>).</p>
-<div id="hypothesis-1" class="section level3 hasAnchor" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Hypothesis<a href="5.1-null-hypothesis-significance-testing.html#hypothesis-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Statistical hypotheses come in pairs: a null hypothesis (<em>H</em><sub>0</sub>) and an <em>alternative hypothesis</em> (<em>H</em><sub>1</sub> or <em>H</em><sub>A</sub>). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, .5 or .2 as the proportion of yellow candies.</p>
-<div id="null-hypothesis" class="section level4 hasAnchor" number="5.1.1.1">
-<h4><span class="header-section-number">5.1.1.1</span> Null hypothesis<a href="5.1-null-hypothesis-significance-testing.html#null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Statistical hypotheses come in pairs: a null hypothesis (<em>H</em><sub>0</sub>) and an <em>alternative hypothesis</em> (<em>H</em><sub>1</sub> / <em>H</em><sub>A</sub>). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, .5 or .2 as the proportion of yellow candies.</p>
+<div id="null-hypothesis" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Null hypothesis<a href="5.1-null-hypothesis-significance-testing.html#null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental condition, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. Though a null hypothesis can be expressed as a single value, that does not mean that we always get that specific value when we take a random sample.</p>
 <p>If our null assumption of our candy factory machine is that it produces bags with 5 out of 10 yellow candies, then there is still a chance that some bags will contain just one yellow candy of even 0 yellow candies. As can be seen in figure <a href="5.1-null-hypothesis-significance-testing.html#fig:nulldistribution">5.3</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:nulldistribution"></span>
@@ -555,8 +557,8 @@ Figure 5.3: Discrete binomial distributions
 </p>
 </div>
 </div>
-<div id="alternative-hypotesis" class="section level4 hasAnchor" number="5.1.1.2">
-<h4><span class="header-section-number">5.1.1.2</span> Alternative hypotesis<a href="5.1-null-hypothesis-significance-testing.html#alternative-hypotesis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="alternative-hypotesis" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Alternative hypotesis<a href="5.1-null-hypothesis-significance-testing.html#alternative-hypotesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The assumption that a researcher wants to test is called a <em>research hypothesis</em>. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:</p>
 <ul>
 <li>a television station reaches half of all households in a country,</li>
@@ -569,13 +571,30 @@ Figure 5.3: Discrete binomial distributions
 <li>and so on.</li>
 </ul>
 <p>These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The alternative hypothesis therefore indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalisation of what you expect to find if your theory would be accurate.</p>
+<p>In case of our candy factory example, the alternative hypothesis would be that the machine produces bags with 2 out of 10 yellow candies and that the machines parameter is .2, one in five yellow candies per bag. Assuming this parameter, dows not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualised in the using the exact discrete binomial probability distribution (figure <a href="5.1-null-hypothesis-significance-testing.html#fig:altdistribution">5.4</a>) as we did for the null hypothesis.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:altdistribution"></span>
+<img src="GentleIntro_files/figure-html/altdistribution-1.png" alt="Discrete binomial distributions" width="420px" />
+<p class="caption">
+Figure 5.4: Discrete binomial distributions
+</p>
 </div>
-</div>
-<div id="true-effect-size" class="section level3 hasAnchor" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> True effect size<a href="5.1-null-hypothesis-significance-testing.html#true-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Note that both probability distribution for <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> are the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.</p>
+<p>Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.</p>
 </div>
 <div id="alpha" class="section level3 hasAnchor" number="5.1.3">
 <h3><span class="header-section-number">5.1.3</span> Alpha<a href="5.1-null-hypothesis-significance-testing.html#alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The first step in the Neyman Pearson approach is to set the desired Type I error rate, also known as the significance level, <span class="math inline">\(\alpha\)</span>. This is the probability of rejecting the null hypothesis when it is in reality true. In the <span class="math inline">\(2 \times 2\)</span> descision table in figure <a href="5.1-null-hypothesis-significance-testing.html#fig:decisiontable">5.1</a>, this corresponds to the top left quadrant.</p>
+<style type="text/css">
+.alpha {fill: blue;}
+}
+</style>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:alphatable"></span>
+<img src="figures/decision_table.svg" alt="NHST decision table." width="300px" />
+<p class="caption">
+Figure 5.5: NHST decision table.
+</p>
+</div>
+<p>As a researcher, you decide how much risk you are willing to take to make a Type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for <span class="math inline">\(\alpha\)</span> is .05, which means that you accept a 5% chance of making a Type I error.</p>
 </div>
 <div id="power" class="section level3 hasAnchor" number="5.1.4">
 <h3><span class="header-section-number">5.1.4</span> Power<a href="5.1-null-hypothesis-significance-testing.html#power" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -588,18 +607,29 @@ Figure 5.3: Discrete binomial distributions
 </div>
 <div id="test-statistic" class="section level3 hasAnchor" number="5.1.7">
 <h3><span class="header-section-number">5.1.7</span> Test statistic<a href="5.1-null-hypothesis-significance-testing.html#test-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div id="observed-power" class="section level4 hasAnchor" number="5.1.7.1">
-<h4><span class="header-section-number">5.1.7.1</span> Observed power<a href="5.1-null-hypothesis-significance-testing.html#observed-power" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-</div>
-<div id="observed-effect-size" class="section level4 hasAnchor" number="5.1.7.2">
-<h4><span class="header-section-number">5.1.7.2</span> Observed effect size<a href="5.1-null-hypothesis-significance-testing.html#observed-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<div id="meta-analysis" class="section level5 hasAnchor" number="5.1.7.2.1">
-<h5><span class="header-section-number">5.1.7.2.1</span> Meta analysis<a href="5.1-null-hypothesis-significance-testing.html#meta-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h5>
-</div>
-</div>
 </div>
 <div id="p-value" class="section level3 hasAnchor" number="5.1.8">
 <h3><span class="header-section-number">5.1.8</span> P-value<a href="5.1-null-hypothesis-significance-testing.html#p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="true-effect-size" class="section level3 hasAnchor" number="5.1.9">
+<h3><span class="header-section-number">5.1.9</span> True effect size<a href="5.1-null-hypothesis-significance-testing.html#true-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The true effect size is the difference between the null hypothesis and the alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure <a href="5.1-null-hypothesis-significance-testing.html#fig:twobinomeffect">5.6</a> you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobinomeffect"></span>
+<img src="GentleIntro_files/figure-html/twobinomeffect-1.png" alt="Discrete binomial distributions" width="420px" />
+<p class="caption">
+Figure 5.6: Discrete binomial distributions
+</p>
+</div>
+<p><strong>True</strong> refers to the actual difference in the population. The problem is that we do not know this difference. In our candy factory example, we can only observe the specific candy bag. Have an assumption about the null hypothesis and the alternative hypothesis. Though the <strong>true</strong> effect size refers only to the actual effect in the population, the actual difference, the actual correlation, the actual parameter value.</p>
+</div>
+<div id="observed-effect-size" class="section level3 hasAnchor" number="5.1.10">
+<h3><span class="header-section-number">5.1.10</span> Observed effect size<a href="5.1-null-hypothesis-significance-testing.html#observed-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="observed-power" class="section level3 hasAnchor" number="5.1.11">
+<h3><span class="header-section-number">5.1.11</span> Observed power<a href="5.1-null-hypothesis-significance-testing.html#observed-power" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="meta-analysis" class="section level3 hasAnchor" number="5.1.12">
+<h3><span class="header-section-number">5.1.12</span> Meta analysis<a href="5.1-null-hypothesis-significance-testing.html#meta-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
             </section>

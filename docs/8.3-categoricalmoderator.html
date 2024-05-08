@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -201,14 +203,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="4-hypothesis.html"><a href="4-hypothesis.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="4.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>4.1</b> Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#hypothesis-1"><i class="fa fa-check"></i><b>4.1.1</b> Hypothesis</a></li>
-<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.2</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> Null hypothesis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alternative-hypotesis"><i class="fa fa-check"></i><b>4.1.2</b> Alternative hypotesis</a></li>
 <li class="chapter" data-level="4.1.3" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha"><i class="fa fa-check"></i><b>4.1.3</b> Alpha</a></li>
 <li class="chapter" data-level="4.1.4" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>4.1.4</b> Power</a></li>
 <li class="chapter" data-level="4.1.5" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha-1"><i class="fa fa-check"></i><b>4.1.5</b> 1 - Alpha</a></li>
 <li class="chapter" data-level="4.1.6" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#beta"><i class="fa fa-check"></i><b>4.1.6</b> Beta</a></li>
 <li class="chapter" data-level="4.1.7" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#test-statistic"><i class="fa fa-check"></i><b>4.1.7</b> Test statistic</a></li>
 <li class="chapter" data-level="4.1.8" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#p-value"><i class="fa fa-check"></i><b>4.1.8</b> P-value</a></li>
+<li class="chapter" data-level="4.1.9" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.9</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.10" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>4.1.10</b> Observed effect size</a></li>
+<li class="chapter" data-level="4.1.11" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-power"><i class="fa fa-check"></i><b>4.1.11</b> Observed power</a></li>
+<li class="chapter" data-level="4.1.12" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.1.12</b> Meta analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-binarydecision.html"><a href="4.2-binarydecision.html"><i class="fa fa-check"></i><b>4.2</b> A Binary Decision</a></li>
 <li class="chapter" data-level="4.3" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html"><i class="fa fa-check"></i><b>4.3</b> Statistical Tests</a>
@@ -593,8 +599,145 @@ Figure 8.17: Statistical diagram of moderation.
 </div>
 <div id="interactioninterpretation" class="section level3 hasAnchor" number="8.3.4">
 <h3><span class="header-section-number">8.3.4</span> Interpretation and statistical inference<a href="8.3-categoricalmoderator.html#interactioninterpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>In Table <a href="#tab:dich-moderator-output"><strong>??</strong></a>, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude <strong>for non-smokers</strong>.
-If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from Table <a href="#tab:dich-moderator-output"><strong>??</strong></a>.</p>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:dich-moderator-output">Table 8.2: </span>Predicting attitude towards smoking: regression analysis results.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+Beta
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #FDAE61 !important;">
+(Constant)
+</td>
+<td style="text-align:right;color: #FDAE61 !important;">
+0.900
+</td>
+<td style="text-align:right;">
+0.357
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+2.521
+</td>
+<td style="text-align:right;">
+0.014
+</td>
+<td style="text-align:right;">
+0.190
+</td>
+<td style="text-align:right;">
+1.610
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #2B83BA !important;">
+Exposure
+</td>
+<td style="text-align:right;color: #2B83BA !important;">
+-0.162
+</td>
+<td style="text-align:right;">
+0.061
+</td>
+<td style="text-align:right;">
+-0.410
+</td>
+<td style="text-align:right;">
+-2.651
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+-0.284
+</td>
+<td style="text-align:right;">
+-0.040
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #ABDDA4 !important;">
+Status (smoker = 1, non-smoker = 0)
+</td>
+<td style="text-align:right;color: #ABDDA4 !important;">
+1.980
+</td>
+<td style="text-align:right;">
+0.738
+</td>
+<td style="text-align:right;">
+0.096
+</td>
+<td style="text-align:right;">
+2.683
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+0.512
+</td>
+<td style="text-align:right;">
+3.448
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #D7191C !important;">
+Exposure*Status (smoker)
+</td>
+<td style="text-align:right;color: #D7191C !important;">
+-0.327
+</td>
+<td style="text-align:right;">
+0.142
+</td>
+<td style="text-align:right;">
+-0.238
+</td>
+<td style="text-align:right;">
+-2.311
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+-0.609
+</td>
+<td style="text-align:right;">
+-0.045
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Table <a href="8.3-categoricalmoderator.html#tab:dich-moderator-output">8.2</a>, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude <strong>for non-smokers</strong>.
+If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from Table <a href="8.3-categoricalmoderator.html#tab:dich-moderator-output">8.2</a>.</p>
 <span class="math display" id="eq:nonsmokers">\[\begin{equation}
 \small
 \begin{split}
@@ -648,10 +791,179 @@ Figure 8.18: When do we have moderation with a categorical moderator?
 Figure 8.19: Statistical diagram with a moderator consisting of three groups. Non-smokers are the reference group
 </p>
 </div>
-<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure <a href="8.3-categoricalmoderator.html#fig:categorical-moderator-fig">8.19</a> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (Table <a href="#tab:cat-moderator-results"><strong>??</strong></a>).</p>
+<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure <a href="8.3-categoricalmoderator.html#fig:categorical-moderator-fig">8.19</a> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (Table <a href="8.3-categoricalmoderator.html#tab:cat-moderator-results">8.3</a>).</p>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:cat-moderator-results">Table 8.3: </span>Predicting attitude towards smoking for three smoking status groups: regression analysis results.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Constant)
+</td>
+<td style="text-align:right;">
+1.644
+</td>
+<td style="text-align:right;">
+0.288
+</td>
+<td style="text-align:right;">
+5.717
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+1.072
+</td>
+<td style="text-align:right;">
+2.216
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure
+</td>
+<td style="text-align:right;">
+-0.185
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+<td style="text-align:right;">
+-3.987
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+-0.277
+</td>
+<td style="text-align:right;">
+-0.093
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Former smoker
+</td>
+<td style="text-align:right;">
+-1.095
+</td>
+<td style="text-align:right;">
+0.544
+</td>
+<td style="text-align:right;">
+-2.013
+</td>
+<td style="text-align:right;">
+0.048
+</td>
+<td style="text-align:right;">
+-2.178
+</td>
+<td style="text-align:right;">
+-0.012
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Smoker
+</td>
+<td style="text-align:right;">
+1.235
+</td>
+<td style="text-align:right;">
+0.521
+</td>
+<td style="text-align:right;">
+2.372
+</td>
+<td style="text-align:right;">
+0.020
+</td>
+<td style="text-align:right;">
+0.199
+</td>
+<td style="text-align:right;">
+2.272
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure*Former smoker
+</td>
+<td style="text-align:right;">
+-0.405
+</td>
+<td style="text-align:right;">
+0.112
+</td>
+<td style="text-align:right;">
+-3.604
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+-0.629
+</td>
+<td style="text-align:right;">
+-0.181
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure*Smoker
+</td>
+<td style="text-align:right;">
+-0.304
+</td>
+<td style="text-align:right;">
+0.098
+</td>
+<td style="text-align:right;">
+-3.116
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+-0.498
+</td>
+<td style="text-align:right;">
+-0.110
+</td>
+</tr>
+</tbody>
+</table>
 <p>Remember that the effects of predictors that are included in interactions are conditional effects: effects for the reference group or reference value on the other variable involved in the interaction. Non-smokers are the reference group for participant’s smoking status. The <em>p</em> value for the <em>exposure</em> predictor tests the hypothesis that the exposure effect for non-smokers is zero in the population.</p>
 <p>For the two dummy variables <em>Former smoker</em> and <em>Smoker</em>, the null hypothesis is tested that they have the same average attitude in the population as the non-smokers (reference group) if they are not exposed to the anti-smoking campaign. Participants who are not exposed to the campaign (zero exposure) are the reference group here.</p>
-<p>Interaction predictors show effect differences. In Table <a href="#tab:cat-moderator-results"><strong>??</strong></a>, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (<em>Exposure*Former smoker</em>) or for smokers and non-smokers (<em>Exposure*Smoker</em>) in the population.</p>
+<p>Interaction predictors show effect differences. In Table <a href="8.3-categoricalmoderator.html#tab:cat-moderator-results">8.3</a>, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (<em>Exposure*Former smoker</em>) or for smokers and non-smokers (<em>Exposure*Smoker</em>) in the population.</p>
 <p>If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.</p>
 </div>
 <div id="commonsupportdichotomous" class="section level3 hasAnchor" number="8.3.6">
@@ -688,8 +1000,171 @@ A <em>covariate</em> is an independent variable that is currently not central to
 Figure 8.21: Statistical diagram of moderation with contact as covariate.
 </p>
 </div>
-<p>Figure <a href="8.3-categoricalmoderator.html#fig:moderator-covar-statistical">8.21</a> shows the statistical diagram of a moderation model with contact as covariate and Table <a href="#tab:dich-moderator-cov-output"><strong>??</strong></a> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
-<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (Table <a href="#tab:dich-moderator-cov-output"><strong>??</strong></a>) to create a regression equation [Eq. <a href="8.3-categoricalmoderator.html#eq:intvarcov1">(8.18)</a>]. Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
+<p>Figure <a href="8.3-categoricalmoderator.html#fig:moderator-covar-statistical">8.21</a> shows the statistical diagram of a moderation model with contact as covariate and Table <a href="8.3-categoricalmoderator.html#tab:dich-moderator-cov-output">8.4</a> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:dich-moderator-cov-output">Table 8.4: </span>Predicting attitude towards smoking: regression analysis results with contact as covariate.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+Beta
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #FDAE61 !important;">
+(Constant)
+</td>
+<td style="text-align:right;color: #FDAE61 !important;">
+-0.087
+</td>
+<td style="text-align:right;">
+0.684
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+-0.127
+</td>
+<td style="text-align:right;">
+0.899
+</td>
+<td style="text-align:right;">
+-1.448
+</td>
+<td style="text-align:right;">
+1.275
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #2B83BA !important;">
+Exposure
+</td>
+<td style="text-align:right;color: #2B83BA !important;">
+-0.118
+</td>
+<td style="text-align:right;">
+0.066
+</td>
+<td style="text-align:right;">
+-0.332
+</td>
+<td style="text-align:right;">
+-1.786
+</td>
+<td style="text-align:right;">
+0.078
+</td>
+<td style="text-align:right;">
+-0.249
+</td>
+<td style="text-align:right;">
+0.013
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #ABDDA4 !important;">
+Smoker (0 = no, 1 = yes))
+</td>
+<td style="text-align:right;color: #ABDDA4 !important;">
+1.982
+</td>
+<td style="text-align:right;">
+0.730
+</td>
+<td style="text-align:right;">
+0.095
+</td>
+<td style="text-align:right;">
+2.717
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.530
+</td>
+<td style="text-align:right;">
+3.434
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #D7191C !important;">
+Exposure*Smoker
+</td>
+<td style="text-align:right;color: #D7191C !important;">
+-0.329
+</td>
+<td style="text-align:right;">
+0.140
+</td>
+<td style="text-align:right;">
+-0.239
+</td>
+<td style="text-align:right;">
+-2.348
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+-0.607
+</td>
+<td style="text-align:right;">
+-0.050
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: brown !important;">
+Contact
+</td>
+<td style="text-align:right;color: brown !important;">
+0.152
+</td>
+<td style="text-align:right;">
+0.090
+</td>
+<td style="text-align:right;">
+0.180
+</td>
+<td style="text-align:right;">
+1.683
+</td>
+<td style="text-align:right;">
+0.096
+</td>
+<td style="text-align:right;">
+-0.028
+</td>
+<td style="text-align:right;">
+0.331
+</td>
+</tr>
+</tbody>
+</table>
+<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (Table <a href="8.3-categoricalmoderator.html#tab:dich-moderator-cov-output">8.4</a>) to create a regression equation [Eq. <a href="8.3-categoricalmoderator.html#eq:intvarcov1">(8.18)</a>]. Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
 <span class="math display" id="eq:intvarcov1">\[\begin{equation}
 \small
 \begin{split}
@@ -721,13 +1196,224 @@ Figure 8.21: Statistical diagram of moderation with contact as covariate.
 Figure 8.22: The effects of exposure on attitude for non-smokers and smokers. Both smokers and non-smokers are assumed to have average contact with smokers.
 </p>
 </div>
-<p>Instead of writing out the full equations, you can also obtain the constant and the simple slope by copying the table of regression coefficients and adding columns (Table <a href="#tab:cat-moderator-results2"><strong>??</strong></a>):</p>
+<p>Instead of writing out the full equations, you can also obtain the constant and the simple slope by copying the table of regression coefficients and adding columns (Table <a href="8.3-categoricalmoderator.html#tab:cat-moderator-results2">8.5</a>):</p>
 <ol style="list-style-type: decimal">
 <li><p>Add a column indicating which value you plug in for the moderator variable(s) and any covariates. In this example, <em>smoker</em> is the moderator variable, which appears both by itself and as part of the interaction variable. The variable <em>contact</em> is a covariate here; we use its mean as plug-in value.</p></li>
 <li><p>Add a column to calculate the constant. Use all variables that do <em>not</em> include the predictor. For each of these variables, multiply the regression coefficient by the plug-in value (if any). Sum the results to obtain the constant.</p></li>
 <li><p>Add a column to calculate the simple slope. Only use the variables that include the predictor, which is <em>exposure</em> in this example. For each of these variables, multiply the regression coefficient by the plug-in value (if any). Sum the results to obtain the simple slope.</p></li>
 </ol>
-<p>The calculated slope and constant constitute the simple regression equation of the effect of the predictor for the selected values of the moderator and covariates (see the footnotes to Table <a href="#tab:cat-moderator-results2"><strong>??</strong></a>). You can interpret the slopes, which are unstandardized regression coefficients (<span class="math inline">\(b\)</span>), or use the equations to draw regression lines.</p>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption style="font-size: initial !important;">
+<span id="tab:cat-moderator-results2">Table 8.5: </span>Calculation of the constant and simple slope for non-smokers and smokers at average contact.
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="2">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Non-smokers
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Smokers
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:left;">
+<ol style="list-style-type: decimal">
+<li>Plugin
+</th>
+<th style="text-align:right;">
+<ol start="2" style="list-style-type: decimal">
+<li>Constant
+</th>
+<th style="text-align:right;">
+<ol start="3" style="list-style-type: decimal">
+<li>Slope
+</th>
+<th style="text-align:left;">
+<ol style="list-style-type: decimal">
+<li>Plugin
+</th>
+<th style="text-align:right;">
+<ol start="2" style="list-style-type: decimal">
+<li>Constant
+</th>
+<th style="text-align:right;">
+<ol start="3" style="list-style-type: decimal">
+<li>Slope
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Constant)
+</td>
+<td style="text-align:right;">
+-0.087
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+-0.087
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+-0.087
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure
+</td>
+<td style="text-align:right;">
+-0.118
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+-0.118
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+-0.118
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Smoker
+</td>
+<td style="text-align:right;">
+1.982
+</td>
+<td style="text-align:left;">
+Smoker = 0
+</td>
+<td style="text-align:right;">
+1.982 * 0
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+Smoker = 1
+</td>
+<td style="text-align:right;">
+1.982 * 1
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Contact
+</td>
+<td style="text-align:right;">
+0.152
+</td>
+<td style="text-align:left;">
+Mean contact = 5.091
+</td>
+<td style="text-align:right;">
+0.152 * 5.091
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+Mean contact = 5.091
+</td>
+<td style="text-align:right;">
+0.152 * 5.091
+</td>
+<td style="text-align:right;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure*Smoker
+</td>
+<td style="text-align:right;">
+-0.329
+</td>
+<td style="text-align:left;">
+Smoker = 0
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+-0.329 * 0
+</td>
+<td style="text-align:left;">
+Smoker = 1
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+-0.329 * 1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Result (sum)
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0.687<sup>a</sup>
+</td>
+<td style="text-align:right;">
+-0.118<sup>a</sup>
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+2.669<sup>b</sup>
+</td>
+<td style="text-align:right;">
+-0.447<sup>b</sup>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>a</sup> Equation for non-smokers: y = 0.687 + -0.118 * Exposure.
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup>b</sup> Equation for smokers: y = 2.669 + -0.447 * Exposure.
+</td>
+</tr>
+</tfoot>
+</table></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
+<p>The calculated slope and constant constitute the simple regression equation of the effect of the predictor for the selected values of the moderator and covariates (see the footnotes to Table <a href="8.3-categoricalmoderator.html#tab:cat-moderator-results2">8.5</a>). You can interpret the slopes, which are unstandardized regression coefficients (<span class="math inline">\(b\)</span>), or use the equations to draw regression lines.</p>
 <p><A name="answer8.3.1"></A></p>
 <p><A name="answer8.3.2"></A></p>
 <p><A name="answer8.3.3"></A></p>

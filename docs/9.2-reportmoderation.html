@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -201,14 +203,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="4-hypothesis.html"><a href="4-hypothesis.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="4.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>4.1</b> Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#hypothesis-1"><i class="fa fa-check"></i><b>4.1.1</b> Hypothesis</a></li>
-<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.2</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> Null hypothesis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alternative-hypotesis"><i class="fa fa-check"></i><b>4.1.2</b> Alternative hypotesis</a></li>
 <li class="chapter" data-level="4.1.3" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha"><i class="fa fa-check"></i><b>4.1.3</b> Alpha</a></li>
 <li class="chapter" data-level="4.1.4" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>4.1.4</b> Power</a></li>
 <li class="chapter" data-level="4.1.5" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha-1"><i class="fa fa-check"></i><b>4.1.5</b> 1 - Alpha</a></li>
 <li class="chapter" data-level="4.1.6" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#beta"><i class="fa fa-check"></i><b>4.1.6</b> Beta</a></li>
 <li class="chapter" data-level="4.1.7" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#test-statistic"><i class="fa fa-check"></i><b>4.1.7</b> Test statistic</a></li>
 <li class="chapter" data-level="4.1.8" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#p-value"><i class="fa fa-check"></i><b>4.1.8</b> P-value</a></li>
+<li class="chapter" data-level="4.1.9" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.9</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.10" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>4.1.10</b> Observed effect size</a></li>
+<li class="chapter" data-level="4.1.11" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-power"><i class="fa fa-check"></i><b>4.1.11</b> Observed power</a></li>
+<li class="chapter" data-level="4.1.12" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.1.12</b> Meta analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-binarydecision.html"><a href="4.2-binarydecision.html"><i class="fa fa-check"></i><b>4.2</b> A Binary Decision</a></li>
 <li class="chapter" data-level="4.3" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html"><i class="fa fa-check"></i><b>4.3</b> Statistical Tests</a>
@@ -494,11 +500,150 @@ div.csl-indent {
 <h2><span class="header-section-number">9.2</span> Reporting Regression Results<a href="9.2-reportmoderation.html#reportmoderation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If we report a regression model, we first present the significance test and predictive power of the entire regression model. We may report that the regression model is statistically significant, <em>F</em> (7, 142) = 28.64, <em>p</em> &lt; 0.001, so the regression model very likely helps to predict attitude towards smoking in the population.</p>
 <p>How well does the regression model predict attitude towards smoking? The effect size of a regression model or its predictive power is summarized by <span class="math inline">\(R^2\)</span> (<em>R Square</em>), which is the proportion of the variance in the dependent variable scores (attitude towards smoking) that can be predicted with the regression model. In this example, <span class="math inline">\(R^2\)</span> is 0.59, so the regression model predicts 59% of the variance in attitude towards smoking among the respondents. In communication research, <span class="math inline">\(R^2\)</span> is usually smaller.</p>
-<p><span class="math inline">\(R^2\)</span> tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use <em>Adjusted R Square</em>. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is 0.56 (not reported in Table <a href="#tab:report-moderation-table"><strong>??</strong></a>).</p>
+<p><span class="math inline">\(R^2\)</span> tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use <em>Adjusted R Square</em>. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is 0.56 (not reported in Table <a href="9.2-reportmoderation.html#tab:report-moderation-table">9.4</a>).</p>
+<table style="NAborder-bottom: 0; font-size: 12px; width: auto !important; float: right; margin-left: 10px;" class="table">
+<caption style="font-size: initial !important;">
+<span id="tab:report-moderation-table">Table 9.4: </span>Predicting attitude towards smoking with smoking status and contact with smokers as moderators. Results in APA style. Exposure and contact are mean-centered.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+B
+</th>
+<th style="text-align:center;">
+95% CI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Constant
+</td>
+<td style="text-align:left;">
+-1.08***
+</td>
+<td style="text-align:center;">
+[-1.32, -0.85]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure
+</td>
+<td style="text-align:left;">
+-0.18***
+</td>
+<td style="text-align:center;">
+[-0.26, -0.10]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Contact
+</td>
+<td style="text-align:left;">
+0.21***
+</td>
+<td style="text-align:center;">
+[ 0.12, 0.30]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Former smoker
+</td>
+<td style="text-align:left;">
+-1.38***
+</td>
+<td style="text-align:center;">
+[-1.74, -1.01]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Smoker
+</td>
+<td style="text-align:left;">
+0.10
+</td>
+<td style="text-align:center;">
+[-0.41, 0.60]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure * Contact
+</td>
+<td style="text-align:left;">
+0.06***
+</td>
+<td style="text-align:center;">
+[ 0.02, 0.09]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure * Former smoker
+</td>
+<td style="text-align:left;">
+-0.20**
+</td>
+<td style="text-align:center;">
+[-0.33, -0.07]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure * Smoker
+</td>
+<td style="text-align:left;">
+-0.02
+</td>
+<td style="text-align:center;">
+[-0.17, 0.13]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R<sup>2</sup>
+</td>
+<td style="text-align:left;">
+0.59
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F (7, 142)
+</td>
+<td style="text-align:left;">
+28.64***
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">Note.</span> <sup></sup> <em>N</em> = 150. CI = confidence interval.
+</td>
+</tr>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<sup><em></sup> </em>* <em>p</em> &lt; .05. ** <em>p</em> &lt; .01. *** <em>p</em> &lt; .001.
+</td>
+</tr>
+</tfoot>
+</table>
 <p>As a next step, we discuss the size, statistical significance, and confidence intervals of the regression coefficients. If a predictor is involved in one or more interaction effects, we must be very clear about the reference value or reference group to which the effect applies. In the example below, non-smokers are the reference group on the smoking status variable because they are not represented by a dummy variable. Average number of contacts with smokers is the reference value on the contact variable because this variable is mean-centered.</p>
 <p>Exposure, in our example, has a negative predictive effect on attitude towards smoking (<em>b</em> = -0.18) for non-smokers with average contacts with smokers, <em>t</em> = -4.37, p &lt; .001, 95% CI [-0.26, -0.10]. Note that SPSS does not report the degrees of freedom for the <em>t</em> test on a regression coefficient, so we cannot report them.</p>
-<p>Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as Table <a href="#tab:report-moderation-table"><strong>??</strong></a>. Note that <em>t</em> and <em>p</em> values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.</p>
-<p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in Table <a href="#tab:report-moderation-table"><strong>??</strong></a>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.06, p &lt; .001) and by smoking status (<em>b</em> = -0.20, p = 0.003 for former smoker).</p>
+<p>Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as Table <a href="9.2-reportmoderation.html#tab:report-moderation-table">9.4</a>. Note that <em>t</em> and <em>p</em> values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.</p>
+<p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in Table <a href="9.2-reportmoderation.html#tab:report-moderation-table">9.4</a>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.06, p &lt; .001) and by smoking status (<em>b</em> = -0.20, p = 0.003 for former smoker).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:moderator-concept3"></span>
 <img src="GentleIntro_files/figure-html/moderator-concept3-1.png" alt="Conceptual diagram of the estimated moderation model." width="672" />
 <p class="caption">

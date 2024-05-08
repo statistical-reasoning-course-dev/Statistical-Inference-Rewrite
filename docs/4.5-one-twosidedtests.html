@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -201,14 +203,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="4-hypothesis.html"><a href="4-hypothesis.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="4.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>4.1</b> Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#hypothesis-1"><i class="fa fa-check"></i><b>4.1.1</b> Hypothesis</a></li>
-<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.2</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> Null hypothesis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alternative-hypotesis"><i class="fa fa-check"></i><b>4.1.2</b> Alternative hypotesis</a></li>
 <li class="chapter" data-level="4.1.3" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha"><i class="fa fa-check"></i><b>4.1.3</b> Alpha</a></li>
 <li class="chapter" data-level="4.1.4" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>4.1.4</b> Power</a></li>
 <li class="chapter" data-level="4.1.5" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha-1"><i class="fa fa-check"></i><b>4.1.5</b> 1 - Alpha</a></li>
 <li class="chapter" data-level="4.1.6" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#beta"><i class="fa fa-check"></i><b>4.1.6</b> Beta</a></li>
 <li class="chapter" data-level="4.1.7" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#test-statistic"><i class="fa fa-check"></i><b>4.1.7</b> Test statistic</a></li>
 <li class="chapter" data-level="4.1.8" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#p-value"><i class="fa fa-check"></i><b>4.1.8</b> P-value</a></li>
+<li class="chapter" data-level="4.1.9" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.9</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.10" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>4.1.10</b> Observed effect size</a></li>
+<li class="chapter" data-level="4.1.11" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-power"><i class="fa fa-check"></i><b>4.1.11</b> Observed power</a></li>
+<li class="chapter" data-level="4.1.12" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.1.12</b> Meta analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-binarydecision.html"><a href="4.2-binarydecision.html"><i class="fa fa-check"></i><b>4.2</b> A Binary Decision</a></li>
 <li class="chapter" data-level="4.3" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html"><i class="fa fa-check"></i><b>4.3</b> Statistical Tests</a>
@@ -499,7 +505,7 @@ div.csl-indent {
 <iframe src="https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/?showcase=0" width="420px" height="310px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.6: One-sided and two-sided tests of a null hypothesis.
+Figure 4.11: One-sided and two-sided tests of a null hypothesis.
 </p>
 </div>
 <p><A name="question4.4.1"></A></p>
@@ -513,7 +519,7 @@ Figure 4.6: One-sided and two-sided tests of a null hypothesis.
 <iframe src="https://sharon-klinkenberg.shinyapps.io/sign-left/?showcase=0" width="775px" height="268px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.7: Sampling distribution of average media literacy.
+Figure 4.12: Sampling distribution of average media literacy.
 </p>
 </div>
 <p><A name="question4.4.4"></A></p>
@@ -530,17 +536,17 @@ Figure 4.7: Sampling distribution of average media literacy.
 <div id="from-one-sided-to-two-sided-p-values-and-back-again" class="section level3 hasAnchor" number="4.5.3">
 <h3><span class="header-section-number">4.5.3</span> From one-sided to two-sided <em>p</em> values and back again<a href="4.5-one-twosidedtests.html#from-one-sided-to-two-sided-p-values-and-back-again" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Statistical software like SPSS usually reports either one-sided or two-sided <em>p</em> values. What if a one-sided <em>p</em> value is reported but you need a two-sided <em>p</em> value or the other way around?</p>
-<p>In Figure <a href="4.5-one-twosidedtests.html#fig:onetwosided">4.8</a>, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true. This probability is the surface under the curve to the left of the red line representing the sample mean. It is the one-sided <em>p</em> value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.</p>
+<p>In Figure <a href="4.5-one-twosidedtests.html#fig:onetwosided">4.13</a>, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true. This probability is the surface under the curve to the left of the red line representing the sample mean. It is the one-sided <em>p</em> value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:onetwosided"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/onetwosided/?showcase=0" width="775px" height="268px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.8: Halve a two-sided <em>p</em> value to obtain a one-sided <em>p</em> value, double a one-sided <em>p</em> value to obtain a two-sided <em>p</em> value.
+Figure 4.13: Halve a two-sided <em>p</em> value to obtain a one-sided <em>p</em> value, double a one-sided <em>p</em> value to obtain a two-sided <em>p</em> value.
 </p>
 </div>
 <p><A name="question4.4.5"></A></p>
 <p><A name="question4.4.6"></A></p>
-<p>In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. As a consequence, the <em>p</em> value must cover samples at opposite sides of the sampling distribution. We should not only take into account sample means that are smaller than 5.5 but also sample means that are just as much larger than the hypothesized population value. So our two-sided <em>p</em> value must include both the probability of .015 for the left tail and for the right tail of the distribution in Figure <a href="4.5-one-twosidedtests.html#fig:onetwosided">4.8</a>. We must double the one-sided <em>p</em> value to obtain the two-sided <em>p</em> value.</p>
+<p>In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. As a consequence, the <em>p</em> value must cover samples at opposite sides of the sampling distribution. We should not only take into account sample means that are smaller than 5.5 but also sample means that are just as much larger than the hypothesized population value. So our two-sided <em>p</em> value must include both the probability of .015 for the left tail and for the right tail of the distribution in Figure <a href="4.5-one-twosidedtests.html#fig:onetwosided">4.13</a>. We must double the one-sided <em>p</em> value to obtain the two-sided <em>p</em> value.</p>
 <p>In contrast, if our statistical software tells us the two-sided <em>p</em> value and we want to have the one-sided <em>p</em> value, we can simply halve the two-sided <em>p</em> value. The two-sided <em>p</em> value is divided equally between the left and right tails. If we are interested in just one tail, we can ignore the half of the <em>p</em> value that is situated in the other tail. Of course, this only makes sense if a one-sided test makes sense.</p>
 <p>Be careful if you divide a two-sided <em>p</em> value to obtain a one-sided <em>p</em> value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided <em>p</em> value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.</p>
 <p><A name="answer4.4.1"></A></p>

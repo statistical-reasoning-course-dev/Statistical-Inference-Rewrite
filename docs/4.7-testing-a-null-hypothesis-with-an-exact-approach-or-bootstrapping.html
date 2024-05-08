@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -201,14 +203,18 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="4-hypothesis.html"><a href="4-hypothesis.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="4.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>4.1</b> Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#hypothesis-1"><i class="fa fa-check"></i><b>4.1.1</b> Hypothesis</a></li>
-<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.2</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.1" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> Null hypothesis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alternative-hypotesis"><i class="fa fa-check"></i><b>4.1.2</b> Alternative hypotesis</a></li>
 <li class="chapter" data-level="4.1.3" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha"><i class="fa fa-check"></i><b>4.1.3</b> Alpha</a></li>
 <li class="chapter" data-level="4.1.4" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>4.1.4</b> Power</a></li>
 <li class="chapter" data-level="4.1.5" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#alpha-1"><i class="fa fa-check"></i><b>4.1.5</b> 1 - Alpha</a></li>
 <li class="chapter" data-level="4.1.6" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#beta"><i class="fa fa-check"></i><b>4.1.6</b> Beta</a></li>
 <li class="chapter" data-level="4.1.7" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#test-statistic"><i class="fa fa-check"></i><b>4.1.7</b> Test statistic</a></li>
 <li class="chapter" data-level="4.1.8" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#p-value"><i class="fa fa-check"></i><b>4.1.8</b> P-value</a></li>
+<li class="chapter" data-level="4.1.9" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.1.9</b> True effect size</a></li>
+<li class="chapter" data-level="4.1.10" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>4.1.10</b> Observed effect size</a></li>
+<li class="chapter" data-level="4.1.11" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#observed-power"><i class="fa fa-check"></i><b>4.1.11</b> Observed power</a></li>
+<li class="chapter" data-level="4.1.12" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.1.12</b> Meta analysis</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-binarydecision.html"><a href="4.2-binarydecision.html"><i class="fa fa-check"></i><b>4.2</b> A Binary Decision</a></li>
 <li class="chapter" data-level="4.3" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html"><i class="fa fa-check"></i><b>4.3</b> Statistical Tests</a>
@@ -492,11 +498,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping" class="section level2 hasAnchor" number="4.7">
 <h2><span class="header-section-number">4.7</span> Testing a Null Hypothesis with an Exact Approach or Bootstrapping<a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Exact approaches calculate probabilities for discrete outcomes. In the candy example, the number of yellow candies in a sample bag of ten candies is a discrete outcome. With the binomial formula, the exact probability of zero yellow candies can be calculated, the probability of one yellow candy, two yellow candies, and so on (see Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:exactapproachfigure2">4.10</a>).</p>
+<p>Exact approaches calculate probabilities for discrete outcomes. In the candy example, the number of yellow candies in a sample bag of ten candies is a discrete outcome. With the binomial formula, the exact probability of zero yellow candies can be calculated, the probability of one yellow candy, two yellow candies, and so on (see Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:exactapproachfigure2">4.15</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:exactapproachfigure2"></span>
 <img src="figures/exactapproach.png" alt="Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population." width="300px" />
 <p class="caption">
-Figure 4.10: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
+Figure 4.15: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
 </p>
 </div>
 <p>Let us imagine that our sample bag of ten candies contains six yellow candies and we hypothesize that twenty per cent of the candies are yellow in the population. The <em>p</em> value of our sample outcome (six yellow candies) sums the probabilities of drawing a sample bag with six, seven, eight, nine, or ten yellow candies from a population in which twenty per cent of the candies are yellow (our null hypothesis). The <em>p</em> value happens to be (around) .007 (.006 + .001 + 0 + 0 + 0). This is the right-sided <em>p</em> value if we assume that our hypothesis is true.</p>
@@ -504,12 +510,12 @@ Figure 4.10: Probabilities of a sample with a particular number of yellow candie
 <p>The situation is slightly more complicated if we want to execute a significance test with a sampling distribution created with bootstrapping. To understand the testing procedure with bootstrapping, we first have to discuss the relation between null-hypothesis testing and confidence intervals.</p>
 <div id="null-ci0" class="section level3 hasAnchor" number="4.7.1">
 <h3><span class="header-section-number">4.7.1</span> Relation between null-hypothesis tests and confidence intervals<a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#null-ci0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:null-ci">4.11</a> shows media literacy scores in a random sample of children and their average media literacy score (red). The hypothesized average media literacy in the population of children is shown on the top axis. The curve represents the sampling distribution if the null hypothesis is true.</p>
+<p>Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:null-ci">4.16</a> shows media literacy scores in a random sample of children and their average media literacy score (red). The hypothesized average media literacy in the population of children is shown on the top axis. The curve represents the sampling distribution if the null hypothesis is true.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:null-ci"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/null-ci/?showcase=0" width="775px" height="268px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.11: How does null hypothesis significance relate to confidence intervals?
+Figure 4.16: How does null hypothesis significance relate to confidence intervals?
 </p>
 </div>
 <p><A name="question4.6.1"></A></p>
