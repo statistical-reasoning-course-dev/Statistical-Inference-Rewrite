@@ -301,10 +301,9 @@ text(12.1, .1, "Critial value", col='darkgreen', pos=3, srt=-90)
 
 ```
 
-If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true. If the parameter really is .2, getting a bag with 0 or 10 yellow candies also does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, we would only correctly reject the null hypothesis in 11% of the cases. This is the power of the test.
+If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true, if the parameter turly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, if our sample originates from the alternative hypothesis, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null when this spcific alternative is true is only 11%.
 
-
-
+As stated earlier we would rather a high probability of making the correct decision. In the social sciences we are striving for a power of .80. This means that we want to make the correct decision in 80% of the cases when the null hypothesis is false. In our candy factory example, this would mean that we would want to reject the null hypothesis in 80% of the cases when the machine produces bags with 2 out of 10 yellow candies.
 
 
 ### 1 - Alpha
