@@ -20,349 +20,6 @@ Although this procedure is simple, it is not practical. In a research project, w
 
 After studying this chapter, you should know the limitations of the three methods of creating a sampling distribution, when to use which method, and how to check the conditions for using a method.
 
-## The Bootstrap Approximation of the Sampling Distribution {#boot-approx}
-
-The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
-
-```{r bootstrapping, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we create a sampling distribution with bootstrapping?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Variant of app random-variable (Ch. 1).
-# Generate and display a not too small (N = 50?) representative sample from a uniformly distributed population of five colours (don't show the population). Add a button to draw one bootstrap sample with replacement at a time, showing the distribution of colours in the sample (dotplot with coloured dots) and adding the proportion of yellow candies to the histogram of the sampling distribution (y-axis percentage of cases?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background. Allow the user to draw one thousand bootstrap samples and add the results to the histogram. Finally, allow the user to draw a new random initial sample.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
-```
-
-In Figure \@ref(fig:bootstrapping), an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
-
-<A name="question2.1.1"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-1. How large is a bootstrap sample in Figure \@ref(fig:bootstrapping)? Use the _Bootstrap one sample_ button. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.1){.buttonToAnswer}{.buttonToAnswer}
-```
-
-<A name="question2.1.2"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-2. What element in Figure \@ref(fig:bootstrapping) represents the true sampling distribution in this example? If in doubt, see Figure \@ref(fig:probability-distribution). [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.2){.buttonToAnswer}
-```
-
-<A name="question2.1.3"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-3. Does the bootstrap sampling distribution resemble the true sampling distribution? Use the "Bootstrap 5,000 samples" button and justify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.3){.buttonToAnswer}
-```
-
-<A name="question2.1.4"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-4. Draw a new initial sample. This sample is probably not representative of the distribution of candy colour in the population. What happens to the bootstrap samples and the bootstrap sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.4){.buttonToAnswer}
-```
-
-```{block2, type='rmdmunchhausen'}
-The _bootstrap_ concept refers to the story in which Baron von M&uuml;nchhausen saves himself by pulling himself and his horse by his bootstraps (or hair) out of a swamp. In a similar miraculous way, bootstrap samples resemble the sampling distribution even though they are drawn from a sample instead of the population. This miracle requires some explanation and it does not work always, as we will discuss in the remainder of this section. 
-
-[Picture: Baron von M&uuml;nchhausen pulls himself and his horse out of a swamp. Theodor Hosemann (1807-1875), public domain, via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%BCnchhausen-Sumpf-Hosemann.png)
-```
-
-### Sampling with and without replacement  
-
-As we will see in Chapter \@ref(param-estim), for example Section \@ref(precisionsesamplesize), the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.  
-
-How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?
-
-```{r replacement, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Sampling with and without replacement.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-#Create a sample consisting of 10 candies (dots) that are coloured (5 colours)
-#and numbered. Display this sample as a dotplot.
-# Add a button to create three (bootstrap) samples with replacement and a button
-# to create three (bootstrap) samples without replacement.
-# Show the three samples: coloured dots with their ID numbers.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/", height="448px")
-```
-
-<A name="question2.1.5"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-5. What are the differences between sampling with and without replacement (Figure \@ref(fig:replacement))? Press the buttons *Draw Without Replacement* and *Draw With Replacement* once or several times to see the differences. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.5){.buttonToAnswer}
-```
-
-If we allow every case in the original sample to be sampled only once, each bootstrap sample contains all cases of the original sample, so it is an exact copy of the original sample. Thus, we cannot create different bootstrap samples. 
-
-By the way, we often use the type of sampling described above, which is called _sampling without replacement_. If a person is (randomly) chosen for our sample, we do not put this person back into the population so she or he can be chosen again. We want our respondents to fill out our questionnaire only once or participate in our experiment only once.  
-
-If we do allow the same person to be chosen more than once, we sample _with replacement_. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in Figure \@ref(fig:replacement). Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.  
-
-In conclusion, we sample bootstrap samples in a different way (with replacement) than participants for our research (without replacement).
-
-### Limitations to bootstrapping  
-
-Does the bootstrapped sampling distribution always reflect the true sampling distribution?
-
-```{r bootstrap-lim, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-# variant of app sampling-distribution.
-# Draw a sample of the user-specified size (slider) from a uniformly distributed population (five candy colours) ; show the sample (as dot plot) and collect the proportion of yellow candies for 1,000 bootstrap samples into a histogram (bin width = 0.1?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/", height="560px")
-```
-
-<A name="question2.1.6"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-6. When does the bootstrap sampling distribution (yellow histogram) reflect the true sampling distribution (grey histogram) better: at small or large sample sizes? Play with sample size in Figure \@ref(fig:bootstrap-lim) to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.6){.buttonToAnswer}
-```
-
-<A name="question2.1.7"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-7. How does sample size relate to representativeness of the sample in terms of the proportion of yellow candies? Note that twenty per cent of the candies in the population are yellow. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.7){.buttonToAnswer}
-```
-
-<A name="question2.1.8"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-8. If you use a very small sample size, it may happen that there is no yellow histogram in the bottom graph. Why is that? [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.8){.buttonToAnswer}
-```
-
-We can create a sampling distribution by sampling from our original sample with replacement. It is hardly a miracle that we obtain different samples with different sample statistics if we sample with replacement. Much more miraculous, however, is that this bootstrap distribution resembles the true sampling distribution that we would get if we draw lots of samples directly from the population.  
-
-Does this miracle always happen? No. The original sample that we have drawn from the population must be more or less representative of the population. The variables of interest in the sample should be distributed more or less the same as in the population. If this is not the case, the sampling distribution may give a distorted view of the true sampling distribution. This is the main limitation to the bootstrap approach to sampling distributions.  
-
-A sample is more likely to be representative of the population if the sample is drawn in a truly random fashion and if the sample is large. But we can never be sure. There always is a chance that we have drawn a sample that does not reflect the population well. 
-
-### Any sample statistic can be bootstrapped
-
-The big advantage of the bootstrap approach (_bootstrapping_) is that we can get a sampling distribution for any sample statistic that we are interested in. Every statistic that we can calculate for our original sample can also be calculated for each bootstrap sample. The sampling distribution is just the collection of the sample statistics calculated for all bootstrap samples.  
-
-Bootstrapping is more or less the only way to get a sampling distribution for the sample median, for example, the median weight of candies in a sample bag. We may create sampling distributions for the wildest and weirdest sample statistics, for instance the difference between sample mean and sample median squared. I would not know why you would be interested in the squared difference of sample mean and median, but there are very interesting statistics that we can only get at through bootstrapping. A case in point is the strength of an indirect effect in a mediation model (Chapter \@ref(mediation)).  
-
-```{html, echo=ch2}
-### Answers {-}
-```
-
-<A name="answer2.1.1"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 1. 
-
-* A bootstrap sample must be just as large as the initial sample. In this
-example, the initial sample contains twenty-five candies, so the bootstrap sample
-must also contain twenty-five candies.
-* As we will find out later, the size of a sample is very important to the
-sampling distribution, so we must draw bootstrap samples with exactly the same
-number of observations as the initial sample. [<img src="icons/2question.png" width=161px align="right">](#question2.1.1){.buttonToAnswer}
-```
-
-<A name="answer2.1.2"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 2. 
-
-* The sampling distribution of a sample proportion is an exact distribution
-(named binomial distribution): the probabilities of every number or proportion
-of yellow candies in the sample can be calculated. The results are displayed
-as a grey histogram at the right of the figure. [<img src="icons/2question.png" width=161px align="right">](#question2.1.2){.buttonToAnswer}
-```
-
-<A name="answer2.1.3"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 3. 
-
-* The proportion of yellow candies in the (first) initial sample is .2, that
-is, five out of twenty-five candies in the sample are yellow.
-* The initial sample is representative of the population with respect to candy
-colour, because the proportion of yellow candies in the population is also .2.
-* As a result, the bootstrapped sampling distribution (yellow histogram) is
-very similar to the true (exact) sampling distribution (grey histogram). [<img src="icons/2question.png" width=161px align="right">](#question2.1.3){.buttonToAnswer}
-```
-
-<A name="answer2.1.4"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 4. 
-
-* If the proportion of yellow candies in the original sample is
-close to .2, that is, five out of twenty-five candies in the sample are yellow, the
-bootstrapped sampling distribution (yellow histogram) is very similar to the
-true (exact) sampling distribution (grey histogram).
-* If there are considerably less or more than five yellow candies in the sample,
-however, the bootstrapped sampling distribution is quite different from the
-true sampling distribution. Conclusions based on the bootstrapped sampling 
-distribution will be wrong. Especially the mean (horizontal location) of the
-bootstrapped sampling distribution is different. The shape of the distribution
-may still be nearly the same.
-* Note that the true sampling distribution, represented by the grey histogram,
-remains the same because the proportion of yellow candies in the population
-remains the same, namely 20 per cent. [<img src="icons/2question.png" width=161px align="right">](#question2.1.4){.buttonToAnswer}
-```
-
-<A name="answer2.1.5"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 5. 
-
-* If we draw a sample without replacement from our initial sample of the same
-size as the initial sample, the new sample must contain all observations from
-the initial sample. As a result, the new sample is identical to the initial
-sample. All samples that we draw are identical. This does not provide an 
-interesting sampling distribution.
-* Drawing with replacement, an observation can be drawn more than once. As a
-result, the same candy number may appear more than once in the new sample.
-Otherwise, we could never have more candies of a particular color in the
-bootstrapped sample than in the original sample (five candies of each color).
-Each new sample drawn with replacement from the original sample can be
-different, so the proportion of yellow candies varies across these bootstrap
-samples. We can create a meaningful sampling distribution from these varying
-proportions of yellow candies. [<img src="icons/2question.png" width=161px
-align="right">](#question2.1.5){.buttonToAnswer}
-```
-
-<A name="answer2.1.6"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 6. 
-
-* If you change sample size repeatedly between 15 and 45, you will see that
-the bootstrapped sampling distribution (yellow histogram) jumps around the
-true sampling distribution (grey histogram).
-* For relatively small sample sizes, the bootstrapped sampling distribution is
-often quite different from the true sampling distribution.
-* At larger sample sizes, say between 120 and 150, the bootstrapped sampling
-distribution overlaps the true sampling distribution much more frequently. So
-for larger samples, we can trust the bootstrapped sampling distribution more.
-But even then, it can sometimes be quite off the mark. [<img src="icons/2question.png" width=161px align="right">](#question2.1.6){.buttonToAnswer}
-```
-
-<A name="answer2.1.7"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 7. 
-
-* The proportion of yellow candies in larger samples is more often close to
-the proportion in the population: 0.2. This is the reason that the
-bootstrapped sampling distribution resembles the true sampling
-distribution more often for a larger sample. [<img src="icons/2question.png" width=161px align="right">](#question2.1.7){.buttonToAnswer}
-```
-
-<A name="answer2.1.8"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Question 8. 
-
-* If we draw an initial sample without any yellow candies, none of the
-bootstrap samples can include yellow candies. As a result, the count of
-samples with yellow candies is always zero.
-* The smaller the initial sample, the greater the chance of having a sample
-without yellow candies. [<img src="icons/2question.png" width=161px align="right">](#question2.1.8){.buttonToAnswer}
-```
-
-## Bootstrapping in SPSS {#boot-spss}
-
-### Instructions
-
-```{r SPSSbootstrap1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:bootstrap1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/-6nQsBK4-E8", height = "360px")
-# Perform bootstrapping in SPSS.
-# Example: candies.sav, independent-samples t test, average weight of red (colour = 4) and yellow (colour = 4) candies.
-# 
-# In SPSS, several statistics can be bootstrapped. If so, the SPSS dialog for the statistic contains a button labelled _Bootstrap..._. A new menu opens, where you can select the bootstrapping option _Perform bootstrapping_ and set the number of bootstraps. It is recommended to use 5,000 bootstraps but you might try a lower number first to check computing time if your computer is not too fast. 
-# 
-# You can set some more bootstrapping options. The Mersenne Twister seed is a number that starts the randomizer used to draw random sample. If run the bootstrap with  the same seed number (any number will do) as the previous time, SPSS will yield exactly the same results as the preceding time. If this number is not set, applying bootstrap at different times will produce slightly different results because different random bootstrap samples are drawn. These differences, however, are usually too small to be of importance. Only set the seed number if you want to replicate your exact results when you rerun the bootstrap.
-# 
-# The confidence level of the confidence interval can be changed. We will discuss confidence levels in Section \@ref(conf-interval). For now, never mind this option because the default (95%) is most widely used. There are two ways of calculating the confidence interval from the bootstraps. _Bias corrected accelerated (BCa)_ is the better option. It corrects for bias (difference between the sample result and the mean of the bootstrapped sampling distribution) and for skewness in the bootstrapped sampling distribution (which is more likely with a skewed sampling distribution?).
-#
-# Finally, it is possible to stratify the bootstrap sample. If you select a variable here, for example, candy colour, each bootstrap sample with have the same distribution of colours as the original sample. Usually, this is not necessary.
-#
-# BCa bootstrap does not work for data with more than a few hundred cases? In tests with SPSS V25, the median is sometimes not bootstrapped with 550 cases (and sometimes it is).
-```
-
-```{r SPSSbootstrap2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:bootstrap2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/6E2LgeMtkL4", height = "360px")
-# Interpret bootstrap results in SPSS. 
-# SPSS generates the sampling distribution in the background, so you cannot see it. SPSS just provides new p values ( _Sig._ ) and confidence intervals marked as _Bootstrap_. Report these values instead of the "ordinary" p value and confidence interval. For example, a bootstrapped independent-samples t test on the difference between the average weight of yellow and red candies produces the following output in SPSS.
-# 
-# The first table in the output merely tells us the options we selected for bootstrapping. The table __Group Statistics__ gives us the group means, standard deviations, and standard error of the mean (to be discussed in Section \@ref(standard-error)). Each of these has a bootstrap confidence interval, illustrating that we can bootstrap any sample statistic. 
-# 
-# Then we get the usual summary of the t test without bootstrapping in the __Independent Samples Test__ table and, finally, the bootstrap results for the t test. If we compare test significance (p value) and confidence intervals between the regular t test and the bootstrapped t test, we see very similar results. The bootstrap confidence interval is slightly narrower than the regular confidence interval. Both confidence intervals suggest that the weight difference between yellow and red candies can be both positive (red candies are on average heavier) and negative (yellow candies are heavier), so we best conclude that there is no difference in average weight.
-# 
-# The tables with bootstrap results include a column headed __Bias__. This is the difference between the value of the statistic in the original sample and its average value over all bootstrap samples. Bias should be small, as it is here. We do not care about small bias values because we use a bias-corrected bootstrapping method.
-#
-# In SPSS version 24 and earlier, bootstrapping remains active until you disable it. (example with paired t test as next test). There is one thing you should be aware of. If you select the _Perform bootstrapping_ option, all subsequent analyses in SPSS that allow for bootstrapping will be bootstrapped as well. This is usually not what you want and it can be very time-consuming to the computer. Don't forget to deselect this option if you run a new analysis that can be bootstrapped.
-```
-
-In principle, any sample statistic can be bootstrapped. SPSS, however, does not bootstrap sample statistics that we had better not use because they give bad (biased) results. For example, SPSS does not bootstrap the minimum value, maximum value or the range between minimum and maximum value of a variable. 
-
-SPSS reports bootstrapping results as confidence intervals. We will discuss confidence intervals in detail in the next chapter.
-
-```{html, echo = Qch2}
-### Exercises
-```
-
-<A name="question2.2.1"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to bootstrap the _t_ test on average weight of yellow and red candies (the example above). The test is available in the _Analyze>Compare Means_ menu. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.1){.buttonToAnswer}
-```
-
-<A name="question2.2.2"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-2. Use the same data set to bootstrap the median of candy weight. Remember that measures of central tendency can be obtained with the _Frequencies>Statistics_ command in the _Analyze>Descriptive Statistics_ menu. 
-
-Tip: Speed up bootstrapping in SPSS by deselecting the option _Display frequency tables_. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.2){.buttonToAnswer}
-```
-
-```{html, echo=ch2}
-### Answers {-}
-```
-
-<A name="answer2.2.1"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Exercise 1. 
-
-SPSS syntax:  
-    
-\* Exercise 1: Bootstrap different averages.  
-\* Check data.  
-FREQUENCIES VARIABLES=colour weight  
-  /ORDER=ANALYSIS.  
-\* Execute independent-samples t test with bootstrap.  
-BOOTSTRAP  
-  /SAMPLING METHOD=SIMPLE  
-  /VARIABLES TARGET=weight INPUT=colour   
-  /CRITERIA CILEVEL=95 CITYPE=BCA  NSAMPLES=5000  
-  /MISSING USERMISSING=EXCLUDE.  
-T-TEST GROUPS=colour(4 5)  
-  /MISSING=ANALYSIS  
-  /VARIABLES=weight  
-  /CRITERIA=CI(.95).  
-  
-Check data:  
-  
-There are no impossible values on the two variables.    
-      
-Interpret the results:   
-  
-The table "Bootstrap for Independent Samples Test" contains the results that we are interested in.   
-  
-Levene's test on homogeneity of variances is not statistically significant, so we may assume that the population variances of red and yellow candy weight are equal. So we interpret the top row in table "Bootstrap for Independent Samples Test".  
-  
-The mean difference between red and yellow candy weight is 0.05 grams. In our sample, red candies are just a little heavier than yellow candies.  
-  
-The bootstrapped 95% confidence interval for this difference is -0.11 to 0.21. With 95% confidence, we can say that red candies can be on average 0.11 grams lighter than yellow candies or up to 0.21 grams heavier. We cannot tell which of the two are heavier in the population with sufficient confidence.
-
-Note that your results can be slightly different because bootstrapping creates random samples. [<img src="icons/2question.png" width=161px align="right">](#question2.2.1){.buttonToAnswer}
-```
-
-<A name="answer2.2.2"></A>
-```{block2, type='rmdanswer', echo=ch2}
-Answer to Exercise 2. 
-
-SPSS syntax:  
-    
-\* Exercise 2: Bootstrap on median candy weight.  
-\* Check data.  
-FREQUENCIES VARIABLES=weight  
-  /ORDER=ANALYSIS.  
-\* Bootstrap the median.  
-BOOTSTRAP  
-  /SAMPLING METHOD=SIMPLE  
-  /VARIABLES INPUT=weight   
-  /CRITERIA CILEVEL=95 CITYPE=BCA  NSAMPLES=5000  
-  /MISSING USERMISSING=EXCLUDE.  
-FREQUENCIES VARIABLES=weight  
-  /FORMAT=NOTABLE  
-  /STATISTICS=MEDIAN  
-  /ORDER=ANALYSIS.  
-  
-Check data:  
-    
-There are no impossible values on the weight variable.  
-  
-Interpret the results:   
-  
-Median candy weight in the sample is 2.81 grams. With 95% confidence, we expect median candy weight to be between 2.78 and 2.92 grams in the population of all candies.  
-The 95% interval borders can be slightly different because bootstrapping takes random samples. [<img src="icons/2question.png" width=161px align="right">](#question2.2.2){.buttonToAnswer}
-```
-
 ## Exact Approaches to the Sampling Distribution
 
 A second approach to constructing a sampling distribution has implicitly been demonstrated in the preceding section on bootstrapping (Section \@ref(boot-approx)) and the section on probability distributions (Section \@ref(probdistribution)). In these sections, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (Section \@ref(discreterandomvariable)).  
@@ -842,6 +499,349 @@ By default, SPSS uses a theoretical probability distribution to approximate the 
 In one case, SPSS automatically selects an exact approach if the conditions for a theoretical approximation are not met. If you apply a chi-squared test to a contingency table in SPSS, SPSS will automatically apply Fisher's exact test if the table has two rows and two columns. In all other cases, you have to select bootstrapping or an exact approach yourself if the conditions for a theoretical approximation are not met.
 
 We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters.
+
+## The Bootstrap Approximation of the Sampling Distribution {#boot-approx}
+
+The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
+
+```{r bootstrapping, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we create a sampling distribution with bootstrapping?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
+# Variant of app random-variable (Ch. 1).
+# Generate and display a not too small (N = 50?) representative sample from a uniformly distributed population of five colours (don't show the population). Add a button to draw one bootstrap sample with replacement at a time, showing the distribution of colours in the sample (dotplot with coloured dots) and adding the proportion of yellow candies to the histogram of the sampling distribution (y-axis percentage of cases?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background. Allow the user to draw one thousand bootstrap samples and add the results to the histogram. Finally, allow the user to draw a new random initial sample.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
+```
+
+In Figure \@ref(fig:bootstrapping), an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
+
+<A name="question2.1.1"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+1. How large is a bootstrap sample in Figure \@ref(fig:bootstrapping)? Use the _Bootstrap one sample_ button. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.1){.buttonToAnswer}{.buttonToAnswer}
+```
+
+<A name="question2.1.2"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+2. What element in Figure \@ref(fig:bootstrapping) represents the true sampling distribution in this example? If in doubt, see Figure \@ref(fig:probability-distribution). [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.2){.buttonToAnswer}
+```
+
+<A name="question2.1.3"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+3. Does the bootstrap sampling distribution resemble the true sampling distribution? Use the "Bootstrap 5,000 samples" button and justify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.3){.buttonToAnswer}
+```
+
+<A name="question2.1.4"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+4. Draw a new initial sample. This sample is probably not representative of the distribution of candy colour in the population. What happens to the bootstrap samples and the bootstrap sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.4){.buttonToAnswer}
+```
+
+```{block2, type='rmdmunchhausen'}
+The _bootstrap_ concept refers to the story in which Baron von M&uuml;nchhausen saves himself by pulling himself and his horse by his bootstraps (or hair) out of a swamp. In a similar miraculous way, bootstrap samples resemble the sampling distribution even though they are drawn from a sample instead of the population. This miracle requires some explanation and it does not work always, as we will discuss in the remainder of this section. 
+
+[Picture: Baron von M&uuml;nchhausen pulls himself and his horse out of a swamp. Theodor Hosemann (1807-1875), public domain, via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:M%C3%BCnchhausen-Sumpf-Hosemann.png)
+```
+
+### Sampling with and without replacement  
+
+As we will see in Chapter \@ref(param-estim), for example Section \@ref(precisionsesamplesize), the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.  
+
+How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?
+
+```{r replacement, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Sampling with and without replacement.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
+#Create a sample consisting of 10 candies (dots) that are coloured (5 colours)
+#and numbered. Display this sample as a dotplot.
+# Add a button to create three (bootstrap) samples with replacement and a button
+# to create three (bootstrap) samples without replacement.
+# Show the three samples: coloured dots with their ID numbers.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/", height="448px")
+```
+
+<A name="question2.1.5"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+5. What are the differences between sampling with and without replacement (Figure \@ref(fig:replacement))? Press the buttons *Draw Without Replacement* and *Draw With Replacement* once or several times to see the differences. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.5){.buttonToAnswer}
+```
+
+If we allow every case in the original sample to be sampled only once, each bootstrap sample contains all cases of the original sample, so it is an exact copy of the original sample. Thus, we cannot create different bootstrap samples. 
+
+By the way, we often use the type of sampling described above, which is called _sampling without replacement_. If a person is (randomly) chosen for our sample, we do not put this person back into the population so she or he can be chosen again. We want our respondents to fill out our questionnaire only once or participate in our experiment only once.  
+
+If we do allow the same person to be chosen more than once, we sample _with replacement_. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in Figure \@ref(fig:replacement). Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.  
+
+In conclusion, we sample bootstrap samples in a different way (with replacement) than participants for our research (without replacement).
+
+### Limitations to bootstrapping  
+
+Does the bootstrapped sampling distribution always reflect the true sampling distribution?
+
+```{r bootstrap-lim, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
+# variant of app sampling-distribution.
+# Draw a sample of the user-specified size (slider) from a uniformly distributed population (five candy colours) ; show the sample (as dot plot) and collect the proportion of yellow candies for 1,000 bootstrap samples into a histogram (bin width = 0.1?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/", height="560px")
+```
+
+<A name="question2.1.6"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+6. When does the bootstrap sampling distribution (yellow histogram) reflect the true sampling distribution (grey histogram) better: at small or large sample sizes? Play with sample size in Figure \@ref(fig:bootstrap-lim) to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.6){.buttonToAnswer}
+```
+
+<A name="question2.1.7"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+7. How does sample size relate to representativeness of the sample in terms of the proportion of yellow candies? Note that twenty per cent of the candies in the population are yellow. [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.7){.buttonToAnswer}
+```
+
+<A name="question2.1.8"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+8. If you use a very small sample size, it may happen that there is no yellow histogram in the bottom graph. Why is that? [<img src="icons/2answer.png" width=115px align="right">](#answer2.1.8){.buttonToAnswer}
+```
+
+We can create a sampling distribution by sampling from our original sample with replacement. It is hardly a miracle that we obtain different samples with different sample statistics if we sample with replacement. Much more miraculous, however, is that this bootstrap distribution resembles the true sampling distribution that we would get if we draw lots of samples directly from the population.  
+
+Does this miracle always happen? No. The original sample that we have drawn from the population must be more or less representative of the population. The variables of interest in the sample should be distributed more or less the same as in the population. If this is not the case, the sampling distribution may give a distorted view of the true sampling distribution. This is the main limitation to the bootstrap approach to sampling distributions.  
+
+A sample is more likely to be representative of the population if the sample is drawn in a truly random fashion and if the sample is large. But we can never be sure. There always is a chance that we have drawn a sample that does not reflect the population well. 
+
+### Any sample statistic can be bootstrapped
+
+The big advantage of the bootstrap approach (_bootstrapping_) is that we can get a sampling distribution for any sample statistic that we are interested in. Every statistic that we can calculate for our original sample can also be calculated for each bootstrap sample. The sampling distribution is just the collection of the sample statistics calculated for all bootstrap samples.  
+
+Bootstrapping is more or less the only way to get a sampling distribution for the sample median, for example, the median weight of candies in a sample bag. We may create sampling distributions for the wildest and weirdest sample statistics, for instance the difference between sample mean and sample median squared. I would not know why you would be interested in the squared difference of sample mean and median, but there are very interesting statistics that we can only get at through bootstrapping. A case in point is the strength of an indirect effect in a mediation model (Chapter \@ref(mediation)).  
+
+```{html, echo=ch2}
+### Answers {-}
+```
+
+<A name="answer2.1.1"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 1. 
+
+* A bootstrap sample must be just as large as the initial sample. In this
+example, the initial sample contains twenty-five candies, so the bootstrap sample
+must also contain twenty-five candies.
+* As we will find out later, the size of a sample is very important to the
+sampling distribution, so we must draw bootstrap samples with exactly the same
+number of observations as the initial sample. [<img src="icons/2question.png" width=161px align="right">](#question2.1.1){.buttonToAnswer}
+```
+
+<A name="answer2.1.2"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 2. 
+
+* The sampling distribution of a sample proportion is an exact distribution
+(named binomial distribution): the probabilities of every number or proportion
+of yellow candies in the sample can be calculated. The results are displayed
+as a grey histogram at the right of the figure. [<img src="icons/2question.png" width=161px align="right">](#question2.1.2){.buttonToAnswer}
+```
+
+<A name="answer2.1.3"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 3. 
+
+* The proportion of yellow candies in the (first) initial sample is .2, that
+is, five out of twenty-five candies in the sample are yellow.
+* The initial sample is representative of the population with respect to candy
+colour, because the proportion of yellow candies in the population is also .2.
+* As a result, the bootstrapped sampling distribution (yellow histogram) is
+very similar to the true (exact) sampling distribution (grey histogram). [<img src="icons/2question.png" width=161px align="right">](#question2.1.3){.buttonToAnswer}
+```
+
+<A name="answer2.1.4"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 4. 
+
+* If the proportion of yellow candies in the original sample is
+close to .2, that is, five out of twenty-five candies in the sample are yellow, the
+bootstrapped sampling distribution (yellow histogram) is very similar to the
+true (exact) sampling distribution (grey histogram).
+* If there are considerably less or more than five yellow candies in the sample,
+however, the bootstrapped sampling distribution is quite different from the
+true sampling distribution. Conclusions based on the bootstrapped sampling 
+distribution will be wrong. Especially the mean (horizontal location) of the
+bootstrapped sampling distribution is different. The shape of the distribution
+may still be nearly the same.
+* Note that the true sampling distribution, represented by the grey histogram,
+remains the same because the proportion of yellow candies in the population
+remains the same, namely 20 per cent. [<img src="icons/2question.png" width=161px align="right">](#question2.1.4){.buttonToAnswer}
+```
+
+<A name="answer2.1.5"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 5. 
+
+* If we draw a sample without replacement from our initial sample of the same
+size as the initial sample, the new sample must contain all observations from
+the initial sample. As a result, the new sample is identical to the initial
+sample. All samples that we draw are identical. This does not provide an 
+interesting sampling distribution.
+* Drawing with replacement, an observation can be drawn more than once. As a
+result, the same candy number may appear more than once in the new sample.
+Otherwise, we could never have more candies of a particular color in the
+bootstrapped sample than in the original sample (five candies of each color).
+Each new sample drawn with replacement from the original sample can be
+different, so the proportion of yellow candies varies across these bootstrap
+samples. We can create a meaningful sampling distribution from these varying
+proportions of yellow candies. [<img src="icons/2question.png" width=161px
+align="right">](#question2.1.5){.buttonToAnswer}
+```
+
+<A name="answer2.1.6"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 6. 
+
+* If you change sample size repeatedly between 15 and 45, you will see that
+the bootstrapped sampling distribution (yellow histogram) jumps around the
+true sampling distribution (grey histogram).
+* For relatively small sample sizes, the bootstrapped sampling distribution is
+often quite different from the true sampling distribution.
+* At larger sample sizes, say between 120 and 150, the bootstrapped sampling
+distribution overlaps the true sampling distribution much more frequently. So
+for larger samples, we can trust the bootstrapped sampling distribution more.
+But even then, it can sometimes be quite off the mark. [<img src="icons/2question.png" width=161px align="right">](#question2.1.6){.buttonToAnswer}
+```
+
+<A name="answer2.1.7"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 7. 
+
+* The proportion of yellow candies in larger samples is more often close to
+the proportion in the population: 0.2. This is the reason that the
+bootstrapped sampling distribution resembles the true sampling
+distribution more often for a larger sample. [<img src="icons/2question.png" width=161px align="right">](#question2.1.7){.buttonToAnswer}
+```
+
+<A name="answer2.1.8"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Question 8. 
+
+* If we draw an initial sample without any yellow candies, none of the
+bootstrap samples can include yellow candies. As a result, the count of
+samples with yellow candies is always zero.
+* The smaller the initial sample, the greater the chance of having a sample
+without yellow candies. [<img src="icons/2question.png" width=161px align="right">](#question2.1.8){.buttonToAnswer}
+```
+
+## Bootstrapping in SPSS {#boot-spss}
+
+### Instructions
+
+```{r SPSSbootstrap1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:bootstrap1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/-6nQsBK4-E8", height = "360px")
+# Perform bootstrapping in SPSS.
+# Example: candies.sav, independent-samples t test, average weight of red (colour = 4) and yellow (colour = 4) candies.
+# 
+# In SPSS, several statistics can be bootstrapped. If so, the SPSS dialog for the statistic contains a button labelled _Bootstrap..._. A new menu opens, where you can select the bootstrapping option _Perform bootstrapping_ and set the number of bootstraps. It is recommended to use 5,000 bootstraps but you might try a lower number first to check computing time if your computer is not too fast. 
+# 
+# You can set some more bootstrapping options. The Mersenne Twister seed is a number that starts the randomizer used to draw random sample. If run the bootstrap with  the same seed number (any number will do) as the previous time, SPSS will yield exactly the same results as the preceding time. If this number is not set, applying bootstrap at different times will produce slightly different results because different random bootstrap samples are drawn. These differences, however, are usually too small to be of importance. Only set the seed number if you want to replicate your exact results when you rerun the bootstrap.
+# 
+# The confidence level of the confidence interval can be changed. We will discuss confidence levels in Section \@ref(conf-interval). For now, never mind this option because the default (95%) is most widely used. There are two ways of calculating the confidence interval from the bootstraps. _Bias corrected accelerated (BCa)_ is the better option. It corrects for bias (difference between the sample result and the mean of the bootstrapped sampling distribution) and for skewness in the bootstrapped sampling distribution (which is more likely with a skewed sampling distribution?).
+#
+# Finally, it is possible to stratify the bootstrap sample. If you select a variable here, for example, candy colour, each bootstrap sample with have the same distribution of colours as the original sample. Usually, this is not necessary.
+#
+# BCa bootstrap does not work for data with more than a few hundred cases? In tests with SPSS V25, the median is sometimes not bootstrapped with 550 cases (and sometimes it is).
+```
+
+```{r SPSSbootstrap2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:bootstrap2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/6E2LgeMtkL4", height = "360px")
+# Interpret bootstrap results in SPSS. 
+# SPSS generates the sampling distribution in the background, so you cannot see it. SPSS just provides new p values ( _Sig._ ) and confidence intervals marked as _Bootstrap_. Report these values instead of the "ordinary" p value and confidence interval. For example, a bootstrapped independent-samples t test on the difference between the average weight of yellow and red candies produces the following output in SPSS.
+# 
+# The first table in the output merely tells us the options we selected for bootstrapping. The table __Group Statistics__ gives us the group means, standard deviations, and standard error of the mean (to be discussed in Section \@ref(standard-error)). Each of these has a bootstrap confidence interval, illustrating that we can bootstrap any sample statistic. 
+# 
+# Then we get the usual summary of the t test without bootstrapping in the __Independent Samples Test__ table and, finally, the bootstrap results for the t test. If we compare test significance (p value) and confidence intervals between the regular t test and the bootstrapped t test, we see very similar results. The bootstrap confidence interval is slightly narrower than the regular confidence interval. Both confidence intervals suggest that the weight difference between yellow and red candies can be both positive (red candies are on average heavier) and negative (yellow candies are heavier), so we best conclude that there is no difference in average weight.
+# 
+# The tables with bootstrap results include a column headed __Bias__. This is the difference between the value of the statistic in the original sample and its average value over all bootstrap samples. Bias should be small, as it is here. We do not care about small bias values because we use a bias-corrected bootstrapping method.
+#
+# In SPSS version 24 and earlier, bootstrapping remains active until you disable it. (example with paired t test as next test). There is one thing you should be aware of. If you select the _Perform bootstrapping_ option, all subsequent analyses in SPSS that allow for bootstrapping will be bootstrapped as well. This is usually not what you want and it can be very time-consuming to the computer. Don't forget to deselect this option if you run a new analysis that can be bootstrapped.
+```
+
+In principle, any sample statistic can be bootstrapped. SPSS, however, does not bootstrap sample statistics that we had better not use because they give bad (biased) results. For example, SPSS does not bootstrap the minimum value, maximum value or the range between minimum and maximum value of a variable. 
+
+SPSS reports bootstrapping results as confidence intervals. We will discuss confidence intervals in detail in the next chapter.
+
+```{html, echo = Qch2}
+### Exercises
+```
+
+<A name="question2.2.1"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+1. Download the data set [candies.sav](https://shklinkenberg.github.io/Statistical-Inference/data/candies.sav) and use SPSS to bootstrap the _t_ test on average weight of yellow and red candies (the example above). The test is available in the _Analyze>Compare Means_ menu. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.1){.buttonToAnswer}
+```
+
+<A name="question2.2.2"></A>
+```{block2, type='rmdquestion', echo = Qch2}
+2. Use the same data set to bootstrap the median of candy weight. Remember that measures of central tendency can be obtained with the _Frequencies>Statistics_ command in the _Analyze>Descriptive Statistics_ menu. 
+
+Tip: Speed up bootstrapping in SPSS by deselecting the option _Display frequency tables_. [<img src="icons/2answer.png" width=115px align="right">](#answer2.2.2){.buttonToAnswer}
+```
+
+```{html, echo=ch2}
+### Answers {-}
+```
+
+<A name="answer2.2.1"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Exercise 1. 
+
+SPSS syntax:  
+    
+\* Exercise 1: Bootstrap different averages.  
+\* Check data.  
+FREQUENCIES VARIABLES=colour weight  
+  /ORDER=ANALYSIS.  
+\* Execute independent-samples t test with bootstrap.  
+BOOTSTRAP  
+  /SAMPLING METHOD=SIMPLE  
+  /VARIABLES TARGET=weight INPUT=colour   
+  /CRITERIA CILEVEL=95 CITYPE=BCA  NSAMPLES=5000  
+  /MISSING USERMISSING=EXCLUDE.  
+T-TEST GROUPS=colour(4 5)  
+  /MISSING=ANALYSIS  
+  /VARIABLES=weight  
+  /CRITERIA=CI(.95).  
+  
+Check data:  
+  
+There are no impossible values on the two variables.    
+      
+Interpret the results:   
+  
+The table "Bootstrap for Independent Samples Test" contains the results that we are interested in.   
+  
+Levene's test on homogeneity of variances is not statistically significant, so we may assume that the population variances of red and yellow candy weight are equal. So we interpret the top row in table "Bootstrap for Independent Samples Test".  
+  
+The mean difference between red and yellow candy weight is 0.05 grams. In our sample, red candies are just a little heavier than yellow candies.  
+  
+The bootstrapped 95% confidence interval for this difference is -0.11 to 0.21. With 95% confidence, we can say that red candies can be on average 0.11 grams lighter than yellow candies or up to 0.21 grams heavier. We cannot tell which of the two are heavier in the population with sufficient confidence.
+
+Note that your results can be slightly different because bootstrapping creates random samples. [<img src="icons/2question.png" width=161px align="right">](#question2.2.1){.buttonToAnswer}
+```
+
+<A name="answer2.2.2"></A>
+```{block2, type='rmdanswer', echo=ch2}
+Answer to Exercise 2. 
+
+SPSS syntax:  
+    
+\* Exercise 2: Bootstrap on median candy weight.  
+\* Check data.  
+FREQUENCIES VARIABLES=weight  
+  /ORDER=ANALYSIS.  
+\* Bootstrap the median.  
+BOOTSTRAP  
+  /SAMPLING METHOD=SIMPLE  
+  /VARIABLES INPUT=weight   
+  /CRITERIA CILEVEL=95 CITYPE=BCA  NSAMPLES=5000  
+  /MISSING USERMISSING=EXCLUDE.  
+FREQUENCIES VARIABLES=weight  
+  /FORMAT=NOTABLE  
+  /STATISTICS=MEDIAN  
+  /ORDER=ANALYSIS.  
+  
+Check data:  
+    
+There are no impossible values on the weight variable.  
+  
+Interpret the results:   
+  
+Median candy weight in the sample is 2.81 grams. With 95% confidence, we expect median candy weight to be between 2.78 and 2.92 grams in the population of all candies.  
+The 95% interval borders can be slightly different because bootstrapping takes random samples. [<img src="icons/2question.png" width=161px align="right">](#question2.2.2){.buttonToAnswer}
+```
 
 ## When Do We Use Which Approach to the Sampling Distribution?
 
