@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Confidence Interval for a Parameter | Statitstical Inference</title>
-  <meta name="description" content="3.5 Confidence Interval for a Parameter | Statitstical Inference" />
+  <title>2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference</title>
+  <meta name="description" content="2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Confidence Interval for a Parameter | Statitstical Inference" />
+  <meta property="og:title" content="2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Confidence Interval for a Parameter | Statitstical Inference" />
+  <meta name="twitter:title" content="2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="3.4-crit-values.html"/>
-<link rel="next" href="3.6-SPSS-CI.html"/>
+<link rel="prev" href="2.2-SPSS-exact.html"/>
+<link rel="next" href="2.4-spss-and-theoretical-approximation-of-the-sampling-distribution.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -496,89 +496,278 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ci-parameter" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Confidence Interval for a Parameter<a href="3.5-ci-parameter.html#ci-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Working through the preceding sections, it may have occurred to you that it is all very well to be able to estimate the value of a statistic in a new sample with a particular precision and probability, but that this is not what we are interested in. Instead, we want to estimate the value of the statistic in the population.</p>
-<p>For example, we don’t care much about the average weight of candies in our sample bag or in the next sample bag that we may buy. We want to say something about the average weight of candies in the population. How can we do this?</p>
-<p>In addition, you may have realized that, if we know the sampling distribution, we also know the precise population value, for instance, average candy weight. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution. If we know the sampling distribution, and it then follows that we also know the population value, why would we even care about estimating an interval?</p>
-<p>Our problem is this: We want to estimate a population value using probabilities. For probabilities we need the sampling distribution but for the sampling distribution, we must know the population. A vicious circle.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exactapproachfigure"></span>
-<img src="figures/exactapproach.png" alt="Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population." width="300px" />
-<p class="caption">
-Figure 3.6: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
-</p>
-</div>
-<p>In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure <a href="3.5-ci-parameter.html#fig:exactapproachfigure">3.6</a>), for instance, we must know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don’t know the population proportion of yellow candies; we want to estimate it.</p>
-<p>A theoretical probability distribution can only be used as an approximation of a sampling distribution if we know some characteristics of the population. We know that the sampling distribution of sample means always has the bell shape of a normal or standard-normal (<em>z</em>) distribution or <em>t</em> distribution. However, knowing the shape is not sufficient for using the theoretical distribution as an approximation of the sampling distribution.</p>
-<p>We must also know the population mean because it specifies where the centre of the sampling distribution is located. So, we must know the population mean to use a theoretical probability distribution to estimate the population mean. This sounds like a problem that only Baron von Münchhausen can solve. How can we drag ourselves by the hair out of this swamp?</p>
-<p>By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.</p>
-<div id="imag-pop-values" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Imaginary population values<a href="3.5-ci-parameter.html#imag-pop-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>How can we find plausible population means? Figure <a href="3.5-ci-parameter.html#fig:pop-means-ci">3.7</a> shows average candy weight in a random sample (lower scale). Click somewhere under the top axis to select a possible value for the population mean. The app will then display the interval of most plausible sample means (green if it contains the actual sample mean, red otherwise) if this would be the true population value. In addition, it calculates the <em>z</em> value of the actual sample mean if the selected value would be the true population value.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pop-means-ci"></span>
-<iframe src="https://sharon-klinkenberg.shinyapps.io/pop-means-ci/?showcase=0" width="630px" height="310px" data-external="1">
+<div id="theoretical-approximations-of-the-sampling-distribution" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Theoretical Approximations of the Sampling Distribution<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#theoretical-approximations-of-the-sampling-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Because bootstrapping and exact approaches to the sampling distribution require quite a lot of computing power, these methods were not practical in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the <em>normal distribution</em> or the closely related <em>(Student) t distribution</em>. The mathematical functions are called <em>theoretical probability distributions</em>. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normal-approximation"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/?showcase=0" width="420px" height="300px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 3.7: For which population means is our sample mean plausible?
+Figure 2.3: Normal curve as theoretical approximation of a sampling distribution.
 </p>
 </div>
-<p><A name="question3.5.1"></A></p>
-<p><A name="question3.5.2"></A></p>
-<p><A name="question3.5.3"></A></p>
-<p><A name="question3.5.4"></A></p>
-<p><A name="question3.5.5"></A></p>
-<p>How do we solve the Münchhausen problem that we must know the population mean to estimate the population mean? A solution is that we select a lot of imaginary population means. We play a <em>What If?</em>-game for each imaginary population mean: What are probable sample results if this is the true population value? We calculate the interval within which the sample mean is expected to fall if the imaginary mean would be the true population mean. We use a fixed confidence level, usually a probability of 95%.</p>
-<p>As a next step, we check if the mean of the sample that we have actually drawn falls within this interval. If it does, we conclude that this (imaginary) population mean is not at odds with the sample that we have drawn. In contrast, if our sample mean falls outside the interval, we conclude that this population mean is not plausible because our sample is too unlikely to be drawn from a population with this mean.</p>
-<p>In this way, we can find all population means that are <em>consistent</em> with our sample. If the true population mean is any of these imaginary means, we are sufficiently likely (95% probability) to draw a sample with our actual sample mean.</p>
-<p>While playing with Figure <a href="3.5-ci-parameter.html#fig:pop-means-ci">3.7</a>, you may have noticed the <em>z</em> values of the sample mean for the lowest and highest population means for which the sample mean is still within the interval. When you hit the lower bound of the population means, the sample mean has a <em>z</em> value around 1.96 while it has a <em>z</em> value around -1.96 for the highest population mean in the range.</p>
-<p>It is not a coincidence that we find the critical values of the standard-normal distribution when we reach the minimum and maximum population means that are plausible. We are using the standard-normal distribution to approximate the sampling distribution of the sample mean. The critical <em>z</em> value 1.96 marks the upper limit of the interval containing 95% of all samples with means closest to the population mean and -1.96 marks the lower limit. A distance of 1.96 standard errors, then, is the maximum distance between a population mean and a sample mean that belongs to the 95% sample means closest to the population mean.</p>
-<p>As a consequence, we may simply calculate the range of plausible population values by adding and subtracting 1.96 standard errors from the sample mean. This is much more efficient than selecting a lot of imaginary population means!</p>
-
-<div class="rmdimportant">
+<p><A name="question2.5.1"></A></p>
+<p><A name="question2.5.2"></A></p>
+<p><A name="question2.5.3"></A></p>
+<p>The <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> is a mathematical function linking continuous scores, e.g., a sample statistic such as the average weight in the sample, to right-hand and left-hand probabilities, that is, to the probability of finding at least, or at most, this score. Such a function is called a <em>probability density function</em> (Section <a href="1.3-cont-random-var.html#cont-random-var">1.3</a>).</p>
+<p>We like to use a theoretical probability distribution as an approximation of the sampling distribution because it is convenient. A computer can calculate probabilities from the mathematical function very quickly. We also like theoretical probability distributions because they usually offer plausible arguments about chance and probabilities.</p>
+<div id="reasons-for-a-bell-shaped-probability-distribution" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Reasons for a bell-shaped probability distribution<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#reasons-for-a-bell-shaped-probability-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The bell shape of the normal distribution makes sense. Our sample of candies is just as likely to be too heavy, as it is too light, so the sampling distribution of the sample mean should be symmetrical. A normal distribution is symmetrical.</p>
+<p>In addition, it is more likely that our sample bag has an average weight that is near the true average candy weight in the population than an average weight that is much larger or much smaller than the true average. Bags with on average extremely heavy or extremely light candies may occur, but they are extremely rare (we are very lucky or very unlucky). From these intuitions we would expect a bell shape for the sampling distribution.</p>
+<p>From this argumentation, we conclude that the normal distribution is a reasonable model for the probability distribution of sample means. Actually, it has been proven that the normal distribution exactly represents the sampling distribution in particular cases, for instance the sampling distribution of the mean of a very large sample.</p>
+</div>
+<div id="cond-probdistr" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Conditions for the use of theoretical probability distributions<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#cond-probdistr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Theoretical probability distributions, then, are plausible models for sampling distributions. They are known or likely to have the same shape as the true sampling distributions under particular circumstances or conditions.</p>
+<p>If we use a theoretical probability distribution, we must assume that the conditions for its use are met. We have to check the conditions and decide whether they are close enough to the ideal conditions. <em>Close enough</em> is of course a matter of judgement. In practice, rules of thumb have been developed to decide if the theoretical probability distribution can be used.</p>
+<p>Figure <a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#fig:normal-approx-proportion">2.4</a> shows an example in which the normal distribution is a good approximation for the sampling distribution of a proportion in some situations, but not in all situations.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:normal-approx-proportion"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/?showcase=0" width="775px" height="305px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 2.4: How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?
+</p>
+</div>
+<p><A name="question2.5.4"></A></p>
+<p><A name="question2.5.5"></A></p>
+<p>Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with Figure <a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#fig:normal-approx-proportion">2.4</a>, this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.</p>
+<p>This illustrates that we often have several conditions for a theoretical probability distribution to fit the sampling distribution. We should evaluate all of them at the same time. In the example of proportions, a large sample is less important if the true proportion is closer to .5 but it is more important for true proportions that are more distant from .5.</p>
+<p>The rule of thumb for using the normal distribution as the sampling distribution of a sample proportion combines the two aspects by multiplying them and requiring the resulting product to be larger than five. If the probability of drawing a yellow candy is .2 and our sample size is 30, the product is .2 * 30 = 6, which is larger than five. So we may use the normal distribution as approximation of the sampling distribution.</p>
+<p>Note that this rule of thumb uses one minus the probability, if the probability is larger than .5. In other words, it uses the smaller of two probabilities: the probability that an observation has the characteristic and the probability that it has not. For example, if we want to test the probability of drawing a candy that is not yellow, the probability is .8 and we use 1 - 0.8 = 0.2, which is then multiplied by the sample size.</p>
+<p>Apart from the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>, there are several other theoretical probability distributions. We have the <a href="https://en.wikipedia.org/wiki/Binomial_distribution"><em>binomial distribution</em></a> for a proportion, the <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution"><em>t distribution</em></a> for one or two sample means, regression coefficients, and correlation coefficients, the <a href="https://en.wikipedia.org/wiki/F-distribution"><em>F distribution</em></a> for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution"><em>chi-squared distribution</em></a> for frequency tables and contingency tables.</p>
+<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table <a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#tab:thumb">2.2</a>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see Chapter <a href="8-moderationcat.html#moderationcat">8</a>, Section <a href="8.1-regression-equation.html#regr-inference">8.1.4</a>).</p>
+<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:thumb">Table 2.2: </span>Rules of thumb for using theoretical probability distributions.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Distribution
+</th>
+<th style="text-align:left;">
+Sample statistic
+</th>
+<th style="text-align:left;">
+Minimum sample size
+</th>
+<th style="text-align:left;">
+Other requirements
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Binomial distribution
+</td>
+<td style="text-align:left;">
+proportion
+</td>
+<td style="text-align:left;">
 <ul>
-<li>Confidence interval lower limit = sample value – critical value * standard error.</li>
-<li>Confidence interval upper limit = sample value + critical value * standard error.</li>
-</ul>
-<p>For example, the 95%-confidence interval for a sample mean:</p>
+<li></td>
+<td style="text-align:left;">
 <ul>
-<li>Lower limit = sample mean - 1.96 * standard error.</li>
-<li>Upper limit = sample mean + 1.96 * standard error.
-</div></li>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Standard) normal distribution
+</td>
+<td style="text-align:left;">
+proportion
+</td>
+<td style="text-align:left;">
+times test proportion (&lt;= .5) &gt;= 5
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+(Standard) normal distribution
+</td>
+<td style="text-align:left;">
+one or two means
+</td>
+<td style="text-align:left;">
+&gt; 100
+</td>
+<td style="text-align:left;">
+OR variable is normally distributed in the population and population standard deviation is known (for each group)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+t distribution
+</td>
+<td style="text-align:left;">
+one or two means
+</td>
+<td style="text-align:left;">
+each group &gt; 30
+</td>
+<td style="text-align:left;">
+OR variable is normally distributed in each group’s population
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+t distribution
+</td>
+<td style="text-align:left;">
+(Pearson) correlation coefficient
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+variables are normally distributed in the population
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+t distribution
+</td>
+<td style="text-align:left;">
+(Spearman) rank correlation coefficient
+</td>
+<td style="text-align:left;">
+&gt; 30
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+</tr>
+<tr>
+<td style="text-align:left;">
+t distribution
+</td>
+<td style="text-align:left;">
+regression coefficient
+</td>
+<td style="text-align:left;">
+20+ per independent variable
+</td>
+<td style="text-align:left;">
+See Chapter 8.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F distribution
+</td>
+<td style="text-align:left;">
+3+ means
+</td>
+<td style="text-align:left;">
+all groups are more or less of equal size
+</td>
+<td style="text-align:left;">
+OR all groups have the same population variance
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F distribution
+</td>
+<td style="text-align:left;">
+two variances
+</td>
+<td style="text-align:left;">
+<ul>
+<li></td>
+<td style="text-align:left;">
+no conditions for Levene’s F test
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+chi-squared distribution
+</td>
+<td style="text-align:left;">
+row or cell frequencies
+</td>
+<td style="text-align:left;">
+expected frequency &gt;= 1 and 80% &gt;= 5
+</td>
+<td style="text-align:left;">
+contingency table: 3+ rows or 3+ columns
+</td>
+</tr>
+</tbody>
+</table></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul>
-<p>This can be illustrated with an example: If average candy weight in our sample is 2.8 grams and the standard error is 0.5, the lower and upper boundary for plausible population means are 1.82 grams (this is 2.8 minus 1.96 times 0.5) and 3.78 grams (2.8 plus 1.96 times 0.5).</p>
-<p>Haven’t we seen this calculation before? Yes we did, in Section <a href="3.4-crit-values.html#int-est-sample-mean">3.4.2</a>, where we estimated the interval for sample means. We now simply reverse the calculation, using the sample mean to estimate an interval of plausible population means instead of the other way around.</p>
 </div>
-<div id="conf-interval" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Confidence interval<a href="3.5-ci-parameter.html#conf-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The upper and lower bounds for the population means that are plausible constitute an interval estimate of the parameter. This interval is linked to a probability, for instance, 95%.</p>
-<p>It is very important that we understand that this is NOT the probability that the parameter has a particular value, or that it falls within the interval. The parameter is <em>not</em> a random variable because it is not affected by the random sample that we draw and therefore it does not have a probability.</p>
-<p>The parameter has one value, which is either within or outside the interval that we have constructed. We just don’t know. But we do know that our sample is more likely for population values within the interval.</p>
-<p>We use the term <em>confidence</em> instead of probability when we use this interval to estimate a parameter. The interval is called a <em>confidence interval</em> and we usually add the confidence level, for instance, the 95% confidence interval (abbreviated: 95% CI). We are 95% confident that the parameter falls within the 95% confidence interval.</p>
-
-<div class="rmdimportant">
-<blockquote>
-<p>If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.</p>
-</blockquote>
-<span class="citation">Hoekstra, Morey, Rouder, &amp; Wagenmakers (<a href="references.html#ref-hoekstra2014robust">2014</a>)</span>
+<div id="cond-check" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Checking conditions<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#cond-check" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Rules of thumb about sample size are easy to check once we have collected our sample. By contrast, rules of thumb that concern the scores in the population cannot be easily checked, because we do not have information on the population. If we already know what we want to know about the population, why would we draw a sample and do the research in the first place?</p>
+<p>We can only use the data in our sample to make an educated guess about the distribution of a variable in the population. For example, if the scores in our sample are clearly normally distributed, it is plausible that the scores in the population are normally distributed.</p>
+<p>In this situation, we do not <em>know</em> that the population distribution is normal but we <em>assume</em> it is. If the sample distribution is clearly not normally distributed, we had better not assume that the population is normally distributed. In short, we sometimes have to make assumptions when we decide on using a theoretical probability distribution.</p>
+<p>We could use a histogram of the scores in our sample with a normal distribution curve added to evaluate whether a normal distribution applies. Sometimes, we have statistical tests to draw inferences about the population from a sample that we can use to check the conditions. We discuss these tests in a later chapter.</p>
 </div>
-
-<div class="rmdneyman">
-<p>Jerzy Neyman introduced the concept of a confidence interval in 1937:</p>
-<p>“In what follows, we shall consider in full detail the problem of estimation by interval. We shall show that it can be solved entirely on the ground of the theory of probability as adopted in this paper, without appealing to any new principles or measures of uncertainty in our judgements”. <span class="citation">(<a href="references.html#ref-RefWorks:3929">Jerzy Neyman, 1937</a>: 347)</span></p>
-Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
+<div id="complicatedsampling" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> More complicated sample statistics: differences<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#complicatedsampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. Table <a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#tab:thumb">2.2</a>, however, contains more complicated sample statistics.</p>
+<p>If we compare two groups, for instance, the average weight of yellow and red candies, the sample statistic for which we want to have a sampling distribution must take into account both the average weight of yellow candies and the average weight of red candies. The sample statistic that we are interested in is the difference between the averages of the two samples.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mean-independent"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-independent/?showcase=0" width="550px" height="580px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 2.5: How do we obtain a sampling distribution for the mean difference of two independent samples?
+</p>
 </div>
+<p><A name="question2.5.6"></A></p>
+<p><A name="question2.5.7"></A></p>
+<p><A name="question2.5.8"></A></p>
+<p><A name="question2.5.9"></A></p>
+<p>If we draw a sample from both the red and yellow candies in the population, we may calculate the means for both samples and the difference between the two means. For example, the average weight of red candies in the sample bag is 2.76 grams and the average for yellow candies is 2.82 grams. For this pair of samples, the statistic of interest is 2.76 - 2.82 = -0.06, that is, the difference in average weight. If we repeat this many, many times and collect all differences between means in a distribution, we obtain the sampling distribution that we need.</p>
+<p>The sampling distribution of the difference between two means is similar to a <em>t</em>-distribution, so we may use the latter to approximate the former. Of course, the conditions for using the <em>t</em>-distribution must be met.</p>
+<p>It is important to note that we do not create separate sampling distributions for the average weight of yellow candies and for the average weight of red candies and then look at the difference between the two sampling distributions. Instead, we create <em>one sampling distribution for the statistic of interest</em>, namely the difference between means. We cannot combine different sampling distributions into a new sampling distribution. We will see the importance of this when we discuss mediation (Chapter <a href="11-mediation.html#mediation">11</a>).</p>
 </div>
-<div id="bootstrap-confidenceinterval" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Confidence intervals with bootstrapping<a href="3.5-ci-parameter.html#bootstrap-confidenceinterval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If we approximate the sampling distribution with a theoretical probability distribution such as the normal (<em>z</em>) or <em>t</em> distribution, critical values and the standard error are used to calculate the confidence interval (see Section <a href="3.5-ci-parameter.html#imag-pop-values">3.5.1</a>).</p>
-<p>There are theoretical probability distributions that do not work with a standard error, such as the <em>F</em> distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section <a href="3.5-ci-parameter.html#imag-pop-values">3.5.1</a>) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.</p>
-<p>As you might remember from Section <a href="2.5-boot-approx.html#boot-approx">2.5</a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval.</p>
-<p>It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report <em>p</em> values (see Section <a href="4.3-statistical-tests.html#pvalue">4.3.3</a>), not confidence intervals.</p>
-<p><A name="answer3.5.1"></A></p>
-<p><A name="answer3.5.2"></A></p>
-<p><A name="answer3.5.3"></A></p>
-<p><A name="answer3.5.4"></A></p>
-<p><A name="answer3.5.5"></A></p>
+<div id="independent-samples" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> Independent samples<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#independent-samples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If we compare two means, there are two fundamentally different situations that are sometimes difficult to distinguish. When comparing the average weight of yellow candies to the average weight of red candies, we are comparing two samples that are <em>statistically independent</em> (see Figure <a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#fig:mean-independent">2.5</a>), which means that we could have drawn the samples separately.</p>
+<p>In principle, we could distinguish between a population of yellow candies and a population of red candies, and sample yellow candies from the first population and separately sample red candies from the other population. Whether we sampled the colours separately or not does not matter. The fact that we could have done so implies that the sample of red candies is not affected by the sample of yellow candies or the other way around. The samples are statistically independent.</p>
+<p>This is important for the way in which probabilities are calculated. Just think of the simple example of flipping two coins. The probability of having heads twice in a row is .5 times .5, that is .25, if the coins are fair and the result of the second coin does not depend on the result of the first coin. The second flip is not affected by the first flip.</p>
+<p>Imagine that a magnetic field is activated if the first coin lands with heads up and that this magnetic field increases the odds that the second coin will also be heads. Now, the second toss is not independent of the first toss and the probability of getting heads twice is larger than .25.</p>
+</div>
+<div id="dependentsamples" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> Dependent samples<a href="2.3-theoretical-approximations-of-the-sampling-distribution.html#dependentsamples" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The example of a manipulated second toss is applicable to repeated measurements. If we want to know how quickly the yellow colour fades when yellow candies are exposed to sun light, we may draw a sample of yellow candies once and measure the colourfulness of each candy at least twice: at the start and end of some time interval. We compare the colourfulness of a candy at the second measurement to its colourfulness at the first measurement.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mean-dependent"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-dependent/?showcase=0" width="650px" height="580px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 2.6: Dependent samples.
+</p>
+</div>
+<p><A name="question2.5.10"></A></p>
+<p><A name="question2.5.11"></A></p>
+<p><A name="question2.5.12"></A></p>
+<p>In this example, we are comparing two means, just like the yellow versus red candy weight example, but now the samples for both measurements are the same. It is impossible to draw the sample for the second measurement independently from the sample for the first measurement if we want to compare repeated measurements. Here, the second sample is fixed once we have drawn the first sample. The samples are <em>statistically dependent</em>; they are <em>paired samples</em>.</p>
+<p>With dependent samples, probabilities have to be calculated in a different way, so we need a special sampling distribution. In the interactive content above, you may have noticed a relatively simple solution for two repeated measurements. We just calculate the difference between the two measurements for each candy in the sample and use the mean of this new difference variable as the sample statistic that we are interested in. The <em>t</em>-distribution, again, offers a good approximation of the sampling distribution of dependent samples if the samples are not too small.</p>
+<p>For other applications, the actual sampling distributions can become quite complicated but we do not have to worry about that. If we choose the right technique, our statistical software will take care of this.</p>
+<p><A name="answer2.5.1"></A></p>
+<p><A name="answer2.5.2"></A></p>
+<p><A name="answer2.5.3"></A></p>
+<p><A name="answer2.5.4"></A></p>
+<p><A name="answer2.5.5"></A></p>
+<p><A name="answer2.5.6"></A></p>
+<p><A name="answer2.5.7"></A></p>
+<p><A name="answer2.5.8"></A></p>
+<p><A name="answer2.5.9"></A></p>
+<p><A name="answer2.5.10"></A></p>
+<p><A name="answer2.5.11"></A></p>
+<p><A name="answer2.5.12"></A></p>
 </div>
 </div>
             </section>
@@ -586,8 +775,8 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
           </div>
         </div>
       </div>
-<a href="3.4-crit-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3.6-SPSS-CI.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.2-SPSS-exact.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.4-spss-and-theoretical-approximation-of-the-sampling-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.5 Confidence Interval for a Parameter | Statitstical Inference</title>
-  <meta name="description" content="3.5 Confidence Interval for a Parameter | Statitstical Inference" />
+  <title>2.6 Bootstrapping in SPSS | Statitstical Inference</title>
+  <meta name="description" content="2.6 Bootstrapping in SPSS | Statitstical Inference" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.5 Confidence Interval for a Parameter | Statitstical Inference" />
+  <meta property="og:title" content="2.6 Bootstrapping in SPSS | Statitstical Inference" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.5 Confidence Interval for a Parameter | Statitstical Inference" />
+  <meta name="twitter:title" content="2.6 Bootstrapping in SPSS | Statitstical Inference" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="3.4-crit-values.html"/>
-<link rel="next" href="3.6-SPSS-CI.html"/>
+<link rel="prev" href="2.5-boot-approx.html"/>
+<link rel="next" href="2.7-when-do-we-use-which-approach-to-the-sampling-distribution.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -496,89 +496,30 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ci-parameter" class="section level2 hasAnchor" number="3.5">
-<h2><span class="header-section-number">3.5</span> Confidence Interval for a Parameter<a href="3.5-ci-parameter.html#ci-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Working through the preceding sections, it may have occurred to you that it is all very well to be able to estimate the value of a statistic in a new sample with a particular precision and probability, but that this is not what we are interested in. Instead, we want to estimate the value of the statistic in the population.</p>
-<p>For example, we don’t care much about the average weight of candies in our sample bag or in the next sample bag that we may buy. We want to say something about the average weight of candies in the population. How can we do this?</p>
-<p>In addition, you may have realized that, if we know the sampling distribution, we also know the precise population value, for instance, average candy weight. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution. If we know the sampling distribution, and it then follows that we also know the population value, why would we even care about estimating an interval?</p>
-<p>Our problem is this: We want to estimate a population value using probabilities. For probabilities we need the sampling distribution but for the sampling distribution, we must know the population. A vicious circle.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:exactapproachfigure"></span>
-<img src="figures/exactapproach.png" alt="Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population." width="300px" />
-<p class="caption">
-Figure 3.6: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
-</p>
-</div>
-<p>In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure <a href="3.5-ci-parameter.html#fig:exactapproachfigure">3.6</a>), for instance, we must know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don’t know the population proportion of yellow candies; we want to estimate it.</p>
-<p>A theoretical probability distribution can only be used as an approximation of a sampling distribution if we know some characteristics of the population. We know that the sampling distribution of sample means always has the bell shape of a normal or standard-normal (<em>z</em>) distribution or <em>t</em> distribution. However, knowing the shape is not sufficient for using the theoretical distribution as an approximation of the sampling distribution.</p>
-<p>We must also know the population mean because it specifies where the centre of the sampling distribution is located. So, we must know the population mean to use a theoretical probability distribution to estimate the population mean. This sounds like a problem that only Baron von Münchhausen can solve. How can we drag ourselves by the hair out of this swamp?</p>
-<p>By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.</p>
-<div id="imag-pop-values" class="section level3 hasAnchor" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> Imaginary population values<a href="3.5-ci-parameter.html#imag-pop-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>How can we find plausible population means? Figure <a href="3.5-ci-parameter.html#fig:pop-means-ci">3.7</a> shows average candy weight in a random sample (lower scale). Click somewhere under the top axis to select a possible value for the population mean. The app will then display the interval of most plausible sample means (green if it contains the actual sample mean, red otherwise) if this would be the true population value. In addition, it calculates the <em>z</em> value of the actual sample mean if the selected value would be the true population value.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pop-means-ci"></span>
-<iframe src="https://sharon-klinkenberg.shinyapps.io/pop-means-ci/?showcase=0" width="630px" height="310px" data-external="1">
+<div id="boot-spss" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Bootstrapping in SPSS<a href="2.6-boot-spss.html#boot-spss" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="instructions-1" class="section level3 hasAnchor" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Instructions<a href="2.6-boot-spss.html#instructions-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SPSSbootstrap1"></span>
+<iframe src="https://www.youtube.com/embed/-6nQsBK4-E8" width="640px" height="360px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 3.7: For which population means is our sample mean plausible?
+Figure 2.10: Bootstrapping in SPSS.
 </p>
 </div>
-<p><A name="question3.5.1"></A></p>
-<p><A name="question3.5.2"></A></p>
-<p><A name="question3.5.3"></A></p>
-<p><A name="question3.5.4"></A></p>
-<p><A name="question3.5.5"></A></p>
-<p>How do we solve the Münchhausen problem that we must know the population mean to estimate the population mean? A solution is that we select a lot of imaginary population means. We play a <em>What If?</em>-game for each imaginary population mean: What are probable sample results if this is the true population value? We calculate the interval within which the sample mean is expected to fall if the imaginary mean would be the true population mean. We use a fixed confidence level, usually a probability of 95%.</p>
-<p>As a next step, we check if the mean of the sample that we have actually drawn falls within this interval. If it does, we conclude that this (imaginary) population mean is not at odds with the sample that we have drawn. In contrast, if our sample mean falls outside the interval, we conclude that this population mean is not plausible because our sample is too unlikely to be drawn from a population with this mean.</p>
-<p>In this way, we can find all population means that are <em>consistent</em> with our sample. If the true population mean is any of these imaginary means, we are sufficiently likely (95% probability) to draw a sample with our actual sample mean.</p>
-<p>While playing with Figure <a href="3.5-ci-parameter.html#fig:pop-means-ci">3.7</a>, you may have noticed the <em>z</em> values of the sample mean for the lowest and highest population means for which the sample mean is still within the interval. When you hit the lower bound of the population means, the sample mean has a <em>z</em> value around 1.96 while it has a <em>z</em> value around -1.96 for the highest population mean in the range.</p>
-<p>It is not a coincidence that we find the critical values of the standard-normal distribution when we reach the minimum and maximum population means that are plausible. We are using the standard-normal distribution to approximate the sampling distribution of the sample mean. The critical <em>z</em> value 1.96 marks the upper limit of the interval containing 95% of all samples with means closest to the population mean and -1.96 marks the lower limit. A distance of 1.96 standard errors, then, is the maximum distance between a population mean and a sample mean that belongs to the 95% sample means closest to the population mean.</p>
-<p>As a consequence, we may simply calculate the range of plausible population values by adding and subtracting 1.96 standard errors from the sample mean. This is much more efficient than selecting a lot of imaginary population means!</p>
-
-<div class="rmdimportant">
-<ul>
-<li>Confidence interval lower limit = sample value – critical value * standard error.</li>
-<li>Confidence interval upper limit = sample value + critical value * standard error.</li>
-</ul>
-<p>For example, the 95%-confidence interval for a sample mean:</p>
-<ul>
-<li>Lower limit = sample mean - 1.96 * standard error.</li>
-<li>Upper limit = sample mean + 1.96 * standard error.
-</div></li>
-</ul>
-<p>This can be illustrated with an example: If average candy weight in our sample is 2.8 grams and the standard error is 0.5, the lower and upper boundary for plausible population means are 1.82 grams (this is 2.8 minus 1.96 times 0.5) and 3.78 grams (2.8 plus 1.96 times 0.5).</p>
-<p>Haven’t we seen this calculation before? Yes we did, in Section <a href="3.4-crit-values.html#int-est-sample-mean">3.4.2</a>, where we estimated the interval for sample means. We now simply reverse the calculation, using the sample mean to estimate an interval of plausible population means instead of the other way around.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SPSSbootstrap2"></span>
+<iframe src="https://www.youtube.com/embed/6E2LgeMtkL4" width="640px" height="360px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 2.11: Interpreting bootstrap results in SPSS.
+</p>
 </div>
-<div id="conf-interval" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> Confidence interval<a href="3.5-ci-parameter.html#conf-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The upper and lower bounds for the population means that are plausible constitute an interval estimate of the parameter. This interval is linked to a probability, for instance, 95%.</p>
-<p>It is very important that we understand that this is NOT the probability that the parameter has a particular value, or that it falls within the interval. The parameter is <em>not</em> a random variable because it is not affected by the random sample that we draw and therefore it does not have a probability.</p>
-<p>The parameter has one value, which is either within or outside the interval that we have constructed. We just don’t know. But we do know that our sample is more likely for population values within the interval.</p>
-<p>We use the term <em>confidence</em> instead of probability when we use this interval to estimate a parameter. The interval is called a <em>confidence interval</em> and we usually add the confidence level, for instance, the 95% confidence interval (abbreviated: 95% CI). We are 95% confident that the parameter falls within the 95% confidence interval.</p>
-
-<div class="rmdimportant">
-<blockquote>
-<p>If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.</p>
-</blockquote>
-<span class="citation">Hoekstra, Morey, Rouder, &amp; Wagenmakers (<a href="references.html#ref-hoekstra2014robust">2014</a>)</span>
-</div>
-
-<div class="rmdneyman">
-<p>Jerzy Neyman introduced the concept of a confidence interval in 1937:</p>
-<p>“In what follows, we shall consider in full detail the problem of estimation by interval. We shall show that it can be solved entirely on the ground of the theory of probability as adopted in this paper, without appealing to any new principles or measures of uncertainty in our judgements”. <span class="citation">(<a href="references.html#ref-RefWorks:3929">Jerzy Neyman, 1937</a>: 347)</span></p>
-Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
-</div>
-</div>
-<div id="bootstrap-confidenceinterval" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Confidence intervals with bootstrapping<a href="3.5-ci-parameter.html#bootstrap-confidenceinterval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>If we approximate the sampling distribution with a theoretical probability distribution such as the normal (<em>z</em>) or <em>t</em> distribution, critical values and the standard error are used to calculate the confidence interval (see Section <a href="3.5-ci-parameter.html#imag-pop-values">3.5.1</a>).</p>
-<p>There are theoretical probability distributions that do not work with a standard error, such as the <em>F</em> distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section <a href="3.5-ci-parameter.html#imag-pop-values">3.5.1</a>) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.</p>
-<p>As you might remember from Section <a href="2.5-boot-approx.html#boot-approx">2.5</a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval.</p>
-<p>It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report <em>p</em> values (see Section <a href="4.3-statistical-tests.html#pvalue">4.3.3</a>), not confidence intervals.</p>
-<p><A name="answer3.5.1"></A></p>
-<p><A name="answer3.5.2"></A></p>
-<p><A name="answer3.5.3"></A></p>
-<p><A name="answer3.5.4"></A></p>
-<p><A name="answer3.5.5"></A></p>
+<p>In principle, any sample statistic can be bootstrapped. SPSS, however, does not bootstrap sample statistics that we had better not use because they give bad (biased) results. For example, SPSS does not bootstrap the minimum value, maximum value or the range between minimum and maximum value of a variable.</p>
+<p>SPSS reports bootstrapping results as confidence intervals. We will discuss confidence intervals in detail in the next chapter.</p>
+<p><A name="question2.2.1"></A></p>
+<p><A name="question2.2.2"></A></p>
+<p><A name="answer2.2.1"></A></p>
+<p><A name="answer2.2.2"></A></p>
 </div>
 </div>
             </section>
@@ -586,8 +527,8 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
           </div>
         </div>
       </div>
-<a href="3.4-crit-values.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="3.6-SPSS-CI.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="2.5-boot-approx.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2.7-when-do-we-use-which-approach-to-the-sampling-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
