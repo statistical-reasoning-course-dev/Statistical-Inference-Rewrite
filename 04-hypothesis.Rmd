@@ -203,7 +203,7 @@ kable(t(data.frame(Heads = as.character(0:10),
 
 ```
 
-Choosing such an alpha level would result in a threshold between 0 and 2 and 9 and 10. We call this the **critical value** associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criteria, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a Type I error rate of .002 or 0.2%. and a 99.8% chance of making the correct decision. Figure \@ref(fig:nulldistributionalpha) shows the critical values for the null hypothesis distribution, and indicate what de decision would be for values on the outside and inside of the decision boundary.
+Choosing such an alpha level would result in a threshold between 0 and 2 and 9 and 10. We call this the **critical value** associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criteria, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a Type I error rate of .002 or 0.2%. Figure \@ref(fig:nulldistributionalpha) shows the critical values for the null hypothesis distribution, and indicate what de decision would be for values on the outside and inside of the decision boundary.
 
 ```{r nulldistributionalpha, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="H0 binomial distributions with critical values", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
@@ -258,6 +258,12 @@ Note that the reasoning for the discrete case and the continuous case is the sam
 
 Now that we have our critical value based on our desired alpha, significance level, we can use this to determine the the power.
 
+### 1 - Alpha
+
+The decision to not reject the null hypothesis when it is in reality true is indicated by $1 - \alpha$. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to probability of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example, a 99.8% (1 - .2) chance of making the correct decision. The inside of the critical value in figure \@ref(fig:nulldistributionalpha) is the area where we do not reject the null hypothesis.
+
+In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the bottom left green quadrant.
+
 ### Power
 
 The power refers to the probability of making the correct decision when the null hypothesis is false. In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the top right quadrant. As we have already set our decision criteria by choosing our alpha level in the previous step, we already know when we decide to reject the null. In figure \ref(fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. This critical value carries over when determining the power.
@@ -307,8 +313,6 @@ As stated earlier we would rather a high probability of making the correct decis
 
 
 [TO-DO] increase type I error rate and show with combined plot what this does to the power. Then maybe go in to sample size.
-
-### 1 - Alpha
 
 ### Beta
 
