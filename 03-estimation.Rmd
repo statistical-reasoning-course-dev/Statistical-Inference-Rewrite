@@ -339,15 +339,7 @@ knitr::include_graphics("figures/exactapproach.png")
 
 In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure \@ref(fig:exactapproachfigure)), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.
 
-
-```{r normal-approximation, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Normal curve as theoretical approximation of a sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-# Variant of app: p-values.
-# Let a button generate a normal sampling distribution (with mean 2.8 and a random SD between 0.2 and 0.8) representing average candy weight in a sample bag ; represent it as a histogram (with fixed x-axis, so distributions with different SD have different widths, and number of bins such that the outer (2) bin(s) contain(s) 2.5% of the area under the normal curve) ; colour the bars for the upper and lower 2.5% of cases in the histogram (to draw attention to the tails as important areas) ; project the normal function on top of it ; add two vertical lines to the graph demarcating the outer 2.5% of the area under the normal curve (display the probabilities to left and to right)
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation/", height="300px")
-```
-
-
-In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means (Figure \@ref(fig:normal-approximation)). But we do not know the population mean; we want to estimate it.
+In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means. But we do not know the population mean; we want to estimate it.
 
 ```{r normal-param, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Which population statistics do we need to know if we want to use the standard normal distribution as sampling distribution?"}
 # show an X axis labeled 'sample mean' with a scale from 0 to 5 grams ; add sample mean as labelled dot at 3.4 ; add a normal curve with population mean 2.8, a standard error 0.1 (equivalent to sample standard deviation of 1.0 and a sample size of 25) ; show checkboxes for sample size, sample mean, sample standard deviation, standard error, population mean, and population standard error with their (fixed) values ; select all checkboxes ; if the user deselects a checkbox, either nothing happens or a series of 5 normal curves is shown for different values of the statistic associated with the checkbox.
