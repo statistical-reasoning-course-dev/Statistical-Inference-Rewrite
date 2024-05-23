@@ -339,7 +339,15 @@ knitr::include_graphics("figures/exactapproach.png")
 
 In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure \@ref(fig:exactapproachfigure)), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.
 
-In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means (so-called sampling distribution of sample means). But we do not know the population mean; we want to estimate it.
+
+```{r normal-approximation, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Normal curve as theoretical approximation of a sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
+# Variant of app: p-values.
+# Let a button generate a normal sampling distribution (with mean 2.8 and a random SD between 0.2 and 0.8) representing average candy weight in a sample bag ; represent it as a histogram (with fixed x-axis, so distributions with different SD have different widths, and number of bins such that the outer (2) bin(s) contain(s) 2.5% of the area under the normal curve) ; colour the bars for the upper and lower 2.5% of cases in the histogram (to draw attention to the tails as important areas) ; project the normal function on top of it ; add two vertical lines to the graph demarcating the outer 2.5% of the area under the normal curve (display the probabilities to left and to right)
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation/", height="300px")
+```
+
+
+In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means (Figure \@ref(fig:normal-approximation)). But we do not know the population mean; we want to estimate it.
 
 ```{r normal-param, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Which population statistics do we need to know if we want to use the standard normal distribution as sampling distribution?"}
 # show an X axis labeled 'sample mean' with a scale from 0 to 5 grams ; add sample mean as labelled dot at 3.4 ; add a normal curve with population mean 2.8, a standard error 0.1 (equivalent to sample standard deviation of 1.0 and a sample size of 25) ; show checkboxes for sample size, sample mean, sample standard deviation, standard error, population mean, and population standard error with their (fixed) values ; select all checkboxes ; if the user deselects a checkbox, either nothing happens or a series of 5 normal curves is shown for different values of the statistic associated with the checkbox.
@@ -367,7 +375,7 @@ We must also know the population mean because it specifies where the centre of t
 
 By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.  
 
-### Reverse reasoning from one sample mean  {#imag-pop-values}
+### Reverse reasoning from one sample mean  {#fixed-pop-values}
 
 
 
@@ -465,9 +473,9 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
 
 ### Confidence intervals with bootstrapping {#bootstrap-confidenceinterval}
 
-If we approximate the sampling distribution with a theoretical probability distribution such as the normal (_z_) or _t_ distribution, critical values and the standard error are used to calculate the confidence interval (see Section \@ref(imag-pop-values)). 
+If we approximate the sampling distribution with a theoretical probability distribution such as the normal (_z_) or _t_ distribution, critical values and the standard error are used to calculate the confidence interval (see Section \@ref(fixed-pop-values)). 
 
-There are theoretical probability distributions that do not work with a standard error, such as the _F_ distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section \@ref(imag-pop-values)) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.
+There are theoretical probability distributions that do not work with a standard error, such as the _F_ distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section \@ref(fixed-pop-values)) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.
 
 ```{r bootstrap-ci, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we construct confidence intervals with bootstrapping?"}
 # Adapt app bootstrapping: Show Initial Sample and Sampling Distribution, buttons Bootstrap 1000 samples and Draw new initial sample. Increase vertical size of sampling distribution but reduce range from 0 to 0.5. 
