@@ -40,7 +40,8 @@ Statistical inference is conceptually complicated and for that reason quite ofte
 
 An obvious but key insight in statistical inference is this: If we draw random samples from the same population, we are likely to obtain different samples. No two random samples from the same population need to be identical, even though they can be identical. 
 
-### Sample statistic  
+### Sample statistic {#samplestatistic}
+
 We are usually interested in a particular characteristic of the sample rather than in the exact nature of each observation within the sample. For instance, I happen to be very fond of yellow candies. If I buy a bag of candies, my first impulse is to tear the bag open and count the number of yellow candies. Am I lucky today? Does my bag contain a lot of yellow candies?
 
 ```{r random-variable, fig.pos='H', fig.align='center', fig.cap="How many yellow candies will our sample bag contain?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}

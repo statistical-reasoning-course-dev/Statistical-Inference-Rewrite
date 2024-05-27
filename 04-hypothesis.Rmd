@@ -85,7 +85,7 @@ barplot( rbind(dbinom(0:10, 10, .5),
                dbinom(0:10, 10, .2)), 
          main=title, 
          names.arg = 0:10, 
-         xlab      = "number of head", 
+         xlab      = "number of yellow candies", 
          ylab      = "Probability", 
          col       = rbind(colh0,colha),
          beside    = TRUE
@@ -121,7 +121,7 @@ colha = 'lightyellow'
 barplot( dbinom(0:10, 10, .5),
          main=title, 
          names.arg = 0:10, 
-         xlab      = "number of head", 
+         xlab      = "number of yellow candies", 
          ylab      = "Probability", 
          col       = colh0
          # beside    = TRUE
@@ -160,7 +160,7 @@ colha = 'lightyellow'
 barplot( dbinom(0:10, 10, .2),
          main=title, 
          names.arg = 0:10, 
-         xlab      = "number of head", 
+         xlab      = "number of yellow candies", 
          ylab      = "Probability", 
          col       = colha
          # beside    = TRUE
@@ -177,6 +177,39 @@ barplot( dbinom(0:10, 10, .2),
 Note that both probability distribution for $H_0$ and $H_A$ are the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.
 
 Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.
+
+### True effect size
+
+The true effect size is the difference between the null hypothesis and the alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
+
+```{r twobinomeffect, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Both distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( rbind(dbinom(0:10, 10, .5),
+               dbinom(0:10, 10, .2)), 
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = rbind(colh0,colha),
+         beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+
+lines(c(8.5, 16.5), c(.23, .23), col='red', lwd=4)
+text(12.5, .23, "True effect size", col='red', pos=3)
+```
+
+**True** refers to the actual difference in the population. The problem is that we do not know this difference. In our candy factory example, we can only observe the specific candy bag. Have an assumption about the null hypothesis and the alternative hypothesis. Though the **true** effect size refers only to the actual effect in the population, the actual difference, the actual correlation, the actual parameter value.
 
 ### Alpha
 
@@ -214,7 +247,7 @@ colha = 'lightyellow'
 barplot( dbinom(0:10, 10, .5),
          main=title, 
          names.arg = 0:10, 
-         xlab      = "number of head", 
+         xlab      = "number of yellow candies", 
          ylab      = "Probability", 
          col       = colh0
          # beside    = TRUE
@@ -277,7 +310,7 @@ colha = 'lightyellow'
 barplot( dbinom(0:10, 10, .2),
          main=title, 
          names.arg = 0:10, 
-         xlab      = "number of head", 
+         xlab      = "number of yellow candies", 
          ylab      = "Probability", 
          col       = colha
          # beside    = TRUE
@@ -306,55 +339,71 @@ text(12.1, .1, "Critial value", col='darkgreen', pos=3, srt=-90)
 
 If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true, if the parameter turly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, if our sample originates from the alternative hypothesis, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null when this specific alternative is true is only 11%.
 
-As stated earlier we would rather a high probability of making the correct decision. In the social sciences we are striving for a power of .80. This means that we want to make the correct decision in 80% of the cases when the null hypothesis is false. In our candy factory example, this would mean that we would want to reject the null hypothesis in 80% of the cases when the machine produces bags with 2 out of 10 yellow candies.
+> The only way to increase the power is to increase the sample size of the study.
 
+As stated earlier we would rather have a high probability of making the correct decision. In the social sciences we are striving for a power of .80. This means that we want to make the correct decision in 80% of the cases when the null hypothesis is false. In our candy factory example, this would mean that we would want to reject the null hypothesis in 80% of the replications. With our machine producing bags with 10 candies, this is just not possible. The only way to increase the power is to increase the sample size of the study. In the candy factory example, this would mean that we would have to increase the number of candies in the candy bags. We will come back to this in the chapter \@ref(sample-size) on sample size.
 
-[TO-DO] increase type I error rate and show with combined plot what this does to the power. Then maybe go in to sample size.
+One more thing to note, is that the true power of the test is only known when the alternative hypothesis is true. In practice, we do not know if the null or the alternative hypothesis is true. We can only calculate the power of the test when we assume some alternative hypothesis. It is good practice to base your assumptions about the alternative hypothesis on previous research, theory, or other empirical evidence. This is mostly expressed as the expected effect size, the expected difference between the null and the alternative hypothesis.
+
+In all statistical software, the power of the test is not calculated based on the true effect size, but on the found effect size in your sample. This is called the observed power and will be covered in chapter \@ref(observed-effect-size).
 
 ### Beta
 
+The probability of making a Type II error is indicated by $\beta$. It is the probability of not rejecting the null hypothesis when it is in reality false. In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the bottom right quadrant. The power of the test is $1 - \beta$. In our candy factory example, the power of the test is .11, so the probability of making a Type II error is .89. It is the probability of getting a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies, when the machine actually produces bags with 2 yellow candies, the addition of the height of the bars in figure \@ref(fig:altdistributionpower) for these values.
+
 ### Test statistic
+
+In chapter \@ref(samplestatistic) we discussed the **sample statistic**, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that also conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, $t$-values, $F$-values, and $\chi^2$-values are also sample statistics. 
+
+The **test statistic** is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4. 
+
+
+
+
+
 
 ### P-value
 
-### True effect size
+### Observed effect size {#observed-effect-size}
 
-The true effect size is the difference between the null hypothesis and the alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
+### Observed power
 
-```{r twobinomeffect, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+### Meta analysis
+
+### Sample size {#sample-size}
+
+```{r twobinomN15, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
 title = "Both distributions"
 
 colh0 = 'yellow'
 colha = 'lightyellow'
 
-barplot( rbind(dbinom(0:10, 10, .5),
-               dbinom(0:10, 10, .2)), 
+n = 15
+
+barplot( rbind(dbinom(0:n, n, .5),
+               dbinom(0:n, n, .2)), 
          main=title, 
-         names.arg = 0:10, 
-         xlab      = "number of head", 
+         names.arg = 0:n, 
+         xlab      = "number of yellow candies", 
          ylab      = "Probability", 
          col       = rbind(colh0,colha),
          beside    = TRUE
          # density   = c(0, 10)
          #legend.text = c("H0", "HA")
-         )
+         ) -> p
+
+
+abline(v = p[1,4]+2, col='red', lwd=2)
+abline(v = p[1,12]+2, col='red', lwd=2)
+
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
 
 legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
-lines(c(8.5, 16.5), c(.23, .23), col='red', lwd=4)
-text(12.5, .23, "True effect size", col='red', pos=3)
 ```
 
-**True** refers to the actual difference in the population. The problem is that we do not know this difference. In our candy factory example, we can only observe the specific candy bag. Have an assumption about the null hypothesis and the alternative hypothesis. Though the **true** effect size refers only to the actual effect in the population, the actual difference, the actual correlation, the actual parameter value.
-
-### Observed effect size
-
-### Observed power
-
-### Meta analysis
 
 
 
