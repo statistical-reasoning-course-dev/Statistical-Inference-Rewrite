@@ -37,6 +37,8 @@ fig:nulldistributionalpha
 fig:nullsampling
 fig:altdistributionpower
 fig:t-alpha-p
+fig:cohend
+fig:posthocpower
 fig:twobinomN15
 fig:twosided
 fig:nonsig-1sided
@@ -52,7 +54,6 @@ fig:SPSSchisq1
 fig:SPSS1mean
 tab:thumbsize
 fig:sample-size-unstand
-fig:cohend
 fig:sample-size
 fig:TypeI-II-errors
 tab:errortable
@@ -256,7 +257,10 @@ beta
 test-statistic
 p-value
 observed-effect-size
-observed-power
+standardized-effect-size-cohens-d-for-one-or-two-means
+obtaining-cohens-d-with-spss
+assoc-size
+post-hoc-power
 meta-analysis
 binarydecision
 statistical-tests
@@ -286,10 +290,6 @@ size-test-req
 effectsize
 practical-relevance
 unstandardized-effect-size
-standardized-effect-size-cohens-d-for-one-or-two-means
-obtaining-cohens-d-with-spss
-instructions-2
-assoc-size
 standardized-effect-size-and-sample-size
 hypothetical-world-versus-imaginary-true-world
 imagining-a-population-with-a-small-effect
@@ -297,7 +297,7 @@ the-world-of-the-researcher
 the-alternative-world-of-a-small-effect
 typeIIerror
 power-of-the-test
-post-hoc-power
+post-hoc-power-1
 sizeeffectpower
 so-how-do-we-determine-sample-size
 research-hypothesis-as-null-hypothesis
@@ -328,7 +328,7 @@ pairwise-comparisons-as-post-hoc-tests
 two-steps-in-analysis-of-variance
 contradictory-results
 onewaySPSS
-instructions-3
+instructions-2
 different-means-for-two-factors
 anova2way
 balanced
@@ -341,7 +341,7 @@ testing-main-and-interaction-effects
 assumptions-for-two-way-analysis-of-variance
 reporting-two-way-analysis-of-variance
 twowaySPSS
-instructions-4
+instructions-3
 take-home-points-6
 moderationcat
 regression-equation
@@ -354,7 +354,7 @@ identically-distributed-observations
 linearity-and-prediction-errors
 homoscedasticity-and-prediction-errors
 SPSS-regression
-instructions-5
+instructions-4
 categoricalmoderator
 a-dichotomous-moderator-and-numerical-predictor
 interaction-variable
@@ -364,7 +364,7 @@ a-categorical-moderator
 commonsupportdichotomous
 visualizing-moderation-and-covariates
 catmodSPSS
-instructions-6
+instructions-5
 take-home-points-7
 moderationcont
 cont-moderator-regression
@@ -379,7 +379,7 @@ assumptions
 higher-order-interaction-effects
 reportmoderation
 RegressionContModSPSS
-instructions-7
+instructions-6
 take-home-points-8
 confounder
 controlling
@@ -393,7 +393,7 @@ confounders
 suppression
 spuriousness
 compmodelSSPSS
-instructions-8
+instructions-7
 take-home-points-9
 mediation
 mediation-as-causal-process
@@ -410,7 +410,7 @@ significance-of-indirect-effects
 mediationcovariate
 reporting-mediation-results
 SPSSPROCESS
-instructions-9
+instructions-8
 criticisms-of-mediation
 causal-order-assumed
 time-order
