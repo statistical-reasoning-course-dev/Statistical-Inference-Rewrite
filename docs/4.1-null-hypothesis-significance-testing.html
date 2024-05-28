@@ -586,7 +586,6 @@ Figure 4.4: Discrete binomial distributions
 </p>
 </div>
 <p>Note that both probability distribution for <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> are the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.</p>
-<p>Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.</p>
 </div>
 <div id="true-effect-size" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> True effect size<a href="4.1-null-hypothesis-significance-testing.html#true-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -598,6 +597,7 @@ Figure 4.5: Discrete binomial distributions
 </p>
 </div>
 <p><strong>True</strong> refers to the actual difference in the population. The problem is that we do not know this difference. In our candy factory example, we can only observe the specific candy bag. Have an assumption about the null hypothesis and the alternative hypothesis. Though the <strong>true</strong> effect size refers only to the actual effect in the population, the actual difference, the actual correlation, the actual parameter value.</p>
+<p>Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.</p>
 </div>
 <div id="alpha" class="section level3 hasAnchor" number="4.1.4">
 <h3><span class="header-section-number">4.1.4</span> Alpha<a href="4.1-null-hypothesis-significance-testing.html#alpha" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -613,7 +613,7 @@ Figure 4.5: Discrete binomial distributions
 Figure 4.6: NHST decision table.
 </p>
 </div>
-<p>In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>. We have already determined that if <span class="math inline">\(H_0\)</span> is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of fugure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>, and are also shown in the table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a> below. Looking at the probability of getting 0 or 10 candies in table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a>, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our Type I error, alpha, significance level, would be .002.</p>
+<p>In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>. We have already determined that if <span class="math inline">\(H_0\)</span> is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>, and are also shown in the table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a> below. Looking at the probability of getting 0 or 10 candies in table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a>, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our Type I error, alpha, significance level, would be .002.</p>
 <table>
 <caption>
 <span id="tab:nullprobtable">Table 4.1: </span>Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true.
@@ -715,11 +715,11 @@ Figure 4.8: Sampling distribution of average media literacy according to the nul
 </p>
 </div>
 <p>Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.</p>
-<p>Now that we have our critical value based on our desired alpha, significance level, we can use this to determine the power.</p>
 </div>
 <div id="alpha-1" class="section level3 hasAnchor" number="4.1.5">
 <h3><span class="header-section-number">4.1.5</span> 1 - Alpha<a href="4.1-null-hypothesis-significance-testing.html#alpha-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The decision to not reject the null hypothesis when it is in reality true is indicated by <span class="math inline">\(1 - \alpha\)</span>. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to probability of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example, a 99.8% (1 - .002) chance of making the correct decision. The inside of the critical value in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistributionalpha">4.7</a> is the area where we do not reject the null hypothesis. In the <span class="math inline">\(2 \times 2\)</span> decision table in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:decisiontable">4.1</a>, this corresponds to the bottom left green quadrant.</p>
+<p>Now that we have determined our critical value based on our desired alpha, significance level, we can use this to look at the power.</p>
 </div>
 <div id="power" class="section level3 hasAnchor" number="4.1.6">
 <h3><span class="header-section-number">4.1.6</span> Power<a href="4.1-null-hypothesis-significance-testing.html#power" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -747,9 +747,26 @@ Figure 4.9: H0 binomial distributions with critical values
 <h3><span class="header-section-number">4.1.8</span> Test statistic<a href="4.1-null-hypothesis-significance-testing.html#test-statistic" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In chapter <a href="1.2-discreterandomvariable.html#samplestatistic">1.2.1</a> we discussed the <strong>sample statistic</strong>, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that also conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, <span class="math inline">\(t\)</span>-values, <span class="math inline">\(F\)</span>-values, and <span class="math inline">\(\chi^2\)</span>-values are also sample statistics.</p>
 <p>The <strong>test statistic</strong> is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4.</p>
+<p>In the previous sections, we have determined our decision criteria, the critical value, based on our desired alpha level. We have also determined the power of the test, based on the alternative hypothesis. The test statistic is used to determine if we reject the null hypothesis or not. If the test statistic is outside the critical value, we reject the null hypothesis. If the test statistic is inside the critical value, we do not reject the null hypothesis.</p>
+<p>Looking at figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistributionalpha">4.7</a>, we see that the critical value is between 0 and 1 and 9 and 10. If we would draw a bag with 4 yellow candies, we can check if the value 4 is inside or outside the critical value. As 4 is inside the critical value, we would not reject the null hypothesis.</p>
+<blockquote>
+<p>The test statistic is the value that is used to decide if we reject the null hypothesis or not.</p>
+</blockquote>
+<p>In the continuous case, as described in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nullsampling">4.8</a>, the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nullsampling">4.8</a>, and draw a few samples, you can se if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.</p>
 </div>
 <div id="p-value" class="section level3 hasAnchor" number="4.1.9">
 <h3><span class="header-section-number">4.1.9</span> P-value<a href="4.1-null-hypothesis-significance-testing.html#p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<blockquote>
+<p>The <strong>p-value</strong> is the probability of obtaining a <a href="test-statistic">test statistic</a> at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.</p>
+</blockquote>
+<p>In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample less yellow candies. This is what is meant with <strong>as extreme</strong>. this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3. Looking at table <a href="4.9-nullSPSS.html#tab:hypo-freq">4.2</a>, we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The probability of getting a sample that is less likely than the sample that we have drawn.</p>
+<p>The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
+<p>If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly on the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis.</p>
+<blockquote>
+<p>Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span></p>
+</blockquote>
+<p>If the p-value is smaller than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
+<p>The p-value expresses the same information as we have seen with our test statististic</p>
 </div>
 <div id="observed-effect-size" class="section level3 hasAnchor" number="4.1.10">
 <h3><span class="header-section-number">4.1.10</span> Observed effect size<a href="4.1-null-hypothesis-significance-testing.html#observed-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>

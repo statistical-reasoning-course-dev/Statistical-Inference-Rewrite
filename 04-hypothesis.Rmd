@@ -176,8 +176,6 @@ barplot( dbinom(0:10, 10, .2),
 
 Note that both probability distribution for $H_0$ and $H_A$ are the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.
 
-Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.
-
 ### True effect size
 
 The true effect size is the difference between the null hypothesis and the alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
@@ -211,6 +209,8 @@ text(12.5, .23, "True effect size", col='red', pos=3)
 
 **True** refers to the actual difference in the population. The problem is that we do not know this difference. In our candy factory example, we can only observe the specific candy bag. Have an assumption about the null hypothesis and the alternative hypothesis. Though the **true** effect size refers only to the actual effect in the population, the actual difference, the actual correlation, the actual parameter value.
 
+Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.
+
 ### Alpha
 
 The first step in the Neyman Pearson approach is to set the desired Type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ descision table in figure \@ref(fig:alphatable), this corresponds to the top left quadrant.
@@ -226,7 +226,7 @@ As a researcher, you decide how much risk you are willing to take to make a Type
 knitr::include_graphics("figures/decision_table.svg")
 ```
 
-In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in figure \@ref(fig:nulldistribution). We have already determined that if $H_0$ is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of fugure \@ref(fig:nulldistribution), and are also shown in the table \@ref(tab:nullprobtable) below. Looking at the probability of getting 0 or 10 candies in table \@ref(tab:nullprobtable), we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our Type I error, alpha, significance level, would be .002. 
+In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in figure \@ref(fig:nulldistribution). We have already determined that if $H_0$ is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of figure \@ref(fig:nulldistribution), and are also shown in the table \@ref(tab:nullprobtable) below. Looking at the probability of getting 0 or 10 candies in table \@ref(tab:nullprobtable), we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our Type I error, alpha, significance level, would be .002. 
 
 
 ```{r nullprobtable, echo=FALSE}
@@ -288,11 +288,11 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", heig
 
 Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.
 
-Now that we have our critical value based on our desired alpha, significance level, we can use this to determine the power.
-
 ### 1 - Alpha
 
 The decision to not reject the null hypothesis when it is in reality true is indicated by $1 - \alpha$. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to probability of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example, a 99.8% (1 - .002) chance of making the correct decision. The inside of the critical value in figure \@ref(fig:nulldistributionalpha) is the area where we do not reject the null hypothesis. In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the bottom left green quadrant.
+
+Now that we have determined our critical value based on our desired alpha, significance level, we can use this to look at the power.
 
 ### Power
 
@@ -351,18 +351,39 @@ In all statistical software, the power of the test is not calculated based on th
 
 The probability of making a Type II error is indicated by $\beta$. It is the probability of not rejecting the null hypothesis when it is in reality false. In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the bottom right quadrant. The power of the test is $1 - \beta$. In our candy factory example, the power of the test is .11, so the probability of making a Type II error is .89. It is the probability of getting a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies, when the machine actually produces bags with 2 yellow candies, the addition of the height of the bars in figure \@ref(fig:altdistributionpower) for these values.
 
-### Test statistic
+### Test statistic {#test-statistic}
 
 In chapter \@ref(samplestatistic) we discussed the **sample statistic**, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that also conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, $t$-values, $F$-values, and $\chi^2$-values are also sample statistics. 
 
 The **test statistic** is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4. 
 
+In the previous sections, we have determined our decision criteria, the critical value, based on our desired alpha level. We have also determined the power of the test, based on the alternative hypothesis. The test statistic is used to determine if we reject the null hypothesis or not. If the test statistic is outside the critical value, we reject the null hypothesis. If the test statistic is inside the critical value, we do not reject the null hypothesis.
 
+Looking at figure \@ref(fig:nulldistributionalpha), we see that the critical value is between 0 and 1 and 9 and 10. If we would draw a bag with 4 yellow candies, we can check if the value 4 is inside or outside the critical value. As 4 is inside the critical value, we would not reject the null hypothesis.
 
+> The test statistic is the value that is used to decide if we reject the null hypothesis or not.
 
-
+In the continuous case, as described in figure \@ref(fig:nullsampling), the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in figure \@ref(fig:nullsampling), and draw a few samples, you can se if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.
 
 ### P-value
+
+> The **p-value** is the probability of obtaining a [test statistic](test-statistic) at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.
+
+In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample less yellow candies. This is what is meant with **as extreme**. this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3. Looking at table \@ref(tab:hypo-freq), we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The probability of getting a sample that is less likely than the sample that we have drawn. 
+
+The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
+
+If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly on the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis. 
+
+> Reject $H_0$ when $p$-value $\leq \alpha$
+
+
+
+If the p-value is smaller than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
+
+The p-value expresses the same information as we have seen with our test statististic
+
+
 
 ### Observed effect size {#observed-effect-size}
 
