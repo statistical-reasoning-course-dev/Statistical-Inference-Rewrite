@@ -499,11 +499,11 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping" class="section level2 hasAnchor" number="4.7">
 <h2><span class="header-section-number">4.7</span> Testing a Null Hypothesis with an Exact Approach or Bootstrapping<a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Exact approaches calculate probabilities for discrete outcomes. In the candy example, the number of yellow candies in a sample bag of ten candies is a discrete outcome. With the binomial formula, the exact probability of zero yellow candies can be calculated, the probability of one yellow candy, two yellow candies, and so on (see Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:exactapproachfigure2">4.16</a>).</p>
+<p>Exact approaches calculate probabilities for discrete outcomes. In the candy example, the number of yellow candies in a sample bag of ten candies is a discrete outcome. With the binomial formula, the exact probability of zero yellow candies can be calculated, the probability of one yellow candy, two yellow candies, and so on (see Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:exactapproachfigure2">4.17</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:exactapproachfigure2"></span>
 <img src="figures/exactapproach.png" alt="Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population." width="300px" />
 <p class="caption">
-Figure 4.16: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
+Figure 4.17: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
 </p>
 </div>
 <p>Let us imagine that our sample bag of ten candies contains six yellow candies and we hypothesize that twenty per cent of the candies are yellow in the population. The <em>p</em> value of our sample outcome (six yellow candies) sums the probabilities of drawing a sample bag with six, seven, eight, nine, or ten yellow candies from a population in which twenty per cent of the candies are yellow (our null hypothesis). The <em>p</em> value happens to be (around) .007 (.006 + .001 + 0 + 0 + 0). This is the right-sided <em>p</em> value if we assume that our hypothesis is true.</p>
@@ -511,12 +511,12 @@ Figure 4.16: Probabilities of a sample with a particular number of yellow candie
 <p>The situation is slightly more complicated if we want to execute a significance test with a sampling distribution created with bootstrapping. To understand the testing procedure with bootstrapping, we first have to discuss the relation between null-hypothesis testing and confidence intervals.</p>
 <div id="null-ci0" class="section level3 hasAnchor" number="4.7.1">
 <h3><span class="header-section-number">4.7.1</span> Relation between null-hypothesis tests and confidence intervals<a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#null-ci0" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:null-ci">4.17</a> shows media literacy scores in a random sample of children and their average media literacy score (red). The hypothesized average media literacy in the population of children is shown on the top axis. The curve represents the sampling distribution if the null hypothesis is true.</p>
+<p>Figure <a href="4.7-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#fig:null-ci">4.18</a> shows media literacy scores in a random sample of children and their average media literacy score (red). The hypothesized average media literacy in the population of children is shown on the top axis. The curve represents the sampling distribution if the null hypothesis is true.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:null-ci"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/null-ci/?showcase=0" width="775px" height="268px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.17: How does null hypothesis significance relate to confidence intervals?
+Figure 4.18: How does null hypothesis significance relate to confidence intervals?
 </p>
 </div>
 <p><A name="question4.6.1"></A></p>

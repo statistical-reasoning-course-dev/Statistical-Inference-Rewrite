@@ -176,7 +176,7 @@ barplot( dbinom(0:10, 10, .2),
 
 Note that both probability distribution for $H_0$ and $H_A$ are the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.
 
-### True effect size
+### True effect size {#true-effect-size}
 
 The true effect size is the difference between the null hypothesis and the alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
 
@@ -363,29 +363,135 @@ Looking at figure \@ref(fig:nulldistributionalpha), we see that the critical val
 
 > The test statistic is the value that is used to decide if we reject the null hypothesis or not.
 
-In the continuous case, as described in figure \@ref(fig:nullsampling), the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in figure \@ref(fig:nullsampling), and draw a few samples, you can se if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.
+In the continuous case, as described in figure \@ref(fig:nullsampling), the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in figure \@ref(fig:nullsampling), and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.
 
 ### P-value
 
-> The **p-value** is the probability of obtaining a [test statistic](test-statistic) at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.
+> The **p-value** is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.
 
-In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample less yellow candies. This is what is meant with **as extreme**. this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3. Looking at table \@ref(tab:hypo-freq), we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The probability of getting a sample that is less likely than the sample that we have drawn. 
+In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with "at least as extreme". this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3, are even less probable than 4. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the null distribution. Looking at table \@ref(tab:nullprobtable), we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The conditional probability of getting a sample that is as or less likely than the test statistic that we have. The conditional probability is referring to our assumption that the null hypothesis is true.
 
 The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
 
-If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly on the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis. 
+If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis. 
 
 > Reject $H_0$ when $p$-value $\leq \alpha$
 
+As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. In the continuous case, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.
+
+Figure \@ref(fig:t-alpha-p) shows a t-distribution for a null assumption with an alpha level of 5% (red area) and the p-value (blue area) for a random sample with a t-value of 2. For a two sided test (left) and a one sided test (right). We will cover one and two sided testing in chapter \@ref(one-twosidedtests).
+
+```{r t-alpha-p, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="T-distributions with alpha level and p-value", echo=FALSE, out.width="820px", out.height="350px", screenshot.opts = list(delay = 5), dev="png"}
+layout(matrix(1:2, 1, 2))
+
+plot(function(x) dt(x, df = 10), -4, 4,
+     main="T distribution (df=10) with two sided alpha",
+     cex.main = .7,
+     xlab="T-value",
+     ylab="",
+     bty="n",
+     lwd=1.5)
+     
+t = 2
+
+p = pt(1,10)
+
+alpha_r = 1-p
 
 
-If the p-value is smaller than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
+# add p-value
+pol_left = seq(-4,-t,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=45, density=15, lwd=2)
+pol_right = seq(4,t,length=20)
+polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="blue", angle=45, density=15, lwd=2)
 
-The p-value expresses the same information as we have seen with our test statististic
+# add alpha
+
+tp95  = qt(.95,10)
+tp975 = qt(.975,10)
+tp25  = qt(.025,10)
+
+pol_left = seq(-4,tp25,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=-45, density=15, lwd=2)
+
+pol_left = seq(tp975,4,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=-45, density=15, lwd=2)
+
+# label alpha
+text(-3,dt(tp25 , df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='red')
+text( 3,dt(tp975, df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='red')
+
+xbracket = seq(-4,tp25,length=39)
+ybracket = dt(tp25 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
+lines(xbracket,ybracket,col="gray")
+
+xbracket = seq(tp975, 4,length=39)
+ybracket = dt(tp975 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
+lines(xbracket,ybracket,col="gray")
+
+#text(-4.2,.38,expression(paste("2 sided: P = ",P[left] + P[right]," = 7.34%")),pos=4)
+
+plot(function(x) dt(x, df = 10), -4, 4,
+     main="T distribution (df=10) with one sided alpha",
+     cex.main = .7,
+     xlab="T-value",
+     ylab="",
+     bty="n", 
+     lwd=1.5)
+
+pol_left = seq(tp95,4,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=-45, density=15, lwd=2)
+
+# label alpha
+text( 3,dt(tp95 , df = 10),expression(paste(    alpha[right]," = 5%"  ,sep="")),pos=3, col='red')
+
+# add p-value
+# pol_left = seq(-4,-t,length=20)
+# polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=45, density=15, lwd=2)
+pol_right = seq(4,t,length=20)
+polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="blue", angle=45, density=15, lwd=2)
+
+#text((-4+tp25)/2,dt(tp25  , df = 10),"{",srt=-90,col="grey")
+#text( (4+tp975)/2,dt(tp975, df = 10),"{",srt=-90,col="grey")
+#text( (4+tp95)/2,dt(tp95  , df = 10),"{",srt=-90,col="grey")
+
+# label p-values
+# text(-t,.01,expression(P[left] ),pos=2,col="blue")
+text( t+.5,.03,expression(P[right]),pos=4,col="blue")
+
+# text(-t-.1,dt(-t, df = 10)+.003,"T")
+text( t+.1,dt( t, df = 10)+.003,"T")
 
 
+# text(-4.2,.38 ,"1 sided: P/2 = 3.67%",pos=4)
+
+## 1%   T = 1.81246
+## .95% T = 2.228
+
+#polygon(c(0,1,1,0),c(0,0,.3,.3))
+
+pol_left = seq(-4,-t,length=20)
+
+xbracket = seq(tp95,4,length=39)
+ybracket = dt(tp95 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
+lines(xbracket,ybracket,col="gray")
+```
+
+In figure \@ref(fig:t-alpha-p), the red vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the red area under the curve. The blue vertical line represents the t-value from the sample, which in this example was 2. The blue area under the curve represents the p-value, the probability of getting this t-value or more extreme.
+
+The reasoning is again the same as in the discrete case. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
 
 ### Observed effect size {#observed-effect-size}
+
+In chapter \@ref(true-effect-size) we discussed the true effect, the difference between the null hypothesis and the alternative hypothesis. The problem is that we do not know the true effect, we do not know wich of the two hypothesis is actually true. In some cases we don't even know if our expected alternative hypothesis is correct. 
+
+We can only estimate the true effect using the sample statistic. The difference between the sample statistic and the null hypothesis is called the **observed effect size**. In the candy factory example, the observed effect size is the difference between the number of yellow candies in the sample and the number of yellow candies in the null hypothesis. If the null hypothesis is that the machine produces bags with 5 yellow candies, and the sample contains 4 yellow candies, the observed effect size is 1.
+
+
+
+You can imagine that estimating the true effect size on just one sample is not very reliable. The observed effect size could be the result of our sample being the result of the null being true, or the alternative being true. The way researcher try to get a notion of the true effect size is by replicating the study. If the observed effect size is consistent over multiple replications, we can be more confident that the average observed effect size is the true effect size. This is what we will cover in chapter \@ref(meta-analysis) about meta analysis.
+
+
 
 ### Observed power
 

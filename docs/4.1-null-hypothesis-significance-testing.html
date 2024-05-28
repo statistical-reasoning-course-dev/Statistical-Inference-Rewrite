@@ -752,24 +752,35 @@ Figure 4.9: H0 binomial distributions with critical values
 <blockquote>
 <p>The test statistic is the value that is used to decide if we reject the null hypothesis or not.</p>
 </blockquote>
-<p>In the continuous case, as described in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nullsampling">4.8</a>, the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nullsampling">4.8</a>, and draw a few samples, you can se if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.</p>
+<p>In the continuous case, as described in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nullsampling">4.8</a>, the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nullsampling">4.8</a>, and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.</p>
 </div>
 <div id="p-value" class="section level3 hasAnchor" number="4.1.9">
 <h3><span class="header-section-number">4.1.9</span> P-value<a href="4.1-null-hypothesis-significance-testing.html#p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <blockquote>
-<p>The <strong>p-value</strong> is the probability of obtaining a <a href="test-statistic">test statistic</a> at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.</p>
+<p>The <strong>p-value</strong> is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.</p>
 </blockquote>
-<p>In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample less yellow candies. This is what is meant with <strong>as extreme</strong>. this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3. Looking at table <a href="4.9-nullSPSS.html#tab:hypo-freq">4.2</a>, we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The probability of getting a sample that is less likely than the sample that we have drawn.</p>
+<p>In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with “at least as extreme”. this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3, are even less probable than 4. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the null distribution. Looking at table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a>, we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The conditional probability of getting a sample that is as or less likely than the test statistic that we have. The conditional probability is referring to our assumption that the null hypothesis is true.</p>
 <p>The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
-<p>If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly on the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis.</p>
+<p>If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis.</p>
 <blockquote>
 <p>Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span></p>
 </blockquote>
-<p>If the p-value is smaller than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
-<p>The p-value expresses the same information as we have seen with our test statististic</p>
+<p>As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. In the continuous case, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.</p>
+<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:t-alpha-p">4.10</a> shows a t-distribution for a null assumption with an alpha level of 5% (red area) and the p-value (blue area) for a random sample with a t-value of 2. For a two sided test (left) and a one sided test (right). We will cover one and two sided testing in chapter <a href="4.5-one-twosidedtests.html#one-twosidedtests">4.5</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:t-alpha-p"></span>
+<img src="GentleIntro_files/figure-html/t-alpha-p-1.png" alt="T-distributions with alpha level and p-value" width="820px" height="350px" />
+<p class="caption">
+Figure 4.10: T-distributions with alpha level and p-value
+</p>
+</div>
+<p>In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:t-alpha-p">4.10</a>, the red vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the red area under the curve. The blue vertical line represents the t-value from the sample, which in this example was 2. The blue area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
+<p>The reasoning is again the same as in the discrete case. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
 </div>
 <div id="observed-effect-size" class="section level3 hasAnchor" number="4.1.10">
 <h3><span class="header-section-number">4.1.10</span> Observed effect size<a href="4.1-null-hypothesis-significance-testing.html#observed-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In chapter <a href="4.1-null-hypothesis-significance-testing.html#true-effect-size">4.1.3</a> we discussed the true effect, the difference between the null hypothesis and the alternative hypothesis. The problem is that we do not know the true effect, we do not know wich of the two hypothesis is actually true. In some cases we don’t even know if our expected alternative hypothesis is correct.</p>
+<p>We can only estimate the true effect using the sample statistic. The difference between the sample statistic and the null hypothesis is called the <strong>observed effect size</strong>. In the candy factory example, the observed effect size is the difference between the number of yellow candies in the sample and the number of yellow candies in the null hypothesis. If the null hypothesis is that the machine produces bags with 5 yellow candies, and the sample contains 4 yellow candies, the observed effect size is 1.</p>
+<p>You can imagine that estimating the true effect size on just one sample is not very reliable. The observed effect size could be the result of our sample being the result of the null being true, or the alternative being true. The way researcher try to get a notion of the true effect size is by replicating the study. If the observed effect size is consistent over multiple replications, we can be more confident that the average observed effect size is the true effect size. This is what we will cover in chapter <a href="4.1-null-hypothesis-significance-testing.html#meta-analysis">4.1.12</a> about meta analysis.</p>
 </div>
 <div id="observed-power" class="section level3 hasAnchor" number="4.1.11">
 <h3><span class="header-section-number">4.1.11</span> Observed power<a href="4.1-null-hypothesis-significance-testing.html#observed-power" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -782,7 +793,7 @@ Figure 4.9: H0 binomial distributions with critical values
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobinomN15"></span>
 <img src="GentleIntro_files/figure-html/twobinomN15-1.png" alt="Discrete binomial distributions" width="420px" />
 <p class="caption">
-Figure 4.10: Discrete binomial distributions
+Figure 4.11: Discrete binomial distributions
 </p>
 </div>
 </div>
