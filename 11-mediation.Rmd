@@ -211,7 +211,7 @@ model_4 <- lm(readingtime ~ age  + polinterest , data = readers)
 library(visNetwork)
 nodes <- data.frame(
   id = 1:3, x = c(0,  550,  1000),
-  y = c(500,  0,  250),
+  y = c(500,  0,  500),
   label = c("Age (/10)",  "Pol. Interest", "Newspaper \n Reading Time"), 
   shape = "box", font.size = 42, shadow = "FALSE", physics = FALSE, borderWidth = 1, color = list(background = "white", border = "black") )
 edges <- data.frame(from = c(1, seq(1, 2)), 
