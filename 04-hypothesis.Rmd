@@ -30,16 +30,12 @@ The Neyman Pearson approach ensures tight control on the probability of making c
 
 The Neyman Pearson approach is about choosimg your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:
 
-* $H_0$
-* The true alternative $H_A$
-* The true effect size
-* Desired type I error ($\alpha$)
-* Desired Power ($1 - \beta$)
-* Required sample size for the desired type I error and Power
-* Data collection with the appropriate sample size
-* Test statistic
-* The $p$-value
-* Conclusion
+1. Alpha - Determine your desired risk of drawing the wrong conclusion.
+2. Power - Determine your desired probability of drawing the correct conclusion.
+    * Determine the sample size needed to achieve this.
+3. Conduct your research with this sample size.
+4. Determine the test statistic.
+5. Determine if $p$-value $\leq \alpha$. If so, reject $H_0$.
 
 The two decisions can be visualized in a $2 \times 2$ table where in reality $H_0$ can be true or false ($H_A$ is true), and the decision can either be to reject $H_0$ or not. Figure \@ref(fig:decisiontable) illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is infact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
 
@@ -58,8 +54,8 @@ As the candy factory produces bags with ten candies, we can look at both probabi
 
 * $H_0$ Distribution
     * Half of the candies in the bag are yellow
-    * Our expected value is 5
     * The parameter of the candy machine is .5
+    * With expected value 5 out of 10
 
 :::
     
@@ -67,8 +63,8 @@ As the candy factory produces bags with ten candies, we can look at both probabi
     
 * $H_A$ Distribution
     * One fifth of the candies in the bag are yellow
-    * Our expected value is 2
     * The parameter of the candy machine is .2
+    * With expected value 2 out of 10
 
 :::
 

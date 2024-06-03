@@ -499,18 +499,16 @@ div.csl-indent {
 <p>Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach <span class="citation">(<a href="references.html#ref-RefWorks:3930">Lehmann, 1993</a>)</span>. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.</p>
 <p>The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criteria and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the <span class="math inline">\(H_0\)</span> hypothesis.</p>
 <p>The Neyman Pearson approach is about choosimg your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:</p>
+<ol style="list-style-type: decimal">
+<li>Alpha - Determine your desired risk of drawing the wrong conclusion.</li>
+<li>Power - Determine your desired probability of drawing the correct conclusion.
 <ul>
-<li><span class="math inline">\(H_0\)</span></li>
-<li>The true alternative <span class="math inline">\(H_A\)</span></li>
-<li>The true effect size</li>
-<li>Desired type I error (<span class="math inline">\(\alpha\)</span>)</li>
-<li>Desired Power (<span class="math inline">\(1 - \beta\)</span>)</li>
-<li>Required sample size for the desired type I error and Power</li>
-<li>Data collection with the appropriate sample size</li>
-<li>Test statistic</li>
-<li>The <span class="math inline">\(p\)</span>-value</li>
-<li>Conclusion</li>
-</ul>
+<li>Determine the sample size needed to achieve this.</li>
+</ul></li>
+<li>Conduct your research with this sample size.</li>
+<li>Determine the test statistic.</li>
+<li>Determine if <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span>. If so, reject <span class="math inline">\(H_0\)</span>.</li>
+</ol>
 <p>The two decisions can be visualized in a <span class="math inline">\(2 \times 2\)</span> table where in reality <span class="math inline">\(H_0\)</span> can be true or false (<span class="math inline">\(H_A\)</span> is true), and the decision can either be to reject <span class="math inline">\(H_0\)</span> or not. Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:decisiontable">4.1</a> illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject <span class="math inline">\(H_0\)</span> when it is infact false, and not to reject <span class="math inline">\(H_0\)</span> if it is in reality true. And the red squares indicate that it is a wrong decision to reject <span class="math inline">\(H_0\)</span> when it is actually true (Type I error), or not reject <span class="math inline">\(H_0\)</span> if it is in reality false (Type II error).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:decisiontable"></span>
 <img src="figures/decision_table.svg" alt="NHST decision table." width="300px" />
@@ -526,8 +524,8 @@ Figure 4.1: NHST decision table.
 <li><span class="math inline">\(H_0\)</span> Distribution
 <ul>
 <li>Half of the candies in the bag are yellow</li>
-<li>Our expected value is 5</li>
 <li>The parameter of the candy machine is .5</li>
+<li>With expected value 5 out of 10</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -535,8 +533,8 @@ Figure 4.1: NHST decision table.
 <li><span class="math inline">\(H_A\)</span> Distribution
 <ul>
 <li>One fifth of the candies in the bag are yellow</li>
-<li>Our expected value is 2</li>
 <li>The parameter of the candy machine is .2</li>
+<li>With expected value 2 out of 10</li>
 </ul></li>
 </ul>
 </div>
