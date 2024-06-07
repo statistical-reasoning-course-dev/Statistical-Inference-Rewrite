@@ -52,17 +52,7 @@ The variation of sample size across groups is important in analysis of variance 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-unstand/", height="268px")
 ```
 
-<A name="question5.2.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch5, echo = Qch5}
-1. If we draw a sample of twenty candies, which average candy weight in our sample rejects the null hypothesis according to Figure \@ref(fig:sample-size-unstand): 2.40, 2.70, or 3.05 grams? [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.1){.buttonToAnswer}
-```
-
-<A name="question5.2.2"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-2. Imagine that legal regulations allow average candy weight in a sample bag to differ 0.10 grams but not 0.25 grams from the weight reported on the sample bag. Our statistical test should pick up (be significant) differences of at least 0.25 grams, but not differences of 0.10 grams or less. What is the minimum and maximum size of our sample? Use the slider to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.2.2){.buttonToAnswer}
-```
 
 We have learned that larger samples have smaller standard errors (Section \@ref(sample-size)). Smaller standard errors yield larger test statistic values and larger test statistics have smaller *p* values. In other words, a test on a larger sample is more often statistically significant.
 
@@ -403,7 +393,7 @@ Unfortunately, test power receives little attention in several software packages
 
 ### So how do we determine sample size?
 
-All in all, using effect size and test power to determine the size of the sample requires several decisions on the part of the researcher. It can be difficult to specify the effect size that we should expect or that is practically relevant. If there is little prior research comparable to our new project, we cannot reasonably specify an effect size and calculate sample size.
+All in all, using effect size and test power to determine the size of the sample requires several decisions on the part of the researcher. 
 
 Of course, it is important to ensure that our sample meets the requirements of the tests that we want to specify (Section \@ref(size-test-req)). In practice, researchers often go well beyond this minimum. They try to collect as large a sample as is feasible just to be on the safe side.
 

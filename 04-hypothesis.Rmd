@@ -174,7 +174,7 @@ Note that both the probability distribution for $H_0$ and for $H_A$ contain the 
 
 ### True effect size {#true-effect-size}
 
-The true effect size is the difference between the null hypothesis and the alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
+The true effect size is the difference between the null hypothesis and the true  alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it it the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
 
 ```{r twobinomeffect, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
@@ -620,7 +620,6 @@ Now imagine that we would take multiple samples from the alternative distributio
 In research we conduct replication studies to see if the observed effect size is consistent over multiple replications. If this is the case, we can be more confident that the average observed effect size is the true effect size and we can determine the parameter of the alternative hypothesis. 
 
 Again imagine that we get a hundred bags of candy and we consistently find 7 to 9 yellow candies, this would give us an indication of the true effect size being 8. It would also indicate that our initial alternative hypothesis is highly unlikely. 
-
 This is essentially what meta analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size. 
 
 [to-do] add communication meta analysis example.
@@ -688,11 +687,25 @@ Just like the discrete case, we choose an alpha level, and we can see the critic
 
 The reasoning is again the same as in the discrete case. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident theat we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
 
+#### How to determine sample size
 
+As stated in chapter \@ref(#power) about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don't know the true effect size. We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence.
 
+In research you can take these assumptions into account by conducting a power analysis. A power analysis is a statistical method to determine the sample size you need to get a desired power for a given effect size. 
 
+It can be difficult to specify the effect size that we should expect or that is practically relevant. If there is little prior research comparable to our new project, we cannot reasonably specify an effect size and calculate sample size. Though, if there are meta analysis available for you research topic of interest or you have the effect sizes from a few previous studies, you can use G*Power to calculate the sample size you need to get a desired power for a given effect size. G*Power is a stand alone program that can be downloaded from the internet, and is specificly designed to calculate sample size for a wide range of statistical tests.
 
+> Download [G*Power here](http://www.gpower.hhu.de/)
 
+In G*Power you can specify the test you want to conduct, the effect size you expect, the alpha level you want to use, and the power you want to achieve. G*Power will then calculate the sample size you need to get the desired power for the given effect size.
+
+For our candy color example, we can use G*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3. 
+
+```{r g-power, eval=TRUE, echo=FALSE, out.width="500px", fig.pos='H', fig.align='center', fig.cap="Power analysis in G*Power for a binomial distribution"}
+knitr::include_graphics("figures/g-power.png")
+```
+
+In figure \@ref(fig:g-power) you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in figure \@ref(fig:twobinomN20), though with lines instead of bars.
 
 ## A Binary Decision {#binarydecision}
 
