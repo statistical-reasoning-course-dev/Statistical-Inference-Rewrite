@@ -26,6 +26,13 @@ Then, we calculate the probability of drawing a sample such as the one we have d
 
 Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach [@RefWorks:3930]. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.
 
+```{block2, type='rmdpearson'}
+Our habit of formulating a null hypothesis and an alternative hypothesis for all situations not covered by the null hypothesis is generally attributed to the statistician R.A. Fisher. This, however, is not entirely correct [see, e.g., @RefWorks:3931]. Fisher introduced the concept of a null hypothesis [@RefWorks:3932: 18] but not the concept of an alternative hypothesis.
+The statisticians Jerzy Neyman and Egon Pearson introduced the idea of working with two or more hypotheses. But the two hypotheses do not cover all possible population values and they were usually not called a null and alternative hypothesis. They specify two or more different population values. A statistical test is used to determine which of the hypotheses fits the sample best. [@RefWorks:3906]
+
+Egon Pearson. Photo by Grasso Luigi, Wikimedia Commons, CC BY-SA 4.0
+```
+
 The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criteria and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the $H_0$ hypothesis.
 
 The Neyman Pearson approach is about choosing your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:
@@ -363,7 +370,11 @@ In the continuous case, as described in figure \@ref(fig:nullsampling), the test
 
 ### P-value
 
+How do we know that the test statistic that we have drawn is among the five percent most unlikely samples if the null hypothesis is true? In other words, how do we know that our sample statistic outcome is in the rejection region?
+
 > The **p-value** is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.
+
+We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
 
 In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with "at least as extreme". this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3, are even less probable than 4. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the null distribution. Looking at table \@ref(tab:nullprobtable), we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The conditional probability of getting a sample that is as or less likely than the test statistic that we have. The conditional probability is referring to our assumption that the null hypothesis is true.
 
@@ -371,9 +382,17 @@ The reasoning applied when comparing our test statistic to the critical value is
 
 If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis. 
 
-> Reject $H_0$ when $p$-value $\leq \alpha$
+```{block2, type='rmdimportant'}
+Reject $H_0$ when $p$-value $\leq \alpha$
+```
 
 As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. In the continuous case, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.
+
+> It is important to remember that a _p_ value is a probability _under the assumption that the null hypothesis is true_. Therefore, it is a _conditional probability_. 
+
+Compare it to the probability that we throw sixes with a dice. This probability is one out of six under the assumption that the dice is fair. Probabilities rest on assumptions. If the assumptions are violated, we cannot calculate probabilities. 
+
+If the dice is not fair, we don't know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.
 
 Figure \@ref(fig:t-alpha-p) shows a t-distribution for a null assumption with an alpha level of 5% (red area) and the p-value (blue area) for a random sample with a t-value of 2. For a two sided test (left) and a one sided test (right). We will cover one and two sided testing in chapter \@ref(one-twosidedtests).
 
@@ -474,6 +493,17 @@ lines(xbracket,ybracket,col="gray")
 ```
 
 In figure \@ref(fig:t-alpha-p), the red vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the red area under the curve. The blue vertical line represents the t-value from the sample, which in this example was 2. The blue area under the curve represents the p-value, the probability of getting this t-value or more extreme.
+
+Figure \@ref(fig:twosided) representing the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
+
+```{r twosided, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
+# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
+
+# [to-do] add p-value area to the plot
+
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="268px")
+```
 
 The reasoning is again the same as in the discrete case. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
 
@@ -765,212 +795,9 @@ You should understand the exact meaning of probabilities here. A significance le
 
 In other words, if we draw many samples and decide on the null hypothesis for each sample, we would reject a true null hypothesis in five per cent of our decisions. So we have a five per cent chance of making a Type I error. We decide on that probability when we select the significance level of the test. We think that 5 percent (.05) is an acceptable probability for making this type of error.
 
-### _p_ Value {#pvalue}
 
-How do we know that the sample that we have drawn is among the five percent most unlikely samples if the null hypothesis is true? In other words, how do we know that our sample statistic outcome is in the rejection region?
 
-```{r twosided, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
-# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="268px")
-```
 
-In the previous section, we learned that a test is statistically significant if the sample statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
-
-A _p_ value is the probability that a sample is drawn with a value for the sample statistic that is at least as different from the hypothesized population value as the value in the observed sample. In other words, the _p_ value tells us the proportion of all possible samples that are less similar to the hypothesized population value than our observed sample if the null hypothesis is true. If this proportion is very small, say less than five percent, the sample that we have drawn is among the unlikely samples. 
-
-And what do we do if our sample is among the unlikely ones? We reject the null hypothesis because the test is statistically significant. The decision rule is quite simple if we know the _p_ value of a test: If the _p_ value is below the significance level (usually .05), we reject the null hypothesis. Otherwise, we do not reject it.
-
-```{block2, type='rmdimportant'}
-If _p_ is low, the null must go and the test is statistically significant.
-```
-
-This is the golden rule of null hypothesis testing (although some argue that the gold of this rule is fool's gold, see Chapter \@ref(crit-discus)).  
-
-It is important to remember that a _p_ value is a probability _under the assumption that the null hypothesis is true_. Therefore, it is a _conditional probability_. 
-
-Compare it to the probability that we throw sixes with a dice. This probability is one out of six under the assumption that the dice is fair. Probabilities rest on assumptions. If the assumptions are violated, we cannot calculate probabilities. 
-
-If the dice is not fair, we don't know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.
-
-```{html, echo=ch4} 
-### Answers {-} 
-```
-
-<A name="answer4.2.1"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 1. 
-
-* A television station reaches half of all households in a country: This
-hypothesis is about a proportion (share): half (50%) of all households.
-* Media literacy is below 5.5 (on a 10-point scale) among children: This
-hypothesis probably addresses a population mean, namely average media
-literacy.
-* Opinions about immigrants are not equally polarized among young and old
-voters: It is not so easy to see, but this hypothesis is about variation in
-scores, namely the variance in opinion scores among young voters and the
-variation among old voters.
-* The celebrity endorsing a fundraising campaign makes a difference to
-willingness to donate: People exposed to different endorsers are expected to
-have different (levels of) willingness to donate. We are probably going to
-compare the mean or median willingness across groups of people.
-* More exposure to brand advertisements increases brand awareness: This
-probably refers to a correlation or regression between brand advertisements
-and brand awareness. [<img src="icons/2question.png" width=161px align="right">](#question4.2.1)
-```
-
-<A name="answer4.2.2"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 2. 
-
-* The null hypothesis: In the population of children, average media literacy
-is 5.5.
-* Be sure to mention that the null hypothesis concerns a population.
-* This example is about average media literacy, so the null hypothesis
-statistic is the average.
-* The (hypothesized) population mean is the average (middle) of the
-(hypothesized) sampling distribution because the sample mean is an unbiased
-estimator of the population mean. [<img src="icons/2question.png" width=161px
-align="right">](#question4.2.2)
-```
-
-<A name="answer4.2.3"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 3. 
-
-* A sampling distribution tells us the probabilities of drawing samples with
-particular values for the sample statistic. In the current application, it
-tells us the probability of drawing a sample of children with average media
-literacy scores in a particular range, for example, above 5.5.
-* If the null hypothesis is true, the sampling distribution created by the
-null hypothesis is the actual distribution from which we draw our sample. The
-probabilities are correct.
-* Note that the probabilities are not correct if the null hypothesis is not
-true. In that case, we draw our sample from another sampling distribution.
-[<img src="icons/2question.png" width=161px align="right">](#question4.2.3)
-```
-
-<A name="answer4.2.4"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 4. 
-
-* The probability that a sample is part of the blue tails, is 5 per cent because a sampling distribution gives us probabilities of sample outcomes. But note that this probability is only correct if the null hypothesis is true (see the [answer to Question 3](#answer4.2.3)){.buttonToAnswer}. [<img src="icons/2question.png"
-width=161px align="right">](#question4.2.4)
-```
-
-<A name="answer4.2.5"></A>    
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 5. 
-
-* The decision rule states that we reject the null hypothesis if average media literacy in our sample is in the blue tails. This means that we reject the null hypothesis if our sample outcome (average media literacy) is among the five per cent outcomes that are most unlikely if the null hypothesis is true.
-* In the initial example with average population media literacy hypothesized
-to be 5.5, sample means below 4.07 or above 6.93 are in the blue tails, so we
-reject the null hypothesis. These sample means are statistically significantly
-different from the hypothesized population value. 
-* The rejection region consists of all sample means below 4.07 and all sample means above 6.93. [<img src="icons/2question.png" width=161px align="right">](#question4.2.5)
-```
-
-<A name="answer4.2.6"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 6. 
-
-* If the red line, which represents the sample mean, crosses the blue tails,
-the test result is statistically significant. Average media literacy in the
-sample is too different from hypothesized average media literacy in the
-population.
-* If the red line is in between the blue tails, the test result is not
-statistically significant. Average media literacy in the sample is
-sufficiently similar to the hypothesized average media literacy in the
-population.
-* Instead of using the blue tails, you can also justify your answer by
-comparing the value of the sample mean, for example, 3.9, to the values that
-cut off the blue tails, which mark the borders of the rejection region. If the
-population mean is 5.5 according to the null hypothesis, the rejection region
-contains all sample means below 4.07 and all sample means above 6.93. The
-sample mean 3.9 is in the rejection region. [<img src="icons/2question.png"
-width=161px align="right">](#question4.2.6)
-```
-
-<A name="answer4.2.7"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 7. 
-
-* If the null hypothesis changes, the hypothesized population average, hence
-the centre of the sampling distribution moves left or right. And so do the
-blue tails that indicate statistically significant results.
-* Thus, it is always possible to find a hypothesized population value for
-which the sample mean ends up in a blue tail, so it is statistically
-significant. [<img src="icons/2question.png" width=161px align="right">](#question4.2.7)
-```
-
-<A name="answer4.2.8"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 8. 
-
-* It represents the probability (_p_ value) of drawing a sample with mean media
-literacy below 3.9 if the null hypothesis is true that the population average
-is 5.50.
-* In a later section, we will see that this is a one-sided _p_ value, more
-precisely, a left-sided _p_ value.
-* Please, do not forget to mention that this is the probability only if the
-null hypothesis is true. See Question 4. [<img src="icons/2question.png" width=161px align="right">](#question4.2.8)
-```
-
-<A name="answer4.2.9"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 9. 
-
-* The two-sided _p_ value is twice the (one-sided) _p_ value reported as the red number
-next to the solid red line. Note that rounding errors occur.
-* The two-sided _p_ value tells us the probability of drawing a sample with
-average media literacy at least as different from the hypothesized value as the
-sample mean that we have found.
-* The solid red line represents the sample mean that we have found. The
-associated probability tells us the probability of drawing a sample with
-average media literacy at least 5.5 - 3.9 = 1.6 LESS than the hypothesized
-population value.
-* The dashed red line is the boundary for samples with average media literacy
-that are at least 1.6 HIGHER than the hypothesized population mean. These
-samples are at least as far away from the hypothesis as the sample mean that we
-have observed.
-* The dashed red line cuts off the same size from the right tail as the solid
-red line cuts off from the left tail (in the initial situation of the figure).
-In other words, it represents the same probability.
-* The two-sided _p_ value sums the probabilities cut off from the left tail and
-the right tail. As a result, it is twice the probability reported for the left
-tail. [<img src="icons/2question.png" width=161px align="right">](#question4.2.9)
-```
-
-<A name="answer4.2.10"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 10. 
-
-* The statistical test is significant at the five per cent significance level.
-* Rejection region: The sample mean is in the rejection region marked by the
-blue tails, so the test is statistically significant. The total probability of
-the two blue tails is five per cent, so this is the significance level.
-* (Left-sided) _p_ value: The probability of drawing a sample with 3.9 average media
-literacy (.015) is less than the probability associated with the rejection
-region in the left tail (.025) if the null hypothesis is true. So the test is
-statistically significant at the 2 * .025 = .05 level.
-* Two-sided _p_ value: The two-sided _p_ value is below five percent if the null
-hypothesis is true, so the test is statistically significant at the five
-percent significance level. [<img src="icons/2question.png" width=161px align="right">](#question4.2.10)
-```
-
-<A name="answer4.2.11"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 11. 
-
-* The two-sided _p_ value changes if we change the hypothesized population mean
-with the slider. It becomes smaller if we move the hypothesized population
-value away from the observed sample mean. It becomes larger if we move towards
-the sample mean.
-* This clearly illustrates that the _p_ value of a test, the location of the
-rejection regions, and, as a consequence, the statistical significance of the
-test depends on the value of the population statistic that we specify in the
-null hypothesis. [<img src="icons/2question.png" width=161px align="right">](#question4.2.11)
-```
 
 ## Research hypothesis, alternative hypothesis, and nil hypothesis {#null-alt}
 

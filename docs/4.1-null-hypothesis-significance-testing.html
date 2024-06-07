@@ -222,7 +222,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html#nullhypothesis"><i class="fa fa-check"></i><b>4.3.1</b> The null hypothesis</a></li>
 <li class="chapter" data-level="4.3.2" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html#sig-typeI"><i class="fa fa-check"></i><b>4.3.2</b> Significance level (<span class="math inline">\(\alpha\)</span>), significance, rejection region, and Type I error</a></li>
-<li class="chapter" data-level="4.3.3" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html#pvalue"><i class="fa fa-check"></i><b>4.3.3</b> <em>p</em> Value</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="4.4-null-alt.html"><a href="4.4-null-alt.html"><i class="fa fa-check"></i><b>4.4</b> Research hypothesis, alternative hypothesis, and nil hypothesis</a></li>
 <li class="chapter" data-level="4.5" data-path="4.5-one-twosidedtests.html"><a href="4.5-one-twosidedtests.html"><i class="fa fa-check"></i><b>4.5</b> One-Sided and Two-Sided Tests</a>
@@ -497,6 +496,12 @@ div.csl-indent {
 <div id="null-hypothesis-significance-testing" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Null Hypothesis Significance Testing<a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis-significance-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach <span class="citation">(<a href="references.html#ref-RefWorks:3930">Lehmann, 1993</a>)</span>. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.</p>
+
+<div class="rmdpearson">
+<p>Our habit of formulating a null hypothesis and an alternative hypothesis for all situations not covered by the null hypothesis is generally attributed to the statistician R.A. Fisher. This, however, is not entirely correct <span class="citation">(see, e.g., <a href="references.html#ref-RefWorks:3931">Halpin &amp; Stam, 2006</a>)</span>. Fisher introduced the concept of a null hypothesis <span class="citation">(<a href="references.html#ref-RefWorks:3932">Ronald Aylmer Fisher, 1935</a>: 18)</span> but not the concept of an alternative hypothesis.
+The statisticians Jerzy Neyman and Egon Pearson introduced the idea of working with two or more hypotheses. But the two hypotheses do not cover all possible population values and they were usually not called a null and alternative hypothesis. They specify two or more different population values. A statistical test is used to determine which of the hypotheses fits the sample best. <span class="citation">(<a href="references.html#ref-RefWorks:3906">J. Neyman &amp; Pearson, 1933</a>)</span></p>
+Egon Pearson. Photo by Grasso Luigi, Wikimedia Commons, CC BY-SA 4.0
+</div>
 <p>The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criteria and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the <span class="math inline">\(H_0\)</span> hypothesis.</p>
 <p>The Neyman Pearson approach is about choosing your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:</p>
 <ol style="list-style-type: decimal">
@@ -751,16 +756,24 @@ Figure 4.9: H0 binomial distributions with critical values
 </div>
 <div id="p-value" class="section level3 hasAnchor" number="4.1.9">
 <h3><span class="header-section-number">4.1.9</span> P-value<a href="4.1-null-hypothesis-significance-testing.html#p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>How do we know that the test statistic that we have drawn is among the five percent most unlikely samples if the null hypothesis is true? In other words, how do we know that our sample statistic outcome is in the rejection region?</p>
 <blockquote>
 <p>The <strong>p-value</strong> is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.</p>
 </blockquote>
+<p>We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the <em>p value</em> of the test, which is sometimes referred to as <em>significance</em> or <em>Sig.</em> in SPSS.</p>
 <p>In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with “at least as extreme”. this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3, are even less probable than 4. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the null distribution. Looking at table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a>, we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The conditional probability of getting a sample that is as or less likely than the test statistic that we have. The conditional probability is referring to our assumption that the null hypothesis is true.</p>
 <p>The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
 <p>If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis.</p>
-<blockquote>
-<p>Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span></p>
-</blockquote>
+
+<div class="rmdimportant">
+Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span>
+</div>
 <p>As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. In the continuous case, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.</p>
+<blockquote>
+<p>It is important to remember that a <em>p</em> value is a probability <em>under the assumption that the null hypothesis is true</em>. Therefore, it is a <em>conditional probability</em>.</p>
+</blockquote>
+<p>Compare it to the probability that we throw sixes with a dice. This probability is one out of six under the assumption that the dice is fair. Probabilities rest on assumptions. If the assumptions are violated, we cannot calculate probabilities.</p>
+<p>If the dice is not fair, we don’t know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.</p>
 <p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:t-alpha-p">4.10</a> shows a t-distribution for a null assumption with an alpha level of 5% (red area) and the p-value (blue area) for a random sample with a t-value of 2. For a two sided test (left) and a one sided test (right). We will cover one and two sided testing in chapter <a href="4.5-one-twosidedtests.html#one-twosidedtests">4.5</a>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:t-alpha-p"></span>
 <img src="GentleIntro_files/figure-html/t-alpha-p-1.png" alt="T-distributions with alpha level and p-value" width="820px" height="350px" />
@@ -769,6 +782,14 @@ Figure 4.10: T-distributions with alpha level and p-value
 </p>
 </div>
 <p>In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:t-alpha-p">4.10</a>, the red vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the red area under the curve. The blue vertical line represents the t-value from the sample, which in this example was 2. The blue area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
+<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twosided">4.11</a> representing the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:twosided"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/?showcase=0" width="775px" height="268px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 4.11: Sampling distribution of average media literacy according to the null hypothesis.
+</p>
+</div>
 <p>The reasoning is again the same as in the discrete case. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
 </div>
 <div id="observed-effect-size" class="section level3 hasAnchor" number="4.1.10">
@@ -817,7 +838,7 @@ Figure 4.10: T-distributions with alpha level and p-value
 <iframe src="https://www.youtube.com/embed/HmyW7HRM64Q" width="640px" height="360px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.11: Obtaining Cohen’s <em>d</em> with SPSS.
+Figure 4.12: Obtaining Cohen’s <em>d</em> with SPSS.
 </p>
 </div>
 <p>Unfortunately, the t test commands in SPSS have no option to calculate Cohen’s d. It is, however, relatively easy to calculate Cohen’s <em>d</em> by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation.</p>
@@ -845,10 +866,10 @@ Figure 4.11: Obtaining Cohen’s <em>d</em> with SPSS.
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:posthocpower"></span>
 <img src="GentleIntro_files/figure-html/posthocpower-1.png" alt="Discrete binomial distributions showing post hoc power" width="420px" />
 <p class="caption">
-Figure 4.12: Discrete binomial distributions showing post hoc power
+Figure 4.13: Discrete binomial distributions showing post hoc power
 </p>
 </div>
-<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:posthocpower">4.12</a> shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criteria as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 1 yellow candies under the alternative distribution.</p>
+<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:posthocpower">4.13</a> shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criteria as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 1 yellow candies under the alternative distribution.</p>
 <p>You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would be not be the same higher. The post hoc power does not have much practical use, though you should be warned that this is what SPSS produces when you ask for power.</p>
 <!-- create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 </div>
@@ -863,22 +884,22 @@ This is essentially what meta analysis is about. Collecting effect sizes from mu
 </div>
 <div id="sample-size" class="section level3 hasAnchor" number="4.1.13">
 <h3><span class="header-section-number">4.1.13</span> Sample size<a href="3.3-precisionsesamplesize.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>As stated in chapter <a href="4.1-null-hypothesis-significance-testing.html#power">4.1.6</a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN20">4.13</a>, we increased the number of candies in the bag to 15. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 15. This of still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 16 cancies is now <span class="math inline">\(.5 \times 20 = 10\)</span>, right in the middle of our distribution.</p>
-<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN20">4.13</a> still follows the reasoning scheme we have setup earlier. We decide to reject <span class="math inline">\(H_0\)</span> on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Becouse our outcome space is larger we can be more accurate in striving for an <span class="math inline">\(\alpha = .5\)</span>. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up unitil 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.</p>
+<p>As stated in chapter <a href="4.1-null-hypothesis-significance-testing.html#power">4.1.6</a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN20">4.14</a>, we increased the number of candies in the bag to 15. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 15. This of still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 16 cancies is now <span class="math inline">\(.5 \times 20 = 10\)</span>, right in the middle of our distribution.</p>
+<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN20">4.14</a> still follows the reasoning scheme we have setup earlier. We decide to reject <span class="math inline">\(H_0\)</span> on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Becouse our outcome space is larger we can be more accurate in striving for an <span class="math inline">\(\alpha = .5\)</span>. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up unitil 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.</p>
 <p>With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that <span class="math inline">\(H_A\)</span> is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobinomN20"></span>
 <img src="GentleIntro_files/figure-html/twobinomN20-1.png" alt="Discrete binomial distributions" width="820px" />
 <p class="caption">
-Figure 4.13: Discrete binomial distributions
+Figure 4.14: Discrete binomial distributions
 </p>
 </div>
 <p>The same reasoning is applied to the continuous case. Let’s revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let’s say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%.</p>
-<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:sample-size-power">4.14</a> shows the relation between sample size, power, alhpa and effect size. You can play around with the sliders de determine what sample size you would need.</p>
+<p>Figure <a href="4.1-null-hypothesis-significance-testing.html#fig:sample-size-power">4.15</a> shows the relation between sample size, power, alhpa and effect size. You can play around with the sliders de determine what sample size you would need.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:sample-size-power"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/sample-size-power2/?showcase=0" width="775px" height="385px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 4.14: How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H<sub>0</sub>, left-hand curve) and under the assumed true value of the population mean (H<sub>1</sub>, right-hand curve) for a one-sample <em>t</em> test.
+Figure 4.15: How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H<sub>0</sub>, left-hand curve) and under the assumed true value of the population mean (H<sub>1</sub>, right-hand curve) for a one-sample <em>t</em> test.
 </p>
 </div>
 <p>Just like the discrete case, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distributon on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values.</p>
@@ -896,10 +917,10 @@ Figure 4.14: How does test power depend on effect size, type of test, significan
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:g-power"></span>
 <img src="figures/g-power.png" alt="Power analysis in G*Power for a binomial distribution" width="500px" />
 <p class="caption">
-Figure 4.15: Power analysis in G*Power for a binomial distribution
+Figure 4.16: Power analysis in G*Power for a binomial distribution
 </p>
 </div>
-<p>In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:g-power">4.15</a> you can see that for the binomial test we have set the H1 to .5 and H2 to .2, indirectly setting the effect size. We have set the alpha level to 5% and the power to 80%. By hitting calculate, G*Power calculates the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN20">4.13</a>, though with lines instead of bars.</p>
+<p>In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:g-power">4.16</a> you can see that for the binomial test we have set the proportion p1 to .5 (<span class="math inline">\(H_0\)</span>) and the proportion p2 (<span class="math inline">\(H_A\)</span>) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN20">4.14</a>, though with lines instead of bars.</p>
 </div>
 </div>
 </div>

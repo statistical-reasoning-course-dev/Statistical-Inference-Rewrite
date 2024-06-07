@@ -222,7 +222,6 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="4.3.1" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html#nullhypothesis"><i class="fa fa-check"></i><b>4.3.1</b> The null hypothesis</a></li>
 <li class="chapter" data-level="4.3.2" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html#sig-typeI"><i class="fa fa-check"></i><b>4.3.2</b> Significance level (<span class="math inline">\(\alpha\)</span>), significance, rejection region, and Type I error</a></li>
-<li class="chapter" data-level="4.3.3" data-path="4.3-statistical-tests.html"><a href="4.3-statistical-tests.html#pvalue"><i class="fa fa-check"></i><b>4.3.3</b> <em>p</em> Value</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="4.4-null-alt.html"><a href="4.4-null-alt.html"><i class="fa fa-check"></i><b>4.4</b> Research hypothesis, alternative hypothesis, and nil hypothesis</a></li>
 <li class="chapter" data-level="4.5" data-path="4.5-one-twosidedtests.html"><a href="4.5-one-twosidedtests.html"><i class="fa fa-check"></i><b>4.5</b> One-Sided and Two-Sided Tests</a>
@@ -502,12 +501,6 @@ div.csl-indent {
 <h3><span class="header-section-number">5.3.1</span> Imagining a population with a small effect<a href="5.3-hypothetical-world-versus-imaginary-true-world.html#imagining-a-population-with-a-small-effect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Our null hypothesis states that average candy weight in the population is 2.8 grams. Let us decide that a small effect size is practically relevant. We can think now of a population that could be the true population if the effect size is small. For example, a population in which average candy weight is 2.9 grams (and the standard deviation is 0.5).</p>
 <p>We do not know whether average candy weight is 2.9 grams in the true population. So we may regard the statement that average candy weight is 2.9 grams in the population as another hypothesis. Let us call this the alternative hypothesis <em>H</em><sub>1</sub>. Note that this is not an ordinary alternative hypothesis because it does not include all outcomes not covered by the null hypothesis (<em>H</em><sub>0</sub>). Instead, it represents only one value, which is an important value to us because it represents a population with an interesting effect size.</p>
-
-<div class="rmdpearson">
-<p>Our habit of formulating a null hypothesis and an alternative hypothesis for all situations not covered by the null hypothesis is generally attributed to the statistician R.A. Fisher. This, however, is not entirely correct <span class="citation">(see, e.g., <a href="references.html#ref-RefWorks:3931">Halpin &amp; Stam, 2006</a>)</span>. Fisher introduced the concept of a null hypothesis <span class="citation">(<a href="references.html#ref-RefWorks:3932">Ronald Aylmer Fisher, 1935</a>: 18)</span> but not the concept of an alternative hypothesis.
-The statisticians Jerzy Neyman and Egon Pearson introduced the idea of working with two or more hypotheses. But the two hypotheses do not cover all possible population values and they were usually not called a null and alternative hypothesis. They specify two or more different population values. A statistical test is used to determine which of the hypotheses fits the sample best. <span class="citation">(<a href="references.html#ref-RefWorks:3906">J. Neyman &amp; Pearson, 1933</a>)</span></p>
-Egon Pearson. Photo by Grasso Luigi, Wikimedia Commons, CC BY-SA 4.0
-</div>
 <p>Figure <a href="5.3-hypothetical-world-versus-imaginary-true-world.html#fig:TypeI-II-errors">5.3</a> illustrates this situation. Before reading on, try to make sense of the steps in this figure. The questions accompanying the figure walk you through these steps.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:TypeI-II-errors"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/type1vs2fixed/?showcase=0" width="775px" height="310px" data-external="1">
@@ -516,14 +509,6 @@ Egon Pearson. Photo by Grasso Luigi, Wikimedia Commons, CC BY-SA 4.0
 Figure 5.3: The relation between significance tests, effect size, Type II error, and power.
 </p>
 </div>
-<p><A name="question5.3.1"></A></p>
-<p><A name="question5.3.2"></A></p>
-<p><A name="question5.3.3"></A></p>
-<p><A name="question5.3.4"></A></p>
-<p><A name="question5.3.5"></A></p>
-<p><A name="question5.3.6"></A></p>
-<p><A name="question5.3.7"></A></p>
-<p><A name="question5.3.8"></A></p>
 </div>
 <div id="the-world-of-the-researcher" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> The world of the researcher<a href="5.3-hypothetical-world-versus-imaginary-true-world.html#the-world-of-the-researcher" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -542,10 +527,10 @@ Figure 5.3: The relation between significance tests, effect size, Type II error,
 <h3><span class="header-section-number">5.3.4</span> Type II error<a href="5.3-hypothetical-world-versus-imaginary-true-world.html#typeIIerror" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If there is a (small) true effect in the population, the null hypothesis is not true. For example, average candy weight is not 2.8 grams, it is 2.9 grams in the population. If our sample mean is close to 2.8 grams, we may not reject the null hypothesis even if it is not true. This is a <em>Type II error</em>: not rejecting a false null hypothesis.</p>
 <p>The probability that we make a Type II error if there is a small effect is expressed by the yellow section in Figure <a href="5.3-hypothetical-world-versus-imaginary-true-world.html#fig:TypeI-II-errors">5.3</a>, Steps 3 and 4. It is usually denoted by the Greek letter beta (<span class="math inline">\(\beta\)</span>). The yellow section represents the probability of drawing a sample from the population with a small effect size that is <em>not</em> in the rejection region, so the null hypothesis is <em>not</em> rejected.</p>
-<p>Table <a href="5.3-hypothetical-world-versus-imaginary-true-world.html#tab:errortable">5.2</a> summarizes the four possible situations that may arise if we test a null hypothesis. The null hypothesis may be true or false and we may or may not reject the null hypothesis.</p>
+<p>Table <a href="5.3-hypothetical-world-versus-imaginary-true-world.html#tab:errortable">5.1</a> summarizes the four possible situations that may arise if we test a null hypothesis. The null hypothesis may be true or false and we may or may not reject the null hypothesis.</p>
 <table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:errortable">Table 5.2: </span>Error types and their probabilities.
+<span id="tab:errortable">Table 5.1: </span>Error types and their probabilities.
 </caption>
 <thead>
 <tr>

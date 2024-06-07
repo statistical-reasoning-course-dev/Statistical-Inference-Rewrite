@@ -31,19 +31,7 @@ This chapter reviews concepts that are central to understanding what statistical
 
 ## Sample Size and Test Requirements {#size-test-req}
 
-Table \@ref(tab:thumb) in Chapter \@ref(probmodels) (summarised in Table \@ref(tab:thumbsize) below) shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.
 
-```{r thumbsize, echo=FALSE, screenshot.opts=list(delay = 2)}
-knitr::kable(rbind(c("Binomial distribution", "proportion", "-"), c("(Standard) normal distribution", "proportion", ">= 5 divided by test proportion (<= .5)"), c("(Standard) normal distribution", "one or two means", "> 100"), c("t distribution", "one or two means", "each group > 30"), c("t distribution", "(Spearman) rank correlation coefficient", "> 30"), c("t distribution", "regression coefficient", "20+ per independent variable"), c("F distribution", "3+ means", " all groups are more or less of equal size"), c("chi-squared distribution", "row or cell frequencies", "expected frequency >= 1 and 80% >= 5 (sample 5+ observations per category or cell)")), col.names = c("Distribution", "Sample statistic", "Minimum sample size"), caption = "Rules of thumb for minimum sample sizes.", booktabs = TRUE) %>%
-  kable_styling(font_size = 12, full_width = F,
-                latex_options = c("scale_down", "HOLD_position"))
-```
-
-Conditions often include sample size. Table \@ref(tab:thumbsize) reproduces the size requirements from Table \@ref(tab:thumb). If you plan to do a *t* test, each group should contain more than thirty cases. So if you intend to apply *t* tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.
-
-Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.
-
-The variation of sample size across groups is important in analysis of variance (ANOVA), which uses the *F* distribution. If the number of cases is more or less the same across all groups, we do not have to worry about the variances of the dependent variable for the groups in the population. To be on the safe side, then, it is recommended to design your sampling strategy in such a way that you end up with more or less equal group sizes if you plan to use analysis of variance.
 
 ## Effect Size {#effectsize}
 
@@ -136,12 +124,7 @@ Our null hypothesis states that average candy weight in the population is 2.8 gr
 
 We do not know whether average candy weight is 2.9 grams in the true population. So we may regard the statement that average candy weight is 2.9 grams in the population as another hypothesis. Let us call this the alternative hypothesis *H*~1~. Note that this is not an ordinary alternative hypothesis because it does not include all outcomes not covered by the null hypothesis (*H*~0~). Instead, it represents only one value, which is an important value to us because it represents a population with an interesting effect size.
 
-```{block2, type='rmdpearson'}
-Our habit of formulating a null hypothesis and an alternative hypothesis for all situations not covered by the null hypothesis is generally attributed to the statistician R.A. Fisher. This, however, is not entirely correct [see, e.g., @RefWorks:3931]. Fisher introduced the concept of a null hypothesis [@RefWorks:3932: 18] but not the concept of an alternative hypothesis.
-The statisticians Jerzy Neyman and Egon Pearson introduced the idea of working with two or more hypotheses. But the two hypotheses do not cover all possible population values and they were usually not called a null and alternative hypothesis. They specify two or more different population values. A statistical test is used to determine which of the hypotheses fits the sample best. [@RefWorks:3906]
 
-Egon Pearson. Photo by Grasso Luigi, Wikimedia Commons, CC BY-SA 4.0
-```
 
 Figure \@ref(fig:TypeI-II-errors) illustrates this situation. Before reading on, try to make sense of the steps in this figure. The questions accompanying the figure walk you through these steps.
 
@@ -151,53 +134,7 @@ Figure \@ref(fig:TypeI-II-errors) illustrates this situation. Before reading on,
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/type1vs2fixed/", height="310px")
 ```
 
-<A name="question5.3.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch5}
-1. What is the rejection region in the graph provided in Step 1 of Figure \@ref(fig:TypeI-II-errors)? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.1){.buttonToAnswer}
-```
-
-<A name="question5.3.2"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-2. Is the null hypothesis true or false if the sample mean is not in the rejection region? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.2){.buttonToAnswer}
-```
-
-<A name="question5.3.3"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-3.  Can we make a Type I error if the sample mean is not in the rejection region? Explain the meaning of a Type I error in your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.3){.buttonToAnswer}
-```
-
-<A name="question5.3.4"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-4. What is the size of the unstandardized effect size that is deemed practically relevant in Step 2? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.4){.buttonToAnswer}
-```
-
-<A name="question5.3.5"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-5. If H~1~ is true, which area under the sampling distributions represents the probability that we draw a sample with average candy weight that is less than the average of our sample (2.84 grams)? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.5){.buttonToAnswer}
-```
-
-<A name="question5.3.6"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-6. In Step 3, the yellow area represents a set of samples. What will researchers do with the null hypothesis if they draw one of these samples? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.6){.buttonToAnswer}
-```
-
-<A name="question5.3.7"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-7. If H~1~ is true, the yellow area is a probability. A probability of what? [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.7){.buttonToAnswer}
-```
-
-<A name="question5.3.8"></A>
-
-```{block2, type='rmdquestion', echo = Qch5}
-8. The green area represents the power of a test in Step 4. Describe what power is in terms of rejecting the null hypothesis. [<img src="icons/2answer.png" width=115px align="right">](#answer5.3.8){.buttonToAnswer}
-```
 
 ### The world of the researcher
 

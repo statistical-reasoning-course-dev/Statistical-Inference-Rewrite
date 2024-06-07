@@ -240,16 +240,6 @@ Figure \@ref(fig:normal-approx-proportion) shows an example in which the normal 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/", height="305px")
 ```
 
-<A name="question2.5.4"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-4. How does sample size affect the shape of the sampling distribution? See what happens if you change sample size in the interactive content. [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.4){.buttonToAnswer}
-```
-
-<A name="question2.5.5"></A>
-```{block2, type='rmdquestion', echo = Qch2}
-5. How does the population proportion affect the shape of the sampling distribution? See what happens if you change the population proportion in the interactive content. [<img src="icons/2answer.png" width=115px align="right">](#answer2.5.5){.buttonToAnswer}
-```
-
 Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with Figure \@ref(fig:normal-approx-proportion), this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.
 
 This illustrates that we often have several conditions for a theoretical probability distribution to fit the sampling distribution. We should evaluate all of them at the same time. In the example of proportions, a large sample is less important if the true proportion is closer to .5 but it is more important for true proportions that are more distant from .5.
@@ -266,6 +256,14 @@ For most of these theoretical probability distributions, sample size is importan
 knitr::kable(rbind(c("Binomial distribution", "proportion", "-", "-"), c("(Standard) normal distribution", "proportion", "times test proportion (<= .5) >= 5", "-"), c("(Standard) normal distribution", "one or two means", "> 100", "OR variable is normally distributed in the population and population standard deviation is known (for each group)"), c("t distribution", "one or two means", "each group > 30", "OR variable is normally distributed in each group's population"), c("t distribution", "(Pearson) correlation coefficient", "-", "variables are normally distributed in the population"), c("t distribution", "(Spearman) rank correlation coefficient", "> 30", "-"), c("t distribution", "regression coefficient", "20+ per independent variable", "See Chapter 8."), c("F distribution", "3+ means", " all groups are more or less of equal size", "OR all groups have the same population variance"), c("F distribution", "two variances", "-", "no conditions for Levene's F test"), c("chi-squared distribution", "row or cell frequencies", "expected frequency >= 1 and 80% >= 5", "contingency table: 3+ rows or 3+ columns")), booktabs = TRUE, col.names = c("Distribution", "Sample statistic", "Minimum sample size", "Other requirements"), caption = "Rules of thumb for using theoretical probability distributions." ) %>%
   kable_styling(font_size = 12, latex_options = c("HOLD_position", "scale_down"))
 ```
+
+Table \@ref(tab:thumb) shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.
+
+Conditions often include sample size. Table \@ref(tab:thumbsize) reproduces the size requirements from Table \@ref(tab:thumb). If you plan to do a *t* test, each group should contain more than thirty cases. So if you intend to apply *t* tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.
+
+Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.
+
+The variation of sample size across groups is important in analysis of variance (ANOVA), which uses the *F* distribution. If the number of cases is more or less the same across all groups, we do not have to worry about the variances of the dependent variable for the groups in the population. To be on the safe side, then, it is recommended to design your sampling strategy in such a way that you end up with more or less equal group sizes if you plan to use analysis of variance.
 
 ### Checking conditions {#cond-check} 
 
