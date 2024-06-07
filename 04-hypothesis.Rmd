@@ -226,9 +226,9 @@ In our yellow candy example, assuming the null hypothesis to be true, relates to
 
 
 ```{r nullprobtable, echo=FALSE}
-kable(t(data.frame(Heads = as.character(0:10), 
+kable(t(data.frame(Yellow = as.character(0:10), 
                    Prob = round(dbinom(0:10, 10, .5), 3)) ), 
-      caption = "Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true.")
+      caption = "Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true.") %>% kable_styling(font_size = 10)
 ```
 
 Choosing such an alpha level would result in a threshold between 0 and 2 and 9 and 10. We call this the **critical value** associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criteria, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a Type I error rate of .002 or 0.2%. Figure \@ref(fig:nulldistributionalpha) shows the critical values for the null hypothesis distribution, and indicate what de decision would be for values on the outside and inside of the decision boundary.
@@ -627,22 +627,20 @@ This is essentially what meta analysis is about. Collecting effect sizes from mu
 
 ### Sample size {#sample-size}
 
-As stated in chapter \@ref(power), the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure \@ref(fig:twobinomN15), we increased the number of candies in the bag to 15. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 15. This of still assumes our $H_0$ to be true, and the parameter of the machine is still  $\theta = .5$, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 16 cancies is now $.5 \times 15 = 7.5$, right in the middle of our distribution.
+As stated in chapter \@ref(power), the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure \@ref(fig:twobinomN20), we increased the number of candies in the bag to 15. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 15. This of still assumes our $H_0$ to be true, and the parameter of the machine is still  $\theta = .5$, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 16 cancies is now $.5 \times 20 = 10$, right in the middle of our distribution.
 
+Figure \@ref(fig:twobinomN20) still follows the reasoning scheme we have setup earlier. We decide to reject $H_0$ on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Becouse our outcome space is larger we can be more accurate in striving for an $\alpha = .5$. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up unitil 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.
 
+With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that $H_A$ is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.
 
-The power of the test is now 0.63. This is a substantial increase in power, but still not the desired 80%. 
-
-
-
-```{r twobinomN15, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+```{r twobinomN20, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
 title = "Both distributions"
 
 colh0 = 'yellow'
 colha = 'lightyellow'
 
-n = 15
+n = 20
 
 barplot( rbind(dbinom(0:n, n, .5),
                dbinom(0:n, n, .2)), 
@@ -657,8 +655,8 @@ barplot( rbind(dbinom(0:n, n, .5),
          ) -> p
 
 
-abline(v = p[1,4]+2, col='red', lwd=2)
-abline(v = p[1,12]+2, col='red', lwd=2)
+abline(v = p[1,6]+2, col='red', lwd=2)
+abline(v = p[1,15]+2, col='red', lwd=2)
 
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
@@ -667,7 +665,7 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 ```
 
-
+The same reasoning is applied to 
 
 
 

@@ -498,7 +498,7 @@ div.csl-indent {
 <h2><span class="header-section-number">4.1</span> Null Hypothesis Significance Testing<a href="4.1-null-hypothesis-significance-testing.html#null-hypothesis-significance-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach <span class="citation">(<a href="references.html#ref-RefWorks:3930">Lehmann, 1993</a>)</span>. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.</p>
 <p>The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criteria and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the <span class="math inline">\(H_0\)</span> hypothesis.</p>
-<p>The Neyman Pearson approach is about choosimg your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:</p>
+<p>The Neyman Pearson approach is about choosing your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:</p>
 <ol style="list-style-type: decimal">
 <li>Alpha - Determine your desired risk of drawing the wrong conclusion.</li>
 <li>Power - Determine your desired probability of drawing the correct conclusion.
@@ -580,7 +580,7 @@ Figure 4.3: Discrete binomial distributions
 Figure 4.4: Discrete binomial distributions
 </p>
 </div>
-<p>Note that both probability distribution for <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> are the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.</p>
+<p>Note that both the probability distribution for <span class="math inline">\(H_0\)</span> and for <span class="math inline">\(H_A\)</span> contain the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.</p>
 </div>
 <div id="true-effect-size" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> True effect size<a href="4.1-null-hypothesis-significance-testing.html#true-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -609,14 +609,14 @@ Figure 4.6: NHST decision table.
 </p>
 </div>
 <p>In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>. We have already determined that if <span class="math inline">\(H_0\)</span> is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of figure <a href="4.1-null-hypothesis-significance-testing.html#fig:nulldistribution">4.3</a>, and are also shown in the table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a> below. Looking at the probability of getting 0 or 10 candies in table <a href="4.1-null-hypothesis-significance-testing.html#tab:nullprobtable">4.1</a>, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our Type I error, alpha, significance level, would be .002.</p>
-<table>
-<caption>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
 <span id="tab:nullprobtable">Table 4.1: </span>Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true.
 </caption>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Heads
+Yellow
 </td>
 <td style="text-align:left;">
 0
@@ -858,11 +858,13 @@ Figure 4.12: Discrete binomial distributions showing post hoc power
 <p>Now imagine that we would take multiple samples from the alternative distribution, and calculate the observed effect size for each sample. If we would plot these observed effect sizes, we would get a sampling distribution of observed effect sizes.</p>
 <p>In research we conduct replication studies to see if the observed effect size is consistent over multiple replications. If this is the case, we can be more confident that the average observed effect size is the true effect size and we can determine the parameter of the alternative hypothesis.</p>
 <p>Again imagine that we get a hundred bags of candy and we consistently find 7 to 9 yellow candies, this would give us an indication of the true effect size being 8. It would also indicate that our initial alternative hypothesis is highly unlikely.</p>
-<p>This is essentially what meta analysis analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size.</p>
+<p>This is essentially what meta analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size.</p>
 <p>[to-do] add communication meta analysis example.</p>
 </div>
 <div id="sample-size" class="section level3 hasAnchor" number="4.1.13">
 <h3><span class="header-section-number">4.1.13</span> Sample size<a href="3.3-precisionsesamplesize.html#sample-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As stated in chapter <a href="4.1-null-hypothesis-significance-testing.html#power">4.1.6</a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure <a href="4.1-null-hypothesis-significance-testing.html#fig:twobinomN15">4.13</a>, we increased the number of candies in the bag to 15. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 15. This of still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 16 cancies is now <span class="math inline">\(.5 \times 15 = 7.5\)</span>, right in the middle of our distribution.</p>
+<p>The power of the test is now 0.63. This is a substantial increase in power, but still not the desired 80%.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobinomN15"></span>
 <img src="GentleIntro_files/figure-html/twobinomN15-1.png" alt="Discrete binomial distributions" width="420px" />
 <p class="caption">
