@@ -290,7 +290,7 @@ The decision to not reject the null hypothesis when it is in reality true is ind
 
 Now that we have determined our critical value based on our desired alpha, significance level, we can use this to look at the power.
 
-### Power
+### Power {#power}
 
 The power refers to the probability of making the correct decision when the null hypothesis is false. In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the top right quadrant. As we have already set our decision criteria by choosing our alpha level in the previous step, we already know when we decide to reject the null. In figure \ref(fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. This critical value carries over when determining the power.
 
@@ -621,11 +621,19 @@ In research we conduct replication studies to see if the observed effect size is
 
 Again imagine that we get a hundred bags of candy and we consistently find 7 to 9 yellow candies, this would give us an indication of the true effect size being 8. It would also indicate that our initial alternative hypothesis is highly unlikely. 
 
-This is essentially what meta analysis analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size. 
+This is essentially what meta analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size. 
 
 [to-do] add communication meta analysis example.
 
 ### Sample size {#sample-size}
+
+As stated in chapter \@ref(power), the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure \@ref(fig:twobinomN15), we increased the number of candies in the bag to 15. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 15. This of still assumes our $H_0$ to be true, and the parameter of the machine is still  $\theta = .5$, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 16 cancies is now $.5 \times 15 = 7.5$, right in the middle of our distribution.
+
+
+
+The power of the test is now 0.63. This is a substantial increase in power, but still not the desired 80%. 
+
+
 
 ```{r twobinomN15, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
