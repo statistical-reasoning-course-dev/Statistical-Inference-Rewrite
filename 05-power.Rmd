@@ -347,19 +347,7 @@ Answer to Question 8.
 
 Finally, after all these sections, we can answer the question raised in the beginning of this chapter: How large should my sample be? To answer this question, we must consider effect size, type of test, significance level, and test power.
 
-```{r sample-size-power, fig.pos='H', fig.align='center', fig.cap="How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Shiny app to determine sample size for a specified (standardized) effect size,
-# significance level, and test power for a (simple) one-sample _t_ test, using the
-# pwr:: package. Illustrate power with hypothesized and true sampling
-# distributions as _t_ distributions (as in app reshyp-althyp) with effect size on
-# x axis. SLiders or inputs vor standardized effect size (0.2 - small, 0.5 -
-# medium, 0.8 -large), significance level (90% two-sided, 90% one-sided, 95%
-# two-sided, 95% one-sided, 99% two-sided, 99% one-sided), and test power {50%,
-# 80%, 90%, 95%, 99%}.
-# simplify PS.shiny_master (doesn't work yet?) Use R code from
-# http://powerandsamplesize.com/Calculators/ in our own app?
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
-```
+
 
 <A name="question5.4.1"></A>
 

@@ -665,9 +665,27 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 ```
 
-The same reasoning is applied to 
+The same reasoning is applied to the continuous case. Let's revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let's say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%. 
 
+Figure \@ref(fig:sample-size-power) shows the relation between sample size, power, alhpa and effect size. You can play around with the sliders de determine what sample size you would need.
 
+```{r sample-size-power, fig.pos='H', fig.align='center', fig.cap="How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Shiny app to determine sample size for a specified (standardized) effect size,
+# significance level, and test power for a (simple) one-sample _t_ test, using the
+# pwr:: package. Illustrate power with hypothesized and true sampling
+# distributions as _t_ distributions (as in app reshyp-althyp) with effect size on
+# x axis. SLiders or inputs vor standardized effect size (0.2 - small, 0.5 -
+# medium, 0.8 -large), significance level (90% two-sided, 90% one-sided, 95%
+# two-sided, 95% one-sided, 99% two-sided, 99% one-sided), and test power {50%,
+# 80%, 90%, 95%, 99%}.
+# simplify PS.shiny_master (doesn't work yet?) Use R code from
+# http://powerandsamplesize.com/Calculators/ in our own app?
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
+```
+
+Just like the discrete case, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distributon on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
+
+The reasoning is again the same as in the discrete case. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident theat we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
 
 
 
