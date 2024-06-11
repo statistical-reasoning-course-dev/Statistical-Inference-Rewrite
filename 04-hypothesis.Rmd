@@ -737,9 +737,114 @@ knitr::include_graphics("figures/g-power.png")
 
 In figure \@ref(fig:g-power) you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in figure \@ref(fig:twobinomN20), though with lines instead of bars.
 
+### One-Sided and Two-Sided Tests {#one-twosidedtests}
+
+In the preceding section, you may have had some trouble when you were determining whether a research hypothesis is a null hypothesis or an alternative hypothesis. The research hypothesis stating that average media literacy is below 5.5 in the population, for example, represents the alternative hypothesis because it does not fix the hypothesized population value to one number. The accompanying null hypothesis must cover all other options, so it must state that the population mean is 5.5 or higher. But this null hypothesis does not specify one value as it should, right?
+
+This null hypothesis is slightly different from the ones we have encountered so far, which equated the population value to a single value. If the null hypothesis equates a parameter to a single value, the null hypothesis can be rejected if the sample statistic is either too high or too low. There are two ways of rejecting the null hypothesis, so this type of hypothesis and test are called _two-sided_ or _two-tailed_.
+
+By contrast, the null hypothesis stating that the population mean is 5.5 or higher is a _one-sided_ or _one-tailed_ hypothesis. It can only be rejected if the sample statistic is at one side of the spectrum: only below (left-sided) or only above (right-sided) the hypothesized population value. In the media literacy example, the null hypothesis is only rejected if the sample mean is well below the hypothesized population value. A test of a one-sided null hypothesis is called a _one-sided test_. 
+
+```{r nonsig-1sided, fig.pos='H', fig.align='center', fig.cap="One-sided and two-sided tests of a null hypothesis.", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+# Display the sampling distribution of average media literacy as a normal curve with 5% two-sided significance areas dark blue and 5% one-sided significance areas light blue. Generate randomly one out of six possible values for the sample mean: (from left to right) in the 0-2.5% region, 2.5%-5%, 5%-50%, 50%-95%, 95%-97.5%, 97.5%-100%. Let the user select the answers (Yes/No) to three questions: Is this sample mean significant at a 5% significance level? "Left-sided test?", "Right-sided test?",  "Two-sided test?". Give feedback when the user presses the submit button. 
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/", height="310px")
+```
+
+In a left-sided test of the media literacy hypothesis, the researcher is not interested in demonstrating that average media literacy among children can be larger than 5.5. She only wants to test if it is below 5.5, perhaps because an average score below 5.5 is alarming and requires an intervention, or because prior knowledge about the world has convinced her that average media literacy among children can only be lower than 5.5 on average in the population. 
+
+If it is deemed important to note values well over 5.5 as well as values well below 5.5, the research and null hypotheses should be two-sided. Then, a sample average well above 5.5 would also have resulted in a rejection of the null hypothesis. In a left-sided test, however, a high sample outcome cannot reject the null hypothesis. 
+
+#### Boundary value as hypothesized population value
+
+```{r sign-left, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 5% of the area situated in the left tail, add 5% as text. Add a vertical line representing the sample mean, initially 3.9, and display the percentage of the area under the curve to the left of this line.
+# Let the user manipulate the sample mean (range 1-10) and the population mean according to the null hypothesis (range 1-10).
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sign-left/", height="268px")
+```
+
+You may wonder how a one-sided null hypothesis equates the parameter of interest with one value as it should. The special value here is 5.5. If we can reject the null hypothesis stating that the population mean is 5.5 because our sample mean is sufficiently lower than 5.5, we can also reject any hypothesis involving population means higher than 5.5. 
+
+In other words, if you want to know if the value is not 5.5 or more, it is enough to find that it is less than 5.5. If it's less than 5.5, then you know it's also less than any number above 5.5. Therefore, we use the boundary value of a one-sided null hypothesis as the hypothesized value for the population in a one-sided test.
+
+#### One-sided -- two-sided distinction is not always relevant
+
+Note that the difference between one-sided and two-sided tests is only useful if we test a statistic against one particular value or if we test the difference between two groups. 
+
+In the first situation, for example, if we test the null hypothesis that average media literacy is 5.5 in the population, we may only be interested in showing that the population value is lower than the hypothesized value. Another example is a test on a regression coefficient or correlation coefficient. According to the null hypothesis, the coefficient is zero in the population. If we only want to use a brand advertisement if exposure to the advertisement increases brand awareness among consumers, we apply a right-sided test to the coefficient for the effect of exposure on brand awareness because we are only interested in a positive effect (larger than the zero).
+
+In the second situation, we compare the scores of two groups on a dependent variable. If we compare average media literacy after an intervention to media literacy before the intervention (paired-samples _t_ test), we must demonstrate an increase in media literacy before we are going to use the intervention on a large scale. Again, a one-sided test can be applied.
+
+In contrast, we cannot meaningfully formulate a one-sided null hypothesis if we are comparing three groups or more. Even if we expect that Group A can only score higher than Group B and Group C, what about the difference between Group B and Group C? If we can't have meaningful one-sided null hypotheses, we cannot meaningfully distinguish between one-sided and two-sided null hypotheses.  
+
+#### From one-sided to two-sided _p_ values and back again
+
+Statistical software like SPSS usually reports either one-sided or two-sided _p_ values. What if a one-sided _p_ value is reported but you need a two-sided _p_ value or the other way around?
+
+In Figure \@ref(fig:onetwosided), the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true. This probability is the surface under the curve to the left of the red line representing the sample mean. It is the one-sided _p_ value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.
+
+```{r onetwosided, fig.pos='H', fig.align='center', fig.cap="Halve a two-sided _p_ value to obtain a one-sided _p_ value, double a one-sided _p_ value to obtain a two-sided _p_ value.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour the area in each tail according to the p value. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
+# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/onetwosided/", height="268px")
+```
+
+In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. As a consequence, the _p_ value must cover samples at opposite sides of the sampling distribution. We should not only take into account sample means that are smaller than 5.5 but also sample means that are just as much larger than the hypothesized population value. So our two-sided _p_ value must include both the probability of .015 for the left tail and for the right tail of the distribution in Figure \@ref(fig:onetwosided). We must double the one-sided _p_ value to obtain the two-sided _p_ value.
+
+In contrast, if our statistical software tells us the two-sided _p_ value and we want to have the one-sided _p_ value, we can simply halve the two-sided _p_ value. The two-sided _p_ value is divided equally between the left and right tails. If we are interested in just one tail, we can ignore the half of the _p_ value that is situated in the other tail. Of course, this only makes sense if a one-sided test makes sense.
+
+Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided _p_ value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.
+
 ## Using Confidence Intervals to test hypotheses
 
 ## Bayesian hypothesis testing
+
+## Reporting test results
+
+### Reporting to fellow scientists
+
+Fellow scientists need to be able to see the precise statistical test results. According to the APA guidelines, we should report the test statistic, the associated degrees of freedom (if any), the value of the test statistic, the _p_ value of the test statistic, and the confidence interval (if any). APA requires a particular format for presenting statistical results and it demands that the results are included at the end of a sentence.  
+
+The statistical results for a _t_ test on one mean, for example, would be:  
+
+<center>_t_ (67) = 2.73, _p_ = .004, 95% CI [4.13, 4.87]</center>  
+
+* The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, _N_ = 89) = 23.14, _p_ = .027.
+
+* The value of the test statistic is 2.73 in this example.
+
+* The _p_ value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities---less than .05---so we need the third decimal here. If SPSS rounds the _p_ value to .000, report: _p_ < .001. Add (one-sided) after the _p_ value if the test is one-sided.
+
+* The 95% confidence interval is 4.13 to 4.87, so with 95% confidence we state that the population mean is between 4.13 and 4.87. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.
+
+Not all tests produce all results reported in the example above. For example, a _z_ test does not have degrees of freedom and _F_ or chi-squared tests do not have confidence intervals. Exact tests or bootstrap tests usually do not have a test statistic. Just report the items that your statistical software produces, and give them in the correct format.
+
+### Reporting to the general reader
+
+For fellow scientists and especially for the general reader, it is important to read an interpretation of the results that clarifies both the subject of the test and the test results. Make sure that you tell your reader who or what the test is about:  
+
+* What is the population that you investigate?  
+
+* What are the variables?  
+
+* What are the values of the relevant sample statistics?  
+
+* Which comparison(s) do you make?  
+
+* Are the results statistically significant and, if so, what are the estimates for the population?  
+
+* If the results are statistically significant, how large are the differences or associations?  
+
+A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:  
+
+```{block2, type='rmdimportant'}
+"The television station reaches significantly and substantially (61%) more than half of all households in Greece in 2012, _z_ = 4.01, _p_ < .001."
+```
+
+The interpretation of this test tells us the population ("all households in Greece"), the variable ("reaching a household") and the sample statistic of interest (61%, indicating a proportion). It tells us that the result is statistically significant, which a fellow scientist can check with the reported _p_ value. 
+
+Note that the actual _p_ value is well below .001. If we would round it to three decimals, it would become .000. This suggests that the probability is zero but there is always some probability of rejecting the null hypothesis if it is true. For this reason, APA wants us to report _p_ < .001 instead of _p_ = .000. 
+
+Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the _effect size_, and give a more precise interpretation (see Chapter \@ref(power) for more information).  
 
 ## Critical reflection
 

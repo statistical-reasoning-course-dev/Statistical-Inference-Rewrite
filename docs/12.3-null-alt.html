@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="12.2-statistical-tests.html"/>
-<link rel="next" href="12.4-one-twosidedtests.html"/>
+<link rel="next" href="12.4-testing-a-null-hypothesis-with-a-theoretical-probability-distribution.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -216,11 +216,17 @@ div.csl-indent {
 <li class="chapter" data-level="4.1.11" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#post-hoc-power"><i class="fa fa-check"></i><b>4.1.11</b> Post hoc power</a></li>
 <li class="chapter" data-level="4.1.12" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.1.12</b> Meta analysis</a></li>
 <li class="chapter" data-level="4.1.13" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#sample-size"><i class="fa fa-check"></i><b>4.1.13</b> Sample size</a></li>
+<li class="chapter" data-level="4.1.14" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#one-twosidedtests"><i class="fa fa-check"></i><b>4.1.14</b> One-Sided and Two-Sided Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="4.2-using-confidence-intervals-to-test-hypotheses.html"><a href="4.2-using-confidence-intervals-to-test-hypotheses.html"><i class="fa fa-check"></i><b>4.2</b> Using Confidence Intervals to test hypotheses</a></li>
 <li class="chapter" data-level="4.3" data-path="4.3-bayesian-hypothesis-testing.html"><a href="4.3-bayesian-hypothesis-testing.html"><i class="fa fa-check"></i><b>4.3</b> Bayesian hypothesis testing</a></li>
-<li class="chapter" data-level="4.4" data-path="4.4-critical-reflection.html"><a href="4.4-critical-reflection.html"><i class="fa fa-check"></i><b>4.4</b> Critical reflection</a></li>
-<li class="chapter" data-level="4.5" data-path="4.5-summary-4.html"><a href="4.5-summary-4.html"><i class="fa fa-check"></i><b>4.5</b> Summary</a></li>
+<li class="chapter" data-level="4.4" data-path="4.4-reporting-test-results.html"><a href="4.4-reporting-test-results.html"><i class="fa fa-check"></i><b>4.4</b> Reporting test results</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="4.4-reporting-test-results.html"><a href="4.4-reporting-test-results.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.4.1</b> Reporting to fellow scientists</a></li>
+<li class="chapter" data-level="4.4.2" data-path="4.4-reporting-test-results.html"><a href="4.4-reporting-test-results.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.4.2</b> Reporting to the general reader</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="4.5-critical-reflection.html"><a href="4.5-critical-reflection.html"><i class="fa fa-check"></i><b>4.5</b> Critical reflection</a></li>
+<li class="chapter" data-level="4.6" data-path="4.6-summary-4.html"><a href="4.6-summary-4.html"><i class="fa fa-check"></i><b>4.6</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="4.1-null-hypothesis-significance-testing.html"><a href="4.1-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>5</b> Which Sample Size Do I Need? Power!</a>
 <ul>
@@ -454,34 +460,24 @@ div.csl-indent {
 <li class="chapter" data-level="12.2.2" data-path="12.2-statistical-tests.html"><a href="12.2-statistical-tests.html#sig-typeI"><i class="fa fa-check"></i><b>12.2.2</b> Significance level (<span class="math inline">\(\alpha\)</span>), significance, rejection region, and Type I error</a></li>
 </ul></li>
 <li class="chapter" data-level="12.3" data-path="12.3-null-alt.html"><a href="12.3-null-alt.html"><i class="fa fa-check"></i><b>12.3</b> Research hypothesis, alternative hypothesis, and nil hypothesis</a></li>
-<li class="chapter" data-level="12.4" data-path="12.4-one-twosidedtests.html"><a href="12.4-one-twosidedtests.html"><i class="fa fa-check"></i><b>12.4</b> One-Sided and Two-Sided Tests</a>
+<li class="chapter" data-level="12.4" data-path="12.4-testing-a-null-hypothesis-with-a-theoretical-probability-distribution.html"><a href="12.4-testing-a-null-hypothesis-with-a-theoretical-probability-distribution.html"><i class="fa fa-check"></i><b>12.4</b> Testing a Null Hypothesis with a Theoretical Probability Distribution</a></li>
+<li class="chapter" data-level="12.5" data-path="12.5-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><a href="12.5-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><i class="fa fa-check"></i><b>12.5</b> Testing a Null Hypothesis with an Exact Approach or Bootstrapping</a>
 <ul>
-<li class="chapter" data-level="12.4.1" data-path="12.4-one-twosidedtests.html"><a href="12.4-one-twosidedtests.html#boundary-value-as-hypothesized-population-value"><i class="fa fa-check"></i><b>12.4.1</b> Boundary value as hypothesized population value</a></li>
-<li class="chapter" data-level="12.4.2" data-path="12.4-one-twosidedtests.html"><a href="12.4-one-twosidedtests.html#one-sided-two-sided-distinction-is-not-always-relevant"><i class="fa fa-check"></i><b>12.4.2</b> One-sided – two-sided distinction is not always relevant</a></li>
-<li class="chapter" data-level="12.4.3" data-path="12.4-one-twosidedtests.html"><a href="12.4-one-twosidedtests.html#from-one-sided-to-two-sided-p-values-and-back-again"><i class="fa fa-check"></i><b>12.4.3</b> From one-sided to two-sided <em>p</em> values and back again</a></li>
+<li class="chapter" data-level="12.5.1" data-path="12.5-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><a href="12.5-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#null-ci0"><i class="fa fa-check"></i><b>12.5.1</b> Relation between null-hypothesis tests and confidence intervals</a></li>
+<li class="chapter" data-level="12.5.2" data-path="12.5-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><a href="12.5-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#testing-a-null-hypothesis-with-bootstrapping"><i class="fa fa-check"></i><b>12.5.2</b> Testing a null hypothesis with bootstrapping</a></li>
 </ul></li>
-<li class="chapter" data-level="12.5" data-path="12.5-testing-a-null-hypothesis-with-a-theoretical-probability-distribution.html"><a href="12.5-testing-a-null-hypothesis-with-a-theoretical-probability-distribution.html"><i class="fa fa-check"></i><b>12.5</b> Testing a Null Hypothesis with a Theoretical Probability Distribution</a></li>
-<li class="chapter" data-level="12.6" data-path="12.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><a href="12.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><i class="fa fa-check"></i><b>12.6</b> Testing a Null Hypothesis with an Exact Approach or Bootstrapping</a>
+<li class="chapter" data-level="12.6" data-path="12.6-test-recipe-and-rules-for-reporting.html"><a href="12.6-test-recipe-and-rules-for-reporting.html"><i class="fa fa-check"></i><b>12.6</b> Test Recipe and Rules for Reporting</a></li>
+<li class="chapter" data-level="12.7" data-path="12.7-nullSPSS.html"><a href="12.7-nullSPSS.html"><i class="fa fa-check"></i><b>12.7</b> Specifying Null Hypotheses in SPSS</a>
 <ul>
-<li class="chapter" data-level="12.6.1" data-path="12.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><a href="12.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#null-ci0"><i class="fa fa-check"></i><b>12.6.1</b> Relation between null-hypothesis tests and confidence intervals</a></li>
-<li class="chapter" data-level="12.6.2" data-path="12.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html"><a href="12.6-testing-a-null-hypothesis-with-an-exact-approach-or-bootstrapping.html#testing-a-null-hypothesis-with-bootstrapping"><i class="fa fa-check"></i><b>12.6.2</b> Testing a null hypothesis with bootstrapping</a></li>
+<li class="chapter" data-level="12.7.1" data-path="12.7-nullSPSS.html"><a href="12.7-nullSPSS.html#specify-null-for-binomial-test"><i class="fa fa-check"></i><b>12.7.1</b> Specify null for binomial test</a></li>
 </ul></li>
-<li class="chapter" data-level="12.7" data-path="12.7-test-recipe-and-rules-for-reporting.html"><a href="12.7-test-recipe-and-rules-for-reporting.html"><i class="fa fa-check"></i><b>12.7</b> Test Recipe and Rules for Reporting</a>
+<li class="chapter" data-level="12.8" data-path="12.8-cap-chance.html"><a href="12.8-cap-chance.html"><i class="fa fa-check"></i><b>12.8</b> Capitalization on Chance</a>
 <ul>
-<li class="chapter" data-level="12.7.1" data-path="12.7-test-recipe-and-rules-for-reporting.html"><a href="12.7-test-recipe-and-rules-for-reporting.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>12.7.1</b> Reporting to fellow scientists</a></li>
-<li class="chapter" data-level="12.7.2" data-path="12.7-test-recipe-and-rules-for-reporting.html"><a href="12.7-test-recipe-and-rules-for-reporting.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>12.7.2</b> Reporting to the general reader</a></li>
+<li class="chapter" data-level="12.8.1" data-path="12.8-cap-chance.html"><a href="12.8-cap-chance.html#example-of-capitalization-on-chance"><i class="fa fa-check"></i><b>12.8.1</b> Example of capitalization on chance</a></li>
+<li class="chapter" data-level="12.8.2" data-path="12.8-cap-chance.html"><a href="12.8-cap-chance.html#correcting-for-capitalization-on-chance"><i class="fa fa-check"></i><b>12.8.2</b> Correcting for capitalization on chance</a></li>
+<li class="chapter" data-level="12.8.3" data-path="12.8-cap-chance.html"><a href="12.8-cap-chance.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>12.8.3</b> Specifying hypotheses afterwards</a></li>
 </ul></li>
-<li class="chapter" data-level="12.8" data-path="12.8-nullSPSS.html"><a href="12.8-nullSPSS.html"><i class="fa fa-check"></i><b>12.8</b> Specifying Null Hypotheses in SPSS</a>
-<ul>
-<li class="chapter" data-level="12.8.1" data-path="12.8-nullSPSS.html"><a href="12.8-nullSPSS.html#specify-null-for-binomial-test"><i class="fa fa-check"></i><b>12.8.1</b> Specify null for binomial test</a></li>
-</ul></li>
-<li class="chapter" data-level="12.9" data-path="12.9-cap-chance.html"><a href="12.9-cap-chance.html"><i class="fa fa-check"></i><b>12.9</b> Capitalization on Chance</a>
-<ul>
-<li class="chapter" data-level="12.9.1" data-path="12.9-cap-chance.html"><a href="12.9-cap-chance.html#example-of-capitalization-on-chance"><i class="fa fa-check"></i><b>12.9.1</b> Example of capitalization on chance</a></li>
-<li class="chapter" data-level="12.9.2" data-path="12.9-cap-chance.html"><a href="12.9-cap-chance.html#correcting-for-capitalization-on-chance"><i class="fa fa-check"></i><b>12.9.2</b> Correcting for capitalization on chance</a></li>
-<li class="chapter" data-level="12.9.3" data-path="12.9-cap-chance.html"><a href="12.9-cap-chance.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>12.9.3</b> Specifying hypotheses afterwards</a></li>
-</ul></li>
-<li class="chapter" data-level="12.10" data-path="12.10-take-home-points-10.html"><a href="12.10-take-home-points-10.html"><i class="fa fa-check"></i><b>12.10</b> Take-Home Points</a></li>
+<li class="chapter" data-level="12.9" data-path="12.9-take-home-points-10.html"><a href="12.9-take-home-points-10.html"><i class="fa fa-check"></i><b>12.9</b> Take-Home Points</a></li>
 </ul></li>
 </ul>
 
@@ -509,12 +505,10 @@ div.csl-indent {
 <div class="rmdimportant">
 Rejecting the null hypothesis <strong>does not mean that this hypothesis is false or that the alternative hypothesis is true</strong>. Please, never forget this.
 </div>
-<p><A name="question4.3.1"></A></p>
 <p>The alternative hypothesis is of interest because it usually represents the research hypothesis (but not always as some statistics textbooks would have us believe). Most of the research hypotheses in social research are alternative hypotheses because our theories tell us to expect differences or changes but not the size of differences or changes.</p>
 <p>Not knowing which precise difference or association to expect, we usually formulate the research hypothesis that there is a difference or association. Because a particular value for the difference or association cannot be specified, these research hypotheses are alternative hypotheses. The associated null hypothesis is that there is no difference or no association. It equates the population statistic to one value, namely zero. This type of null hypothesis is called a <em>nil hypothesis</em> or just plainly <em>the nil</em>.</p>
 <p>If we expect that groups have different average scores on a dependent variable, for example, willingness to donate to a charity, but we do not know how different, we test the null hypothesis that the differences between the group averages are zero (no difference) in the population. If we expect a correlation between exposure and brand awareness in the population but we have no clue about the size of the correlation, we test the null hypothesis that the population correlation coefficient (Spearman’s rho or Pearson’s correlation coefficient) or regression coefficient (<span class="math inline">\(b\)</span> or <span class="math inline">\(b^*\)</span>) is zero. For all measures of association, zero means that there is no association. All of these are examples of nil hypotheses because the population value is hypothesized to be zero.</p>
-<p>If the research hypothesis is the alternative hypothesis, we have to choose a value for the null hypothesis ourselves. This is very important, because the null hypothesis is actually tested. If statistical software does not report the null hypothesis that is being tested, you may assume that it equates the parameter of interest to zero (see Section <a href="12.8-nullSPSS.html#nullSPSS">12.8</a> on null hypotheses in SPSS).</p>
-<p><A name="answer4.3.1"></A></p>
+<p>If the research hypothesis is the alternative hypothesis, we have to choose a value for the null hypothesis ourselves. This is very important, because the null hypothesis is actually tested. If statistical software does not report the null hypothesis that is being tested, you may assume that it equates the parameter of interest to zero (see Section <a href="12.7-nullSPSS.html#nullSPSS">12.7</a> on null hypotheses in SPSS).</p>
 </div>
             </section>
 
@@ -522,7 +516,7 @@ Rejecting the null hypothesis <strong>does not mean that this hypothesis is fals
         </div>
       </div>
 <a href="12.2-statistical-tests.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="12.4-one-twosidedtests.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="12.4-testing-a-null-hypothesis-with-a-theoretical-probability-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
