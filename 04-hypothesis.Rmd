@@ -293,7 +293,9 @@ In the social sciences, we allow ourselves to make a wrong descision more often.
 
 For continuous probability distributions, such as the normal distribution, it is possible to set the alpha level exactly to .05. For example the null hypothesis that average media literacy in the population of children equals 5.5 on a scale from one to ten. 
 
-We can construct a sampling distribution around the hypothesized population value. Remember (Section \@ref(expectedvalue)) that the population value is the expected value of the sampling distribution, that is, its mean (if the estimator is unbiased). The sampling distribution, then, is centered around the population value specified in the null hypothesis. This sampling distribution tells us the probabilities of all possible sample outcomes _if the null hypothesis is true_. It allows us to identify the most unlikely samples. In step two in figure \@ref(fig:nullsampling), we set the alpha level to .05. This means that we cut off 2.5% of the area in each tail of the sampling distribution. The **critical values** are the values that separate the 2.5% of the area in each tail from the 95% of the area in the middle. If we assume the population parameter to be 5.5, rejecting the null hypothesis would again be a wrong decision. Thus setting the boundary by using an alpha level of .05, would yield a wrong decision in 5% of the samples we take. Just like the discrete candy color case, we decide to reject $H_0$ on the outside of the critical value and not reject $H_0$ on the inside of the critical value. 
+We can estimate a sampling distribution around the hypothesized population value using a theoretical approach (Chapter \@ref(theoretical-approx)). Remember (Section \@ref(expectedvalue)) that the population value is the expected value of the sampling distribution, that is, its mean (if the estimator is unbiased). The sampling distribution, then, is centered around the population value specified in the null hypothesis. This sampling distribution tells us the probabilities of all possible sample outcomes _if the null hypothesis is true_. It allows us to identify the most unlikely samples. In step two in figure \@ref(fig:nullsampling), we set the alpha level to .05. This means that we cut off 2.5% of the area in each tail of the sampling distribution. The **critical values** are the values that separate the 2.5% of the area in each tail from the 95% of the area in the middle. If we assume the population parameter to be 5.5, rejecting the null hypothesis would again be a wrong decision. Thus setting the boundary by using an alpha level of .05, would yield a wrong decision in 5% of the samples we take. Just like the discrete candy color case, we decide to reject $H_0$ on the outside of the critical value and not reject $H_0$ on the inside of the critical value. 
+
+Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.
 
 ```{r nullsampling, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9.
@@ -301,7 +303,9 @@ We can construct a sampling distribution around the hypothesized population valu
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", height="410px")
 ```
 
-Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.
+Probability distributions other than the standard-normal distribution, however, do not have fixed critical values. Their critical values depend on the _degrees of freedom_ of the test, usually abbreviated to _df_. The degrees of freedom of a test may depend on sample size, the number of groups that we compare, or the number of rows and columns in a contingency table. We do not have to worry about this.
+
+The _t_ distribution is an example of a probability distribution for which the critical values depend on the degrees of freedom of the test. In this case, the degrees of freedom are determined by sample size. Larger samples have more degrees of freedom and, as a consequence, they have slightly lower critical values. For samples that are not too small the critical values of _t_ are near 2. You may have noticed this in Figure \@ref(fig:crit-df).
 
 ### 1 - Alpha
 
@@ -385,6 +389,8 @@ In the continuous case, as described in figure \@ref(fig:nullsampling), the test
 How do we know that the test statistic that we have drawn is among the five percent most unlikely samples if the null hypothesis is true? In other words, how do we know that our sample statistic outcome is in the rejection region?
 
 > The **p-value** is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.
+>
+> Rejecting the null hypothesis does not mean that this hypothesis is false or that the alternative hypothesis is true. Please, never forget this.
 
 We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
 

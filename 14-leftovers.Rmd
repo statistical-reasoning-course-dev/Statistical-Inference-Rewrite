@@ -7,57 +7,10 @@
 
 
 
-### Significance level ($\alpha$), significance, rejection region, and Type I error  {#sig-typeI}
 
 
 
 
-
-How far apart must the sample statistic value and the hypothesized population value be to conclude that the null hypothesis is not plausible? The null hypothesis is implausible if the sample that we have drawn is among the samples that are very unlikely if the null hypothesis is true. A commonly accepted threshold value is that the sample is among the five per cent most unlikely samples. This threshold is called the _significance level_ of the test. It is often represented by the symbol $\alpha$ (the Greek letter alpha). If our sample is among the five per cent most unlikely samples, we reject the null hypothesis and we say that the test is _statistically significant_.
-
-
-
-Note that we can construct a sampling distribution for the null hypothesis only if the hypothesis specifies one value for the population statistic. If we would have multiple population values in our null hypothesis, for example, average media literacy is 5.5, 5.0, or 4.5 in the population, we would have multiple sampling distributions: one for each value. This is why the null hypothesis must specify a single value.
-
-According to our null hypothesis, the population average is 5.5. If average media literacy of children in the population would really be 5.5, which average sample media literacy scores are most unlikely? We can use a hypothetical sampling distribution with 5.5 as mean value to answer this question. 
-
-Average media literacy can be too low to maintain the null hypothesis that it is 5.5 in the population, but it can also be too high. The significance level of five per cent is divided into two halves of 2.5% per cent; one for each tail of the sampling distribution. Graphically speaking (Figure \@ref(fig:nullsampling)), the significance level cuts off a part of the left-hand tail and a part of the right-hand tail of the sampling distribution. Sample means in these tails are too unlikely to be found in a sample if the null hypothesis is true. 
-
-These values constitute the _rejection region_ of the test. If the sample statistic is in the rejection region, we reject the null hypothesis. This is the rule of the game. However, rejecting the null hypothesis does not prove that it is wrong. Perhaps, average media literacy is really 5.5 in the population, but we were so unfortunate to draw a sample of children with very low media literacy scores. This error is called a _Type I error_: rejecting a null hypothesis that is actually true.
-
-We don’t know whether or when we make this error. We cannot entirely avoid this error because samples can be very different from the population from which they are drawn, as we learned in Chapter \@ref(samp-dist). Thankfully, however, we know the probability that we make this error. This probability is the significance level.  
-
-You should understand the exact meaning of probabilities here. A significance level of .05 allows five per cent of all possible samples to be so different from the population that we reject the null hypothesis even if it is true. 
-
-In other words, if we draw many samples and decide on the null hypothesis for each sample, we would reject a true null hypothesis in five per cent of our decisions. So we have a five per cent chance of making a Type I error. We decide on that probability when we select the significance level of the test. We think that 5 percent (.05) is an acceptable probability for making this type of error.
-
-
-
-
-
-## Research hypothesis, alternative hypothesis, and nil hypothesis {#null-alt}
-
-The null hypothesis is central to significance testing. If the test is statistically significant, that is, if the _p_ value is below the significance level, we reject the null hypothesis.
-
-
-
-_The alternative hypothesis covers all situations not covered by the null hypothesis_. The null hypothesis stating that average media literacy in a population of children is 5.5, is paired with the alternative hypothesis stating that the average is not 5.5. In this way, we cover all possible outcomes.
-
-If we reject the null hypothesis, we say that our data lend support to the alternative hypothesis. We doubt that the null hypothesis is true. Of course, we know that we can be mistaken. There is five per cent chance that we reject a null hypothesis that is actually true (Type I error, Section \@ref(sig-typeI)). Rejecting the null hypothesis does not mean that this hypothesis is false or that the alternative hypothesis is true. Please, never forget this.
-
-```{block2, type='rmdimportant'}
-Rejecting the null hypothesis __does not mean that this hypothesis is false or that the alternative hypothesis is true__. Please, never forget this.
-```
-
-
-
-The alternative hypothesis is of interest because it usually represents the research hypothesis (but not always as some statistics textbooks would have us believe). Most of the research hypotheses in social research are alternative hypotheses because our theories tell us to expect differences or changes but not the size of differences or changes.
-
-Not knowing which precise difference or association to expect, we usually formulate the research hypothesis that there is a difference or association. Because a particular value for the difference or association cannot be specified, these research hypotheses are alternative hypotheses. The associated null hypothesis is that there is no difference or no association. It equates the population statistic to one value, namely zero. This type of null hypothesis is called a _nil hypothesis_ or just plainly _the nil_. 
-
-If we expect that groups have different average scores on a dependent variable, for example, willingness to donate to a charity, but we do not know how different, we test the null hypothesis that the differences between the group averages are zero (no difference) in the population. If we expect a correlation between exposure and brand awareness in the population but we have no clue about the size of the correlation, we test the null hypothesis that the population correlation coefficient (Spearman's rho or Pearson's correlation coefficient) or regression coefficient ($b$ or $b^*$) is zero. For all measures of association, zero means that there is no association. All of these are examples of nil hypotheses because the population value is hypothesized to be zero.
-
-If the research hypothesis is the alternative hypothesis, we have to choose a value for the null hypothesis ourselves. This is very important, because the null hypothesis is actually tested. If statistical software does not report the null hypothesis that is being tested, you may assume that it equates the parameter of interest to zero (see Section \@ref(nullSPSS) on null hypotheses in SPSS).
 
 
 
@@ -86,11 +39,7 @@ The exact formula and calculation of a test statistic is not important to us. Ju
 
 We reject the null hypothesis if the test statistic is in the _rejection region_. The value of the test statistic where the rejection region starts, is called the _critical value_ of the test statistic. In Section \@ref(crit-values), we learned that 1.96 is the critical value of z for a two-sided test at five per cent significance level in a standard-normal distribution. In a z test, then, a sample z value above 1.96 or below -1.96 indicates a statistically significant test result.
 
-Probability distributions other than the standard-normal distribution, however, do not have fixed critical values. Their critical values depend on the _degrees of freedom_ of the test, usually abbreviated to _df_. The degrees of freedom of a test may depend on sample size, the number of groups that we compare, or the number of rows and columns in a contingency table. We do not have to worry about this.
 
-The _t_ distribution is an example of a probability distribution for which the critical values depend on the degrees of freedom of the test. In this case, the degrees of freedom are determined by sample size. Larger samples have more degrees of freedom and, as a consequence, they have slightly lower critical values. For samples that are not too small the critical values of _t_ are near 2. You may have noticed this in Figure \@ref(fig:crit-df).
-
-APA requires us to report the degrees of freedom. If SPSS reports the degrees of freedom, usually in a column with the header _df_, you should include the number between brackets after the name of the test statistic. If, for example, a _t_ test has 18 degrees of freedom and the _t_ value is 0.63, you report: _t_ (18) = 0.63. Note that the _F_ test statistic has two degrees of freedom, both of which should be reported (separated by a comma and a blank space), for example, _F_ (2, 87) = 3.13.
 
 ## Testing a Null Hypothesis with an Exact Approach or Bootstrapping
 
