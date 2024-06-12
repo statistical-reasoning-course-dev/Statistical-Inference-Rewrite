@@ -1,39 +1,11 @@
 # Chapter 4 leftovers
 
 
-## A Binary Decision {#binarydecision}
-
-The overall goal of statistical inference is to increase our knowledge about a population, when we only have a random sample from that population. In Chapter \@ref(param-estim), we estimated population values that are plausible considering the sample that we have drawn. For instance, we looked for all plausible average weights of candies in the population using information about the weight of candies in our sample bag. This is what we do when we estimate a population value.  
-
-Estimation is one of two types of statistical inference, the other being null hypothesis testing. When we estimate a population value, we do not use our previous knowledge about the world of candies or whatever other subject we are investigating. We can be completely ignorant about the phenomenon that we are investigating. This approach is not entirely in line with the conceptualization of scientific progress as an _empirical cycle_, in which scientists develop theories about the empirical world, test these theories against data collected from this world, and improve their theories if they are contradicted by the data [@deGrootMethodologyFoundationsInference1969].  
-
-Hypothesis testing, however, is more in line with this conceptualization of scientific progress. It requires the researcher to formulate an expectation about the population, usually called a _hypothesis_. If the hypothesis is based on theory and previous research, the scientist uses previous knowledge. As a next step, the researcher tests the hypothesis against data collected for this purpose. If the data contradict the hypothesis, the hypothesis is rejected and the researcher has to improve the theory. If the data does not contradict the hypothesis, it is not rejected and, for the time being, the researcher does not have to change the theory.  
-
-Hypothesis testing, then, amounts to choosing one of two options: reject or not reject the hypothesis. This is a binary decision between concluding that the population is as it is described in the hypothesis, or concluding that it is not. This is quite a different approach than estimating a confidence interval as a range of plausible population values. Nevertheless, hypothesis testing and confidence intervals are tightly related as we will see later on in this chapter (Section \@ref(null-ci0)).
-
-## Statistical Tests
-
-A statistical test determines whether a statement about a population is plausible given a sample that is drawn from this population. In essence, a statistical test answers the question: Is the sample that we have drawn sufficiently probable if the assumption about the population would be true?
-
-We need several ingredients to apply a statistical test:
-
-1. An assumption about a population.
-
-2. A criterion to decide if the assumption is sufficiently plausible.
-
-3. A sample from the population supplying information about the assumption
-
-4. A probability for the sample showing how plausible the assumption is.
-
-This section discusses these four ingredients of a statistical test. The assumption about a population is the null hypothesis of the test (Section \@ref(nullhypothesis)). We select a significance level, usually five per cent, as criterion to decide whether the null hypothesis is sufficiently plausible or not. If it is not sufficiently plausible, we reject the null hypothesis. The values for which we reject the null hypothesis constitute the *rejection region* of the test (Section \@ref(sig-typeI)). We need a sample to test whether the assumption about the population is sufficiently plausible. Finally, we let the computer calculate a probability (_p_ value) of drawing a sample that differs at least as much from the null hypothesis as the sample that we have drawn. If this probability is smaller than the selected significance level, the sample is in the rejection region, so we must reject the null hypothesis (Section \@ref(pvalue)). This concludes the statistical test.
-
-### The null hypothesis {#nullhypothesis}
 
 
 
-The most important statistical hypothesis is called the _null hypothesis_ (_H_~0~). The null hypothesis specifies one value for a population statistic. 
 
-We can test this statement about the population with a random sample of children drawn from the population in which we measure their media literacy. Once we have the measurements, we can calculate average media literacy in the sample. We can compare the sample average to the hypothesized average media literacy in the population. If they are not too far apart, we conclude that the null hypothesis is plausible. If they are too far apart, we don't think the null hypothesis is plausible and we reject it.
+
 
 ### Significance level ($\alpha$), significance, rejection region, and Type I error  {#sig-typeI}
 

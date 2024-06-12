@@ -22,6 +22,16 @@ We test a null hypothesis in the following way. We construct a sampling distribu
 
 Then, we calculate the probability of drawing a sample such as the one we have drawn or a sample that differs even more from the hypothesized population value. If this probability (p value) is very low, say, below 5%, we reject the null hypothesis because our sample would be too unlikely if the null hypothesis is true. In this case, the test is statistically significant. The probability threshold that we use is called the significance level of the test.
 
+## A Binary Decision {#binarydecision}
+
+The overall goal of statistical inference is to increase our knowledge about a population, when we only have a random sample from that population. In Chapter \@ref(param-estim), we estimated population values that are plausible considering the sample that we have drawn. For instance, we looked for all plausible average weights of candies in the population using information about the weight of candies in our sample bag. This is what we do when we estimate a population value.  
+
+Estimation is one of two types of statistical inference, the other being null hypothesis testing. When we estimate a population value, we do not use our previous knowledge about the world of candies or whatever other subject we are investigating. We can be completely ignorant about the phenomenon that we are investigating. This approach is not entirely in line with the conceptualization of scientific progress as an _empirical cycle_, in which scientists develop theories about the empirical world, test these theories against data collected from this world, and improve their theories if they are contradicted by the data [@deGrootMethodologyFoundationsInference1969].  
+
+Hypothesis testing, however, is more in line with this conceptualization of scientific progress. It requires the researcher to formulate an expectation about the population, usually called a _hypothesis_. If the hypothesis is based on theory and previous research, the scientist uses previous knowledge. As a next step, the researcher tests the hypothesis against data collected for this purpose. If the data contradict the hypothesis, the hypothesis is rejected and the researcher has to improve the theory. If the data does not contradict the hypothesis, it is not rejected and, for the time being, the researcher does not have to change the theory.  
+
+Hypothesis testing, then, amounts to choosing one of two options: reject or not reject the hypothesis. This is a binary decision between concluding that the population is as it is described in the hypothesis, or concluding that it is not. This is quite a different approach than estimating a confidence interval as a range of plausible population values. Nevertheless, hypothesis testing and confidence intervals are tightly related as we will see later on in this chapter (Section \@ref(null-ci0)).
+
 ## Null Hypothesis Significance Testing
 
 Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach [@RefWorks:3930]. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.
@@ -215,6 +225,8 @@ text(12.5, .23, "True effect size", col='red', pos=3)
 Understanding the null and alternative hypothesis and their associated probability distributions is crucial for grasping the logic of the Neyman Pearson approach. In the following chapters, we will use these distributions to explain the different components of the Neyman Pearson approach.
 
 ### Alpha
+
+> Alpha = $\alpha$ = Significance level = significance = rejection region = Type I error
 
 The first step in the Neyman Pearson approach is to set the desired Type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ descision table in figure \@ref(fig:alphatable), this corresponds to the top left quadrant.
 
@@ -798,7 +810,7 @@ Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. 
 
 ### Estimation instead of hypothesis testing
 
-Following up on a report commissioned by the American Psychological Association APA [@RefWorks:3934], the 6^th^ edition of the _Publication Manual of the American Psychological Association_ recommends reporting and interpreting confidence intervals rather than relying solely on null hypothesis tests. 
+Following up on a report commissioned by the American Psychological Association APA [@RefWorks:3934], the 6^th^ edition of the _Publication Manual of the American Psychological Association_ recommends reporting and interpreting confidence intervals in addition to null hypothesis significance testing. 
 
 Estimation is becoming more important: Assessing the precision of our statements about the population rather than just rejecting or not rejecting our hypothesis about the population. This is an important step forward and it is easy to accomplish if your statistical software reports confidence intervals.  
 
@@ -839,16 +851,6 @@ rm(d)
 
 Figure \@ref(fig:ci-nullhyp) shows six confidence intervals for a population value, for instance, the effect of exposure to advertisements on brand awareness, and the sample result as point estimate (dot). The horizontal axis is labeled by the size of the effect: the difference between the effect in the sample and the absence of an effect according to the null hypothesis.
 
-<A name="question6.2.1"></A>
-```{block2, type='rmdquestion', echo = Qch6}
-1. For each of the estimates depicted in Figure \@ref(fig:ci-nullhyp), would you advise the company to use the advertisement based on a null hypothesis significance test? [<img src="icons/2answer.png" width=115px align="right">](#answer6.2.1){.buttonToAnswer}
-```
-
-<A name="question6.2.2"></A>
-```{block2, type='rmdquestion', echo = Qch6}
-2. Would you advise the company to use the advertisement based on the confidence intervals in Figure \@ref(fig:ci-nullhyp)? [<img src="icons/2answer.png" width=115px align="right">](#answer6.2.2){.buttonToAnswer}
-```
-
 A confidence interval shows us whether or not our null hypothesis must be rejected (see Section \@ref(null-ci0)). The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil (Section \@ref(strawmen)). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1.
 
 At the same time, however, confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis near one of its boundaries (e.g., Confidence Interval D in Figure \@ref(fig:ci-nullhyp)), we do not reject the null hypothesis but it still is plausible that the population value is substantially larger (or substantially smaller) than the hypothesized value. 
@@ -886,6 +888,18 @@ Using confidence intervals in this way, we avoid the problem that statistically 
 If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, which brings us to meta-analysis.
 
 ## Bayesian hypothesis testing
+
+A more radical way of including previous knowledge in statistical inference is _Bayesian inference_. Bayesian inference regards the sample that we draw as a means to update the knowledge that we already have or think we have on the population. Our previous knowledge is our starting point and we are not going to just discard our previous knowledge if a new sample points in a different direction, as we do when we reject a null hypothesis.  
+
+Think of Bayesian inference as a process similar to predicting the weather. If I try to predict tomorrow's weather, I am using all my weather experience to make a prediction. If my prediction turns out to be more or less correct, I don't change the way I predict the weather. But if my prediction is patently wrong, I try to reconsider the way I predict the weather, for example, paying attention to new indicators of weather change.  
+
+Bayesian inference uses a concept of probability that is fundamentally different from the type of inference presented in previous chapters, which is usually called _frequentist inference_. Bayesian inference does not assume that there is a true population value. Instead, it regards the population value as a random variable, that is, as something with a probability.  
+
+Again, think of predicting the weather. I am not saying to myself: "Let us hypothesize that tomorrow will be a rainy day. If this is correct, what is the probability that the weather today looks like it does?" Instead, I think of the probability that it will rain tomorrow. Bayesian probabilities are much more in line with our everyday concept of probability than the dice-based probabilities of frequentist inference. 
+
+Remember that we are not allowed to interpret the 95% confidence interval as a probability (Chapter \@ref(param-estim))? We should never conclude that the parameter is between the upper and lower limits of our confidence interval with 95 per cent probability. This is because a parameter does not have a probability in frequentist inference. The _credible interval_ (sometimes called _posterior interval_) is the Bayesian equivalent of the confidence interval. In Bayesian inference, a parameter has a probability, so we are allowed to say that the parameter lies within the credible interval with 95% probability. This interpretation is much more in line with our intuitive notion of probabilities.
+
+Bayesian inference is intuitively appealing but it has not yet spread widely in the social and behavioral sciences. Therefore, I merely mention this strand of statistical inference and I refrain from giving details. Its popularity, however, is increasing, so you may come in contact with Bayesian inference sooner or later.
 
 ## Reporting test results
 
