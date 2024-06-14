@@ -373,7 +373,7 @@ The probability of making a Type II error is indicated by $\beta$. It is the pro
 
 ### Test statistic {#test-statistic}
 
-In chapter \@ref(samplestatistic) we discussed the **sample statistic**, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that also conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, $t$-values, $F$-values, and $\chi^2$-values are also sample statistics. 
+In chapter \@ref(samplestatistic) we discussed the **sample statistic**, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that also conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, $t$-values, $F$-values, and $\chi^2$-values are also sample statistics. A test statistic more or less standardizes the difference between the sample statistic and the population value that we expect under the null hypothesis. 
 
 The **test statistic** is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4. 
 
@@ -673,6 +673,8 @@ This is essentially what meta analysis is about. Collecting effect sizes from mu
 
 [to-do] add communication meta analysis example.
 
+Meta-analysis is a good example of combining research efforts to increase our understanding. It favours estimation over hypothesis testing because the goal is to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept _New Statistics_. See Cumming's book [-@RefWorks:3883], [website](http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci), or [YouTube channel](https://www.youtube.com/user/geoffdcumming) if you are curious to learn more.
+
 ### Sample size {#sample-size}
 
 As stated in chapter \@ref(power), the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In figure \@ref(fig:twobinomN20), we increased the number of candies in the bag to 20. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 20. This of still assumes our $H_0$ to be true, and the parameter of the machine is still  $\theta = .5$, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 cancies is now $.5 \times 20 = 10$, right in the middle of our distribution.
@@ -893,6 +895,23 @@ The effect of exposure to advertisements on brand awareness is statistically sig
 Using confidence intervals in this way, we avoid the problem that statistically non-significant effects are not published. Not publishing non-significant results, either because of self-selection by the researcher or selection by journal editors and reviewers, offers a misleading view of research results.
 
 If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, which brings us to meta-analysis.
+
+### Testing a null hypothesis with bootstrapping  
+
+Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.
+
+```{r null-bootstrap, eval=FALSE, echo=FALSE}
+# Create a (left) skewed sample of media literacy scores (N = 30, such that the sampling dsitribution is skewed?). Generate a sampling distribution of median media literacy scores and display it as a histogram (with narrow bins). Show to vertical lines for the lower and upper limit of the confidence interval and display the percentage of cases to left/middle/right of these lines. Add a range slider, so the user can set the lower and upper limits of the 95% confidence interval for the sample median.
+
+1. Figure \@ref(fig:null-bootstrap) shows the bootstrapped sampling distribution of sample medians for media literacy of teenagers. Use the sliders to determine the 95% confidence interval of the sample median.
+
+2. Test the null hypothesis that teenager media literacy in the population is 6.0.
+```
+
+Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section \@ref(bootstrap-confidenceinterval)). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it.
+
+For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution [@RefWorks:3929: 376-378], but this is not always the case if we calculate the confidence interval with the critical values of a _t_ distribution [see, for example, @smithsonCorrectConfidenceIntervals2001] or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.
+
 
 ## Bayesian hypothesis testing
 

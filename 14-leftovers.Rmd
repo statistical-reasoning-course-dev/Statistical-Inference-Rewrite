@@ -33,7 +33,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-df/", height="4
 Figure \@ref(fig:crit-df) uses the _t_ distribution to approximate the sampling distribution of average media literacy in a random sample of children.
 
 
-A test statistic is calculated from the sample statistic that we want to test, for instance, the sample proportion, mean, variance, or association, but it uses the null hypothesis as well. A test statistic more or less standardizes the difference between the sample statistic and the population value that we expect under the null hypothesis. 
+
 
 The exact formula and calculation of a test statistic is not important to us. Just note that the test statistic is usually zero if the sample outcome is equal to the hypothesized population value. In Figure \@ref(fig:crit-df), for example, the _t_ value of a sample with mean 5.5 is zero if the hypothesized population mean is 5.5. The larger the difference between the observed value (sample outcome) and the expected value (hypothesized population value), the more extreme the value of the test statistic, the less likely (lower _p_ value) it is that we draw a sample with the observed outcome or an outcome even more different from the expected value, and, finally, the more likely we are to reject the null hypothesis.
 
@@ -64,15 +64,7 @@ Figure \@ref(fig:null-ci) shows media literacy scores in a random sample of chil
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/null-ci/", height="268px")
 ```
 
-<A name="question4.6.1"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-1. What are the lowest and highest hypothesized population means for which the null hypothesis is _not_ rejected? Use the slider to find the answer. [<img src="icons/2answer.png" width=115px align="right">](#answer4.6.1){.buttonToAnswer}
-```
 
-<A name="question4.6.2"></A>
-```{block2, type='rmdquestion', echo = Qch4}
-2. The interval between the lowest and highest hypothesized population means of Question 1 is the 95% confidence interval (see Section \@ref(ci-parameter)). Is a null hypothesis statistically significant if the hypothesized population value is within the 95% confidence interval or outside of this interval? [<img src="icons/2answer.png" width=115px align="right">](#answer4.6.2){.buttonToAnswer}
-```
   
 Do you remember how we constructed a confidence interval in Chapter \@ref(param-estim), Section \@ref(imag-pop-values)? We looked for all population values for which the sample outcome is sufficiently plausible. Sufficiently plausible means that our observed sample outcome is among the sample outcomes that are closest to the population value. By convention, we use a confidence level of 95 per cent, which means that our observed sample is among the 95 per cent of all samples that have outcomes closest to the population value.
 
@@ -88,49 +80,7 @@ Let us assume, for example, that average media literacy in our sample is 3.0 and
 
 Note that the hypothesized value can be too high or too low for the confidence interval, so a hypothesis test using a confidence interval is two-sided.
 
-### Testing a null hypothesis with bootstrapping  
 
-Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.
-
-```{r null-bootstrap, eval=FALSE, echo=FALSE}
-# Create a (left) skewed sample of media literacy scores (N = 30, such that the sampling dsitribution is skewed?). Generate a sampling distribution of median media literacy scores and display it as a histogram (with narrow bins). Show to vertical lines for the lower and upper limit of the confidence interval and display the percentage of cases to left/middle/right of these lines. Add a range slider, so the user can set the lower and upper limits of the 95% confidence interval for the sample median.
-
-1. Figure \@ref(fig:null-bootstrap) shows the bootstrapped sampling distribution of sample medians for media literacy of teenagers. Use the sliders to determine the 95% confidence interval of the sample median.
-
-2. Test the null hypothesis that teenager media literacy in the population is 6.0.
-```
-
-Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section \@ref(bootstrap-confidenceinterval)). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it.
-
-For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution [@RefWorks:3929: 376-378], but this is not always the case if we calculate the confidence interval with the critical values of a _t_ distribution [see, for example, @smithsonCorrectConfidenceIntervals2001] or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.
-
-```{html, echo=ch4} 
-### Answers {-} 
-```
-
-<A name="answer4.6.1"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 1. 
-
-* Change the slider such that the boundary of the right tail coincides with
-the red line of the sample mean. This hypothesized population value is the
-lower bound of the 95% confidence interval. It is the lowest hypothesized
-population value for which the observed sample mean is not statistically
-significant.
-* Make the boundary of the left tail meet the sample mean (red line): this
-population value is the upper bound of the confidence interval. It is the
-highest hypothesized population value for which the observed sample mean is
-not statistically significant. [<img src="icons/2question.png" width=161px align="right">](#question4.6.1)
-```
-
-<A name="answer4.6.2"></A>
-```{block2, type='rmdanswer', echo=ch4}
-Answer to Question 2. 
-
-* A confidence interval contains all population values---here: the population mean---for which the observed sample is among the 95% most likely samples to be drawn from such a population.
-* We reject a null hypothesis if the sample is NOT among the 95% most likely samples if the null hypothesis is true. In other words, if it is among the 5% most unlikely samples. 
-* So we reject null hypotheses if the hypothesized population value is OUTSIDE the confidence interval. If it is INSIDE the confidence interval, we do NOT reject the null hypothesis. [<img src="icons/2question.png" width=161px align="right">](#question4.6.2)
-```
   
 ## Test Recipe and Rules for Reporting
 
