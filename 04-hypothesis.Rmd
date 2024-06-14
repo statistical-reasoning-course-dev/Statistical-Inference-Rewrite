@@ -815,7 +815,7 @@ In contrast, if our statistical software tells us the two-sided _p_ value and we
 
 Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided _p_ value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.
 
-## Using Confidence Intervals to test hypotheses
+## Confidence Intervals to test hypotheses
 
 ### Estimation instead of hypothesis testing
 
@@ -896,7 +896,7 @@ Using confidence intervals in this way, we avoid the problem that statistically 
 
 If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, which brings us to meta-analysis.
 
-### Testing a null hypothesis with bootstrapping  
+### Bootstrapped confidence intervals
 
 Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.
 
@@ -926,6 +926,25 @@ Again, think of predicting the weather. I am not saying to myself: "Let us hypot
 Remember that we are not allowed to interpret the 95% confidence interval as a probability (Chapter \@ref(param-estim))? We should never conclude that the parameter is between the upper and lower limits of our confidence interval with 95 per cent probability. This is because a parameter does not have a probability in frequentist inference. The _credible interval_ (sometimes called _posterior interval_) is the Bayesian equivalent of the confidence interval. In Bayesian inference, a parameter has a probability, so we are allowed to say that the parameter lies within the credible interval with 95% probability. This interpretation is much more in line with our intuitive notion of probabilities.
 
 Bayesian inference is intuitively appealing but it has not yet spread widely in the social and behavioral sciences. Therefore, I merely mention this strand of statistical inference and I refrain from giving details. Its popularity, however, is increasing, so you may come in contact with Bayesian inference sooner or later.
+
+## Statistical test selection
+
+```{r flowchart, echo=FALSE, fig.width=9, fig.pos='H', fig.align='center', fig.cap="Flow chart for selecting a test in SPSS."}
+#Create and draw flow chart for selecting tests in SPSS.
+source("flowchart.R")
+#Show plot.
+p
+#Cleanup.
+rm(p, x, y)
+```
+
+Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main  distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in Figure \@ref(fig:flowchart) helps you to identify the right statistical test.
+
+If possible, SPSS uses a theoretical probability distribution to approximate the sampling distribution. It will select the appropriate sampling distribution. In some cases, such as a test on a contingency table with two rows and two columns, SPSS automatically includes an exact test because the theoretical approximation cannot be relied on.
+
+SPSS does not allow the user to specify the null hypothesis of a test if the test involves two or more variables. If you cannot specify the null hypothesis, SPSS uses the nil hypothesis that the population value of interest is zero. For example, SPSS tests the null hypothesis that males and females have the same average willingness to donate to a charity, that is, the mean difference is zero, if we apply an independent samples _t_ test. 
+
+Imagine that we know from previous research that females tend to score one point higher on the willingness scale than males. It would not be very interesting to reject the nil hypothesis. Instead, we would like to test the null hypothesis that the average difference between females and males is 1.00. We cannot change the null hypothesis of a _t_ test in SPSS, but we can use the confidence interval to test this null hypothesis as explained in Section \@ref(null-ci0).
 
 ## Reporting test results
 
@@ -976,5 +995,37 @@ Note that the actual _p_ value is well below .001. If we would round it to three
 Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the _effect size_, and give a more precise interpretation (see Chapter \@ref(power) for more information).  
 
 ## Critical reflection
+
+
+
+## Capitalization on Chance {#cap-chance}
+
+The relation between null hypothesis testing and confidence intervals (Section \@ref(null-ci0)) may have given the impression that we can test a range of null hypotheses using just one sample and one confidence interval. For instance, we could simultaneously test the null hypotheses that average media literacy among children is 5.5, 4.5, or 3.5. Just check if these values are inside or outside the confidence interval and we are done, right?  
+
+This impression is wrong. The probabilities that we calculate using one sample assume that we only apply one test to the data. If we test the original null hypothesis that average media literacy is 5.5, we run a risk of five per cent to reject the null hypothesis if the null hypothesis is true. The significance level is the probability of making a Type I error (Section \@ref(sig-typeI)). 
+
+If we apply a second test to the same sample, for example, testing the null hypothesis that average media literacy is 4.5, we again run this risk of five per cent. The probability of not rejecting a true null hypothesis is .95, so the probability of not rejecting two true null hypotheses is .95 * .95  = 0.9025. The risk of rejecting at least one true null hypothesis in two tests is 1 - 0.9025 = .0975. This risk is dramatically higher than the significance level (.05) that we want to use. The situation becomes even worse if we do three or more tests on the same sample. 
+
+The phenomenon that we are dealing with probabilities of making Type I errors that are higher (*inflated Type I errors*) than the significance level that we want to use, is called _capitalization on chance_. Applying more than one test to the same data is one way to capitalize on chance. If you do a lot of tests on the same data, you are likely to find some statistically significant results even if all null hypotheses are true.  
+
+### Example of capitalization on chance
+
+This type of capitalization on chance may occur, for example, if we want to compare average media literacy among three groups: second, fourth, and sixth grade students. We can use a _t_ test to test if average media literacy among fourth grade students is higher than among second grade students. We need a second _t_ test to compare average media literacy of sixth grade students to second grade students, and a third one to compare sixth to fourth grade students.
+
+If we execute three tests, the probability of rejecting at least one true null hypothesis of no difference is much higher than five per cent if we use a significance level of five per cent for each single _t_ test. In other words, we are more likely to obtain at least one statistically significant result than we want. 
+
+### Correcting for capitalization on chance  
+
+We can correct in several ways for this type of capitalization on chance; one such way is the Bonferroni correction. This correction divides the significance level that we use for each test by the number of tests that we do. In our example, we do three _t_ tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each _t_ test is .0167. If a _t_ test's _p_ value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.
+
+The Bonferroni correction is a rather coarse correction, which is not entirely accurate. However, it has a simple logic that directly links to the problem of capitalization on chance. Therefore, it is a good technique to help understand the problem, which is the main goal we want to attain, here. We will skip better, but more complicated alternatives to Bonferroni correction.
+
+It has been argued that we do not have to apply a correction for capitalization on chance if we specify a hypothesis beforehand for each test that we execute. Formulating hypotheses does not solve the problem of capitalization on chance. The probability of rejecting at least one true null hypothesis still increases with the number of tests that we execute. If all hypotheses and associated tests are reported [(as recommended in @wassersteinASAStatementPValues2016], however, the reader of the report can evaluate capitalization on chance. If one out of twenty tests at five per cent significance level turns out to be statistically significant, this is what we would expect based on chance if all null hypotheses are true. The evidence for rejecting this null hypothesis is less convincing than if only one test was applied and that test turned out to be statistically significant.
+
+### Specifying hypotheses afterwards
+
+Capitalization on chance occurs if we apply different tests to the same variables in the same sample. This occurs in exploratory research in which we do not specify hypotheses beforehand but try out different independent variables or different dependent variables. 
+
+It occurs more strongly if we first have a look at our sample data and then formulate the hypothesis. Knowing the sample outcome, it is easy to specify a null hypothesis that will be rejected. This is plain cheating and it must be avoided at all times.
 
 ## Summary
