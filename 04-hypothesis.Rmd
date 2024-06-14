@@ -32,7 +32,7 @@ Hypothesis testing, however, is more in line with this conceptualization of scie
 
 Hypothesis testing, then, amounts to choosing one of two options: reject or not reject the hypothesis. This is a binary decision between concluding that the population is as it is described in the hypothesis, or concluding that it is not. This is quite a different approach than estimating a confidence interval as a range of plausible population values. Nevertheless, hypothesis testing and confidence intervals are tightly related as we will see later on in this chapter (Section \@ref(null-ci0)).
 
-## Null Hypothesis Significance Testing
+## Null Hypothesis Significance Testing {#null-hypothesis-significance-testing}
 
 Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach [@RefWorks:3930]. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.
 
@@ -49,8 +49,8 @@ The Neyman Pearson approach is about choosing your desired probability of making
 
 1. Alpha - Determine your desired risk of drawing the wrong conclusion.
 2. Power - Determine your desired probability of drawing the correct conclusion.
-3. Determine the effect size of interest.
-4. Determine the sample size needed to achieve desired power.
+3. The true effect size
+4. The sample size needed to achieve desired power.
 5. Conduct your research with this sample size.
 6. Determine the test statistic.
 7. Determine if $p$-value $\leq \alpha$. If so, reject $H_0$.
@@ -656,7 +656,7 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 Figure \@ref(fig:posthocpower) shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criteria as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 1 yellow candies under the alternative distribution.
 
-You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would be not be the same higher. The post hoc power does not have much practical use, though you should be warned that this is what SPSS produces when you ask for power.
+You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would be not be the same. The post hoc power does not have much practical use, though you should be warned that this is what SPSS produces when you ask for power.
 
 <!-- create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 
@@ -718,7 +718,7 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 The same reasoning is applied to the continuous case. Let's revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let's say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%. 
 
-Figure \@ref(fig:sample-size-power) shows the relation between sample size, power, alhpa and effect size. You can play around with the sliders de determine what sample size you would need.
+Figure \@ref(fig:sample-size-power) shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.
 
 ```{r sample-size-power, fig.pos='H', fig.align='center', fig.cap="How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Shiny app to determine sample size for a specified (standardized) effect size,
@@ -736,7 +736,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/"
 
 Just like the discrete case, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distributon on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
 
-The reasoning is again the same as in the discrete case. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident theat we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
+The reasoning is again the same as in the discrete case. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
 
 #### How to determine sample size
 
@@ -996,9 +996,63 @@ Finally, the interpretation tells us that the difference from .5 is substantial.
 
 ## Critical reflection
 
+### Criticisms of Null Hypothesis Significance Testing {#criticismsNHST}
 
+In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video.
 
-## Capitalization on Chance {#cap-chance}
+```{r pdance, echo=FALSE, out.width="640px", dev="png", fig.pos='H', fig.align='center', fig.cap="The dance of the _p_ values by Geoff Cumming.", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/ez4DgdurRPg", height = "315px")
+```
+
+I hope that by now, chapter \@ref(null-hypothesis-significance-testing) has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that "studies have found that in many areas of Psychology, the median size effect is .5". Though blaming the _p_-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the $H_0$ and $H_A$ distributions in the video it is clear to see that both distributions overlap.
+
+Most criticism of null hypothesis significance testing focusses on the _p_-value as a decision criteria. This critique is justified when not taking every aspect of the Neyman Pearson approach into consideration. The result has been an enormous amount of under powered studies and a failure to replicate seminal studies from the last decade. 
+
+### Statistical significance is not a measure of effect size  
+
+When our sample is small, say a few dozens of cases, the power to reject a null hypothesis is rather small, so it often happens that we retain the null hypothesis even if it is wrong. There is a lot of uncertainty about the population if our sample is small. So we must be lucky to draw a sample that is sufficiently at odds with the null hypothesis to reject it.
+
+If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. In all, statistical significance does not tell us much about the effect in the population. 
+
+```{r tiny-effects, fig.pos='H', fig.align='center', fig.cap="Any effect can be statistically significant.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
+# Illustrate that even tiny effects can yield statistically significant test results if the sample is sufficiently large.
+# Generate a normal distribution as hypothesized sampling distribution (M = 2.8, SE = SD / sqrt(N) = 0.6 / sqrt(10) = 0.2) with 2.5% of each tail area coloured. Add a vertical line with value for the sample average linked to a slider (range [2.82, 3.00] initial value 2.90). Add a sample size slider (range [10, 5,000], initial value 10), which is linked to the standard error of the normal curve. With slider for (assumed) true population mean and test power.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/tiny-effects/", height="340px")
+```
+
+It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (Figure \@ref(fig:pdance)), this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
+
+It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in chapter \@ref(binarydecision) that our decision is a binary one, so, never forget:
+
+```{block2, type='rmdimportant'}
+A statistically significant result ONLY means that the null hypothesis must be rejected.
+```
+
+If we want to say something about the magnitude of an effect in the population, we should use effect size. All we have is the effect size measured in our sample and a statistical test usually telling us whether or not we should reject the null hypothesis that there is no effect in the population.  
+
+If the statistical test is significant, we conclude that an effect probably exists in the population. We may use the effect size in the sample as a point estimate of the population effect. This effect size should be at the core of our interpretation. Is it large (strong), small (weak), or perhaps tiny and practically irrelevant?
+
+If the statistical test is not significant, it is tempting to conclude that the null hypothesis is true, namely, that there is no effect in the population. If so, we do not have to interpret the effect that we find in our sample. But this is not right. Finding insufficient evidence for rejecting the null hypothesis does not prove that the null hypothesis is true. Even if the null hypothesis is false, we can draw a sample that does not reject the null hypothesis.
+
+In a two-sided significance test, the null hypothesis specifies one particular value for the sample outcome. If the outcome is continuous, for instance, a mean or regression coefficient, the null hypothesis can hardly ever be true, strictly speaking. The true population value is very likely not exactly the same as the hypothesized value. It may be only slightly different, but it is different.
+
+```{block2, type='rmdimportant'}
+A statistically non-significant result does NOT mean that the null hypothesis is true.
+```
+
+When we evaluate a _p_ value, we had better take into account the probability that we reject the null hypothesis, which is test power. If test power is low, as it often is in social scientific research with small effect sizes and not very large samples, we should realize that there can be an interesting difference between true and hypothesized population values even if the test is not statistically significant.
+
+With low power, we have high probability of not rejecting a false null hypothesis (Type II error) even if the true population value is quite different from the hypothesized value. For example, a small sample of candies drawn from a population with average candy weight of 3.0 grams may not reject the null hypothesis that average candy weight is 2.8 grams in the population. The non-significant test result should not make us conclude that there is no interesting effect. The test may not pick up substantively interesting effects.
+
+In contrast, if our test has very high power, we should expect effects to be statistically significant, even tiny effects that are totally irrelevant from a substantive point of view. For example, an effect of exposure on attitude of 0.01 on a 10-point scale is likely to be statistically significant in a very large sample but it is probably substantively uninteresting.
+
+In a way, a statistically non-significant result is more interesting than a significant result in a test with high power. If it is easy to get significant results even for small effect sizes (high power), a non-significant result probably indicates that the true effect in the population is very small. In this situation, we are most confident that the effect is close to zero or absent in the population.
+
+As noted before in section \@ref(typeIIerror), standard statistical software usually does not report the power of a test. For this reason, it is not common practice to evaluate the statistical significance of results in combination with test power.
+
+By now, however, you understand that test power is affected by sample size. You should realize that null hypotheses are easily rejected in large samples but they are more difficult to reject in small samples. A significant test result in a small sample suggests a substantive effect in the population but not necessarily so in a large sample. A non-significant test result in a small sample does not mean that the effect size in the population is too small to be of interest. Don't let your selection of interesting results be guided only by statistical significance.
+
+### Capitalization on Chance {#cap-chance}
 
 The relation between null hypothesis testing and confidence intervals (Section \@ref(null-ci0)) may have given the impression that we can test a range of null hypotheses using just one sample and one confidence interval. For instance, we could simultaneously test the null hypotheses that average media literacy among children is 5.5, 4.5, or 3.5. Just check if these values are inside or outside the confidence interval and we are done, right?  
 
@@ -1008,13 +1062,13 @@ If we apply a second test to the same sample, for example, testing the null hypo
 
 The phenomenon that we are dealing with probabilities of making Type I errors that are higher (*inflated Type I errors*) than the significance level that we want to use, is called _capitalization on chance_. Applying more than one test to the same data is one way to capitalize on chance. If you do a lot of tests on the same data, you are likely to find some statistically significant results even if all null hypotheses are true.  
 
-### Example of capitalization on chance
+#### Example of capitalization on chance
 
 This type of capitalization on chance may occur, for example, if we want to compare average media literacy among three groups: second, fourth, and sixth grade students. We can use a _t_ test to test if average media literacy among fourth grade students is higher than among second grade students. We need a second _t_ test to compare average media literacy of sixth grade students to second grade students, and a third one to compare sixth to fourth grade students.
 
 If we execute three tests, the probability of rejecting at least one true null hypothesis of no difference is much higher than five per cent if we use a significance level of five per cent for each single _t_ test. In other words, we are more likely to obtain at least one statistically significant result than we want. 
 
-### Correcting for capitalization on chance  
+#### Correcting for capitalization on chance  
 
 We can correct in several ways for this type of capitalization on chance; one such way is the Bonferroni correction. This correction divides the significance level that we use for each test by the number of tests that we do. In our example, we do three _t_ tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each _t_ test is .0167. If a _t_ test's _p_ value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.
 
@@ -1028,4 +1082,7 @@ Capitalization on chance occurs if we apply different tests to the same variable
 
 It occurs more strongly if we first have a look at our sample data and then formulate the hypothesis. Knowing the sample outcome, it is easy to specify a null hypothesis that will be rejected. This is plain cheating and it must be avoided at all times.
 
-## Summary
+## Take home points
+
+* Null hypothesis significance testing is based on the Nymann-Pearson decision theory.
+same higher.

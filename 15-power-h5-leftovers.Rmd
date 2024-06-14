@@ -93,22 +93,6 @@ Statistical significance is just a tool that we use to signal practically releva
 
 
 
-### Standardized effect size and sample size
-
-We can use standardized effect size to express the effects that we are interested in. We choose whether small, moderate, or large effects are of practical interest to us. Preferably, we know from previous research whether small, moderate, or large effects are common in our type of research. If moderate or large effects are rare, we should use a sample size that allows detecting small effects. In contrast, when large effects occur frequently, we can do with a smaller sample that may overlook small effects.
-
-If we know the effect size in the sample for which we want statistically significant results, we can figure out the minimum sample size for which the test statistic is statistically significant.
-
-```{r sample-size, fig.pos='H', fig.align='center', fig.cap="What is the minimum sample size required for a significant two-sided test result if the sample mean has a particular effect size? The _p_ values belong to two-sided tests.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Average candy weight sampling distribution approximated by a t distribution with two-sided 5% significance tails. Weak, moderate, and strong effect sizes (under null hypothesis that average candy weight is 2.8 in the population) marked by vertical red lines with two-sided p values for a smaple with this average.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size/", height="268px")
-```
-
-
-
-Observed effect size as well as test statistics reflect the difference between what we expect according to the null hypothesis and what we observe in our sample. As a consequence, effect size indicators and test statistics are related. In some cases, such as Cohen's *d*, the relation between effect size and test statistic is very simple.
-
-The test statistic *t* for a *t* test on one mean, for example, is equal to Cohen's *d* times the square root of sample size. Here, the only difference between the two is sample size! Sample size influences the test statistic---the larger the sample, the larger the test statistic--- but it does not influence effect size. This is an important difference.
 
 
 ## Hypothetical World Versus Imaginary True World
