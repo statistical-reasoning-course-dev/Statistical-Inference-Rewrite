@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7.4 Take-Home Points | Statitstical Inference</title>
-  <meta name="description" content="7.4 Take-Home Points | Statitstical Inference" />
+  <title>4.7 Critical Discussion | Statitstical Inference</title>
+  <meta name="description" content="4.7 Critical Discussion | Statitstical Inference" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7.4 Take-Home Points | Statitstical Inference" />
+  <meta property="og:title" content="4.7 Critical Discussion | Statitstical Inference" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7.4 Take-Home Points | Statitstical Inference" />
+  <meta name="twitter:title" content="4.7 Critical Discussion | Statitstical Inference" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="7.3-RegressionContModSPSS.html"/>
-<link rel="next" href="8-confounder.html"/>
+<link rel="prev" href="4.6-reporting-test-results.html"/>
+<link rel="next" href="4.8-take-home-points-3.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -476,26 +476,99 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="take-home-points-6" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Take-Home Points<a href="7.4-take-home-points-6.html#take-home-points-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<ul>
-<li><p>An interaction variable represents moderation in a regression model also if the moderator is numerical.</p></li>
-<li><p>An interaction variable is the product of the predictor and moderator.</p></li>
-<li><p>The effect of the predictor in a model with an interaction variable does <em>not</em> represent a main or average effect. It is a conditional effect: The effect for cases that score zero on the moderator. The same applies to the effect of the moderator, which is the conditional effect for cases scoring zero on the predictor.</p></li>
-<li><p>The unstandardized regression coefficient of the interaction variable specifies the predicted change in the effect of the predictor on the dependent variable for a one unit increase in the moderator variable.</p></li>
-<li><p>We recommend to mean-center a numerical moderator and a numerical predictor that are involved in an interaction effect. Observations with a mean score on the moderator are a substantively interesting reference group.</p></li>
-<li><p>To interpret moderation, describe the effects (slopes, unstandardized regression coefficients) and visualize the regression lines for some interesting levels of the moderator, such as the mean and one standard deviation below or above the mean.</p></li>
-</ul>
-
+<div id="critical-discussion" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Critical Discussion<a href="4.7-critical-discussion.html#critical-discussion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="criticismsNHST" class="section level3 hasAnchor" number="4.7.1">
+<h3><span class="header-section-number">4.7.1</span> Criticisms of Null Hypothesis Significance Testing<a href="4.7-critical-discussion.html#criticismsNHST" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In null hypothesis significance testing, we totally rely on the test’s <em>p</em> value. If this value is below .05 or another significance level, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pdance"></span>
+<iframe src="https://www.youtube.com/embed/ez4DgdurRPg" width="640px" height="315px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 4.22: The dance of the <em>p</em> values by Geoff Cumming.
+</p>
 </div>
-<!-- </div> -->
+<p>I hope that by now, chapter <a href="4.2-null-hypothesis-significance-testing.html#null-hypothesis-significance-testing">4.2</a> has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that “studies have found that in many areas of Psychology, the median size effect is .5”. Though blaming the <em>p</em>-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> distributions in the video it is clear to see that both distributions overlap.</p>
+<p>Most criticism of null hypothesis significance testing focusses on the <em>p</em>-value as a decision criteria. This critique is justified when not taking every aspect of the Neyman Pearson approach into consideration. The result has been an enormous amount of under powered studies and a failure to replicate seminal studies from the last decade.</p>
+</div>
+<div id="statistical-significance-is-not-a-measure-of-effect-size" class="section level3 hasAnchor" number="4.7.2">
+<h3><span class="header-section-number">4.7.2</span> Statistical significance is not a measure of effect size<a href="4.7-critical-discussion.html#statistical-significance-is-not-a-measure-of-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When our sample is small, say a few dozens of cases, the power to reject a null hypothesis is rather small, so it often happens that we retain the null hypothesis even if it is wrong. There is a lot of uncertainty about the population if our sample is small. So we must be lucky to draw a sample that is sufficiently at odds with the null hypothesis to reject it.</p>
+<p>If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. In all, statistical significance does not tell us much about the effect in the population.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:tiny-effects"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/tiny-effects/?showcase=0" width="775px" height="340px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 4.23: Any effect can be statistically significant.
+</p>
+</div>
+<p>It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (Figure <a href="4.7-critical-discussion.html#fig:pdance">4.22</a>), this mistaken interpretation is expressed by the type of sound associated with a <em>p</em> value: the lower the <em>p</em> value of the test, the more joyous the sound.</p>
+<p>It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in chapter <a href="4.1-binarydecision.html#binarydecision">4.1</a> that our decision is a binary one, so, never forget:</p>
+
+<div class="rmdimportant">
+A statistically significant result ONLY means that the null hypothesis must be rejected.
+</div>
+<p>If we want to say something about the magnitude of an effect in the population, we should use effect size. All we have is the effect size measured in our sample and a statistical test usually telling us whether or not we should reject the null hypothesis that there is no effect in the population.</p>
+<p>If the statistical test is significant, we conclude that an effect probably exists in the population. We may use the effect size in the sample as a point estimate of the population effect. This effect size should be at the core of our interpretation. Is it large (strong), small (weak), or perhaps tiny and practically irrelevant?</p>
+<p>If the statistical test is not significant, it is tempting to conclude that the null hypothesis is true, namely, that there is no effect in the population. If so, we do not have to interpret the effect that we find in our sample. But this is not right. Finding insufficient evidence for rejecting the null hypothesis does not prove that the null hypothesis is true. Even if the null hypothesis is false, we can draw a sample that does not reject the null hypothesis.</p>
+<p>In a two-sided significance test, the null hypothesis specifies one particular value for the sample outcome. If the outcome is continuous, for instance, a mean or regression coefficient, the null hypothesis can hardly ever be true, strictly speaking. The true population value is very likely not exactly the same as the hypothesized value. It may be only slightly different, but it is different.</p>
+
+<div class="rmdimportant">
+A statistically non-significant result does NOT mean that the null hypothesis is true.
+</div>
+<p>When we evaluate a <em>p</em> value, we had better take into account the probability that we reject the null hypothesis, which is test power. If test power is low, as it often is in social scientific research with small effect sizes and not very large samples, we should realize that there can be an interesting difference between true and hypothesized population values even if the test is not statistically significant.</p>
+<p>With low power, we have high probability of not rejecting a false null hypothesis (Type II error) even if the true population value is quite different from the hypothesized value. For example, a small sample of candies drawn from a population with average candy weight of 3.0 grams may not reject the null hypothesis that average candy weight is 2.8 grams in the population. The non-significant test result should not make us conclude that there is no interesting effect. The test may not pick up substantively interesting effects.</p>
+<p>In contrast, if our test has very high power, we should expect effects to be statistically significant, even tiny effects that are totally irrelevant from a substantive point of view. For example, an effect of exposure on attitude of 0.01 on a 10-point scale is likely to be statistically significant in a very large sample but it is probably substantively uninteresting.</p>
+<p>In a way, a statistically non-significant result is more interesting than a significant result in a test with high power. If it is easy to get significant results even for small effect sizes (high power), a non-significant result probably indicates that the true effect in the population is very small. In this situation, we are most confident that the effect is close to zero or absent in the population.</p>
+<p>As noted before in section <a href="11.2-hypothetical-world-versus-imaginary-true-world.html#typeIIerror">11.2.4</a>, standard statistical software usually does not report the power of a test. For this reason, it is not common practice to evaluate the statistical significance of results in combination with test power.</p>
+<p>By now, however, you understand that test power is affected by sample size. You should realize that null hypotheses are easily rejected in large samples but they are more difficult to reject in small samples. A significant test result in a small sample suggests a substantive effect in the population but not necessarily so in a large sample. A non-significant test result in a small sample does not mean that the effect size in the population is too small to be of interest. Don’t let your selection of interesting results be guided only by statistical significance.</p>
+</div>
+<div id="cap-chance" class="section level3 hasAnchor" number="4.7.3">
+<h3><span class="header-section-number">4.7.3</span> Capitalization on Chance<a href="4.7-critical-discussion.html#cap-chance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The relation between null hypothesis testing and confidence intervals (Section <a href="#null-ci0"><strong>??</strong></a>) may have given the impression that we can test a range of null hypotheses using just one sample and one confidence interval. For instance, we could simultaneously test the null hypotheses that average media literacy among children is 5.5, 4.5, or 3.5. Just check if these values are inside or outside the confidence interval and we are done, right?</p>
+<p>This impression is wrong. The probabilities that we calculate using one sample assume that we only apply one test to the data. If we test the original null hypothesis that average media literacy is 5.5, we run a risk of five per cent to reject the null hypothesis if the null hypothesis is true. The significance level is the probability of making a Type I error (Section <a href="#sig-typeI"><strong>??</strong></a>).</p>
+<p>If we apply a second test to the same sample, for example, testing the null hypothesis that average media literacy is 4.5, we again run this risk of five per cent. The probability of not rejecting a true null hypothesis is .95, so the probability of not rejecting two true null hypotheses is .95 * .95 = 0.9025. The risk of rejecting at least one true null hypothesis in two tests is 1 - 0.9025 = .0975. This risk is dramatically higher than the significance level (.05) that we want to use. The situation becomes even worse if we do three or more tests on the same sample.</p>
+<p>The phenomenon that we are dealing with probabilities of making Type I errors that are higher (<em>inflated Type I errors</em>) than the significance level that we want to use, is called <em>capitalization on chance</em>. Applying more than one test to the same data is one way to capitalize on chance. If you do a lot of tests on the same data, you are likely to find some statistically significant results even if all null hypotheses are true.</p>
+<div id="example-of-capitalization-on-chance" class="section level4 hasAnchor" number="4.7.3.1">
+<h4><span class="header-section-number">4.7.3.1</span> Example of capitalization on chance<a href="4.7-critical-discussion.html#example-of-capitalization-on-chance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>This type of capitalization on chance may occur, for example, if we want to compare average media literacy among three groups: second, fourth, and sixth grade students. We can use a <em>t</em> test to test if average media literacy among fourth grade students is higher than among second grade students. We need a second <em>t</em> test to compare average media literacy of sixth grade students to second grade students, and a third one to compare sixth to fourth grade students.</p>
+<p>If we execute three tests, the probability of rejecting at least one true null hypothesis of no difference is much higher than five per cent if we use a significance level of five per cent for each single <em>t</em> test. In other words, we are more likely to obtain at least one statistically significant result than we want.</p>
+</div>
+<div id="correcting-for-capitalization-on-chance" class="section level4 hasAnchor" number="4.7.3.2">
+<h4><span class="header-section-number">4.7.3.2</span> Correcting for capitalization on chance<a href="4.7-critical-discussion.html#correcting-for-capitalization-on-chance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We can correct in several ways for this type of capitalization on chance; one such way is the Bonferroni correction. This correction divides the significance level that we use for each test by the number of tests that we do. In our example, we do three <em>t</em> tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each <em>t</em> test is .0167. If a <em>t</em> test’s <em>p</em> value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.</p>
+<p>The Bonferroni correction is a rather coarse correction, which is not entirely accurate. However, it has a simple logic that directly links to the problem of capitalization on chance. Therefore, it is a good technique to help understand the problem, which is the main goal we want to attain, here. We will skip better, but more complicated alternatives to Bonferroni correction.</p>
+<p>It has been argued that we do not have to apply a correction for capitalization on chance if we specify a hypothesis beforehand for each test that we execute. Formulating hypotheses does not solve the problem of capitalization on chance. The probability of rejecting at least one true null hypothesis still increases with the number of tests that we execute. If all hypotheses and associated tests are reported <span class="citation">((as recommended in <a href="12.2-take-home-points-11.html#ref-wassersteinASAStatementPValues2016">Wasserstein &amp; Lazar, 2016</a>)</span>, however, the reader of the report can evaluate capitalization on chance. If one out of twenty tests at five per cent significance level turns out to be statistically significant, this is what we would expect based on chance if all null hypotheses are true. The evidence for rejecting this null hypothesis is less convincing than if only one test was applied and that test turned out to be statistically significant.</p>
+</div>
+</div>
+<div id="no-random-sample" class="section level3 hasAnchor" number="4.7.4">
+<h3><span class="header-section-number">4.7.4</span> What If I Do Not Have a Random Sample?<a href="4.7-critical-discussion.html#no-random-sample" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In our approach to statistical inference, we have always assumed that we have drawn a random sample. What if we do not have a random sample? Can we still estimate confidence intervals or test null hypotheses?</p>
+<p>If you carefully read reports of scientific research, you will encounter examples of statistical inference on non-random samples or data that are not samples at all but rather represent an entire population, for instance, all people visiting a particular web site. Here, statistical inference is clearly being applied to data that are not sampled at random from an observable population. The fact that it happens, however, is not a guarantee that it is right.</p>
+<p>We should note that statistical inference based on a random sample is the most convincing type of inference because we know the nature of the uncertainty in the data, namely chance variation introduced by random sampling. Think of exact methods for creating a sampling distribution. If we know the distribution of candy colours in the population of all candies, we can calculate the exact probability of drawing a sample bag with, for example, 25 per cent of all candies being yellow if we carefully draw the sample at random.</p>
+<p>We can calculate the probability because we understand the process of random sampling. For example, we know that each candy has the same probability to be included in the sample. The uncertainty or probabilities arise from the way we designed our data collection, namely as a random sample from a much larger population.</p>
+<p>In summary, we work with an observable population and we know how chance affects our sample if we draw a random sample. We do not have an observable population or we do not know the workings of chance if we want to apply statistical inference to data that are not collected as a random sample. In this situation, we have to substantiate the claim that our data set can be treated as a random sample.</p>
+</div>
+<div id="specifying-hypotheses-afterwards" class="section level3 hasAnchor" number="4.7.5">
+<h3><span class="header-section-number">4.7.5</span> Specifying hypotheses afterwards<a href="4.7-critical-discussion.html#specifying-hypotheses-afterwards" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Capitalization on chance occurs if we apply different tests to the same variables in the same sample. This occurs in exploratory research in which we do not specify hypotheses beforehand but try out different independent variables or different dependent variables.</p>
+<p>It occurs more strongly if we first have a look at our sample data and then formulate the hypothesis. Knowing the sample outcome, it is easy to specify a null hypothesis that will be rejected. This is plain cheating and it must be avoided at all times.</p>
+</div>
+<div id="replication" class="section level3 hasAnchor" number="4.7.6">
+<h3><span class="header-section-number">4.7.6</span> Replication<a href="4.7-critical-discussion.html#replication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Replication refers to the process of repeating research to determine whether the results of a previous study are the same. Replication is a cornerstone of the scientific method. In the Nayman-Pearson decision theory, we have seen that in order to accurately determine the true population value, the true effect size, we can use the observed effect size from multiple studies. Through meta analysis, we can combine the results of multiple studies to get a more precise estimate of the population value / true effect size.</p>
+<p>Making bold claims based on a single study is a risky. If we have a single study that shows a significant effect, we should be cautious in interpreting the results. We should wait for a replication of the study to confirm the results.</p>
+<p>Though Bayesian statistics allows to incorporate prior knowledge in the analysis, researchers do actively need to replicate to incorporate new data in the analysis. Running a Bayesian analysis on a single study suffers from the same problems as running a frequentist analysis on a single study. Replication is therefore important in both statistical paradigms.</p>
+<p>Replication is the surest tool to check results of previous research. Checks do not necessarily serve to expose fraud and mistakes. They tell us whether prior research results still hold at a later time and perhaps in another context. Thus, we can decrease the chance that our previous results derive from an atypical sample. But replication also helps us to develop more general theories and discard theories that apply only to special situations.</p>
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="7.3-RegressionContModSPSS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="8-confounder.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.6-reporting-test-results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.8-take-home-points-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

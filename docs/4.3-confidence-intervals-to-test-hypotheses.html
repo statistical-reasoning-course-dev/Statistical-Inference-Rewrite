@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4.3 Confidence Intervals to test hypotheses | Statitstical Inference</title>
   <meta name="description" content="4.3 Confidence Intervals to test hypotheses | Statitstical Inference" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4.3 Confidence Intervals to test hypotheses | Statitstical Inference" />
   <meta property="og:type" content="book" />
@@ -52,9 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
 <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
@@ -231,12 +229,14 @@ div.csl-indent {
 <li class="chapter" data-level="4.6.1" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.6.1</b> Reporting to fellow scientists</a></li>
 <li class="chapter" data-level="4.6.2" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.6.2</b> Reporting to the general reader</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html"><i class="fa fa-check"></i><b>4.7</b> Critical reflection</a>
+<li class="chapter" data-level="4.7" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html"><i class="fa fa-check"></i><b>4.7</b> Critical Discussion</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
-<li class="chapter" data-level="4.7.2" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
-<li class="chapter" data-level="4.7.3" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
-<li class="chapter" data-level="4.7.4" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.4</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.1" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
+<li class="chapter" data-level="4.7.4" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#no-random-sample"><i class="fa fa-check"></i><b>4.7.4</b> What If I Do Not Have a Random Sample?</a></li>
+<li class="chapter" data-level="4.7.5" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.5</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.6" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#replication"><i class="fa fa-check"></i><b>4.7.6</b> Replication</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="4.8-take-home-points-3.html"><a href="4.8-take-home-points-3.html"><i class="fa fa-check"></i><b>4.8</b> Take home points</a></li>
 </ul></li>
@@ -454,14 +454,10 @@ div.csl-indent {
 <li class="chapter" data-level="12.0.1" data-path="12-crit-discus.html"><a href="12-crit-discus.html#strawmen"><i class="fa fa-check"></i><b>12.0.1</b> Knocking down straw men (over and over again)</a></li>
 <li class="chapter" data-level="12.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>12.1</b> Alternatives for Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#replication"><i class="fa fa-check"></i><b>12.1.1</b> Replication</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#theoretical-population"><i class="fa fa-check"></i><b>12.1.1</b> Theoretical population</a></li>
+<li class="chapter" data-level="12.1.2" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#datageneratingprocess"><i class="fa fa-check"></i><b>12.1.2</b> Data generating process</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html"><i class="fa fa-check"></i><b>12.2</b> What If I Do Not Have a Random Sample?</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html#theoretical-population"><i class="fa fa-check"></i><b>12.2.1</b> Theoretical population</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html#datageneratingprocess"><i class="fa fa-check"></i><b>12.2.2</b> Data generating process</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="12.3-take-home-points-11.html"><a href="12.3-take-home-points-11.html"><i class="fa fa-check"></i><b>12.3</b> Take-Home Points</a></li>
+<li class="chapter" data-level="12.2" data-path="12.2-take-home-points-11.html"><a href="12.2-take-home-points-11.html"><i class="fa fa-check"></i><b>12.2</b> Take-Home Points</a></li>
 </ul></li>
 </ul>
 
@@ -484,7 +480,7 @@ div.csl-indent {
 <h2><span class="header-section-number">4.3</span> Confidence Intervals to test hypotheses<a href="4.3-confidence-intervals-to-test-hypotheses.html#confidence-intervals-to-test-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="estimation-instead-of-hypothesis-testing" class="section level3 hasAnchor" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> Estimation instead of hypothesis testing<a href="4.3-confidence-intervals-to-test-hypotheses.html#estimation-instead-of-hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Following up on a report commissioned by the American Psychological Association APA <span class="citation">(<a href="12.3-take-home-points-11.html#ref-RefWorks:3934">Wilkinson, 1999</a>)</span>, the 6<sup>th</sup> edition of the <em>Publication Manual of the American Psychological Association</em> recommends reporting and interpreting confidence intervals in addition to null hypothesis significance testing.</p>
+<p>Following up on a report commissioned by the American Psychological Association APA <span class="citation">(<a href="12.2-take-home-points-11.html#ref-RefWorks:3934">Wilkinson, 1999</a>)</span>, the 6<sup>th</sup> edition of the <em>Publication Manual of the American Psychological Association</em> recommends reporting and interpreting confidence intervals in addition to null hypothesis significance testing.</p>
 <p>Estimation is becoming more important: Assessing the precision of our statements about the population rather than just rejecting or not rejecting our hypothesis about the population. This is an important step forward and it is easy to accomplish if your statistical software reports confidence intervals.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ci-nullhyp"></span>
 <img src="GentleIntro_files/figure-html/ci-nullhyp-1.png" alt="What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?" width="640px" />
@@ -509,7 +505,7 @@ Figure 4.20: What is the most sensible interpretation of the results represented
 <ol start="2" style="list-style-type: lower-alpha">
 <li>“The deviation is in the direction expected for certain influences which seemed to me not improbable, and to this extent my suspicion has been confirmed; but the body of data available so far is not by itself sufficient to demonstrate their reality.”</li>
 </ol>
-<p><span class="citation">(<a href="12.3-take-home-points-11.html#ref-RefWorks:3907">Ronald Aylmer Fisher, 1955</a>: 73)</span></p>
+<p><span class="citation">(<a href="12.2-take-home-points-11.html#ref-RefWorks:3907">Ronald Aylmer Fisher, 1955</a>: 73)</span></p>
 Sir Ronald Aylmer Fisher, Wikimedia Commons
 </div>
 <p>In a similar way, a very narrow confidence interval including the null hypothesis (e.g., Confidence Interval B in Figure <a href="#null-ci0"><strong>??</strong></a>) and a very narrow confidence interval near the null hypothesis but excluding it (e.g., Confidence Interval C in Figure <a href="#null-ci0"><strong>??</strong></a>) should not yield opposite conclusions because the statistical test is significant in the second but not in the first situation. After all, even for the significant situation, we know with high confidence (narrow confidence interval) that the population value is close to the hypothesized value.</p>
@@ -522,7 +518,7 @@ Sir Ronald Aylmer Fisher, Wikimedia Commons
 <h3><span class="header-section-number">4.3.2</span> Bootstrapped confidence intervals<a href="4.3-confidence-intervals-to-test-hypotheses.html#bootstrapped-confidence-intervals" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.</p>
 <p>Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section <a href="3.5-ci-parameter.html#bootstrap-confidenceinterval">3.5.3</a>). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it.</p>
-<p>For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution <span class="citation">(<a href="12.3-take-home-points-11.html#ref-RefWorks:3929">Jerzy Neyman, 1937</a>: 376-378)</span>, but this is not always the case if we calculate the confidence interval with the critical values of a <em>t</em> distribution <span class="citation">(see, for example, <a href="12.3-take-home-points-11.html#ref-smithsonCorrectConfidenceIntervals2001">Smithson, 2001</a>)</span> or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.</p>
+<p>For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution <span class="citation">(<a href="12.2-take-home-points-11.html#ref-RefWorks:3929">Jerzy Neyman, 1937</a>: 376-378)</span>, but this is not always the case if we calculate the confidence interval with the critical values of a <em>t</em> distribution <span class="citation">(see, for example, <a href="12.2-take-home-points-11.html#ref-smithsonCorrectConfidenceIntervals2001">Smithson, 2001</a>)</span> or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.</p>
 </div>
 </div>
             </section>

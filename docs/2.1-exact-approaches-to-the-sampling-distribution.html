@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.1 Exact Approaches to the Sampling Distribution | Statitstical Inference</title>
   <meta name="description" content="2.1 Exact Approaches to the Sampling Distribution | Statitstical Inference" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.1 Exact Approaches to the Sampling Distribution | Statitstical Inference" />
   <meta property="og:type" content="book" />
@@ -52,9 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
 <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
@@ -231,12 +229,14 @@ div.csl-indent {
 <li class="chapter" data-level="4.6.1" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.6.1</b> Reporting to fellow scientists</a></li>
 <li class="chapter" data-level="4.6.2" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.6.2</b> Reporting to the general reader</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html"><i class="fa fa-check"></i><b>4.7</b> Critical reflection</a>
+<li class="chapter" data-level="4.7" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html"><i class="fa fa-check"></i><b>4.7</b> Critical Discussion</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
-<li class="chapter" data-level="4.7.2" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
-<li class="chapter" data-level="4.7.3" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
-<li class="chapter" data-level="4.7.4" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.4</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.1" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
+<li class="chapter" data-level="4.7.4" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#no-random-sample"><i class="fa fa-check"></i><b>4.7.4</b> What If I Do Not Have a Random Sample?</a></li>
+<li class="chapter" data-level="4.7.5" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.5</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.6" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#replication"><i class="fa fa-check"></i><b>4.7.6</b> Replication</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="4.8-take-home-points-3.html"><a href="4.8-take-home-points-3.html"><i class="fa fa-check"></i><b>4.8</b> Take home points</a></li>
 </ul></li>
@@ -454,14 +454,10 @@ div.csl-indent {
 <li class="chapter" data-level="12.0.1" data-path="12-crit-discus.html"><a href="12-crit-discus.html#strawmen"><i class="fa fa-check"></i><b>12.0.1</b> Knocking down straw men (over and over again)</a></li>
 <li class="chapter" data-level="12.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>12.1</b> Alternatives for Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#replication"><i class="fa fa-check"></i><b>12.1.1</b> Replication</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#theoretical-population"><i class="fa fa-check"></i><b>12.1.1</b> Theoretical population</a></li>
+<li class="chapter" data-level="12.1.2" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#datageneratingprocess"><i class="fa fa-check"></i><b>12.1.2</b> Data generating process</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html"><i class="fa fa-check"></i><b>12.2</b> What If I Do Not Have a Random Sample?</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html#theoretical-population"><i class="fa fa-check"></i><b>12.2.1</b> Theoretical population</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html#datageneratingprocess"><i class="fa fa-check"></i><b>12.2.2</b> Data generating process</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="12.3-take-home-points-11.html"><a href="12.3-take-home-points-11.html"><i class="fa fa-check"></i><b>12.3</b> Take-Home Points</a></li>
+<li class="chapter" data-level="12.2" data-path="12.2-take-home-points-11.html"><a href="12.2-take-home-points-11.html"><i class="fa fa-check"></i><b>12.2</b> Take-Home Points</a></li>
 </ul></li>
 </ul>
 
@@ -483,150 +479,6 @@ div.csl-indent {
 <div id="exact-approaches-to-the-sampling-distribution" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Exact Approaches to the Sampling Distribution<a href="2.1-exact-approaches-to-the-sampling-distribution.html#exact-approaches-to-the-sampling-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A second approach to constructing a sampling distribution has implicitly been demonstrated in the preceding section on bootstrapping (Section <a href="2.5-boot-approx.html#boot-approx">2.5</a>) and the section on probability distributions (Section <a href="1.2-discreterandomvariable.html#probdistribution">1.2.3</a>). In these sections, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (Section <a href="1.2-discreterandomvariable.html#discreterandomvariable">1.2</a>).</p>
-<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-<span id="tab:exact-approach">Table 2.1: </span>Number of heads for a toss of three coins.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Outcome
-</th>
-<th style="text-align:left;">
-Combination
-</th>
-<th style="text-align:left;">
-Probability: Combination
-</th>
-<th style="text-align:right;">
-Probability: Outcome
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-0
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-tail-tail-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-1/8 = .125
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-tail-tail-head
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-head-tail-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-tail-head-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-3/8 = .375
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-2
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-head-head-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-2
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-head-tail-head
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-2
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-tail-head-head
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-3/8 = .375
-</td>
-</tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-3
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-head-head-head
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-1/8 = .125
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:left;">
-8
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:right;">
-1.000
-</td>
-</tr>
-</tbody>
-</table>
 <p><A name="question2.3.1"></A></p>
 <p><A name="question2.3.2"></A></p>
 <p>The calculated probabilities of all possible sample statistic outcomes give us an exact approach to the sampling distribution. Note that I use the word <em>approach</em> instead of <em>approximation</em> here because the obtained sampling distribution is no longer an approximation, that is, more or less similar to the true sampling distribution. No, it is the true sampling distribution itself.</p>

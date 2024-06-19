@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference</title>
   <meta name="description" content="2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.3 Theoretical Approximations of the Sampling Distribution | Statitstical Inference" />
   <meta property="og:type" content="book" />
@@ -52,9 +52,7 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<script src="libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<script src="libs/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
 <script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
@@ -231,12 +229,14 @@ div.csl-indent {
 <li class="chapter" data-level="4.6.1" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.6.1</b> Reporting to fellow scientists</a></li>
 <li class="chapter" data-level="4.6.2" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.6.2</b> Reporting to the general reader</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html"><i class="fa fa-check"></i><b>4.7</b> Critical reflection</a>
+<li class="chapter" data-level="4.7" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html"><i class="fa fa-check"></i><b>4.7</b> Critical Discussion</a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
-<li class="chapter" data-level="4.7.2" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
-<li class="chapter" data-level="4.7.3" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
-<li class="chapter" data-level="4.7.4" data-path="4.7-critical-reflection.html"><a href="4.7-critical-reflection.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.4</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.1" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
+<li class="chapter" data-level="4.7.4" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#no-random-sample"><i class="fa fa-check"></i><b>4.7.4</b> What If I Do Not Have a Random Sample?</a></li>
+<li class="chapter" data-level="4.7.5" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.5</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.6" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#replication"><i class="fa fa-check"></i><b>4.7.6</b> Replication</a></li>
 </ul></li>
 <li class="chapter" data-level="4.8" data-path="4.8-take-home-points-3.html"><a href="4.8-take-home-points-3.html"><i class="fa fa-check"></i><b>4.8</b> Take home points</a></li>
 </ul></li>
@@ -454,14 +454,10 @@ div.csl-indent {
 <li class="chapter" data-level="12.0.1" data-path="12-crit-discus.html"><a href="12-crit-discus.html#strawmen"><i class="fa fa-check"></i><b>12.0.1</b> Knocking down straw men (over and over again)</a></li>
 <li class="chapter" data-level="12.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>12.1</b> Alternatives for Null Hypothesis Significance Testing</a>
 <ul>
-<li class="chapter" data-level="12.1.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#replication"><i class="fa fa-check"></i><b>12.1.1</b> Replication</a></li>
+<li class="chapter" data-level="12.1.1" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#theoretical-population"><i class="fa fa-check"></i><b>12.1.1</b> Theoretical population</a></li>
+<li class="chapter" data-level="12.1.2" data-path="12.1-alternatives-for-null-hypothesis-significance-testing.html"><a href="12.1-alternatives-for-null-hypothesis-significance-testing.html#datageneratingprocess"><i class="fa fa-check"></i><b>12.1.2</b> Data generating process</a></li>
 </ul></li>
-<li class="chapter" data-level="12.2" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html"><i class="fa fa-check"></i><b>12.2</b> What If I Do Not Have a Random Sample?</a>
-<ul>
-<li class="chapter" data-level="12.2.1" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html#theoretical-population"><i class="fa fa-check"></i><b>12.2.1</b> Theoretical population</a></li>
-<li class="chapter" data-level="12.2.2" data-path="12.2-no-random-sample.html"><a href="12.2-no-random-sample.html#datageneratingprocess"><i class="fa fa-check"></i><b>12.2.2</b> Data generating process</a></li>
-</ul></li>
-<li class="chapter" data-level="12.3" data-path="12.3-take-home-points-11.html"><a href="12.3-take-home-points-11.html"><i class="fa fa-check"></i><b>12.3</b> Take-Home Points</a></li>
+<li class="chapter" data-level="12.2" data-path="12.2-take-home-points-11.html"><a href="12.2-take-home-points-11.html"><i class="fa fa-check"></i><b>12.2</b> Take-Home Points</a></li>
 </ul></li>
 </ul>
 
@@ -518,178 +514,9 @@ Figure 2.4: How does the shape of the sampling distribution of sample proportion
 <p>The rule of thumb for using the normal distribution as the sampling distribution of a sample proportion combines the two aspects by multiplying them and requiring the resulting product to be larger than five. If the probability of drawing a yellow candy is .2 and our sample size is 30, the product is .2 * 30 = 6, which is larger than five. So we may use the normal distribution as approximation of the sampling distribution.</p>
 <p>Note that this rule of thumb uses one minus the probability, if the probability is larger than .5. In other words, it uses the smaller of two probabilities: the probability that an observation has the characteristic and the probability that it has not. For example, if we want to test the probability of drawing a candy that is not yellow, the probability is .8 and we use 1 - 0.8 = 0.2, which is then multiplied by the sample size.</p>
 <p>Apart from the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>, there are several other theoretical probability distributions. We have the <a href="https://en.wikipedia.org/wiki/Binomial_distribution"><em>binomial distribution</em></a> for a proportion, the <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution"><em>t distribution</em></a> for one or two sample means, regression coefficients, and correlation coefficients, the <a href="https://en.wikipedia.org/wiki/F-distribution"><em>F distribution</em></a> for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution"><em>chi-squared distribution</em></a> for frequency tables and contingency tables.</p>
-<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table <a href="2.3-theoretical-approx.html#tab:thumb">2.2</a>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see Chapter <a href="6-moderationcat.html#moderationcat">6</a>, Section <a href="6.1-regression-equation.html#regr-inference">6.1.4</a>).</p>
-<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-<span id="tab:thumb">Table 2.2: </span>Rules of thumb for using theoretical probability distributions.
-</caption>
-<thead>
-<tr>
-<th style="text-align:left;">
-Distribution
-</th>
-<th style="text-align:left;">
-Sample statistic
-</th>
-<th style="text-align:left;">
-Minimum sample size
-</th>
-<th style="text-align:left;">
-Other requirements
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Binomial distribution
-</td>
-<td style="text-align:left;">
-proportion
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(Standard) normal distribution
-</td>
-<td style="text-align:left;">
-proportion
-</td>
-<td style="text-align:left;">
-times test proportion (&lt;= .5) &gt;= 5
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-</tr>
-<tr>
-<td style="text-align:left;">
-(Standard) normal distribution
-</td>
-<td style="text-align:left;">
-one or two means
-</td>
-<td style="text-align:left;">
-&gt; 100
-</td>
-<td style="text-align:left;">
-OR variable is normally distributed in the population and population standard deviation is known (for each group)
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-one or two means
-</td>
-<td style="text-align:left;">
-each group &gt; 30
-</td>
-<td style="text-align:left;">
-OR variable is normally distributed in each group’s population
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-(Pearson) correlation coefficient
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-variables are normally distributed in the population
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-(Spearman) rank correlation coefficient
-</td>
-<td style="text-align:left;">
-&gt; 30
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-</tr>
-<tr>
-<td style="text-align:left;">
-t distribution
-</td>
-<td style="text-align:left;">
-regression coefficient
-</td>
-<td style="text-align:left;">
-20+ per independent variable
-</td>
-<td style="text-align:left;">
-See Chapter 8.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-F distribution
-</td>
-<td style="text-align:left;">
-3+ means
-</td>
-<td style="text-align:left;">
-all groups are more or less of equal size
-</td>
-<td style="text-align:left;">
-OR all groups have the same population variance
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-F distribution
-</td>
-<td style="text-align:left;">
-two variances
-</td>
-<td style="text-align:left;">
-<ul>
-<li></td>
-<td style="text-align:left;">
-no conditions for Levene’s F test
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-chi-squared distribution
-</td>
-<td style="text-align:left;">
-row or cell frequencies
-</td>
-<td style="text-align:left;">
-expected frequency &gt;= 1 and 80% &gt;= 5
-</td>
-<td style="text-align:left;">
-contingency table: 3+ rows or 3+ columns
-</td>
-</tr>
-</tbody>
-</table></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<p>Table <a href="2.3-theoretical-approx.html#tab:thumb">2.2</a> shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.</p>
-<p>Conditions often include sample size. Table <a href="#tab:thumbsize"><strong>??</strong></a> reproduces the size requirements from Table <a href="2.3-theoretical-approx.html#tab:thumb">2.2</a>. If you plan to do a <em>t</em> test, each group should contain more than thirty cases. So if you intend to apply <em>t</em> tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.</p>
+<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table <a href="#tab:thumb"><strong>??</strong></a>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see Chapter <a href="6-moderationcat.html#moderationcat">6</a>, Section <a href="6.1-regression-equation.html#regr-inference">6.1.4</a>).</p>
+<p>Table <a href="#tab:thumb"><strong>??</strong></a> shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.</p>
+<p>Conditions often include sample size. Table <a href="#tab:thumbsize"><strong>??</strong></a> reproduces the size requirements from Table <a href="#tab:thumb"><strong>??</strong></a>. If you plan to do a <em>t</em> test, each group should contain more than thirty cases. So if you intend to apply <em>t</em> tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.</p>
 <p>Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.</p>
 <p>The variation of sample size across groups is important in analysis of variance (ANOVA), which uses the <em>F</em> distribution. If the number of cases is more or less the same across all groups, we do not have to worry about the variances of the dependent variable for the groups in the population. To be on the safe side, then, it is recommended to design your sampling strategy in such a way that you end up with more or less equal group sizes if you plan to use analysis of variance.</p>
 </div>
@@ -702,7 +529,7 @@ contingency table: 3+ rows or 3+ columns
 </div>
 <div id="complicatedsampling" class="section level3 hasAnchor" number="2.3.4">
 <h3><span class="header-section-number">2.3.4</span> More complicated sample statistics: differences<a href="2.3-theoretical-approx.html#complicatedsampling" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. Table <a href="2.3-theoretical-approx.html#tab:thumb">2.2</a>, however, contains more complicated sample statistics.</p>
+<p>Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. Table <a href="#tab:thumb"><strong>??</strong></a>, however, contains more complicated sample statistics.</p>
 <p>If we compare two groups, for instance, the average weight of yellow and red candies, the sample statistic for which we want to have a sampling distribution must take into account both the average weight of yellow candies and the average weight of red candies. The sample statistic that we are interested in is the difference between the averages of the two samples.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:mean-independent"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mean-independent/?showcase=0" width="550px" height="580px" data-external="1">
