@@ -1,6 +1,8 @@
 # Hypothesis testing {#hypothesis}
 
-> Key concepts: research hypothesis, statistical null and alternative hypothesis, nil hypothesis, test statistic, _p_ value, conditional probability, significance level (Type I error rate), Type I error, inflated Type I error, capitalization on chance, one-sided and two-sided tests and tests to which this distinction does not apply, rejection region.  
+> Key concepts: research hypothesis, statistical null and alternative hypothesis, nil hypothesis, test statistic, _p_ value, conditional probability, alpha, significance level (Type I error rate), Type I error, inflated Type I error, Type II error, Power, critical value, capitalization on chance, one-sided and two-sided tests and tests to which this distinction does not apply, rejection region, Bayesion statistics, confidence intervals.  
+
+<!--
 
 Watch this micro lecture on hypothesis testing for an overview of the chapter.
 
@@ -8,19 +10,25 @@ Watch this micro lecture on hypothesis testing for an overview of the chapter.
 knitr::include_url("https://www.youtube.com/embed/8AmJHaQnWGk", height = "360px")
 ```
 
+-->
+
 ### Summary {-}
 
-```{block2, type='rmdimportant'}
-Is my sample probable if the null hypothesis is true?
-```
+In the preceding chapter, we have learned that a confidence interval contains the population values that are plausible, given the sample that we have drawn. In the current chapter, we apply our knowledge of sampling distributions, probability models and parameter estimation to hypothesis testing. 
 
-In the preceding chapter, we have learned that a confidence interval contains the population values that are plausible, given the sample that we have drawn. In the current chapter, we narrow this down to the question whether the expectation of the researcher about the population is plausible. 
+This chapter introduces statistical inference, highlighting two main types: estimation and hypothesis testing. Estimation involves determining plausible population values from a sample, while hypothesis testing aligns more closely with scientific progress by evaluating hypotheses based on theory and data. The chapter emphasizes the binary nature of hypothesis testing: rejecting or not rejecting a hypothesis based on data.
 
-The expectation is usually called a (research) hypothesis and it must be translated into statistical hypotheses about a population value (parameter): a null hypothesis and an alternative hypothesis. 
+We will first extensively cover the framework of null hypothesis significance testing (NHST). Section \@ref(null-hypothesis-significance-testing) covers key concepts such as the null and alternative hypotheses, significance level (alpha), power of a test, p-values, and effect sizes. The section also discusses one-sided and two-sided tests and the importance of sample size in determining the power of a test.
 
-We test a null hypothesis in the following way. We construct a sampling distribution in one of the ways we have learned in Chapter \@ref(probmodels) using the value specified in the null hypothesis as the hypothetical population value. In other words, we act as if the null hypothesis is true. 
+We continue with a discussion of confidence intervals as an alternative to hypothesis testing in section \@ref(null-ci). It explains how confidence intervals provide a range of plausible values for population parameters and how they can be used to make inferences about hypotheses. The section also discusses bootstrapped confidence intervals and their application.
 
-Then, we calculate the probability of drawing a sample such as the one we have drawn or a sample that differs even more from the hypothesized population value. If this probability (p value) is very low, say, below 5%, we reject the null hypothesis because our sample would be too unlikely if the null hypothesis is true. In this case, the test is statistically significant. The probability threshold that we use is called the significance level of the test.
+We follow up with Bayesian hypothesis testing, contrasting it with frequentist methods. We explain the Bayesian approach of updating prior beliefs with data to obtain posterior probabilities. The section (\@ref(bayesian-hypothesis-testing)) covers the concepts of prior, likelihood, and posterior distributions, and how they are used to make decisions about hypotheses.
+
+Section \@ref(test-selection) on Statistical Test Selection guides the selection of appropriate statistical tests based on the data and research questions. It provides a framework for choosing tests by considering factors such as the type of data, the number of groups being compared, and the study design. The section includes flowcharts and examples to illustrate the decision-making process.
+
+In section \@ref(reporting) we offer guidelines for reporting statistical test results. It emphasizes clarity and transparency in presenting findings to different audiences, including fellow scientists and general readers. The section covers the necessary components of a statistical report, such as test statistics, p-values, effect sizes, and confidence intervals.
+
+In the final section (\@ref(critical-discussion)) we critically examine the limitations and criticisms of null hypothesis significance testing. We discuss issues such as the misinterpretation of p-values, the overemphasis on statistical significance over practical significance, and the risks of data dredging and publication bias. The section advocates for a more nuanced understanding and reporting of statistical results.
 
 ## A Binary Decision {#binarydecision}
 
@@ -435,9 +443,9 @@ alpha_r = 1-p
 
 # add p-value
 pol_left = seq(-4,-t,length=20)
-polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=45, density=15, lwd=2)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=45, density=15, lwd=2)
 pol_right = seq(4,t,length=20)
-polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="blue", angle=45, density=15, lwd=2)
+polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="red", angle=45, density=15, lwd=2)
 
 # add alpha
 
@@ -446,14 +454,14 @@ tp975 = qt(.975,10)
 tp25  = qt(.025,10)
 
 pol_left = seq(-4,tp25,length=20)
-polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=-45, density=15, lwd=2)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=-45, density=15, lwd=2)
 
 pol_left = seq(tp975,4,length=20)
-polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=-45, density=15, lwd=2)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=-45, density=15, lwd=2)
 
 # label alpha
-text(-3,dt(tp25 , df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='red')
-text( 3,dt(tp975, df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='red')
+text(-3,dt(tp25 , df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='blue')
+text( 3,dt(tp975, df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='blue')
 
 xbracket = seq(-4,tp25,length=39)
 ybracket = dt(tp25 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
@@ -474,16 +482,16 @@ plot(function(x) dt(x, df = 10), -4, 4,
      lwd=1.5)
 
 pol_left = seq(tp95,4,length=20)
-polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=-45, density=15, lwd=2)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=-45, density=15, lwd=2)
 
 # label alpha
-text( 3,dt(tp95 , df = 10),expression(paste(    alpha[right]," = 5%"  ,sep="")),pos=3, col='red')
+text( 3,dt(tp95 , df = 10),expression(paste(    alpha[right]," = 5%"  ,sep="")),pos=3, col='blue')
 
 # add p-value
 # pol_left = seq(-4,-t,length=20)
 # polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=45, density=15, lwd=2)
 pol_right = seq(4,t,length=20)
-polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="blue", angle=45, density=15, lwd=2)
+polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="red", angle=45, density=15, lwd=2)
 
 #text((-4+tp25)/2,dt(tp25  , df = 10),"{",srt=-90,col="grey")
 #text( (4+tp975)/2,dt(tp975, df = 10),"{",srt=-90,col="grey")
@@ -491,7 +499,7 @@ polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), 
 
 # label p-values
 # text(-t,.01,expression(P[left] ),pos=2,col="blue")
-text( t+.5,.03,expression(P[right]),pos=4,col="blue")
+text( t+.5,.03,expression(P[right]),pos=4,col="red")
 
 # text(-t-.1,dt(-t, df = 10)+.003,"T")
 text( t+.1,dt( t, df = 10)+.003,"T")
@@ -511,7 +519,7 @@ ybracket = dt(tp95 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.0
 lines(xbracket,ybracket,col="gray")
 ```
 
-In figure \@ref(fig:t-alpha-p), the red vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the red area under the curve. The blue vertical line represents the t-value from the sample, which in this example was 2. The blue area under the curve represents the p-value, the probability of getting this t-value or more extreme.
+In figure \@ref(fig:t-alpha-p), the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.
 
 Figure \@ref(fig:twosided) representing the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
 
@@ -815,7 +823,7 @@ In contrast, if our statistical software tells us the two-sided _p_ value and we
 
 Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided _p_ value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.
 
-## Confidence Intervals to test hypotheses
+## Confidence Intervals to test hypotheses {#null-ci}
 
 ### Estimation instead of hypothesis testing
 
@@ -913,7 +921,7 @@ Bootstrapping creates an empirical sampling distribution: a lot of samples with 
 For the lovers of details, we add a disclaimer. A confidence interval contains all null hypotheses not rejected by our current sample if we use a normal distribution [@RefWorks:3929: 376-378], but this is not always the case if we calculate the confidence interval with the critical values of a _t_ distribution [see, for example, @smithsonCorrectConfidenceIntervals2001] or if we use a bootstrapped confidence interval. In these cases, null hypothesis values near the interval boundaries may or may not be rejected by our current sample; we do not know. A confidence interval gives us an approximate range of null hypotheses that are not rejected by our sample rather than an exact range.
 
 
-## Bayesian hypothesis testing
+## Bayesian hypothesis testing {#bayesian-hypothesis-testing}
 
 A more radical way of including previous knowledge in statistical inference is _Bayesian inference_. Bayesian inference regards the sample that we draw as a means to update the knowledge that we already have or think we have on the population. Our previous knowledge is our starting point and we are not going to just discard our previous knowledge if a new sample points in a different direction, as we do when we reject a null hypothesis.  
 
@@ -927,7 +935,7 @@ Remember that we are not allowed to interpret the 95% confidence interval as a p
 
 Bayesian inference is intuitively appealing but it has not yet spread widely in the social and behavioral sciences. Therefore, I merely mention this strand of statistical inference and I refrain from giving details. Its popularity, however, is increasing, so you may come in contact with Bayesian inference sooner or later.
 
-## Statistical test selection
+## Statistical test selection {#test-selection}
 
 ```{r flowchart, echo=FALSE, fig.width=9, fig.pos='H', fig.align='center', fig.cap="Flow chart for selecting a test in SPSS."}
 #Create and draw flow chart for selecting tests in SPSS.
@@ -946,7 +954,7 @@ SPSS does not allow the user to specify the null hypothesis of a test if the tes
 
 Imagine that we know from previous research that females tend to score one point higher on the willingness scale than males. It would not be very interesting to reject the nil hypothesis. Instead, we would like to test the null hypothesis that the average difference between females and males is 1.00. We cannot change the null hypothesis of a _t_ test in SPSS, but we can use the confidence interval to test this null hypothesis as explained in Section \@ref(null-ci0).
 
-## Reporting test results
+## Reporting test results {#reporting}
 
 ### Reporting to fellow scientists
 
@@ -994,7 +1002,7 @@ Note that the actual _p_ value is well below .001. If we would round it to three
 
 Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the _effect size_, and give a more precise interpretation (see Chapter \@ref(power) for more information).  
 
-## Critical Discussion
+## Critical Discussion {#critical-discussion}
 
 ### Criticisms of Null Hypothesis Significance Testing {#criticismsNHST}
 
@@ -1106,5 +1114,37 @@ Replication is the surest tool to check results of previous research. Checks do 
 
 ## Take home points
 
-* Null hypothesis significance testing is based on the Nymann-Pearson decision theory.
-same higher.
+Binary Decision:
+
+* Statistical inference includes estimation and hypothesis testing.
+* Hypothesis testing involves rejecting or not rejecting a hypothesis based on data.
+
+Null Hypothesis Significance Testing:
+
+* Involves null and alternative hypotheses, significance level, p-values, and test power.
+* Importance of sample size and effect sizes.
+
+Confidence Intervals:
+
+* Provide a range of plausible values for population parameters.
+* Can be used to infer hypotheses, with bootstrapped intervals as an alternative.
+
+Bayesian Hypothesis Testing:
+
+* Bayesian approach updates prior beliefs with data.
+* Utilizes prior, likelihood, and posterior distributions for decision-making.
+
+Statistical Test Selection:
+
+* Choose tests based on data type, groups compared, and study design.
+* Includes decision-making frameworks and examples.
+
+Reporting Test Results:
+
+* Emphasizes clarity and transparency.
+* Report test statistics, p-values, effect sizes, and confidence intervals.
+
+Critical Discussion:
+
+* Examines limitations of null hypothesis significance testing.
+* Discusses misinterpretation of p-values, overemphasis on significance, and publication bias.

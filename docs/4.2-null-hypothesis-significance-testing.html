@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="4.1-binarydecision.html"/>
-<link rel="next" href="4.3-confidence-intervals-to-test-hypotheses.html"/>
+<link rel="next" href="4.3-null-ci.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -217,17 +217,17 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.13" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#sample-size"><i class="fa fa-check"></i><b>4.2.13</b> Sample size</a></li>
 <li class="chapter" data-level="4.2.14" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#one-twosidedtests"><i class="fa fa-check"></i><b>4.2.14</b> One-Sided and Two-Sided Tests</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="4.3-confidence-intervals-to-test-hypotheses.html"><a href="4.3-confidence-intervals-to-test-hypotheses.html"><i class="fa fa-check"></i><b>4.3</b> Confidence Intervals to test hypotheses</a>
+<li class="chapter" data-level="4.3" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html"><i class="fa fa-check"></i><b>4.3</b> Confidence Intervals to test hypotheses</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="4.3-confidence-intervals-to-test-hypotheses.html"><a href="4.3-confidence-intervals-to-test-hypotheses.html#estimation-instead-of-hypothesis-testing"><i class="fa fa-check"></i><b>4.3.1</b> Estimation instead of hypothesis testing</a></li>
-<li class="chapter" data-level="4.3.2" data-path="4.3-confidence-intervals-to-test-hypotheses.html"><a href="4.3-confidence-intervals-to-test-hypotheses.html#bootstrapped-confidence-intervals"><i class="fa fa-check"></i><b>4.3.2</b> Bootstrapped confidence intervals</a></li>
+<li class="chapter" data-level="4.3.1" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#estimation-instead-of-hypothesis-testing"><i class="fa fa-check"></i><b>4.3.1</b> Estimation instead of hypothesis testing</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#bootstrapped-confidence-intervals"><i class="fa fa-check"></i><b>4.3.2</b> Bootstrapped confidence intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="4.4-bayesian-hypothesis-testing.html"><a href="4.4-bayesian-hypothesis-testing.html"><i class="fa fa-check"></i><b>4.4</b> Bayesian hypothesis testing</a></li>
-<li class="chapter" data-level="4.5" data-path="4.5-statistical-test-selection.html"><a href="4.5-statistical-test-selection.html"><i class="fa fa-check"></i><b>4.5</b> Statistical test selection</a></li>
-<li class="chapter" data-level="4.6" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html"><i class="fa fa-check"></i><b>4.6</b> Reporting test results</a>
+<li class="chapter" data-level="4.5" data-path="4.5-test-selection.html"><a href="4.5-test-selection.html"><i class="fa fa-check"></i><b>4.5</b> Statistical test selection</a></li>
+<li class="chapter" data-level="4.6" data-path="4.6-reporting.html"><a href="4.6-reporting.html"><i class="fa fa-check"></i><b>4.6</b> Reporting test results</a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.6.1</b> Reporting to fellow scientists</a></li>
-<li class="chapter" data-level="4.6.2" data-path="4.6-reporting-test-results.html"><a href="4.6-reporting-test-results.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.6.2</b> Reporting to the general reader</a></li>
+<li class="chapter" data-level="4.6.1" data-path="4.6-reporting.html"><a href="4.6-reporting.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.6.1</b> Reporting to fellow scientists</a></li>
+<li class="chapter" data-level="4.6.2" data-path="4.6-reporting.html"><a href="4.6-reporting.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.6.2</b> Reporting to the general reader</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html"><i class="fa fa-check"></i><b>4.7</b> Critical Discussion</a>
 <ul>
@@ -686,7 +686,7 @@ Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\
 Figure 4.10: T-distributions with alpha level and p-value
 </p>
 </div>
-<p>In figure <a href="4.2-null-hypothesis-significance-testing.html#fig:t-alpha-p">4.10</a>, the red vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the red area under the curve. The blue vertical line represents the t-value from the sample, which in this example was 2. The blue area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
+<p>In figure <a href="4.2-null-hypothesis-significance-testing.html#fig:t-alpha-p">4.10</a>, the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
 <p>Figure <a href="4.2-null-hypothesis-significance-testing.html#fig:twosided">4.11</a> representing the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twosided"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/?showcase=0" width="775px" height="268px" data-external="1">
@@ -885,7 +885,7 @@ Figure 4.19: Halve a two-sided <em>p</em> value to obtain a one-sided <em>p</em>
         </div>
       </div>
 <a href="4.1-binarydecision.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="4.3-confidence-intervals-to-test-hypotheses.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.3-null-ci.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

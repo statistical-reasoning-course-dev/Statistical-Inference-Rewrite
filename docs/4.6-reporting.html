@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 Mediation with Regression Analysis | Statitstical Inference</title>
-  <meta name="description" content="Chapter 9 Mediation with Regression Analysis | Statitstical Inference" />
+  <title>4.6 Reporting test results | Statitstical Inference</title>
+  <meta name="description" content="4.6 Reporting test results | Statitstical Inference" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 Mediation with Regression Analysis | Statitstical Inference" />
+  <meta property="og:title" content="4.6 Reporting test results | Statitstical Inference" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 Mediation with Regression Analysis | Statitstical Inference" />
+  <meta name="twitter:title" content="4.6 Reporting test results | Statitstical Inference" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8.5-take-home-points-7.html"/>
-<link rel="next" href="9.1-mediation-as-causal-process.html"/>
+<link rel="prev" href="4.5-test-selection.html"/>
+<link rel="next" href="4.7-critical-discussion.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -476,35 +476,42 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="mediation" class="section level1 hasAnchor" number="9">
-<h1><span class="header-section-number">Chapter 9</span> Mediation with Regression Analysis<a href="9-mediation.html#mediation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<blockquote>
-<p>Key concepts: causality, causal and time order, common cause, direct, indirect, and total effects, causal model, path diagram and path model, parallel and serial mediation, partial mediation, covariate, controlling mediator values.</p>
-</blockquote>
-<p>Watch this micro lecture on mediation for an overview of the chapter.</p>
-<iframe src="https://www.youtube.com/embed/_cKP8d3ROtM" width="640px" height="360px" data-external="1">
-</iframe>
-<div id="summary-8" class="section level3 unnumbered hasAnchor">
-<h3>Summary<a href="9-mediation.html#summary-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="reporting" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Reporting test results<a href="4.6-reporting.html#reporting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="reporting-to-fellow-scientists" class="section level3 hasAnchor" number="4.6.1">
+<h3><span class="header-section-number">4.6.1</span> Reporting to fellow scientists<a href="4.6-reporting.html#reporting-to-fellow-scientists" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Fellow scientists need to be able to see the precise statistical test results. According to the APA guidelines, we should report the test statistic, the associated degrees of freedom (if any), the value of the test statistic, the <em>p</em> value of the test statistic, and the confidence interval (if any). APA requires a particular format for presenting statistical results and it demands that the results are included at the end of a sentence.</p>
+<p>The statistical results for a <em>t</em> test on one mean, for example, would be:</p>
+<center>
+<em>t</em> (67) = 2.73, <em>p</em> = .004, 95% CI [4.13, 4.87]
+</center>
+<ul>
+<li><p>The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, <em>N</em> = 89) = 23.14, <em>p</em> = .027.</p></li>
+<li><p>The value of the test statistic is 2.73 in this example.</p></li>
+<li><p>The <em>p</em> value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities—less than .05—so we need the third decimal here. If SPSS rounds the <em>p</em> value to .000, report: <em>p</em> &lt; .001. Add (one-sided) after the <em>p</em> value if the test is one-sided.</p></li>
+<li><p>The 95% confidence interval is 4.13 to 4.87, so with 95% confidence we state that the population mean is between 4.13 and 4.87. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.</p></li>
+</ul>
+<p>Not all tests produce all results reported in the example above. For example, a <em>z</em> test does not have degrees of freedom and <em>F</em> or chi-squared tests do not have confidence intervals. Exact tests or bootstrap tests usually do not have a test statistic. Just report the items that your statistical software produces, and give them in the correct format.</p>
+</div>
+<div id="reporting-to-the-general-reader" class="section level3 hasAnchor" number="4.6.2">
+<h3><span class="header-section-number">4.6.2</span> Reporting to the general reader<a href="4.6-reporting.html#reporting-to-the-general-reader" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For fellow scientists and especially for the general reader, it is important to read an interpretation of the results that clarifies both the subject of the test and the test results. Make sure that you tell your reader who or what the test is about:</p>
+<ul>
+<li><p>What is the population that you investigate?</p></li>
+<li><p>What are the variables?</p></li>
+<li><p>What are the values of the relevant sample statistics?</p></li>
+<li><p>Which comparison(s) do you make?</p></li>
+<li><p>Are the results statistically significant and, if so, what are the estimates for the population?</p></li>
+<li><p>If the results are statistically significant, how large are the differences or associations?</p></li>
+</ul>
+<p>A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:</p>
 
 <div class="rmdimportant">
-Can I add a causal order to the predictors in my regression models?
+“The television station reaches significantly and substantially (61%) more than half of all households in Greece in 2012, <em>z</em> = 4.01, <em>p</em> &lt; .001.”
 </div>
-<p>If we add a causal order among the predictors of our regression model, we obtain a causal model or path model. The causal model includes an indirect effect: The first predictor affects the scores on the second predictor, which affects the scores on the dependent variable that we usually call the outcome variable. For example, age affects news site use, which affects newspaper reading time. In this path model, the second predictor (news site use) mediates the effect of the first predictor on the outcome variable. The second predictor is called a mediator.</p>
-<p>We can estimate a path model as a series of regression models. The size of an indirect effect equals the product of the direct effects that constitute the indirect effect. With additional software, we can estimate the confidence interval of an indirect effect.</p>
-<p>Mediation models help us to think about the different ways in which a variable may cause another variable. But we must realize that the causal order underlying the model is an assumption that we make. A regression model shows the predictive effects, which do not have to be causal. We cannot prove that the predictive effects are causal. We can only think of arguments that make a causal interpretation of a predictive effect plausible.</p>
-<div id="essential-analytics-4" class="section level4 unnumbered hasAnchor">
-<h4>Essential Analytics<a href="9-mediation.html#essential-analytics-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>We can analyze a mediation model with a series of regression analyses in SPSS (the <em>Linear</em> option in the <em>Regression</em> submenu). We need one regression model for each variable that is predicted by one or more other variables in the model. The predicted variable is the dependent variable and as independent variables we use all variables that we think are causally prior to the dependent variable.</p>
-<p>As an alternative, we may use the PROCESS macro for SPSS. The macro requires that we distinguish between parallel mediation (each indirect effect has just one mediator) and serial mediation (at least one indirect effect includes two or more mediators). PROCESS gives us the size and bootstrapped confidence intervals for all indirect effects of the selected predictor via mediators on the final outcome variable.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mediationtable"></span>
-<img src="figures/S11_AE1.png" alt="PROCESS output with estimated indirect and total effects of age on average newspaper reading time." width="75%" />
-<p class="caption">
-Figure 9.1: PROCESS output with estimated indirect and total effects of age on average newspaper reading time.
-</p>
-</div>
-<p>Figure <a href="9-mediation.html#fig:mediationtable">9.1</a> shows the results of a model in which political interest and news site use mediate the effect of age on newspaper reading time. Apart from a direct effect (<em>b</em> = 4.55, 95%CI[3.62, 5.47], red box in Figure <a href="9-mediation.html#fig:mediationtable">9.1</a>), three indirect effects have been estimated. Clearly the strongest indirect effect of age is the effect mediated by news site use (Figure <a href="9-mediation.html#fig:mediationtable">9.1</a>, green boxes). An additional unit of age increases predicted newspaper reading time by 1.44. The 95% confidence interval (95%CI[0.64, 2.24], bootstrapped) does not include zero, so this indirect effect is statistically significant at the .05 significance level.</p>
-</div>
+<p>The interpretation of this test tells us the population (“all households in Greece”), the variable (“reaching a household”) and the sample statistic of interest (61%, indicating a proportion). It tells us that the result is statistically significant, which a fellow scientist can check with the reported <em>p</em> value.</p>
+<p>Note that the actual <em>p</em> value is well below .001. If we would round it to three decimals, it would become .000. This suggests that the probability is zero but there is always some probability of rejecting the null hypothesis if it is true. For this reason, APA wants us to report <em>p</em> &lt; .001 instead of <em>p</em> = .000.</p>
+<p>Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the <em>effect size</em>, and give a more precise interpretation (see Chapter <a href="4.2-null-hypothesis-significance-testing.html#power">4.2.6</a> for more information).</p>
 </div>
 </div>
             </section>
@@ -512,8 +519,8 @@ Figure 9.1: PROCESS output with estimated indirect and total effects of age on a
           </div>
         </div>
       </div>
-<a href="8.5-take-home-points-7.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="9.1-mediation-as-causal-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="4.5-test-selection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4.7-critical-discussion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
