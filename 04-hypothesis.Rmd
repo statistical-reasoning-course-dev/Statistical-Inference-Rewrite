@@ -602,7 +602,7 @@ Note that Cohen's *d* can take values above one. These are not errors, they refl
 knitr::include_url("https://www.youtube.com/embed/HmyW7HRM64Q", height = "360px")
 ```
 
-Unfortunately, the t test commands in SPSS have no option to calculate Cohen's d. It is, however, relatively easy to calculate Cohen's _d_ by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation.
+It is, relatively easy to calculate Cohen's _d_ by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.
 
 For a t test on one mean, the unstandardized effect is the difference between the sample mean and the hypothesized mean. SPSS reports this value in the column __Mean Difference__ of the table with test results. Drop any negative signs! Divide it by the standard deviation of the variable as given in Table __One-Sample Statistics__.
 
