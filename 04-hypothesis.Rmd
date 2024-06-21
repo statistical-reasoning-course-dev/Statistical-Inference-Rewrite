@@ -662,7 +662,7 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 ```
 
-Figure \@ref(fig:posthocpower) shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criteria as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 1 yellow candies under the alternative distribution.
+Figure \@ref(fig:posthocpower) shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criteria as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution.
 
 You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would be not be the same. The post hoc power does not have much practical use, though you should be warned that this is what SPSS produces when you ask for power.
 
