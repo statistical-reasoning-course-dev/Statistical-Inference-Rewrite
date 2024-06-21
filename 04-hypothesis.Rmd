@@ -320,7 +320,7 @@ The _t_ distribution is an example of a probability distribution for which the c
 
 The decision to not reject the null hypothesis when it is in reality true is indicated by $1 - \alpha$. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to probability of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example, a 99.8% (1 - .002) chance of making the correct decision. The inside of the critical value in figure \@ref(fig:nulldistributionalpha) is the area where we do not reject the null hypothesis. In the $2 \times 2$ decision table in figure \@ref(fig:decisiontable), this corresponds to the bottom left green quadrant.
 
-Now that we have determined our critical value based on our desired alpha, significance level, we can use this to look at the power.
+Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this to look at the power.
 
 ### Power {#power}
 
