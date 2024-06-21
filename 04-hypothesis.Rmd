@@ -200,7 +200,7 @@ Note that both the probability distribution for $H_0$ and for $H_A$ contain the 
 
 ### True effect size {#true-effect-size}
 
-The true effect size is the difference between the null hypothesis and the true  alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is the 5 - 3, though, in terms of the parameter it is the proportion .5 - .2.
+The true effect size is the difference between the null hypothesis and the true  alternative hypothesis. In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In figure \@ref(fig:twobinomeffect) you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is 5 - 3 expected number of yellow candies in the bag. In terms of the parameter it is the proportion .5 - .2.
 
 ```{r twobinomeffect, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
