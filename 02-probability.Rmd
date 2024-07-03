@@ -22,7 +22,7 @@ After studying this chapter, you should know the limitations of the three method
 
 ## Exact Approaches to the Sampling Distribution
 
-A second approach to constructing a sampling distribution has implicitly been demonstrated in the preceding section on bootstrapping (Section \@ref(boot-approx)) and the section on probability distributions (Section \@ref(probdistribution)). In these sections, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (Section \@ref(discreterandomvariable)).  
+The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (Section \@ref(probdistribution)). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (Section \@ref(discreterandomvariable)).  
 
 ```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does an exact aproach to the sampling distribution work?"}
 # Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities.
@@ -51,16 +51,16 @@ knitr::kable(d, booktabs = TRUE, caption = "Number of heads for a toss of three 
 The calculated probabilities of all possible sample statistic outcomes give us an exact approach to the sampling distribution. Note that I use the word _approach_ instead of _approximation_ here because the obtained sampling distribution is no longer an approximation, that is, more or less similar to the true sampling distribution. No, it is the true sampling distribution itself.  
 
 ### Exact approaches for categorical data
-An exact approach lists and counts all possible combinations. This can only be done if we work with discrete or categorical variables. For an unlimited number of categories, we cannot list all possible combinations.
+An exact approach lists and counts all possible combinations. This can only be done if we work with discrete or categorical variables. For an unlimited number of categories (continues variables), we cannot list all possible combinations.
 
-A proportion is based on frequencies and frequencies are discrete (integer values), so we can use an exact approach to create a sampling distribution for one proportion such as the proportion of yellow candies in the example above. The exact approach uses the [binomial probability](https://en.wikipedia.org/wiki/Binomial_distribution) formula to calculate probabilities. Consult the internet if you want to know this formula; we are not going to use it here.
+A proportion is based on frequencies and frequencies are discrete (integer values), so we can use an exact approach to create a sampling distribution for one proportion such as the proportion of yellow candies in the example above. The exact approach uses the [binomial probability](https://en.wikipedia.org/wiki/Binomial_distribution) formula to calculate probabilities. Consult the internet if you want to know this formula; we are not going to use it in this course.
 
 Exact approaches are also available for the association between two categorical (nominal or ordinal) variables in a contingency table: Do some combinations of values for the two variables occur relatively frequently? For example, are yellow candies more often sticky than red candies? If candies are either sticky or not sticky and they have one out of a limited set of colours, we have two categorical variables. We can create an exact probability distribution for the combination of colour and stickiness. The _Fisher-exact test_ is an example of an exact approach to the sampling distribution of the association between two categorical variables.
 
 ### Computer-intensive
 The exact approach can be applied to discrete variables because they have a limited number of values. Discrete variables are usually measured at the nominal or ordinal level. If the number of categories becomes large, a lot of computing time can be needed to calculate the probabilities of all possible sample statistic outcomes. Exact approaches are said to be _computer-intensive_. 
 
-It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days.  
+It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (section \@ref(Exact Approaches in SPSS). 
 
 ```{html, echo=ch2}
 ### Answers {-}
@@ -89,6 +89,18 @@ one head (p = .375), and so on. [<img src="icons/2question.png" width=161px alig
 ```
 
 ## Exact Approaches in SPSS {#SPSS-exact}
+
+### Introduction
+
+To perform an exact approach in SPSS, let us set an example for a research. In a preceding paragraph we suggested the question _are yellow candies more often sticky than red candies_? If we want to investigate this, we have two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). Thus, these two variables are both categorical (with two categories).
+
+We can create an exact probability distribution for the combination of colour and stickiness. 
+
+If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an _Exact_ button. You will find this in the dialog window for contingenxy table (_Analyze > descriptive statistics > crosstabs_) and in several legacy dialogs for non-parametric tests (_Analyze > nonparametric tests > legacy diologs_). In the Exact dialog, you check the _Exact_ option and SPSS automatically sets an upper limit of five minutes to the execution of the command. You can leave this at five minutes.
+
+As established, we have two categorical variables with two groups. Looking at the test selection table, we know that we use a Chi Square test to investigate these variables. Thus, within the dialog window _contingency tables_ we select Chi-sqaure in the _Statistics_ dialog and the option _Exact_ in the _Exact_ dialog.
+
+_Note_ a Fisher's exact test is automatically run when there is a 2x2 contingency table, when we perform this test on larger contingency tables we need to select the _Exact_ option, which is why we teach it to you here.
 
 ### Instructions
 
