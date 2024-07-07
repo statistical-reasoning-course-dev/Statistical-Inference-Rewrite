@@ -14,7 +14,7 @@ knitr::include_url("https://www.youtube.com/embed/klV2FFgH9OU", height = "360px"
 How do we test mean differences for three or more groups and what if group effects are not the same for all participants?
 ```
 
-Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity's fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for females, another for males?
+Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity's fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for a specific gender? This study only compares the genders 'male' and 'female'.
 
 In this example, we want to compare the outcome scores (average willingness to donate) across more than two groups (participants who saw Clooney, Jolie, or no celebrity). To this end, we use analysis of variance. The null hypothesis tested in analysis of variance states that all groups have the same average outcome score in the population.
 
