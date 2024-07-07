@@ -28,28 +28,6 @@ With two or more factors, we can have interaction effects in addition to main ef
 
 The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., sex) changes the effect of the predictor (e.g., celebrity endorser) on the dependent variable (e.g., willingness to donate).
 
-#### Essential Analytics {.unnumbered}
-
-In SPSS, we use the *One-Way ANOVA* option in the *Compare Means* submenu for one-way analysis of variance and the *Univariate* option in the *General Linear Model* submenu for two-way analysis of variance.
-
-```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center', fig.cap="SPSS table of main and interaction effects in a two-way analysis of variance."}
-knitr::include_graphics("figures/S7_AE1.png")
-```
-
-The significance tests on the main effects and interaction effect are reported in the **Tests of Between-Subjects Effects** table. Figure \@ref(fig:ANOVAtable) offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta^2^ by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
-
-Interpret the effects by comparing mean scores on the dependent variable among groups:
-
-1. If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The _F_ test shows whether or not the difference between the two groups is statistically significant.
-
-2. If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.
-
-3. If you want to interpret an interaction effect, create means plots such as Figure \@ref(fig:ANOVAplots). Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).
-
-```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation."}
-knitr::include_graphics("figures/S7_AE2.png")
-```
-
 ## Different Means for Three or More Groups
 
 Celebrity endorsement theory states that celebrities who publicly state that they favour a product, candidate, or cause, help to persuade consumers to adopt or support the product, candidate, or cause [for a review, see @RefWorks:3940; for an alternative approach, see @RefWorks:3941].
@@ -499,6 +477,26 @@ Answer to Question 10.
 ## One-Way Analysis of Variance in SPSS {#onewaySPSS}
 
 ### Instructions
+
+In SPSS, we use the *One-Way ANOVA* option in the *Compare Means* submenu for one-way analysis of variance and the *Univariate* option in the *General Linear Model* submenu for two-way analysis of variance.
+
+```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center', fig.cap="SPSS table of main and interaction effects in a two-way analysis of variance."}
+knitr::include_graphics("figures/S7_AE1.png")
+```
+
+The significance tests on the main effects and interaction effect are reported in the **Tests of Between-Subjects Effects** table. Figure \@ref(fig:ANOVAtable) offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta^2^ by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
+
+Interpret the effects by comparing mean scores on the dependent variable among groups:
+
+1. If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The _F_ test shows whether or not the difference between the two groups is statistically significant.
+
+2. If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.
+
+3. If you want to interpret an interaction effect, create means plots such as Figure \@ref(fig:ANOVAplots). Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).
+
+```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation."}
+knitr::include_graphics("figures/S7_AE2.png")
+```
 
 ```{r SPSS1way, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:1waySPSS)", dev="png", screenshot.opts = list(delay = 5)}
 knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px")
