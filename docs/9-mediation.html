@@ -144,7 +144,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html"><i class="fa fa-check"></i><b>2.2</b> Exact Approaches in SPSS</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.1</b> Instructions</a></li>
+<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.2</b> Instructions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html"><i class="fa fa-check"></i><b>2.3</b> Theoretical Approximations of the Sampling Distribution</a>
 <ul>
@@ -493,8 +494,8 @@ Can I add a causal order to the predictors in my regression models?
 <p>If we add a causal order among the predictors of our regression model, we obtain a causal model or path model. The causal model includes an indirect effect: The first predictor affects the scores on the second predictor, which affects the scores on the dependent variable that we usually call the outcome variable. For example, age affects news site use, which affects newspaper reading time. In this path model, the second predictor (news site use) mediates the effect of the first predictor on the outcome variable. The second predictor is called a mediator.</p>
 <p>We can estimate a path model as a series of regression models. The size of an indirect effect equals the product of the direct effects that constitute the indirect effect. With additional software, we can estimate the confidence interval of an indirect effect.</p>
 <p>Mediation models help us to think about the different ways in which a variable may cause another variable. But we must realize that the causal order underlying the model is an assumption that we make. A regression model shows the predictive effects, which do not have to be causal. We cannot prove that the predictive effects are causal. We can only think of arguments that make a causal interpretation of a predictive effect plausible.</p>
-<div id="essential-analytics-4" class="section level4 unnumbered hasAnchor">
-<h4>Essential Analytics<a href="9-mediation.html#essential-analytics-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="essential-analytics-3" class="section level4 unnumbered hasAnchor">
+<h4>Essential Analytics<a href="9-mediation.html#essential-analytics-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We can analyze a mediation model with a series of regression analyses in SPSS (the <em>Linear</em> option in the <em>Regression</em> submenu). We need one regression model for each variable that is predicted by one or more other variables in the model. The predicted variable is the dependent variable and as independent variables we use all variables that we think are causally prior to the dependent variable.</p>
 <p>As an alternative, we may use the PROCESS macro for SPSS. The macro requires that we distinguish between parallel mediation (each indirect effect has just one mediator) and serial mediation (at least one indirect effect includes two or more mediators). PROCESS gives us the size and bootstrapped confidence intervals for all indirect effects of the selected predictor via mediators on the final outcome variable.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:mediationtable"></span>

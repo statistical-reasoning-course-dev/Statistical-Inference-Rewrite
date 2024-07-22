@@ -144,7 +144,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html"><i class="fa fa-check"></i><b>2.2</b> Exact Approaches in SPSS</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.1</b> Instructions</a></li>
+<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.2</b> Instructions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html"><i class="fa fa-check"></i><b>2.3</b> Theoretical Approximations of the Sampling Distribution</a>
 <ul>
@@ -497,8 +498,8 @@ My dependent variable is numerical but at least one predictor is also numerical,
 <p>As an independent variable in the model, the regression coefficient of an interaction variable (interaction effect for short) has a confidence interval and a <em>p</em> value. The confidence interval tells us the plausible values for the size of the interaction effect in the population. The <em>p</em> value tests the null hypothesis that there is no interaction effect at all in the population.</p>
 <p>To interpret the interaction effect, we must determine the size of the effect of the predictor on the dependent variable for each group of the moderator. For example, the effect of campaign exposure on smoking attitude for smokers and the effect for non-smokers.</p>
 <p>An interaction effect in a regression model closely resembles an interaction effect in analysis of variance. The effect of a single predictor that is involved in an interaction effect in a regression model, however, is not a main effect as in analysis of variance. It is a conditional effect, namely the effect for one particular value of the moderator, that is, the effect within one particular context. To understand this, we must pay close attention to the regression equation.</p>
-<div id="essential-analytics-1" class="section level4 unnumbered hasAnchor">
-<h4>Essential Analytics<a href="6-moderationcat.html#essential-analytics-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="essential-analytics" class="section level4 unnumbered hasAnchor">
+<h4>Essential Analytics<a href="6-moderationcat.html#essential-analytics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In SPSS, we use the <em>Linear</em> option in the <em>Regression</em> submenu for regression analysis. For a moderation model, we first use the <em>Compute Variable</em> option in the <em>Transform</em> menu to calculate an interaction variable: we multiply (using <code>*</code>) the predictor variable by the moderator variable. The interaction variable is included in the regression model as an independent variable, just like the predictor, moderator, and any other independent variables (covariates).</p>
 <p>A categorical predictor variable such as a participant’s residential area (urban, suburban, rural) is included in the regression model as dummy variables, which have the values 0 or 1, for example: dummy variables <em>suburban</em> and <em>rural</em>, each with values yes (1) and no (0). The category without dummy variable is the reference group.</p>
 <p>The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in Figure <a href="6-moderationcat.html#fig:regressiontable">6.1</a>, the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).</p>

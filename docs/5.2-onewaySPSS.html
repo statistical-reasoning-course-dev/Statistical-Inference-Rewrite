@@ -144,7 +144,8 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html"><i class="fa fa-check"></i><b>2.2</b> Exact Approaches in SPSS</a>
 <ul>
-<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.1</b> Instructions</a></li>
+<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.2</b> Instructions</a></li>
 </ul></li>
 <li class="chapter" data-level="2.3" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html"><i class="fa fa-check"></i><b>2.3</b> Theoretical Approximations of the Sampling Distribution</a>
 <ul>
@@ -480,6 +481,26 @@ div.csl-indent {
 <h2><span class="header-section-number">5.2</span> One-Way Analysis of Variance in SPSS<a href="5.2-onewaySPSS.html#onewaySPSS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="instructions-2" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Instructions<a href="5.2-onewaySPSS.html#instructions-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In SPSS, we use the <em>One-Way ANOVA</em> option in the <em>Compare Means</em> submenu for one-way analysis of variance and the <em>Univariate</em> option in the <em>General Linear Model</em> submenu for two-way analysis of variance.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ANOVAtable"></span>
+<img src="figures/S7_AE1.png" alt="SPSS table of main and interaction effects in a two-way analysis of variance." width="60%" />
+<p class="caption">
+Figure 5.6: SPSS table of main and interaction effects in a two-way analysis of variance.
+</p>
+</div>
+<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. Figure <a href="5.2-onewaySPSS.html#fig:ANOVAtable">5.6</a> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
+<p>Interpret the effects by comparing mean scores on the dependent variable among groups:</p>
+<ol style="list-style-type: decimal">
+<li><p>If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
+<li><p>If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
+<li><p>If you want to interpret an interaction effect, create means plots such as Figure <a href="5.2-onewaySPSS.html#fig:ANOVAplots">5.7</a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).</p></li>
+</ol>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ANOVAplots"></span>
+<img src="figures/S7_AE2.png" alt="SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation." width="100%" />
+<p class="caption">
+Figure 5.7: SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.
+</p>
+</div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:SPSS1way"></span>
 <iframe src="https://www.youtube.com/embed/_2MmzWRcm2k" width="640px" height="360px" data-external="1">
 </iframe>
