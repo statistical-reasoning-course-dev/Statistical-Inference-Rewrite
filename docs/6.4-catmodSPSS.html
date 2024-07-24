@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6.4 A Dichotomous or Categorical Moderator in SPSS | Statitstical Inference</title>
   <meta name="description" content="6.4 A Dichotomous or Categorical Moderator in SPSS | Statitstical Inference" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6.4 A Dichotomous or Categorical Moderator in SPSS | Statitstical Inference" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -541,27 +545,85 @@ Figure \@ref(fig:regression-predict2) shows how much respondents were exposed to
 
 
 
-\begin{table}[H]
-\centering
-\caption{(\#tab:exampleresults)Regression model predicting attitude towards smoking.}
-\centering
-\resizebox{\ifdim\width>\linewidth\linewidth\else\width\fi}{!}{
-\fontsize{12}{14}\selectfont
-\begin{tabular}[t]{lrrrrrc}
-\toprule
- & b & SE & b\textbackslash{}* & t & p & 95\textbackslash{}\%CI\\
-\midrule
-Constant & 0.550 & 0.466 &  & 1.181 & 0.241 & {}[-0.377, 1.477]\\
-Exposure to anti-smoking campaign & -0.137 & 0.047 & -0.242 & -2.888 & 0.005 & {}[-0.231, -0.042]\\
-Former smoker & -1.139 & 0.520 & -0.269 & -2.188 & 0.032 & {}[-2.174, -0.103]\\
-Smoker & 1.223 & 0.498 & 0.302 & 2.456 & 0.016 & {}[.232, 2.214]\\
-Exposure \textbackslash{}* Former smoker & -0.402 & 0.107 & -0.442 & -3.739 & <.001 & {}[-0.616, -0.188]\\
-\addlinespace
-Exposure \textbackslash{}* Smoker & -0.304 & 0.093 & -0.394 & -3.262 & 0.002 & {}[-0.490, -0.119]\\
-Contact with smokers & 0.171 & 0.059 & 0.202 & 2.910 & 0.005 & {}[.054, .287]\\
-\bottomrule
-\end{tabular}}
-\end{table}
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">(\#tab:exampleresults)Regression model predicting attitude towards smoking.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">  </th>
+   <th style="text-align:right;"> b </th>
+   <th style="text-align:right;"> SE </th>
+   <th style="text-align:right;"> b\* </th>
+   <th style="text-align:right;"> t </th>
+   <th style="text-align:right;"> p </th>
+   <th style="text-align:center;"> 95\%CI </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Constant </td>
+   <td style="text-align:right;"> 0.550 </td>
+   <td style="text-align:right;"> 0.466 </td>
+   <td style="text-align:right;">  </td>
+   <td style="text-align:right;"> 1.181 </td>
+   <td style="text-align:right;"> 0.241 </td>
+   <td style="text-align:center;"> [-0.377, 1.477] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Exposure to anti-smoking campaign </td>
+   <td style="text-align:right;"> -0.137 </td>
+   <td style="text-align:right;"> 0.047 </td>
+   <td style="text-align:right;"> -0.242 </td>
+   <td style="text-align:right;"> -2.888 </td>
+   <td style="text-align:right;"> 0.005 </td>
+   <td style="text-align:center;"> [-0.231, -0.042] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Former smoker </td>
+   <td style="text-align:right;"> -1.139 </td>
+   <td style="text-align:right;"> 0.520 </td>
+   <td style="text-align:right;"> -0.269 </td>
+   <td style="text-align:right;"> -2.188 </td>
+   <td style="text-align:right;"> 0.032 </td>
+   <td style="text-align:center;"> [-2.174, -0.103] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Smoker </td>
+   <td style="text-align:right;"> 1.223 </td>
+   <td style="text-align:right;"> 0.498 </td>
+   <td style="text-align:right;"> 0.302 </td>
+   <td style="text-align:right;"> 2.456 </td>
+   <td style="text-align:right;"> 0.016 </td>
+   <td style="text-align:center;"> [.232, 2.214] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Exposure \* Former smoker </td>
+   <td style="text-align:right;"> -0.402 </td>
+   <td style="text-align:right;"> 0.107 </td>
+   <td style="text-align:right;"> -0.442 </td>
+   <td style="text-align:right;"> -3.739 </td>
+   <td style="text-align:right;"> &lt;.001 </td>
+   <td style="text-align:center;"> [-0.616, -0.188] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Exposure \* Smoker </td>
+   <td style="text-align:right;"> -0.304 </td>
+   <td style="text-align:right;"> 0.093 </td>
+   <td style="text-align:right;"> -0.394 </td>
+   <td style="text-align:right;"> -3.262 </td>
+   <td style="text-align:right;"> 0.002 </td>
+   <td style="text-align:center;"> [-0.490, -0.119] </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Contact with smokers </td>
+   <td style="text-align:right;"> 0.171 </td>
+   <td style="text-align:right;"> 0.059 </td>
+   <td style="text-align:right;"> 0.202 </td>
+   <td style="text-align:right;"> 2.910 </td>
+   <td style="text-align:right;"> 0.005 </td>
+   <td style="text-align:center;"> [.054, .287] </td>
+  </tr>
+</tbody>
+</table>
 
 <A name="question8.5.4"></A>
 

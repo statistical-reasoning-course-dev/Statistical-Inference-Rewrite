@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2.7 When Do We Use Which Approach to the Sampling Distribution? | Statitstical Inference</title>
   <meta name="description" content="2.7 When Do We Use Which Approach to the Sampling Distribution? | Statitstical Inference" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2.7 When Do We Use Which Approach to the Sampling Distribution? | Statitstical Inference" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -488,7 +492,7 @@ div.csl-indent {
 Figure 2.12: Diagram for selecting the type of sampling distribution.
 </p>
 </div>
-<p>By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see Table <a href="#tab:thumb"><strong>??</strong></a>.</p>
+<p>By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see Table <a href="2.3-theoretical-approx.html#tab:thumb">2.2</a>.</p>
 <p>If the conditions for using a theoretical probability distribution are not met or if we do not have a theoretical approximation to the sampling distribution, we use bootstrapping or an exact approach. We can always use bootstrapping but an exact approach is available only if the variables are categorical. An exact approach is more accurate than bootstrapping and approximation with a theoretical probability distribution, for example, the chi-squared distribution, so we prefer the exact approach over bootstrapping if we are dealing with categorical variables.</p>
 <!-- ## Test Your Understanding
 
@@ -506,28 +510,53 @@ Figure 2.12: Diagram for selecting the type of sampling distribution.
 <A name="question2.8.3"></A>
 
 
-\begin{table}[H]
-\centering
-\caption{(\#tab:models-summary-3)Number of heads for a toss of three coins.}
-\centering
-\fontsize{12}{14}\selectfont
-\begin{tabular}[t]{ll}
-\toprule
-Number of heads & Combination\\
-\midrule
-0 & tail-tail-tail\\
-1 & tail-tail-head\\
-1 & tail-head-tail\\
-1 & head-tail-tail\\
-2 & head-head-tail\\
-\addlinespace
-2 & head-tail-head\\
-2 & tail-head-head\\
-3 & head-head-head\\
-Total & 8\\
-\bottomrule
-\end{tabular}
-\end{table}
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">(\#tab:models-summary-3)Number of heads for a toss of three coins.</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Number of heads </th>
+   <th style="text-align:left;"> Combination </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 0 </td>
+   <td style="text-align:left;"> tail-tail-tail </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> tail-tail-head </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> tail-head-tail </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:left;"> head-tail-tail </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> head-head-tail </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> head-tail-head </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:left;"> tail-head-head </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:left;"> head-head-head </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Total </td>
+   <td style="text-align:left;"> 8 </td>
+  </tr>
+</tbody>
+</table>
 
 <A name="question2.8.4"></A>
 

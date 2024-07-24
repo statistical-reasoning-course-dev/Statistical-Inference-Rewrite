@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>9.2 Path Model with Regression Analysis | Statitstical Inference</title>
   <meta name="description" content="9.2 Path Model with Regression Analysis | Statitstical Inference" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
   <meta property="og:title" content="9.2 Path Model with Regression Analysis | Statitstical Inference" />
   <meta property="og:type" content="book" />
@@ -52,6 +52,10 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 <script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
 <script src="libs/vis-9.1.0/vis-network.min.js"></script>
@@ -557,7 +561,100 @@ Figure 9.8: Causal diagram for serial mediation.
 <p>SPSS does not calculate the size of indirect effects for us or their confidence intervals and <em>p</em> values. It is easy to calculate the sizes of indirect effects, as we have seen in a preceding section: just take the product of direct effects.</p>
 <p>In contrast, it is not possible to calculate the confidence interval or <em>p</em> value of an indirect effect in a reliable way from the confidence intervals or <em>p</em> values of the direct effects <span class="citation">(see <a href="12.2-take-home-points-11.html#ref-RefWorks:3873">Hayes, 2013</a>: Section 4.4 for a detailed and critical discussion of approaches that try to calculate the <em>p</em> value of an indirect effect from <em>p</em> values of direct effects)</span>.</p>
 <p>We use bootstrapping to create the sampling distribution of the size of an indirect effect. We have learned the principles and limitations of bootstrapping in Section <a href="2.5-boot-approx.html#boot-approx">2.5</a>, so we do not have to go into details here. Suffice it to repeat that our original sample must not be too small and it must be quite representative of the population if we apply bootstrapping.</p>
-<p>The confidence interval of an indirect effect can be calculated from its bootstrapped sampling distribution. Table <a href="#tab:indirect-sim"><strong>??</strong></a> shows bootstrap results for the indirect effects in a model with age as predictor, newspaper reading time as dependent variable, and interest in politics and news site use as mediators.</p>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:indirect-sim">Table 9.1: </span>Bootstrap results for unstandardized indirect effects in a model with two mediators. Effect size, standard error, lower and upper levels of the 95% confidence interval.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Effect
+</th>
+<th style="text-align:right;">
+Boot SE
+</th>
+<th style="text-align:right;">
+BootLLCI
+</th>
+<th style="text-align:right;">
+BootULCI
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Total indirect effect
+</td>
+<td style="text-align:right;">
+1.47
+</td>
+<td style="text-align:right;">
+.42
+</td>
+<td style="text-align:right;">
+.62
+</td>
+<td style="text-align:right;">
+2.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age - Pol. Interest - Reading Time
+</td>
+<td style="text-align:right;">
+.05
+</td>
+<td style="text-align:right;">
+.03
+</td>
+<td style="text-align:right;">
+.01
+</td>
+<td style="text-align:right;">
+.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age - Pol. Interest - News Site Use - Reading Time
+</td>
+<td style="text-align:right;">
+-.02
+</td>
+<td style="text-align:right;">
+.01
+</td>
+<td style="text-align:right;">
+-.05
+</td>
+<td style="text-align:right;">
+.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Age - News Site Use - Reading Time
+</td>
+<td style="text-align:right;">
+1.44
+</td>
+<td style="text-align:right;">
+.42
+</td>
+<td style="text-align:right;">
+.60
+</td>
+<td style="text-align:right;">
+2.23
+</td>
+</tr>
+</tbody>
+</table>
+<p>The confidence interval of an indirect effect can be calculated from its bootstrapped sampling distribution. Table <a href="9.2-path-model-with-regression-analysis.html#tab:indirect-sim">9.1</a> shows bootstrap results for the indirect effects in a model with age as predictor, newspaper reading time as dependent variable, and interest in politics and news site use as mediators.</p>
 <p>In total, there is a substantial indirect effect of age on newspaper reading time in this model. We are confident that this effect is positive [<em>b</em> = 1.47, 95% CI [0.62, 2.25] (bootstrapped)]. It is easy to see that the indirect effect of age via news site use on reading time is by far the most important indirect effect [<em>b</em> = 1.44, 95% CI [0.60, 2.23] (bootstrapped)]. On its own, it is responsible for almost the entire total indirect effect.</p>
 <p>It may happen that an indirect effect is not statistically significant (the confidence interval includes zero) whereas all direct effects that constitute the indirect effect are statistically significant. In Figure <a href="9.2-path-model-with-regression-analysis.html#fig:causaldiagram3">9.9</a>, for example, both the effect of age on political interest (<em>b</em> = 0.30, 95% CI [0.22, 0.38]) and the effect of political interest on reading time (<em>b</em> = 0.20, 95% CI [0.12, 0.28]) are statistically significant at the .05 level. The indirect effect of age via political interest on reading time, however, is not statistically significant at this level [<em>b</em> = 0.30 * 0.20 = 0.06, 95% CI [-0.02, 0.14], (bootstrapped)].</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:causaldiagram3"></span>

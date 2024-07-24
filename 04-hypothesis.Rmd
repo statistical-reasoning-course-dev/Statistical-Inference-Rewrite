@@ -255,19 +255,17 @@ knitr::include_graphics("figures/decision_table.svg")
 In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in Figure \@ref(fig:nulldistribution). We have already determined that if $H_0$ is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of Figure \@ref(fig:nulldistribution), and are also shown in the table \@ref(tab:nullprobtable) below. Looking at the probability of getting 0 or 10 candies in table \@ref(tab:nullprobtable), we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our Type I error, alpha, significance level, would be .002. 
 
 
-```{r nullprobtable, echo=FALSE, eval=TRUE}
+```{r nullprobtable, echo=FALSE}
 # library("tidyverse")
 # library("kableExtra")
 # options(kableExtra.auto_format = FALSE)
 
-# kable(
-  # t(
-data.frame(Yellow = as.character(0:10), Prob = round(dbinom(0:10, 10, .5), 3))
-    # ) 
-#      caption = "Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true."
-      # ) 
-
-# %>% kable_styling(font_size = 10)
+knitr::kable(t( data.frame(Yellow = as.character(0:10), 
+                           Prob   = round(dbinom(0:10, 10, .5), 3)) ),
+              booktabs = TRUE,
+              # col.names = c("Yellow candies", "Probability"),
+              caption  = "Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true."
+      ) %>% kable_styling(font_size = 10)
 ```
 
 Choosing such an alpha level would result in a threshold between 0 and 2 and 9 and 10. We call this the **critical value** associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criteria, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a Type I error rate of .002 or 0.2%. Figure \@ref(fig:nulldistributionalpha) shows the critical values for the null hypothesis distribution, and indicate what de decision would be for values on the outside and inside of the decision boundary.
