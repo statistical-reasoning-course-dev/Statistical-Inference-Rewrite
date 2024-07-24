@@ -413,7 +413,7 @@ We have learned that a test is statistically significant if the test statistic i
 >
 > Rejecting the null hypothesis does not mean that this hypothesis is false or that the alternative hypothesis is true. Please, never forget this.
 
-In the previous section we considered a sample with 4 yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with "at least as extreme". this is not really intuitive, but it refers to the less likely test statistics, in our case 0, 1, 2 and 3, are even less probable than 4. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the null distribution. Looking at table \@ref(tab:nullprobtable), we see that the probability of getting 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377. This is the p-value. The conditional probability of getting a sample that is as or less likely than the test statistic that we have. The conditional probability is referring to our assumption that the null hypothesis is true.
+In the previous section we considered a sample with 4 yellow candies. The p-value gives the probability of randomly drawing a sample that is as extreme or more extreme than our current sample assuming that the null hypothesis is true. “As extreme or more extreme” here means as far or further removed from the value specified by the null hypothesis. Concretely, in our case that means the probability of drawing a sample with 4 or fewer yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with “at least as extreme”. this is not really intuitive, but it refers to the less likely test statistics, iIn our case 0, 1, 2 and 3, are even less probable than 4 yellow candies. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the sampling distribution that is created based on the null distribution hypothesis. Looking at table \@ref(tab:nullprobtable), we see that the probability of drawing a random sample with 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377 according to the sampling distribution belonging to the null hypothesis. This 0.377 is the p-value. The conditional (conditional on H0 being true) probability of getting a sample that is as or less likely than the test statistic that we have of our current sample.
 
 The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
 
@@ -431,18 +431,18 @@ Compare it to the probability that we throw sixes with a dice. This probability 
 
 If the dice is not fair, we don't know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.
 
-Figure \@ref(fig:t-alpha-p) shows a t-distribution for a null assumption with an alpha level of 5% (red area) and the p-value (blue area) for a random sample with a t-value of 2. For a two sided test (left) and a one sided test (right). We will cover one and two sided testing in chapter \@ref(one-twosidedtests).
+Figure \@ref(fig:t-alpha-p) shows a t-distribution, which represents the null distribution. A statistical test was set up with for a null assumption with an alpha level of 5% (red area). The and the p-value (blue area) indicates the probability of drawing a random sample with a t-value of 2 or values that are even further removed from the null hypothesis (more extreem). The figure shows what this test would look like for a two sided test (left) and a one two sided hypothesis test (right). We will cover one and two sided testing in chapter \@ref(one-twosidedtests). For now, just notice that, looking at the left graph, the p-value is greater than 0.05, because the test statistic is not as or more extreme than the critical value. In other words, the test is not significant. In the one-sided test depicted on the right, the p-value lies in the rejection region and is, thus, significant.
 
-```{r t-alpha-p, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="T-distributions with alpha level and p-value", echo=FALSE, out.width="820px", out.height="350px", screenshot.opts = list(delay = 5), dev="png"}
-layout(matrix(1:2, 1, 2))
+```{r t-alpha-p, fig.show="hold", out.width="50%", echo=FALSE, fig.pos='H', fig.align='center', fig.cap="T-distributions with alpha level and p-value", echo=FALSE, screenshot.opts = list(delay = 5), dev="png"}
+# layout(matrix(1:2, 1, 2))
 
 plot(function(x) dt(x, df = 10), -4, 4,
-     main="T distribution (df=10) with two sided alpha",
+     main     = "T distribution (df=10) with two sided alpha",
      cex.main = .7,
-     xlab="T-value",
-     ylab="",
-     bty="n",
-     lwd=1.5)
+     xlab     = "T-value",
+     ylab     = "",
+     bty      = "n",
+     lwd      = 1.5)
      
 t = 2
 
@@ -531,7 +531,7 @@ lines(xbracket,ybracket,col="gray")
 
 In Figure \@ref(fig:t-alpha-p), the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.
 
-Figure \@ref(fig:twosided) representing the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
+Figure \@ref(fig:twosided) represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
 
 ```{r twosided, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
@@ -579,15 +579,37 @@ text(12.5, .23, "True effect size", col='red', pos=3)
 
 **True** refers to the actual difference in the population, which is unknown to us. In our candy factory example, we can only observe the sample from a candy bag and make assumptions based on the null and alternative hypotheses.
 
+Depending on the true value in the population, a true effect size could be small, medium, or large. In order to detect small true effect sizes, we need a large sample size. A larger sample offers more precision, so the difference between our sample outcome and the hypothesized value is more often sufficient to reject the null hypothesis. For example, we would reject the null hypothesis that average candy weight is 2.8 grams in the population if average weight in our sample bag is 2.70 grams and our sample is large. But we may not reject this null hypothesis if we have the same outcome in a small sample bag.
+
+The larger our sample, the more sensitive our test will be, so we will get statistically significant results more often. If we think of our statistical test as a security metal detector, a more sensitive detector will go off more often.
+
+#### Practical relevance
+
+Investigating the effects of a new medicine on a person’s health, we may require some minimum level of health improvement to make the new medicine worthwhile medically or economically. If a particular level of improvement is clinically important, it is practically relevant (sometimes called practically significant).
+
+If we have decided on a minimum level of improvement that is relevant to us, we want our test to be statistically significant if the average true health improvement in the population is at least of this size. We want to reject the null hypothesis of no improvement in this situation.
+
+```{block2, type='rmdimportant'}
+* A larger sample size makes a statistical test more sensitive. The test will pick up (be statistically significant for) smaller effect sizes.
+
+* A larger effect size is more easily picked up by a statistical test. Larger effect sizes yield statistically significant results more easily, so they require smaller samples.
+```
+
+For media interventions such as health, political, or advertisement campaigns, one could think of a minimum change of attitude affected by the campaign in relation to campaign costs. A choice between different campaigns could be based on their efficiency in terms of attitudinal change per cost unit.
+
+Note the important difference between practical relevance and statistical significance. Practical relevance is what we are interested in. If the new medicine is sufficiently effective, we want our statistical test to signal it. In the security metal detector example: If a person carries too much metal, we want the detector to pick it up.
+
+Statistical significance is just a tool that we use to signal practically relevant effects. Statistical significance is not meaningful in itself. For example, we do not want to have a security detector responding to a minimal quantity of metal in a person’s dental filling. Statistical significance is important only if it signals practical relevance. We will return to this topic in Chapter \@ref(sample-size) on sample size.
+
 ### Observed effect size {#observed-effect-size}
 
-In chapter \@ref(true-effect-size) we discussed the true effect, the difference between the null hypothesis and the true alternative hypothesis. The problem is that we do not know the true effect, we do not know which of the two hypothesis is actually true. In some cases we don't even know if our expected alternative hypothesis is correct. 
+In chapter \@ref(true-effect-size) we discussed the true effect, the difference between the null hypothesis and the true alternative hypothesis. The problem is that we do not know the true effect, we do not know which of the two hypothesis is actually true.
 
 We can only estimate the true effect using the sample statistic. The difference between the sample statistic and the null hypothesis is called the **observed effect size**. In the candy factory example, the observed effect size is the difference between the number of yellow candies in the sample and the number of yellow candies in the null hypothesis. If the null hypothesis is that the machine produces bags with 5 yellow candies, and the sample contains 4 yellow candies, the observed effect size is 1.
 
-The same defenition holds for the continuous case. If the null hypothesis is that the average media literacy in the population is 5.5, and the sample mean is 3.9, the observed effect size is 1.6. Or if we hypothesize that average candy weight in the population is 2.8 grams and we find an average candy weight in our sample bag of 2.75 grams, the effect size is -0.05 grams. If a difference of 0.05 grams is a great deal to us, the effect is practically relevant.
+The same definition holds for the continuous case. If the null hypothesis is that the average media literacy in the population is 5.5, and the sample mean is 3.9, the observed effect size is 1.6. Or if we hypothesize that average candy weight in the population is 2.8 grams and we find an average candy weight in our sample bag of 2.75 grams, the effect size is -0.05 grams. If a difference of 0.05 grams is a great deal to us, the effect is practically relevant.
 
-Note that the effect sizes depend on the scale on which we measure the sample outcome. The unstandardized effect size of average candy weight changes if we measure candy weight in grams, micro grams, kilograms, or ounces. Of course, changing the scale does not affect the meaning of the effect size but the number that we are looking at is very different: 0.05 grams, 50 milligrams, 0.00005 kilos, or 0.00176 ounces. For this reason, we do not have rules of thumb for interpreting these **unstandardized effect sizes** in terms of small, medium, or large effects. But we do have rules of thumb for **standardized effect sizes**.
+Note that the effect sizes depend on the scale on which we measure the sample outcome. The unstandardized effect size of average candy weight changes if we measure candy weight in grams, micro grams, kilograms, or ounces. Of course, changing the scale does not affect the meaning of the effect size but the number that we are looking at is very different: 0.05 grams, 50 milligrams, 0.00005 kilos, or 0.00176 ounces. For this reason, we do not have rules of thumb for interpreting these **unstandardized effect sizes** in terms of small, medium, or large effects. But we do have rules of thumb for **standardized effect sizes**. Unstandardized effect sizes are very useful for reporting the practical results of your study, but they are not very useful for comparing studies or for meta-analysis.
 
 You can imagine that estimating the true effect size on just one sample is not very reliable. The observed effect size could be the result of our sample being the result of the null being true, or the alternative being true. The way researchers try to get a notion of the true effect size is by replicating the study. If the observed effect size is consistent over multiple replications, we can be more confident that the average observed effect size is the true effect size. This is what we will cover in chapter \@ref(meta-analysis) about meta analysis.
 

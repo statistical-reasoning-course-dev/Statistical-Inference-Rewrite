@@ -181,7 +181,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.2" data-path="3.2-interval-estimate-for-the-sample-statistic.html"><a href="3.2-interval-estimate-for-the-sample-statistic.html"><i class="fa fa-check"></i><b>3.2</b> Interval Estimate for the Sample Statistic</a></li>
 <li class="chapter" data-level="3.3" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html"><i class="fa fa-check"></i><b>3.3</b> Precision, Standard Error, and Sample Size</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#sample-size"><i class="fa fa-check"></i><b>3.3.1</b> Sample size</a></li>
+<li class="chapter" data-level="3.3.1" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#sample-sizes"><i class="fa fa-check"></i><b>3.3.1</b> Sample sizes</a></li>
 <li class="chapter" data-level="3.3.2" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#standard-error"><i class="fa fa-check"></i><b>3.3.2</b> Standard error</a></li>
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="3.4-crit-values.html"><a href="3.4-crit-values.html"><i class="fa fa-check"></i><b>3.4</b> Critical Values</a>
@@ -222,7 +222,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2.8" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>4.2.8</b> Observed effect size</a></li>
 <li class="chapter" data-level="4.2.9" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#post-hoc-power"><i class="fa fa-check"></i><b>4.2.9</b> Post hoc power</a></li>
 <li class="chapter" data-level="4.2.10" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.2.10</b> Meta analysis</a></li>
-<li class="chapter" data-level="4.2.11" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#sample-size"><i class="fa fa-check"></i><b>4.2.11</b> Sample size</a></li>
+<li class="chapter" data-level="4.2.11" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#sample-size"><i class="fa fa-check"></i><b>4.2.11</b> Sample size</a></li>
 <li class="chapter" data-level="4.2.12" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#one-twosidedtests"><i class="fa fa-check"></i><b>4.2.12</b> One-Sided and Two-Sided Tests</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html"><i class="fa fa-check"></i><b>4.3</b> Confidence Intervals to test hypotheses</a>
@@ -437,7 +437,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="11-power.html"><a href="11-power.html"><i class="fa fa-check"></i>Summary</a></li>
 <li class="chapter" data-level="11.1" data-path="11.1-effectsize.html"><a href="11.1-effectsize.html"><i class="fa fa-check"></i><b>11.1</b> Effect Size</a>
 <ul>
-<li class="chapter" data-level="11.1.1" data-path="11.1-effectsize.html"><a href="11.1-effectsize.html#practical-relevance"><i class="fa fa-check"></i><b>11.1.1</b> Practical relevance</a></li>
+<li class="chapter" data-level="11.1.1" data-path="11.1-effectsize.html"><a href="11.1-effectsize.html#practical-relevance-1"><i class="fa fa-check"></i><b>11.1.1</b> Practical relevance</a></li>
 <li class="chapter" data-level="11.1.2" data-path="11.1-effectsize.html"><a href="11.1-effectsize.html#unstandardized-effect-size"><i class="fa fa-check"></i><b>11.1.2</b> Unstandardized effect size</a></li>
 </ul></li>
 <li class="chapter" data-level="11.2" data-path="11.2-hypothetical-world-versus-imaginary-true-world.html"><a href="11.2-hypothetical-world-versus-imaginary-true-world.html"><i class="fa fa-check"></i><b>11.2</b> Hypothetical World Versus Imaginary True World</a>
@@ -524,15 +524,16 @@ Figure 4.1: Discrete binomial distributions
 </div>
 <div id="alternative-hypothesis" class="section level3 hasAnchor" number="4.1.2">
 <h3><span class="header-section-number">4.1.2</span> Alternative hypothesis<a href="4.1-binarydecision.html#alternative-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate.</p>
-<p>In case of our candy factory example, the alternative hypothesis would be that the machine produces bags with 2 out of 10 yellow candies and that the machines parameter is .2, one in five yellow candies per bag. Assuming .2 as the machine’s parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (Figure <a href="4.1-binarydecision.html#fig:altdistribution">4.2</a>) as we did for the null hypothesis.</p>
+<p>The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate. This would mean that our expected effect of difference would indeed reflect the true population value.</p>
+<p>Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produces bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine’s parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (Figure <a href="4.1-binarydecision.html#fig:altdistribution">4.2</a>) as we did for the null hypothesis.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:altdistribution"></span>
 <img src="GentleIntro_files/figure-html/altdistribution-1.png" alt="Discrete binomial distributions" width="420px" />
 <p class="caption">
 Figure 4.2: Discrete binomial distributions
 </p>
 </div>
-<p>Note that both the probability distribution for <span class="math inline">\(H_0\)</span> and for <span class="math inline">\(H_A\)</span> contain the results of assumptions about reality, and that at this stage only the sample size, the amount of candies in a bag (10) has been used to determine the distribution. No data has been gathered yet in determining these distributions. It is all based on assumptions.</p>
+<p>Note that the probability distribution for <span class="math inline">\(H_0\)</span> indicates the null assumption about reality, while the probability distribution for <span class="math inline">\(H_A\)</span> is based on the true population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.</p>
+<p>When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.</p>
 <p>The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. Equation <a href="4.1-binarydecision.html#eq:Halt">(4.2)</a> shows some examples of alternative hypotheses expressed in test statistics.</p>
 <p><span class="math display" id="eq:Halt">\[\begin{equation}
 \begin{split}
@@ -550,7 +551,10 @@ H_{0} &amp; : \mu_1 &amp; &lt; \mu_2 \\
 \end{split}
 \tag{4.2}
 \end{equation}\]</span></p>
-<p>The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population parameter is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population parameter is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in the chapter <a href="4.2-null-hypothesis-significance-testing.html#one-twosidedtests">4.2.12</a>.</p>
+<p>The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in the chapter <a href="4.2-null-hypothesis-significance-testing.html#one-twosidedtests">4.2.12</a>.</p>
+<blockquote>
+<p>One-sided</p>
+</blockquote>
 </div>
 <div id="testing-hypothesis" class="section level3 hasAnchor" number="4.1.3">
 <h3><span class="header-section-number">4.1.3</span> Testing hypothesis<a href="4.1-binarydecision.html#testing-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
