@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.4 Comparing Regression Models in SPSS | Statitstical Inference</title>
-  <meta name="description" content="8.4 Comparing Regression Models in SPSS | Statitstical Inference" />
+  <title>9.9 Cohen’s d calculatons | Statitstical Inference</title>
+  <meta name="description" content="9.9 Cohen’s d calculatons | Statitstical Inference" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.4 Comparing Regression Models in SPSS | Statitstical Inference" />
+  <meta property="og:title" content="9.9 Cohen’s d calculatons | Statitstical Inference" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.4 Comparing Regression Models in SPSS | Statitstical Inference" />
+  <meta name="twitter:title" content="9.9 Cohen’s d calculatons | Statitstical Inference" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="8.3-confounders.html"/>
-<link rel="next" href="8.5-take-home-points-7.html"/>
+<link rel="prev" href="association-relations-between-characteristics.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -488,68 +488,55 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="compmodelSSPSS" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> Comparing Regression Models in SPSS<a href="8.4-compmodelSSPSS.html#compmodelSSPSS" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="instructions-7" class="section level3 hasAnchor" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Instructions<a href="8.4-compmodelSSPSS.html#instructions-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:SPSSregconfound"></span>
-<iframe src="https://www.youtube.com/embed/Du2mzxWifCM" width="640px" height="360px" data-external="1">
+<div id="CohenCalculations" class="section level2 hasAnchor" number="9.9">
+<h2><span class="header-section-number">9.9</span> Cohen’s <em>d</em> calculatons<a href="9.9-CohenCalculations.html#CohenCalculations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<hr />
+<p>These are the formulas for Cohen’s <em>d</em> for a one-sample <em>t</em> test, a paired-samples <em>t</em> test, and an independent-samples <em>t</em> test (they will be provided if needed):</p>
+<div style="column-count: 3; -moz-column-count: 3">
+<span class="math display">\[\begin{equation}
+  d_{one_-sample} = \frac{M - \mu_0}{SD}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+  d_{paired_-samples} = \frac{M_{diff} - \mu_{0_-diff}}{SD_{diff}}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+  d_{independent_-samples} = \frac{2*t}{\sqrt(df)}
+\end{equation}\]</span>
+</div>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(M\)</span> is the sample mean, <span class="math inline">\(\mu_0\)</span> is the hypothesized population mean, and <span class="math inline">\(SD\)</span> is the standard deviation in the sample,</p></li>
+<li><p><span class="math inline">\(M_{diff}\)</span> is the difference between the two means in the sample, <span class="math inline">\(\mu_{0_-diff}\)</span> is the hypothesized difference between the two means in the population mean, which is zero in case of a nil hypothesis, and <span class="math inline">\(SD_{diff}\)</span> is the standard deviation of the difference in the sample,</p></li>
+<li><p><span class="math inline">\(t\)</span> is the test statistic value and <span class="math inline">\(df\)</span> is the number of degrees of freedom of the <em>t</em> test.</p></li>
+</ul>
+<hr />
+<p>The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section <a href="2.3-theoretical-approx.html#dependentsamples">2.3.6</a>). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (<em>pooled</em>) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the <em>t</em> value and degrees of freedom to calculate Cohen’s <em>d</em>.</p>
+<div id="obtaining-cohens-d-with-spss" class="section level3 hasAnchor" number="9.9.1">
+<h3><span class="header-section-number">9.9.1</span> Obtaining Cohen’s <em>d</em> with SPSS<a href="9.9-CohenCalculations.html#obtaining-cohens-d-with-spss" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cohend"></span>
+<iframe src="https://www.youtube.com/embed/HmyW7HRM64Q" width="640px" height="360px" data-external="1">
 </iframe>
 <p class="caption">
-Figure 8.9: Identifying confounders with regression in SPSS.
+Figure 9.23: Obtaining Cohen’s <em>d</em> with SPSS.
 </p>
 </div>
-<p><A name="question9.4.1"></A></p>
-<p><A name="question9.4.2"></A></p>
-<p><A name="question9.4.3"></A></p>
-<p><A name="answer9.4.1"></A></p>
-<p><A name="answer9.4.2"></A></p>
-<p><A name="answer9.4.3"></A></p>
-<!-- ## Test Your Understanding
+<p>It is, relatively easy to calculate Cohen’s <em>d</em> by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.</p>
+<p>For a t test on one mean, the unstandardized effect is the difference between the sample mean and the hypothesized mean. SPSS reports this value in the column <strong>Mean Difference</strong> of the table with test results. Drop any negative signs! Divide it by the standard deviation of the variable as given in Table <strong>One-Sample Statistics</strong>.</p>
+<p>In the example, Cohen’s <em>d</em> is 0.036 / 0.169 = 0.21. This is a weak effect.</p>
+<p>For a paired-samples t test, the unstandardized effect size is reported in the column <strong>Mean</strong> in the Table <strong>Paired Samples Test</strong>. The standard deviation of the difference can be found in column <strong>Std. Deviation</strong> in the same table. Divide the first by the second, for instance, 1.880 / 1.033 = 1.82. This is a strong effect.</p>
+<p>For an independent-samples t test, the situation is less fortuitous because SPSS does not report the pooled sample standard deviation that we need. The pooled sample standard deviation takes a sort of average of the outcome variable’s standard deviations in the two groups. As an approximation, we can calculate Cohen’s <em>d</em> as follows: Double the t value and divide it by the square root of the degrees of freedom.</p>
+<p>In the example, Cohen’s <em>d</em> equals <span class="math inline">\((2 * 0.651) / \surd(18) = 0.31\)</span>. This is a moderate effect size.</p>
 
-<div class="figure" style="text-align: center">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/?showcase=0" width="775px" height="305px" data-external="1"></iframe>
-<p class="caption">(\#fig:mediation-confoundertypes2)When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).</p>
-</div>
-
-<A name="question10.5.1"></A>
-
-
-<A name="question10.5.2"></A>
-
-
-<A name="question10.5.3"></A>
-
-
-<A name="question10.5.4"></A>
-
-
-
-
-
-
-<A name="answer10.5.1"></A>
-
-
-<A name="answer10.5.2"></A>
-
-
-<A name="answer10.5.3"></A>
-
-
-<A name="answer10.5.4"></A>
-
-
--->
 </div>
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="8.3-confounders.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="8.5-take-home-points-7.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="association-relations-between-characteristics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

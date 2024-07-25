@@ -51,7 +51,7 @@ Statistical hypotheses usually come in pairs: a null hypothesis (_H_~0~) and an 
 
 ### Null hypothesis
 
-The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental conditions, the new intervention is not better than the previous, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. Equation (\#eq:Hnull) shows some examples of null hypotheses expressed in test statistics.
+The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental conditions, the new intervention is not better than the previous, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. Equation \@ref(eq:Hnull) shows some examples of null hypotheses expressed in test statistics.
 
 \begin{equation}
 \begin{split}
@@ -91,7 +91,7 @@ barplot( dbinom(0:10, 10, .5),
 
 ```
 
-### Alternative hypothesis
+### Alternative hypothesis {#alternative-hypothesis}
 
 The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate. This would mean that our expected effect of difference would indeed reflect the true population value.
 
@@ -130,23 +130,21 @@ The alternative hypothesis is usually formulated as either not equal to the null
 \begin{equation}
 \begin{split}
 \text{Two-sided} \\
-H_{0} & : \theta & \neq .5 \\
-H_{0} & : \hat{x} & \neq \mu \\
-H_{0} & : t & \neq 0 \\
-H_{0} & : \mu_1 & \neq \mu_2 \\
+H_{A} & : \theta & \neq .5 \\
+H_{A} & : \hat{x} & \neq \mu \\
+H_{A} & : t & \neq 0 \\
+H_{A} & : \mu_1 & \neq \mu_2 \\
 
 \text{One-sided} \\
-H_{0} & : \theta & < .5 \\
-H_{0} & : \hat{x} & > 100 \\
-H_{0} & : t & > 0 \\
-H_{0} & : \mu_1 & < \mu_2 \\
+H_{A} & : \theta & < .5 \\
+H_{A} & : \hat{x} & > 100 \\
+H_{A} & : t & > 0 \\
+H_{A} & : \mu_1 & < \mu_2 \\
 \end{split}
 (\#eq:Halt)
 \end{equation}
 
 The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in the chapter \@ref(one-twosidedtests).
-
-> One-sided 
 
 ### Testing hypothesis
 
@@ -613,47 +611,18 @@ Note that the effect sizes depend on the scale on which we measure the sample ou
 
 You can imagine that estimating the true effect size on just one sample is not very reliable. The observed effect size could be the result of our sample being the result of the null being true, or the alternative being true. The way researchers try to get a notion of the true effect size is by replicating the study. If the observed effect size is consistent over multiple replications, we can be more confident that the average observed effect size is the true effect size. This is what we will cover in chapter \@ref(meta-analysis) about meta analysis.
 
-#### Standardized effect size: Cohen's *d* for one or two means
+#### Cohen's *d*
 
 In scientific research, we rarely have precise norms for raw differences (unstandardized effects) that are practically relevant or substantial. For example, what would be a practically relevant attitude change among people exposed to a health campaign?
 
 To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.
 
-For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as *Cohen's* d.
+For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as *Cohen's* d. Equation  \@ref(eq:CoD) illustrates how the sample mean $\bar{x}$ is compared to the hypothesized population mean $\mu_{H_0}$, and how this difference is standardized by deviding through the standard deviation $s$. In appendix \@ref(CohenCalculations) we will cover the calculation the paired and independent tests.
 
-------------------------------------------------------------------------
-
-These are the formulas for Cohen's *d* for a one-sample *t* test, a paired-samples *t* test, and an independent-samples *t* test (they will be provided if needed):
-
-::: {style="column-count: 3; -moz-column-count: 3"}
-```{=tex}
 \begin{equation}
-  d_{one_-sample} = \frac{M - \mu_0}{SD}
-\end{equation}
-```
-```{=tex}
-\begin{equation}
-  d_{paired_-samples} = \frac{M_{diff} - \mu_{0_-diff}}{SD_{diff}}
-\end{equation}
-```
-```{=tex}
-\begin{equation}
-  d_{independent_-samples} = \frac{2*t}{\sqrt(df)}
-\end{equation}
-```
-:::
-
-Where:
-
--   $M$ is the sample mean, $\mu_0$ is the hypothesized population mean, and $SD$ is the standard deviation in the sample,
-
--   $M_{diff}$ is the difference between the two means in the sample, $\mu_{0_-diff}$ is the hypothesized difference between the two means in the population mean, which is zero in case of a nil hypothesis, and $SD_{diff}$ is the standard deviation of the difference in the sample,
-
--   $t$ is the test statistic value and $df$ is the number of degrees of freedom of the *t* test.
-
-------------------------------------------------------------------------
-
-The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section \@ref(dependentsamples)). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (*pooled*) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the *t* value and degrees of freedom to calculate Cohen's *d*.
+d = \frac{\bar{x} - \mu_{H_0}}{s_x}
+  (\#eq:CoD)
+\end{equation} 
 
 Using an inventory of published results of tests on one or two means, @RefWorks:3933 proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):
 
@@ -663,39 +632,32 @@ Using an inventory of published results of tests on one or two means, @RefWorks:
 
 Note that Cohen's *d* can take values above one. These are not errors, they reflect very strong or huge effects [@sawilowskyNewEffectSize2009].
 
-##### Obtaining Cohen's *d* with SPSS
-
-```{r cohend, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:cohendtitle)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/HmyW7HRM64Q", height = "360px")
-```
-
-It is, relatively easy to calculate Cohen's _d_ by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.
-
-For a t test on one mean, the unstandardized effect is the difference between the sample mean and the hypothesized mean. SPSS reports this value in the column __Mean Difference__ of the table with test results. Drop any negative signs! Divide it by the standard deviation of the variable as given in Table __One-Sample Statistics__.
-
-In the example, Cohen's _d_ is 0.036 / 0.169 = 0.21. This is a weak effect.
-
-For a paired-samples t test, the unstandardized effect size is reported in the column __Mean__ in the Table __Paired Samples Test__. The standard deviation of the difference can be found in column __Std. Deviation__ in the same table. Divide the first by the second, for instance, 1.880 / 1.033 = 1.82. This is a strong effect.
-
-For an independent-samples t test, the situation is less fortuitous because SPSS does not report the pooled sample standard deviation that we need. The pooled sample standard deviation takes a sort of  average of the outcome variable's standard deviations in the two groups. As an approximation, we can calculate Cohen's _d_ as follows: Double the t value and divide it by the square root of the degrees of freedom.
-
-In the example, Cohen's _d_ equals $(2 * 0.651) / \surd(18) = 0.31$. This is a moderate effect size.
-
 #### Association as effect size {#assoc-size}
 
 Measures of association such as Pearson's product-moment correlation coefficient or Spearman's rank correlation coefficient express effect size if the null hypothesis expects no correlation in the population. If zero correlation is expected, a correlation coefficient calculated for the sample expresses the difference between what is observed (sample correlation) and what is expected (zero correlation in the population).
 
 Effect size is also zero according to the standard null hypotheses used for tests on the regression coefficient (*b*), *R*^2^ for the regression model, and eta^2^ for analysis of variance. As a result, we can use the standardized regression coefficient (Beta in SPSS and *b*\* according to APA), *R*^2^, and eta^2^ as standardized effect sizes.
 
-Because they are standardized, we can interpret their effect sizes using rules of thumb. The rule of thumb for interpreting a standardized regression coefficient (*b*\*) or a correlation coefficient, for example, could be that a value between 0 and .10 is interpreted as no or a very weak association, between .10 and .30 as weak, between .30 and .50 as moderate, .50 to .80 as strong, and .80 to 1.00 as very strong, while exactly 1.00 is a perfect association. Note that we ignore the sign (plus or minus) of the effect when we interpret its size.
+Because they are standardized, we can interpret their effect sizes using rules of thumb. The rule of thumb for interpreting a standardized regression coefficient (*b*\*) or a correlation coefficient, for example, could be:
+
+* Very weak: between 0 and .10
+* Weak: between .10 and .30
+* Moderate: between .30 and .50 
+* Strong: between .50 and .80
+* Very strong: between .80 and 1.00
+* Perfect association: 1.00
+
+Note that we ignore the sign (plus or minus) of the effect when we interpret its size.
 
 ### Post hoc power
 
-Just as the observed effect size is based on the test statistic acquired from your sample, so is the post hoc power. It is also known as: observed, retrospective, achieved, prospective and a priori power [@doi:10.1080/19312450701641375].
+Just as the observed effect size is based on the test statistic acquired from your sample, so is the post hoc power. It is also known as: observed, retrospective, achieved power [@doi:10.1080/19312450701641375].
 
 > The power of a test assuming a population effect size equal to the observed effect size in the current sample.
+>
+> --- [@doi:10.1080/19312450701641375]
 
-The post hoc power refers to the probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed sample mean or more accurately the observed test statistic. Though SPSS produces this when you ask it, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the actual power is fixed and should not vary. 
+The post hoc power refers to the probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed sample mean or more accurately the observed test statistic. 
 
 ```{r posthocpower, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions showing post hoc power", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 
@@ -719,42 +681,44 @@ barplot( rbind(dbinom(0:n, n, .5),
          ) -> p
 
 
-abline(v = p[1,1]+2, col='red', lwd=2)
-abline(v = p[1,10]+2, col='red', lwd=2)
+abline(v = p[1,1]+2, col='darkgreen', lwd=2)
+abline(v = p[1,10]+2, col='darkgreen', lwd=2)
 
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
+
+
 
 legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 ```
 
-Figure \@ref(fig:posthocpower) shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution.
+Figure \@ref(fig:posthocpower) shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution when rejecting the null hypothesis on the outside of the critical values.
 
-You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would not be the same. The post hoc power does not have much practical use, though you should be warned that this is what SPSS produces when you ask for power.
+You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would not be the same. The post hoc power does not have much practical use, though SPSS produces this when you ask it, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the actual power is fixed and should not vary.
 
-<!-- create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
+<!-- [To-Do] create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 
 ### Meta analysis
 
-As mentioned in chapter \@ref(observed-effect-size), the observed effect size is based on the sample statistic, and will differ with every sample you take. If our research hypothesis is actually true, than a random sample from the alternative distribution would more often result in sampled number of yellow candies close to 2. But as we have seen in Figure \@ref(fig:altdistribution), getting 4 yellow candies is reasonably probable.
+As mentioned in chapter \@ref(observed-effect-size), the observed effect size is based on the sample statistic, and is likely to differ with every sample you take. If our research hypothesis is actually true, a random sample from a population described by the sampling distribution of the alternative hypothesis would be mot likely to result in us holding a bag with 2 yellow candies. But as we have seen in Figure \@ref(fig:altdistribution), getting 4 yellow candies is reasonably probable as well.
 
-Now imagine that we would take multiple samples from the alternative distribution, and calculate the observed effect size for each sample. If we would plot these observed effect sizes, we would get a sampling distribution of observed effect sizes. 
+Now imagine that we would take multiple samples, and calculate the observed effect size for each sample. If we would plot these observed effect sizes, we would get a distribution of observed effect sizes. 
 
-In research we conduct replication studies to see if the observed effect size is consistent over multiple replications. If this is the case, we can be more confident that the average observed effect size is the true effect size and we can determine the parameter of the alternative hypothesis. 
+In research we can conduct replication studies to see if the observed effect size is consistent over multiple replications. If this is the case, we can be more confident that the average observed effect size is the true effect size and we can determine the true population mean. As we have seen in chapter \@ref(samp-dist), it is in practical to draw many number of samples to create a sampling distribution. But we can use the results from multiple studies to get an indication of the true population mean.
 
 Again imagine that we get a hundred bags of candy and we consistently find 7 to 9 yellow candies, this would give us an indication of the true effect size being 8. It would also indicate that our initial alternative hypothesis is highly unlikely. 
 This is essentially what meta analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size. 
 
-[to-do] add communication meta analysis example.
+<!-- [to-do] add communication meta analysis example. -->
 
-Meta-analysis is a good example of combining research efforts to increase our understanding. It favours estimation over hypothesis testing because the goal is to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept _New Statistics_. See Cumming's book [-@RefWorks:3883], [website](http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci), or [YouTube channel](https://www.youtube.com/user/geoffdcumming) if you are curious to learn more.
+Meta-analysis is a good example of combining research efforts to increase our understanding. It is useful to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept _New Statistics_. See Cumming's book [-@RefWorks:3883], [website](http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci), or [YouTube channel](https://www.youtube.com/user/geoffdcumming) if you are curious to learn more.
 
 ### Sample size {#sample-size}
 
 As stated in chapter \@ref(power), the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In Figure \@ref(fig:twobinomN20), we increased the number of candies in the bag to 20. We can see on the x-axis that the posible outcome space for the number of yellow candies in the bag is now 0 to 20. This of still assumes our $H_0$ to be true, and the parameter of the machine is still  $\theta = .5$, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 cancies is now $.5 \times 20 = 10$, right in the middle of our distribution.
 
-Figure \@ref(fig:twobinomN20) still follows the reasoning scheme we have setup earlier. We decide to reject $H_0$ on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an $\alpha = .5$. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up unitil 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.
+Figure \@ref(fig:twobinomN20) still follows the reasoning scheme we have setup earlier. We decide to reject $H_0$ on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an $\alpha = .05$. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.
 
 With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that $H_A$ is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.
 
@@ -781,8 +745,8 @@ barplot( rbind(dbinom(0:n, n, .5),
          ) -> p
 
 
-abline(v = p[1,6]+2, col='red', lwd=2)
-abline(v = p[1,15]+2, col='red', lwd=2)
+abline(v = p[1,6]+2, col='darkgreen', lwd=2)
+abline(v = p[1,15]+2, col='darkgreen', lwd=2)
 
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
@@ -791,7 +755,7 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 ```
 
-The same reasoning is applied to the continuous case. Let's revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let's say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%. 
+The same reasoning is applied when using continuous sample statistics. Let's revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let's say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%.
 
 Figure \@ref(fig:sample-size-power) shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.
 
@@ -809,74 +773,72 @@ Figure \@ref(fig:sample-size-power) shows the relation between sample size, powe
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
 ```
 
-Just like the discrete case, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
+For continuous sample statistics, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
 
-The reasoning is again the same as in the discrete case. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
+The reasoning is again the same as in the discrete case, when we use categorical sample statistics. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
 
 #### How to determine sample size
 
-As stated in chapter \@ref(#power) about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don't know the true effect size. We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence.
+As stated in chapter \@ref(power) about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don't know the true effect size. We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence.
 
 In research you can take these assumptions into account by conducting a power analysis. A power analysis is a statistical method to determine the sample size you need to get a desired power for a given effect size. 
 
-It can be difficult to specify the effect size that we should expect or that is practically relevant. If there is little prior research comparable to our new project, we cannot reasonably specify an effect size and calculate sample size. Though, if there are meta analysis available for you research topic of interest or you have the effect sizes from a few previous studies, you can use G*Power to calculate the sample size you need to get a desired power for a given effect size. G*Power is a stand alone program that can be downloaded from the internet, and is specificly designed to calculate sample size for a wide range of statistical tests.
+It can be difficult to specify the effect size that we should expect or that is practically relevant. If there is little prior research comparable to our new project, we cannot reasonably specify an effect size and calculate sample size. Though, if there are meta analyses available for your research topic of interest or you have the effect sizes from a few previous studies, you can use programs such as G\*Power to calculate the sample size you need to get a desired power for a given effect size. G\*Power is a stand alone program that can be downloaded for free from the internet, and is specifically designed to calculate the required sample size for a wide range of statistical tests.
 
-> Download [G*Power here](http://www.gpower.hhu.de/)
+> Download [G\*Power here](http://www.gpower.hhu.de/)
 
-In G*Power you can specify the test you want to conduct, the effect size you expect, the alpha level you want to use, and the power you want to achieve. G*Power will then calculate the sample size you need to get the desired power for the given effect size.
+In G\*Power you can specify the test you want to conduct, the effect size you expect, the alpha level you want to use, and the power you want to achieve. G\*Power will then calculate the sample size you need to get the desired power for the given effect size.
 
-For our candy color example, we can use G*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3. 
+For our candy color example, we can use G\*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3. 
 
 ```{r g-power, eval=TRUE, echo=FALSE, out.width="500px", fig.pos='H', fig.align='center', fig.cap="Power analysis in G*Power for a binomial distribution"}
 knitr::include_graphics("figures/g-power.png")
 ```
 
-In Figure \@ref(fig:g-power) you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in Figure \@ref(fig:twobinomN20), though with lines instead of bars.
+In Figure \@ref(fig:g-power) you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G\*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in Figure \@ref(fig:twobinomN20), though with lines instead of bars.
+
+As mentioned in chapter \@ref(true-effect-size) about the true effect size, the sensitivity of a test is determined by the sample size. The larger the sample size, the more sensitive the test will be. This means that if we want to detect a small effect size, we need a large sample size. If we want to detect a large effect size, we can suffice with a smaller sample.
+
+Try to determine what sample size you would need using Figure \@ref(fig:sample-size-power), if you would want to detect an effect size of .2, .5 or .8 with a power of 80% and an alpha level of 5%. You can see that the sample size ranges from 197 to about 15 for these effect sizes.
+
+Something to consider is that with extremely large sample sizes you will very easily find significant results. Even if these results are not practically relevant. This is why it is important to determine the sample size you need before you start collecting data. 
 
 ### One-Sided and Two-Sided Tests {#one-twosidedtests}
 
-In the preceding section, you may have had some trouble when you were determining whether a research hypothesis is a null hypothesis or an alternative hypothesis. The research hypothesis stating that average media literacy is below 5.5 in the population, for example, represents the alternative hypothesis because it does not fix the hypothesized population value to one number. The accompanying null hypothesis must cover all other options, so it must state that the population mean is 5.5 or higher. But this null hypothesis does not specify one value as it should, right?
+As was explained in chapter \@ref(alternative-hypothesis), the alternative hypothesis can be one-sided or two-sided. The choice between a one-sided or two-sided test is based on the research question. In our media literacy example, we could have a one-sided alternative hypothesis that the average media literacy is below 5.5. This would be the case if we hypothesize that children on average score very low on media literacy. We could also have a different hypothesis, that a media literacy intervention program will increase media literacy. Both would be a one-sided alternative hypothesis. We could also have no idea about the media literacy of children, and just want to know if children score below or above 5.5 on media literacy. This would be a two-sided alternative hypothesis. Equation \@ref(eq:MediaAlt) formalizes these different hypothesis. 
 
-This null hypothesis is slightly different from the ones we have encountered so far, which equated the population value to a single value. If the null hypothesis equates a parameter to a single value, the null hypothesis can be rejected if the sample statistic is either too high or too low. There are two ways of rejecting the null hypothesis, so this type of hypothesis and test are called _two-sided_ or _two-tailed_.
+\begin{equation}
+\begin{split}
+\text{Two-sided} \\
+H_{A} & : \hat{x} & \neq 5.5 \\
 
-By contrast, the null hypothesis stating that the population mean is 5.5 or higher is a _one-sided_ or _one-tailed_ hypothesis. It can only be rejected if the sample statistic is at one side of the spectrum: only below (left-sided) or only above (right-sided) the hypothesized population value. In the media literacy example, the null hypothesis is only rejected if the sample mean is well below the hypothesized population value. A test of a one-sided null hypothesis is called a _one-sided test_. 
+\text{One-sided} \\
+H_{A} & : \hat{x} & < 5.5 \\
+H_{A} & : \hat{x} & > 5.5 \\
+\end{split}
+(\#eq:MediaAlt)
+\end{equation}
+
+In null hypothesis significance testing, testing one or two-sided has some consequences for the critical values. In a two-sided test, the critical values are on both sides of the null hypothesis value. In a one-sided test, the critical value is only on one side of the null hypothesis value. If we are using an alpha significance level of 5%, the critical value for a two-sided test results in 2.5% on both sides, while for a one sided test the 5% would only be on one side of the null distribution.
 
 ```{r nonsig-1sided, fig.pos='H', fig.align='center', fig.cap="One-sided and two-sided tests of a null hypothesis.", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 # Display the sampling distribution of average media literacy as a normal curve with 5% two-sided significance areas dark blue and 5% one-sided significance areas light blue. Generate randomly one out of six possible values for the sample mean: (from left to right) in the 0-2.5% region, 2.5%-5%, 5%-50%, 50%-95%, 95%-97.5%, 97.5%-100%. Let the user select the answers (Yes/No) to three questions: Is this sample mean significant at a 5% significance level? "Left-sided test?", "Right-sided test?",  "Two-sided test?". Give feedback when the user presses the submit button. 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/", height="310px")
 ```
 
-In a left-sided test of the media literacy hypothesis, the researcher is not interested in demonstrating that average media literacy among children can be larger than 5.5. She only wants to test if it is below 5.5, perhaps because an average score below 5.5 is alarming and requires an intervention, or because prior knowledge about the world has convinced her that average media literacy among children can only be lower than 5.5 on average in the population. 
+In the right-sided test of the media literacy hypothesis, the researcher is not interested in demonstrating that average media literacy among children can be lower than 5.5. She only wants to test if it is above 5.5, because an average score above 5.5 indicates that the intervention worked.
 
-If it is deemed important to note values well over 5.5 as well as values well below 5.5, the research and null hypotheses should be two-sided. Then, a sample average well above 5.5 would also have resulted in a rejection of the null hypothesis. In a left-sided test, however, a high sample outcome cannot reject the null hypothesis. 
+If it is deemed important to note values well over 5.5 as well as values well below 5.5, the alternative hypotheses should be two-sided. Then, a sample average well below 5.5 would also have resulted in a rejection of the null hypothesis. 
 
-#### Boundary value as hypothesized population value
+Figure \@ref(fig:nonsig-1sided) shows the $H_0$ distribution of the sample mean 5.5. The dark blue areas represent the 5% probability for a two-sided te  st, 2.5% on either side. The light blue areas represent the 5% probability for a one-sided (right-sided) test. The critical value for the one-sided test is 7.8, and the critical values for the two-sided test are 2.9 and 8.1. The critical value is the value that separates the rejection region from the non-rejection region. Where the rejection region are the values on the x-axis that are on the outside of the critical value.
 
-```{r sign-left, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 5% of the area situated in the left tail, add 5% as text. Add a vertical line representing the sample mean, initially 3.9, and display the percentage of the area under the curve to the left of this line.
-# Let the user manipulate the sample mean (range 1-10) and the population mean according to the null hypothesis (range 1-10).
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sign-left/", height="268px")
-```
-
-You may wonder how a one-sided null hypothesis equates the parameter of interest with one value as it should. The special value here is 5.5. If we can reject the null hypothesis stating that the population mean is 5.5 because our sample mean is sufficiently lower than 5.5, we can also reject any hypothesis involving population means higher than 5.5. 
-
-In other words, if you want to know if the value is not 5.5 or more, it is enough to find that it is less than 5.5. If it's less than 5.5, then you know it's also less than any number above 5.5. Therefore, we use the boundary value of a one-sided null hypothesis as the hypothesized value for the population in a one-sided test.
-
-#### One-sided -- two-sided distinction is not always relevant
-
-Note that the difference between one-sided and two-sided tests is only useful if we test a statistic against one particular value or if we test the difference between two groups. 
-
-In the first situation, for example, if we test the null hypothesis that average media literacy is 5.5 in the population, we may only be interested in showing that the population value is lower than the hypothesized value. Another example is a test on a regression coefficient or correlation coefficient. According to the null hypothesis, the coefficient is zero in the population. If we only want to use a brand advertisement if exposure to the advertisement increases brand awareness among consumers, we apply a right-sided test to the coefficient for the effect of exposure on brand awareness because we are only interested in a positive effect (larger than the zero).
-
-In the second situation, we compare the scores of two groups on a dependent variable. If we compare average media literacy after an intervention to media literacy before the intervention (paired-samples _t_ test), we must demonstrate an increase in media literacy before we are going to use the intervention on a large scale. Again, a one-sided test can be applied.
-
-In contrast, we cannot meaningfully formulate a one-sided null hypothesis if we are comparing three groups or more. Even if we expect that Group A can only score higher than Group B and Group C, what about the difference between Group B and Group C? If we can't have meaningful one-sided null hypotheses, we cannot meaningfully distinguish between one-sided and two-sided null hypotheses.  
+You can take a sample and see the result of the sample in the figure. You can then determine if the sample mean is significant at a 5% significance level for a right-sided test, and a two-sided test.
 
 #### From one-sided to two-sided _p_ values and back again
 
 Statistical software like SPSS usually reports either one-sided or two-sided _p_ values. What if a one-sided _p_ value is reported but you need a two-sided _p_ value or the other way around?
 
-In Figure \@ref(fig:onetwosided), the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true. This probability is the surface under the curve to the left of the red line representing the sample mean. It is the one-sided _p_ value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.
+In Figure \@ref(fig:onetwosided), the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true that average media literacy is 5.5 in the population. This probability is the surface under the curve to the left of the solid red line representing the sample mean. It is the one-sided _p_ value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.
 
 ```{r onetwosided, fig.pos='H', fig.align='center', fig.cap="Halve a two-sided _p_ value to obtain a one-sided _p_ value, double a one-sided _p_ value to obtain a two-sided _p_ value.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour the area in each tail according to the p value. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p value). Also display the two-sided p value.
@@ -884,11 +846,17 @@ In Figure \@ref(fig:onetwosided), the sample mean is 3.9 and we have .015 probab
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/onetwosided/", height="268px")
 ```
 
-In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. As a consequence, the _p_ value must cover samples at opposite sides of the sampling distribution. We should not only take into account sample means that are smaller than 5.5 but also sample means that are just as much larger than the hypothesized population value. So our two-sided _p_ value must include both the probability of .015 for the left tail and for the right tail of the distribution in Figure \@ref(fig:onetwosided). We must double the one-sided _p_ value to obtain the two-sided _p_ value.
+In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. The p-value still represents the probability of drawing a random sample with a sample statistic (here the mean) that is as extreme or more extreme than the sample statistics in our current sample. In the one-sided test example described above, more extreme can only mean “even smaller”. In a two-sided test, more extreme means even more distant from the null hypothesis on either end of the sampling distribution. 
 
-In contrast, if our statistical software tells us the two-sided _p_ value and we want to have the one-sided _p_ value, we can simply halve the two-sided _p_ value. The two-sided _p_ value is divided equally between the left and right tails. If we are interested in just one tail, we can ignore the half of the _p_ value that is situated in the other tail. Of course, this only makes sense if a one-sided test makes sense.
+In Figure \@ref(fig:onetwosided), you can see tha sample meen as indicated by the solid red line. The dotted red line is the mirror image of the sample mean on the other side of the hypothesized population mean. When testing two-sided, we not only consider the sample mean, but also its mirror opposite. The two-sided _p_ value is the probability of finding a sample mean as extreme or more extreme than the sample mean in the sample, and also its mirror opposite. Hence, the two-sided _p_ value is the sum of the probabilities for both the left tail and the right tail of the sampling distribution. As these tails are symmetrical, the two-sided _p_ value is twice the one-sided _p_ value.
+
+So, if our statistical software tells us the two-sided _p_ value and we want to have the one-sided _p_ value, we can simply halve the two-sided _p_ value. The two-sided _p_ value is divided equally between the left and right tails. If we are interested in just one tail, we can ignore the half of the _p_ value that is situated in the other tail.
 
 Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided _p_ value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.
+
+You might have already realized that if you use the same alpha criterion for rejecting the null hypothesis (e.g. 5%) as is usually done, it is easier to reject a one-sided null hypothesis, because the entire 5% of most extreme samples is located on one side of the distribution, whereas a two-sided null hypothesis would require us to highlight 2.5% of samples in the lower tail of the distribution and 2.5% in the upper tail. To avoid making too many unnecessary type 1 errors (chapter \@ref(cap-chance)), we should always have a good theoretical justification for using one-sided null hypotheses and tests.
+
+One final warning: Two-sided tests are only relevant if the probability distribution that you are using to test your hypothesis is symmetrical. If you are using a non-symmetrical distribution, such as the chi-square distribution, or the F-distribution you should always use a one-sided test. This is because such distributions do not have negative values, and the critical values are always on the right side of the distribution. As the F-value, for example, represents a signal to noise ratio, it can never be negative. 
 
 ## Confidence Intervals to test hypotheses {#null-ci}
 

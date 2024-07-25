@@ -610,3 +610,57 @@ There is no statistically significant association between word of mouth and sex,
   
 Note that a one-sided test is possible too. The *p* value of a one-sided exact test is .080 (one-sided) here. [<img src="icons/2question.png" width=161px align="right">](#question10.7)
 ```
+
+## Cohen's _d_ calculatons {#CohenCalculations}
+
+------------------------------------------------------------------------
+
+These are the formulas for Cohen's *d* for a one-sample *t* test, a paired-samples *t* test, and an independent-samples *t* test (they will be provided if needed):
+
+::: {style="column-count: 3; -moz-column-count: 3"}
+```{=tex}
+\begin{equation}
+  d_{one_-sample} = \frac{M - \mu_0}{SD}
+\end{equation}
+```
+```{=tex}
+\begin{equation}
+  d_{paired_-samples} = \frac{M_{diff} - \mu_{0_-diff}}{SD_{diff}}
+\end{equation}
+```
+```{=tex}
+\begin{equation}
+  d_{independent_-samples} = \frac{2*t}{\sqrt(df)}
+\end{equation}
+```
+:::
+
+Where:
+
+-   $M$ is the sample mean, $\mu_0$ is the hypothesized population mean, and $SD$ is the standard deviation in the sample,
+
+-   $M_{diff}$ is the difference between the two means in the sample, $\mu_{0_-diff}$ is the hypothesized difference between the two means in the population mean, which is zero in case of a nil hypothesis, and $SD_{diff}$ is the standard deviation of the difference in the sample,
+
+-   $t$ is the test statistic value and $df$ is the number of degrees of freedom of the *t* test.
+
+------------------------------------------------------------------------
+
+The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section \@ref(dependentsamples)). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (*pooled*) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the *t* value and degrees of freedom to calculate Cohen's *d*.
+
+### Obtaining Cohen's *d* with SPSS
+
+```{r cohend, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:cohendtitle)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/HmyW7HRM64Q", height = "360px")
+```
+
+It is, relatively easy to calculate Cohen's _d_ by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.
+
+For a t test on one mean, the unstandardized effect is the difference between the sample mean and the hypothesized mean. SPSS reports this value in the column __Mean Difference__ of the table with test results. Drop any negative signs! Divide it by the standard deviation of the variable as given in Table __One-Sample Statistics__.
+
+In the example, Cohen's _d_ is 0.036 / 0.169 = 0.21. This is a weak effect.
+
+For a paired-samples t test, the unstandardized effect size is reported in the column __Mean__ in the Table __Paired Samples Test__. The standard deviation of the difference can be found in column __Std. Deviation__ in the same table. Divide the first by the second, for instance, 1.880 / 1.033 = 1.82. This is a strong effect.
+
+For an independent-samples t test, the situation is less fortuitous because SPSS does not report the pooled sample standard deviation that we need. The pooled sample standard deviation takes a sort of  average of the outcome variable's standard deviations in the two groups. As an approximation, we can calculate Cohen's _d_ as follows: Double the t value and divide it by the square root of the degrees of freedom.
+
+In the example, Cohen's _d_ equals $(2 * 0.651) / \surd(18) = 0.31$. This is a moderate effect size.
