@@ -44,6 +44,13 @@ knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, eval=TRUE, tidy=T
 options(knitr.table.format = "latex")
 # Don't show NAs in kable tables.
 options(knitr.kable.NA = "")
+
+# Extra package to solve kable package update
+# devtools::install_github("kupietz/kableExtra")
+# install.packages("remotes")
+# library(remotes)
+# install.packages("knitr", "1.47") # The kableExtra package is not compatible with the latest version of the knitr package.
+
 # Libraries used.
 library(tidyverse)
 library(knitr)
@@ -51,6 +58,8 @@ library(kableExtra)
 library(visNetwork)
 library(bookdown)
 library(haven)
+
+
 # Basic colors and layout.
 source("apps/plottheme/styling.R")
 
@@ -66,7 +75,7 @@ ch7  <- FALSE; Qch7  = FALSE;
 ch8  <- FALSE; Qch8  = FALSE;
 ch9  <- FALSE; Qch9  = FALSE;
 ch10 <- FALSE; Qch10 = FALSE;
-ch11 <- FALSE; Qch11 = FALSE;
+ch11 <- FALSE; Qch11 = FALSE
 ```
 
 

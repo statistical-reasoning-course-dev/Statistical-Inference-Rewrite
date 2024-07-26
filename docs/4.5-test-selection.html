@@ -227,7 +227,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html"><i class="fa fa-check"></i><b>4.3</b> Confidence Intervals to test hypotheses</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#estimation-instead-of-hypothesis-testing"><i class="fa fa-check"></i><b>4.3.1</b> Estimation instead of hypothesis testing</a></li>
+<li class="chapter" data-level="4.3.1" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#estimation-in-addidion-to-nhst"><i class="fa fa-check"></i><b>4.3.1</b> Estimation in addidion to NHST</a></li>
 <li class="chapter" data-level="4.3.2" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#bootstrapped-confidence-intervals"><i class="fa fa-check"></i><b>4.3.2</b> Bootstrapped confidence intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="4.4-bayesian-hypothesis-testing.html"><a href="4.4-bayesian-hypothesis-testing.html"><i class="fa fa-check"></i><b>4.4</b> Bayesian hypothesis testing</a></li>
@@ -490,16 +490,16 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="test-selection" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Statistical test selection<a href="4.5-test-selection.html#test-selection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Knowing what statistical test fits your research question is a crucial for the success of your research. If you do not know what test to apply or even choose the wrong test, you may draw the wrong conclusions. This can lead to a waste of time and resources, and it can even lead to harm if the wrong conclusions are used to make decisions.</p>
+<p>Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in Figure <a href="4.5-test-selection.html#fig:flowchart">4.19</a> helps you to identify the right statistical test.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:flowchart"></span>
 <img src="GentleIntro_files/figure-html/flowchart-1.png" alt="Flow chart for selecting a test in SPSS." width="864" />
 <p class="caption">
 Figure 4.19: Flow chart for selecting a test in SPSS.
 </p>
 </div>
-<p>Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in Figure <a href="4.5-test-selection.html#fig:flowchart">4.19</a> helps you to identify the right statistical test.</p>
-<p>If possible, SPSS uses a theoretical probability distribution to approximate the sampling distribution. It will select the appropriate sampling distribution. In some cases, such as a test on a contingency table with two rows and two columns, SPSS automatically includes an exact test because the theoretical approximation cannot be relied on.</p>
-<p>SPSS does not allow the user to specify the null hypothesis of a test if the test involves two or more variables. If you cannot specify the null hypothesis, SPSS uses the nil hypothesis that the population value of interest is zero. For example, SPSS tests the null hypothesis that males and females have the same average willingness to donate to a charity, that is, the mean difference is zero, if we apply an independent samples <em>t</em> test.</p>
-<p>Imagine that we know from previous research that females tend to score one point higher on the willingness scale than males. It would not be very interesting to reject the nil hypothesis. Instead, we would like to test the null hypothesis that the average difference between females and males is 1.00. We cannot change the null hypothesis of a <em>t</em> test in SPSS, but we can use the confidence interval to test this null hypothesis as explained in Section <a href="#null-ci0"><strong>??</strong></a>.</p>
+<p>You use the flow chart by identifying the type of your dependent variable (categorical or numerical) and the number and type of your independent variable (categorical or numerical). The flow chart then guides you to the right statistical test.</p>
+<p>Consider the following example. You want to measure the difference in media literacy between man and women, and want to control for age. You measure media literacy on a scale from 1 to 7, and age in years. You have a numerical dependent variable (media literacy) and a categorical independent (biological sex), and a numerical independent variable (age). As your dependent variable is numerical, you follow the flow chart to the right. As you have two independent variabless, you follow the flow chart to the right to indicate that you have both a categorical and numerical independent variable. The flow chart guides you to the <em>F test multiple regression model</em>.</p>
 </div>
             </section>
 

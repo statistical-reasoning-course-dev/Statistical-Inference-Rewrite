@@ -227,7 +227,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html"><i class="fa fa-check"></i><b>4.3</b> Confidence Intervals to test hypotheses</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#estimation-instead-of-hypothesis-testing"><i class="fa fa-check"></i><b>4.3.1</b> Estimation instead of hypothesis testing</a></li>
+<li class="chapter" data-level="4.3.1" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#estimation-in-addidion-to-nhst"><i class="fa fa-check"></i><b>4.3.1</b> Estimation in addidion to NHST</a></li>
 <li class="chapter" data-level="4.3.2" data-path="4.3-null-ci.html"><a href="4.3-null-ci.html#bootstrapped-confidence-intervals"><i class="fa fa-check"></i><b>4.3.2</b> Bootstrapped confidence intervals</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="4.4-bayesian-hypothesis-testing.html"><a href="4.4-bayesian-hypothesis-testing.html"><i class="fa fa-check"></i><b>4.4</b> Bayesian hypothesis testing</a></li>
@@ -498,10 +498,10 @@ div.csl-indent {
 <em>t</em> (67) = 2.73, <em>p</em> = .004, 95% CI [4.13, 4.87]
 </center>
 <ul>
-<li><p>The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, <em>N</em> = 89) = 23.14, <em>p</em> = .027.</p></li>
-<li><p>The value of the test statistic is 2.73 in this example.</p></li>
-<li><p>The <em>p</em> value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities—less than .05—so we need the third decimal here. If SPSS rounds the <em>p</em> value to .000, report: <em>p</em> &lt; .001. Add (one-sided) after the <em>p</em> value if the test is one-sided.</p></li>
-<li><p>The 95% confidence interval is 4.13 to 4.87, so with 95% confidence we state that the population mean is between 4.13 and 4.87. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.</p></li>
+<li>The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, <em>N</em> = 89) = 23.14, <em>p</em> = .027.</li>
+<li>The value of the test statistic is 2.73 in this example.</li>
+<li>The <em>p</em> value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities—less than .05—so we need the third decimal here. If SPSS rounds the <em>p</em> value to .000, report: <em>p</em> &lt; .001. Add (one-sided) after the <em>p</em> value if the test is one-sided.</li>
+<li>The 95% confidence interval is 4.13 to 4.87, so with 95% confidence we state that the population mean is between 4.13 and 4.87. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.</li>
 </ul>
 <p>Not all tests produce all results reported in the example above. For example, a <em>z</em> test does not have degrees of freedom and <em>F</em> or chi-squared tests do not have confidence intervals. Exact tests or bootstrap tests usually do not have a test statistic. Just report the items that your statistical software produces, and give them in the correct format.</p>
 </div>
@@ -509,12 +509,17 @@ div.csl-indent {
 <h3><span class="header-section-number">4.6.2</span> Reporting to the general reader<a href="4.6-reporting.html#reporting-to-the-general-reader" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For fellow scientists and especially for the general reader, it is important to read an interpretation of the results that clarifies both the subject of the test and the test results. Make sure that you tell your reader who or what the test is about:</p>
 <ul>
-<li><p>What is the population that you investigate?</p></li>
-<li><p>What are the variables?</p></li>
-<li><p>What are the values of the relevant sample statistics?</p></li>
-<li><p>Which comparison(s) do you make?</p></li>
-<li><p>Are the results statistically significant and, if so, what are the estimates for the population?</p></li>
-<li><p>If the results are statistically significant, how large are the differences or associations?</p></li>
+<li>What is the population that you investigate?<br />
+</li>
+<li>What are the variables?<br />
+</li>
+<li>What are the values of the relevant sample statistics?<br />
+</li>
+<li>Which comparison(s) do you make?<br />
+</li>
+<li>Are the results statistically significant and, if so, what are the estimates for the population?<br />
+</li>
+<li>If the results are statistically significant, how large are the differences or associations?</li>
 </ul>
 <p>A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:</p>
 
@@ -522,7 +527,6 @@ div.csl-indent {
 “The television station reaches significantly and substantially (61%) more than half of all households in Greece in 2012, <em>z</em> = 4.01, <em>p</em> &lt; .001.”
 </div>
 <p>The interpretation of this test tells us the population (“all households in Greece”), the variable (“reaching a household”) and the sample statistic of interest (61%, indicating a proportion). It tells us that the result is statistically significant, which a fellow scientist can check with the reported <em>p</em> value.</p>
-<p>Note that the actual <em>p</em> value is well below .001. If we would round it to three decimals, it would become .000. This suggests that the probability is zero but there is always some probability of rejecting the null hypothesis if it is true. For this reason, APA wants us to report <em>p</em> &lt; .001 instead of <em>p</em> = .000.</p>
 <p>Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the <em>effect size</em>, and give a more precise interpretation (see Chapter <a href="4.2-null-hypothesis-significance-testing.html#power">4.2.3</a> for more information).</p>
 </div>
 </div>
