@@ -385,7 +385,7 @@ Summing all effects, we obtain a _total effect_ of age on newspaper reading time
 
 If the direct effect of a predictor on the outcome is zero in a model with mediators, the predictor's effect is _fully mediated_. This clearly is not the case in our example: There still is a substantial direct effect of age on newspaper reading time. This is what we usually encounter; it is called _partial mediation_.
 
-Sometimes, researchers decide that an effect is fully mediated if the direct effect is no longer statistically significant once a mediator is added to the model. This strategy is contestable because a statistically non-significant direct effect does not mean that the effect is absent (zero) in the population. It can be absent but it is much more likely to be present but just too small to be picked up by our significance test (see Chapter \@ref(crit-discus)).
+Sometimes, researchers decide that an effect is fully mediated if the direct effect is no longer statistically significant once a mediator is added to the model. This strategy is contestable because a statistically non-significant direct effect does not mean that the effect is absent (zero) in the population. It can be absent but it is much more likely to be present but just too small to be picked up by our significance test (see Chapter \@ref(true-effect-size)).
 
 The distinction between full and partial mediation is a little bit problematic. From a substantive point of view, we may argue that direct effects are probably always mediated. As we have seen in Section \@ref(indirecteffect), a direct effect usually summarizes a causal process that consists of intermediary steps, which is mediation. We may wonder whether it makes theoretical sense to talk about unmediated effects. Do we really believe that age can directly affect newspaper reading time?
 
@@ -441,7 +441,7 @@ ggplot(variables, aes(x, y)) +
 rm(variables)
 ```
 
-This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero (for instance, see Table \@ref(tab:age-indirect)). With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see Chapter \@ref(power) on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population. 
+This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero. With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see Chapter \@ref(power) on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population. 
 
 ```{html, echo=ch11} 
 ### Answers {-} 

@@ -478,7 +478,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/resid-normal/", heig
 
 If we sample from a population where attitude towards smoking depends on exposure, smoking status, and contact with smokers, we will be able to predict attitude from the independent variables in our sample. Our predictions will not be perfect, sometimes too high and sometimes too low. The differences between predicted and observed attitude scores are the residuals.
 
-If our sample is truly a random sample with independent and identically distributed observations, the sizes of our errors (residuals) should be normally distributed for each value of the dependent variable, that is, attitude in our example. The residuals should result from chance (see Section \@ref(datageneratingprocess) for the relation between chance and a normal distribution).
+If our sample is truly a random sample with independent and identically distributed observations, the sizes of our errors (residuals) should be normally distributed for each value of the dependent variable, that is, attitude in our example. The residuals should result from chance for the relation between chance and a normal distribution).
 
 So for all possible values of the dependent variable, we must collect the residuals for the observations that have this score on the dependent variable. For example, we should select all respondents who score 4.5 on the attitude towards smoking scale. Then, we select the residuals for these respondents and see whether they are approximately normally distributed.
 

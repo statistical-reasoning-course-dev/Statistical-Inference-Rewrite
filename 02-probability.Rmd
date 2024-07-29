@@ -273,9 +273,9 @@ knitr::kable(rbind(c("Binomial distribution", "proportion", "-", "-"), c("(Stand
   kable_styling(font_size = 12, latex_options = c("HOLD_position", "scale_down"))
 ```
 
-Table \@ref(tab:thumb) shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently for using the former as approximation of the latter.
+Table \@ref(tab:thumb) shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.
 
-Conditions often include sample size. Table \@ref(tab:thumbsize) reproduces the size requirements from Table \@ref(tab:thumb). If you plan to do a *t* test, each group should contain more than thirty cases. So if you intend to apply *t* tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.
+In Table \@ref(tab:thumb) the minimal required sample sizes for using theoretical approximation of  sampling distributions are presented. If you plan to do a *t* test, each group should contain more than thirty cases. So if you intend to apply *t* tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.
 
 Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.
 

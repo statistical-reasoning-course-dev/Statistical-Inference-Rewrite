@@ -403,7 +403,7 @@ Looking at Figure \@ref(fig:nulldistributionalpha), we see that the critical val
 
 In the continuous case, as described in Figure \@ref(fig:nullsampling), the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in Figure \@ref(fig:nullsampling), and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for the continuous case is the same as for the discrete case.
 
-### P-value
+### P-value {#pvalue}
 
 We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
 
@@ -1087,8 +1087,6 @@ With low power, we have high probability of not rejecting a false null hypothesi
 In contrast, if our test has very high power, we should expect effects to be statistically significant, even tiny effects that are totally irrelevant from a substantive point of view. For example, an effect of exposure on attitude of 0.01 on a 10-point scale is likely to be statistically significant in a very large sample but it is probably substantively uninteresting.
 
 In a way, a statistically non-significant result is more interesting than a significant result in a test with high power. If it is easy to get significant results even for small effect sizes (high power), a non-significant result probably indicates that the true effect in the population is very small. In this situation, we are most confident that the effect is close to zero or absent in the population.
-
-As noted before in section \@ref(typeIIerror), standard statistical software usually does not report the power of a test. For this reason, it is not common practice to evaluate the statistical significance of results in combination with test power.
 
 By now, however, you understand that test power is affected by sample size. You should realize that null hypotheses are easily rejected in large samples but they are more difficult to reject in small samples. A significant test result in a small sample suggests a substantive effect in the population but not necessarily so in a large sample. A non-significant test result in a small sample does not mean that the effect size in the population is too small to be of interest. Don't let your selection of interesting results be guided only by statistical significance.
 
