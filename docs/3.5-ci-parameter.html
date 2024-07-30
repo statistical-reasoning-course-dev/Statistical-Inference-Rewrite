@@ -192,8 +192,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.5" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html"><i class="fa fa-check"></i><b>3.5</b> Confidence Interval for a Parameter</a>
 <ul>
 <li class="chapter" data-level="3.5.1" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html#fixed-pop-values"><i class="fa fa-check"></i><b>3.5.1</b> Reverse reasoning from one sample mean</a></li>
-<li class="chapter" data-level="3.5.2" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html#conf-interval"><i class="fa fa-check"></i><b>3.5.2</b> One confidence interval does not say anything</a></li>
-<li class="chapter" data-level="3.5.3" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html#bootstrap-confidenceinterval"><i class="fa fa-check"></i><b>3.5.3</b> Confidence intervals with bootstrapping</a></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html#bootstrap-confidenceinterval"><i class="fa fa-check"></i><b>3.5.2</b> Confidence intervals with bootstrapping</a></li>
 </ul></li>
 <li class="chapter" data-level="3.6" data-path="3.6-SPSS-CI.html"><a href="3.6-SPSS-CI.html"><i class="fa fa-check"></i><b>3.6</b> Confidence Intervals in SPSS</a>
 <ul>
@@ -446,7 +445,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ci-parameter" class="section level2 hasAnchor" number="3.5">
 <h2><span class="header-section-number">3.5</span> Confidence Interval for a Parameter<a href="3.5-ci-parameter.html#ci-parameter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Working through the preceding sections, it may have occurred to you that it is all very well to be able to estimate the value of a statistic in a new sample with a particular precision and probability, but that this is not what we are interested in because it is not what reality is. Instead, in reality, we do not know the population parameter thus the goal of statistics to estimate this population parameter.</p>
+<p>Working through the preceding sections, you may have realized that estimating the value of a statistic in a new sample with a specific precision and probability is not our ultimate goal, as it does not fully represent reality. In reality, we do not know the population parameter, and the primary objective of statistics is to estimate this unknown population parameter.</p>
 <p>For example, we don’t care much about the average weight of candies in our sample bag or in the next sample bag that we may buy. We want to say something about the average weight of candies in the population. How can we do this?</p>
 <p>In addition, you may have realized that, if we want to construct the sampling distribution of sample means, we first need to know the precise population value, for instance, average candy weight in the population. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution of sample means.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:exactapproachfigure"></span>
@@ -462,6 +461,8 @@ Figure 3.6: Probabilities of a sample with a particular number of yellow candies
 <p>By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.</p>
 <div id="fixed-pop-values" class="section level3 hasAnchor" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Reverse reasoning from one sample mean<a href="3.5-ci-parameter.html#fixed-pop-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (Figure <a href="3.4-crit-values.html#crit-values">3.4</a>). 95% of all sample means would fall within this interval estimate around the known population mean.</p>
+<p>In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pop-ci-sampling"></span>
 <iframe src="https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/?showcase=0" width="630px" height="1850px" data-external="1">
 </iframe>
@@ -469,22 +470,27 @@ Figure 3.6: Probabilities of a sample with a particular number of yellow candies
 Figure 3.7: Confidence intervals from replications
 </p>
 </div>
-<p><A name="question3.5.1"></A></p>
-<p><A name="question3.5.2"></A></p>
-<p><A name="question3.5.3"></A></p>
-<p><A name="question3.5.4"></A></p>
-<p><A name="question3.5.5"></A></p>
-<p>Recall that before section 3.5, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we can draw an interval estimate around the population mean on sampling distribution (Figure 3.5). 95% of all sample means will fall into this interval estimate around the known population mean.</p>
-<p>In reality, we do not know the population mean. We only know one sample mean from the data we currently collect. How can we estimate the population mean?</p>
-<p>We reserve what we did: instead of checking whether a sample mean is inside or outside of the interval estimate around the population mean (refer to 3.4), we shift the same interval estimate around that one sample mean, and check whether the interval estimate around this sample mean catches the population mean. These two ways of checking are equivalent. But the second way does not require us to know the population mean anymore if we replicate data collection many times. This is because if we shift the interval estimate around sample means, 95 percent of times, these interval estimates around sample means will catch the population mean, regardless of the population mean is known or not. We call the interval estimate around a sample mean <em>confidence interval</em>.</p>
-<p>The Figure 3.7(new) illustrates the reasoning from sample means to sampling distribution of sample means. The Figure 3.7 starts with one time data collection of 30 samples drawn from a population distribution (the top plot). From these 30 samples, we can calculate a sample mean and its 95% confidence interval around it.</p>
-<p>This can be illustrated with the first data collection: average candy weight in 30 samples is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use a vertical dash line here to indicate that we pretend to know this population mean, which is equal to 3 grams, but in reality, we do not know. We can see in the middle plot, this 95% confidence interval catches the blue dash line, aka, the population mean.</p>
-<p>Let’s increase the number of times of data collection (replications!). Again, in each data collection, samples are drawn and recorded, the sample mean and 95% confidence interval around the sample mean are calculated.</p>
-<p>With more replications, the middle plot now shows how many 95% confidence intervals catch the population mean (indicated with green lines if yes, red lines if no). More times you replicate data collection, the percentage of all 95%CIs that catch the population mean gets closer to 95%.</p>
-<p>Let’s also increase sample size for each data collection. We see that in the middle plot all confidence intervals become narrower and, in the bottom plot the sampling distribution of sample means (the shape with green line) also becomes narrower. This sampling distribution is theoretically approximated by a normal distribution whose mean is the population mean and standard deviation is standard error.</p>
-<p>The bottom plot also shows the histogram which consists of sample means from replications. Each sample mean comes from one replication. As the number of replications and sample size increase, the shape of histogram gets closer to the shape of theoretical sampling distribution of sample means (the shape with green line).</p>
-<p>We are using the normal distribution to approximate the sampling distribution of the sample means. To make our life easier, we can convert the sampling distribution, which is a normal distribution, to the standard normal distribution. How? We convert every sample mean to a z score by substracting the mean of sampling distribution of sample means (this is not in the vicious circle if we collect data for many times) from it, then divided by standard error. The critical z value 1.96 and -1.96 together marks the upper and lower limit of the interval containing 95% of all samples with means closest to the population mean. The critical z value 1.65 and -1.65 together marks the upper and lower limit of the interval containing 90% of all samples with means closest to the population mean.</p>
-<p>As a consequence, we are able to calculate 95% confidence interval around a sample mean by adding and subtracting 1.96 standard errors from that sample mean. This is much more efficient than selecting a lot of imaginary population means!</p>
+<p>Instead of checking whether a sample mean is inside or outside of the interval estimate of the <strong>population mean</strong> (Chapter <a href="3.4-crit-values.html#crit-values">3.4</a>), we use the interval estimate around that one <strong>sample mean</strong>, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a <strong>95% confidence interval</strong>.</p>
+<p>The middle plot of Figure <a href="3.5-ci-parameter.html#fig:pop-ci-sampling">3.7</a>, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of <span class="math inline">\(N=30\)</span> is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.</p>
+<p>Now, increase the number of times of samples (replications) by adjusting the slider in Figure <a href="3.5-ci-parameter.html#fig:pop-ci-sampling">3.7</a>. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher.</p>
+<p>Now, also increase the sample size in Figure <a href="3.5-ci-parameter.html#fig:pop-ci-sampling">3.7</a> by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size.</p>
+<p>Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample mean. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.</p>
+
+<div class="rmdimportant">
+<blockquote>
+<p>If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.</p>
+<p>— <span class="citation">Hoekstra, Morey, Rouder, &amp; Wagenmakers (<a href="references.html#ref-hoekstra2014robust">2014</a>)</span></p>
+</blockquote>
+<p>It is very important that we understand that the confidence level 95% is NOT the probability that the population parameter has a particular value, or that it falls within the interval.</p>
+<p>In classic statistics (so called “Frequentists”), the population parameter is <em>not</em> a random variable but a fixed, unknown number, which does not have a probability.</p>
+<p>A confidence interval around a sample statistics from solely one data collection either catches (100%) or does not catch (0%) the population parameter. We just do not know which one is the case. That’s why we cannot make any conclusion about the population mean based on one confidence interval.</p>
+Only when we replicate data collection many many times, we do know that about 95% of all 95% confidence intervals will catch the population mean.
+</div>
+<p>Now imagine that you have a large sample for your research project. Looking at Figure <a href="3.5-ci-parameter.html#fig:pop-ci-sampling">3.7</a>, this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn’t it?</p>
+<p>In the bottom plot of Figure <a href="3.5-ci-parameter.html#fig:pop-ci-sampling">3.7</a>, we revisit Chapter <a href="1-samp-dist.html#samp-dist">1</a>, to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication.</p>
+<p>We also see the theoretical approximation of this sampling distribution (as was discussed in Chapter <a href="2.3-theoretical-approx.html#theoretical-approx">2.3</a>) of sample means, which is a normal distribution. As the number of replications and sample size increases, the shape of the histogram gets closer to the shape of the theoretical approximation of the sampling distribution (green line), which in turn also gets narrower.</p>
+<p>This sampling distribution is theoretically approximated by a normal distribution whose mean is the population mean and standard deviation is the standard error of the sample. To make our life easier, we can convert the sampling distribution, which is a normal distribution, to the standard normal distribution by converting to a z-score. The critical z value 1.96 and -1.96 together marks the upper and lower limit of the interval containing 95% of all samples with means closest to the population mean.</p>
+<p>As a consequence, we are able to calculate 95% confidence interval around a sample mean by adding and subtracting 1.96 standard errors from that sample mean.</p>
 
 <div class="rmdimportant">
 <ul>
@@ -497,21 +503,7 @@ Figure 3.7: Confidence intervals from replications
 <li>Upper limit = sample mean + 1.96 * standard error.
 </div></li>
 </ul>
-<p>Haven’t we seen this calculation before? Yes we did, in Section <a href="3.4-crit-values.html#int-est-sample-mean">3.4.2</a>, where we estimated the interval around population mean for sample means. We now simply reverse the calculation, using the interval of sample mean to estimate the population mean instead of the other way around.</p>
-</div>
-<div id="conf-interval" class="section level3 hasAnchor" number="3.5.2">
-<h3><span class="header-section-number">3.5.2</span> One confidence interval does not say anything<a href="3.5-ci-parameter.html#conf-interval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>It is very important that we understand that the confidence level 95% is NOT the probability that the population parameter has a particular value, or that it falls within the interval.</p>
-<p>In classic statistics (so called “Frequentists”), the population parameter is <em>not</em> a random variable but a fixed, unknown number, which does not have a probability.</p>
-<p>A confidence interval around a sample statistics from solely one data collection either catches (100%) or does not catch (0%) the population parameter. We just do not know which one is the case. That’s why we cannot make any conclusion about the population mean based on one confidence interval.</p>
-<p>Only when we replicate data collection many many times, we do know that about 95% of all 95% confidence intervals will catch the population mean.</p>
-
-<div class="rmdimportant">
-<blockquote>
-<p>If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.</p>
-</blockquote>
-<span class="citation">Hoekstra, Morey, Rouder, &amp; Wagenmakers (<a href="references.html#ref-hoekstra2014robust">2014</a>)</span>
-</div>
+<p>Haven’t we seen this calculation before? Yes we did, in Section <a href="3.4-crit-values.html#int-est-sample-mean">3.4.2</a>, where we estimated the interval around population mean for sample means. We now simply reverse the application, using the interval of sample mean to estimate the population mean instead of the other way around.</p>
 
 <div class="rmdneyman">
 <p>Jerzy Neyman introduced the concept of a confidence interval in 1937:</p>
@@ -519,8 +511,8 @@ Figure 3.7: Confidence intervals from replications
 Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
 </div>
 </div>
-<div id="bootstrap-confidenceinterval" class="section level3 hasAnchor" number="3.5.3">
-<h3><span class="header-section-number">3.5.3</span> Confidence intervals with bootstrapping<a href="3.5-ci-parameter.html#bootstrap-confidenceinterval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="bootstrap-confidenceinterval" class="section level3 hasAnchor" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> Confidence intervals with bootstrapping<a href="3.5-ci-parameter.html#bootstrap-confidenceinterval" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we approximate the sampling distribution with a theoretical probability distribution such as the normal (<em>z</em>) or <em>t</em> distribution, critical values and the standard error are used to calculate the confidence interval (see Section <a href="3.5-ci-parameter.html#fixed-pop-values">3.5.1</a>).</p>
 <p>There are theoretical probability distributions that do not work with a standard error, such as the <em>F</em> distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section <a href="3.5-ci-parameter.html#fixed-pop-values">3.5.1</a>) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.</p>
 <p>As you might remember from Section <a href="2.5-boot-approx.html#boot-approx">2.5</a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in chapter 11.</p>
