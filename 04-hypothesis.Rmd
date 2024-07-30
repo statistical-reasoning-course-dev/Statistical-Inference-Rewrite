@@ -20,13 +20,13 @@ This chapter explores various methods for testing hypotheses. While we primarily
 
 We will first extensively cover the framework of null hypothesis significance testing (NHST). Section \@ref(null-hypothesis-significance-testing) covers key concepts such as the null and alternative hypotheses, significance level (alpha), power of a test, p-values, and effect sizes. The section also discusses one-sided and two-sided tests and the importance of sample size in determining the power of a test.
 
-We continue with a discussion of confidence intervals as an alternative to hypothesis testing in section \@ref(null-ci). It explains how confidence intervals provide a range of plausible values for population parameters and how they can be used to make inferences about hypotheses. The section also discusses bootstrapped confidence intervals and their application.
-
-We follow up with Bayesian hypothesis testing, contrasting it with frequentist methods. We explain the Bayesian approach of updating prior beliefs with data to obtain posterior probabilities. The section (\@ref(bayesian-hypothesis-testing)) covers the concepts of prior, likelihood, and posterior distributions, and how they are used to make decisions about hypotheses.
+In section \@ref(reporting) we offer guidelines for reporting statistical test results. It emphasizes clarity and transparency in presenting findings to different audiences, including fellow scientists and general readers. The section covers the necessary components of a statistical report, such as test statistics, p-values, effect sizes, and confidence intervals.
 
 Section \@ref(test-selection) on Statistical Test Selection guides the selection of appropriate statistical tests based on the data and research questions. It provides a framework for choosing tests by considering factors such as the type of data, the number of groups being compared, and the study design. The section includes flowcharts and examples to illustrate the decision-making process.
 
-In section \@ref(reporting) we offer guidelines for reporting statistical test results. It emphasizes clarity and transparency in presenting findings to different audiences, including fellow scientists and general readers. The section covers the necessary components of a statistical report, such as test statistics, p-values, effect sizes, and confidence intervals.
+We continue with a discussion of confidence intervals as an alternative to hypothesis testing in section \@ref(null-ci). It explains how confidence intervals provide a range of plausible values for population parameters and how they can be used to make inferences about hypotheses. The section also discusses bootstrapped confidence intervals and their application.
+
+We follow up with Bayesian hypothesis testing, contrasting it with frequentist methods. We explain the Bayesian approach of updating prior beliefs with data to obtain posterior probabilities. The section (\@ref(bayesian-hypothesis-testing)) covers the concepts of prior, likelihood, and posterior distributions, and how they are used to make decisions about hypotheses.
 
 In the final section (\@ref(critical-discussion)) we critically examine the limitations and criticisms of null hypothesis significance testing. We discuss issues such as the misinterpretation of p-values, the overemphasis on statistical significance over practical significance, and the risks of data dredging and publication bias. The section advocates for a more nuanced understanding and reporting of statistical results.
 
