@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.7 Take-Home Points | Statitstical Inference</title>
-  <meta name="description" content="5.7 Take-Home Points | Statitstical Inference" />
+  <title>Colophon | Statitstical Inference</title>
+  <meta name="description" content="Colophon | Statitstical Inference" />
   <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.7 Take-Home Points | Statitstical Inference" />
+  <meta property="og:title" content="Colophon | Statitstical Inference" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.7 Take-Home Points | Statitstical Inference" />
+  <meta name="twitter:title" content="Colophon | Statitstical Inference" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="5.6-twowaySPSS.html"/>
-<link rel="next" href="6-moderationcat.html"/>
+<link rel="prev" href="9.9-CohenCalculations.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -450,28 +450,50 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="take-home-points-4" class="section level2 hasAnchor" number="5.7">
-<h2><span class="header-section-number">5.7</span> Take-Home Points<a href="5.7-take-home-points-4.html#take-home-points-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="colophon" class="section level1 unnumbered hasAnchor">
+<h1>Colophon<a href="colophon.html#colophon" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="disclaimer" class="section level3 unnumbered hasAnchor">
+<h3>Disclaimer<a href="colophon.html#disclaimer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The example data sets have been generated for the purpose of demonstrating statistical techniques. These are not real data and no conclusions should be drawn from the results obtained from the data.</p>
+</div>
+<div id="acknowledgements" class="section level3 unnumbered hasAnchor">
+<h3>2016 Acknowledgements<a href="colophon.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>By the original author: Wouter de Nooy</p>
+<p><a href="https://www.linkedin.com/in/adam-sasiadek/">Adam Sasiadek</a> developed the more complicated Shiny apps in this book. The College of Communication at the University of Amsterdam generously supported the creation of the apps whereas this university’s Grassroots Project for ICT in education refused to support it. <a href="https://www.linkedin.com/in/rvanbronswijk/">Renske van Bronswijk</a> corrected my English. Any remaining errors result from changes and additions that I applied afterwards. My colleague Peter Neijens commented on a draft of this text. Among the first tutors using this book, Chei Billedo, Marcel van Egmond, Matthijs Elenbaas, Andreas Goldberg, Bregje van Groningen, Luzia Helfer, Rhianne Hoek, Laura Jacobs, Jeroen Jonkman, Fam te Poel, Sanne Schinkel, Christin Scholz, Ragnheiður Torfadóttir, Philipp Mendoza, and she whose name I am not allowed to mention offered many suggestions that improved the text substantially. Among the students who helped to improve the book, Alissa Hilbertz stands out for her careful language corrections and suggestions.</p>
+</div>
+<div id="technical-changes" class="section level3 unnumbered hasAnchor">
+<h3>2023 Technical changes<a href="colophon.html#technical-changes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This book is a modification of the original work by Wouter de Nooy. His publication, licensed under CC-SA 4.0 and hosted from <a href="https://github.com/WdeNooy/Statistical-Inference">his github repository</a>, forms the basis for this publication. Some technical changes have been made to the book. Hosting is now managed through <a href="https://pages.github.com">GitHub pages</a> and the source material is maintained from <a href="https://github.com/ShKlinkenberg/Statistical-Inference">this repository</a>. The Shiny apps are now available through <a href="https://www.shinyapps.io">Shinyapps.io</a> and maintained at a separate <a href="https://github.com/ShKlinkenberg/statistics-shiny-apps">GitHub repository</a>.</p>
+<p>This version of the book is hosted by <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a>. Modifications are collaboratively done by assigned teacher from the statistical modelling course of the College of Communication Science at the University of Amsterdam.</p>
+</div>
+<div id="rewrite" class="section level3 unnumbered hasAnchor">
+<h3>2024 Rewrite<a href="colophon.html#rewrite" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In 2024 the book has been partially rewriten. Through the <a href="https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/kwaliteitsafspraken-hoger-onderwijs">quality agreements funds</a>, the College of Communication at the University of Amsterdam has been able to support the further development of the this opensource book.</p>
+<p>The following changes have been made:</p>
 <ul>
-<li><p>In analysis of variance, we test the null hypothesis that all groups have the same population means. Behind the scenes, we actually test the ratio of between-groups variance to within-groups variance.</p></li>
-<li><p>The overall differences in average outcome scores between groups on one factor (independent variable) are a main effect in an analysis of variance.</p></li>
-<li><p>The differences in average outcome scores between subgroups, that is, groups that combine a level on one factor (predictor) and a level on another factor (moderator), represent an interaction effect. Note that we are dealing with the differences between subgroup scores that remain after the main effects have been removed.</p></li>
-<li><p>Moderation is the phenomenon that an effect is different in different contexts. The effect can be stronger or it can have a different direction. In analysis of variance, interaction effects represent moderation.</p></li>
-<li><p>Eta-squared measures the size of a main or interaction effect in analysis of variance. It tells us the proportion of variance in the dependent variable that is accounted for by the effect.</p></li>
-<li><p>A means plot is very helpful for interpreting and communicating results of an analysis of variance.</p></li>
-<li><p>The <em>F</em> tests in analysis of variance do not tell us which groups have different average scores on the dependent variable. To this end, we use independent-samples <em>t</em> tests as post-hoc tests with a (Bonferroni) correction for capitalization on chance.</p></li>
-<li><p>To apply analysis of variance, we need a numeric dependent variable that has equal population variance in each group of a factor or each subgroup in case of an interaction effect. However, equality of population variances is not important if all groups on a factor or all subgroups in an interaction are more or less of equal size (the largest count is at most 10% of the largest count larger than the smallest count.)</p></li>
+<li>Rewrite of Chapter <a href="3.5-ci-parameter.html#fixed-pop-values">3.5.1</a> by <a href="https://www.uva.nl/en/profile/g/a/x.gao2/x.gao.html">Xin Gao</a> to more thoroughly explain the concept and reasoning behind confidence intervals. Including the creation of a new Shiny app to demonstrate the concept.</li>
+<li>Merging and rewrite of the previous chapters on Hypothesis testing, Sample size, and Critical discussion by <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a>. This to place the discussion on pawer, and how this is related to sample size firmly in the context of null hypothesis significance testing.</li>
 </ul>
+<p>Many thanks to <a href="https://www.linkedin.com/in/christin-scholz-7a07264b/">Christin Scholz</a> for her elaborate feedback on the rewrite of Chapter <a href="4-hypothesis.html#hypothesis">4</a>.</p>
+<p>The 2023 version of the book is archived in the pre 2024 branch of the <a href="https://github.com/ShKlinkenberg/Statistical-Inference/tree/pre_2024-07_archive">GitHub repository</a></p>
+</div>
+<div id="contribute" class="section level3 unnumbered hasAnchor">
+<h3>Contribute<a href="colophon.html#contribute" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in Rmarkdown and compiled using the bookdown package. The book is hosted on GitHub pages and the source material is maintained from <a href="https://github.com/WdeNooy/Statistical-Inference">his github repository</a>. If you find any typo’s or errors, please submit an issue on the <a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues">GitHub repository</a>.</p>
+</div>
+<div id="license" class="section level3 unnumbered hasAnchor">
+<h3>License<a href="colophon.html#license" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
 
 </div>
-<!-- </div> -->
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="5.6-twowaySPSS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="6-moderationcat.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="9.9-CohenCalculations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
