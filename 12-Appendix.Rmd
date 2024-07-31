@@ -196,7 +196,50 @@ If the proportions in the sample do not differ more from the known proportions i
 
 ### Testing proportions in SPSS {-}
 
-For a binomial test, see the video in Figure \@ref(fig:SPSSbinomial). A one-sample chi-squared test is explained in the video of Figure \@ref(fig:SPSSchisq1). Exercises are available in Section \@ref(nullSPSS).
+
+
+```{r SPSSbinomial, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:binomialSPSS)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/tmdZpOSObco", height = "360px")
+
+# A binomial test on a single proportion can be executed in SPSS with the command _Analyze > Nonparametric Tests > Binomial_. In the dialog , you have to enter a variable. 
+# 
+# If this variable is a dichotomy (it has only two values), you can leave the _Define Dichotomy_ option at "Get from data". SPSS will use the first category score that it encounters in the data set as the test category. This is tricky. It will test the sample proportion of this value against the test proportion that you specify elsewhere in this dialog.
+# 
+# If the variable has more than two categories or you want to be sure about the category that you use for the test, use the "Cut point" option under _Define Dichotomy_ to divide all scores into two groups. The lowest score up to and including the cut point are used as the test category.
+# 
+# The statistics under Options are not interesting if you just want to test a proportion.
+#
+# Figure shows the output. The sample proportion does not differ significantly from 0.5. In this example, we would report: "We cannot reject the hypothesis that the TV station reaches half of all households, _p_ = .784."
+#
+# The one-sided versus two-sided output is not discussed in the video.
+```
+
+
+```{r SPSS1mean, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:1meanSPSS)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/Gupx40D5bLY", height = "360px")
+# To execute a one sample t test in SPSS, use the command _ANALYZE > COMPARE MEANS > ONE SAMPLE T TEST_. Select a numeric variable in the dialog and enter the hypothesized population mean under _Test Value_. 
+# 
+# Media literacy is measured on a ten point scale. Is average media literacy (in the population) equal to 5.5? A one sample t test tells us that average media literacy in our sample (_M_ = 4.47, _SD_ = 1.64) is statistically significantly different from 5.5, _t_ (86) = -5.87, _p_ < .001, 95% CI [-1.38, -0.68]. We are confident that the population average media literacy score is 0.68 to 1.38 below 5.5, so somewhere between 4.12 and 4.82.
+
+```
+
+
+For a binomial test, see the video in Figure \@ref(fig:SPSSbinomial). A one-sample chi-squared test is explained in the video of Figure \@ref(fig:SPSSchisq1).
+
+
+
+```{r SPSSchisq1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:chisq1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/8DAau9jFUhA", height = "360px")
+# If we want to test a frequency distribution against a known or hypothesized population distribution, we must use a one-sample chi-squared test. This test is available in SPSS with the command _ANALYZE > NONPARAMETRIC TESTS > LEGACY DIALOGS > CHI SQUARE_. Select the categorical variable for which you want to test the distribution under _Test variable List_.
+# 
+# Select the option _All categories equal_ under _Expected Values_ if you hypothesize that all categories have the same proportions in the population. In the example, we hypothesize that households are equally distributed over the four regions. This is a plausible hypothesis if the four regions are known to contain a quarter of all households in the country or if the sample was stratified by region, that is, every region was meant to deliver the same number of households to the sample.
+# 
+# If the hypothesized distribution is not equal over all categories, specify the expected proportions, percentages, or sample frequencies under _Values_. You must specify an expected value for each category in the exact order in which the categories are coded. Be careful not to make mistakes. 
+# 
+# Although the frequencies of the four regions are not exactly the same in the sample, the hypothesis of equal population frequencies cannot be rejected, Chi-square (3) = 3.27, _p_ = .352.
+
+```
+
 
 ## Mean and median: level {-}
 Research hypotheses that focus on the level of scores are usually best tested with the mean or another measure of central tendency such as the median value. For example, the hypothesis that media literacy is below a particular standard (e.g., 5.5 on a 10-point scale) among children refers to a level: the level of media literacy scores. 
@@ -207,7 +250,7 @@ For a numeric (interval or ratio measurement level) variable such as the 10-poin
 
 ### Testing one mean or median in SPSS {-}
 
-The one-sample _t_ test in SPSS is explained in Figure \@ref(fig:SPSS1mean). Exercises are available in Section \@ref(nullSPSS).
+The one-sample _t_ test in SPSS is explained in Figure \@ref(fig:SPSS1mean).
 
 ## Variance: (dis)agreement {-}
 Although rare, research hypotheses may focus on the variation in scores rather than on score level. The hypothesis about polarization provides an example. Polarization means that we have scores well above the center and well below the center rather than all scores concentrated in the middle. If voters' opinions about immigrants are strongly polarized, we have a lot of voters strongly in favour of admitting immigrants as well as many voters strongly opposed to admitting immigrants.  
@@ -333,7 +376,7 @@ The categorical variable clusters people into groups: One group is confronted wi
 
 Thus, we return to statistics needed to test research hypotheses about score levels, namely measures of central tendency. If willingness to donate is a numeric variable, we can use group means to test the association between endorsing celebrity (grouping variable) and willingness to donate (score variable). The statistical hypothesis would then be that group means are not equal in the population of all people. 
 
-If you closely inspect the choice diagram in Figure \@ref(fig:choice-diagram-copy2), you will see that we prefer to use a _t_ distribution if we compare two different groups (independent-samples _t_ test) or two repeated observations for the same group (paired-samples _t_ test). By contrast, if we have three or more groups, we use analysis of variance with an _F_ distribution. 
+If you closely inspect the choice diagram in Figure \@ref(fig:flowchart), you will see that we prefer to use a _t_ distribution if we compare two different groups (independent-samples _t_ test) or two repeated observations for the same group (paired-samples _t_ test). By contrast, if we have three or more groups, we use analysis of variance with an _F_ distribution. 
 
 ### Comparing means in SPSS {-}
 
@@ -610,3 +653,57 @@ There is no statistically significant association between word of mouth and sex,
   
 Note that a one-sided test is possible too. The *p* value of a one-sided exact test is .080 (one-sided) here. [<img src="icons/2question.png" width=161px align="right">](#question10.7)
 ```
+
+## Cohen's _d_ calculatons {#CohenCalculations}
+
+------------------------------------------------------------------------
+
+These are the formulas for Cohen's *d* for a one-sample *t* test, a paired-samples *t* test, and an independent-samples *t* test (they will be provided if needed):
+
+::: {style="column-count: 3; -moz-column-count: 3"}
+```{=tex}
+\begin{equation}
+  d_{one_-sample} = \frac{M - \mu_0}{SD}
+\end{equation}
+```
+```{=tex}
+\begin{equation}
+  d_{paired_-samples} = \frac{M_{diff} - \mu_{0_-diff}}{SD_{diff}}
+\end{equation}
+```
+```{=tex}
+\begin{equation}
+  d_{independent_-samples} = \frac{2*t}{\sqrt(df)}
+\end{equation}
+```
+:::
+
+Where:
+
+-   $M$ is the sample mean, $\mu_0$ is the hypothesized population mean, and $SD$ is the standard deviation in the sample,
+
+-   $M_{diff}$ is the difference between the two means in the sample, $\mu_{0_-diff}$ is the hypothesized difference between the two means in the population mean, which is zero in case of a nil hypothesis, and $SD_{diff}$ is the standard deviation of the difference in the sample,
+
+-   $t$ is the test statistic value and $df$ is the number of degrees of freedom of the *t* test.
+
+------------------------------------------------------------------------
+
+The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section \@ref(dependentsamples)). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (*pooled*) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the *t* value and degrees of freedom to calculate Cohen's *d*.
+
+### Obtaining Cohen's *d* with SPSS
+
+```{r cohend, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:cohendtitle)", dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/HmyW7HRM64Q", height = "360px")
+```
+
+It is, relatively easy to calculate Cohen's _d_ by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.
+
+For a t test on one mean, the unstandardized effect is the difference between the sample mean and the hypothesized mean. SPSS reports this value in the column __Mean Difference__ of the table with test results. Drop any negative signs! Divide it by the standard deviation of the variable as given in Table __One-Sample Statistics__.
+
+In the example, Cohen's _d_ is 0.036 / 0.169 = 0.21. This is a weak effect.
+
+For a paired-samples t test, the unstandardized effect size is reported in the column __Mean__ in the Table __Paired Samples Test__. The standard deviation of the difference can be found in column __Std. Deviation__ in the same table. Divide the first by the second, for instance, 1.880 / 1.033 = 1.82. This is a strong effect.
+
+For an independent-samples t test, the situation is less fortuitous because SPSS does not report the pooled sample standard deviation that we need. The pooled sample standard deviation takes a sort of  average of the outcome variable's standard deviations in the two groups. As an approximation, we can calculate Cohen's _d_ as follows: Double the t value and divide it by the square root of the degrees of freedom.
+
+In the example, Cohen's _d_ equals $(2 * 0.651) / \surd(18) = 0.31$. This is a moderate effect size.

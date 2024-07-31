@@ -2,11 +2,6 @@
 
 > Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.
 
-Watch this micro lecture on estimation for an overview of the chapter.
-
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/4DGmVyQeqKc", height = "360px")
-```
 
 ### Summary {-}
 
@@ -122,7 +117,7 @@ There are several ways to increase the precision of our interval estimate, that 
 
 This method is not useful because we sacrifice our confidence that the range includes the outcome in the sample that we are going to draw. What is the use of a more precise estimate if we are less certain that it predicts correctly? Therefore, we usually do not change the confidence level and leave it at 95% or thereabouts (90%, 99%). It is important to be quite sure that our prediction will be right.
 
-### Sample size {#sample-size}
+### Sample sizes {#sample-sizes}
 
 A less practical but very useful method of narrowing the interval estimate is increasing sample size. If we buy a larger bag containing more candies, we get a better idea of average candy weight in the population and a better idea of the averages that we should expect in our sample.
 
@@ -331,19 +326,20 @@ in the population, in this example 2.8 grams. [<img src="icons/2question.png" wi
 
 ## Confidence Interval for a Parameter {#ci-parameter}
 
-Working through the preceding sections, it may have occurred to you that it is all very well to be able to estimate the value of a statistic in a new sample with a particular precision and probability, but that this is not what we are interested in. Instead, we want to estimate the value of the statistic in the population.
+Working through the preceding sections, you may have realized that estimating the value of a statistic in a new sample with a specific precision and probability is not our ultimate goal, as it does not fully represent reality. In reality, we do not know the population parameter, and the primary objective of statistics is to estimate this unknown population parameter.
 
 For example, we don't care much about the average weight of candies in our sample bag or in the next sample bag that we may buy. We want to say something about the average weight of candies in the population. How can we do this?
 
-In addition, you may have realized that, if we know the sampling distribution,  we also know the precise population value, for instance, average candy weight. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution. If we know the sampling distribution, and it then follows that we also know the population value, why would we even care about estimating an interval?
+In addition, you may have realized that, if we want to construct the sampling distribution of sample means, we first need to know the precise population value, for instance, average candy weight in the population. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution of sample means.
 
-Our problem is this: We want to estimate a population value using probabilities. For probabilities we need the sampling distribution but for the sampling distribution, we must know the population. A vicious circle.
 
 ```{r exactapproachfigure, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center', fig.cap="Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population."}
 knitr::include_graphics("figures/exactapproach.png")
 ```
 
-In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure \@ref(fig:exactapproachfigure)), for instance, we must know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.  
+In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure \@ref(fig:exactapproachfigure)), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.
+
+In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means. But we do not know the population mean; we want to estimate it.
 
 ```{r normal-param, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Which population statistics do we need to know if we want to use the standard normal distribution as sampling distribution?"}
 # show an X axis labeled 'sample mean' with a scale from 0 to 5 grams ; add sample mean as labelled dot at 3.4 ; add a normal curve with population mean 2.8, a standard error 0.1 (equivalent to sample standard deviation of 1.0 and a sample size of 25) ; show checkboxes for sample size, sample mean, sample standard deviation, standard error, population mean, and population standard error with their (fixed) values ; select all checkboxes ; if the user deselects a checkbox, either nothing happens or a series of 5 normal curves is shown for different values of the statistic associated with the checkbox.
@@ -365,58 +361,56 @@ Figure \@ref(fig:normal-param) shows a standard normal distribution that we coul
 3. Which values do you have to know _only if_ you don't know the standard error? In other words, which statistics affect the standard error (you have learned about before)? Deselect the standard error and experiment with the other options.
 ```
 
-A theoretical probability distribution can only be used as an approximation of a sampling distribution if we know some characteristics of the population. We know that the sampling distribution of sample means always has the bell shape of a normal or standard-normal (_z_) distribution or _t_ distribution. However, knowing the shape is not sufficient for using the theoretical distribution as an approximation of the sampling distribution.
+A theoretical probability distribution can only be used as an approximation of a sampling distribution if we know some characteristics of the population. We know that the sampling distribution of sample means always has the bell shape of a normal distribution or _t_ distribution. However, knowing the shape is not sufficient for using the theoretical distribution as an approximation of the sampling distribution.
 
-We must also know the population mean because it specifies where the centre of the sampling distribution is located. So, we must know the population mean to use a theoretical probability distribution to estimate the population mean. This sounds like a problem that only Baron von M&uuml;nchhausen can solve. How can we drag ourselves by the hair out of this swamp?  
+We must also know the population mean because it specifies where the centre of the sampling distribution is located. So, we must know the population mean to use a theoretical probability distribution to estimate the population mean. 
 
 By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.  
 
-### Imaginary population values  {#imag-pop-values}
+### Reverse reasoning from one sample mean  {#fixed-pop-values}
 
-How can we find plausible population means? Figure \@ref(fig:pop-means-ci) shows average candy weight in a random sample (lower scale). Click somewhere under the top axis to select a possible value for the population mean. The app will then display the interval of most plausible sample means (green if it contains the actual sample mean, red otherwise) if this would be the true population value. In addition, it calculates the _z_ value of the actual sample mean if the selected value would be the true population value.
+In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (Figure \@ref(crit-values)). 95% of all sample means would fall within this interval estimate around the known population mean. 
 
-```{r pop-means-ci, fig.pos='H', fig.align='center', fig.cap="For which population means is our sample mean plausible?", echo=FALSE, out.width="630px", screenshot.opts = list(delay = 5), dev="png"}
+In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.
+
+```{r pop-ci-sampling, fig.pos='H', fig.align='center', fig.cap="Confidence intervals from replications", echo=FALSE, out.width="630px", screenshot.opts = list(delay = 5), dev="png"}
 # draw two horizontal lines, the top line labeled 'population' and the bottom line labeled 'sample', both lines with a numerical scale (0-5) ; generate a sample mean and standard error within a particular range, say 1-4 for the sample mean and the standard error in a range convenient to have interval estimates within the 0-5 or -1-6 range ; mark the sample mean on the lower line and show the value of the standard error somewhere in the app ; if the user clicks on the upper line, the corresponding number is shown as an (imaginary) population mean ; the 95% probability interval estimate for the sample mean is shown as a horizontal line segment on top/near the lower line (plus a light triangle starting at the population value) ; if the line segment overlaps with the sample mean, the selected population value is marked by a green dot and the line segment is green, they are red dots otherwise ; also show the z value of the sample mean for the chosen population mean ; at next click, remove old interval estimate (line segment plus triangle) but keep the prevously selected population mean ; a 'Reset' button generates new values to restart the interaction (repeat the assignment with different values for the sample mean and standard error to emphasize that the z values remain the same)
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pop-means-ci/", height="310px")
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/", height="1850px")
 ```
 
-<A name="question3.5.1"></A>
-```{block2, type='rmdquestion', echo = Qch3}
-1. Click repeatedly on Figure \@ref(fig:pop-means-ci) to find the highest and lowest value of the population mean for which the sample mean is in the interval of sample means that have 95% probability of occurring. [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.1){.buttonToAnswer}
+Instead of checking whether a sample mean is inside or outside of the interval estimate of the **population mean** (Chapter \@ref(crit-values)), we use the interval estimate around that one **sample mean**, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a **95% confidence interval**.
+
+The middle plot of Figure \@ref(fig:pop-ci-sampling), shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of $N=30$ is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.
+
+Now, increase the number of times of samples (replications) by adjusting the slider in Figure \@ref(fig:pop-ci-sampling). The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher. 
+
+Now, also increase the sample size in Figure \@ref(fig:pop-ci-sampling) by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size. 
+
+Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample mean. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.
+
+```{block2, type='rmdimportant'}
+> If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.
+>
+> --- @hoekstra2014robust
+
+It is very important that we understand that the confidence level 95% is NOT the probability that the population parameter has a particular value, or that it falls within the interval. 
+
+In classic statistics (so called "Frequentists"), the population parameter is _not_ a random variable but a fixed, unknown number, which does not have a probability. 
+
+A confidence interval around a sample statistics from solely one data collection either catches (100%) or does not catch (0%) the population parameter. We just do not know which one is the case. That's why we cannot make any conclusion about the population mean based on one confidence interval.
+
+Only when we replicate data collection many many times, we do know that about 95% of all 95% confidence intervals will catch the population mean.
 ```
 
-<A name="question3.5.2"></A>
-```{block2, type='rmdquestion', echo = Qch3}
-2. If you find the highest or lowest value of the population mean for which the sample mean is in the interval of sample means that have 95% probability of occurring, a horizontal arrow appears with the label: 1.96 * SE.  
-What does this arrow represent and why does it carry this label? [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.2){.buttonToAnswer}
-```
+Now imagine that you have a large sample for your research project. Looking at Figure \@ref(fig:pop-ci-sampling), this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn't it?
 
-<A name="question3.5.3"></A>
-```{block2, type='rmdquestion', echo = Qch3}
-3. How does the _z_ value of the sample mean help you to minimize the number of clicks you need? [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.3){.buttonToAnswer}
-```
+In the bottom plot of Figure \@ref(fig:pop-ci-sampling), we revisit Chapter \@ref(samp-dist), to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the  samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication. 
 
-<A name="question3.5.4"></A>
-```{block2, type='rmdquestion', echo = Qch3}
-4. How does the depicted interval estimate help you to minimize the number of clicks you need? [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.4){.buttonToAnswer}
-```
+We also see the theoretical approximation of this sampling distribution (as was discussed in Chapter \@ref(theoretical-approx)) of sample means, which is a normal distribution. As the number of replications and sample size increases, the shape of the histogram gets closer to the shape of the theoretical approximation of the sampling distribution (green line), which in turn also gets narrower. 
 
-<A name="question3.5.5"></A>
-```{block2, type='rmdquestion', echo = Qch3}
-5. What is the most efficient strategy (minimum number of clicks) to determine the lower and upper limits of the population means for which the sample mean is among the 95% most likely samples? Explain why this is the most efficient strategy. [<img src="icons/2answer.png" width=115px align="right">](#answer3.5.5){.buttonToAnswer}
-```
+This sampling distribution is theoretically approximated by a normal distribution whose mean is the population mean and standard deviation is the standard error of the sample. To make our life easier, we can convert the sampling distribution, which is a normal distribution, to the standard normal distribution by converting to a z-score. The critical z value 1.96 and -1.96 together marks the upper and lower limit of the interval containing 95% of all samples with means closest to the population mean.
 
-How do we solve the M&uuml;nchhausen problem that we must know the population mean to estimate the population mean? A solution is that we select a lot of imaginary population means. We play a _What If?_-game for each imaginary population mean: What are probable sample results if this is the true population value? We calculate the interval within which the sample mean is expected to fall if the imaginary mean would be the true population mean. We use a fixed confidence level, usually a probability of 95%. 
-
-As a next step, we check if the mean of the sample that we have actually drawn falls within this interval. If it does, we conclude that this (imaginary) population mean is not at odds with the sample that we have drawn. In contrast, if our sample mean falls outside the interval, we conclude that this population mean is not plausible because our sample is too unlikely to be drawn from a population with this mean. 
-
-In this way, we can find all population means that are _consistent_ with our sample. If the true population mean is any of these imaginary means, we are sufficiently likely (95% probability) to draw a sample with our actual sample mean.  
-
-While playing with Figure \@ref(fig:pop-means-ci), you may have noticed the _z_ values of the sample mean for the lowest and highest population means for which the sample mean is still within the interval. When you hit the lower bound of the population means, the sample mean has a _z_ value around 1.96 while it has a _z_ value around -1.96 for the highest population mean in the range.
-
-It is not a coincidence that we find the critical values of the standard-normal distribution when we reach the minimum and maximum population means that are plausible. We are using the standard-normal distribution to approximate the sampling distribution of the sample mean. The critical _z_ value 1.96 marks the upper limit of the interval containing 95% of all samples with means closest to the population mean and -1.96 marks the lower limit. A distance of 1.96 standard errors, then, is the maximum distance between a population mean and a sample mean that belongs to the 95% sample means closest to the population mean.
-
-As a consequence, we may simply calculate the range of plausible population values by adding and subtracting 1.96 standard errors from the sample mean. This is much more efficient than selecting a lot of imaginary population means! 
+As a consequence, we are able to calculate 95% confidence interval around a sample mean by adding and subtracting 1.96 standard errors from that sample mean.
 
 ```{block2, type='rmdimportant'}
 - Confidence interval lower limit = sample value -- critical value * standard error.
@@ -428,25 +422,8 @@ For example, the 95%-confidence interval for a sample mean:
 - Upper limit = sample mean + 1.96 * standard error.
 ```
 
-This can be illustrated with an example: If average candy weight in our sample is 2.8 grams and the standard error is 0.5, the lower and upper boundary for plausible population means are 1.82 grams (this is 2.8 minus 1.96 times 0.5) and 3.78 grams (2.8 plus 1.96 times 0.5). 
 
-Haven't we seen this calculation before? Yes we did, in Section \@ref(int-est-sample-mean), where we estimated the interval for sample means. We now simply reverse the calculation, using the sample mean to estimate an interval of plausible population means instead of the other way around.
-
-### Confidence interval {#conf-interval}
-
-The upper and lower bounds for the population means that are plausible constitute an interval estimate of the parameter. This interval is linked to a probability, for instance, 95%. 
-
-It is very important that we understand that this is NOT the probability that the parameter has a particular value, or that it falls within the interval. The parameter is _not_ a random variable because it is not affected by the random sample that we draw and therefore it does not have a probability. 
-
-The parameter has one value, which is either within or outside the interval that we have constructed. We just don't know. But we do know that our sample is more likely for population values within the interval.  
-
-We use the term _confidence_ instead of probability when we use this interval to estimate a parameter. The interval is called a _confidence interval_ and we usually add the confidence level, for instance, the 95% confidence interval (abbreviated: 95% CI). We are 95% confident that the parameter falls within the 95% confidence interval.
-
-```{block2, type='rmdimportant'}
-> If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.
-
-@hoekstra2014robust
-```
+Haven't we seen this calculation before? Yes we did, in Section \@ref(int-est-sample-mean), where we estimated the interval around population mean for sample means. We now simply reverse the application, using the interval of sample mean to estimate the population mean instead of the other way around.
 
 ```{block2, type='rmdneyman'}
 Jerzy Neyman introduced the concept of a confidence interval in 1937:
@@ -458,9 +435,9 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
 
 ### Confidence intervals with bootstrapping {#bootstrap-confidenceinterval}
 
-If we approximate the sampling distribution with a theoretical probability distribution such as the normal (_z_) or _t_ distribution, critical values and the standard error are used to calculate the confidence interval (see Section \@ref(imag-pop-values)). 
+If we approximate the sampling distribution with a theoretical probability distribution such as the normal (_z_) or _t_ distribution, critical values and the standard error are used to calculate the confidence interval (see Section \@ref(fixed-pop-values)). 
 
-There are theoretical probability distributions that do not work with a standard error, such as the _F_ distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section \@ref(imag-pop-values)) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.
+There are theoretical probability distributions that do not work with a standard error, such as the _F_ distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section \@ref(fixed-pop-values)) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.
 
 ```{r bootstrap-ci, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we construct confidence intervals with bootstrapping?"}
 # Adapt app bootstrapping: Show Initial Sample and Sampling Distribution, buttons Bootstrap 1000 samples and Draw new initial sample. Increase vertical size of sampling distribution but reduce range from 0 to 0.5. 
@@ -470,7 +447,7 @@ There are theoretical probability distributions that do not work with a standard
 # In questions, point out the symmetry of the normal approximation to the confidence interval versus the asymmetry of the percentile-based confidence interval.
 ```
 
-As you might remember from Section \@ref(boot-approx), we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. 
+As you might remember from Section \@ref(boot-approx), we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in chapter 11.
 
 It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report _p_ values (see Section \@ref(pvalue)), not confidence intervals.
 

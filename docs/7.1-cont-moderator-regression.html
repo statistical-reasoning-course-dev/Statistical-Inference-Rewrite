@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7.1 A Numerical Moderator | Statitstical Inference</title>
+  <meta name="description" content="7.1 A Numerical Moderator | Statitstical Inference" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7.1 A Numerical Moderator | Statitstical Inference" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7.1 A Numerical Moderator | Statitstical Inference" />
+  
+  
+  
+
+<meta name="author" content="Wouter de Nooy" />
+<meta name="author" content="et al." />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="7-moderationcont.html"/>
+<link rel="next" href="7.2-reportmoderation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+<script src="libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="libs/vis-9.1.0/vis-network.min.css" rel="stylesheet" />
+<script src="libs/vis-9.1.0/vis-network.min.js"></script>
+<script src="libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="styleX.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction and Reader’s Guide</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#intended-audience-and-setting"><i class="fa fa-check"></i>Intended Audience and Setting</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#interactive-content"><i class="fa fa-check"></i>Interactive Content</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="1-samp-dist.html"><a href="1-samp-dist.html"><i class="fa fa-check"></i><b>1</b> Sampling Distribution: How Different Could My Sample Have Been?</a>
+<ul>
+<li class="chapter" data-level="" data-path="1-samp-dist.html"><a href="1-samp-dist.html#summary"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="1.1" data-path="1.1-statistical-inference-making-the-most-of-your-data.html"><a href="1.1-statistical-inference-making-the-most-of-your-data.html"><i class="fa fa-check"></i><b>1.1</b> Statistical Inference: Making the Most of Your Data</a></li>
+<li class="chapter" data-level="1.2" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html"><i class="fa fa-check"></i><b>1.2</b> A Discrete Random Variable: How Many Yellow Candies in My Bag?</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html#samplestatistic"><i class="fa fa-check"></i><b>1.2.1</b> Sample statistic</a></li>
+<li class="chapter" data-level="1.2.2" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html#sampling-distribution"><i class="fa fa-check"></i><b>1.2.2</b> Sampling distribution</a></li>
+<li class="chapter" data-level="1.2.3" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html#probdistribution"><i class="fa fa-check"></i><b>1.2.3</b> Probability and probability distribution</a></li>
+<li class="chapter" data-level="1.2.4" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html#expectedvalue"><i class="fa fa-check"></i><b>1.2.4</b> Expected value or expectation</a></li>
+<li class="chapter" data-level="1.2.5" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html#unbiased-est"><i class="fa fa-check"></i><b>1.2.5</b> Unbiased estimator</a></li>
+<li class="chapter" data-level="1.2.6" data-path="1.2-discreterandomvariable.html"><a href="1.2-discreterandomvariable.html#representative"><i class="fa fa-check"></i><b>1.2.6</b> Representative sample</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="1.3-cont-random-var.html"><a href="1.3-cont-random-var.html"><i class="fa fa-check"></i><b>1.3</b> A Continuous Random Variable: Overweight And Underweight.</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="1.3-cont-random-var.html"><a href="1.3-cont-random-var.html#continuous-variable"><i class="fa fa-check"></i><b>1.3.1</b> Continuous variable</a></li>
+<li class="chapter" data-level="1.3.2" data-path="1.3-cont-random-var.html"><a href="1.3-cont-random-var.html#cont_sample_stat"><i class="fa fa-check"></i><b>1.3.2</b> Continuous sample statistic</a></li>
+<li class="chapter" data-level="1.3.3" data-path="1.3-cont-random-var.html"><a href="1.3-cont-random-var.html#probability-density"><i class="fa fa-check"></i><b>1.3.3</b> Probability density</a></li>
+<li class="chapter" data-level="1.3.4" data-path="1.3-cont-random-var.html"><a href="1.3-cont-random-var.html#probabilities-always-sum-to-1"><i class="fa fa-check"></i><b>1.3.4</b> Probabilities always sum to 1</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="1.4-concluding-remarks.html"><a href="1.4-concluding-remarks.html"><i class="fa fa-check"></i><b>1.4</b> Concluding Remarks</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="1.4-concluding-remarks.html"><a href="1.4-concluding-remarks.html#sample-characteristics-as-observations"><i class="fa fa-check"></i><b>1.4.1</b> Sample characteristics as observations</a></li>
+<li class="chapter" data-level="1.4.2" data-path="1.4-concluding-remarks.html"><a href="1.4-concluding-remarks.html#means-at-three-levels"><i class="fa fa-check"></i><b>1.4.2</b> Means at three levels</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="1.5-take-home-points.html"><a href="1.5-take-home-points.html"><i class="fa fa-check"></i><b>1.5</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-probmodels.html"><a href="2-probmodels.html"><i class="fa fa-check"></i><b>2</b> Probability Models: How Do I Get a Sampling Distribution?</a>
+<ul>
+<li class="chapter" data-level="" data-path="2-probmodels.html"><a href="2-probmodels.html#summary-1"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="2.1" data-path="2.1-exact-approaches-to-the-sampling-distribution.html"><a href="2.1-exact-approaches-to-the-sampling-distribution.html"><i class="fa fa-check"></i><b>2.1</b> Exact Approaches to the Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="2.1-exact-approaches-to-the-sampling-distribution.html"><a href="2.1-exact-approaches-to-the-sampling-distribution.html#exact-approaches-for-categorical-data"><i class="fa fa-check"></i><b>2.1.1</b> Exact approaches for categorical data</a></li>
+<li class="chapter" data-level="2.1.2" data-path="2.1-exact-approaches-to-the-sampling-distribution.html"><a href="2.1-exact-approaches-to-the-sampling-distribution.html#computer-intensive"><i class="fa fa-check"></i><b>2.1.2</b> Computer-intensive</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html"><i class="fa fa-check"></i><b>2.2</b> Exact Approaches in SPSS</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#introduction"><i class="fa fa-check"></i><b>2.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2.2-SPSS-exact.html"><a href="2.2-SPSS-exact.html#instructions"><i class="fa fa-check"></i><b>2.2.2</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html"><i class="fa fa-check"></i><b>2.3</b> Theoretical Approximations of the Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html#reasons-for-a-bell-shaped-probability-distribution"><i class="fa fa-check"></i><b>2.3.1</b> Reasons for a bell-shaped probability distribution</a></li>
+<li class="chapter" data-level="2.3.2" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html#cond-probdistr"><i class="fa fa-check"></i><b>2.3.2</b> Conditions for the use of theoretical probability distributions</a></li>
+<li class="chapter" data-level="2.3.3" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html#cond-check"><i class="fa fa-check"></i><b>2.3.3</b> Checking conditions</a></li>
+<li class="chapter" data-level="2.3.4" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html#complicatedsampling"><i class="fa fa-check"></i><b>2.3.4</b> More complicated sample statistics: differences</a></li>
+<li class="chapter" data-level="2.3.5" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html#independent-samples"><i class="fa fa-check"></i><b>2.3.5</b> Independent samples</a></li>
+<li class="chapter" data-level="2.3.6" data-path="2.3-theoretical-approx.html"><a href="2.3-theoretical-approx.html#dependentsamples"><i class="fa fa-check"></i><b>2.3.6</b> Dependent samples</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="2.4-spss-and-theoretical-approximation-of-the-sampling-distribution.html"><a href="2.4-spss-and-theoretical-approximation-of-the-sampling-distribution.html"><i class="fa fa-check"></i><b>2.4</b> SPSS and Theoretical Approximation of the Sampling Distribution</a></li>
+<li class="chapter" data-level="2.5" data-path="2.5-boot-approx.html"><a href="2.5-boot-approx.html"><i class="fa fa-check"></i><b>2.5</b> The Bootstrap Approximation of the Sampling Distribution</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="2.5-boot-approx.html"><a href="2.5-boot-approx.html#sampling-with-and-without-replacement"><i class="fa fa-check"></i><b>2.5.1</b> Sampling with and without replacement</a></li>
+<li class="chapter" data-level="2.5.2" data-path="2.5-boot-approx.html"><a href="2.5-boot-approx.html#limitations-to-bootstrapping"><i class="fa fa-check"></i><b>2.5.2</b> Limitations to bootstrapping</a></li>
+<li class="chapter" data-level="2.5.3" data-path="2.5-boot-approx.html"><a href="2.5-boot-approx.html#any-sample-statistic-can-be-bootstrapped"><i class="fa fa-check"></i><b>2.5.3</b> Any sample statistic can be bootstrapped</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="2.6-boot-spss.html"><a href="2.6-boot-spss.html"><i class="fa fa-check"></i><b>2.6</b> Bootstrapping in SPSS</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="2.6-boot-spss.html"><a href="2.6-boot-spss.html#instructions-1"><i class="fa fa-check"></i><b>2.6.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="2.7-when-do-we-use-which-approach-to-the-sampling-distribution.html"><a href="2.7-when-do-we-use-which-approach-to-the-sampling-distribution.html"><i class="fa fa-check"></i><b>2.7</b> When Do We Use Which Approach to the Sampling Distribution?</a></li>
+<li class="chapter" data-level="2.8" data-path="2.8-take-home-points-1.html"><a href="2.8-take-home-points-1.html"><i class="fa fa-check"></i><b>2.8</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-param-estim.html"><a href="3-param-estim.html"><i class="fa fa-check"></i><b>3</b> Estimating a Parameter: Which Population Values Are Plausible?</a>
+<ul>
+<li class="chapter" data-level="" data-path="3-param-estim.html"><a href="3-param-estim.html#summary-2"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="3.1" data-path="3.1-point-estimate.html"><a href="3.1-point-estimate.html"><i class="fa fa-check"></i><b>3.1</b> Point Estimate</a></li>
+<li class="chapter" data-level="3.2" data-path="3.2-interval-estimate-for-the-sample-statistic.html"><a href="3.2-interval-estimate-for-the-sample-statistic.html"><i class="fa fa-check"></i><b>3.2</b> Interval Estimate for the Sample Statistic</a></li>
+<li class="chapter" data-level="3.3" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html"><i class="fa fa-check"></i><b>3.3</b> Precision, Standard Error, and Sample Size</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#sample-sizes"><i class="fa fa-check"></i><b>3.3.1</b> Sample sizes</a></li>
+<li class="chapter" data-level="3.3.2" data-path="3.3-precisionsesamplesize.html"><a href="3.3-precisionsesamplesize.html#standard-error"><i class="fa fa-check"></i><b>3.3.2</b> Standard error</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="3.4-crit-values.html"><a href="3.4-crit-values.html"><i class="fa fa-check"></i><b>3.4</b> Critical Values</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="3.4-crit-values.html"><a href="3.4-crit-values.html#standardization-and-z-scores"><i class="fa fa-check"></i><b>3.4.1</b> Standardization and <em>z</em> scores</a></li>
+<li class="chapter" data-level="3.4.2" data-path="3.4-crit-values.html"><a href="3.4-crit-values.html#int-est-sample-mean"><i class="fa fa-check"></i><b>3.4.2</b> Interval estimates from critical values and standard errors</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html"><i class="fa fa-check"></i><b>3.5</b> Confidence Interval for a Parameter</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html#fixed-pop-values"><i class="fa fa-check"></i><b>3.5.1</b> Reverse reasoning from one sample mean</a></li>
+<li class="chapter" data-level="3.5.2" data-path="3.5-ci-parameter.html"><a href="3.5-ci-parameter.html#bootstrap-confidenceinterval"><i class="fa fa-check"></i><b>3.5.2</b> Confidence intervals with bootstrapping</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="3.6-SPSS-CI.html"><a href="3.6-SPSS-CI.html"><i class="fa fa-check"></i><b>3.6</b> Confidence Intervals in SPSS</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="3.6-SPSS-CI.html"><a href="3.6-SPSS-CI.html#instruction"><i class="fa fa-check"></i><b>3.6.1</b> Instruction</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="3.7-take-home-points-2.html"><a href="3.7-take-home-points-2.html"><i class="fa fa-check"></i><b>3.7</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-hypothesis.html"><a href="4-hypothesis.html"><i class="fa fa-check"></i><b>4</b> Hypothesis testing</a>
+<ul>
+<li class="chapter" data-level="" data-path="4-hypothesis.html"><a href="4-hypothesis.html#summary-3"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="4.1" data-path="4.1-binarydecision.html"><a href="4.1-binarydecision.html"><i class="fa fa-check"></i><b>4.1</b> Hypothesis</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="4.1-binarydecision.html"><a href="4.1-binarydecision.html#null-hypothesis"><i class="fa fa-check"></i><b>4.1.1</b> Null hypothesis</a></li>
+<li class="chapter" data-level="4.1.2" data-path="4.1-binarydecision.html"><a href="4.1-binarydecision.html#alternative-hypothesis"><i class="fa fa-check"></i><b>4.1.2</b> Alternative hypothesis</a></li>
+<li class="chapter" data-level="4.1.3" data-path="4.1-binarydecision.html"><a href="4.1-binarydecision.html#testing-hypothesis"><i class="fa fa-check"></i><b>4.1.3</b> Testing hypothesis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html"><i class="fa fa-check"></i><b>4.2</b> Null Hypothesis Significance Testing</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#alpha"><i class="fa fa-check"></i><b>4.2.1</b> Alpha</a></li>
+<li class="chapter" data-level="4.2.2" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#alpha-1"><i class="fa fa-check"></i><b>4.2.2</b> 1 - Alpha</a></li>
+<li class="chapter" data-level="4.2.3" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#power"><i class="fa fa-check"></i><b>4.2.3</b> Power</a></li>
+<li class="chapter" data-level="4.2.4" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#beta"><i class="fa fa-check"></i><b>4.2.4</b> Beta</a></li>
+<li class="chapter" data-level="4.2.5" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#test-statistic"><i class="fa fa-check"></i><b>4.2.5</b> Test statistic</a></li>
+<li class="chapter" data-level="4.2.6" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#pvalue"><i class="fa fa-check"></i><b>4.2.6</b> P-value</a></li>
+<li class="chapter" data-level="4.2.7" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#true-effect-size"><i class="fa fa-check"></i><b>4.2.7</b> True effect size</a></li>
+<li class="chapter" data-level="4.2.8" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#observed-effect-size"><i class="fa fa-check"></i><b>4.2.8</b> Observed effect size</a></li>
+<li class="chapter" data-level="4.2.9" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#post-hoc-power"><i class="fa fa-check"></i><b>4.2.9</b> Post hoc power</a></li>
+<li class="chapter" data-level="4.2.10" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#meta-analysis"><i class="fa fa-check"></i><b>4.2.10</b> Meta analysis</a></li>
+<li class="chapter" data-level="4.2.11" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#sample-size"><i class="fa fa-check"></i><b>4.2.11</b> Sample size</a></li>
+<li class="chapter" data-level="4.2.12" data-path="4.2-null-hypothesis-significance-testing.html"><a href="4.2-null-hypothesis-significance-testing.html#one-twosidedtests"><i class="fa fa-check"></i><b>4.2.12</b> One-Sided and Two-Sided Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="4.3-reporting.html"><a href="4.3-reporting.html"><i class="fa fa-check"></i><b>4.3</b> Reporting test results</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="4.3-reporting.html"><a href="4.3-reporting.html#reporting-to-fellow-scientists"><i class="fa fa-check"></i><b>4.3.1</b> Reporting to fellow scientists</a></li>
+<li class="chapter" data-level="4.3.2" data-path="4.3-reporting.html"><a href="4.3-reporting.html#reporting-to-the-general-reader"><i class="fa fa-check"></i><b>4.3.2</b> Reporting to the general reader</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="4.4-test-selection.html"><a href="4.4-test-selection.html"><i class="fa fa-check"></i><b>4.4</b> Statistical test selection</a></li>
+<li class="chapter" data-level="4.5" data-path="4.5-null-ci.html"><a href="4.5-null-ci.html"><i class="fa fa-check"></i><b>4.5</b> Confidence Intervals to test hypotheses</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="4.5-null-ci.html"><a href="4.5-null-ci.html#estimation-in-addidion-to-nhst"><i class="fa fa-check"></i><b>4.5.1</b> Estimation in addidion to NHST</a></li>
+<li class="chapter" data-level="4.5.2" data-path="4.5-null-ci.html"><a href="4.5-null-ci.html#bootstrapped-confidence-intervals"><i class="fa fa-check"></i><b>4.5.2</b> Bootstrapped confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="4.6-bayesian-hypothesis-testing.html"><a href="4.6-bayesian-hypothesis-testing.html"><i class="fa fa-check"></i><b>4.6</b> Bayesian hypothesis testing</a></li>
+<li class="chapter" data-level="4.7" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html"><i class="fa fa-check"></i><b>4.7</b> Critical Discussion</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#criticismsNHST"><i class="fa fa-check"></i><b>4.7.1</b> Criticisms of Null Hypothesis Significance Testing</a></li>
+<li class="chapter" data-level="4.7.2" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#statistical-significance-is-not-a-measure-of-effect-size"><i class="fa fa-check"></i><b>4.7.2</b> Statistical significance is not a measure of effect size</a></li>
+<li class="chapter" data-level="4.7.3" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#cap-chance"><i class="fa fa-check"></i><b>4.7.3</b> Capitalization on Chance</a></li>
+<li class="chapter" data-level="4.7.4" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#no-random-sample"><i class="fa fa-check"></i><b>4.7.4</b> What If I Do Not Have a Random Sample?</a></li>
+<li class="chapter" data-level="4.7.5" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#specifying-hypotheses-afterwards"><i class="fa fa-check"></i><b>4.7.5</b> Specifying hypotheses afterwards</a></li>
+<li class="chapter" data-level="4.7.6" data-path="4.7-critical-discussion.html"><a href="4.7-critical-discussion.html#replication"><i class="fa fa-check"></i><b>4.7.6</b> Replication</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="4.8-take-home-points-3.html"><a href="4.8-take-home-points-3.html"><i class="fa fa-check"></i><b>4.8</b> Take home points</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="5-anova.html"><a href="5-anova.html"><i class="fa fa-check"></i><b>5</b> Moderation with Analysis of Variance (ANOVA)</a>
+<ul>
+<li class="chapter" data-level="" data-path="5-anova.html"><a href="5-anova.html#summary-4"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="5.1" data-path="5.1-different-means-for-three-or-more-groups.html"><a href="5.1-different-means-for-three-or-more-groups.html"><i class="fa fa-check"></i><b>5.1</b> Different Means for Three or More Groups</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="5.1-different-means-for-three-or-more-groups.html"><a href="5.1-different-means-for-three-or-more-groups.html#anova-meandiffs"><i class="fa fa-check"></i><b>5.1.1</b> Mean differences as effects</a></li>
+<li class="chapter" data-level="5.1.2" data-path="5.1-different-means-for-three-or-more-groups.html"><a href="5.1-different-means-for-three-or-more-groups.html#between-variance"><i class="fa fa-check"></i><b>5.1.2</b> Between-groups variance and within-groups variance</a></li>
+<li class="chapter" data-level="5.1.3" data-path="5.1-different-means-for-three-or-more-groups.html"><a href="5.1-different-means-for-three-or-more-groups.html#anova-model"><i class="fa fa-check"></i><b>5.1.3</b> <em>F</em> test on the model</a></li>
+<li class="chapter" data-level="5.1.4" data-path="5.1-different-means-for-three-or-more-groups.html"><a href="5.1-different-means-for-three-or-more-groups.html#anova-assumpt"><i class="fa fa-check"></i><b>5.1.4</b> Assumptions for the <em>F</em> test in analysis of variance</a></li>
+<li class="chapter" data-level="5.1.5" data-path="5.1-different-means-for-three-or-more-groups.html"><a href="5.1-different-means-for-three-or-more-groups.html#which-groups-have-different-average-scores"><i class="fa fa-check"></i><b>5.1.5</b> Which groups have different average scores?</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="5.2-onewaySPSS.html"><a href="5.2-onewaySPSS.html"><i class="fa fa-check"></i><b>5.2</b> One-Way Analysis of Variance in SPSS</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="5.2-onewaySPSS.html"><a href="5.2-onewaySPSS.html#instructions-2"><i class="fa fa-check"></i><b>5.2.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="5.3-different-means-for-two-factors.html"><a href="5.3-different-means-for-two-factors.html"><i class="fa fa-check"></i><b>5.3</b> Different Means for Two Factors</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="5.3-different-means-for-two-factors.html"><a href="5.3-different-means-for-two-factors.html#anova2way"><i class="fa fa-check"></i><b>5.3.1</b> Two-way analysis of variance</a></li>
+<li class="chapter" data-level="5.3.2" data-path="5.3-different-means-for-two-factors.html"><a href="5.3-different-means-for-two-factors.html#balanced"><i class="fa fa-check"></i><b>5.3.2</b> Balanced design</a></li>
+<li class="chapter" data-level="5.3.3" data-path="5.3-different-means-for-two-factors.html"><a href="5.3-different-means-for-two-factors.html#maineffects"><i class="fa fa-check"></i><b>5.3.3</b> Main effects in two-way analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="5.4-moderationanova.html"><a href="5.4-moderationanova.html"><i class="fa fa-check"></i><b>5.4</b> Moderation: Group-Level Differences that Depend on Context</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="5.4-moderationanova.html"><a href="5.4-moderationanova.html#types-of-moderation"><i class="fa fa-check"></i><b>5.4.1</b> Types of moderation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="5.4-moderationanova.html"><a href="5.4-moderationanova.html#testing-main-and-interaction-effects"><i class="fa fa-check"></i><b>5.4.2</b> Testing main and interaction effects</a></li>
+<li class="chapter" data-level="5.4.3" data-path="5.4-moderationanova.html"><a href="5.4-moderationanova.html#assumptions-for-two-way-analysis-of-variance"><i class="fa fa-check"></i><b>5.4.3</b> Assumptions for two-way analysis of variance</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="5.5-reporting-two-way-analysis-of-variance.html"><a href="5.5-reporting-two-way-analysis-of-variance.html"><i class="fa fa-check"></i><b>5.5</b> Reporting Two-Way Analysis of Variance</a></li>
+<li class="chapter" data-level="5.6" data-path="5.6-twowaySPSS.html"><a href="5.6-twowaySPSS.html"><i class="fa fa-check"></i><b>5.6</b> Two-Way Analysis of Variance in SPSS</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="5.6-twowaySPSS.html"><a href="5.6-twowaySPSS.html#instructions-3"><i class="fa fa-check"></i><b>5.6.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="5.7-take-home-points-4.html"><a href="5.7-take-home-points-4.html"><i class="fa fa-check"></i><b>5.7</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-moderationcat.html"><a href="6-moderationcat.html"><i class="fa fa-check"></i><b>6</b> Regression Analysis And A Categorical Moderator</a>
+<ul>
+<li class="chapter" data-level="" data-path="6-moderationcat.html"><a href="6-moderationcat.html#summary-5"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="6.1" data-path="6.1-regression-equation.html"><a href="6.1-regression-equation.html"><i class="fa fa-check"></i><b>6.1</b> The Regression Equation</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="6.1-regression-equation.html"><a href="6.1-regression-equation.html#a-numerical-predictor"><i class="fa fa-check"></i><b>6.1.1</b> A numerical predictor</a></li>
+<li class="chapter" data-level="6.1.2" data-path="6.1-regression-equation.html"><a href="6.1-regression-equation.html#dichpredictor"><i class="fa fa-check"></i><b>6.1.2</b> Dichotomous predictors</a></li>
+<li class="chapter" data-level="6.1.3" data-path="6.1-regression-equation.html"><a href="6.1-regression-equation.html#categorical-predictor"><i class="fa fa-check"></i><b>6.1.3</b> A categorical independent variable and dummy variables</a></li>
+<li class="chapter" data-level="6.1.4" data-path="6.1-regression-equation.html"><a href="6.1-regression-equation.html#regr-inference"><i class="fa fa-check"></i><b>6.1.4</b> Sampling distributions and assumptions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="6.2-SPSS-regression.html"><a href="6.2-SPSS-regression.html"><i class="fa fa-check"></i><b>6.2</b> Regression Analysis in SPSS</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="6.2-SPSS-regression.html"><a href="6.2-SPSS-regression.html#instructions-4"><i class="fa fa-check"></i><b>6.2.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html"><i class="fa fa-check"></i><b>6.3</b> Different Lines for Different Groups</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#a-dichotomous-moderator-and-numerical-predictor"><i class="fa fa-check"></i><b>6.3.1</b> A dichotomous moderator and numerical predictor</a></li>
+<li class="chapter" data-level="6.3.2" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#interaction-variable"><i class="fa fa-check"></i><b>6.3.2</b> Interaction variable</a></li>
+<li class="chapter" data-level="6.3.3" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#conditional-effects"><i class="fa fa-check"></i><b>6.3.3</b> Conditional effects, not main effects</a></li>
+<li class="chapter" data-level="6.3.4" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#interactioninterpretation"><i class="fa fa-check"></i><b>6.3.4</b> Interpretation and statistical inference</a></li>
+<li class="chapter" data-level="6.3.5" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#a-categorical-moderator"><i class="fa fa-check"></i><b>6.3.5</b> A categorical moderator</a></li>
+<li class="chapter" data-level="6.3.6" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#commonsupportdichotomous"><i class="fa fa-check"></i><b>6.3.6</b> Common support</a></li>
+<li class="chapter" data-level="6.3.7" data-path="6.3-categoricalmoderator.html"><a href="6.3-categoricalmoderator.html#visualizing-moderation-and-covariates"><i class="fa fa-check"></i><b>6.3.7</b> Visualizing moderation and covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="6.4-catmodSPSS.html"><a href="6.4-catmodSPSS.html"><i class="fa fa-check"></i><b>6.4</b> A Dichotomous or Categorical Moderator in SPSS</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="6.4-catmodSPSS.html"><a href="6.4-catmodSPSS.html#instructions-5"><i class="fa fa-check"></i><b>6.4.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="6.5-take-home-points-5.html"><a href="6.5-take-home-points-5.html"><i class="fa fa-check"></i><b>6.5</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="7-moderationcont.html"><a href="7-moderationcont.html"><i class="fa fa-check"></i><b>7</b> Regression Analysis With A Numerical Moderator</a>
+<ul>
+<li class="chapter" data-level="" data-path="7-moderationcont.html"><a href="7-moderationcont.html#summary-6"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="7.1" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html"><i class="fa fa-check"></i><b>7.1</b> A Numerical Moderator</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#interpret-cont-interaction"><i class="fa fa-check"></i><b>7.1.1</b> Interaction variable</a></li>
+<li class="chapter" data-level="7.1.2" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#conditional-effect-cont"><i class="fa fa-check"></i><b>7.1.2</b> Conditional effect</a></li>
+<li class="chapter" data-level="7.1.3" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#mean-centering"><i class="fa fa-check"></i><b>7.1.3</b> Mean-centering</a></li>
+<li class="chapter" data-level="7.1.4" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#symmetry-of-predictor-and-moderator"><i class="fa fa-check"></i><b>7.1.4</b> Symmetry of predictor and moderator</a></li>
+<li class="chapter" data-level="7.1.5" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#visualization-of-the-interaction-effect"><i class="fa fa-check"></i><b>7.1.5</b> Visualization of the interaction effect</a></li>
+<li class="chapter" data-level="7.1.6" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#statistical-inference-on-conditional-effects"><i class="fa fa-check"></i><b>7.1.6</b> Statistical inference on conditional effects</a></li>
+<li class="chapter" data-level="7.1.7" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#common-support"><i class="fa fa-check"></i><b>7.1.7</b> Common support</a></li>
+<li class="chapter" data-level="7.1.8" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#assumptions"><i class="fa fa-check"></i><b>7.1.8</b> Assumptions</a></li>
+<li class="chapter" data-level="7.1.9" data-path="7.1-cont-moderator-regression.html"><a href="7.1-cont-moderator-regression.html#higher-order-interaction-effects"><i class="fa fa-check"></i><b>7.1.9</b> Higher-order interaction effects</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="7.2-reportmoderation.html"><a href="7.2-reportmoderation.html"><i class="fa fa-check"></i><b>7.2</b> Reporting Regression Results</a></li>
+<li class="chapter" data-level="7.3" data-path="7.3-RegressionContModSPSS.html"><a href="7.3-RegressionContModSPSS.html"><i class="fa fa-check"></i><b>7.3</b> A Numerical Moderator in SPSS</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="7.3-RegressionContModSPSS.html"><a href="7.3-RegressionContModSPSS.html#instructions-6"><i class="fa fa-check"></i><b>7.3.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="7.4-take-home-points-6.html"><a href="7.4-take-home-points-6.html"><i class="fa fa-check"></i><b>7.4</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="8-confounder.html"><a href="8-confounder.html"><i class="fa fa-check"></i><b>8</b> Regression Analysis And Confounders</a>
+<ul>
+<li class="chapter" data-level="" data-path="8-confounder.html"><a href="8-confounder.html#summary-7"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="8.1" data-path="8.1-controlling.html"><a href="8.1-controlling.html"><i class="fa fa-check"></i><b>8.1</b> Controlling for Effects of Other Predictors</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="8.1-controlling.html"><a href="8.1-controlling.html#partialeffect"><i class="fa fa-check"></i><b>8.1.1</b> Partial effect</a></li>
+<li class="chapter" data-level="8.1.2" data-path="8.1-controlling.html"><a href="8.1-controlling.html#confounding-variables"><i class="fa fa-check"></i><b>8.1.2</b> Confounding variables</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="8.2-indirectcorrelation.html"><a href="8.2-indirectcorrelation.html"><i class="fa fa-check"></i><b>8.2</b> Indirect Correlation</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="8.2-indirectcorrelation.html"><a href="8.2-indirectcorrelation.html#indirect-correlation-and-size-of-confounding"><i class="fa fa-check"></i><b>8.2.1</b> Indirect correlation and size of confounding</a></li>
+<li class="chapter" data-level="8.2.2" data-path="8.2-indirectcorrelation.html"><a href="8.2-indirectcorrelation.html#confounders-are-not-included-in-the-regression-model"><i class="fa fa-check"></i><b>8.2.2</b> Confounders are not included in the regression model</a></li>
+<li class="chapter" data-level="8.2.3" data-path="8.2-indirectcorrelation.html"><a href="8.2-indirectcorrelation.html#randomization"><i class="fa fa-check"></i><b>8.2.3</b> Randomization for avoiding confounders</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="8.3-confounders.html"><a href="8.3-confounders.html"><i class="fa fa-check"></i><b>8.3</b> Two Types of Confounders</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="8.3-confounders.html"><a href="8.3-confounders.html#suppression"><i class="fa fa-check"></i><b>8.3.1</b> Suppression</a></li>
+<li class="chapter" data-level="8.3.2" data-path="8.3-confounders.html"><a href="8.3-confounders.html#spuriousness"><i class="fa fa-check"></i><b>8.3.2</b> Reinforcement and spuriousness</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="8.4-compmodelSSPSS.html"><a href="8.4-compmodelSSPSS.html"><i class="fa fa-check"></i><b>8.4</b> Comparing Regression Models in SPSS</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="8.4-compmodelSSPSS.html"><a href="8.4-compmodelSSPSS.html#instructions-7"><i class="fa fa-check"></i><b>8.4.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="8.5-take-home-points-7.html"><a href="8.5-take-home-points-7.html"><i class="fa fa-check"></i><b>8.5</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-mediation.html"><a href="9-mediation.html"><i class="fa fa-check"></i><b>9</b> Mediation with Regression Analysis</a>
+<ul>
+<li class="chapter" data-level="" data-path="9-mediation.html"><a href="9-mediation.html#summary-8"><i class="fa fa-check"></i>Summary</a></li>
+<li class="chapter" data-level="9.1" data-path="9.1-mediation-as-causal-process.html"><a href="9.1-mediation-as-causal-process.html"><i class="fa fa-check"></i><b>9.1</b> Mediation as Causal Process</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="9.1-mediation-as-causal-process.html"><a href="9.1-mediation-as-causal-process.html#causalcriteria"><i class="fa fa-check"></i><b>9.1.1</b> Criteria for a causal relation</a></li>
+<li class="chapter" data-level="9.1.2" data-path="9.1-mediation-as-causal-process.html"><a href="9.1-mediation-as-causal-process.html#indirecteffect"><i class="fa fa-check"></i><b>9.1.2</b> Mediation as indirect effect</a></li>
+<li class="chapter" data-level="9.1.3" data-path="9.1-mediation-as-causal-process.html"><a href="9.1-mediation-as-causal-process.html#causal-process"><i class="fa fa-check"></i><b>9.1.3</b> Causal process</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html"><i class="fa fa-check"></i><b>9.2</b> Path Model with Regression Analysis</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html#requirements"><i class="fa fa-check"></i><b>9.2.1</b> Requirements</a></li>
+<li class="chapter" data-level="9.2.2" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html#size-indirect-effects"><i class="fa fa-check"></i><b>9.2.2</b> Size of indirect effects</a></li>
+<li class="chapter" data-level="9.2.3" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html#direction-of-indirect-effects"><i class="fa fa-check"></i><b>9.2.3</b> Direction of indirect effects</a></li>
+<li class="chapter" data-level="9.2.4" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html#partialserialmediation"><i class="fa fa-check"></i><b>9.2.4</b> Parallel and serial mediation</a></li>
+<li class="chapter" data-level="9.2.5" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html#partialfullmediation"><i class="fa fa-check"></i><b>9.2.5</b> Partial and full mediation</a></li>
+<li class="chapter" data-level="9.2.6" data-path="9.2-path-model-with-regression-analysis.html"><a href="9.2-path-model-with-regression-analysis.html#significance-of-indirect-effects"><i class="fa fa-check"></i><b>9.2.6</b> Significance of indirect effects</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="9.3-mediationcovariate.html"><a href="9.3-mediationcovariate.html"><i class="fa fa-check"></i><b>9.3</b> Controlling for Covariates</a></li>
+<li class="chapter" data-level="9.4" data-path="9.4-reporting-mediation-results.html"><a href="9.4-reporting-mediation-results.html"><i class="fa fa-check"></i><b>9.4</b> Reporting Mediation Results</a></li>
+<li class="chapter" data-level="9.5" data-path="9.5-SPSSPROCESS.html"><a href="9.5-SPSSPROCESS.html"><i class="fa fa-check"></i><b>9.5</b> Mediation with SPSS and PROCESS</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="9.5-SPSSPROCESS.html"><a href="9.5-SPSSPROCESS.html#instructions-8"><i class="fa fa-check"></i><b>9.5.1</b> Instructions</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="9.6-criticisms-of-mediation.html"><a href="9.6-criticisms-of-mediation.html"><i class="fa fa-check"></i><b>9.6</b> Criticisms of Mediation</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="9.6-criticisms-of-mediation.html"><a href="9.6-criticisms-of-mediation.html#causal-order-assumed"><i class="fa fa-check"></i><b>9.6.1</b> Causal order assumed</a></li>
+<li class="chapter" data-level="9.6.2" data-path="9.6-criticisms-of-mediation.html"><a href="9.6-criticisms-of-mediation.html#time-order"><i class="fa fa-check"></i><b>9.6.2</b> Time order</a></li>
+<li class="chapter" data-level="9.6.3" data-path="9.6-criticisms-of-mediation.html"><a href="9.6-criticisms-of-mediation.html#causality-or-underlying-construct"><i class="fa fa-check"></i><b>9.6.3</b> Causality or underlying construct?</a></li>
+<li class="chapter" data-level="9.6.4" data-path="9.6-criticisms-of-mediation.html"><a href="9.6-criticisms-of-mediation.html#every-effect-in-a-path-model-can-be-confounded"><i class="fa fa-check"></i><b>9.6.4</b> Every effect in a path model can be confounded</a></li>
+<li class="chapter" data-level="9.6.5" data-path="9.6-criticisms-of-mediation.html"><a href="9.6-criticisms-of-mediation.html#recommendations"><i class="fa fa-check"></i><b>9.6.5</b> Recommendations</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="9.7-combining-mediation-and-moderation.html"><a href="9.7-combining-mediation-and-moderation.html"><i class="fa fa-check"></i><b>9.7</b> Combining Mediation and Moderation</a></li>
+<li class="chapter" data-level="9.8" data-path="9.8-take-home-points-8.html"><a href="9.8-take-home-points-8.html"><i class="fa fa-check"></i><b>9.8</b> Take-Home Points</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="flow-chart-statistical-test-selection.html"><a href="flow-chart-statistical-test-selection.html"><i class="fa fa-check"></i>Flow chart statistical test selection</a></li>
+<li class="chapter" data-level="" data-path="all-spss-tutorial-videos-list.html"><a href="all-spss-tutorial-videos-list.html"><i class="fa fa-check"></i>All SPSS Tutorial Videos List</a></li>
+<li class="chapter" data-level="" data-path="formulating-statistical-hypotheses.html"><a href="formulating-statistical-hypotheses.html"><i class="fa fa-check"></i>Formulating Statistical Hypotheses</a></li>
+<li class="chapter" data-level="" data-path="proportions-shares.html"><a href="proportions-shares.html"><i class="fa fa-check"></i>Proportions: shares</a>
+<ul>
+<li class="chapter" data-level="" data-path="proportions-shares.html"><a href="proportions-shares.html#testing-proportions-in-spss"><i class="fa fa-check"></i>Testing proportions in SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="mean-and-median-level.html"><a href="mean-and-median-level.html"><i class="fa fa-check"></i>Mean and median: level</a>
+<ul>
+<li class="chapter" data-level="" data-path="mean-and-median-level.html"><a href="mean-and-median-level.html#testing-one-mean-or-median-in-spss"><i class="fa fa-check"></i>Testing one mean or median in SPSS</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="variance-disagreement.html"><a href="variance-disagreement.html"><i class="fa fa-check"></i>Variance: (dis)agreement</a>
+<ul>
+<li class="chapter" data-level="" data-path="variance-disagreement.html"><a href="variance-disagreement.html#testing-two-variances-in-spss"><i class="fa fa-check"></i>Testing two variances in SPSS</a></li>
+<li class="chapter" data-level="" data-path="variance-disagreement.html"><a href="variance-disagreement.html#answers"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html"><i class="fa fa-check"></i>Association: relations between characteristics</a>
+<ul>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html#score-level-differences"><i class="fa fa-check"></i>Score level differences</a></li>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html#comparing-means-in-spss"><i class="fa fa-check"></i>Comparing means in SPSS</a></li>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html#answers-1"><i class="fa fa-check"></i>Answers</a></li>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html#combinations-of-scores"><i class="fa fa-check"></i>Combinations of scores</a></li>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html#testing-associations-in-spss"><i class="fa fa-check"></i>Testing associations in SPSS</a></li>
+<li class="chapter" data-level="" data-path="association-relations-between-characteristics.html"><a href="association-relations-between-characteristics.html#answers-2"><i class="fa fa-check"></i>Answers</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="9.9-CohenCalculations.html"><a href="9.9-CohenCalculations.html"><i class="fa fa-check"></i><b>9.9</b> Cohen’s <em>d</em> calculatons</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="9.9-CohenCalculations.html"><a href="9.9-CohenCalculations.html#obtaining-cohens-d-with-spss"><i class="fa fa-check"></i><b>9.9.1</b> Obtaining Cohen’s <em>d</em> with SPSS</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html"><i class="fa fa-check"></i>Colophon</a>
+<ul>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html#disclaimer"><i class="fa fa-check"></i>Disclaimer</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html#acknowledgements"><i class="fa fa-check"></i>2016 Acknowledgements</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html#technical-changes"><i class="fa fa-check"></i>2023 Technical changes</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html#rewrite"><i class="fa fa-check"></i>2024 Rewrite</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html#contribute"><i class="fa fa-check"></i>Contribute</a></li>
+<li class="chapter" data-level="" data-path="colophon.html"><a href="colophon.html#license"><i class="fa fa-check"></i>License</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Statitstical Inference</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cont-moderator-regression" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> A Numerical Moderator<a href="7.1-cont-moderator-regression.html#cont-moderator-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:continuous-moderator"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-moderator/?showcase=0" width="775px" height="350px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.3: How do contact values affect the conditional effect of exposure on attitude?
+</p>
+</div>
+<p><A name="question9.1.1"></A></p>
+<p><A name="question9.1.2"></A></p>
+<p><A name="question9.1.3"></A></p>
+<p>People hanging around a lot with smokers may have a more positive attitude towards smoking than people who have little contact with smokers. If people whose company you value are smokers, you are less likely to condemn smoking. This is an overall effect of contact with smokers on attitude towards smoking.</p>
+<p>In addition, the anti-smoking campaign may be less effective for people who spend a lot of time with smokers. The attitude towards smoking may be stronger among people who spend more time with smokers, so it is more difficult to change the attitude. In this situation, contact with smokers decreases the effect of campaign exposure on attitude. The effect of exposure is moderated by contact with smokers.</p>
+<p>Our moderator, contact with smokers, is numerical. As a consequence, we can have an endless number of contact levels as groups for which the slope may change. This is the only difference with a categorical moderator. Other than that, we will analyze a numerical moderator in the same way as we analyzed a categorical moderator.</p>
+<div id="interpret-cont-interaction" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Interaction variable<a href="7.1-cont-moderator-regression.html#interpret-cont-interaction" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We need one interaction variable to include a numerical moderator in a regression model. As before, the interaction variable is the product of the predictor and the moderator. Multiply the predictor by the moderator to obtain the interaction variable.</p>
+<p>Although we have an endless number of different moderator values or “groups”, we only need one interaction variable. It represents the gradual (linear) change of the effect of the predictor for higher values of the moderator.</p>
+<span class="math display" id="eq:simplecontact">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + b_1*exposure + b_2*contact + b_3*exposure*contact \\
+  attitude = &amp;\ constant + (b_1 + b_3*contact)*exposure + b_2*contact
+\end{split}
+\tag{7.1}
+\normalsize
+\end{equation}\]</span>
+<p>To see this, it is helpful to inspect the regression equation with rearranged terms [Equation <a href="7.1-cont-moderator-regression.html#eq:simplecontact">(7.1)</a>]. Every additional contact with smokers adds <span class="math inline">\(b_3\)</span> to the slope <span class="math inline">\((b_1 + b_3*contact)\)</span> of the exposure effect. The addition is gradual—a little bit of additional contact with smokers changes the exposure effect a little bit—and it is linear: A unit increase in contact adds the same amount to the effect whether the effect is at a low or a high level.</p>
+<p>We can interpret the regression coefficient of the interaction effect (<span class="math inline">\(b_3\)</span>) here as the predicted change in the exposure effect (slope) for a one unit difference in contact (the moderator). A positive coefficient indicates that the exposure effect is more positive (or less negative) for higher levels of contact with smokers. A negative coefficient indicates that the effect is more negative (or less positive) for people with more contacts with smokers.</p>
+<p>Note that positive and negative are used here in their mathematical meaning, not in an appreciative way. A positive effect of exposure implies a more positive attitude towards smoking. Anti-smoking campaigners probably evaluate this as a negative result.</p>
+</div>
+<div id="conditional-effect-cont" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Conditional effect<a href="7.1-cont-moderator-regression.html#conditional-effect-cont" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see Section <a href="6.3-categoricalmoderator.html#conditional-effects">6.3.3</a>), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only <span class="math inline">\(b_1\)</span> is left as the effect of exposure.</p>
+<span class="math display" id="eq:conditionaleffect">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + (b_1 + b_3*contact)*exposure + b_2*contact \\
+  attitude = &amp;\ constant + (b_1 + b_3*0)*exposure + b_2*0 \\
+  attitude = &amp;\ constant + b_1*exposure
+\end{split}
+\tag{7.2}
+\normalsize
+\end{equation}\]</span>
+<p>The zero score on the moderator is the <em>reference value</em> for the conditional effect of the predictor. Cases that score zero on the moderator are the <em>reference group</em> just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (Section <a href="6.1-regression-equation.html#dichpredictor">6.1.2</a>).</p>
+</div>
+<div id="mean-centering" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">7.1.3</span> Mean-centering<a href="7.1-cont-moderator-regression.html#mean-centering" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Because the effect of a predictor involved in an interaction is a conditional effect, a zero score on the moderator has a special role. It is the reference value for the effect of the predictor. For example, the effect of exposure on attitude applies to respondents with zero contacts with smokers if the regression model includes an exposure by contact interaction. If zero on the moderator is so important as a reference value, we may want to manipulate this value to ensure that it is meaningful.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mean-centering-moderator"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-centering-moderator/?showcase=0" width="775px" height="310px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.4: What happens if you mean-center the moderator variable?
+</p>
+</div>
+<p><A name="question9.1.4"></A></p>
+<p><A name="question9.1.5"></A></p>
+<p><A name="question9.1.6"></A></p>
+<p><A name="question9.1.7"></A></p>
+<p><A name="question9.1.8"></A></p>
+<p>What if there are no people with zero contact? Then, the interpretation of the regression coefficient <span class="math inline">\(b_1\)</span> for exposure does not make sense. In this situation, it is better to mean-center the moderator (contact) before you add it to the regression equation and before you calculate the interaction variable.</p>
+<p>To <em>mean-center</em> a variable, you subtract the variable’s mean from all scores on the variable. As a result, a mean score on the original variable becomes a zero score on the mean-centered variable.</p>
+<span class="math display">\[\begin{equation*}
+\small
+  contactcentered = contact - mean(contact)
+\normalsize
+\end{equation*}\]</span>
+<p>Mean-centering shifts the values of a variable such that the mean of the new variable becomes zero (Figure <a href="7.1-cont-moderator-regression.html#fig:mean-centering-plot">7.5</a>). Below-average values on the original variable are negative on a mean-centered variable and above-average values are positive. The shape of the distribution remains the same.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mean-centering-plot"></span>
+<img src="GentleIntro_files/figure-html/mean-centering-plot-1.png" alt="Histograms of the original contacts with smokers variable and the mean-centered variable. The red lines represent the means." width="640px" />
+<p class="caption">
+Figure 7.5: Histograms of the original contacts with smokers variable and the mean-centered variable. The red lines represent the means.
+</p>
+</div>
+<p>With mean-centered numerical moderators, a conditional effect in the presence of interaction always makes sense. It is the effect of the predictor for respondents who have an average score on the moderator because they score zero on the mean-centered variable. An average score always falls within the range of scores that actually occur. If we mean-center the moderator variable contact with smokers, the regression coefficient <span class="math inline">\(b_1\)</span> for exposure expresses the effect of exposure on attitude for people with average contacts with smokers. This makes sense.</p>
+<p>Remember that the interaction variable is the product of the predictor and moderator (Section <a href="6.3-categoricalmoderator.html#interaction-variable">6.3.2</a>). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.</p>
+</div>
+<div id="symmetry-of-predictor-and-moderator" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">7.1.4</span> Symmetry of predictor and moderator<a href="7.1-cont-moderator-regression.html#symmetry-of-predictor-and-moderator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>If we want to interpret the conditional effect of contact on attitude (<span class="math inline">\(b_2\)</span>), we must realize that this is the effect for people who score zero on the exposure variable if the exposure by contact interaction is included in the regression model. This is clear if we rearrange the regression equation as in Equation <a href="7.1-cont-moderator-regression.html#eq:contactbyexposure">(7.3)</a>.</p>
+<span class="math display" id="eq:contactbyexposure">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + b_1*exposure + b_2*contact + b_3*exposure*contact \\
+  attitude = &amp;\ constant + b_1*exposure + (b_2 + b_3*exposure)*contact \\
+  attitude = &amp;\ constant + b_1*0 + (b_2 + b_3*0)*contact \\
+  attitude = &amp;\ constant + b_2*contact
+  \end{split}
+\tag{7.3}
+\normalsize
+\end{equation}\]</span>
+<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (Figure <a href="7.1-cont-moderator-regression.html#fig:moderator-symmetry">7.6</a>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:moderator-symmetry"></span>
+<img src="GentleIntro_files/figure-html/moderator-symmetry-1.png" alt="Two conceptual diagrams of moderation for the same interaction effect." width="672" />
+<p class="caption">
+Figure 7.6: Two conceptual diagrams of moderation for the same interaction effect.
+</p>
+</div>
+<p>For example, let us assume that the regression coefficient of the interaction effect of exposure and contact is 0.2. We can interpret this regression coefficient with contact as moderator and exposure as predictor: An additional unit of contact with smokers increases the effect of exposure on attitude by 0.2. But we can also interpret it with exposure as moderator and contact as predictor: An additional unit of exposure increases the effect of contact with smokers on attitude by 0.2.</p>
+<p>The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to <em>mean-center both the predictor and moderator if they are numerical</em>. In case of a dichotomous or categorical moderator (Section <a href="6.3-categoricalmoderator.html#categoricalmoderator">6.3</a>), the predictor can also be mean-centered.</p>
+</div>
+<div id="visualization-of-the-interaction-effect" class="section level3 hasAnchor" number="7.1.5">
+<h3><span class="header-section-number">7.1.5</span> Visualization of the interaction effect<a href="7.1-cont-moderator-regression.html#visualization-of-the-interaction-effect" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It can be quite tricky to interpret regression coefficients in a regression model that contains interaction effects. The safest strategy is to draw regression lines for different values of the moderator. But what are interesting values if the moderator is numerical?</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:continuous-interaction-visualization"></span>
+<iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-interaction-visualization/?showcase=0" width="775px" height="308px" data-external="1">
+</iframe>
+<p class="caption">
+Figure 7.7: Which moderator values are helpful for visualizing moderation?
+</p>
+</div>
+<p><A name="question9.1.9"></A></p>
+<p>As we have seen in Section <a href="7.1-cont-moderator-regression.html#interpret-cont-interaction">7.1.1</a>, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.</p>
+<p>The size of the interaction effect tells us the moderation trend, for instance, people who are more around smokers tend to be less opposed to smoking if they are exposed to the anti-smoking campaign. But we do not know how much an anti-smoking attitude is fostered by exposure to a campaign and whether exposure to the campaign increases anti-smoking attitude for everyone. Perhaps, people hanging out with smokers a lot may even get a more positive attitude towards smoking from campaign exposure.</p>
+<p>We can be more specific about exposure effects at different levels of contact with smokers if we pick some interesting values of the moderator and calculate the conditional effects at these levels.</p>
+<p>The minimum or maximum values of the moderator are usually not very interesting. We tend to have few observations for these values, so our confidence in the estimated effect at that level is low. Instead, the values one standard deviation below and above the mean of the moderator are popular values to be picked. One standard deviation below the mean (M - SD) indicates a low value, the mean (M) indicates a central value, and one standard deviation above the mean (M + SD) indicates a high value.</p>
+</div>
+<div id="statistical-inference-on-conditional-effects" class="section level3 hasAnchor" number="7.1.6">
+<h3><span class="header-section-number">7.1.6</span> Statistical inference on conditional effects<a href="7.1-cont-moderator-regression.html#statistical-inference-on-conditional-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:cont-moderator-output">Table 7.1: </span>Predicting attitude towards smoking: regression analysis results with exposure and contact mean-centered.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+Beta
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Constant)
+</td>
+<td style="text-align:right;">
+0.169
+</td>
+<td style="text-align:right;">
+0.204
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+0.825
+</td>
+<td style="text-align:right;">
+0.412
+</td>
+<td style="text-align:right;">
+-0.238
+</td>
+<td style="text-align:right;">
+0.575
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure (mean-centered)
+</td>
+<td style="text-align:right;">
+-0.174
+</td>
+<td style="text-align:right;">
+0.063
+</td>
+<td style="text-align:right;">
+-0.308
+</td>
+<td style="text-align:right;">
+-2.740
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+-0.300
+</td>
+<td style="text-align:right;">
+-0.048
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Contact (mean-centered)
+</td>
+<td style="text-align:right;">
+0.159
+</td>
+<td style="text-align:right;">
+0.094
+</td>
+<td style="text-align:right;">
+0.188
+</td>
+<td style="text-align:right;">
+1.685
+</td>
+<td style="text-align:right;">
+0.096
+</td>
+<td style="text-align:right;">
+-0.029
+</td>
+<td style="text-align:right;">
+0.347
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Status (smoker)
+</td>
+<td style="text-align:right;">
+0.533
+</td>
+<td style="text-align:right;">
+0.405
+</td>
+<td style="text-align:right;">
+0.131
+</td>
+<td style="text-align:right;">
+1.318
+</td>
+<td style="text-align:right;">
+0.191
+</td>
+<td style="text-align:right;">
+-0.272
+</td>
+<td style="text-align:right;">
+1.338
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Exposure*Contact (mean-centered)
+</td>
+<td style="text-align:right;">
+0.018
+</td>
+<td style="text-align:right;">
+0.034
+</td>
+<td style="text-align:right;">
+0.063
+</td>
+<td style="text-align:right;">
+0.533
+</td>
+<td style="text-align:right;">
+0.595
+</td>
+<td style="text-align:right;">
+-0.049
+</td>
+<td style="text-align:right;">
+0.085
+</td>
+</tr>
+</tbody>
+</table>
+<p>The regression model yields a <em>p</em> value and confidence interval for the predictor at the reference value of the moderator. In the model estimated in Table <a href="7.1-cont-moderator-regression.html#tab:cont-moderator-output">7.1</a>, for instance, we obtain a <em>p</em> value of 0.008 and a 95% confidence interval of [-0.30, -0.05] for the effect of exposure on attitude. This is the conditional effect of exposure on attitude for cases that score zero on the moderator variable (contact with smokers).</p>
+<p>If the moderator variable <em>contact</em> is mean-centered, the <em>p</em> value tests the null hypothesis that the effect of exposure is zero for people who have average contact with smokers. The confidence interval tells us that the effect of exposure on attitude for people with average contacts with smokers in the population ranges between -0.30 and -0.05 with 95% confidence. If the moderator is not mean-centered, the results apply to people who have no contact with smokers.</p>
+<p>Note that mean-centering of the moderator changes, so to speak, the regression line that we test. Instead of testing the effect of exposure for people with no smoker contact, we test the effect for people with average contact with smokers if the moderator is mean-centered. If we would like to get the <em>p</em> value or confidence interval for the regression line at one standard deviation above (or below) the mean, we have to center the moderator at that value before we estimate the regression model. In this course, however, we will not do so.</p>
+</div>
+<div id="common-support" class="section level3 hasAnchor" number="7.1.7">
+<h3><span class="header-section-number">7.1.7</span> Common support<a href="7.1-cont-moderator-regression.html#common-support" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In Section <a href="6.3-categoricalmoderator.html#commonsupportdichotomous">6.3.6</a>, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.</p>
+<p>With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. <span class="citation">(<a href="references.html#ref-RefWorks:3838">2016</a>)</span> recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects. Create a histogram for the predictor in each of these groups to check common support of moderation in the data, as explained in micro lecture <a href="6.4-catmodSPSS.html#fig:SPSSregSupport1">6.26</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cont-moderator-support"></span>
+<img src="GentleIntro_files/figure-html/cont-moderator-support-1.png" alt="Common support of the predictor variable (exposure) at three levels of the moderator variable (contact)." width="640px" />
+<p class="caption">
+Figure 7.8: Common support of the predictor variable (exposure) at three levels of the moderator variable (contact).
+</p>
+</div>
+<p>According to Figure <a href="7.1-cont-moderator-regression.html#fig:cont-moderator-support">7.8</a>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
+</div>
+<div id="assumptions" class="section level3 hasAnchor" number="7.1.8">
+<h3><span class="header-section-number">7.1.8</span> Assumptions<a href="7.1-cont-moderator-regression.html#assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The general assumptions for regression analysis (Section <a href="6.1-regression-equation.html#regr-inference">6.1.4</a>) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.</p>
+<p>Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in Figure <a href="7.1-cont-moderator-regression.html#fig:continuous-moderator">7.3</a> at the beginning of this section on numerical moderators.</p>
+<p>It is difficult to check this assumption, so let us not pursue this here. Just remember that the interaction effect is assumed to be linear: a gradually increasing or decreasing effect of the predictor at higher moderator values.</p>
+</div>
+<div id="higher-order-interaction-effects" class="section level3 hasAnchor" number="7.1.9">
+<h3><span class="header-section-number">7.1.9</span> Higher-order interaction effects<a href="7.1-cont-moderator-regression.html#higher-order-interaction-effects" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>An interaction effect with one moderator, whether numerical or categorical, is called <em>first-order interaction</em> or <em>two-way interaction</em>. It is possible to have a moderated effect that is moderated itself by a second moderator. For example, the change in the exposure effect due to a person’s contact with smokers may be different for smokers than for non-smokers. This is called a <em>second-order interaction</em> or <em>three-way interaction</em>. We can include more moderators, yielding even higher-order interactions, such as three or four moderators.</p>
+<p>An interaction variable that is the product of the predictor and two moderators can be used to include a second-order interaction in a regression model. If you include a second-order interaction, you must also include the effects of the variables involved in the interaction as well as all first-order interactions among these variables in the regression model. All in all, these models become very complicated to interpret and they are beyond the scope of the current course.</p>
+<p><A name="answer9.1.1"></A></p>
+<p><A name="answer9.1.2"></A></p>
+<p><A name="answer9.1.3"></A></p>
+<p><A name="answer9.1.4"></A></p>
+<p><A name="answer9.1.5"></A></p>
+<p><A name="answer9.1.6"></A></p>
+<p><A name="answer9.1.7"></A></p>
+<p><A name="answer9.1.8"></A></p>
+<p><A name="answer9.1.9"></A></p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="7-moderationcont.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="7.2-reportmoderation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

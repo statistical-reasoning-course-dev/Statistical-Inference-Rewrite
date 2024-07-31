@@ -44,13 +44,22 @@ knitr::opts_chunk$set(echo=TRUE, warning=FALSE, message=FALSE, eval=TRUE, tidy=T
 options(knitr.table.format = "latex")
 # Don't show NAs in kable tables.
 options(knitr.kable.NA = "")
-# Libraries used.
+
+# Extra package to solve kable package update
+# devtools::install_github("kupietz/kableExtra")
+# install.packages("remotes")
+# library(remotes)
+# install.packages("knitr", "1.47") # The kableExtra package is not compatible with the latest version of the knitr package.
+
+# Libraries used. 
 library(tidyverse)
 library(knitr)
 library(kableExtra)
 library(visNetwork)
 library(bookdown)
 library(haven)
+
+
 # Basic colors and layout.
 source("apps/plottheme/styling.R")
 
@@ -66,7 +75,7 @@ ch7  <- FALSE; Qch7  = FALSE;
 ch8  <- FALSE; Qch8  = FALSE;
 ch9  <- FALSE; Qch9  = FALSE;
 ch10 <- FALSE; Qch10 = FALSE;
-ch11 <- FALSE; Qch11 = FALSE;
+ch11 <- FALSE; Qch11 = FALSE
 ```
 
 
@@ -457,21 +466,4 @@ This book is meant for use in a flipped-classroom setting. Students should read 
 
 ### Interactive Content {-}
 
-The interactive content in this book replaces simulations that used to be demonstrated during lectures. I expect that doing simulations yourself rather than watching them being done by someone else enhances understanding. I have tried to break down the simulations into smaller steps, confronting the student several times with essentially the same simulation, but with added complexity. I hope that this approach enhances understanding and remembrance and, at the same time, avoids frustration caused by complex dashboards offering all options at once. 
-
-### Disclaimer {-}
-
-The example data sets have been generated for the purpose of demonstrating statistical techniques. These are not real data and no conclusions should be drawn from the results obtained from the data.
-
-### Acknowledgements {-}
-
-Original author: Wouter de Nooy
-
-[Adam Sasiadek](https://www.linkedin.com/in/adam-sasiadek/) developed the more complicated Shiny apps in this book. The College of Communication at the University of Amsterdam generously supported the creation of the apps whereas this university's Grassroots Project for ICT in education refused to support it. [Renske van Bronswijk](https://www.linkedin.com/in/rvanbronswijk/) corrected my English. Any remaining errors result from changes and additions that I applied afterwards. My colleague Peter Neijens commented on a draft of this text. Among the first tutors using this book, Chei Billedo, Marcel van Egmond, Matthijs Elenbaas, Andreas Goldberg, Bregje van Groningen, Luzia Helfer, Rhianne Hoek, Laura Jacobs, Jeroen Jonkman, Fam te Poel, Sanne Schinkel, Christin Scholz, Ragnheiður Torfadóttir, Philipp Mendoza, and she whose name I am not allowed to mention offered many suggestions that improved the text substantially. Among the students who helped to improve the book, Alissa Hilbertz stands out for her careful language corrections and suggestions.
-
-This book is a modification of the original work by Wouter de Nooy. His publication, licensed under CC-SA 4.0 and hosted from [his github repository](https://github.com/WdeNooy/Statistical-Inference), forms the basis for this publication. Some technical changes have been made to the book. Hosting is now managed through [GitHub pages](https://pages.github.com) and the source material is maintained from [this repository](https://github.com/ShKlinkenberg/Statistical-Inference). The Shiny apps are now available through [Shinyapps.io](https://www.shinyapps.io) and maintained at a separate [GitHub repository](https://github.com/ShKlinkenberg/statistics-shiny-apps).
-
-This version of the book is hosted by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). Modifications are collaboratively done by assigned teacher from the statistical modelling course of the College of Communication Science at the University of Amsterdam.
-
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-
+The interactive content in this book replaces simulations that used to be demonstrated during lectures. I expect that doing simulations yourself rather than watching them being done by someone else enhances understanding. I have tried to break down the simulations into smaller steps, confronting the student several times with essentially the same simulation, but with added complexity. I hope that this approach enhances understanding and remembrance and, at the same time, avoids frustration caused by complex dashboards offering all options at once.

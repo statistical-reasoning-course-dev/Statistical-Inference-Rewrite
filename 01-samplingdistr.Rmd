@@ -32,7 +32,7 @@ Collecting data, however, is expensive, so we would like to collect as little da
 
 _Inferential statistics_ offers techniques for making statements about a larger set of observations from data collected for a smaller set of observations. The large set of observations about which we want to make a statement is called the _population_. The smaller set is called a _sample_. We want to _generalize_ a statement about the sample to a statement about the population from which the sample was drawn.  
 
-Traditionally, statistical inference is generalization from the data collected in a _random sample_ to the population from which the sample was drawn. This approach is the focus of the present book because it is currently the most widely used type of statistical inference in the social sciences. We will, however, point out other approaches in Chapter \@ref(crit-discus).  
+Traditionally, statistical inference is generalization from the data collected in a _random sample_ to the population from which the sample was drawn. This approach is the focus of the present book because it is currently the most widely used type of statistical inference in the social sciences. We will, however, point out other approaches in Chapter \@ref(hypothesis).  
 
 Statistical inference is conceptually complicated and for that reason quite often used incorrectly. We will therefore spend quite some time on the principles of statistical inference. Good understanding of the principles should help you to recognize and avoid incorrect use of statistical inference. In addition, it should help you to understand the controversies surrounding statistical inference and developments in the practice of applying statistical inference that are taking place. Investing time and energy in fully understanding the principles of statistical inference really pays off later.  
 
@@ -40,7 +40,8 @@ Statistical inference is conceptually complicated and for that reason quite ofte
 
 An obvious but key insight in statistical inference is this: If we draw random samples from the same population, we are likely to obtain different samples. No two random samples from the same population need to be identical, even though they can be identical. 
 
-### Sample statistic  
+### Sample statistic {#samplestatistic}
+
 We are usually interested in a particular characteristic of the sample rather than in the exact nature of each observation within the sample. For instance, I happen to be very fond of yellow candies. If I buy a bag of candies, my first impulse is to tear the bag open and count the number of yellow candies. Am I lucky today? Does my bag contain a lot of yellow candies?
 
 ```{r random-variable, fig.pos='H', fig.align='center', fig.cap="How many yellow candies will our sample bag contain?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}

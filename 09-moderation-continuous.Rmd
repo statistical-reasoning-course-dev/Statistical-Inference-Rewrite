@@ -24,7 +24,7 @@ The interpretation of an interaction effect is different if the moderator is num
 
 This interpretation is quite abstract and not easy to understand. It is better to visualize the regression lines for different values of the moderator. We usually draw regression lines for three interesting moderator values. The mean value of the moderator shows us the effect at a medium level of the moderator. One standard deviation below or above the mean of the moderator represent attractive low and high moderator values.
 
-Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect for one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.
+Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.
 
 #### Essential Analytics {.unnumbered}
 
@@ -304,122 +304,6 @@ We can be more specific about exposure effects at different levels of contact wi
 
 The minimum or maximum values of the moderator are usually not very interesting. We tend to have few observations for these values, so our confidence in the estimated effect at that level is low. Instead, the values one standard deviation below and above the mean of the moderator are popular values to be picked. One standard deviation below the mean (M - SD) indicates a low value, the mean (M) indicates a central value, and one standard deviation above the mean (M + SD) indicates a high value.
 
-Having picked these values, we can visualize moderation as different regression lines in a plot. We use exactly the same approach as in visualizing moderation by a categorical variable. As a first step, we construct equations for conditional effects of the predictor at different levels of the moderator. Plug the selected value of the moderator into the regression equation. If there are covariates, also plug in a meaningful value for the covariates, usually the average for numerical covariates and zero or one for dichotomous covariates. As a second step, we use the equations to add regression lines to a scatter plot.
-
-```{r num-moderator-cov-output, echo=FALSE, message=FALSE, warning=FALSE}
-# Table of regression coefficients for exposure moderated by contact. Similar to SPSS output (with correct standardized coefficients).
-# Create data frame with fake regression coefficients.
-results <- data.frame(B = c(3.601, -0.104, 0.108, 0.110, 0.033),
-                      `Std. Error` = c(0.623, 0.035, 0.075, 0.023, 0.011),
-                      Beta = c(NA, -0.097, 0.052, 0.131, 0.043),
-                      row.names = c("(Constant)", "Exposure", "Smoker (0 = no, 1 = yes)", "Contact (mean-centered)",
-                                     "Exposure*Contact (m-c)"),
-                      check.names = FALSE
-                      ) %>% 
-  #add t value, p value, 95%CI
-  mutate(
-    t = round(B / `Std. Error`, digits = 3),
-    `Sig.` = round(dt(t, 100), digits = 3),
-    `Lower Bound` = round(B - 1.984 * `Std. Error`, digits = 3),
-    `Upper Bound` = round(B + 1.984 * `Std. Error`, digits = 3)
-  ) %>%
-  #reorder columns
-  select(B, `Std. Error`, Beta, t, `Sig.`, `Lower Bound`, `Upper Bound`)
-# Table.
-options(knitr.kable.NA = '')
-knitr::kable(results, digits = 3, booktabs = TRUE,
-             caption = "Predicting attitude towards smoking: regression analysis results with the exposure effect moderated by contacts with smokers and smoking status as covariate.",
-             col.names = c("B", "Std. Error", "Beta", "t", "Sig.", "Lower Bound", "Upper Bound")) %>%
-  kable_styling(font_size = 12, full_width = F,
-                latex_options = c("scale_down", "HOLD_position")) %>%
-  column_spec(1, color = "white",
-              background = c("#FDAE61", "#2B83BA", "#ABDDA4", "#D7191C", "brown")) %>%
-  column_spec(2, color = c("#FDAE61", "#2B83BA", "#ABDDA4", "#D7191C", "brown"))
-# Helper function for displaying results within the text.
-# source("report_n.R") # !!!! uncomment
-```
-If contact (the moderator) is mean-centered, as in the current example, we simply plug in zero for the moderator to obtain the equation for the regression line at the mean of the moderator (contact with smokers). We also have to plug in a value for each covariate. This example contains one covariate, namely smoking status (variable *smoker*). We plug in the score for non-smokers (0). In the end, our predictor (exposure) should be the only variable in the right hand side of the regression equation [the last line in Equation \@ref(eq:regsimpleslopemoderated)].
-  
-```{=tex}
-\begin{equation}
-\small
-\begin{split}
-  attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`*smoker} + \color{#D7191C}{`r report_n(results[4,1], 3)`*contact} \\
-  &\ + \color{brown}{`r report_n(results[5,1], 3)`*contact*exposure} \\
-  attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`*0} + \color{#D7191C}{`r report_n(results[4,1], 3)`* 0} + \color{brown}{`r report_n(results[5,1], 3)`*0*exposure} \\
-  attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{0} + \color{#D7191C}{0} + \color{brown}{0} \\
-    attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} 
-\end{split}
-(\#eq:regsimpleslopemoderated) 
-\normalsize
-\end{equation}
-```
-
-We plug in the value of the standard deviation of contact with smokers to get the regression equation for people who scored one standard deviation above the mean on the mean-centered moderator. The standard deviation of contact is 2.0 in this example, so Equation \@ref(eq:regsimpleslopemoderated2) replaces contact by 2.0 everywhere. 
-
-```{=tex}
-\begin{equation}
-\small
-\begin{split}
-  attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`*smoker} + \color{#D7191C}{`r report_n(results[4,1], 3)`*contact} \\
-  &\ + \color{brown}{`r report_n(results[5,1], 3)`*contact*exposure} \\
-  attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`*0} + \color{#D7191C}{`r report_n(results[4,1], 3)`* 2.0} + \color{brown}{`r report_n(results[5,1], 3)`*2.0*exposure} \\
-  attitude &= \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{0} + \color{#D7191C}{`r report_n(results[4,1]* 2.0, 3)`} + \color{brown}{`r report_n(results[5,1]*2.0, 3)`*exposure} \\
-  attitude &= (\color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#ABDDA4}{0} + \color{#D7191C}{`r report_n(results[4,1]* 2.0, 3)`}) + (\color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{brown}{`r report_n(results[5,1]*2.0, 3)`*exposure}) \\
-    attitude &= `r report_n(results[1,1] + (results[4,1]* 2.0), 3)` + `r report_n(results[2,1] + (results[5,1]*2.0), 3)`*exposure 
-\end{split}
-(\#eq:regsimpleslopemoderated2) 
-\normalsize
-\end{equation}
-```
-
-We plug in minus the value of one standard deviation if we want the regression line for the moderator at the mean minus one standard deviation. Do this yourself, as an exercise. Now, we can draw the regression lines in a scatterplot as we have learned in the preceding chapter (Instruction video \@ref(fig:SPSSregmodlines)).
-
-Instead of writing out the full equations, add columns (Table \@ref(tab:cont-moderator-results)) to the regression coefficients table for each simple regression line that you want to draw:
-
-1.  Add a column indicating which value you plug in for the moderator variable(s) and any covariates. In this example, *contact* is the moderator variable, which appears both by itself and as part of the interaction variable. The variable *smoker* is a covariate here; we select the non-smokers (coded 0).
-
-2.  Add a column to calculate the constant. Use all variables that do *not* include the predictor. For each of these variables, multiply the regression coefficient by the plug-in value (if any). Sum the results to obtain the constant.
-
-3.  Add a column to calculate the simple slope. Only use the variables that include the predictor, which is *exposure* in this example. For each of these variables, multiply the regression coefficient by the plug-in value (if any). Sum the results to obtain the simple slope.
-
-```{r cont-moderator-results, echo=FALSE, message=FALSE, warning=FALSE}
-# Table of regression coefficients for exposure moderated by contact.
-# Additional columns for calculating the intercept and simpe slope of exposure for non-smokers.
-# Create data frame with fake unstandardizd regression coefficients.
-results <- data.frame(B = c("3.60", "-0.10", "0.10", "0.10", "0.03", ""),
-                      #average contact for a non-smoker
-                      Plugin0 = c("", "", "Smoker = 0", "Mean contact(mc) = 0", "Mean contact(mc) = 0", ""),
-                      Slope0 = c("", "-0.10", "", "", "0.03 * 0", paste0("-0.10", 
-                                footnote_marker_alphabet(1))),
-                      Constant0 = c("3.60", "", "0.10 * 0", "0.10 * 0", "", paste0("3.60", 
-                                footnote_marker_alphabet(1))),
-                      #1SD above average contacts for a non-smoker
-                      Plugin1 = c("", "", "Smoker = 0", "SD contact = 2.00", "SD contact = 2.00", ""),
-                      Slope1 = c("", "-0.10", "", "", "0.03 * 2.00", paste0("-0.04", 
-                                footnote_marker_alphabet(2))),
-                      Constant1 = c("3.60", "", "0.10 * 0", "0.10 * 2.00", "", paste0("3.80", 
-                                footnote_marker_alphabet(2))),
-                      row.names = c("(Constant)", "Exposure", "Smoker", "Contact",
-                                     "Exposure*Contact", "Result (sum)"),
-                      check.names = FALSE)
-# Table.
-options(knitr.kable.NA = '')
-results %>% select(B, Plugin0, Constant0, Slope0, Plugin1, Constant1, Slope1) %>%
-  knitr::kable(digits = 3, booktabs = TRUE,
-             caption = "Calculation of the constant and simple slope at average contact and one standard deviation above average contact for non-smokers. The variable contact is mean-centered.",
-             col.names = c("B", rep(c("1. Plugin", "2. Constant", "3. Slope"), 2)),
-             align = "rlrrlrr",
-             escape = F) %>%
-  kable_styling(font_size = 12, full_width = F,
-                latex_options = c("scale_down", "HOLD_position")) %>%
-  add_header_above(c(" " = 2, "Average contact" = 3, "Average + 1 SD contact" = 3)) %>%
-  footnote(alphabet = c(paste0("Equation for average contact: y = ", report_n(as.numeric(results$B[1]) + as.numeric(results$B[3])*0 + as.numeric(results$B[4])*0), "+ ", report_n(as.numeric(results$B[2]) + as.numeric(results$B[5])*0), " * Exposure"), paste0("Equation for 1 SD above average contact: y = ", report_n(as.numeric(results$B[1]) + as.numeric(results$B[3])*0 + as.numeric(results$B[4])*2), "+ ", report_n(as.numeric(results$B[2]) + as.numeric(results$B[5])*2), " * Exposure")))
-```
-
-The footnotes to Table \@ref(tab:cont-moderator-results) show the resulting simple regression equations. You can interpret the slopes, which are unstandardized regression coefficients ($b$), or use the equations to draw regression lines.
-
-If the moderator is not mean-centered, we have to plug in the value of the mean of the moderator and the value of the mean plus or minus the standard deviation of the moderator. Let us assume that the mean score of contact with smokers is 5.1 in this example. The moderator mean minus one standard deviation (2.0) equals 3.1 and the mean plus one standard deviation is 7.1.
 
 ### Statistical inference on conditional effects
 

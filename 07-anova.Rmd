@@ -14,7 +14,7 @@ knitr::include_url("https://www.youtube.com/embed/klV2FFgH9OU", height = "360px"
 How do we test mean differences for three or more groups and what if group effects are not the same for all participants?
 ```
 
-Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity's fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for females, another for males?
+Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity's fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for a specific gender? This study only compares the genders 'male' and 'female'.
 
 In this example, we want to compare the outcome scores (average willingness to donate) across more than two groups (participants who saw Clooney, Jolie, or no celebrity). To this end, we use analysis of variance. The null hypothesis tested in analysis of variance states that all groups have the same average outcome score in the population.
 
@@ -28,28 +28,6 @@ With two or more factors, we can have interaction effects in addition to main ef
 
 The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., sex) changes the effect of the predictor (e.g., celebrity endorser) on the dependent variable (e.g., willingness to donate).
 
-#### Essential Analytics {.unnumbered}
-
-In SPSS, we use the *One-Way ANOVA* option in the *Compare Means* submenu for one-way analysis of variance and the *Univariate* option in the *General Linear Model* submenu for two-way analysis of variance.
-
-```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center', fig.cap="SPSS table of main and interaction effects in a two-way analysis of variance."}
-knitr::include_graphics("figures/S7_AE1.png")
-```
-
-The significance tests on the main effects and interaction effect are reported in the **Tests of Between-Subjects Effects** table. Figure \@ref(fig:ANOVAtable) offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta^2^ by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
-
-Interpret the effects by comparing mean scores on the dependent variable among groups:
-
-1. If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The _F_ test shows whether or not the difference between the two groups is statistically significant.
-
-2. If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.
-
-3. If you want to interpret an interaction effect, create means plots such as Figure \@ref(fig:ANOVAplots). Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).
-
-```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation."}
-knitr::include_graphics("figures/S7_AE2.png")
-```
-
 ## Different Means for Three or More Groups
 
 Celebrity endorsement theory states that celebrities who publicly state that they favour a product, candidate, or cause, help to persuade consumers to adopt or support the product, candidate, or cause [for a review, see @RefWorks:3940; for an alternative approach, see @RefWorks:3941].
@@ -61,7 +39,7 @@ Imagine that we want to test if the celebrity who endorses a fund raiser in a fu
 knitr::include_graphics("figures/ClooneyJolie.png")
 ```
 
-Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group---the control group---sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.
+Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group (*the control group*) sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.
 
 Our dependent variable is a numeric scale assessing the participant's willingness to donate to the fund raiser on a scale from 1 ("absolutely certain that I will not donate") to 10 ("absolutely certain that I will donate"). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.
 
@@ -355,7 +333,7 @@ If the *F* test is statistically significant, we proceed to the second step. Her
 
 It may happen that the *F* test on the model is statistically significant but none of the post-hoc tests is statistically significant. This mainly happens when the *p* value of the *F* test is near .05. Perhaps the correction for capitalization on chance is too strong; this is known to be the case with the Bonferroni correction. Alternatively, the sample can be too small for the post-hoc test. Note that we have fewer observations in a post-hoc test than in the *F* test because we only look at two of the groups.
 
-This situation illustrates the limitations of null hypothesis significance tests (Chapter \@ref(crit-discus)). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the *F* and *t* tests have contradictory results.
+This situation illustrates the limitations of null hypothesis significance tests (Chapter \@ref(critical-discussion)). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the *F* and *t* tests have contradictory results.
 
 A statistically significant *F* test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc *t* tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.
 
@@ -499,6 +477,26 @@ Answer to Question 10.
 ## One-Way Analysis of Variance in SPSS {#onewaySPSS}
 
 ### Instructions
+
+In SPSS, we use the *One-Way ANOVA* option in the *Compare Means* submenu for one-way analysis of variance and the *Univariate* option in the *General Linear Model* submenu for two-way analysis of variance.
+
+```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center', fig.cap="SPSS table of main and interaction effects in a two-way analysis of variance."}
+knitr::include_graphics("figures/S7_AE1.png")
+```
+
+The significance tests on the main effects and interaction effect are reported in the **Tests of Between-Subjects Effects** table. Figure \@ref(fig:ANOVAtable) offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta^2^ by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
+
+Interpret the effects by comparing mean scores on the dependent variable among groups:
+
+1. If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The _F_ test shows whether or not the difference between the two groups is statistically significant.
+
+2. If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.
+
+3. If you want to interpret an interaction effect, create means plots such as Figure \@ref(fig:ANOVAplots). Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).
+
+```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation."}
+knitr::include_graphics("figures/S7_AE2.png")
+```
 
 ```{r SPSS1way, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:1waySPSS)", dev="png", screenshot.opts = list(delay = 5)}
 knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px")
