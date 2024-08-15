@@ -26,28 +26,6 @@ This interpretation is quite abstract and not easy to understand. It is better t
 
 Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.
 
-#### Essential Analytics {.unnumbered}
-
-As in Chapter \@ref(moderationcat), we calculate an interaction variable as the product of the predictor and moderator (the *Compute Variable* option in the *Transform* menu) and we use it as one of the independent variables in a linear regression model (the *Linear* option in the *Regression* submenu).
-
-The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure \@ref(fig:meancentertable), red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
-
-```{r meancentertable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right)."}
-knitr::include_graphics("figures/S9_AE1.png")
-```
-
-It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
-
-The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (Figure \@ref(fig:meancentertable), green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
-
-The regression coefficient of the interaction effect (Figure \@ref(fig:meancentertable), blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
-
-Communicate the results of a numerical moderator in a scatterplot (*Scatter/Dot* in the *Legacy Dialogs* submenu of the *Graphs* menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (Figure \@ref(fig:nummoderatorplot)). Get the mean and standard deviation of the moderator variable with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics* and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the *Reference Line from Equation* option in the *Options* menu of the  *Chart Editor*.
-
-```{r nummoderatorplot, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers."}
-knitr::include_graphics("figures/S9_AE2.png")
-```
-
 ## A Numerical Moderator {#cont-moderator-regression}
 
 With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?
@@ -747,6 +725,28 @@ Do not report that common support of the predictor at different moderator values
 Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.
 
 ## A Numerical Moderator in SPSS {#RegressionContModSPSS}
+
+#### Essential Analytics {.unnumbered}
+
+As in Chapter \@ref(moderationcat), we calculate an interaction variable as the product of the predictor and moderator (the *Compute Variable* option in the *Transform* menu) and we use it as one of the independent variables in a linear regression model (the *Linear* option in the *Regression* submenu).
+
+The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure \@ref(fig:meancentertable), red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
+
+```{r meancentertable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right)."}
+knitr::include_graphics("figures/S9_AE1.png")
+```
+
+It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
+
+The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (Figure \@ref(fig:meancentertable), green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
+
+The regression coefficient of the interaction effect (Figure \@ref(fig:meancentertable), blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
+
+Communicate the results of a numerical moderator in a scatterplot (*Scatter/Dot* in the *Legacy Dialogs* submenu of the *Graphs* menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (Figure \@ref(fig:nummoderatorplot)). Get the mean and standard deviation of the moderator variable with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics* and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the *Reference Line from Equation* option in the *Options* menu of the  *Chart Editor*.
+
+```{r nummoderatorplot, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers."}
+knitr::include_graphics("figures/S9_AE2.png")
+```
 
 ### Instructions
 
