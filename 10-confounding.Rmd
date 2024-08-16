@@ -19,16 +19,6 @@ Because the effects of predictors are adjusted for the effects of other predicto
 
 Indirect correlations play a central role here: the correlation between a predictor (age) and the dependent variable (newspaper reading time) due to a third variable (news site use) that is correlated both with the predictor and the dependent variable. The size of the indirect correlation is the product of the correlation between the predictor (age) and third variable (news site use) and the correlation between the third variable (news site use) and the dependent variable (newspaper reading time).
 
-#### Essential Analytics {.unnumbered}
-
-We can detect confounders by adding each independent variable as a separate *Block* in a linear regression model (the *Linear* option in the *Regression* submenu). The SPSS output estimates a regression model for each block (Figure \@ref(fig:confounderstable)).
-
-```{r confounderstable, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one."}
-knitr::include_graphics("figures/S10_AE1.png")
-```
-
-In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (Figure \@ref(fig:confounderstable), red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (Figure \@ref(fig:confounderstable), green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (Figure \@ref(fig:confounderstable), blue box); news site use suppressed the effect of interest in politics in the second model.
-
 ## Controlling for Effects of Other Predictors {#controlling}
 
 In a regression model, we use the variation in scores on independent variables to predict the variation of scores on the dependent variable: Does a person with a higher score on an independent variable also have a higher score or, on the contrary, a lower score on the dependent variable? A simple regression model contains only one independent variable but a multiple regression model includes more than one.
@@ -354,6 +344,16 @@ Answer to Question 2.
 ```
   
 ## Comparing Regression Models in SPSS {#compmodelSSPSS}
+
+#### Essential Analytics {.unnumbered}
+
+We can detect confounders by adding each independent variable as a separate *Block* in a linear regression model (the *Linear* option in the *Regression* submenu). The SPSS output estimates a regression model for each block (Figure \@ref(fig:confounderstable)).
+
+```{r confounderstable, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one."}
+knitr::include_graphics("figures/S10_AE1.png")
+```
+
+In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (Figure \@ref(fig:confounderstable), red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (Figure \@ref(fig:confounderstable), green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (Figure \@ref(fig:confounderstable), blue box); news site use suppressed the effect of interest in politics in the second model.
 
 ###  Instructions
 
