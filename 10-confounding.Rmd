@@ -57,6 +57,12 @@ If we include a confounder as a new independent variable in the model, the parti
 
 If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in Chapter \@ref(mediation) (Section \@ref(causalcriteria)).
 
+#### Confounders are not included in the regression model
+
+Finally, it is important to remember that a confounder, such as age in the present example, is a variable that is __not included in our regression model__. As long as it is not included, the indirect correlation between predictor (political interest) and outcome (newspaper reading time) due to the confounder (age) is not controlled for when the effect of the predictor is estimated. The estimated effect is confused (confounded) with the effect of the confounder.
+
+Once the confounder (age) is added to the regression model, however, the estimated effects are controlling for the variable formerly known as a confounder. The effects no longer partly represent the effect of the former confounder. In other words, they are no longer confounded by the effect of that variable. The former confounding variable now is a predictor or, if we are not interested in its effects, a _covariate_ or _control variable_ in the regression model.
+
 ```{html, echo=ch10}
 ### Answers {-}
 ```
@@ -123,12 +129,6 @@ Once we add age as a new predictor to the regression model, the indirect correla
 The size of the change is related to the size of the indirect correlation. The larger the indirect correlation, the more the regression coefficient of political interest changes if age (the former confounder) is included as a new predictor. This answers the second part of the question with which we started Section \@ref(indirectcorrelation): When is a variable a stronger confounder?
 
 If you love the details: The size of the change in the standardized regression coefficient is not exactly the same as the size of the indirect correlation. It is equal to the correlation between the confounder (age) and the predictor (political interest) times the standardized regression coefficient of the effect of the confounder (age) on the dependent variable (newspaper reading time) that controls for the effect of the predictor (political interest). 
-
-### Confounders are not included in the regression model
-
-Finally, it is important to remember that a confounder, such as age in the present example, is a variable that is __not included in our regression model__. As long as it is not included, the indirect correlation between predictor (political interest) and outcome (newspaper reading time) due to the confounder (age) is not controlled for when the effect of the predictor is estimated. The estimated effect is confused (confounded) with the effect of the confounder.
-
-Once the confounder (age) is added to the regression model, however, the estimated effects are controlling for the variable formerly known as a confounder. The effects no longer partly represent the effect of the former confounder. In other words, they are no longer confounded by the effect of that variable. The former confounding variable now is a predictor or, if we are not interested in its effects, a _covariate_ or _control variable_ in the regression model.
 
 ### Randomization for avoiding confounders {#randomization}
 
