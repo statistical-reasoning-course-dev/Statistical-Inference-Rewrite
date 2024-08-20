@@ -615,7 +615,7 @@ Note that eta^2^ must be calculated by hand in SPSS version 26 or older: Divide 
 
 ## Different Means for Two Factors
 
-The participants in the experiment do not only differ because they see different endorsers in the charity video. In addition, there are differences according to sex: female versus male participants. Does participant's sex matter to the effect of the endorser on willingness to donate?
+The participants in the experiment do not only differ because they see different endorsers in the charity video. In addition, there can be personal characteristics that could cause differences. In this experiment, the researchers will look into sex, where only the sexes 'male' and 'female' will be taken into account. The researchers can then answer the question: Does participant's sex matter to the effect of the endorser on willingness to donate?
 
 ```{r anova-twoway, fig.pos='H', fig.align='center', fig.cap="How do group means inform us about (main) effects in analysis of variance?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Goal: Illustrate that different main effects merely use means of different
@@ -822,7 +822,7 @@ Clooney, males exposed to Clooney, males exposed to Jolie, and so on. [<img src=
 
 In the preceding section, we have analyzed the effects both of endorser and sex on willingness to donate to a fund raiser. The two main effects isolate the influence of endorser on willingness from the effect of sex and the other way around. This assumes that endorser and sex have an effect on their own, a general effect.
 
-We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? Note that one endorser is a male celebrity who is reputed to be quite attractive to women. The other endorser is a female celebrity with a similar reputation among men. In this situation, shouldn't we expect that one endorser is more effective among female participants and the other among male participants?
+We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? We could hypothesize that males and females might react differently towards seeing a male or female celebrity, either because they find one of them more attractive or because they identify better with one or the other. In this situation, shouldn't we expect that one endorser is more effective among female participants and the other among male participants?
 
 If the effect of a factor is different for different groups on another factor, the first factor's effect is *moderated* by the second factor. The phenomenon that effects are moderated is called *moderation*. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.
 
