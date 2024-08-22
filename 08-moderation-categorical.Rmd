@@ -28,48 +28,6 @@ To interpret the interaction effect, we must determine the size of the effect of
 
 An interaction effect in a regression model closely resembles an interaction effect in analysis of variance. The effect of a single predictor that is involved in an interaction effect in a regression model, however, is not a main effect as in analysis of variance. It is a conditional effect, namely the effect for one particular value of the moderator, that is, the effect within one particular context. To understand this, we must pay close attention to the regression equation.
 
-#### Essential Analytics {.unnumbered}
-
-In SPSS, we use the *Linear* option in the *Regression* submenu for regression analysis. For a moderation model, we first use the *Compute Variable* option in the *Transform* menu to calculate an interaction variable: we multiply (using `*`) the predictor variable by the moderator variable. The interaction variable is included in the regression model as an independent variable, just like the predictor, moderator, and any other independent variables (covariates).
-
-A categorical predictor variable such as a participant's residential area (urban, suburban, rural) is included in the regression model as dummy variables, which have the values 0 or 1, for example: dummy variables *suburban* and *rural*, each with values yes (1) and no (0). The category without dummy variable is the reference group. 
-
-The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in Figure \@ref(fig:regressiontable), the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).
-
-```{r regressiontable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression effects for a model in which the effect of exposure is moderated by participant's smoking status (reference group: people who never smoked)."}
-knitr::include_graphics("figures/S8_AE1.png")
-```
-
-The predictor variable *Exposure* is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in Figure \@ref(fig:regressiontable)) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking **for people who never smoked**.
-
-If we would like to know the effect of exposure on attitude towards smoking for former smokers, we must add the regression coefficient for the interaction of exposure with former smokers (blue box) to the regression coefficient of exposure (green box): A one unit increase in exposure predicts a 0.47 more negative (-0.465 = -0.197 + -0.268) attitude towards smoking for former smokers.
-
-An interaction effect such as -0.27 for *Former smoker \* exposure* tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (Figure \@ref(fig:regressionplot)). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked). 
-
-```{r regressionplot, echo=FALSE, out.width="75%", fig.pos='H', fig.align='center', fig.cap="Simple regression lines showing the effect of exposure on attitude towards smoking for former smokers and people who never smoked (in an urban environment)."}
-knitr::include_graphics("figures/S8_AE2.png")
-```
-
-```{r SPSS-PROCESS, eval=FALSE, echo=FALSE}
-# TERMINOLOGY: predictor (X, cause), moderator (M, represents context), covariate (C, control), dependent variable (Y).
-
-# SPSS versus PROCESS:
-# + SPSS: visual checks on residuals: normal distribution and zpred by zresid (linearity, homoscedasticity)
-# + SPSS: scatterplot (X, Y) with regression lines per group (Moderator) with original variable and value labels, showing common support ; add reference line for each group manually specifying the regression equation, setting covariates to their mean values (with categorical moderator and no covariates or covariates that are not correlated with the predictor, Regression Variable Plots can be used -not in SPSS V25? - or a regression line per subgroup with equation as label can be added in the Chart Editor)
-# - SPSS: manual entering of regression equation with selected values for covariates (and a numerical moderator; lines can only be labeled with the equation text)
-# - SPSS: interaction predictors have to be created by hand (also multiple interaction variables for a categorical predictor; Transform>Create Dummy Variables, taught in RMCS?)
-# - SPSS: mean-centering must be done by hand
-# - SPSS: statistical inference for non-zero moderator values requires separate regression models where the low category requires ADDING one SD instead of subtracting.
-# + PROCESS: must be used anyway for mediation models
-# - PROCESS: no visual checks on assumptions
-# - PROCESS: no visual impression of common support of predictor for different values of the moderator (requires additional work with numerical moderator also in SPSS)
-# - PROCESS: data list for visualization of results must be copied from output to syntax file, variable and value labels must be added, lines must be added (and this requires that the moderator has no decimal places in SPSS?) in chart editor
-# - PROCESS: model number must be remembered
-# - PROCESS: because the student need not create the interaction variables, mean-center or "re-center" for probing the interaction, PROCESS output is more mysterious (but the estimated slopes for different moderator values are directly linked to the graph)
-# - PROCESS: dichotomies are automatically treated as indicator variables but categorical predictors/moderators are treated as numerical ; it is not possible to use more than one moderator variable, so PROCESS cannot handle a categorical moderator. (Fixed in V3?)
-# DECISION: Use SPSS for results, interpretation, and assumption checks (interaction variables and, possibly, dummies must be created but no need for mean-centering).
-```
-
 ## The Regression Equation {#regression-equation}
 
 In the social sciences, we usually expect that a particular outcome has several causes. Investigating the effects of an anti-smoking campaign, for instance, we would not assume that a person's attitude towards smoking depends only on exposure to a particular anti-smoking campaign. It is easy to think of other and perhaps more influential causes such as personal smoking status, contact with people who do or do not smoke, susceptibility to addiction, and so on.
@@ -803,6 +761,48 @@ Here, we can predict all levels of attitude equally well or equally badly.
 ```
 
 ## Regression Analysis in SPSS {#SPSS-regression}
+
+#### Essential Analytics {.unnumbered}
+
+In SPSS, we use the *Linear* option in the *Regression* submenu for regression analysis. For a moderation model, we first use the *Compute Variable* option in the *Transform* menu to calculate an interaction variable: we multiply (using `*`) the predictor variable by the moderator variable. The interaction variable is included in the regression model as an independent variable, just like the predictor, moderator, and any other independent variables (covariates).
+
+A categorical predictor variable such as a participant's residential area (urban, suburban, rural) is included in the regression model as dummy variables, which have the values 0 or 1, for example: dummy variables *suburban* and *rural*, each with values yes (1) and no (0). The category without dummy variable is the reference group. 
+
+The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in Figure \@ref(fig:regressiontable), the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).
+
+```{r regressiontable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression effects for a model in which the effect of exposure is moderated by participant's smoking status (reference group: people who never smoked)."}
+knitr::include_graphics("figures/S8_AE1.png")
+```
+
+The predictor variable *Exposure* is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in Figure \@ref(fig:regressiontable)) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking **for people who never smoked**.
+
+If we would like to know the effect of exposure on attitude towards smoking for former smokers, we must add the regression coefficient for the interaction of exposure with former smokers (blue box) to the regression coefficient of exposure (green box): A one unit increase in exposure predicts a 0.47 more negative (-0.465 = -0.197 + -0.268) attitude towards smoking for former smokers.
+
+An interaction effect such as -0.27 for *Former smoker \* exposure* tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (Figure \@ref(fig:regressionplot)). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked). 
+
+```{r regressionplot, echo=FALSE, out.width="75%", fig.pos='H', fig.align='center', fig.cap="Simple regression lines showing the effect of exposure on attitude towards smoking for former smokers and people who never smoked (in an urban environment)."}
+knitr::include_graphics("figures/S8_AE2.png")
+```
+
+```{r SPSS-PROCESS, eval=FALSE, echo=FALSE}
+# TERMINOLOGY: predictor (X, cause), moderator (M, represents context), covariate (C, control), dependent variable (Y).
+
+# SPSS versus PROCESS:
+# + SPSS: visual checks on residuals: normal distribution and zpred by zresid (linearity, homoscedasticity)
+# + SPSS: scatterplot (X, Y) with regression lines per group (Moderator) with original variable and value labels, showing common support ; add reference line for each group manually specifying the regression equation, setting covariates to their mean values (with categorical moderator and no covariates or covariates that are not correlated with the predictor, Regression Variable Plots can be used -not in SPSS V25? - or a regression line per subgroup with equation as label can be added in the Chart Editor)
+# - SPSS: manual entering of regression equation with selected values for covariates (and a numerical moderator; lines can only be labeled with the equation text)
+# - SPSS: interaction predictors have to be created by hand (also multiple interaction variables for a categorical predictor; Transform>Create Dummy Variables, taught in RMCS?)
+# - SPSS: mean-centering must be done by hand
+# - SPSS: statistical inference for non-zero moderator values requires separate regression models where the low category requires ADDING one SD instead of subtracting.
+# + PROCESS: must be used anyway for mediation models
+# - PROCESS: no visual checks on assumptions
+# - PROCESS: no visual impression of common support of predictor for different values of the moderator (requires additional work with numerical moderator also in SPSS)
+# - PROCESS: data list for visualization of results must be copied from output to syntax file, variable and value labels must be added, lines must be added (and this requires that the moderator has no decimal places in SPSS?) in chart editor
+# - PROCESS: model number must be remembered
+# - PROCESS: because the student need not create the interaction variables, mean-center or "re-center" for probing the interaction, PROCESS output is more mysterious (but the estimated slopes for different moderator values are directly linked to the graph)
+# - PROCESS: dichotomies are automatically treated as indicator variables but categorical predictors/moderators are treated as numerical ; it is not possible to use more than one moderator variable, so PROCESS cannot handle a categorical moderator. (Fixed in V3?)
+# DECISION: Use SPSS for results, interpretation, and assumption checks (interaction variables and, possibly, dummies must be created but no need for mean-centering).
+```
 
 ### Instructions
 
