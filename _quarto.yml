@@ -3,10 +3,10 @@ project:
   output-dir: docs
 
 book:
-  title: "Statitstical Inference"
+  title:    "Statistical Inference"
   subtitle: "A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation"
-  author: ["Wouter de Nooy","et al."]
-  date: "2016-09-20 - `r Sys.Date()`"
+  author:   ["Wouter de Nooy","et al."]
+  date:     now
   chapters:
     - index.qmd
 
@@ -14,7 +14,7 @@ bibliography: RefList.bib
 
 format:
   html:
-    theme: journal
+    theme: cosmo
     link-external-newwindow: true
   # pdf:
   #   documentclass: scrreprt
