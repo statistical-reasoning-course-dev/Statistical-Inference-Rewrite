@@ -55,23 +55,11 @@ Figure \@ref(fig:anova-means) shows the willingness to donate scores for twelve 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-means/", height="490px")
 ```
 
-<A name="question7.1.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-1. In the sample of (12) participants displayed as dots in Figure \@ref(fig:anova-means), what do the double-sided vertical arrows represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.1){.buttonToAnswer}
-```
 
-<A name="question7.1.2"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-2. According to this figure, does a celebrity endorser matter to the willingness to donate? Explain your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.2){.buttonToAnswer}
-```
 
-<A name="question7.1.3"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-3. How do the double-sided vertical arrows relate to effect size (eta^2^)? Change the group means (and update the graph) and explain what you see. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.3){.buttonToAnswer}
-```
 
 A group's average score on the dependent variable represents the group's score level. The group averages in Figure \@ref(fig:anova-means) tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.
 
@@ -134,29 +122,13 @@ For a better understanding of eta^2^ and the statistical test of an analysis of 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-between/", height="490px")
 ```
 
-<A name="question7.1.4"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-4. In Figure \@ref(fig:anova-between), what do the solid red arrows represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.4){.buttonToAnswer}
-```
 
-<A name="question7.1.5"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-5. What do the solid black arrows represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.5){.buttonToAnswer}
-```
 
-<A name="question7.1.6"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-6. What do the dotted black arrows in Figure \@ref(fig:anova-between) represent? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.6){.buttonToAnswer}
-```
 
-<A name="question7.1.7"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-7. Which arrows relate to effect size eta^2^? Change group means (and press the _Update graph_ button) and describe what happens. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.7){.buttonToAnswer}
-```
 
 Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in Figure \@ref(fig:anova-between). Once we have our data, we first have a look at the percentage of variance that is explained, eta^2^. What does it mean if we say that a percentage of the variance is explained when we interpret eta^2^?
 
@@ -291,23 +263,11 @@ Analysis of variance tests the null hypothesis of equal population means but it 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-posthoc/", height="485px")
 ```
 
-<A name="question7.1.8"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-8. Does the _F_ test in analysis of variance tell us which groups have significantly different average population outcome scores? Can we have the same _F_ test result with different sets of group means? Adjust group means in Figure \@ref(fig:anova-posthoc) to demonstrate your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.8){.buttonToAnswer}
-```
 
-<A name="question7.1.9"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-9. Is it possible that the _F_ test is statistically significant but none of the _t_ tests that compare groups one by one? Can you obtain this situation in Figure \@ref(fig:anova-posthoc)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.9){.buttonToAnswer}
-```
 
-<A name="question7.1.10"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-10. Is it okay that we apply both an _F_ test and several _t_ tests to the same group differences? [<img src="icons/2answer.png" width=115px align="right">](#answer7.1.10){.buttonToAnswer}
-```
 
 If the *F* test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average willingness to donate is equal for people who saw George Clooney, Angelina Jolie, or no endorser for the fund raiser. In other words, we *reject* the null hypothesis that the endorser does *not* matter to willingness to donate.
 
@@ -341,138 +301,25 @@ A statistically significant *F* test tells us that we may be quite confident tha
 ### Answers {-}
 ```
 
-<A name="answer7.1.1"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 1. 
 
-* The double-sided vertical arrows represent the differences in average
-willingness to donate across the three experimental conditions: exposure to
-Clooney as endorser, Jolie as endorser, or no celebrity endorser. [<img src="icons/2question.png" width=161px align="right">](#question7.1.1)
-```
 
-<A name="answer7.1.2"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 2. 
 
-* Yes, a celebrity endorser seems to matter to participants’ willingness to donate.
-* Overall, participants who saw celebrities Jolie or Clooney have higher willingness to donate (the blue and orange dots) than those who did not see a celebrity endorser (the green dots). Average willingness to donate is clearly higher for participants who saw celebrities Jolie (blue line) or Clooney (orange line) than for the control group (green line), who did not see a celebrity endorser. [<img src="icons/2question.png" width=161px align="right">](#question7.1.2)
-```
 
-<A name="answer7.1.3"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 3. 
 
-* The more different the group means, the larger the red arrows, the larger the
-between-groups variance, the larger eta^2^.
-* For those of you who love the details: Between-groups variance squares the
-distances (actually the distances between group means and the grand mean but
-that is not relevant here) before taking the average. As a consequence, a long
-red arrow contributes more to between-groups variance than two short arrows
-that are just as long as the long arrow if they are summed. This is the reason
-that eta^2^ increases if the group in the middle moves closer to the top
-group (or, from some point, closer to the bottom group). [<img src="icons/2question.png" width=161px align="right">](#question7.1.3)
-```
 
-<A name="answer7.1.4"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 4. 
 
-![](figures/S7_1Q4.png)
 
-* The solid red arrows represent the difference between an individual score
-and the average score of the group to which the individual belongs. For
-example, the left-most orange dot represents the willingness score of a
-participant who was exposed to Clooney as endorser. The orange line represents
-the average willingness score of the participants who were exposed to Clooney.
-The red arrow is the difference between the individual's willingness score and
-the mean score of its group. Squaring, summing, and averaging the solid red
-arrows (within-groups differences) yields the within-groups variance. [<img src="icons/2question.png" width=161px align="right">](#question7.1.4)
-```
 
-<A name="answer7.1.5"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 5. 
 
-* The solid black arrows represent the difference between an individual's group
-score, for instance, the average willingness score of all participants who were
-exposed to Clooney, and the average score of all participants (the grand or
-overall mean).
-* If we square, sum, and average these differences, we get the variance of
-group means, which is called the between-groups variance. [<img src="icons/2question.png" width=161px align="right">](#question7.1.5)
-```
 
-<A name="answer7.1.6"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 6. 
 
-* The dotted black arrows represent the difference between individual
-willingness scores and the average willingness scores of all participants.
-Square, sum, and average them to get the overall variance. Take the square
-root of the variance to obtain the overall standard deviation. [<img src="icons/2question.png" width=161px align="right">](#question7.1.6)
-```
 
-<A name="answer7.1.7"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 7. 
-
-* The solid black arrows relate to eta^2^. Eta^2^ is larger if the
-differences between the group means are larger. The solid black arrows express these differences.
-
-![](figures/S7_1Q7.png)
-
-* If you decrease the differences between the group means, eta^2^
-decreases and the solid black arrows become smaller. The red arrows (differences
-between scores and their group means) remain the same.
-* The dotted black arrows change but some become longer and others become
-shorter if you decrease the differences between the group means, so the
-dotted black arrows are not clearly related to eta^2^. [<img src="icons/2question.png" width=161px align="right">](#question7.1.7)
-```
-
-<A name="answer7.1.8"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 8. 
-
-* If the _F_ test in analysis of variance is statistically significant, we
-reject the null hypothesis that all groups have the same mean score in the
-population. If we have more than two groups, as in the example, we do not know
-which groups score higher and which groups score lower in the population. We
-need post-hoc tests to find that out.
-* Because the _F_ test does not tell us which group has a higher or lower score,
-we can have the same _F_ value for different situations. For example, exchange
-the means of two groups. You will get exactly the same _F_ value (in this
-balanced design). [<img src="icons/2question.png" width=161px align="right">](#question7.1.8)
-```
-
-<A name="answer7.1.9"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 9. 
-
-* Yes, this is possible. For example, set the mean score of the No Endorser
-group at 4.5, while you leave the Clooney and Jolie averages at 6.4 and 6.8.
-* A _t_ test uses only two of the three groups, so the total number of
-observations is lower and, therefore, test power is lower and the null
-hypothesis is more difficult to reject.
-* Note that this situation mainly occurs if the _F_ test is just significant
-(slightly below .05). This illustrates that the .05 threshold is an artificial
-boundary. [<img src="icons/2question.png" width=161px align="right">](#question7.1.9)
-```
-
-<A name="answer7.1.10"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 10. 
-
-* This is okay provided that we correct for capitalization on chance (see Section \@ref(cap-chance)). [<img src="icons/2question.png" width=161px align="right">](#question7.1.10)
-```
 
 ## One-Way Analysis of Variance in SPSS {#onewaySPSS}
 
@@ -514,104 +361,17 @@ knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px"
 ### Exercises
 ```
 
-<A name="question7.2.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-1. How does celebrity endorsement affect the willingness to donate and is one celebrity more effective than the other? Use the data in [donors.sav](https://shklinkenberg.github.io/Statistical-Inference/data/donors.sav). [<img src="icons/2answer.png" width=115px align="right">](#answer7.2.1){.buttonToAnswer}
-```
 
-<A name="question7.2.2"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-2. The data set [smokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/smokers.sav) contains information on smoking behaviour and attitude towards smoking for a random sample of adults. Does the attitude towards smoking differ among smokers, former smokers, and non-smokers (variable: *status3*)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.2.2){.buttonToAnswer}
-```
 
 ```{html, echo=ch7} 
 ### Answers {-} 
 ```
 
-<A name="answer7.2.1"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Exercise 1. 
 
-SPSS syntax:  
-  
-\* Check data.  
-FREQUENCIES VARIABLES=willing_post endorser  
-  /ORDER=ANALYSIS.  
-\* One-way analysis of variance.  
-ONEWAY willing_post BY endorser  
-  /ES=OVERALL
-  /STATISTICS DESCRIPTIVES HOMOGENEITY   
-  /PLOT MEANS  
-  /MISSING ANALYSIS  
-  /POSTHOC=BONFERRONI ALPHA(0.05).  
-\* Note: ES=OVERALL gives eta^2^ (SPSS version 27 and higher)
-  
-Check data:  
-  
-There are no impossible values on the variables.  
-  
-Check assumptions:  
-  
-The three groups are more or less of equal size: The largest difference is 4
-participants, which is less than ten per cent of the largest group (*N* = 49).
-Anyway, we may assume equal population variances, Levene *F* (2, 140) = .02, *p* =
-.978. Note that the results of this test can be slightly different in
-different versions of SPSS.
-  
-Interpret the results:  
-  
-* Willingness to donate depends on the endorsing celebrity. There is a statistically significant difference between average willingness to donate for the three endorsers, *F* (2, 140) = 7.44, *p* = .001, eta^2^ = 0.10, 95% CI [0.02, 0.19].  
-* People are more willing to donate if they have seen Clooney (*M* = 4.99, *SD* = 1.64) or Jolie (*M* = 4.95, *SD* = 1.63) endorse the fund raiser than people who do not see a celebrity endorser (*M* = 3.87, *SD* = 1.47). The differences between, on the one hand, no celebrity endorser and, on the other hand, Clooney (*p* = .002, 95% CI [-1.91, -0.33]) or Jolie (*p* = .004, 95% CI [-1.88, -0.29]) are statistically significant and range between circa 0.3 and 1.9 with 95% confidence in the population.
-* However, there is not a substantial or statistically significant difference between Clooney and Jolie with respect to their effect on willingness to donate (mean difference = 0.04, *p* = 1.000, 95% CI [-0.74, 0.81]); participants seeing Clooney may just as well have higher as lower willingness to donate than participants seeing Jolie.
-  
-Instead of reporting the _F_ test result in the text, the ANOVA table can be included. 
 
-Note that eta^2^ must be calculated by hand in SPSS version 26 or older: Divide the sum of squares of the main effect (between groups) by the total sum of squares. The confidence interval for eta^2^ cannot be calculated by hand. [<img src="icons/2question.png" width=161px align="right">](#question7.2.1)
-```
-
-<A name="answer7.2.2"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Exercise 2. 
-
-SPSS syntax:  
-  
-\* Check data.  
-FREQUENCIES VARIABLES=attitude status3  
-  /ORDER=ANALYSIS.  
-\* One-way analysis of variance.  
-ONEWAY attitude BY status3  
-  /ES=OVERALL
-  /STATISTICS DESCRIPTIVES HOMOGENEITY   
-  /PLOT MEANS  
-  /MISSING ANALYSIS  
-  /POSTHOC=BONFERRONI ALPHA(0.05).  
-\* Note: ES=OVERALL gives eta^2^ (SPSS version 27 and higher)
-  
-Check data:  
-  
-There are no impossible scores on the two variables.  
-  
-Check assumptions:  
-  
-The Levene test is not statistically significant, *F* (2, 82) = 2.82, *p* = .066,
-so we assume that smoking attitude for the three groups have equal population
-variances. Note that different versions of SPSS may give slightly different
-results, but the test is never statistically significant.
-  
-Interpret the results:  
-  
-In the sample, former smokers have a much more negative attitude towards smoking (*M* = -1.69, *SD* = 1.71) than non-smokers (*M* = 0.64, *SD* = 1.17) and smokers (*M* = 0.80, *SD* = 1.67). 
-
-With 95% confidence, the attitude towards smoking for former smokers is on average at least 1.35 points more negative on a scale from -5 to +5 than for non-smokers and the difference can be as large as 3.3 points in the population (mean difference = -2.33, *p* < .001, 95% CI [-3.31, -1.35]). Similarly, former smokers have an attitude that is on average 1.3 to 3.7 points more negative than smokers (mean difference = -2.49, *p* < .001, 95% CI [-3.66, -1.32]). The difference in attitude towards smoking between smokers and non-smokers in the population is not clear. Smokers can on average be up to 0.78 points more negative about smoking than non-smokers, but they can also be up to 1.09 points more positive (mean difference = 0.16, *p* = 1.000, 95% CI [-0.78, 1.09]). We need a larger sample to be more specific about the difference between smokers and non-smokers.
-
-Due to the differences between on the one hand former smokers and on the other hand smokers and non-smokers, average attitude towards smoking scores are significantly different across smoking status, *F* (2, 82) = 18.85, *p* < .001, eta^2^ = 0.31 (SPSS yields 0.31498, which is rounded to 0.315). We have sufficient evidence to conclude that former smokers have a more negative attitude towards smoking than the other groups in the population of adults. The differences are substantial (a strong effect, _eta_ = square root of 0.31 = 0.56).
-
-Note that eta^2^ must be calculated by hand in SPSS version 26 or older: Divide the sum of squares of the main effect (between groups) by the total sum of squares. The confidence interval for eta^2^ cannot be calculated by hand. [<img src="icons/2question.png" width=161px align="right">](#question7.2.2)
-```
 
 ## Different Means for Two Factors
 
@@ -639,23 +399,11 @@ The participants in the experiment do not only differ because they see different
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-twoway/", height="408px")
 ```
 
-<A name="question7.3.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-1. How does an analysis of variance test the effect of endorser on willingness to donate with the data displayed in Figure \@ref(fig:anova-twoway)? Select the endorser factor to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer7.3.1){.buttonToAnswer}
-```
 
-<A name="question7.3.2"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-2. Compare a plot with the endorser factor selected to a plot with the sex factor selected. Which effect on willingness to donate is probably stronger: the effect of endorser or of sex? Motivate your answer, for example, using the grey arrows in the plots. [<img src="icons/2answer.png" width=115px align="right">](#answer7.3.2){.buttonToAnswer}
-```
 
-<A name="question7.3.3"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-3. Where do you expect the group means to show up in the graph if you select both the Endorser and Sex check boxes? [<img src="icons/2answer.png" width=115px align="right">](#answer7.3.3){.buttonToAnswer}
-```
 
 In the preceding section, we have looked at the effect of a single factor on willingness to donate, namely, the endorser to whom participants are exposed. Thus, we take into account two variables: one independent variable and one dependent variable. This is an example of *bivariate analysis*.
 
@@ -770,48 +518,11 @@ We could have used two separate one-way analyses of variance to test the same ef
 ### Answers {-} 
 ```
 
-<A name="answer7.3.1"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 1. 
 
-* Analysis of variance tests the variance (variation, spread) in the mean
-scores on the dependent variable among groups. If the group means are more widely
-apart, the variance of group means is larger, so the _F_ test value is larger and
-further away from what we expect if there are no differences among group means
-in the population. The variation among group means is larger if they are more
-distant from the overall (or grand) mean.
-* To test the endorser effect, analysis of variance looks at the mean scores of
-groups defined by the celebrity endorser they have seen. It will check the
-distance between the three celebrity group means and the grand mean. [<img src="icons/2question.png" width=161px align="right">](#question7.3.1)
-```
 
-<A name="answer7.3.2"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 2. 
 
-* The effect of endorser is probably stronger than the effect of sex because
-the observations within an endorser group are less equally distributed around
-the grand mean (they are more clustered above or below the grand mean) than
-observations within a sex group. Both females and males are found nearly
-equally above and below the grand mean, so their group means are close to the
-grand mean, and there is little variation in sex group means.
-
-![](figures/S7_3Q2.png)
-
-* The grey arrows represent the distance between group mean and grand mean for each observation. They are much shorter for the difference between females and males than for differences between endorser groups. [<img src="icons/2question.png" width=161px align="right">](#question7.3.2)
-```
-
-<A name="answer7.3.3"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 3. 
-
-* If both boxes are ticked, the scores are grouped by the combination of
-endorser and sex. The graph will show the means of subgroups: females exposed to
-Clooney, males exposed to Clooney, males exposed to Jolie, and so on. [<img src="icons/2question.png" width=161px align="right">](#question7.3.3)
-```
 
 ## Moderation: Group-Level Differences that Depend on Context {#moderationanova}
 
@@ -858,29 +569,13 @@ In a means plot, we use the groups of the predictor on the horizontal axis, for 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-moderation/", height="305px")
 ```
 
-<A name="question7.4.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-1. Does the plot in Figure \@ref(fig:anova-moderation) display a main effect of the factor sex? Motivate your answer with numbers from the table and/or the lines in the plot. If sex has a main effect in this sample, describe the effect: What is the difference between women and men here? [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.1){.buttonToAnswer}
-```
 
-<A name="question7.4.2"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-2. Is there a main effect of endorser? Again, motivate your answer and describe the effect if there is one. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.2){.buttonToAnswer}
-```
 
-<A name="question7.4.3"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-3. Is the effect of participant's sex the same for all three types of endorser in Figure \@ref(fig:anova-moderation)? How can you tell? [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.3){.buttonToAnswer}
-```
 
-<A name="question7.4.4"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-4. Adjust the means in such a way that the effect of sex is different for different endorsers. In other words, adjust the means such that sex moderates the effect of endorser on willingness to donate. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.4){.buttonToAnswer}
-```
 
 Moderation happens a lot in communication science for the simple reason that the effects of messages are stronger for people who are more susceptible to the message. If you know more people who have adopted a new product or a healthy/risky lifestyle, you are more likely to be persuaded by media campaigns to also adopt that product or lifestyle. If you are more impressionable in general, media messages are more effective.
 
@@ -1029,23 +724,11 @@ For moderation, however, we compare average scores of subgroups, that is, groups
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/", height="380px")
 ```
 
-<A name="question7.4.5"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-5. Adjust the means in Figure \@ref(fig:anova-interaction) in such a way that the main effect of endorser and the interaction effect of endorser and sex are statistically significant. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.5){.buttonToAnswer}
-```
 
-<A name="question7.4.6"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-6. Adjust the means in such a way that the main effect of endorser is _not_ statistically significant but the interaction effect of endorser and sex is statistically significant. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.6){.buttonToAnswer}
-```
 
-<A name="question7.4.7"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-7. Is it possible to have a statistically significant interaction effect but no statistically significant main effects? If so, adjust the scores in Figure \@ref(fig:anova-interaction) to prove your case. [<img src="icons/2answer.png" width=115px align="right">](#answer7.4.7){.buttonToAnswer}
-```
 
 Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in Figure \@ref(fig:anova-interaction) is not relevant to moderation.
 
@@ -1069,115 +752,19 @@ The assumptions for two-way analysis of variance are the same as for one-way ana
 ### Answers {-} 
 ```
 
-<A name="answer7.4.1"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 1. 
 
-* A main effect exists if the groups on one predictor (factor) have unequal
-means.
 
-![](figures/S7_7Q1.png)
 
-* In the right-most column of the table, it is easy to see that females have a higher average willingness score than males, so there is a main effect of sex.
-* In this particular plot, the red line is everywhere above the blue line, so
-it is relatively easy to see that females score on average higher than males.
-* If the lines cross, it will be more difficult to see a main effect. In that
-case, you have to guess the average score of females over all endorsers (the
-average of the red line) and the average score of all males (average of the
-blue line) to see whether females score on average higher than males. [<img src="icons/2question.png" width=161px align="right">](#question7.4.1)
-```
 
-<A name="answer7.4.2"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 2. 
 
-* Now we have to look at the average scores for the three endorsers, which are quite clearly different (bottom row of the table). So yes, there is a main effect of endorser on willingness.
 
-![](figures/S7_7Q1a.png)
 
-* In the plot, we have to guess the average score for an endorser, which is
-somewhere in the middle of the green arrow linking the score of females to the score of males. The average score with Clooney as endorser seems to be higher than the average score without a celebrity endorser, and the average score for Angelina Jolie is highest. These differences indicate a main effect for endorser. [<img src="icons/2question.png" width=161px align="right">](#question7.4.2)
-```
 
-<A name="answer7.4.3"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 3. 
 
-* The difference between average willingness to donate for females and average willingness to donate for males expresses the effect of sex. The green arrows represent these differences.
-* The green arrows are equally long for participants who saw Clooney, Jolie, or no celebrity endorser. Therefore, the effect of sex on willingness to donate is the same for all three types of endorser.
-* Note: If the effects of one variable (here: sex) are the same for all groups on another variable (here: endorser), there is no moderation. [<img src="icons/2question.png" width=161px align="right">](#question7.4.3)
-```
 
-<A name="answer7.4.4"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 4. 
-
-* Change the means for the males or females such that the green arrows have different lengths. Now, the red and dashed blue lines are no longer parallel. 
-* Sex has different effects for different endorsers: Different differences! We say that sex moderates the effect of endorser on willingness to donate or that endorser moderates the effect of sex. [<img src="icons/2question.png" width=161px align="right">](#question7.4.4)
-```
-
-<A name="answer7.4.5"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 5. 
-
-* If the app loads, there is a main effect of endorser. The effect size
-expressed by eta2 is clearly larger than zero and the _F_ test on the endorser
-main effect is highly significant (p < .001).
-* The main effect indicates that the endorser group averages (bottom row of the
-table) are (clearly) different. We should maintain these differences if we
-want to retain the main effect.
-* The interaction effect is initially zero and not statistically significant.
-This means that the differences between females and males (expressed by the
-green arrows) do not vary (sufficiently) between the endorsers. In the initial
-situation, the difference between females and males is exactly the same for
-all endorsers, namely 1.5.
-* Change the difference between males and females within one or more endorser
-categories to create a sizable and statistically significant interaction
-effect.
-
-![](figures/S7_4Q5.png)
-
-* But ensure that the total differences between the endorsers remain. For
-example, increase the female scores for one endorser and lower the male scores
-for that endorser such that the average for the endorser remains the same. [<img src="icons/2question.png" width=161px align="right">](#question7.4.5)
-```
-
-<A name="answer7.4.6"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 6. 
-
-* To obtain a non-significant main effect of endorser, the mean scores for the
-endorsers (bottom row of the table) must be more or less the same. So lower
-the scores for females and males for endorsers with high average scores and
-increase the scores for endorsers with low scores until the means in the
-bottom row are equal.
-* If you want to have an interaction effect, you must ensure that the
-difference between females and males is clearly different for different
-endorsers. For example, increase the male scores for one endorser and decrease
-the female scores with the same amount. [<img src="icons/2question.png" width=161px align="right">](#question7.4.6)
-```
-
-<A name="answer7.4.7"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 7. 
-
-* Yes, it is possible to have a statistically significant interaction effect but no statistically significant main effects.
-* Adjust the scores in the table such that both the row totals (average per endorser) and the column totals (average per sex) are equal. The easiest approach is to start with the same value in all cells, for example, 5.
-* A table with equal average scores for all subgroups does not have main effects.
-* You can obtain an interaction effect in this situation by changing the
-average scores for females and males for one endorser, such that the endorser average score remains the same and applying the opposite change to females and males for another endorser.
-
-![](figures/S7_4Q7.png)
-
-* You will see that the red and blue lines cross. [<img src="icons/2question.png" width=161px align="right">](#question7.4.7)
-```
 
 ## Reporting Two-Way Analysis of Variance
 
@@ -1266,192 +853,21 @@ knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px"
 ### Exercises
 ```
 
-<A name="question7.6.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-1. Use the data in [donors.sav](https://shklinkenberg.github.io/Statistical-Inference/data/donors.sav) to test if the effect of celebrity endorsement on adults' willingness to donate after seeing the campaign (variable *willing_post*) is different for females than for males. Check the assumptions and interpret the results. Create a plot to communicate your results. [<img src="icons/2answer.png" width=115px align="right">](#answer7.6.1){.buttonToAnswer}
-```
 
-<A name="question7.6.2"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-2. Use the same data as in Exercise 1 to test if the effect of celebrity endorsement on willingness to donate depends on remembering the campaign. Check the assumptions and interpret the results. Again, create a plot to communicate your results. [<img src="icons/2answer.png" width=115px align="right">](#answer7.6.2){.buttonToAnswer}
-```
 
-<A name="question7.6.3"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-3. Data set [smokers.sav](https://shklinkenberg.github.io/Statistical-Inference/data/smokers.sav) contains information about smoking for a random sample of adults. Does the attitude towards smoking depend on the adult's smoking behaviour (smoker, former smoker, or non-smoker) and on exposure to an anti-smoking campaign? 
-  Recode exposure scores into three groups: low exposure (scores 3 or less), medium exposure (scores above 3 up to and including 7), and high exposure (scores above 7). [<img src="icons/2answer.png" width=115px align="right">](#answer7.6.3){.buttonToAnswer}
-```
 
 ```{html, echo=ch7} 
 ### Answers {-} 
 ```
 
-<A name="answer7.6.1"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Exercise 1. 
 
-SPSS syntax:  
-  
-\* Check data.  
-FREQUENCIES VARIABLES=willing_post endorser sex  
-  /ORDER=ANALYSIS.  
-\* Two-way analysis of variance.  
-UNIANOVA willing_post BY endorser sex  
-  /METHOD=SSTYPE(3)  
-  /INTERCEPT=INCLUDE  
-  /POSTHOC=endorser(BONFERRONI)   
-  /PLOT=PROFILE(endorser\*sex)  
-  /PRINT=HOMOGENEITY DESCRIPTIVE  
-  /CRITERIA=ALPHA(.05)  
-  /DESIGN=endorser sex endorser\*sex.  
-  
-Check data:  
-  
-There are no impossible values on the three variables.  
-  
-Check assumptions:  
-  
-* All six subgroups are of nearly equal size and/or the Levene test on
-homogeneity of variances is not statistically significant, *F* (5, 137) = 0.43,
-*p* = .825, so the most important assumption is met. Note that different
-versions of SPSS may give slightly different results, but the _p_ values are all
-around .830. 
 
-* The females and males could have been drawn independently and each experimental group could have been drawn independently as well: The samples are independent. Because this is usually the case, this assumption is not always explicitly checked. But do note it if the samples are not independent. 
-  
-Interpret the results:  
-  
-The question is about moderation, so let us focus our interpretation on the  
-interaction effect.  
-  
-* Our two-way analysis of variance shows a statistically significant interaction effect of endorser and sex of the participant, *F* (2, 137) = 4.63, *p* = .011, eta^2^ = 0.05. We may conclude that the effect of the endorsing celebrity on an adult's willingness to donate is different for females and males in the population. The differences are substantial (a medium-sized effect, eta = 0.22).
-* Females who saw George Clooney are more strongly willing to donate (*M* = 5.84, *SD* = 1.48) than males (*M* = 4.09, *SD* = 1.30). In contrast, there is hardly any difference in willingness to donate between males (*M* = 4.99, *SD* = 1.77) and females (*M* = 4.91, *SD* = 1.51) who see Angelina Jolie endorse the fund raiser.  
-* This result suggests that females are more sensitive to George Clooney as endorser than males but the opposite does not apply to Angelina Jolie as endorser.
-  
-Note that eta^2^ was calculated by hand, dividing the sum of squares of the interaction effect by the sum of squares of the corrected total. Eta is the square root of eta^2^. We do not have post-hoc tests for the interaction effect, so we do not have a confidence interval for the differences between subgroups. [<img src="icons/2question.png" width=161px align="right">](#question7.6.1)
-```
 
-<A name="answer7.6.2"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Exercise 2. 
-
-SPSS syntax:  
-  
-\* Check data.  
-FREQUENCIES VARIABLES=willing_post endorser remember  
-  /ORDER=ANALYSIS.  
-\* Two-way analysis of variance.  
-UNIANOVA willing_post BY endorser remember  
-  /METHOD=SSTYPE(3)  
-  /INTERCEPT=INCLUDE  
-  /POSTHOC=endorser(BONFERRONI)   
-  /PLOT=PROFILE(endorser\*remember)  
-  /PRINT=HOMOGENEITY DESCRIPTIVE  
-  /CRITERIA=ALPHA(.05)  
-  /DESIGN=endorser remember endorser\*remember.  
-  
-Check data:  
-  
-There are no impossible values on the three variables.  
-  
-Check assumptions:  
-  
-The six subggroups are not nearly of equal size but the Levene test on homogeneity of variances is not statistically significant, *F* (5, 137) = 0.06, *p* = .997, so the most important assumptions are met. Note that different versions of SPSS may give slightly different results, but the _p_ values are all around .997. 
-  
-Interpret the results for the interaction effect:  
-  
-* For adults who do not remember the campaign, the effect of seeing Angelina Jolie endorse the fund raiser seems to be relatively low (*M* = 4.40, *SD* = 1.57) in comparison to the effect for adults who do remember the campaign (*M* = 5.48, *SD* = 1.54). This can be seen in the means plot.
-
-![](figures/S7_6Q2.png)
-
-* However, a two-way analysis of variance tells us that the interaction effect of endorser with campaign remembrance on willingness to donate is weak and not statistically significant, *F* (2, 137) = 0.67, *p* = .514, eta^2^ = .01.  
-* Both the endorsing celebrity and campaign remembrance seem to have statistically significant effects on willingness to donate, but the effect of celebrity endorser on willingness to donate is not clearly different for adults who remember the campaign and those who do not remember the campaign.
-* Our sample (_N_ = 143) is not very small, so it is not very likely that the test would have been non-significant if the effect in the population is moderate or strong. 
-  
-Note that eta^2^ was calculated by hand, dividing the sum of squares of the interaction effect by the sum of squares of the corrected total. [<img src="icons/2question.png" width=161px align="right">](#question7.6.2)
-```
-
-<A name="answer7.6.3"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Exercise 3. 
-
-SPSS syntax:  
-  
-\* Check data.  
-FREQUENCIES VARIABLES=status3 exposure attitude  
-  /ORDER=ANALYSIS.  
-\* Group exposure to anti-smoking campaign.  
-RECODE exposure (Lowest thru 3=1) (3 thru 7 = 2) (ELSE=3) INTO exposure3.  
-VARIABLE LABELS  exposure3 'Exposure to anti-smoking campaign'.  
-EXECUTE.  
-\* Define Variable Properties.  
-\*exposure3.  
-VALUE LABELS exposure3  
-  1.00 'Low exposure'  
-  2.00 'Medium exposure'  
-  3.00 'High exposure'.  
-EXECUTE.  
-\* Two-way analysis of variance.  
-UNIANOVA attitude BY status3 exposure3  
-  /METHOD=SSTYPE(3)  
-  /INTERCEPT=INCLUDE  
-  /POSTHOC=status3 exposure3(BONFERRONI)   
-  /PLOT=PROFILE(status3\*exposure3)  
-  /PRINT=HOMOGENEITY DESCRIPTIVE  
-  /CRITERIA=ALPHA(.05)  
-  /DESIGN=status3 exposure3 status3\*exposure3.  
-  
-Check data:  
-  
-All values on the variables seem to be valid.  
-  
-Check assumptions:  
-  
-* The nine subgroups (defined by combinations of smoking status and exposure)
-are definitely not of equal size. The test on homogeneity of variances is
-statistically significant, *F* (8, 76) = 2.17, *p* = .039 according to SPSS V24.
-SPSS V25, however, reports four versions of the test with _F_ values ranging
-between 1.849 and 2.109 and _p_ values ranging from .053 to .091. None of these
-is statistically significant at the .05 level. Which makes you realize again
-that statistical significance is a tricky criterion.
-* We are quite confident that the variance of smoking attitude in the
-population is (un)equal for all subgroups.  
-* We do not meet the assumptions (or we do, if we believe SPSS V25), so we
-should report this as a disclaimer with our results.
-  
-Interpret the results:  
-  
-Because we are going to interpret all effects, it is recommended to present the table with between-participants effects instead of reporting all _F_ test results in the text. The interpretation can then focus on the group averages and their differences (from the post-hoc tests).
-
-| | SS | df | MS | _F_ | _p_ | Eta-squared |
-|:----|----:|----:|----:|----:|----:|----:|
-| Exposure | 50.050 | 2 | 25.025 | 26.768 | <.001 | 0.21 |
-| Smoking status | 58.75 | 2 | 29.38 | 31.42 | <.001 | 0.25 |
-| Smoking status * Exposure | 29.991 | 4 | 7.498 | 8.020 | <.001 | 0.13 |
-| Error | 71.051 | 76 | .935 |  | | |
-| Total | 233.413 | 84 |  |  | | |
-_Note_. _N_ = 85.
-
-* Exposure clearly matters to smoking attitude according to our two-way analysis of variance. High exposure is associated with a more negative attitude towards smoking (*M* = -0.52, *SD* = 1.26) than medium exposure (*M* = 0.18, *SD* = 1.95). With 95% confidence, the difference ranges from as little as 0.07 to not less than 1.3 points on a scale of ten points in the population (average difference = -0.70, *p* = .024, 95% CI [-1.33, -0.07]). At medium exposure, the attitude towards smoking is more negative than the attitude of adults with low exposure (*M* = 0.99, *SD* = 1.34). Here, the difference in the population ranges from 0.2 to 1.4 points with 95% confidence (average difference = -0.81, *p* = .006, 95% CI [-1.43, -0.19]). 
-* Exposure accounts for 21 per cent of the variation in attitude towards smoking.  
-  
-* Smoking status also matters for attitude towards smoking. It accounts for 25 per cent of the differences in smoking attitude, which is quite a lot.   
-* Former smokers (*M* = -1.69, *SD* = 1.71) are significantly more negative towards smoking than smokers (*M* = 0.80, *SD* = 1.67) and non-smokers (*M* = 0.64, *SD* = 1.17). The differences with former smokers range from 1.7 to 3.3 points (on a scale with ten points) for smokers (average difference = -2.49, *p* < .001, 95% CI [-3.30, -1.68]) and from 1.7 to 3.0 points for non-smokers (average difference = -2.33, *p* < .001, 95% CI [-3.01, -1.65] in the population).
-* The difference between smokers and non-smokers is not statistically significant, although smokers seem to have a more positive rather than a more negative attitude towards smoking than non-smokers (average difference = 0.16, *p* = 1.000, 95% CI [-0.49, 0.81]). Our sample is not so large (_N_ = 85), so the power of the test is probably not high.
-
-* There is a moderate to high (eta^2^ = 0.13, eta = 0.36) and statistically significant interaction effect of smoking status with exposure on attitude towards smoking.  
-* If we inspect the means plot, we see that the effect of exposure on attitude is moderated by smoking status. Former smokers with low exposure are much more positive (less negative) about smoking than we would expect. In other words, medium and high exposure to the campaign decreases the attitude of former smokers more than the attitudes of smokers or non-smokers.
-
-![](figures/S7_6Q3.png)
-  
-Note that the proportions of explained variance (eta^2^) have been calculated manually. Eta is the square root of eta^2^. [<img src="icons/2question.png" width=161px align="right">](#question7.6.3)
-```
 
 <!-- ## Test Your Understanding
 
@@ -1461,29 +877,13 @@ source("apps/plottheme/styling.R")
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/", height="380px")
 ```
 
-<A name="question7.7.1"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-1. What is or are the main effects in Figure \@ref(fig:anova-overview)? Explain how you can recognize main effects both in the means plot and in the table of means. [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.1){.buttonToAnswer}
-```
 
-<A name="question7.7.2"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-2. Change some group means to create substantial and statistically significant moderation of the effect of endorser (Nobody, Clooney, or Jolie) on willingness. [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.2){.buttonToAnswer}
-```
 
-<A name="question7.7.3"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-3. What is the null hypothesis of the _F_ tests reported in Figure \@ref(fig:anova-overview)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.3){.buttonToAnswer}
-```
 
-<A name="question7.7.4"></A>
 
-```{block2, type='rmdquestion', echo = Qch7}
-4. How should we interpret the eta^2^ values in Figure \@ref(fig:anova-overview)? [<img src="icons/2answer.png" width=115px align="right">](#answer7.7.4){.buttonToAnswer}
-```
 
 ```{html, echo=ch7} 
 ### Answers {-} 
@@ -1493,107 +893,13 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/",
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
 ```
 
-<A name="answer7.7.1"></A>
 
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 1. 
 
-* There are two factors as we can see in the table: endorser (columns) and sex (rows). Each factor has a main effect, so there are two main effects in this example.
 
-![](figures/S7_7Q1.png)
 
-* A main effect exists if the groups on one factor have unequal means.
-* In the right-most column of the table, it is easy to see that females have a
-higher average willingness score (6.5) than males (5.0), so there is a main
-effect of sex.
-* The average scores for the three endorsers are also quite clearly different
-(bottom row of the table).
-* In the plot, the main effects are more difficult to see. You have to guess
-the average score of females over all endorsers (the average of the red line)
-and the average score of all males (average of the blue line), to see that
-females score higher than males on average. Well, the fact that the red line
-is consistently higher than the blue line also tells you the story.
 
-![](figures/S7_7Q1a.png)
 
-* In addition, we have to guess the average score for each endorser from the
-plot. This is somewhere in the middle of the green arrow linking the score of
-females to the score of males for an endorser. The average score with Clooney
-as endorser seems to be higher than the average score without a celebrity
-endorser, and the average score for Angelina Jolie is highest. These
-differences indicate a main effect for endorser. [<img src="icons/2question.png" width=161px align="right">](#question7.7.1)
-```
 
-<A name="answer7.7.2"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 2. 
-
-* An interaction effect is best understood as different effects of one factor
-(predictor) across different groups on another factor (moderator). In this
-example, we use endorser as predictor and sex as moderator. The red line shows us the effect of the predictor (endorser) for females. The effect is a
-difference in average willingness scores for different endorsers. The
-differences are visualized by the lines that link two means, for example, with Jolie as endorser, willingness to donate is higher than without a celebrity endorser.
-
-![](figures/S7_7Q2.png)
-
-* In the initial situation, the endorser effects are equal for females (red
-lines) and males (blue lines): the Jolie versus Nobody difference (in
-average willingness) is the same for females and males because the red and
-blue lines have the same slopes. The lines are parallel.
-* This is also reflected by the fact that the difference between average
-female and male willingness for the Nobody endorser (the green arc) is the
-same as the difference for Jolie as endorser. The differences (beween
-females and males) are the same for all endorsers, so the endorser effect is
-the same for both sexes. There is no moderation.
-* The green arrows represent the differences between average willingness of
-males and females for one endorser. If the green arrows are not equally long
-or point in opposite directions, the differences between females and males are not the same for all endorsers.
-* Change the score of one or more subgroups (sex - endorser combinations) in
-the table until the _p_ value of the interaction effect is below .05. Now, the interaction effect is statistically significant at the .05 level.
-
-![](figures/S7_7Q2a.png)
-
-* In this situation, sex moderates the effect of endorser on willingness or,
-equivalently, endorser moderates the effect of sex on willingness. The
-differences in willingness to donate between females and males are not the
-same for all three endorsers. In analysis of variance, moderation can be
-understood as different differences. [<img src="icons/2question.png" width=161px align="right">](#question7.7.2)
-```
-
-<A name="answer7.7.3"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 3. 
-
-* The null hypothesis of an _F_ test in analysis of variance is that
-all groups have the same average outcome scores in the populations from which
-the samples were drawn.
-* For the main effect of sex, the null hypothesis is that females and males
-have the same average willingness in the population
-* The null hypothesis for the main effect of endorser is that participants exposed
-to Clooney, Jolie, or no celebrity endorser have the same average willingness
-in the population.
-* The null hypothesis of an _F_ test on an interaction effect states that all
-subgroups have the same population averages if we correct for the main
-effects. In this example, the null hypothesis is that all combinations of sex
-and endorser have the same average willingness in the population if we correct
-for the main effects.
-* This can also be expressed as: The differences in average population
-willingness between females and males are the same for all endorsers. [<img src="icons/2question.png" width=161px align="right">](#question7.7.3)
-```
-
-<A name="answer7.7.4"></A>
-
-```{block2, type='rmdanswer', echo=ch7}
-Answer to Question 4. 
-
-* Eta^2^ gives the proportion of variance in the dependent variable that is
-predicted or explained by the factor.
-* When the app is just loaded, eta^2^ for the endorser effect is 0.47. The
-differences between participants' willingness to donate scores in the sample can
-be predicted for 47 per cent by the endorser that they were exposed to. [<img src="icons/2question.png" width=161px align="right">](#question7.7.4)
-```
 
 -->
 
