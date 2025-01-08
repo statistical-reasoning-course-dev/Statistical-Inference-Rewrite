@@ -7,9 +7,12 @@ book:
   subtitle: "A Gentle but Critical Introduction to Statistical Inference, Moderation, and Mediation"
   author:   ["Wouter de Nooy","et al."]
   date:     now
+  search:   true
+  repo-url: https://github.com/ShKlinkenberg/Statistical-Inference
+  repo-actions: [edit]
   chapters:
     - index.qmd
-    - 01-samplingdistr.qmd
+    # - 01-samplingdistr.qmd
 
 bibliography: RefList.bib
 
