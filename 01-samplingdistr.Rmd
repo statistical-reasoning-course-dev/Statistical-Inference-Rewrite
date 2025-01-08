@@ -51,15 +51,9 @@ We are usually interested in a particular characteristic of the sample rather th
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/random-variable/", height="360px")
 ```
 
-<A name="question1.2.1"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-1. Figure \@ref(fig:random-variable) shows a population of candies. What do you expect the number of yellow candies to be in a random sample of ten candies from this population? Draw several samples and check whether your expectation comes true. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.1){.buttonToAnswer}
-```
 
-<A name="question1.2.2"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-2. What are all the possible outcomes for the number of yellow candies in our sample? The collection of all possible outcome scores is called the _sampling space_. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.2){.buttonToAnswer}
-```
+
+
 
 The number of yellow candies in a bag is an example of a _sample statistic_: a value describing a characteristic of the sample. Each bag, that is, each sample, has one outcome score on the sample statistic. For instance, one bag contains four yellow candies, another bag contains seven, and so on. All possible outcome scores constitute the _sampling space_. A bag of ten candies may contain 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10 yellow candies. The numbers 0 to 10 are the sampling space of the sample statistic _number of yellow candies in a bag_.
 
@@ -73,20 +67,11 @@ Some sample statistic outcomes occur more often than other outcomes. We can see 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distribution/", height="425px")
 ```
 
-<A name="question1.2.3"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-3. Draw a random sample of ten candies in Figure \@ref(fig:sampling-distribution). What do the numbers on the horizontal axis of the bottom-right histogram mean? And what does the vertical axis of this histogram represent? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.3){.buttonToAnswer}
-```
 
-<A name="question1.2.4"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-4. What are the cases (the 'things' that are counted) in the three histograms? Hint: There are two different types of cases. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.4){.buttonToAnswer}
-```
 
-<A name="question1.2.5"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-5. Guess the most likely and most unlikely outcome scores for the number of yellow candies in a sample bag containing ten candies in Figure \@ref(fig:sampling-distribution). Check your intuitions by drawing 1,000 samples. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.5){.buttonToAnswer}
-```
+
+
+
 
 ### Probability and probability distribution {#probdistribution}
 
@@ -99,30 +84,15 @@ Of course, the probability of a sample bag with exactly five yellow candies depe
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/probability-distribution/", height="590px")
 ```
 
-<A name="question1.2.6"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-6. In Figure \@ref(fig:probability-distribution), what is the sample statistic and what is the sampling space? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.6){.buttonToAnswer}
-```
 
-<A name="question1.2.7"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-7. Which number of yellow candies is most likely to be found in a sample bag of ten candies (before you change the slider setting)? How does this relate to the proportion of candies in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.7){.buttonToAnswer}
-```
 
-<A name="question1.2.8"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-8. What is the probability that a sample bag of ten candies contains at most three yellow candies if the proportion in the population is .2? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.8){.buttonToAnswer}
-```
 
-<A name="question1.2.9"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-9. What do you expect to happen to the probabilities if you increase the proportion of yellow candies in the population (factory stock)? Use the slider to check your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.9){.buttonToAnswer}
-```
 
-<A name="question1.2.10"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-10. What is special about the distribution if the proportion of yellow candies in the population is .5? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.10){.buttonToAnswer}
-```
+
+
+
+
+
 
 The sampling distribution tells us all possible samples that we could have drawn. We can use the distribution of all samples to get the probability of buying a bag with exactly five yellow candies from the sampling distribution: We divide the number of samples with five yellow candies by the total number of samples we have drawn. For example, if 26 out of all 1000 samples have five yellow candies, the proportion of samples with five yellow candies is 26 / 1000 = 0.026. Then, the probability of drawing a sample with five yellow candies is 0.026 (we usually write: .026).
 
@@ -143,20 +113,11 @@ We haven't yet thought about the value that we are most likely to encounter in t
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/expected-value/", height="420px")
 ```
 
-<A name="question1.2.11"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-11. In Figure \@ref(fig:expected-value), which number of yellow candies is most likely to occur in a sample bag of ten candies (before you change the slider setting)? How does this number change if you change the proportion of yellow candies in the population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.11){.buttonToAnswer}
-```
 
-<A name="question1.2.12"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-12. How does the mean of the sampling distribution relate to the expected value? Experiment with different values for the population proportion. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.12){.buttonToAnswer}
-```
 
-<A name="question1.2.13"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-13. How does the mean of the sampling distribution relate to the population proportion? Experiment with different values for the population proportion. [<img src="icons/2answer.png" width=115px align="right">](#answer1.2.13){.buttonToAnswer}
-```
+
+
+
 
 If the share of yellow candies in the population is 0.20 (or 20%), we expect one out of each five candies in a bag (sample) to be yellow. In a bag with 10 candies, we would expect two candies to be yellow: one out of each five candies or the population proportion times the total number of candies in the sample = 0.20 * 10 = 2.0. This is the expected value. 
 
@@ -194,167 +155,31 @@ But we should expect it to be representative, so we say that it is _in principle
 cat("### Answers 1 {-}")
 ```
 
-<A name="answer1.2.1"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 1. 
 
-* The colours are equally distributed in the population, so one out of each
-five candies in the population is yellow. In other words, the proportion of
-yellow candies in the population is .2.
-* This is the proportion that we would also expect in the sample. A sample
-contains ten candies, so two out of these ten are expected to be yellow. If we
-draw several samples, we notice that only a minority of our samples contain
-exactly two yellow candies. [<img src="icons/2question.png" width=161px align="right">](#question1.2.1)
-```
 
-<A name="answer1.2.2"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 2. 
 
-* In a sample of ten candies, zero to ten candies can be yellow.
-* The numbers 0, 1, 2, ..., 9, 10 constitute all possible outcomes for the
-sample statistic 'Number of yellow candies'. This is called the sampling
-space. [<img src="icons/2question.png" width=161px align="right">](#question1.2.2)
-```
 
-<A name="answer1.2.3"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 3. 
 
-* The numbers on the horizontal axis constitute the sampling space, that is, all
-values that the sample statistic "Number of yellow candies in the sample" can take.
-* The left-hand vertical axis shows the number of samples that have been drawn with a particular value for the sample statistic, that is, with a particular number of yellow candies in the sample. 
-* The right-hand vertical axis gives the proportion of previously drawn samples with a particular number of yellow candies. The proportions can be interpreted as probabilities, namely the probability that a previously drawn sample contains a particular number of yellow candies. [<img src="icons/2question.png" width=161px align="right">](#question1.2.3)
-```
 
-<A name="answer1.2.4"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 4. 
 
-* In the two graphs to the left, candies are the cases. We count how many candies have a particular colour.
-* In the right-hand graph showing the sampling distribution, samples (candy bags) are the cases. We count how many samples (bags) contain a particular number of yellow candies. [<img src="icons/2question.png" width=161px align="right">](#question1.2.4)
-```
 
-<A name="answer1.2.5"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 5. 
 
-* If twenty per cent of candies in the population are yellow, we expect about
-twenty per cent of candies in our sample to be yellow. Our sample contains ten
-candies, so we expect two yellow candies in our sample. Indeed, samples with
-two yellow candies are most frequent if we draw 1,000 random samples.
-* If we expect two candies, samples are more unlikely if they contain a number
-of yellow candies that is further away from two. So we expect the sample
-counts to decrease if we move away from two in the sampling distribution. Ten
-yellow candies is furthest away from two in our sampling space, so a sample
-bag with ten yellow candies is most unlikely. [<img src="icons/2question.png" width=161px align="right">](#question1.2.5)
-```
 
-<A name="answer1.2.6"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 6. 
 
-* The number of yellow candies in the sample (bag) is the sample statistic.
-This is the characteristic of the sample (bag) that we are interested in.
-* The set of all possible outcomes of the sample statistic is the sampling
-space. In this example, the sampling space is the set of (integer) numbers
-from 0 to 10. [<img src="icons/2question.png" width=161px align="right">](#question1.2.6)
-```
 
-<A name="answer1.2.7"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 7. 
 
-* The numbers and horizontal bars in the _Probability_ column represent the
-probabilities of outcomes. In the initial situation, the highest probability
-is found for a sample bag containing two yellow candies (p = .302). This
-amounts to two out of the ten candies in the sample bag, that is, twenty per
-cent.
-* This percentage is equal to the percentage of yellow candies in the
-population. We are most likely to draw a sample with a percentage or
-proportion that is equal to the population percentage, here _p_ = .302, even
-though the total probability of drawing a sample with another percentage of
-yellow candies is higher (p = 1 - .302 = .698). [<img src="icons/2question.png" width=161px align="right">](#question1.2.7)
-```
 
-<A name="answer1.2.8"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 8. 
 
-* At most three out of ten candies means that we have to sum the probabilities
-of zero, one, two, and three yellow candies. This probability equals .107 +
-.268 + .302 + .201 = .878. That is a fair chance. [<img src="icons/2question.png" width=161px align="right">](#question1.2.8)
-```
 
-<A name="answer1.2.9"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 9. 
 
-* If a larger part of the candies is yellow in the population, we should
-expect more yellow candies in our sample bag. The probabilities of small
-numbers of yellow candies (low outcome values) should go down whereas the
-probabilities of large numbers (high outcome scores) should go up.
-* If you move the slider to the right, you will see that the distribution
-shifts down in the table. [<img src="icons/2question.png" width=161px align="right">](#question1.2.9)
-```
 
-<A name="answer1.2.10"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 10. 
 
-* If the population proportion is .5, the probability distribution is
-symmetric. The probability of a sample bag with four candies is equal to the
-probability of a sample bag with six candies. Probabilities are equal for
-three and seven yellow candies, two and eight, one and nine, zero and ten
-yellow candies.
-* The distribution has the classic symmetric bell shape of a normal
-distribution that we will encounter when we discuss continuous probability
-distributions. [<img src="icons/2question.png" width=161px align="right">](#question1.2.10)
-```
 
-<A name="answer1.2.11"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 11. 
 
-* We expect that the proportion of yellow candies in the sample equals the
-population proportion, which initially is .2. In a sample of ten candies,
-then, the expected number of yellow candies is two.
-* Note that two is the outcome with the highest probability in the sampling
-distribution.
-* The expected number of yellow candies in a sample bag of ten candies is ten
-times the population proportion, so the expected number of candies in the
-sample changes in accordance with changes in the population proportion. [<img src="icons/2question.png" width=161px align="right">](#question1.2.11)
-```
 
-<A name="answer1.2.12"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 12. 
 
-* The mean of the sampling distribution is equal to the expected value of the
-sample statistic. In the initial example, both are two.
-* This makes sense: Samples with fewer yellow candies than expected should
-balance samples with more yellow candies than expected. The mean represents the
-"balance point" of a distribution. [<img src="icons/2question.png" width=161px align="right">](#question1.2.12)
-```
 
-<A name="answer1.2.13"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 13. 
 
-* The mean of the sampling distribution of the sample proportion is equal to
-the population proportion. If we would have created the sampling distribution
-of the proportion of yellow candies in our sample, the mean of the sampling
-distribution would be equal to the proportion of yellow candies in the
-population.
-* Again, we are equally likely to draw a sample with fewer yellow candies than
-the expected proportion as a sample with more yellow candies. Samples with
-fewer yellow candies than expected should balance samples with more yellow
-candies than expected. The mean represents the "balance point" of a
-distribution.
-* Note that the expected value (mean of the sampling distribution) only equals
-the population value if the sample statistic is an unbiased estimate of the
-population value (parameter). See the next section. [<img src="icons/2question.png" width=161px align="right">](#question1.2.13)
-```
 
 ## A Continuous Random Variable: Overweight And Underweight. {#cont-random-var}
 
@@ -399,20 +224,11 @@ Figure \@ref(fig:p-values) shows an example of a continuous probability distribu
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/p-values/", height="260px")
 ```
 
-<A name="question1.3.1"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-1. In Figure \@ref(fig:p-values), what is the probability of buying a bag with average candy weight of 2.8 grams or more? [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.1){.buttonToAnswer}
-```
 
-<A name="question1.3.2"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-2. Use the sliders to find the probability of buying a bag with average candy weight between 2.6 and 3.7 grams. [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.2){.buttonToAnswer}
-```
 
-<A name="question1.3.3"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-3. What is the minimum average weight of the 10% heaviest candy bags? [<img src="icons/2answer.png" width=115px align="right">](#answer1.3.3){.buttonToAnswer}
-```
+
+
+
 
 A probability density function can give us the probability of values between two thresholds. It can also give us the probability of values up to (and including) a threshold value, which is known as a _left-hand probability_, or the probability of values above (and including) a threshold value, which is called a _right-hand probability_. In a null hypothesis significance test (Chapter \@ref(hypothesis)), right-hand and left-hand probabilities are used to calculate _p_ values.
 
@@ -430,37 +246,11 @@ In addition, you may have realized that we can use probability distributions in 
 cat("### Answers 1 {-}") 
 ```
 
-<A name="answer1.3.1"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 1. 
 
-* The probability is .5. It is represented by the green surface under the
-curve. This is exactly half of the total surface under the curve because 2.8
-grams is the average candy weight in the population and, as a result, the
-average value of the sampling distribution of average sample candy weight. [<img src="icons/2question.png" width=161px align="right">](#question1.3.1)
-```
 
-<A name="answer1.3.2"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 2. 
 
-* If you set the slider handles to 2.6 and 3.7, the blue area represents the
-probability that you are looking for. Its value is reported as .564.
-* This is neither a left-hand or right-hand probability because it does not
-include either the left-hand or right-hand tail of the sampling distribution. [<img src="icons/2question.png" width=161px align="right">](#question1.3.2)
-```
 
-<A name="answer1.3.3"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 3. 
 
-* Drag the right-hand slider handle to the maximum value (6) and then adjust
-the left-hand slider handle so the (blue) area in the right-tail of the
-sampling distribution represent a probability of .100. This area contains the
-ten per cent samples with largest average candy weight scores. The value
-displayed with the left-hand slider (3.57) is the minimum average candy weight
-of the 10% heaviest candy bags. [<img src="icons/2question.png" width=161px align="right">](#question1.3.3)
-```
 
 ## Concluding Remarks
 
@@ -486,20 +276,11 @@ Things become a little confusing if we are interested in a sample mean, such as 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/three-means/", height="560px")
 ```
 
-<A name="question1.4.1"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-1. In Figure \@ref(fig:three-means), explain the meaning of the three means (dotted red lines). Which mean is a mean of means? [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.1){.buttonToAnswer}
-```
 
-<A name="question1.4.2"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-2. Is it a coincidence that the mean of the population and sampling distribution are the same? Use a slider to check if these means are the same. [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.2){.buttonToAnswer}
-```
 
-<A name="question1.4.3"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-3. How does the sample mean relate to the population mean and the mean of the sampling distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer1.4.3){.buttonToAnswer}
-```
+
+
+
 
 The sampling distribution, here, is a distribution of sample means but the sampling distribution itself also has a mean, which is called the expected value or expectation of the sampling distribution. Don't let this confuse you. The mean of the sampling distribution is the average of the average weight of candies in every possible sample bag. This mean of means has the same value as our first mean, namely the average weight of the candies in the population because a sample mean is an unbiased estimator of the population mean.  
 
@@ -511,46 +292,11 @@ The sampling distribution is the crucial link between the sample and the populat
 cat("### Answers 1 {-}") 
 ```
 
-<A name="answer1.4.1"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 1. 
 
-* The dotted red line in the top graph represents the average of candy weights
-in the population.
-* The dotted red line in the middle graph represents the average of sampling
-means. So it is the average of average candy weight in a sample. It is a mean
-of means.
-* The dotted red line in the bottom graph represents the average of candy
-weights in the sample. [<img src="icons/2question.png" width=161px align="right">](#question1.4.1)
-```
 
-<A name="answer1.4.2"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 2. 
 
-* This is not a coincidence because the population mean is the expected value
-of the sampling distribution and the expected value of the sampling
-distribution is the average of the sampling distribution. [<img src="icons/2question.png" width=161px align="right">](#question1.4.2)
-```
 
-<A name="answer1.4.3"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 3. 
 
-* The sample mean is one of the sample means included in the sampling
-distribution. The sample is, so to speak, one of the possible samples that are
-listed in the sampling distribution.
-* The sampling distribution depends on the population distribution. For
-instance, the mean or centre of the sampling distribution of sample means
-equals the population mean (because the sample mean is an unbiased estimator
-of the population mean).
-* If the population changes, the sampling distribution changes, so the list of
-possible samples (better: the probabilities of sample outcomes) changes, so we
-expect a different sample. But this sample need not have the same mean as the
-population and the sampling distribution because it is drawn at random. The
-sample mean is more likely to be close to than very distant from the
-population mean but it still can be quite different from the population mean. [<img src="icons/2question.png" width=161px align="right">](#question1.4.3)
-```
 
 <!-- ## Test Your Understanding
 
@@ -562,70 +308,34 @@ The top-left histogram shows the distribution of candies according to colour in 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distribution/", height="425px")
 ```
 
-<A name="question1.5.1"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-1. The top-left histogram in Figure \@ref(fig:sampling-distribution-summary1) shows a simulated population distribution. What would be the real-world population? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.1){.buttonToAnswer}
-```
 
-<A name="question1.5.2"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-2. Use the button in Figure \@ref(fig:sampling-distribution-summary1) to draw one random sample of ten candies from the population. What do the numbers on the horizontal axis of the bottom-right histogram represent? What is the statistical name of the variable *Number of yellow candies in the sample*? What is the unit of analysis for this characteristic? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.2){.buttonToAnswer}
-```
 
-<A name="question1.5.3"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-3. Which values can the sample characteristic take here and what is the statistical name for this set of values? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.3){.buttonToAnswer}
-```
 
-<A name="question1.5.4"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-4. If you would draw many samples from this population each containing ten candies, what is the number of yellow candies per sample that appears most frequently? Draw 1,000 samples to verify your answer. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.4){.buttonToAnswer}
-```
 
-<A name="question1.5.5"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-5. Is the colour distribution in each sample that you draw representative (in the strict sense) of the colour distribution in the stock of candies? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.5){.buttonToAnswer}
-```
 
-<A name="question1.5.6"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-6. Why, do you think, is a sample characteristic (sample statistic) called a _random variable_? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.6){.buttonToAnswer}
-```
+
+
+
+
+
+
 
 ```{r sampling-distribution-summary2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A continuous sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
 # App p-values.
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/p-values/", height="260px")
 ```
 
-<A name="question1.5.7"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-7. Use your own words to explain what the sampling distribution in Figure \@ref(fig:sampling-distribution-summary2) represents. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.7){.buttonToAnswer}
-```
 
-<A name="question1.5.8"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-8. What do you think is the average weight of all candies in the population? Justify your answer using the concepts _expected value_ and _unbiased estimator_. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.8){.buttonToAnswer}
-```
 
-<A name="question1.5.9"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-9. Use the sliders to find the probability of drawing a sample with average candy weight between 2.0 and 2.9 grams. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.9){.buttonToAnswer}
-```
 
-<A name="question1.5.10"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-10. What, do you expect, is the probability of drawing a sample with average candy weight of exactly 2.9 grams? Use the sliders to check your expectation. [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.10){.buttonToAnswer}
-```
 
-<A name="question1.5.11"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-11. Why is this graph an example of a continuous probability distribution? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.11){.buttonToAnswer}
-```
 
-<A name="question1.5.12"></A>
-```{block2, type='rmdquestion', echo = Qch1}
-12. Why is the vertical axis labelled with "Probability density" instead of "Probability"? [<img src="icons/2answer.png" width=115px align="right">](#answer1.5.12){.buttonToAnswer}
-```
+
+
+
+
+
+
 
 ```{r, results = 'asis', eval=ch1, echo=FALSE} 
 cat("### Answers 1 {-}") 
@@ -635,147 +345,29 @@ cat("### Answers 1 {-}")
 Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
 ```
 
-<A name="answer1.5.1"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 1. 
 
-* If we would really sample candies, the population could be a candy factory's
-stock of candies or the factory's machine producing the candies from which we
-sample. [<img src="icons/2question.png" width=161px align="right">](#question1.5.1)
-```
 
-<A name="answer1.5.2"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 2. 
 
-* The numbers on the horizontal axis of the bottom-right histogram represent the number of yellow candies in the sample(s) that we have drawn. The variable for which these numbers are values is called a sample statistic. Together, these numbers constitute the sampling space, that is, all values that the sample statistic “Number of yellow candies in the sample” can take.
-* A sample statistic is a characteristic of a sample; we have a sample
-statistic score for each sample that we draw. The sample, then, is the unit of
-analysis or case for this variable and this histogram. [<img src="icons/2question.png" width=161px align="right">](#question1.5.2)
-```
 
-<A name="answer1.5.3"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 3. 
 
-* The sample characteristic is the number of yellow candies in our sample.
-Because our sample contains ten candies, this number can vary between zero and
-ten. This range of values is called the sampling space. [<img src="icons/2question.png" width=161px align="right">](#question1.5.3)
-```
 
-<A name="answer1.5.4"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 4.
 
-* If the proportion of yellow candies is .2 in the population, we expect that
-this is the proportion of yellow candies that is most likely in our sample.
-Therefore, samples with this proportion of yellow candies are most frequent if
-we draw many samples. Each sample contains ten candies, so a proportion of .2
-equals two yellow candies in a sample. [<img src="icons/2question.png" width=161px align="right">](#question1.5.4)
-```
 
-<A name="answer1.5.5"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 5. 
 
-* No. 
-* Let us assume that all colours have equal shares in the candy population,
-like the example in the figure. A sample is representative of the population (in the strict sense) with respect to candy colour if the colors have equal shares also in the
-sample. This is the only sample that is representative of the candy
-population with respect to candy colours. But most of the samples that we
-draw have an unequal distribution of colours. These samples are not
-representative of the population. [<img src="icons/2question.png" width=161px align="right">](#question1.5.5)
-```
 
-<A name="answer1.5.6"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 6. 
 
-* As we see when we draw several samples, the number of yellow candies varies
-across samples. This variation arises because we draw samples at random. So
-the scores of samples on the sample statistic is random. That is a good
-reason for calling it a random variable. [<img src="icons/2question.png" width=161px align="right">](#question1.5.6)
-```
 
-<A name="answer1.5.7"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 7. 
 
-* The sampling distribution in this figure shows average candy weights for all
-possible or a very large number of random samples drawn from a population of
-candies, for example, a factory's stock. [<img src="icons/2question.png" width=161px align="right">](#question1.5.7)
-```
 
-<A name="answer1.5.8"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 8. 
 
-* The population is not depicted here, so we must infer average candy weight
-in the population from the sampling distribution. If the sample statistic is
-an unbiased estimator of the population statistic (this is the case for a
-sample mean), the average of the sampling distribution (this is called the
-expected value) is equal to the population statistic.
-* In the current example, the average of the sampling distribution of average
-sample bag candy weights is equal to average candy weight in the population.
-* The sampling distribution depicted here is symmetrical, so the average
-equals the median value, so half of the observed average sample candy weights
-are below this value and the other half is above this value.
-* If one of the slider handles demarcates half of the probability from the
-other half, this handle indicates the average of the sampling distribution. In
-this example, the average is 2.8 (grams). [<img src="icons/2question.png" width=161px align="right">](#question1.5.8)
-```
 
-<A name="answer1.5.9"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 9. 
 
-* If you set the left-hand slider handle to 2.0 and the right-hand handle to
-2.9, the blue area represents the probability of drawing a sample with average
-candy weight between 2.0 and 2.9 grams. The value of the probability is
-depicted in the blue box within the graph. It is .475. [<img src="icons/2question.png" width=161px align="right">](#question1.5.9)
-```
 
-<A name="answer1.5.10"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 10. 
 
-* This probability is (virtually) zero. If we would measure weight with very
-high precision, no candy bag would have average candy weigth of exactly 2.9
-grams, that is, 2.90000000000000000000000000(and so on) grams. [<img src="icons/2question.png" width=161px align="right">](#question1.5.10)
-```
 
-<A name="answer1.5.11"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 11. 
 
-* See the answer to Question 10. A variable is continuous if we can, in
-principle, always find a new value between two values. This applies to average weight
-as a variable, because we can in principle always use more decimal places in
-our measurement to find a weight that is between two other weights. For
-example, between 2.90000 and 2.90001 we can think of the weight 2.900005.
-* If the sample statistic is a continuous variable, such as average candy
-weight in the sample, the probability distribution for this sample statistic
-is continuous. [<img src="icons/2question.png" width=161px align="right">](#question1.5.11)
-```
 
-<A name="answer1.5.12"></A>
-```{block2, type='rmdanswer', echo=ch1}
-Answer to Question 12. 
 
-* It makes no sense to speak of the probability (vertical axis) that average
-candy weight in a sample (horizontal axis) has one particular value. Because
-average weight is a continuous variable (see Exercise 11), the probability of
-one particular outcome value is (virtually) zero (see Exercise 10). If we would
-draw the probabilities on the vertical axis, we would have a flat line (at
-zero) instead of a curve.
-* Instead of probabilities of single outcome values, we are interested in
-probabilities of ranges or intervals of outcome values if we have a continuous
-random variable. For example, the probability of a sample with average candy
-weight between 2.8 and 2.9 grams. The probability of a range of outcome values
-is depicted as a surface below a probability density function. This is what
-our graph of a continuous sampling distribution shows, so the vertical axis is
-labelled 'probability density' instead of 'probability'. [<img src="icons/2question.png" width=161px align="right">](#question1.5.12)
-```
 
 -->
 
