@@ -297,9 +297,7 @@ This situation illustrates the limitations of null hypothesis significance tests
 
 A statistically significant *F* test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc *t* tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.
 
-```{html, echo=ch7}
-### Answers {-}
-```
+
 
 
 
@@ -365,9 +363,7 @@ knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px"
 
 
 
-```{html, echo=ch7} 
-### Answers {-} 
-```
+
 
 
 
@@ -514,9 +510,7 @@ The tested effects are main effects because they represent the effect of one fac
 
 We could have used two separate one-way analyses of variance to test the same effects. Moreover, we could have tested the difference between females and males with an independent-samples *t* test. The results would have been the same (if the design is balanced.) But there is an important advantage to using a two-way analysis of variance, to which we turn in the next section.
 
-```{html, echo=ch7} 
-### Answers {-} 
-```
+
 
 
 
@@ -748,9 +742,7 @@ Moderation between three or more factors is possible. These are called *higher-o
 
 The assumptions for two-way analysis of variance are the same as for one-way analysis of variance (Section \@ref(anova-assumpt)). Just note that equal group sizes and equal population variances now apply to the subgroups formed by the combination of the two factors.
 
-```{html, echo=ch7} 
-### Answers {-} 
-```
+
 
 
 
@@ -859,9 +851,7 @@ knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px"
 
 
 
-```{html, echo=ch7} 
-### Answers {-} 
-```
+
 
 
 
@@ -885,13 +875,9 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/",
 
 
 
-```{html, echo=ch7} 
-### Answers {-} 
-```
 
-```{block2, type='rmdanswer', echo=ch7}
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-```
+
+
 
 
 

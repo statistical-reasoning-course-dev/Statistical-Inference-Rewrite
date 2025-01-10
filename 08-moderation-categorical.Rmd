@@ -450,9 +450,7 @@ If the prediction errors are not more or less equal for all levels of the predic
 Why do we use the residuals and predicted values instead of a scatterplot for each dependent-independent variable pair to assess linearity and homoscedasticity? The reason is that some independent variables may predict low values and other independent variables may predict high values. This is perfectly OK if together they predict low and high values equally well.
 ```
 
-```{html, echo=ch8}
-### Answers {-}
-```
+
 
 
 
@@ -588,9 +586,7 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 
 
 
-```{html, echo=ch8} 
-### Answers {-}
-```
+
 
 
 
@@ -1194,9 +1190,7 @@ ggplot(smokers, aes(x = exposure, y = attitude,
 
 
 
-```{html, echo=ch8} 
-### Answers {-}
-```
+
 
 
 
@@ -1290,9 +1284,7 @@ knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px"
 
 
 
-```{html, echo=ch8} 
-### Answers {-}
-```
+
 
 
 
@@ -1355,13 +1347,9 @@ include_graphics("figures/Q8.5.7.png")
 
 
 
-```{html, echo=ch8} 
-### Answers {-}
-```
 
-```{block2, type='rmdanswer', echo=ch8}
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-```
+
+
 
 
 

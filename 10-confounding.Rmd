@@ -57,9 +57,7 @@ Finally, it is important to remember that a confounder, such as age in the prese
 
 Once the confounder (age) is added to the regression model, however, the estimated effects are controlling for the variable formerly known as a confounder. The effects no longer partly represent the effect of the former confounder. In other words, they are no longer confounded by the effect of that variable. The former confounding variable now is a predictor or, if we are not interested in its effects, a _covariate_ or _control variable_ in the regression model.
 
-```{html, echo=ch10}
-### Answers {-}
-```
+
 
 
   
@@ -118,9 +116,7 @@ Let us now turn to the definition of a confounder: A confounder is a variable th
 
 We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of females and males seeing Angelina Jolie in our example experiment, we can end up with more females than males seeing Jolie in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the sex of the participant, so participant sex is a confounder if it is also correlated with the dependent variable (willingness to donate) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders. 
 
-```{html, echo=ch10} 
-### Answers {-} 
-```
+
 
 
 
@@ -279,9 +275,7 @@ To summarize the two types of confounders:
 * If we add a *reinforcer* to the model, the reinforced effect moves towards the opposite side because reinforcement disappears. A positive effect becomes less strongly positive or even negative and a negative effect becomes less strongly negative or even positive.
 ```
 
-```{html, echo=ch10} 
-### Answers {-} 
-```
+
 
 
   
@@ -323,9 +317,7 @@ knitr::include_url("https://www.youtube.com/embed/Du2mzxWifCM", height = "360px"
 
 
 
-```{html, echo=ch10} 
-### Answers {-} 
-```
+
 
 
 
@@ -355,13 +347,9 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confounder
 
 
 
-```{html, echo=ch10} 
-### Answers {-} 
-```
 
-```{block2, type='rmdanswer', echo=ch10}
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-```
+
+
 
 
 

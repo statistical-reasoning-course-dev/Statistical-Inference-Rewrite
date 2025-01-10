@@ -58,9 +58,7 @@ Say, for instance, that 95% of all possible samples in the middle of the samplin
 
 We now have boundary values, that is, a range of sample statistic values, and a probability of drawing a sample with a statistic falling within this range. The probability shows our _confidence_ in the estimate. It is called the _confidence level_ of an interval estimate. 
 
-```{html, echo=ch3}
-### Answers {-}
-```
+
 
 
 
@@ -135,9 +133,7 @@ In practice, however, it is both time-consuming and expensive to draw a very lar
 
 The standard error may also depend on other factors, such as the variation in population scores. In our example, more variation in the weight of candies in the population produces a larger standard error for average candy weight in a sample bag. If there are more very heavy candies and very light candies, it is easier to draw a sample with several heavy candies or with several very light candies. Average weight in these sample bags will be too high or too low. We cannot influence the variation in candy weights in the population, so let us ignore this factor influencing the standard error.
 
-```{html, echo=ch3} 
-### Answers {-}
-```
+
 
 
 
@@ -197,9 +193,7 @@ Critical values make it easy to calculate an interval estimate if we know the st
 
 (Standard) normal distributions make life easier for us, because there is a fixed critical value for each probability, such as 1.96 for 95% probability, which is well-worth memorizing. 
 
-```{html, echo=ch3}
-### Answers {-} 
-```
+
 
 
 
@@ -332,9 +326,7 @@ As you might remember from Section \@ref(boot-approx), we simulate a sampling di
 
 It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report _p_ values (see Section \@ref(pvalue)), not confidence intervals.
 
-```{html, echo=ch3} 
-### Answers {-} 
-```
+
 
 
 
@@ -376,9 +368,7 @@ knitr::include_url("https://www.youtube.com/embed/GoGrsHpfIWM", height = "360px"
 
 
 
-```{html, echo=ch3} 
-### Answers {-} 
-```
+
 
 
 
@@ -411,13 +401,9 @@ Figure \@ref(fig:estimation) shows the sampling distribution of average candy we
 
 
 
-```{html, echo=ch3} 
-### Answers {-} 
-```
 
-```{block2, type='rmdanswer', echo=ch3}
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-```
+
+
 
 
 

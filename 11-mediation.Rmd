@@ -138,9 +138,7 @@ This line of reasoning shows us two things. First, we discover that our common c
 
 Our second discovery is that we usually look for mediators if we want to understand a direct effect. Date of birth affects exposure to people using newspapers as information sources, which affects the habit of reading newspapers, which finally affects the time spent on reading newspapers later on. Exposure and habit are mediators here. A direct effect of age on newspaper reading represents a causal process that may contain many intermediary steps. Adding mediators to our model is a way of getting more insight in the causal process.
 
-```{html, echo=ch11} 
-### Answers {-} 
-```
+
 
 
   
@@ -392,9 +390,7 @@ rm(variables)
 
 This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero. With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see Chapter \@ref(power) on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population. 
 
-```{html, echo=ch11} 
-### Answers {-} 
-```
+
 
 
   
@@ -623,9 +619,7 @@ knitr::include_url("https://www.youtube.com/embed/olOEqeZE9WE", height = "360px"
 
 
 
-```{html, echo=ch11} 
-### Answers {-} 
-```
+
 
 
 
@@ -753,13 +747,9 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncaus
 
 
 
-```{html, echo=ch11} 
-### Answers {-} 
-```
 
-```{block2, type='rmdanswer', echo=ch11}
-Answers to the Test Your Understanding questions will be shown in the web book when the last tutor group has discussed this chapter.
-```
+
+
 
 
 
