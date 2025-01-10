@@ -5,9 +5,11 @@
 
 ### Summary {-}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Given our sample, what are plausible population values?
-```
+
+:::
 
 In this chapter, we set out to make educated guesses of a population value (parameter, often called "the true value") based on our sample. This type of guessing is called _estimation_. Our first guess will be a single value for the population value. We merely guess that the population value is equal to the value of the sample statistic. This guess is the most precise guess that we can make, but, most likely, it is wrong. 
 
@@ -186,10 +188,12 @@ If the standard error is 0.5 and the population mean is 2.8 grams, we have 95% p
 
 Critical values make it easy to calculate an interval estimate if we know the standard error. Just take the population value and add the critical value times the standard error to obtain the upper limit of the interval estimate. Subtract the critical value times the standard error from the population value to obtain the lower limit. 
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 - Lower limit of the interval estimate = population value -- critical value * standard error.
 - Upper limit of the interval estimate = population value + critical value * standard error.
-```
+
+:::
 
 (Standard) normal distributions make life easier for us, because there is a fixed critical value for each probability, such as 1.96 for 95% probability, which is well-worth memorizing. 
 
@@ -263,7 +267,8 @@ Now, also increase the sample size in Figure \@ref(fig:pop-ci-sampling) by movin
 
 Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 > If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.
 >
 > --- @hoekstra2014robust
@@ -275,7 +280,8 @@ In classic statistics (so called "Frequentists"), the population parameter is _n
 A confidence interval around a sample statistics from solely one data collection either catches (100%) or does not catch (0%) the population parameter. We just do not know which one is the case. That's why we cannot make any conclusion about the population mean based on one confidence interval.
 
 Only when we replicate data collection many many times, we do know that about 95% of all 95% confidence intervals will catch the population mean.
-```
+
+:::
 
 Now imagine that you have a large sample for your research project. Looking at Figure \@ref(fig:pop-ci-sampling), this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn't it?
 
@@ -287,7 +293,8 @@ This sampling distribution is theoretically approximated by a normal distributio
 
 As a consequence, we are able to calculate 95% confidence interval around a sample mean by adding and subtracting 1.96 standard errors from that sample mean.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 - Confidence interval lower limit = sample value -- critical value * standard error.
 - Confidence interval upper limit = sample value + critical value * standard error.
 
@@ -295,7 +302,8 @@ For example, the 95%-confidence interval for a sample mean:
 
 - Lower limit = sample mean - 1.96 * standard error.
 - Upper limit = sample mean + 1.96 * standard error.
-```
+
+:::
 
 
 Haven't we seen this calculation before? Yes we did, in Section \@ref(int-est-sample-mean), where we estimated the interval around population mean for sample means. We now simply reverse the application, using the interval of sample mean to estimate the population mean instead of the other way around.

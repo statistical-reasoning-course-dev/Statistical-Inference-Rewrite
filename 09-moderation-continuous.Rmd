@@ -10,9 +10,11 @@ knitr::include_url("https://www.youtube.com/embed/sEwvuItAq6w", height = "360px"
 
 ### Summary {.unnumbered}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 My moderator is numerical. How can I construct different regression lines for different moderator values?
-```
+
+:::
 
 Chapter \@ref(moderationcat) shows us how we can include dichotomous and categorical variables as predictors and moderators in a regression model. Using dummy variables, we can analyze mean differences between groups and we can construct different regression lines for different groups (moderation). A graph showing the different regression models for different moderator groups communicates the results of a moderation model in an attractive way.
 

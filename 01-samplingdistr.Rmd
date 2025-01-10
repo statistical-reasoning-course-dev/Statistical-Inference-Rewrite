@@ -10,9 +10,11 @@ knitr::include_url("https://www.youtube.com/embed/GuJWgkSHywg", height = "360px"
 
 ### Summary {-}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 What does our sample tell us about the population from which it was drawn?
-```
+
+:::
 
 Statistical inference is about estimation and null hypothesis testing. We have collected data on a random sample and we want to draw conclusions (make inferences) about the population from which the sample was drawn. From the proportion of yellow candies in our sample bag, for instance, we want to estimate a plausible range of values for the proportion of yellow candies in a factory's stock (confidence interval). Alternatively, we may want to test the null hypothesis that one fifth of the candies in a factory's stock is yellow.
 
@@ -125,9 +127,11 @@ The expected value of the proportion of yellow candies in the sample is equal to
 
 Thus we arrive at the definition of the _expected value_ of a random variable:
 
-```{block2 type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 The expected value is the average of the sampling distribution of a random variable.
-```
+
+:::
 
 In our example, the random variable is a sample statistic, more specifically, the number of yellow candies in a sample.
 
@@ -187,9 +191,11 @@ Let us now look at another variable: the weight of candies in a bag. The weight 
 
 Weight is a _continuous variable_ because we can always think of a new weight between two other weights. For instance, consider two candy weights: 2.8 and 2.81 grams. It is easy to see that there can be a weight in between these two values, for instance, 2.803 grams. Between 2.8 and 2.803 we can discern an intermediate value such as 2.802. In principle, we could continue doing this endlessly, e.g., find a weight between 2.80195661 and 2.80195662 grams even if our scales may not be sufficiently precise to measure any further differences. It is the principle that counts. If we can always think of a new value in between two values, the variable is continuous.  
 
-```{block2 type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Continuous variable: We can always think of a new value in between two values.
-```
+
+:::
 
 ### Continuous sample statistic {#cont_sample_stat}
 

@@ -417,9 +417,11 @@ The reasoning applied when comparing our test statistic to the critical value is
 
 If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis. 
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Reject $H_0$ when $p$-value $\leq \alpha$
-```
+
+:::
 
 As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. For continuous variables, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.
 
@@ -587,11 +589,13 @@ Investigating the effects of a new medicine on a person’s health, we may requi
 
 If we have decided on a minimum level of improvement that is relevant to us, we want our test to be statistically significant if the average true health improvement in the population is at least of this size. We want to reject the null hypothesis of no improvement in this situation.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 * A larger sample size makes a statistical test more sensitive. The test will pick up (be statistically significant for) smaller effect sizes.
 
 * A larger effect size is more easily picked up by a statistical test. Larger effect sizes yield statistically significant results more easily, so they require smaller samples.
-```
+
+:::
 
 For media interventions such as health, political, or advertisement campaigns, one could think of a minimum change of attitude affected by the campaign in relation to campaign costs. A choice between different campaigns could be based on their efficiency in terms of attitudinal change per cost unit.
 
@@ -888,9 +892,11 @@ For fellow scientists and especially for the general reader, it is important to 
 
 A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:  
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 "The television station reaches significantly and substantially (61%) more than half of all households in Greece in 2012, _z_ = 4.01, _p_ < .001."
-```
+
+:::
 
 The interpretation of this test tells us the population ("all households in Greece"), the variable ("reaching a household") and the sample statistic of interest (61%, indicating a proportion). It tells us that the result is statistically significant, which a fellow scientist can check with the reported _p_ value. 
 
@@ -1064,9 +1070,11 @@ It is a common mistake to think that statistical significance is a measure of th
 
 It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in Chapter \@ref(binarydecision) that our decision is a binary one, so, never forget:
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 A statistically significant result ONLY means that the null hypothesis must be rejected.
-```
+
+:::
 
 If we want to say something about the magnitude of an effect in the population, we should use effect size. All we have is the effect size measured in our sample and a statistical test usually telling us whether or not we should reject the null hypothesis that there is no effect in the population.  
 
@@ -1076,9 +1084,11 @@ If the statistical test is not significant, it is tempting to conclude that the 
 
 In a two-sided significance test, the null hypothesis specifies one particular value for the sample outcome. If the outcome is continuous, for instance, a mean or regression coefficient, the null hypothesis can hardly ever be true, strictly speaking. The true population value is very likely not exactly the same as the hypothesized value. It may be only slightly different, but it is different.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 A statistically non-significant result does NOT mean that the null hypothesis is true.
-```
+
+:::
 
 When we evaluate a _p_ value, we had better take into account the probability that we correctly reject the null hypothesis, which is test power. If test power is low, as it often is in social scientific research with small effect sizes and not very large samples, we should realize that there can be an interesting difference between true and hypothesized population values even if the test is not statistically significant. Though, in recent years, the focus on pre-registration of required sample sizes has increased the power in many studies.
 

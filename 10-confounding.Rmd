@@ -9,9 +9,11 @@ knitr::include_url("https://www.youtube.com/embed/AbGUdp9fTRU", height = "360px"
 
 ### Summary {-}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 What happens if I use more than one predictor in a regression model? And do variables matter that are not in the regression model?
-```
+
+:::
 
 If we analyze the effects of two or more predictors on a dependent variable in a regression model, the effect of a predictor is adjusted for the effects of other predictors. Each predictor only predicts the part of the scores on the dependent variable that cannot be predicted by the other predictors. If we predict newspaper reading time, for example, from age and interest in politics, age predicts the part of newspaper reading time that interest in politics cannot predict.
 
@@ -86,9 +88,11 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-indirectco
 
 When is a variable a confounder and when does it change the effect of another predictor a lot if it is added to the regression model? The answer to the first part of this question is easy: A _confounder_ is a variable that is correlated with both the predictor and dependent variable but is not (yet) included in the regression model. Because of the correlations, a confounder establishes an _indirect correlation_ between the predictor and dependent variable.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 A confounder is a variable that is correlated with both the predictor and dependent variable but is not included in the regression model.
-```
+
+:::
 
 The size of the indirect correlation equals the product of the correlation between confounder and predictor and the correlation between confounder and dependent variable. In Figure \@ref(fig:mediation-indirectcorrelation), the correlation between age and political interest is .12 and the correlation between age and newspaper reading time is .88, the indirect correlation between interest in politics and reading time established by age is .12 * .88 = .11.
 
@@ -203,9 +207,11 @@ rm(variables)
 
 Now, let us have a look at the situation in which the indirect correlation is positive but the regression effect of the predictor is negative. Just reverse the example and make news site use the predictor and political interest the confounder. The regression effect of news site use on newspaper reading time is negative if people tend to use news sites instead of newspapers as sources of information. The indirect correlation due to political interest, however, is positive if politically interested people use news sites more and spend more time on reading newspapers. In this scenario, the negative effect of news site use on newspaper reading is underestimated if we do not control for political interest.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 A variable is a suppressor (1) if it is not included in the regression model and (2) it establishes an indirect correlation between predictor and dependent variable that has the opposite sign of the current effect of the predictor on the dependent variable.
-```
+
+:::
 
 Suppression can have surprising effects. If the predictor's original effect was close to zero, adding a suppressor variable to the model will strengthen the effect. An effect that we initially believed to be absent may turn out to be substantial and statistically significant. If our regression model tells us that our predictor does not have an effect, we cannot rule out that it does have an effect that is suppressed by a suppressor variable.
 
@@ -263,17 +269,21 @@ Actually, the indirect correlation between a predictor and dependent variable du
 
 The opposite may happen as well: An initially negative effect may become positive if a strong reinforcer variable is added to the model. This would be the case if the indirect correlation between political interest and newspaper reading time via news site use is strongly negative, resulting in a negative effect of political interest on reading time if news site use is left out of the model. Adding news site use to the model may then result in a positive effect of political interest.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 A variable is a reinforcer (1) if it is not included in the regression model and (2) it establishes an indirect correlation between predictor and dependent variable that has the same sign as the current effect of the predictor on the dependent variable.
-```
+
+:::
 
 To summarize the two types of confounders:
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 * If we add a *suppressor* to the model, the suppressed effect moves away from zero because suppression disappears. A positive effect becomes more strongly positive, a negative effect becomes more strongly negative.
 
 * If we add a *reinforcer* to the model, the reinforced effect moves towards the opposite side because reinforcement disappears. A positive effect becomes less strongly positive or even negative and a negative effect becomes less strongly negative or even positive.
-```
+
+:::
 
 
 

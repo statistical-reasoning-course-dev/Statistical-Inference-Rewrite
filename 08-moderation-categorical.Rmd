@@ -10,9 +10,11 @@ knitr::include_url("https://www.youtube.com/embed/lDkGyTvPzOY", height = "360px"
 
 ### Summary {.unnumbered}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 My dependent variable is numerical but at least one predictor is also numerical, so I cannot apply analysis of variance. How can I investigate moderation with regression analysis?
-```
+
+:::
 
 The linear regression model is a powerful and very popular tool for predicting a numerical dependent variable from one or more independent variables. In this chapter, we use regression analysis to evaluate the effects of an anti-smoking campaign. We predict attitude towards smoking from exposure to the anti-smoking campaign (numerical), time spent with smokers (numerical), and the respondent's smoking status (categorical).
 
@@ -134,11 +136,13 @@ The unstandardized regression coefficient $b$ represents the predicted differenc
 \normalsize
 \end{equation}
 ```
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 The unstandardized regression coefficient $b$ represents the predicted difference in the dependent variable for a difference of one unit in the independent variable.
 
 It is the slope of the regression line.
-```
+
+:::
 
 Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in Figure \@ref(fig:regression-continuous), one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.
 
@@ -205,9 +209,11 @@ Regression equation \@ref(eq:regdicho0) represents all non-smokers. Their smokin
 ```
 If you compare the final equations for smokers [Eq. \@ref(eq:regdicho1)] and non-smokers [Eq. \@ref(eq:regdicho0)], the only difference is $b$, which is present for smokers but absent for non-smokers. It is the difference between the average score on the dependent variable (attitude) for smokers and the average score for non-smokers. We are testing a mean difference. Actually, this is exactly the same as an independent-samples *t* test!
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 The unstandardized regression coefficient for a dummy (0/1) variable represents the difference between the average outcome score of the group coded as '1' and the average outcome score of the group coded as '0'.
-```
+
+:::
 
 Imagine that $b$ equals 1.6. This indicates that the average attitude towards smoking among smokers (coded '1') is 1.6 units above the average attitude among non-smokers (coded '0'). Is this a small or large effect? In the case of a dichotomous independent variable, we should **not** use the standardized regression coefficient to evaluate effect size. The standardized coefficient depends on the distribution of 1s and 0s, that is, which part of the respondents are smokers. But this should be irrelevant to the size of the effect.
 
@@ -258,11 +264,13 @@ knitr::kable(rbind(c("1 - Non-smoker", "1", "0", "0"),
 
 If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables **except one**. In the example, we must include two out of the three dummy variables. Equation \@ref(eq:regcat) includes dummy variables for former smokers ($smokesnomore$) and smokers ($smoking$).
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Include dummy variables as independent variables for *all except one* categories of a categorical variable.
 
 The category without dummy variable is the *reference group*.
-```
+
+:::
 
 ```{=tex}
 \begin{equation}
@@ -622,9 +630,11 @@ We used a similar diagram to express moderation in two-way analysis of variance 
 
 Analysis of variance (ANOVA) investigates the effects of categorical variables on a numerical dependent variable. It cannot handle numerical independent variables. Although there are ways to include numerical independent variables in analysis of variance, for example, analysis of covariance (ANCOVA), we use regression analysis if we have a numerical dependent variable and at least one numerical independent variable.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Use regression analysis if you have a numerical dependent variable and at least one numerical independent variable.
-```
+
+:::
 
 In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (Chapter \@ref(moderationcont)) presents regression models in which both the predictor and the moderator are numerical.
 
@@ -1001,13 +1011,15 @@ A plot with different regression lines for different categories of the moderator
 
 In a moderation model, we have at least two independent variables: the predictor and the moderator. For example, exposure is our predictor because our interest focuses on the effect of campaign exposure on attitude. Participant's smoking status is the moderator because we expect different exposure effects for participants with different smoking statuses. We may even have additional independent variables for which we want to control (more on this in Chapter \@ref(confounder)), for example, a participant's contacts with smokers. Let us call these additional independent variables *covariates*.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 A _predictor_ is the independent variable that is currently central to our analysis.
 
 A _moderator_ is an independent variable for which we expect different effects of the predictor.
 
 A _covariate_ is an independent variable that is currently not central to our analysis.
-```
+
+:::
 
 Note that the distinction between predictor, moderator, and covariate is temporary. As soon as we focus on another variable, that variable becomes the predictor and the other predictors become moderators or covariates. The distinction between predictor, moderator, and covariate is just terminology to show on which variable we focus.
 

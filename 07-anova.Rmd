@@ -10,9 +10,11 @@ knitr::include_url("https://www.youtube.com/embed/klV2FFgH9OU", height = "360px"
 
 ### Summary {.unnumbered}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 How do we test mean differences for three or more groups and what if group effects are not the same for all participants?
-```
+
+:::
 
 Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity's fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for a specific gender? This study only compares the genders 'male' and 'female'.
 
@@ -732,9 +734,11 @@ We can use the between-groups and within-groups variances to execute an *F* test
 
 Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of endorser is the same for both sexes in the population. Or, the other way around, that the effect of sex is the same for different endorser groups in the population.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Null hypothesis of the test on the interaction effect: equal effects of the predictor for all moderator groups in the population.
-```
+
+:::
 
 Moderation between three or more factors is possible. These are called *higher-order interactions*. It is wise to include all main effects and lower-order interactions if we test a higher-order interaction. As a result, our model becomes very complicated and hard to interpret. If a (first-order) interaction between two predictors must be interpreted as different differences, an interaction between three factors must be interpreted as different differences in differences. That's difficult to imagine, so let us avoid them.
 

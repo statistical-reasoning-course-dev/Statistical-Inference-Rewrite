@@ -9,9 +9,11 @@ knitr::include_url("https://www.youtube.com/embed/_cKP8d3ROtM", height = "360px"
 
 ### Summary {-}
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 Can I add a causal order to the predictors in my regression models?
-```
+
+:::
 
 If we add a causal order among the predictors of our regression model, we obtain a causal model or path model. The causal model includes an indirect effect: The first predictor affects the scores on the second predictor, which affects the scores on the dependent variable that we usually call the outcome variable. For example, age affects news site use, which affects newspaper reading time. In this path model, the second predictor (news site use) mediates the effect of the first predictor on the outcome variable. The second predictor is called a mediator.
 
@@ -123,10 +125,12 @@ rm(variables)
 
 An indirect effect may contain more than one step or mediator. If we include news site use in the model (Figure \@ref(fig:causaldiagram2)), we would have an indirect effect of age via interest in politics via news site use on newspaper reading time.
 
-```{block2, type='rmdimportant'}
+::: {.callout-important appearance="simple"}
+
 *  Mediation: A causal relationship between a predictor, one or more mediators, and an outcome variable.
 * Indirect effect: An effect in which three (or more) variables affect each other in a causal order: the predictor affects the mediator, the mediator affects another mediator or the outcome variable.
-```
+
+:::
 
 ### Causal process
 
