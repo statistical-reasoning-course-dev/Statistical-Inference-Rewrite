@@ -1,4 +1,4 @@
-# Mediation with Regression Analysis {#mediation}
+# Mediation with Regression Analysis {#sec-mediation}
 > Key concepts: causality, causal and time order, common cause, direct, indirect, and total effects, causal model, path diagram and path model, parallel and serial mediation, partial mediation, covariate, controlling mediator values.
 
 Watch this micro lecture on mediation for an overview of the chapter.
@@ -59,7 +59,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncaus
 
 
 
-### Criteria for a causal relation {#causalcriteria}
+### Criteria for a causal relation {#sec-causalcriteria}
 Researchers are usually interested in causal effects, so let us theorize a causal order between age and reading newspapers. From previous research and personal experience, we strongly suspect that older people spend more time on reading newspapers than young people. In statistical language, we expect a positive correlation between age and newspaper reading time. Can age be a cause of current newspaper reading?
 
 Correlation is the first criterion. A causal relation implies correlation or another type of statistical association. If newspaper reading is not correlated with age, it is hard to imagine that age affects newspaper reading. But correlation does not imply causation, as the saying goes. Correlated variables do not have to be causally related. We need additional arguments to add plausibility to a causal relation.
@@ -74,7 +74,7 @@ This effect is probably not causal: We do not spend more time reading newspapers
 
 To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem (Chapter \@ref(confounder)). With non-experimental data, for example data on newspaper reading habits gathered in a survey, we cannot be sure that we have included all common causes in our model. In this situation, we should always keep in mind that the effects that we find may be caused by variables not included in our regression model. In an experiment, however, we can use experimental randomization to minimize the chance of having any confounders at all (Section \@ref(randomization)).
 
-### Mediation as indirect effect {#indirecteffect}
+### Mediation as indirect effect {#sec-indirecteffect}
 
 A common cause does not have to remove the entire effect between a predictor and dependent variable. Even if part of newspaper reading is caused by age, another part can be caused by a variable related to age, for example, interest in politics. During their lifetime, people may gain more experience with politics and, for that reason, become more interested in reading about politics. This may cause them to invest more time in reading newspapers for collecting information.
 
@@ -269,7 +269,7 @@ Note that the indirect effect is interpreted in terms of the measurement units o
 Multiplication of direct effects assigns the right direction (positive or negative) to indirect effects. In the example above, age has a positive effect on interest in politics, which has a positive effect on newspaper reading time. If age goes up, interest in politics goes up and if interest in politics goes up, reading time increases. Thus, higher age is indirectly associated with more reading time through interest in politics: Plus times plus yields a plus.
 
 
-### Parallel and serial mediation {#partialserialmediation}
+### Parallel and serial mediation {#sec-partialserialmediation}
 
 If each indirect effect in a path model contains at most one mediator, we have _single mediation_ or _parallel mediation_. Figure \@ref(fig:mediationparallel) illustrates single and parallel mediation. 
 
@@ -326,7 +326,7 @@ ggplot(variables, aes(x, y)) +
 rm(variables)
 ```
 
-### Partial and full mediation {#partialfullmediation}
+### Partial and full mediation {#sec-partialfullmediation}
 
 The unstandardized direct effect and indirect effects between a predictor and outcome can be compared directly because they are all expressed in the same measurement units, namely the predicted change in the dependent variable (reading time in minutes) for a difference of one unit in the predictor (ten additional years of life) (Section \@ref(size-indirect-effects)). Because of this, we can sum the unstandardized direct and indirect effects to obtain the total unstandardized effect.
 
@@ -402,7 +402,7 @@ This sounds like a paradox but it should not upset you. The unstandardized indir
   
 
   
-## Controlling for Covariates {#mediationcovariate}
+## Controlling for Covariates {#sec-mediationcovariate}
 
 We usually have theoretical reasons to expect that a variable mediates an effect, for example, that political interest mediates the effect of age on newspaper reading time. At the same time, we know that our dependent variable and perhaps our mediator may depend on other variables. Newspaper reading time, for instance, may also depend on education. In this situation, we would use the other variables as covariates (or control variables) for which we want to control statistically.
 
@@ -522,7 +522,7 @@ Interpret an unstandardized indirect effect just like any unstandardized regress
 
 Inform the reader that you bootstrapped the indirect effect and report the number of bootstrap samples and the method used for the confidence intervals (see Section \@ref(SPSSPROCESS)). For a more elaborate discussion of reporting mediation, see Hayes [-@RefWorks:3873: 198-202].
 
-## Mediation with SPSS and PROCESS {#SPSSPROCESS}
+## Mediation with SPSS and PROCESS {#sec-SPSSPROCESS}
 
 ###  Instructions
 

@@ -38,11 +38,11 @@ Traditionally, statistical inference is generalization from the data collected i
 
 Statistical inference is conceptually complicated and for that reason quite often used incorrectly. We will therefore spend quite some time on the principles of statistical inference. Good understanding of the principles should help you to recognize and avoid incorrect use of statistical inference. In addition, it should help you to understand the controversies surrounding statistical inference and developments in the practice of applying statistical inference that are taking place. Investing time and energy in fully understanding the principles of statistical inference really pays off later.  
 
-## A Discrete Random Variable: How Many Yellow Candies in My Bag? {#discreterandomvariable}
+## A Discrete Random Variable: How Many Yellow Candies in My Bag? {#sec-discreterandomvariable}
 
 An obvious but key insight in statistical inference is this: If we draw random samples from the same population, we are likely to obtain different samples. No two random samples from the same population need to be identical, even though they can be identical. 
 
-### Sample statistic {#samplestatistic}
+### Sample statistic {#sec-samplestatistic}
 
 We are usually interested in a particular characteristic of the sample rather than in the exact nature of each observation within the sample. For instance, I happen to be very fond of yellow candies. If I buy a bag of candies, my first impulse is to tear the bag open and count the number of yellow candies. Am I lucky today? Does my bag contain a lot of yellow candies?
 
@@ -75,7 +75,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distributio
 
 
 
-### Probability and probability distribution {#probdistribution}
+### Probability and probability distribution {#sec-probdistribution}
 
 What is the probability of buying a bag with exactly five yellow candies? In statistical terminology, what is the probability of drawing a sample with five yellow candies as sample statistic outcome? This probability is the proportion of all possible samples that we could have drawn that happen to contain five yellow candies.
 
@@ -106,7 +106,7 @@ The sampling distribution as a probability distribution conveys very important i
 
 We may refer to probabilities both as a proportion, that is, a number between 0 and 1, and as a percentage: a number between 0% and 100%. Proportions are commonly considered to be the correct way to express probabilities. When we talk about probabilities, however, we tend to use percentages; we may, for example, say that the probabilities are fifty-fifty.  
 
-### Expected value or expectation {#expectedvalue}
+### Expected value or expectation {#sec-expectedvalue}
 
 We haven't yet thought about the value that we are most likely to encounter in the sample that we are going to draw. Intuitively, it must be related to the distribution of colours in the population of candies from which the sample was drawn. In other words, the share of yellow candies in the factory's stock from which the bag was filled or in the machine that produces the candies, seems to be relevant to what we may expect to find in our sample.  
 
@@ -147,7 +147,7 @@ In contrast, the proportion in the sample is an unbiased estimator of the popula
 
 Sometimes, we have to adjust the way in which we calculate a sample statistic to get an unbiased estimator. For instance, we must calculate the standard deviation and variance in the sample in a special way to obtain an unbiased estimate of the population standard deviation and variance. The exact calculation need not bother us, because our statistical software takes care of that. Our software only uses unbiased estimators.
 
-### Representative sample {#representative}
+### Representative sample {#sec-representative}
 
 Because the share of yellow candies in the population represents the probability of drawing a yellow candy, we also expect 20% of the candies in our bag to be yellow. For the same reason we expect the shares of all other colours in our sample bag to be equal to their shares in the population. As a consequence, we expect a random sample to resemble the population from which it is drawn. 
 

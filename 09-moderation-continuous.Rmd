@@ -1,4 +1,4 @@
-# Regression Analysis With A Numerical Moderator {#moderationcont}
+# Regression Analysis With A Numerical Moderator {#sec-moderationcont}
 
 > Key concepts: interaction variable, common support, simple slope, conditional effect, mean-centering.
 
@@ -375,7 +375,7 @@ An interaction variable that is the product of the predictor and two moderators 
 
 
 
-## Reporting Regression Results {#reportmoderation}
+## Reporting Regression Results {#sec-reportmoderation}
 
 ```{r report-moderation-calculation, echo=FALSE}
 # Generate data with categorical*continuous and continuous*continuous moderation.
@@ -573,7 +573,7 @@ Do not report that common support of the predictor at different moderator values
 
 Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.
 
-## A Numerical Moderator in SPSS {#RegressionContModSPSS}
+## A Numerical Moderator in SPSS {#sec-RegressionContModSPSS}
 
 #### Essential Analytics {.unnumbered}
 

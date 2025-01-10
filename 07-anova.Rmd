@@ -1,4 +1,4 @@
-# Moderation with Analysis of Variance (ANOVA) {#anova}
+# Moderation with Analysis of Variance (ANOVA) {#sec-anova}
 
 > Key concepts: eta-squared, between-groups variance, within-groups variance, *F* test on analysis of variance model, pairwise comparisons, post-hoc tests, one-way analysis of variance, two-way analysis of variance, balanced design, main effects, moderation, interaction effect.
 
@@ -321,7 +321,7 @@ A statistically significant *F* test tells us that we may be quite confident tha
 
 
 
-## One-Way Analysis of Variance in SPSS {#onewaySPSS}
+## One-Way Analysis of Variance in SPSS {#sec-onewaySPSS}
 
 ### Instructions
 
@@ -415,7 +415,7 @@ If we use one factor, the analysis is called one-way analysis of variance. With 
 
 A two-way analysis of variance using a factor with three levels, for instance, exposure to three different endorsers, and a second factor with two levels, for example, female versus male, is called a 3x2 (say: three by two) factorial design.
 
-### Balanced design {#balanced}
+### Balanced design {#sec-balanced}
 
 In analysis of variance with two or more factors, it is quite nice if the factors are statistically independent from one another. In other words, it is nice if the scores on one factor are not associated with scores on another factor. This is called a *balanced design*.
 
@@ -440,7 +440,7 @@ In practice, it may not always be possible to have exactly the same number of ob
 
 A balanced design is nice but not necessary. Unbalanced designs can be analyzed but estimation is more complicated (a problem for the computer, not for us) and the assumption of equal population variances for all groups (Levene's *F* test) is more important (a problem for us, not for the computer) because we do not have equal group sizes. Note that the requirement of equal group sizes applies to the *subgroups* in a two-way analysis of variance. With a balanced design, we ensure that we have the same number of observations in all subgroups, so we are on the safe side.
 
-### Main effects in two-way analysis of variance {#maineffects}
+### Main effects in two-way analysis of variance {#sec-maineffects}
 
 A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to Clooney have the same average willingness to donate in the population as participants exposed to Jolie or those who are not exposed to an endorser. At the same time, it tests the null hypothesis that females and males have the same average willingness to donate in the population.
 
@@ -520,7 +520,7 @@ We could have used two separate one-way analyses of variance to test the same ef
 
 
 
-## Moderation: Group-Level Differences that Depend on Context {#moderationanova}
+## Moderation: Group-Level Differences that Depend on Context {#sec-moderationanova}
 
 ```{r echo=FALSE}
 # TBD: the concept of moderation ; picture (sketch as video) as icon
@@ -823,7 +823,7 @@ knitr::kable(results, booktabs = TRUE, caption = "An example of a table summariz
 rm(results, donors)
 ```
 
-## Two-Way Analysis of Variance in SPSS {#twowaySPSS}
+## Two-Way Analysis of Variance in SPSS {#sec-twowaySPSS}
 
 ### Instructions
 

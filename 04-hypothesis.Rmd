@@ -1,4 +1,4 @@
-# Hypothesis testing {#hypothesis}
+# Hypothesis testing {#sec-hypothesis}
 
 > Key concepts: research hypothesis, statistical null and alternative hypothesis, nil hypothesis, test statistic, _p_ value, conditional probability, alpha, significance level (Type I error rate), Type I error, inflated type I error, type II error, Power, critical value, capitalization on chance, one-sided and two-sided tests and tests to which this distinction does not apply, rejection region, Bayesion statistics, confidence intervals.  
 
@@ -30,7 +30,7 @@ We follow up with Bayesian hypothesis testing, contrasting it with frequentist m
 
 In the final section (\@ref(critical-discussion)) we critically examine the limitations and criticisms of null hypothesis significance testing. We discuss issues such as the misinterpretation of p-values, the overemphasis on statistical significance over practical significance, and the risks of data dredging and publication bias. The section advocates for a more nuanced understanding and reporting of statistical results.
 
-## Hypothesis {#binarydecision}
+## Hypothesis {#sec-binarydecision}
 
 The assumption that a researcher wants to test is called a _research hypothesis_. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:
 
@@ -239,7 +239,7 @@ We will use both distributions in Figure \@ref(fig:twobinom) to clarify the diff
 
 Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent ($H_0 = \text{true}$) or that there is something going on ($H_0 \neq \text{true}$).
 
-### Alpha {#alpha}
+### Alpha {#sec-alpha}
 
 The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ decision table in Figure \@ref(fig:alphatable), this corresponds to the top left quadrant.
 
@@ -332,7 +332,7 @@ The decision to not reject the null hypothesis when it is in reality true is ind
 
 Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this critical value to look at the power.
 
-### Power {#power}
+### Power {#sec-power}
 
 The power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the $2 \times 2$ decision table in Figure \@ref(fig:decisiontable), this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In figure \ref(fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.
 
@@ -403,7 +403,7 @@ Looking at Figure \@ref(fig:nulldistributionalpha), we see that the critical val
 
 For continuous variables, as described in Figure \@ref(fig:nullsampling), the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in Figure \@ref(fig:nullsampling), and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for continuous variables is the same as for the discrete variables.
 
-### P-value {#pvalue}
+### P-value {#sec-pvalue}
 
 We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p-value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
 
@@ -862,7 +862,7 @@ You might have already realized that if you use the same alpha criterion for rej
 
 One final warning: Two-sided tests are only relevant if the probability distribution that you are using to test your hypothesis is symmetrical. If you are using a non-symmetrical distribution, such as the chi-square distribution, or the F-distribution you should always use a one-sided test. This is because such distributions do not have negative values, and the critical values are always on the right side of the distribution. As the F-value, for example, represents a signal to noise ratio, it can never be negative. 
 
-## Reporting test results {#reporting}
+## Reporting test results {#sec-reporting}
 
 ### Reporting to fellow scientists
 
@@ -1040,7 +1040,7 @@ Bayesian inference is intuitively appealing but it has not yet spread widely in 
 
 ## Critical Discussion {#critical-discussion}
 
-### Criticisms of Null Hypothesis Significance Testing {#criticismsNHST}
+### Criticisms of Null Hypothesis Significance Testing {#sec-criticismsNHST}
 
 In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video.
 

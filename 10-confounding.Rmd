@@ -1,4 +1,4 @@
-# Regression Analysis And Confounders {#confounder}
+# Regression Analysis And Confounders {#sec-confounder}
 > Key concepts: partial effect, statistically controlling for effects of other predictors, indirect correlation, confounders, suppression and suppressor, spuriousness and reinforcer.
 
 Watch this micro lecture on confounders for an overview of the chapter.
@@ -21,7 +21,7 @@ Because the effects of predictors are adjusted for the effects of other predicto
 
 Indirect correlations play a central role here: the correlation between a predictor (age) and the dependent variable (newspaper reading time) due to a third variable (news site use) that is correlated both with the predictor and the dependent variable. The size of the indirect correlation is the product of the correlation between the predictor (age) and third variable (news site use) and the correlation between the third variable (news site use) and the dependent variable (newspaper reading time).
 
-## Controlling for Effects of Other Predictors {#controlling}
+## Controlling for Effects of Other Predictors {#sec-controlling}
 
 In a regression model, we use the variation in scores on independent variables to predict the variation of scores on the dependent variable: Does a person with a higher score on an independent variable also have a higher score or, on the contrary, a lower score on the dependent variable? A simple regression model contains only one independent variable but a multiple regression model includes more than one.
 
@@ -65,7 +65,7 @@ Once the confounder (age) is added to the regression model, however, the estimat
   
 
 
-## Indirect Correlation {#indirectcorrelation}
+## Indirect Correlation {#sec-indirectcorrelation}
 
 ```{r mediation-indirectcorrelation, fig.pos='H', fig.align='center', fig.cap="What happens to the regression coefficient for the effect of political interest if we add a confounder to the model? Numbers represent correlations (lines) or standardized regression coefficients (arrows).", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Goal: Show that a regression coefficient changes more if the new predictor is more strongly correlated with the old predictor and dependent variable, hence, the indirect correlation is stronger.
@@ -108,7 +108,7 @@ The size of the change is related to the size of the indirect correlation. The l
 
 If you love the details: The size of the change in the standardized regression coefficient is not exactly the same as the size of the indirect correlation. It is equal to the correlation between the confounder (age) and the predictor (political interest) times the standardized regression coefficient of the effect of the confounder (age) on the dependent variable (newspaper reading time) that controls for the effect of the predictor (political interest). 
 
-### Randomization for avoiding confounders {#randomization}
+### Randomization for avoiding confounders {#sec-randomization}
 
 There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of Chapter \@ref(anova), where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment. 
 
@@ -124,7 +124,7 @@ We have learned about probabilities and expectations in previous chapters. These
 
 
 
-## Two Types of Confounders {#confounders}
+## Two Types of Confounders {#sec-confounders}
 
 ```{r mediation-confoundertypes, fig.pos='H', fig.align='center', fig.cap="When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Goal: Intuitive understanding of how the pattern of correlation/effect
@@ -146,7 +146,7 @@ In the preceding section, we learned that a partial effect expressed by a regres
 
 The partial effect of a predictor can become stronger, weaker, or even change direction if we add a confounder to the regression model. The following sections describe the two types of confounders that are responsible for these changes: suppressors and reinforcers.
 
-### Suppression {#suppression}
+### Suppression {#sec-suppression}
 
 A predictor's effect becomes stronger (more strongly positive or more strongly negative) if we include a confounding variable that is responsible for an indirect correlation that points in the opposite direction of the effect of the predictor in the model without the confounder. Here, the indirect correlation contradicts the effect of the predictor and as a result, the effect of the predictor is underestimated (suppressed) if the confounder is not included in the model. The confounder is a _suppressor variable_. If we add it to the model, it no longer suppresses the effect of the predictor, so this effect becomes stronger.
 
@@ -217,7 +217,7 @@ Suppression can have surprising effects. If the predictor's original effect was 
 
 In addition, indirect correlations due to other predictors can add so much to the original partial effect of a predictor that the standardized regression coefficient becomes higher than 1 or lower than -1. This illustrates that standardized regression coefficients are not correlations in multiple regression models because correlations can never be higher than 1 or lower than -1. In contrast, the standardized regression coefficient in a simple regression model is equal to the correlation between predictor and outcome. This is an important difference between simple and multiple regression models.
 
-### Reinforcement and spuriousness {#spuriousness}
+### Reinforcement and spuriousness {#sec-spuriousness}
 
 Adding a new predictor to a regression model may weaken the effects of other predictors or even change the direction of effects. This happens if the indirect correlation due to a confounder has the same direction (sign) as the regression effect of the predictor in the model without the confounder. Either the indirect correlation and regression effect are both positive or they are both negative.
 
@@ -291,7 +291,7 @@ To summarize the two types of confounders:
   
 
   
-## Comparing Regression Models in SPSS {#compmodelSSPSS}
+## Comparing Regression Models in SPSS {#sec-compmodelSSPSS}
 
 #### Essential Analytics {.unnumbered}
 

@@ -1,4 +1,4 @@
-# Regression Analysis And A Categorical Moderator {#moderationcat}
+# Regression Analysis And A Categorical Moderator {#sec-moderationcat}
 
 > Key concepts: regression equation, dummy variables, normally distributed residuals, linearity, homoscedasticity, independent observations, statistical diagram, interaction variable, covariate, common support, simple slope, conditional effect.
 
@@ -154,7 +154,7 @@ Note that the regression coefficient is calculated for predictor values that occ
 
 We cannot see this in the regression equation, which allows us to plug in -10, 10, or 100 as exposure values. But the values for attitude that we predict from these exposure values are probably nonsensical (if possible at all: -10 exposure?) Our data do not tell us anything about the relation between exposure and anti-smoking attitude for predictor values outside the observed zero to eight range. We should not pretend to know the effects of exposure levels outside this range. It is good practice to check the actual range of predictor values.
 
-### Dichotomous predictors {#dichpredictor}
+### Dichotomous predictors {#sec-dichpredictor}
 
 Instead of a numerical independent variable, we can use a dichotomy as an independent variable in a regression model. The dichotomy is preferably coded as 1 versus 0, for example, 1 for smokers and 0 for non-smokers among our respondents.
 
@@ -604,7 +604,7 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 
 
 
-## Different Lines for Different Groups {#categoricalmoderator}
+## Different Lines for Different Groups {#sec-categoricalmoderator}
 
 What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.
 
@@ -785,7 +785,7 @@ In a similar way, the regression coefficient $b_2$ for smoking status expresses 
 ```
 Smoking status is a dichotomy, so its regression coefficient ($b_2$) tells us the average difference in attitude between smokers and non-smokers. Due to the inclusion of the interaction variable, it now tells us the difference in average attitude between smokers and non-smokers **who have zero exposure to the anti-smoking campaign**. Note again that this is a conditional effect, not a main effect.
 
-### Interpretation and statistical inference {#interactioninterpretation}
+### Interpretation and statistical inference {#sec-interactioninterpretation}
 
 ```{r dich-moderator-output, echo=FALSE, message=FALSE, warning=FALSE}
 # Table of regression coefficients for exposure moderated by status. Similar to SPSS output (with correct standardized coefficients).
@@ -968,7 +968,7 @@ Interaction predictors show effect differences. In Table \@ref(tab:cat-moderator
 
 If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.
 
-### Common support {#commonsupportdichotomous}
+### Common support {#sec-commonsupportdichotomous}
 
 In a regression model with moderation, we have to interpret the effect of a predictor involved in an interaction at a particular value of the moderator (Section \@ref(conditional-effects)). The estimated effect at a particular value of the moderator can only be trusted if there are quite some observations at or near this value of the moderator. In addition, these observations should cover the full range of values on the predictor. After all, the effect that we estimate must tell us whether high values on the predictor go together with higher (or lower) values on the dependent variable than low values on the predictor.
 
@@ -1218,7 +1218,7 @@ ggplot(smokers, aes(x = exposure, y = attitude,
 
 
 
-## A Dichotomous or Categorical Moderator in SPSS {#catmodSPSS}
+## A Dichotomous or Categorical Moderator in SPSS {#sec-catmodSPSS}
 
 ### Instructions
 
