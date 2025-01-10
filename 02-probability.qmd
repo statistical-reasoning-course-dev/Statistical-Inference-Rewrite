@@ -22,7 +22,7 @@ After studying this chapter, you should know the limitations of the three method
 
 ## Exact Approaches to the Sampling Distribution
 
-The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (Section @sec-probdistribution). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (Section @sec-discreterandomvariable).  
+The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (@sec-probdistribution). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (@sec-discreterandomvariable).  
 
 <!-- # ```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does an exact aproach to the sampling distribution work?"} -->
 <!-- # # Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities. -->
@@ -58,13 +58,13 @@ Exact approaches are also available for the association between two categorical 
 ### Computer-intensive
 The exact approach can be applied to discrete variables because they have a limited number of values. Discrete variables are usually measured at the nominal or ordinal level. If the number of categories becomes large, a lot of computing time can be needed to calculate the probabilities of all possible sample statistic outcomes. Exact approaches are said to be _computer-intensive_. 
 
-It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (section @sec-Exact Approaches in SPSS. 
+It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (@sec-Exact Approaches in SPSS. 
 
 
 
 
 
-## Exact Approaches in SPSS {#SPSS-exact}
+## Exact Approaches in SPSS {#sec-SPSS-exact}
 
 ### Introduction
 
@@ -112,7 +112,7 @@ knitr::include_url("https://www.youtube.com/embed/PlT28wfc6K4", height = "360px"
 
 
 
-## Theoretical Approximations of the Sampling Distribution {#theoretical-approx}
+## Theoretical Approximations of the Sampling Distribution {#sec-theoretical-approx}
 
 Because bootstrapping and exact approaches to the sampling distribution require quite a lot of computing power, these methods were not practical in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the _normal distribution_ or the closely related _(Student) t distribution_. The mathematical functions are called _theoretical probability distributions_. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.
 
@@ -128,7 +128,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation
 
 
 
-The [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) is a mathematical function linking continuous scores, e.g., a sample statistic such as the average weight in the sample, to right-hand and left-hand probabilities, that is, to the probability of finding at least, or at most, this score. Such a function is called a _probability density function_ (Section @sec-cont-random-var).  
+The [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution) is a mathematical function linking continuous scores, e.g., a sample statistic such as the average weight in the sample, to right-hand and left-hand probabilities, that is, to the probability of finding at least, or at most, this score. Such a function is called a _probability density function_ (@sec-cont-random-var).  
 
 We like to use a theoretical probability distribution as an approximation of the sampling distribution because it is convenient. A computer can calculate probabilities from the mathematical function very quickly. We also like theoretical probability distributions because they usually offer plausible arguments about chance and probabilities.  
 
@@ -140,7 +140,7 @@ In addition, it is more likely that our sample bag has an average weight that is
 
 From this argumentation, we conclude that the normal distribution is a reasonable model for the probability distribution of sample means. Actually, it has been proven that the normal distribution exactly represents the sampling distribution in particular cases, for instance the sampling distribution of the mean of a very large sample.
 
-### Conditions for the use of theoretical probability distributions {#cond-probdistr}
+### Conditions for the use of theoretical probability distributions {#sec-cond-probdistr}
 
 Theoretical probability distributions, then, are plausible models for sampling distributions. They are known or likely to have the same shape as the true sampling distributions under particular circumstances or conditions. 
 
@@ -170,7 +170,7 @@ Note that this rule of thumb uses one minus the probability, if the probability 
 
 Apart from the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), there are several other theoretical probability distributions. We have the [_binomial distribution_](https://en.wikipedia.org/wiki/Binomial_distribution) for a proportion, the [_t distribution_](https://en.wikipedia.org/wiki/Student%27s_t-distribution) for one or two sample means, regression coefficients, and correlation coefficients, the [_F distribution_](https://en.wikipedia.org/wiki/F-distribution) for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the [_chi-squared distribution_](https://en.wikipedia.org/wiki/Chi-squared_distribution) for frequency tables and contingency tables.
 
-For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table @tab-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see Chapter @sec-moderationcat, Section @sec-regr-inference).
+For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table @tab-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see Chapter @sec-moderationcat, @sec-regr-inference).
 
 
 Table @tab-thumb shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.
@@ -181,7 +181,7 @@ Chi-squared tests require a minimum of five expected frequencies per category in
 
 The variation of sample size across groups is important in analysis of variance (ANOVA), which uses the *F* distribution. If the number of cases is more or less the same across all groups, we do not have to worry about the variances of the dependent variable for the groups in the population. To be on the safe side, then, it is recommended to design your sampling strategy in such a way that you end up with more or less equal group sizes if you plan to use analysis of variance.
 
-### Checking conditions {#cond-check} 
+### Checking conditions {#sec-cond-check} 
 
 Rules of thumb about sample size are easy to check once we have collected our sample. By contrast, rules of thumb that concern the scores in the population cannot be easily checked, because we do not have information on the population. If we already know what we want to know about the population, why would we draw a sample and do the research in the first place?  
 
@@ -191,7 +191,7 @@ In this situation, we do not _know_ that the population distribution is normal b
 
 We could use a histogram of the scores in our sample with a normal distribution curve added to evaluate whether a normal distribution applies. Sometimes, we have statistical tests to draw inferences about the population from a sample that we can use to check the conditions. We discuss these tests in a later chapter.  
 
-### More complicated sample statistics: differences {#complicatedsampling}
+### More complicated sample statistics: differences {#sec-complicatedsampling}
 
 Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. Table @tab-thumb, however, contains more complicated sample statistics. 
 
@@ -226,7 +226,7 @@ This is important for the way in which probabilities are calculated. Just think 
 
 Imagine that a magnetic field is activated if the first coin lands with heads up and that this magnetic field increases the odds that the second coin will also be heads. Now, the second toss is not independent of the first toss and the probability of getting heads twice is larger than .25.  
 
-### Dependent samples {#dependentsamples}
+### Dependent samples {#sec-dependentsamples}
 
 The example of a manipulated second toss is applicable to repeated measurements. If we want to know how quickly the yellow colour fades when yellow candies are exposed to sun light, we may draw a sample of yellow candies once and measure the colourfulness of each candy at least twice: at the start and end of some time interval. We compare the colourfulness of a candy at the second measurement to its colourfulness at the first measurement.  
 
@@ -284,7 +284,7 @@ In one case, SPSS automatically selects an exact approach if the conditions for 
 
 We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters.
 
-## The Bootstrap Approximation of the Sampling Distribution {#boot-approx}
+## The Bootstrap Approximation of the Sampling Distribution {#sec-boot-approx}
 
 The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
 
@@ -312,7 +312,7 @@ The _bootstrap_ concept refers to the story in which Baron von M&uuml;nchhausen 
 
 ### Sampling with and without replacement  
 
-As we will see in Chapter @sec-param-estim, for example Section @sec-precisionsesamplesize, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.  
+As we will see in Chapter @sec-param-estim, for example @sec-precisionsesamplesize, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.  
 
 How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?
 
@@ -379,7 +379,7 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 
 
 
-## Bootstrapping in SPSS {#boot-spss}
+## Bootstrapping in SPSS {#sec-boot-spss}
 
 ### Instructions
 
@@ -392,7 +392,7 @@ knitr::include_url("https://www.youtube.com/embed/-6nQsBK4-E8", height = "360px"
 # 
 # You can set some more bootstrapping options. The Mersenne Twister seed is a number that starts the randomizer used to draw random sample. If run the bootstrap with  the same seed number (any number will do) as the previous time, SPSS will yield exactly the same results as the preceding time. If this number is not set, applying bootstrap at different times will produce slightly different results because different random bootstrap samples are drawn. These differences, however, are usually too small to be of importance. Only set the seed number if you want to replicate your exact results when you rerun the bootstrap.
 # 
-# The confidence level of the confidence interval can be changed. We will discuss confidence levels in Section @sec-conf-interval. For now, never mind this option because the default (95%) is most widely used. There are two ways of calculating the confidence interval from the bootstraps. _Bias corrected accelerated (BCa)_ is the better option. It corrects for bias (difference between the sample result and the mean of the bootstrapped sampling distribution) and for skewness in the bootstrapped sampling distribution (which is more likely with a skewed sampling distribution?).
+# The confidence level of the confidence interval can be changed. We will discuss confidence levels in @sec-conf-interval. For now, never mind this option because the default (95%) is most widely used. There are two ways of calculating the confidence interval from the bootstraps. _Bias corrected accelerated (BCa)_ is the better option. It corrects for bias (difference between the sample result and the mean of the bootstrapped sampling distribution) and for skewness in the bootstrapped sampling distribution (which is more likely with a skewed sampling distribution?).
 #
 # Finally, it is possible to stratify the bootstrap sample. If you select a variable here, for example, candy colour, each bootstrap sample with have the same distribution of colours as the original sample. Usually, this is not necessary.
 #
@@ -404,7 +404,7 @@ knitr::include_url("https://www.youtube.com/embed/6E2LgeMtkL4", height = "360px"
 # Interpret bootstrap results in SPSS. 
 # SPSS generates the sampling distribution in the background, so you cannot see it. SPSS just provides new p values ( _Sig._ ) and confidence intervals marked as _Bootstrap_. Report these values instead of the "ordinary" p value and confidence interval. For example, a bootstrapped independent-samples t test on the difference between the average weight of yellow and red candies produces the following output in SPSS.
 # 
-# The first table in the output merely tells us the options we selected for bootstrapping. The table __Group Statistics__ gives us the group means, standard deviations, and standard error of the mean (to be discussed in Section @sec-standard-error). Each of these has a bootstrap confidence interval, illustrating that we can bootstrap any sample statistic. 
+# The first table in the output merely tells us the options we selected for bootstrapping. The table __Group Statistics__ gives us the group means, standard deviations, and standard error of the mean (to be discussed in @sec-standard-error). Each of these has a bootstrap confidence interval, illustrating that we can bootstrap any sample statistic. 
 # 
 # Then we get the usual summary of the t test without bootstrapping in the __Independent Samples Test__ table and, finally, the bootstrap results for the t test. If we compare test significance (p value) and confidence intervals between the regular t test and the bootstrapped t test, we see very similar results. The bootstrap confidence interval is slightly narrower than the regular confidence interval. Both confidence intervals suggest that the weight difference between yellow and red candies can be both positive (red candies are on average heavier) and negative (yellow candies are heavier), so we best conclude that there is no difference in average weight.
 # 
