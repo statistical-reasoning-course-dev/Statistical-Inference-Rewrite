@@ -1,4 +1,4 @@
-# Probability Models: How Do I Get a Sampling Distribution? {probmodels}
+# Probability Models: How Do I Get a Sampling Distribution? {#sec-probmodels}
 
 > Key concepts: bootstrapping/bootstrap sample, sampling with replacement, exact approach, approximation with a theoretical probability distribution, binomial distribution, (standard) normal distribution, (Student) _t_ distribution, _F_ distribution, chi-squared distribution, condition checks for theoretical probability distributions, sample size, equal population variances, independent samples, dependent/paired samples.
 
@@ -25,23 +25,23 @@ After studying this chapter, you should know the limitations of the three method
 
 The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (@sec-probdistribution). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (@sec-discreterandomvariable).  
 
-<!-- # ```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does an exact aproach to the sampling distribution work?"} -->
-<!-- # # Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities. -->
-<!-- # # Scenarios: number of heads per toss if we toss 1, 2, 3 unbiased coins; sum of the number of eyes per throw if we throw 1 or 2 unbiased dice. -->
-<!-- # # If feasible: Don't show probabilities but let user enter probabilities if a scenario is used for the second (or later) time within a session. -->
-<!-- # d <- data.frame(Outcome = c(0,1,1,1,2,2,2,3,"Total"), -->
-<!-- #                 Combinations = c("tail-tail-tail", "tail-tail-head", "head-tail-tail", "tail-head-tail", "head-head-tail", "head-tail-head", "tail-head-head", "head-head-head", "8"), -->
-<!-- #                 Probability_of_combination = c("1/2 * 1/2 * 1/2 = 1/8 =  .125", "1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125", ""), -->
-<!-- #                 Probability_of_outcome = c("1/8 =  .125", "", "", "3/8 =  .375", "", "", "3/8 =  .375", "1/8 =  .125", "1.000")) -->
-<!-- # knitr::kable(d, -->
-<!-- #              booktabs  = TRUE, -->
-<!-- #              caption   = "Number of heads for a toss of three coins.", -->
-<!-- #              col.names = c("Outcome", "Combination", "Probability: Combination", "Probability: Outcome"), -->
-<!-- #              align     = c("l", "l", "l", "r")) %>% -->
-<!-- #   kable_styling(font_size = 12, full_width = F, latex_options = c("HOLD_position", "scale_down")) %>% -->
-<!-- #   row_spec(c(2:4, 8), color = "black", background = "#EEEEEE") %>% -->
-<!-- #   row_spec(c(1, 5:7), color = "black", background = "white") -->
-<!-- # ``` -->
+```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does an exact aproach to the sampling distribution work?"}
+# Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities.
+# Scenarios: number of heads per toss if we toss 1, 2, 3 unbiased coins; sum of the number of eyes per throw if we throw 1 or 2 unbiased dice.
+# If feasible: Don't show probabilities but let user enter probabilities if a scenario is used for the second (or later) time within a session.
+d <- data.frame(Outcome = c(0,1,1,1,2,2,2,3,"Total"), 
+                Combinations = c("tail-tail-tail", "tail-tail-head", "head-tail-tail", "tail-head-tail", "head-head-tail", "head-tail-head", "tail-head-head", "head-head-head", "8"),
+                Probability_of_combination = c("1/2 * 1/2 * 1/2 = 1/8 =  .125", "1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125", ""),
+                Probability_of_outcome = c("1/8 =  .125", "", "", "3/8 =  .375", "", "", "3/8 =  .375", "1/8 =  .125", "1.000"))
+knitr::kable(d, 
+             booktabs  = TRUE, 
+             caption   = "Number of heads for a toss of three coins.", 
+             col.names = c("Outcome", "Combination", "Probability: Combination", "Probability: Outcome"), 
+             align     = c("l", "l", "l", "r")) %>%
+  kable_styling(font_size = 12, full_width = F, latex_options = c("HOLD_position", "scale_down")) %>%
+  row_spec(c(2:4, 8), color = "black", background = "#EEEEEE") %>%
+  row_spec(c(1, 5:7), color = "black", background = "white")
+```
 
 
 

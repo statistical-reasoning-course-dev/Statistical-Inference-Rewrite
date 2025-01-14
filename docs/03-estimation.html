@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Estimating a Parameter: Which Population Values Are Plausible? – Statistical Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./04-hypothesis.html" rel="next">
+<link href="./02-probability.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styleX.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-estimation.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ShKlinkenberg/Statistical-Inference" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and Reader’s Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-samplingdistr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling Distribution: How Different Could My Sample Have Been?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#point-estimate" id="toc-point-estimate" class="nav-link" data-scroll-target="#point-estimate"><span class="header-section-number">3.1</span> Point Estimate</a></li>
+  <li><a href="#interval-estimate-for-the-sample-statistic" id="toc-interval-estimate-for-the-sample-statistic" class="nav-link" data-scroll-target="#interval-estimate-for-the-sample-statistic"><span class="header-section-number">3.2</span> Interval Estimate for the Sample Statistic</a></li>
+  <li><a href="#sec-precisionsesamplesize" id="toc-sec-precisionsesamplesize" class="nav-link" data-scroll-target="#sec-precisionsesamplesize"><span class="header-section-number">3.3</span> Precision, Standard Error, and Sample Size</a>
+  <ul class="collapse">
+  <li><a href="#sample-sizes" id="toc-sample-sizes" class="nav-link" data-scroll-target="#sample-sizes"><span class="header-section-number">3.3.1</span> Sample sizes</a></li>
+  <li><a href="#standard-error" id="toc-standard-error" class="nav-link" data-scroll-target="#standard-error"><span class="header-section-number">3.3.2</span> Standard error</a></li>
+  </ul></li>
+  <li><a href="#crit-values" id="toc-crit-values" class="nav-link" data-scroll-target="#crit-values"><span class="header-section-number">3.4</span> Critical Values</a>
+  <ul class="collapse">
+  <li><a href="#standardization-and-z-scores" id="toc-standardization-and-z-scores" class="nav-link" data-scroll-target="#standardization-and-z-scores"><span class="header-section-number">3.4.1</span> Standardization and <em>z</em> scores</a></li>
+  <li><a href="#int-est-sample-mean" id="toc-int-est-sample-mean" class="nav-link" data-scroll-target="#int-est-sample-mean"><span class="header-section-number">3.4.2</span> Interval estimates from critical values and standard errors</a></li>
+  </ul></li>
+  <li><a href="#ci-parameter" id="toc-ci-parameter" class="nav-link" data-scroll-target="#ci-parameter"><span class="header-section-number">3.5</span> Confidence Interval for a Parameter</a>
+  <ul class="collapse">
+  <li><a href="#fixed-pop-values" id="toc-fixed-pop-values" class="nav-link" data-scroll-target="#fixed-pop-values"><span class="header-section-number">3.5.1</span> Reverse reasoning from one sample mean</a></li>
+  <li><a href="#bootstrap-confidenceinterval" id="toc-bootstrap-confidenceinterval" class="nav-link" data-scroll-target="#bootstrap-confidenceinterval"><span class="header-section-number">3.5.2</span> Confidence intervals with bootstrapping</a></li>
+  </ul></li>
+  <li><a href="#SPSS-CI" id="toc-SPSS-CI" class="nav-link" data-scroll-target="#SPSS-CI"><span class="header-section-number">3.6</span> Confidence Intervals in SPSS</a>
+  <ul class="collapse">
+  <li><a href="#instruction" id="toc-instruction" class="nav-link" data-scroll-target="#instruction"><span class="header-section-number">3.6.1</span> Instruction</a></li>
+  </ul></li>
+  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">3.7</span> Take-Home Points</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="param-estim" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.</p>
+</blockquote>
+<section id="summary" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Given our sample, what are plausible population values?</p>
+</div>
+</div>
+</div>
+<p>In this chapter, we set out to make educated guesses of a population value (parameter, often called “the true value”) based on our sample. This type of guessing is called <em>estimation</em>. Our first guess will be a single value for the population value. We merely guess that the population value is equal to the value of the sample statistic. This guess is the most precise guess that we can make, but, most likely, it is wrong.</p>
+<p>Our second guess uses the sampling distribution to make a statement about the approximate population value. In essence, we calculate an interval that we are confident will contain the population value. We can increase our confidence by widening the interval, but this decreases the precision of our guess.</p>
+</section>
+<section id="point-estimate" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="point-estimate"><span class="header-section-number">3.1</span> Point Estimate</h2>
+<p>If we have to name one value for the population value, our best guess is the value of the sample statistic. For example, if 18% of the candies in our sample bag are yellow, our best guess for the proportion of yellow candies in the population of all candies from which this bag was filled, is .18. What other number can we give if we only have our sample? This type of guess is called a <em>point estimate</em> and we use it a lot.</p>
+<p>The sample statistic is the best estimate of the population value only if the sample statistic is an unbiased estimator of the population value. As we have learned in Section <a href="01-samplingdistr.html#sec-unbiased-est" class="quarto-xref"><span>Section 1.2.5</span></a>, the true population value is equal to the mean of the sampling distribution for an unbiased estimator. The mean of the sampling distribution is the expected value for the sample.</p>
+<p>In other words, an unbiased estimator neither systematically overestimates the population value, nor does it systematically underestimate the population value. With an unbiased estimator, then, there is no reason to prefer a value higher or lower than the sample value as our estimate of the population value.</p>
+<p>Even though the value of the statistic in the sample is our best guess, it is very unlikely that our sample statistic is exactly equal to the population value (parameter). The recurrent theme in our discussion of random samples is that a random sample differs from the population because of chance during the sampling process. The precise population value is highly unlikely to actually appear in our sample.</p>
+<p>The sample statistic value is our best point estimate but it is nearly certain to be wrong. It may be slightly or far off the mark but it will hardly ever be spot on. For this reason, it is better to estimate a range within which the population value falls. Let us turn to this in the next section.</p>
+</section>
+<section id="interval-estimate-for-the-sample-statistic" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="interval-estimate-for-the-sample-statistic"><span class="header-section-number">3.2</span> Interval Estimate for the Sample Statistic</h2>
+<p>The sampling distribution of a continuous sample statistic tells us the probability of finding a range of scores for the sample statistic in a random sample. For example, the average weight of candies in a sample bag is a continuous random variable. The sampling distribution tells us the probability of drawing a sample with average candy weight between 2.0 and 3.6 grams. We can use this range as our <em>interval estimate</em>.</p>
+<p>Note that we are reasoning from sampling distribution to sample now. This is not what we want to do in actual research, where we want to reason from sample to sampling distribution to population. We get to that in Section <span class="quarto-unresolved-ref">?sec-ci-parameter</span>. For now, assume that we know the true sampling distribution.</p>
+<p>Remember that the average or expected value of a sampling distribution is equal to the population value if the estimator is unbiased. For example, the mean weight of yellow candies averaged over a very large number of samples is equal to the mean weight of yellow candies in the population. For an interval estimate, we now select the sample statistic values that are closest to the average of the sampling distribution.</p>
+<p>Between which boundaries do we find the sample statistic values that are closest to the population value? Of course, we have to specify what we mean by “closest”. Which part of all samples do we want to include? A popular proportion is 95%, so we want to know the boundary values that include 95% of all samples that are closest to the population value. For example, between which boundaries is average candy weight situated for 95% of all samples that are closest to the average candy weight in the population?</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/ci-borders/?showcase=0" width="420px" height="290px" data-external="1">
+</iframe>
+</div>
+<p>Figure <span class="quarto-unresolved-ref">?fig-ci-borders</span> shows the sampling distribution of average sample candy weight.</p>
+<p>Say, for instance, that 95% of all possible samples in the middle of the sampling distribution have an average candy weight ranging from 1.6 to 4.0 grams. The proportion .95 can be interpreted as a probability. Our sampling distribution tells us that we have 95% probability that the average weight of yellow candies lies between 1.6 and 4.0 grams in a random sample that we draw from this population.</p>
+<p>We now have boundary values, that is, a range of sample statistic values, and a probability of drawing a sample with a statistic falling within this range. The probability shows our <em>confidence</em> in the estimate. It is called the <em>confidence level</em> of an interval estimate.</p>
+</section>
+<section id="sec-precisionsesamplesize" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-precisionsesamplesize"><span class="header-section-number">3.3</span> Precision, Standard Error, and Sample Size</h2>
+<p>The width of the estimated interval represents the <em>precision</em> of our estimate. The wider the interval, the less precise our estimate. With a less precise interval estimate, we will have to take into account a wider variety of outcomes in our sample.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-level/?showcase=0" width="420px" height="310px" data-external="1">
+</iframe>
+</div>
+<p>If we want to predict something, we value precision. We would rather conclude that the average weight of candies in the next sample we draw is between 2.0 and 3.6 grams than between 1.6 and 4.0 grams. If we would be satisfied with a very imprecise estimate, we need not do any research at all. With relatively little knowledge about the candies that we are investigating, we could straightaway predict that the average candy weight is between zero and ten grams. The goal of our research is to find a more precise estimate.</p>
+<p>There are several ways to increase the precision of our interval estimate, that is, to obtain a narrower interval for our estimate. The easiest and least useful way is to decrease our confidence that our estimate is correct. If we lower the confidence that we are right, we can discard a large number of other possible sample statistic outcomes and focus on a narrower range of sample outcomes around the true population value.</p>
+<p>This method is not useful because we sacrifice our confidence that the range includes the outcome in the sample that we are going to draw. What is the use of a more precise estimate if we are less certain that it predicts correctly? Therefore, we usually do not change the confidence level and leave it at 95% or thereabouts (90%, 99%). It is important to be quite sure that our prediction will be right.</p>
+<section id="sample-sizes" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="sample-sizes"><span class="header-section-number">3.3.1</span> Sample sizes</h3>
+<p>A less practical but very useful method of narrowing the interval estimate is increasing sample size. If we buy a larger bag containing more candies, we get a better idea of average candy weight in the population and a better idea of the averages that we should expect in our sample.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-size/?showcase=0" width="420px" height="310px" data-external="1">
+</iframe>
+</div>
+<p>Figure <span class="quarto-unresolved-ref">?fig-interval-size</span> shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.</p>
+<p>As you may have noticed while playing with Figure <span class="quarto-unresolved-ref">?fig-interval-size</span>, a larger sample yields a narrower, that is, more precise interval. You may have expected intuitively that larger samples give more precise estimates because they offer more information. This intuition is correct.</p>
+<p>In a larger sample, an observation above the mean is more likely to be compensated by an observation below the mean. Just because there are more observations, it is less likely that we sample relatively high scores but no or considerably fewer scores that are relatively low.</p>
+<p>The larger the sample, the more the distribution of scores for a variable in the sample will resemble the distribution of scores for this variable in the population. As a consequence, a sample statistic value will be closer to the population value for this statistic.</p>
+<p>Larger samples resemble the population more closely, and therefore large samples drawn from the same population are more similar. The result is that the sample statistic values in the sampling distribution are less varied and more similar. They are more concentrated around the true population value. The middle 95% of all sample statistic values are closer to the centre, so the sampling distribution is more peaked.</p>
+</section>
+<section id="standard-error" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="standard-error"><span class="header-section-number">3.3.2</span> Standard error</h3>
+<p>The concentration of sample statistic values, such as average candy weight in a sample bag, around the centre (mean) of the sampling distribution is expressed by the standard deviation of the sampling distribution. Up until now, we have only paid attention to the centre of the sampling distribution, its mean, because it is the expected value in a sample and it is equal to the population value if the estimator is unbiased.</p>
+<p>Now, we start looking at the standard deviation of the sampling distribution as well, because it tells us how precise our interval estimate is going to be. The sampling distribution’s standard deviation is so important that it has received a special name: the <em>standard error</em>.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/se-point-est/?showcase=0" width="420px" height="310px" data-external="1">
+</iframe>
+</div>
+<p>The word <em>error</em> reminds us that the standard error represents the size of the error that we are likely to make (on average under many repetitions) if we use the value of the sample statistic as a point estimate for the population value.</p>
+<p>Let us assume, for instance, that the standard error of the average weight of candies in samples is 0.6. Loosely stated, this means that the average difference between true average candy weight and average candy weight in a sample is 0.6 if we draw very many samples from the same population.</p>
+<p>The smaller the standard error, the more the sample statistic values resemble the true population value, and the more precise our interval estimate is with a given confidence level, for instance, 95%. Because we like more precise interval estimates, we prefer small standard errors over high standard errors.</p>
+<p>It is easy to obtain smaller standard errors: just increase sample size. See Figure <span class="quarto-unresolved-ref">?fig-interval-size</span>, where larger samples yield more peaked sampling distributions. In a peaked distribution, values are closer to the mean and the standard error is smaller. In our example, average candy weights in larger sample bags are closer to the average candy weight in the population.</p>
+<p>In practice, however, it is both time-consuming and expensive to draw a very large sample. Usually, we want to settle on the optimal size of the sample, namely a sample that is large enough to have interval estimates at the confidence level and precision that we need but as small as possible to save on time and expenses. We return to this matter in Chapter <span class="quarto-unresolved-ref">?sec-power</span>.</p>
+<p>The standard error may also depend on other factors, such as the variation in population scores. In our example, more variation in the weight of candies in the population produces a larger standard error for average candy weight in a sample bag. If there are more very heavy candies and very light candies, it is easier to draw a sample with several heavy candies or with several very light candies. Average weight in these sample bags will be too high or too low. We cannot influence the variation in candy weights in the population, so let us ignore this factor influencing the standard error.</p>
+</section>
+</section>
+<section id="crit-values" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="crit-values"><span class="header-section-number">3.4</span> Critical Values</h2>
+<p>In the preceding section, we learned that the standard error is related to the precision of the interval estimate. A larger standard error yields a less precise estimate, that is, with a wider interval estimate.</p>
+<p>We are interested in the interval that includes a particular percentage of all samples that can be drawn, usually the 95% of all samples that are closest to the population value. In our current example, the 95% of all samples with average candy weight that is closest to average candy weight in the population (2.8 grams).</p>
+<p>In theoretical probability distributions like the normal distribution, the percentage of samples is related to the standard error. If we know the standard error, we know the interval within which we find the 95% of samples that are closest to the population value.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/crit-values/?showcase=0" width="440px" height="360px" data-external="1">
+</iframe>
+</div>
+<p>Figure <span class="quarto-unresolved-ref">?fig-crit-values</span> shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called <em>z</em> scores (top).</p>
+<p>In Figure <span class="quarto-unresolved-ref">?fig-crit-values</span>, we approximate the sampling distribution with a theoretical probability distribution, namely the normal distribution. The theoretical probability distribution links probabilities (areas under the curve) to sample statistic outcome values (scores on the horizontal axis). For example, we have 2.5% probability of drawing a sample bag with average candy weight below 1.2 grams or 2.5% probability of drawing a sample bag with average candy weight over 4.4 grams.</p>
+<section id="standardization-and-z-scores" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="standardization-and-z-scores"><span class="header-section-number">3.4.1</span> Standardization and <em>z</em> scores</h3>
+<p>The average candy weights that are associated with 2.5% and 97.5% probabilities in Figure <span class="quarto-unresolved-ref">?fig-crit-values</span> depend on the sample that we have drawn. As you may notice while playing with Figure <span class="quarto-unresolved-ref">?fig-interval-size</span>, changing the size of the sample also changes the average candy weights that mark the 2.5% and 97.5% probabilities.</p>
+<p>We can simplify the situation if we <em>standardize</em> the sampling distribution: Subtract the mean of the sampling distribution from each sample mean in this distribution, and divide the result by the standard error. Thus, we transform the sampling distribution into a distribution of standardized scores. The mean of the new standardized variable is always zero.</p>
+<p>If we use the normal distribution for standardized scores, which is called the <em>standard-normal distribution</em> or <em>z distribution</em>, there is a single <em>z</em> value that marks the boundary between the top 2.5% and the bottom 97.5% of any sample. This <em>z</em> value is 1.96. If we combine this value with -1.96, separating the bottom 2.5% of all samples from the rest, we obtain an interval [-1.96, 1.96] containing 95% of all samples that are closest to the mean of the sampling distribution.</p>
+<p>In a standard-normal or <em>z</em> distribution, 1.96 is called a <em>critical value</em>. Together with its negative (-1.96), it separates the 95% sample statistic outcomes that are closest to the parameter, hence that are most likely to appear, from the 5% that are furthest away and least likely to appear. There are also critical <em>z</em> values for other probabilities, for instance, 1.64 for the middle 90% of all samples and 2.58 for the middle 99% in a standard-normal distribution.</p>
+</section>
+<section id="int-est-sample-mean" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="int-est-sample-mean"><span class="header-section-number">3.4.2</span> Interval estimates from critical values and standard errors</h3>
+<p>Critical values in a theoretical probability distribution tell us the boundaries, or range, of the interval estimate expressed in standard errors. In a normal distribution, 95% of all sample means are situated no more than 1.96 standard errors from the population mean.</p>
+<p>If the standard error is 0.5 and the population mean is 2.8 grams, we have 95% probability that the mean candy weight in a sample that we draw from this population lies between 1.82 grams (this is 1.96 times 0.5 subtracted from 2.8) and 3.78 grams.</p>
+<p>Critical values make it easy to calculate an interval estimate if we know the standard error. Just take the population value and add the critical value times the standard error to obtain the upper limit of the interval estimate. Subtract the critical value times the standard error from the population value to obtain the lower limit.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>Lower limit of the interval estimate = population value – critical value * standard error.</li>
+<li>Upper limit of the interval estimate = population value + critical value * standard error.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>(Standard) normal distributions make life easier for us, because there is a fixed critical value for each probability, such as 1.96 for 95% probability, which is well-worth memorizing.</p>
+</section>
+</section>
+<section id="ci-parameter" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="ci-parameter"><span class="header-section-number">3.5</span> Confidence Interval for a Parameter</h2>
+<p>Working through the preceding sections, you may have realized that estimating the value of a statistic in a new sample with a specific precision and probability is not our ultimate goal, as it does not fully represent reality. In reality, we do not know the population parameter, and the primary objective of statistics is to estimate this unknown population parameter.</p>
+<p>For example, we don’t care much about the average weight of candies in our sample bag or in the next sample bag that we may buy. We want to say something about the average weight of candies in the population. How can we do this?</p>
+<p>In addition, you may have realized that, if we want to construct the sampling distribution of sample means, we first need to know the precise population value, for instance, average candy weight in the population. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution of sample means.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/exactapproach.png" class="img-fluid figure-img" width="300"></p>
+<figcaption>Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure <span class="quarto-unresolved-ref">?fig-exactapproachfigure</span>), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don’t know the population proportion of yellow candies; we want to estimate it.</p>
+<p>In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means. But we do not know the population mean; we want to estimate it.</p>
+<p>A theoretical probability distribution can only be used as an approximation of a sampling distribution if we know some characteristics of the population. We know that the sampling distribution of sample means always has the bell shape of a normal distribution or <em>t</em> distribution. However, knowing the shape is not sufficient for using the theoretical distribution as an approximation of the sampling distribution.</p>
+<p>We must also know the population mean because it specifies where the centre of the sampling distribution is located. So, we must know the population mean to use a theoretical probability distribution to estimate the population mean.</p>
+<p>By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.</p>
+<section id="fixed-pop-values" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="fixed-pop-values"><span class="header-section-number">3.5.1</span> Reverse reasoning from one sample mean</h3>
+<p>In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (Figure <span class="quarto-unresolved-ref">?sec-crit-values</span>). 95% of all sample means would fall within this interval estimate around the known population mean.</p>
+<p>In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/?showcase=0" width="630px" height="800px" data-external="1">
+</iframe>
+</div>
+<p>Instead of checking whether a sample mean is inside or outside of the interval estimate of the <strong>population mean</strong> (Chapter <span class="quarto-unresolved-ref">?sec-crit-values</span>), we use the interval estimate around that one <strong>sample mean</strong>, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a <strong>95% confidence interval</strong>.</p>
+<p>The middle plot of Figure <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of <span class="math inline">\(N=30\)</span> is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.</p>
+<p>Now, increase the number of times of samples (replications) by adjusting the slider in Figure <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher.</p>
+<p>Now, also increase the sample size in Figure <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span> by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size.</p>
+<p>Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<blockquote class="blockquote">
+<p>If we were to repeat the experiment over and over, then 95% of the time the confidence intervals contain the true mean.</p>
+<p>— <span class="citation" data-cites="hoekstra2014robust">Hoekstra et al. (<a href="#ref-hoekstra2014robust" role="doc-biblioref">2014</a>)</span></p>
+</blockquote>
+<p>It is very important that we understand that the confidence level 95% is NOT the probability that the population parameter has a particular value, or that it falls within the interval.</p>
+<p>In classic statistics (so called “Frequentists”), the population parameter is <em>not</em> a random variable but a fixed, unknown number, which does not have a probability.</p>
+<p>A confidence interval around a sample statistics from solely one data collection either catches (100%) or does not catch (0%) the population parameter. We just do not know which one is the case. That’s why we cannot make any conclusion about the population mean based on one confidence interval.</p>
+<p>Only when we replicate data collection many many times, we do know that about 95% of all 95% confidence intervals will catch the population mean.</p>
+</div>
+</div>
+</div>
+<p>Now imagine that you have a large sample for your research project. Looking at Figure <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>, this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn’t it?</p>
+<p>In the bottom plot of Figure <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>, we revisit Chapter <a href="01-samplingdistr.html" class="quarto-xref"><span>Chapter 1</span></a>, to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication.</p>
+<p>We also see the theoretical approximation of this sampling distribution (as was discussed in Chapter <a href="02-probability.html#sec-theoretical-approx" class="quarto-xref"><span>Section 2.3</span></a>) of sample means, which is a normal distribution. As the number of replications and sample size increases, the shape of the histogram gets closer to the shape of the theoretical approximation of the sampling distribution (green line), which in turn also gets narrower.</p>
+<p>This sampling distribution is theoretically approximated by a normal distribution whose mean is the population mean and standard deviation is the standard error of the sample. To make our life easier, we can convert the sampling distribution, which is a normal distribution, to the standard normal distribution by converting to a z-score. The critical z value 1.96 and -1.96 together marks the upper and lower limit of the interval containing 95% of all samples with means closest to the population mean.</p>
+<p>As a consequence, we are able to calculate 95% confidence interval around a sample mean by adding and subtracting 1.96 standard errors from that sample mean.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>Confidence interval lower limit = sample value – critical value * standard error.</li>
+<li>Confidence interval upper limit = sample value + critical value * standard error.</li>
+</ul>
+<p>For example, the 95%-confidence interval for a sample mean:</p>
+<ul>
+<li>Lower limit = sample mean - 1.96 * standard error.</li>
+<li>Upper limit = sample mean + 1.96 * standard error.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Haven’t we seen this calculation before? Yes we did, in Section <span class="quarto-unresolved-ref">?sec-int-est-sample-mean</span>, where we estimated the interval around population mean for sample means. We now simply reverse the application, using the interval of sample mean to estimate the population mean instead of the other way around.</p>
+<div class="cell" type="rmdneyman">
+
+<div class="rmdneyman">
+<p>Jerzy Neyman introduced the concept of a confidence interval in 1937:</p>
+<p>“In what follows, we shall consider in full detail the problem of estimation by interval. We shall show that it can be solved entirely on the ground of the theory of probability as adopted in this paper, without appealing to any new principles or measures of uncertainty in our judgements”. <span class="citation" data-cites="RefWorks:3929">(<a href="#ref-RefWorks:3929" role="doc-biblioref">Neyman 1937</a>: 347)</span></p>
+Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
+</div>
+</div>
+</section>
+<section id="bootstrap-confidenceinterval" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="bootstrap-confidenceinterval"><span class="header-section-number">3.5.2</span> Confidence intervals with bootstrapping</h3>
+<p>If we approximate the sampling distribution with a theoretical probability distribution such as the normal (<em>z</em>) or <em>t</em> distribution, critical values and the standard error are used to calculate the confidence interval (see Section <span class="quarto-unresolved-ref">?sec-fixed-pop-values</span>).</p>
+<p>There are theoretical probability distributions that do not work with a standard error, such as the <em>F</em> distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section <span class="quarto-unresolved-ref">?sec-fixed-pop-values</span>) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.</p>
+<p>As you might remember from Section <a href="02-probability.html#sec-boot-approx" class="quarto-xref"><span>Section 2.5</span></a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in chapter 11.</p>
+<p>It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report <em>p</em> values (see Section <span class="quarto-unresolved-ref">?sec-pvalue</span>), not confidence intervals.</p>
+</section>
+</section>
+<section id="SPSS-CI" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="SPSS-CI"><span class="header-section-number">3.6</span> Confidence Intervals in SPSS</h2>
+<section id="instruction" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="instruction"><span class="header-section-number">3.6.1</span> Instruction</h3>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/GoGrsHpfIWM" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<!-- ## Test Your Understanding  
+
+
+
+
+
+::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/estimation/?showcase=0" width="775px" height="258px" data-external="1"></iframe>
+:::
+
+
+
+
+
+Figure @fig-estimation shows the sampling distribution of average candy weight in a sample bag, which is a normal distribution. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+</section>
+</section>
+<section id="take-home-points" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">3.7</span> Take-Home Points</h2>
+<ul>
+<li><p>If a sample statistic is an unbiased estimator, we can use it as a point estimate for the value of the statistic in the population.</p></li>
+<li><p>A point estimate may come close to the population value but it is almost certainly not correct.</p></li>
+<li><p>A 95% confidence interval is an interval estimate of the population value. We are 95% confident that the population value lies within this interval. Note that confidence is not a probability!</p></li>
+<li><p>A larger sample or a lower confidence level yields a narrower, that is, a more precise confidence interval.</p></li>
+<li><p>A larger sample yields a smaller standard error, which yields a more precise confidence interval because the limits of a 95% confidence interval fall one standard error times the critical value below and above the value of the sample statistic.</p></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-hoekstra2014robust" class="csl-entry" role="listitem">
+Hoekstra, Rink, Richard D Morey, Jeffrey N Rouder, and Eric-Jan Wagenmakers. 2014. <span>“Robust Misinterpretation of Confidence Intervals.”</span> <em>Psychonomic Bulletin &amp; Review</em> 21: 1157–64.
+</div>
+<div id="ref-RefWorks:3929" class="csl-entry" role="listitem">
+Neyman, Jerzy. 1937. <span>“Outline of a Theory of Statistical Estimation Based on the Classical Theory of Probability.”</span> <em>Philosophical Transactions of the Royal Society of London.Series A, Mathematical and Physical Sciences</em> 236 (767): 333–80.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./02-probability.html" class="pagination-link" aria-label="Probability Models: How Do I Get a Sampling Distribution?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./04-hypothesis.html" class="pagination-link" aria-label="Hypothesis testing">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/03-estimation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

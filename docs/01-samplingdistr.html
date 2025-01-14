@@ -70,6 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styleX.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -125,6 +126,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
   </div>
 </li>
     </ul>
@@ -210,14 +223,14 @@ ul.task-list li input[type="checkbox"] {
 <p>The sample does not offer a perfect miniature image of the population. If we would draw another random sample, it would have different characteristics. For instance, it would contain more or fewer yellow candies than the previous sample. To make an informed decision on the confidence interval or null hypothesis, we must compare the characteristic of the sample that we have drawn to the characteristics of the samples that we could have drawn.</p>
 <p>The characteristics of the samples that we could have drawn constitute a sampling distribution. Sampling distributions are the central element in estimation and null hypothesis testing. In this chapter, we simulate sampling distributions to understand what they are. Here, <em>simulation</em> means that we let a computer draw many random samples from a population.</p>
 <p>In Communication Science, we usually work with samples of human beings, for instance, users of social media, people looking for health information or entertainment, citizens preparing to cast a political vote, an organization’s stakeholders, or samples of media content such as tweets, tv advertisements, or newspaper articles. In the current and two subsequent chapters, however, we avoid the complexities of these samples.</p>
-<p>We focus on a very tangible kind of sample, namely a bag of candies, which helps us understand the basic concepts of statistical inference: sampling distributions (the current chapter), probability distributions (Chapter <span class="quarto-unresolved-ref">?sec-probmodels</span>), and estimation (Chapter <span class="quarto-unresolved-ref">?sec-param-estim</span>). Once we thoroughly understand these concepts, we turn to Communication Science examples.</p>
+<p>We focus on a very tangible kind of sample, namely a bag of candies, which helps us understand the basic concepts of statistical inference: sampling distributions (the current chapter), probability distributions (Chapter <a href="02-probability.html" class="quarto-xref"><span>Chapter 2</span></a>), and estimation (Chapter <span class="quarto-unresolved-ref">?sec-param-estim</span>). Once we thoroughly understand these concepts, we turn to Communication Science examples.</p>
 </section>
 <section id="statistical-inference-making-the-most-of-your-data" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="statistical-inference-making-the-most-of-your-data"><span class="header-section-number">1.1</span> Statistical Inference: Making the Most of Your Data</h2>
 <p>Statistics is a tool for scientific research. It offers a range of techniques to check whether statements about the observable world are supported by data collected from that world. Scientific theories strive for general statements, that is, statements that apply to many situations. Checking these statements requires lots of data covering all situations addressed by theory.</p>
 <p>Collecting data, however, is expensive, so we would like to collect as little data as possible and still be able to draw conclusions about a much larger set. The cost and time involved in collecting large sets of data are also relevant to applied research, such as market research. In this context we also like to collect as little data as necessary.</p>
 <p><em>Inferential statistics</em> offers techniques for making statements about a larger set of observations from data collected for a smaller set of observations. The large set of observations about which we want to make a statement is called the <em>population</em>. The smaller set is called a <em>sample</em>. We want to <em>generalize</em> a statement about the sample to a statement about the population from which the sample was drawn.</p>
-<p>Traditionally, statistical inference is generalization from the data collected in a <em>random sample</em> to the population from which the sample was drawn. This approach is the focus of the present book because it is currently the most widely used type of statistical inference in the social sciences. We will, however, point out other approaches in Chapter <span class="quarto-unresolved-ref">?sec-hypothesis</span>.</p>
+<p>Traditionally, statistical inference is generalization from the data collected in a <em>random sample</em> to the population from which the sample was drawn. This approach is the focus of the present book because it is currently the most widely used type of statistical inference in the social sciences. We will, however, point out other approaches in Chapter <a href="04-hypothesis.html" class="quarto-xref"><span>Chapter 4</span></a>.</p>
 <p>Statistical inference is conceptually complicated and for that reason quite often used incorrectly. We will therefore spend quite some time on the principles of statistical inference. Good understanding of the principles should help you to recognize and avoid incorrect use of statistical inference. In addition, it should help you to understand the controversies surrounding statistical inference and developments in the practice of applying statistical inference that are taking place. Investing time and energy in fully understanding the principles of statistical inference really pays off later.</p>
 </section>
 <section id="sec-discreterandomvariable" class="level2" data-number="1.2">
@@ -324,7 +337,7 @@ ul.task-list li input[type="checkbox"] {
 <iframe src="https://sharon-klinkenberg.shinyapps.io/p-values/?showcase=0" width="420px" height="260px" data-external="1">
 </iframe>
 </div>
-<p>A probability density function can give us the probability of values between two thresholds. It can also give us the probability of values up to (and including) a threshold value, which is known as a <em>left-hand probability</em>, or the probability of values above (and including) a threshold value, which is called a <em>right-hand probability</em>. In a null hypothesis significance test (Chapter <span class="quarto-unresolved-ref">?sec-hypothesis</span>), right-hand and left-hand probabilities are used to calculate <em>p</em> values.</p>
+<p>A probability density function can give us the probability of values between two thresholds. It can also give us the probability of values up to (and including) a threshold value, which is known as a <em>left-hand probability</em>, or the probability of values above (and including) a threshold value, which is called a <em>right-hand probability</em>. In a null hypothesis significance test (Chapter <a href="04-hypothesis.html" class="quarto-xref"><span>Chapter 4</span></a>), right-hand and left-hand probabilities are used to calculate <em>p</em> values.</p>
 <p>Why did I put <em>(and including)</em> between parentheses? It does not really matter whether we add the exact boundary value (2.8 grams) to the probability on the left or on the right because the probability of getting a bag with average candy weight at exactly 2.8 grams (with a very long trail of zero decimals) is negligible.</p>
 <p>Are you struggling with the idea of areas instead of heights (values on the vertical axis) as probabilities? Just realize that we could use the area of a bar in a histogram instead of the height as indication of the probability in discrete probability distributions, for example, Figure <span class="quarto-unresolved-ref">?fig-expected-value</span>. The bars in a histogram are all equally wide, so (relative) differences between bar areas are equal to differences in bar height.</p>
 </section>

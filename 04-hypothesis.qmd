@@ -1,0 +1,1186 @@
+# Hypothesis testing {#sec-hypothesis}
+
+> Key concepts: research hypothesis, statistical null and alternative hypothesis, nil hypothesis, test statistic, _p_ value, conditional probability, alpha, significance level (Type I error rate), Type I error, inflated type I error, type II error, Power, critical value, capitalization on chance, one-sided and two-sided tests and tests to which this distinction does not apply, rejection region, Bayesion statistics, confidence intervals.  
+
+<!--
+
+Watch this micro lecture on hypothesis testing for an overview of the chapter.
+
+```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/8AmJHaQnWGk", height = "360px")
+```
+
+-->
+
+### Summary {-}
+
+In the preceding chapter, we have learned that a confidence interval contains the population values that are plausible, given the sample that we have drawn. In the current chapter, we apply our knowledge of sampling distributions, probability models and parameter estimation to hypothesis testing. 
+
+This chapter explores various methods for testing hypotheses. While we primarily focus on the widely used null hypothesis significance testing (NHST), we also discuss how confidence intervals and Bayesian statistics can aid in making decisions about hypotheses.
+
+We will first extensively cover the framework of null hypothesis significance testing (NHST). Section @sec-null-hypothesis-significance-testing covers key concepts such as the null and alternative hypotheses, significance level (alpha), power of a test, p-values, and effect sizes. The section also discusses one-sided and two-sided tests and the importance of sample size in determining the power of a test.
+
+In section @sec-reporting we offer guidelines for reporting statistical test results. It emphasizes clarity and transparency in presenting findings to different audiences, including fellow scientists and general readers. The section covers the necessary components of a statistical report, such as test statistics, p-values, effect sizes, and confidence intervals.
+
+Section @sec-test-selection on Statistical Test Selection guides the selection of appropriate statistical tests based on the data and research questions. It provides a framework for choosing tests by considering factors such as the type of data, the number of groups being compared, and the study design. The section includes flowcharts and examples to illustrate the decision-making process.
+
+We continue with a discussion of confidence intervals as an alternative to hypothesis testing in section @sec-null-ci. It explains how confidence intervals provide a range of plausible values for population parameters and how they can be used to make inferences about hypotheses. The section also discusses bootstrapped confidence intervals and their application.
+
+We follow up with Bayesian hypothesis testing, contrasting it with frequentist methods. We explain the Bayesian approach of updating prior beliefs with data to obtain posterior probabilities. The section (@sec-bayesian-hypothesis-testing) covers the concepts of prior, likelihood, and posterior distributions, and how they are used to make decisions about hypotheses.
+
+In the final section (@sec-critical-discussion) we critically examine the limitations and criticisms of null hypothesis significance testing. We discuss issues such as the misinterpretation of p-values, the overemphasis on statistical significance over practical significance, and the risks of data dredging and publication bias. The section advocates for a more nuanced understanding and reporting of statistical results.
+
+## Hypothesis {#sec-binarydecision}
+
+The assumption that a researcher wants to test is called a _research hypothesis_. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:
+
+* a television station reaches half of all households in a country,
+* media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children, 
+* opinions about immigrants are not equally polarized among young and old voters,  
+* the celebrity endorsing a fundraising campaign makes a difference to adult's willingness to donate,  
+* more exposure to brand advertisements increases brand awareness among consumers,
+* and so on.  
+
+These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a statistical hypothesis.
+
+A statistical hypothesis is a statement about the empirical world that can be tested against data. It is a statement about the population, not the sample. For example, a hypothesis could be that the average age of a population is 30 years, that the average waight of candy bags is 500 grams, that the proportion of people that like a certain brand is .5, or that the correlation between two variables is .3. These are all statements about the population, not the sample. 
+
+Scientists test these hypotheses by following the _empirical cycle_ [@deGrootMethodologyFoundationsInference1969], which involves a systematic process of induction, deduction, testing, and evaluation. Based on the results, hypotheses can be either rejected or not rejected. If the hypothesis is based on theory and previous research, the scientist uses previous knowledge. As a next step, the researcher tests the hypothesis against data collected for this purpose. If the data contradict the hypothesis, the hypothesis is rejected and the researcher has to improve the theory. If the data does not contradict the hypothesis, it is not rejected and, for the time being, the researcher does not have to change the theory.  
+
+Statistical hypotheses usually come in pairs: a null hypothesis (_H_~0~) and an _alternative hypothesis_ (_H_~1~ / _H_~A~). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, .5 as the proportion of yellow candies.
+
+### Null hypothesis
+
+The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental conditions, the new intervention is not better than the previous, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. Equation \@ref(eq:Hnull) shows some examples of null hypotheses expressed in test statistics.
+
+\begin{equation}
+\begin{split}
+H_{0} & : \theta & = .5 \\
+H_{0} & : \hat{x} & = \mu = 100 \\
+H_{0} & : t & = 0 \\
+H_{0} & : \mu_1 & = \mu_2 \\
+\end{split}
+  (\#eq:Hnull)
+\end{equation} 
+
+The null hypothesis does not always assume that the population parameter is zero; it can take any specified value. For instance, a null hypothesis might state that there is no difference in intelligence between communication science students and the general population. In this case, we could compare the average intelligence score of a sample of communication science students to the known population average of 100. Although we are testing whether the difference is zero, in practical terms, we express the null hypothesis as the sample mean being equal to 100.
+
+Though a null hypothesis can be expressed as a single value, that does not mean that we always get that specific value when we take a random sample. Given the null hypothesis that our candy factory machine produces bags with an average of 5 out of 10 yellow candies, there remains a probability that some bags will contain as few as one yellow candy or even none at all. This variability is illustrated in Figure @fig-nulldistribution, which shows that while values near the expected 5 yellow candies are most likely, deviations can occur.
+
+```{r nulldistribution, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = expression(paste("Null distributions ", theta, " = .5"))
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( dbinom(0:10, 10, .5),
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = colh0
+         # beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+# legend("topright", legend=c("H0"), fill=c(colh0))
+
+```
+
+### Alternative hypothesis {#alternative-hypothesis}
+
+The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate. This would mean that our expected effect of difference would indeed reflect the true population value.
+
+Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produces bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine's parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (Figure @fig-altdistribution) as we did for the null hypothesis.
+
+```{r altdistribution, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = expression(paste("Alternative distributions ", theta, " = .2"))
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( dbinom(0:10, 10, .2),
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = colha
+         # beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+# legend("topright", legend=c("H0"), fill=c(colh0))
+
+```
+
+Note that the probability distribution for $H_0$ indicates the null assumption about reality, while the probability distribution for $H_A$ is based on the true population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.
+
+When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.
+
+The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. Equation \@ref(eq:Halt) shows some examples of alternative hypotheses expressed in test statistics.
+
+\begin{equation}
+\begin{split}
+\text{Two-sided} \\
+H_{A} & : \theta & \neq .5 \\
+H_{A} & : \hat{x} & \neq \mu \\
+H_{A} & : t & \neq 0 \\
+H_{A} & : \mu_1 & \neq \mu_2 \\
+
+\text{One-sided} \\
+H_{A} & : \theta & < .5 \\
+H_{A} & : \hat{x} & > 100 \\
+H_{A} & : t & > 0 \\
+H_{A} & : \mu_1 & < \mu_2 \\
+\end{split}
+(\#eq:Halt)
+\end{equation}
+
+The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in Chapter @sec-one-twosidedtests.
+
+### Testing hypothesis
+
+In the empirical cycle, the researcher tests the hypothesis against data collected for this purpose. The most widely used method for testing hypotheses is null hypothesis significance testing (NHST). As we will read in this chapter, there are other methods that can be used to test hypotheses, such as confidence intervals and Bayesian statistics. 
+
+All methods serve as decision frameworks that enable researchers to establish rules for evaluating their hypotheses. These rules are determined before data collection and are designed to minimize the risk of incorrect decisions. Null Hypothesis Significance Testing (NHST) manages this risk by defining it probabilistically. Confidence intervals provide a measure of accuracy through their width, while Bayesian statistics express this risk in terms of the credibility interval.
+
+In the next chapters, we will cover the logic behind NHST, confidence intervals, and Bayesian statistics. We will also discuss how to select the appropriate statistical test for your research question, and how to report the results of your statistical tests.
+
+## Null Hypothesis Significance Testing {#null-hypothesis-significance-testing}
+
+Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach [@RefWorks:3930]. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.
+
+```{block2, type='rmdpearson', echo=FALSE}
+Our habit of formulating a null hypothesis and an alternative hypothesis for all situations not covered by the null hypothesis is generally attributed to the statistician R.A. Fisher. This, however, is not entirely correct [see, e.g., @RefWorks:3931]. Fisher introduced the concept of a null hypothesis [@RefWorks:3932: 18] but not the concept of an alternative hypothesis.
+The statisticians Jerzy Neyman and Egon Pearson introduced the idea of working with two or more hypotheses. But the two hypotheses do not cover all possible population values and they were usually not called a null and alternative hypothesis. They specify two or more different population values. A statistical test is used to determine which of the hypotheses fits the sample best. [@RefWorks:3906]
+
+Egon Pearson. Photo by Grasso Luigi, Wikimedia Commons, CC BY-SA 4.0
+```
+
+The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criterion and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the $H_0$ hypothesis.
+
+The Neyman Pearson approach is about choosing your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:
+
+1. Alpha - Determine your desired risk of drawing the wrong conclusion.
+2. Power - Determine your desired probability of drawing the correct conclusion.
+3. The true effect size
+4. The sample size needed to achieve desired power.
+5. Conduct your research with this sample size.
+6. Determine the test statistic.
+7. Determine if $p$-value $\leq \alpha$. If so, reject $H_0$.
+
+The two decisions can be visualized in a $2 \times 2$ table where in reality $H_0$ can be true or false ($H_A$ is true), and the decision can either be to reject $H_0$ or not. Figure @fig-decisiontable illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is in fact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
+
+```{r decisiontable, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center', fig.cap="NHST decision table."}
+knitr::include_graphics("figures/decision_table.svg")
+```
+
+Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Let's consider the amount of yellow candies from the candy factory again. In Chapter @sec-discreterandomvariable we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don't know this and our null hypothesis would be that half of the candies would be yellow. In Figure @fig-expected-value you can set the parameter values to .5 and .2 and see what the discrete probability distributions look like.
+
+
+As the candy factory produces bags with ten candies, we can look at both probability distributions. Figure @fig-twobinom shows both distributions. 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+* $H_0$ Distribution
+    * Half of the candies in the bag are yellow
+    * The parameter of the candy machine is .5
+    * With expected value 5 out of 10
+
+:::
+    
+::: {.column width="50%"}    
+    
+* $H_A$ Distribution
+    * One fifth of the candies in the bag are yellow
+    * The parameter of the candy machine is .2
+    * With expected value 2 out of 10
+
+:::
+
+::::
+
+```{r twobinom, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Both distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( rbind(dbinom(0:10, 10, .5),
+               dbinom(0:10, 10, .2)), 
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = rbind(colh0,colha),
+         beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+
+```
+
+We will use both distributions in Figure @fig-twobinom to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 4 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies? 
+
+Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent ($H_0 = \text{true}$) or that there is something going on ($H_0 \neq \text{true}$).
+
+### Alpha {#sec-alpha}
+
+The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ decision table in Figure @fig-alphatable, this corresponds to the top left quadrant.
+
+As a researcher, you decide how much risk you are willing to take to make a type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for $\alpha$ is .05, which means that you accept a 5% chance of making a type I error of rejecting the null hypothesis when it is in reality true.
+
+```{css, echo=FALSE, eval=TRUE}
+.alpha { stroke: black;}
+#alpha > svg { transform: scale(.8);}
+```
+
+```{r alphatable, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center', fig.cap="NHST decision table."}
+knitr::include_graphics("figures/decision_table.svg")
+```
+
+In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in Figure @fig-nulldistribution. We have already determined that if $H_0$ is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of Figure @fig-nulldistribution, and are also shown in the Table @tab-nullprobtable below. Looking at the probability of getting 0 or 10 candies in Table @tab-nullprobtable, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our type I error, alpha, significance level, would be .002. 
+
+
+```{r nullprobtable, echo=FALSE}
+ library("tidyverse")
+ library("kableExtra")
+ options(kableExtra.auto_format = FALSE)
+
+binomprob <- data.frame(Yellow = as.character(0:10), 
+                        Prob   = round(dbinom(0:10, 10, .5), 3))
+
+names(binomprob) = c("#Y", "Pr H0")
+
+knitr::kable(t( binomprob ),
+              booktabs = TRUE,
+              caption  = "Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true."
+      ) %>% kable_styling(font_size = 10)
+```
+
+Choosing such an alpha level would result in a threshold between 0 and 1 and 9 and 10. We call this the **critical value** associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criterion, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a type I error rate of .002 or 0.2%. Figure @fig-nulldistributionalpha shows the critical values for the null hypothesis distribution, and indicate what the decision would be for values on the outside and inside of the decision boundary.
+
+```{r nulldistributionalpha, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="H0 binomial distribution with critical values", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = expression(paste("Null distributions ", theta, " = .5"))
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( dbinom(0:10, 10, .5),
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = colh0
+         # beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+lines(c(1.5, 11.9), c(.22, .22), col='green', lwd=20)
+text(6.7, .235, "Not reject H0", col='black', pos=1)
+
+lines(c(0, 1.1), c(.22, .22), col='red', lwd=20)
+text(.5, .235, "Reject", col='white', pos=1)
+
+lines(c(12.3, 13.5), c(.22, .22), col='red', lwd=20)
+text(12.9, .235, "Reject", col='white', pos=1)
+
+abline(v = c(1.3,12.1), lwd = 2, col='darkgreen')
+text(1.3, .1, "Critial value", col='darkgreen', pos=3, srt=90)
+text(12.1, .1, "Critial value", col='darkgreen', pos=3, srt=-90)
+
+
+
+# legend("topright", legend=c("H0"), fill=c(colh0))
+
+```
+
+In the social sciences, we allow ourselves to make a wrong decision more often. We usually set the alpha level to .05. For our discrete example setting the alpha level to .05 is not really possible. Looking at Table @tab-nullprobtable, we could raise the significance level to .022 if we would reject the null hypothesis if we would draw 0, 1 or 9, 10 yellow candies. This would result in a type I error rate of 2.2%. Though if we would also reject the null hypothesis with 2 or 8 yellow candies, we would have a type I error rate of 11%. For a discrete probability distribution with a limited number of outcomes, it is not always possible to set the alpha level exactly to .05.
+
+For continuous probability distributions, such as the normal distribution, it is possible to set the alpha level to exactly .05. For example the null hypothesis that average media literacy in the population of children equals 5.5 on a scale from one to ten. 
+
+For such continuous variables, we can estimate a sampling distribution around the hypothesized population value using a theoretical approach (Chapter @sec-theoretical-approx). Remember (Section @sec-expectedvalue) that the population value is the expected value of the sampling distribution, that is, its mean (if the estimator is unbiased). The sampling distribution, then, is centered around the population value specified in the null hypothesis. This sampling distribution tells us the probabilities of all possible sample outcomes _if the null hypothesis is true_. It allows us to identify the most unlikely samples. In **Step 2** in Figure @fig-nullsampling, we set the alpha level to .05. This means that we cut off 2.5% of the area in each tail of the sampling distribution. The **critical values** are the values that separate the 2.5% of the area in each tail from the 95% of the area in the middle. If we assume the population parameter to be 5.5, rejecting the null hypothesis would again be a wrong decision. Thus setting the boundary by using an alpha level of .05, would yield a wrong decision in 5% of the samples we take. Just like the discrete candy color case, we decide to reject $H_0$ on the outside of the critical value and not reject $H_0$ on the inside of the critical value. In **Step 4** in Figure @fig-nullsampling, we add the result of a sample. You can redraw multiple samples by clicking the button in the app.
+
+Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.
+
+```{r nullsampling, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9.
+# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", height="410px")
+```
+
+### 1 - Alpha
+
+The decision to not reject the null hypothesis when it is in reality true is indicated by $1 - \alpha$. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to the probabilities in Table @tab-nullprobtable of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example. We have a 99.8% (1 - .002) chance of making the correct decision to not reject $H_0$ when we assume it to be true. The inside of the critical value in Figure @fig-nulldistributionalpha is the area where we do not reject the null hypothesis. In the $2 \times 2$ decision table in Figure @fig-decisiontable, this corresponds to the bottom left green quadrant.
+
+Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this critical value to look at the power.
+
+### Power {#sec-power}
+
+The power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the $2 \times 2$ decision table in Figure @fig-decisiontable, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In figure \ref(fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.
+
+As the right column of Figure @fig-decisiontable only states that $H_0 = \text{FALSE}$, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In Figure @fig-altdistributionpower, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.  
+
+```{r altdistributionpower, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="HA binomial distributions with critical values", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = expression(paste("Alternative distributions ", theta, " = .2"))
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( dbinom(0:10, 10, .2),
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = colha
+         # beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+lines(c(1.5, 11.9), c(.22, .22), col='green', lwd=20)
+text(6.7, .235, "Not reject H0", col='black', pos=1)
+
+lines(c(0, 1.1), c(.22, .22), col='red', lwd=20)
+text(.5, .235, "Reject", col='white', pos=1)
+
+lines(c(12.3, 13.5), c(.22, .22), col='red', lwd=20)
+text(12.9, .235, "Reject", col='white', pos=1)
+
+abline(v = c(1.3,12.1), lwd = 2, col='darkgreen')
+text(1.3, .1, "Critial value", col='darkgreen', pos=3, srt=90)
+text(12.1, .1, "Critial value", col='darkgreen', pos=3, srt=-90)
+
+
+
+# legend("topright", legend=c("H0"), fill=c(colh0))
+
+```
+
+If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true, if the parameter truly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, if our sample originates from the alternative hypothesis, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null when this specific alternative is true is only 11%.
+
+> The only way to increase the power is to increase the sample size of the study, or increase the type I error.
+
+As stated earlier we would rather have a higher probability of making the correct decision. In the social sciences we are striving for a power of .80. This means that we want to make the correct decision in 80% of the cases when the null hypothesis is false. In our candy factory example, this would mean that we would want to reject the null hypothesis in 80% of the replications. With our machine producing bags with 10 candies, this is just not possible. The only way to increase the power is to increase the sample size of the study. In the candy factory example, this would mean that we would have to increase the number of candies in the candy bags. We will come back to this in the Chapter @sec-sample-size on sample size.
+
+One more thing to note, is that the true power of the test can only be determined if you know the true population value. In practice, we do not know if the null or the alternative hypothesis is true. We can only calculate the power of the test when we assume some alternative hypothesis. It is good practice to base your assumptions about the alternative hypothesis on previous research, theory, or other empirical evidence. This is mostly expressed as the expected effect size, the expected difference between the null and the alternative hypothesis.
+
+In all statistical software, the power of the test is not calculated based on the true effect size, but on the found effect size in your sample. This is called the observed power and will be covered in Chapter @sec-observed-effect-size.
+
+### Beta
+
+The probability of making a type II error is indicated by $\beta$. It is the probability of not rejecting the null hypothesis when it is in reality false. In the $2 \times 2$ decision table in Figure @fig-decisiontable, this corresponds to the bottom right quadrant. The power of the test is $1 - \beta$. In our candy factory example, the power of the test is .11, so the probability of making a type II error is .89. It is the sum of the probabilities of getting 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies, when the machine actually produces bags with 2 yellow candies with the corresponding probabilities as shown in Figure @fig-altdistributionpower.
+
+### Test statistic {#test-statistic}
+
+In Chapter @sec-samplestatistic we discussed the **sample statistic**, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, $t$-values, $F$-values, and $\chi^2$-values are also sample statistics. 
+
+The **test statistic** is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4. 
+
+In the previous sections, we have determined our decision criterion, the critical value, based on our desired alpha level. We have also determined the power of the test, based on the alternative hypothesis. The test statistic is used to determine if we reject the null hypothesis or not. If the test statistic is equal to the critical value or more extreme, we reject the null hypothesis. If the test statistic is inside the critical value, we do not reject the null hypothesis.
+
+Looking at Figure @fig-nulldistributionalpha, we see that the critical value is between 0 and 1 and 9 and 10. If we would draw a bag with 4 yellow candies, we can check if the value 4 is inside or outside the critical value. As 4 is inside the critical value, we would not reject the null hypothesis.
+
+> The test statistic is the value that is used to decide if we reject the null hypothesis or not.
+
+For continuous variables, as described in Figure @fig-nullsampling, the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in Figure @fig-nullsampling, and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for continuous variables is the same as for the discrete variables.
+
+### P-value {#sec-pvalue}
+
+We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the _p-value_ of the test, which is sometimes referred to as _significance_ or _Sig._ in SPSS. 
+
+> The **p-value** is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.
+
+In the previous section we considered a sample with 4 yellow candies. The p-value gives the probability of randomly drawing a sample that is as extreme or more extreme than our current sample assuming that the null hypothesis is true. “As extreme or more extreme” here means as far or further removed from the value specified by the null hypothesis. Concretely, in our case that means the probability of drawing a sample with 4 or fewer yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with “at least as extreme”. this is not really intuitive, but it refers to the less likely test statistics, iIn our case 0, 1, 2 and 3, are even less probable than 4 yellow candies. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the sampling distribution that is created based on the null distribution hypothesis. Looking at Table @tab-nullprobtable, we see that the probability of drawing a random sample with 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377 according to the sampling distribution belonging to the null hypothesis. This 0.377 is the p-value. The conditional (conditional on H0 being true) probability of getting a sample that is as or less likely than the test statistic that we have of our current sample.
+
+> Rejecting the null hypothesis does not mean that this hypothesis is false or that the alternative hypothesis is true. Please, never forget this.
+
+The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.
+
+If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis. 
+
+::: {.callout-important appearance="simple"}
+
+Reject $H_0$ when $p$-value $\leq \alpha$
+
+:::
+
+As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. For continuous variables, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.
+
+> It is important to remember that a _p_-value is a probability _under the assumption that the null hypothesis is true_. Therefore, it is a _conditional probability_. 
+
+Compare it to the probability that we throw sixes with a dice. This probability is one out of six under the assumption that the dice is fair. Probabilities rest on assumptions. If the assumptions are violated, we cannot calculate probabilities. 
+
+If the dice is not fair, we don't know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.
+
+Figure @fig-t-alpha-p shows a t-distribution, which represents the null distribution. A statistical test was set up with an alpha level of 5% (blue area). The and the p-value (red area) indicates the probability of drawing a random sample with a t-value of 2 or values that are even further removed from the null hypothesis (more extreem). The figure shows what this test would look like for a two sided test (left) and a one two sided hypothesis test (right). We will cover one and two sided testing in Chapter @sec-one-twosidedtests. For now, just notice that, looking at the left graph, the p-value is greater than 0.05, because the test statistic is not as or more extreme than the critical value. In other words, the test is not significant. In the one-sided test depicted on the right, the p-value lies in the rejection region and is, thus, significant.
+
+```{r t-alpha-p, fig.show="hold", out.width="50%", echo=FALSE, fig.pos='H', fig.align='center', fig.cap="T-distributions with alpha level and p-value", echo=FALSE, screenshot.opts = list(delay = 5), dev="png"}
+# layout(matrix(1:2, 1, 2))
+
+plot(function(x) dt(x, df = 10), -4, 4,
+     main     = "T distribution (df=10) with two sided alpha",
+     cex.main = .7,
+     xlab     = "T-value",
+     ylab     = "",
+     bty      = "n",
+     lwd      = 1.5)
+     
+t = 2
+
+p = pt(1,10)
+
+alpha_r = 1-p
+
+
+# add p-value
+pol_left = seq(-4,-t,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="red", angle=45, density=15, lwd=2)
+pol_right = seq(4,t,length=20)
+polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="red", angle=45, density=15, lwd=2)
+
+# add alpha
+
+tp95  = qt(.95,10)
+tp975 = qt(.975,10)
+tp25  = qt(.025,10)
+
+pol_left = seq(-4,tp25,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=-45, density=15, lwd=2)
+
+pol_left = seq(tp975,4,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=-45, density=15, lwd=2)
+
+# label alpha
+text(-3,dt(tp25 , df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='blue')
+text( 3,dt(tp975, df = 10),expression(paste("½",alpha       ," = 2.5%",sep="")),pos=3, col='blue')
+
+xbracket = seq(-4,tp25,length=39)
+ybracket = dt(tp25 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
+lines(xbracket,ybracket,col="gray")
+
+xbracket = seq(tp975, 4,length=39)
+ybracket = dt(tp975 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
+lines(xbracket,ybracket,col="gray")
+
+#text(-4.2,.38,expression(paste("2 sided: P = ",P[left] + P[right]," = 7.34%")),pos=4)
+
+plot(function(x) dt(x, df = 10), -4, 4,
+     main="T distribution (df=10) with one sided alpha",
+     cex.main = .7,
+     xlab="T-value",
+     ylab="",
+     bty="n", 
+     lwd=1.5)
+
+pol_left = seq(tp95,4,length=20)
+polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=-45, density=15, lwd=2)
+
+# label alpha
+text( 3,dt(tp95 , df = 10),expression(paste(    alpha[right]," = 5%"  ,sep="")),pos=3, col='blue')
+
+# add p-value
+# pol_left = seq(-4,-t,length=20)
+# polygon(c(pol_left,rev(pol_left)),  c(rep(0,20), dt( rev(pol_left),  df = 10)), col="blue", angle=45, density=15, lwd=2)
+pol_right = seq(4,t,length=20)
+polygon(c(pol_right,rev(pol_right)),c(rep(0,20), dt( rev(pol_right), df = 10)), col="red", angle=45, density=15, lwd=2)
+
+#text((-4+tp25)/2,dt(tp25  , df = 10),"{",srt=-90,col="grey")
+#text( (4+tp975)/2,dt(tp975, df = 10),"{",srt=-90,col="grey")
+#text( (4+tp95)/2,dt(tp95  , df = 10),"{",srt=-90,col="grey")
+
+# label p-values
+# text(-t,.01,expression(P[left] ),pos=2,col="blue")
+text( t+.5,.03,expression(P[right]),pos=4,col="red")
+
+# text(-t-.1,dt(-t, df = 10)+.003,"T")
+text( t+.1,dt( t, df = 10)+.003,"T")
+
+
+# text(-4.2,.38 ,"1 sided: P/2 = 3.67%",pos=4)
+
+## 1%   T = 1.81246
+## .95% T = 2.228
+
+#polygon(c(0,1,1,0),c(0,0,.3,.3))
+
+pol_left = seq(-4,-t,length=20)
+
+xbracket = seq(tp95,4,length=39)
+ybracket = dt(tp95 , df = 10)*c(c(1,1.02),rep(1.03,16),c(1.04,1.05,1.04),rep(1.03,16),c(1.02,1))
+lines(xbracket,ybracket,col="gray")
+```
+
+In Figure @fig-t-alpha-p, the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.
+
+Figure @fig-twosided represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
+
+```{r twosided, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p-value). Also display the two-sided p-value.
+# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
+
+# [to-do] add p-value area to the plot
+
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="268px")
+```
+
+The reasoning is again the same as for discrete variables. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis. 
+
+### True effect size {#true-effect-size}
+
+The true effect size is the difference between the null hypothesis and the true population value. This can also be expressed in terms of the test statistic. For example, if the IQ scores for communication science students are 120 in the population, the true affect size can be expressed as 20 IQ points, but also as a  _t_-value. The **true** effect size denotes the genuine effect within the population, representing the actual difference, correlation, or parameter value.
+
+In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In Figure @fig-twobinomeffect you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is 5 - 3 expected number of yellow candies in the bag. In terms of the parameter it is the proportion .5 - .2.
+
+```{r twobinomeffect, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Both distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+barplot( rbind(dbinom(0:10, 10, .5),
+               dbinom(0:10, 10, .2)), 
+         main=title, 
+         names.arg = 0:10, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = rbind(colh0,colha),
+         beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         )
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+
+lines(c(8.5, 16.5), c(.23, .23), col='red', lwd=4)
+text(12.5, .23, "True effect size", col='red', pos=3)
+```
+
+**True** refers to the actual difference in the population, which is unknown to us. In our candy factory example, we can only observe the sample from a candy bag and make assumptions based on the null and alternative hypotheses.
+
+Depending on the true value in the population, a true effect size could be small, medium, or large. In order to detect small true effect sizes, we need a large sample size. A larger sample offers more precision, so the difference between our sample outcome and the hypothesized value is more often sufficient to reject the null hypothesis. For example, we would reject the null hypothesis that average candy weight is 2.8 grams in the population if average weight in our sample bag is 2.70 grams and our sample is large. But we may not reject this null hypothesis if we have the same outcome in a small sample bag.
+
+The larger our sample, the more sensitive our test will be, so we will get statistically significant results more often. If we think of our statistical test as a security metal detector, a more sensitive detector will go off more often.
+
+#### Practical relevance
+
+Investigating the effects of a new medicine on a person’s health, we may require some minimum level of health improvement to make the new medicine worthwhile medically or economically. If a particular level of improvement is clinically important, it is practically relevant (sometimes called practically significant).
+
+If we have decided on a minimum level of improvement that is relevant to us, we want our test to be statistically significant if the average true health improvement in the population is at least of this size. We want to reject the null hypothesis of no improvement in this situation.
+
+::: {.callout-important appearance="simple"}
+
+* A larger sample size makes a statistical test more sensitive. The test will pick up (be statistically significant for) smaller effect sizes.
+
+* A larger effect size is more easily picked up by a statistical test. Larger effect sizes yield statistically significant results more easily, so they require smaller samples.
+
+:::
+
+For media interventions such as health, political, or advertisement campaigns, one could think of a minimum change of attitude affected by the campaign in relation to campaign costs. A choice between different campaigns could be based on their efficiency in terms of attitudinal change per cost unit.
+
+Note the important difference between practical relevance and statistical significance. Practical relevance is what we are interested in. If the new medicine is sufficiently effective, we want our statistical test to signal it. In the security metal detector example: If a person carries too much metal, we want the detector to pick it up.
+
+Statistical significance is just a tool that we use to signal practically relevant effects. Statistical significance is not meaningful in itself. For example, we do not want to have a security detector responding to a minimal quantity of metal in a person’s dental filling. Statistical significance is important only if it signals practical relevance. We will return to this topic in Chapter @sec-sample-size on sample size.
+
+### Observed effect size {#observed-effect-size}
+
+In Chapter @sec-true-effect-size we discussed the true effect, the difference between the null hypothesis and the true alternative hypothesis. The problem is that we do not know the true effect, we do not know which of the two hypothesis is actually true.
+
+We can only estimate the true effect using the sample statistic. The difference between the sample statistic and the null hypothesis is called the **observed effect size**. In the candy factory example, the observed effect size is the difference between the number of yellow candies in the sample and the number of yellow candies in the null hypothesis. If the null hypothesis is that the machine produces bags with 5 yellow candies, and the sample contains 4 yellow candies, the observed effect size is 1.
+
+The same definition holds for the continuous case. If the null hypothesis is that the average media literacy in the population is 5.5, and the sample mean is 3.9, the observed effect size is 1.6. Or if we hypothesize that average candy weight in the population is 2.8 grams and we find an average candy weight in our sample bag of 2.75 grams, the effect size is -0.05 grams. If a difference of 0.05 grams is a great deal to us, the effect is practically relevant.
+
+Note that the effect sizes depend on the scale on which we measure the sample outcome. The unstandardized effect size of average candy weight changes if we measure candy weight in grams, micro grams, kilograms, or ounces. Of course, changing the scale does not affect the meaning of the effect size but the number that we are looking at is very different: 0.05 grams, 50 milligrams, 0.00005 kilos, or 0.00176 ounces. For this reason, we do not have rules of thumb for interpreting these **unstandardized effect sizes** in terms of small, medium, or large effects. But we do have rules of thumb for **standardized effect sizes**. Unstandardized effect sizes are very useful for reporting the practical results of your study, but they are not very useful for comparing studies or for meta-analysis.
+
+You can imagine that estimating the true effect size on just one sample is not very reliable. The observed effect size could be the result of our sample being the result of the null being true, or the alternative being true. The way researchers try to get a notion of the true effect size is by replicating the study. If the observed effect size is consistent over multiple replications, we can be more confident that the average observed effect size is the true effect size. This is what we will cover in Chapter @sec-meta-analysis about meta analysis.
+
+#### Cohen's *d*
+
+In scientific research, we rarely have precise norms for raw differences (unstandardized effects) that are practically relevant or substantial. For example, what would be a practically relevant attitude change among people exposed to a health campaign?
+
+To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.
+
+For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as *Cohen's* d. Equation  \@ref(eq:CoD) illustrates how the sample mean $\bar{x}$ is compared to the hypothesized population mean $\mu_{H_0}$, and how this difference is standardized by deviding through the standard deviation $s$. In appendix @sec-CohenCalculations we will cover the calculation of the paired and independent t-tests.
+
+\begin{equation}
+d = \frac{\bar{x} - \mu_{H_0}}{s_x}
+  (\#eq:CoD)
+\end{equation} 
+
+Using an inventory of published results of tests on one or two means, @RefWorks:3933 proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):
+
+-   0.2: weak (small) effect,
+-   0.5: moderate (medium) effect,
+-   0.8: strong (large) effect.
+
+Note that Cohen's *d* can take values above one. These are not errors, they reflect very strong or huge effects [@sawilowskyNewEffectSize2009].
+
+#### Association as effect size {#assoc-size}
+
+Measures of association such as Pearson's product-moment correlation coefficient or Spearman's rank correlation coefficient express effect size if the null hypothesis expects no correlation in the population. If zero correlation is expected, a correlation coefficient calculated for the sample expresses the difference between what is observed (sample correlation) and what is expected (zero correlation in the population).
+
+Effect size is also zero according to the standard null hypotheses used for tests on the regression coefficient (*b*), *R*^2^ for the regression model, and eta^2^ for analysis of variance. As a result, we can use the standardized regression coefficient (Beta in SPSS and *b*\* according to APA), *R*^2^, and eta^2^ as standardized effect sizes.
+
+Because they are standardized, we can interpret their effect sizes using rules of thumb. The rule of thumb for interpreting a standardized regression coefficient (*b*\*) or a correlation coefficient, for example, could be:
+
+* Very weak: between 0 and .10
+* Weak: between .10 and .30
+* Moderate: between .30 and .50 
+* Strong: between .50 and .80
+* Very strong: between .80 and 1.00
+* Perfect association: 1.00
+
+Note that we ignore the sign (plus or minus) of the effect when we interpret its size.
+
+### Post hoc power
+
+Just as the observed effect size is based on the test statistic acquired from your sample, so is the post hoc power. It is also known as: observed, retrospective, achieved power [@doi:10.1080/19312450701641375].
+
+> The power of a test assuming a population effect size equal to the observed effect size in the current sample.
+>
+> --- [@doi:10.1080/19312450701641375]
+
+The post hoc power refers to the probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed sample mean or more accurately the observed test statistic. 
+
+```{r posthocpower, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions showing post hoc power", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Both distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+n = 10
+
+barplot( rbind(dbinom(0:n, n, .5),
+               dbinom(0:n, n, .4)), 
+         main=title, 
+         names.arg = 0:n, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = rbind(colh0,colha),
+         beside    = TRUE
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         ) -> p
+
+
+abline(v = p[1,1]+2, col='darkgreen', lwd=2)
+abline(v = p[1,10]+2, col='darkgreen', lwd=2)
+
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+
+
+legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+
+```
+
+Figure @fig-posthocpower shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution when rejecting the null hypothesis on the outside of the critical values.
+
+You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would not be the same. The post hoc power does not have much practical use, though SPSS produces this when you ask it, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the actual power is fixed and should not vary.
+
+<!-- [To-Do] create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
+
+### Meta analysis
+
+As mentioned in Chapter @sec-observed-effect-size, the observed effect size is based on the sample statistic, and is likely to differ with every sample you take. If our research hypothesis is actually true, a random sample from a population described by the sampling distribution of the alternative hypothesis would be mot likely to result in us holding a bag with 2 yellow candies. But as we have seen in Figure @fig-altdistribution, getting 4 yellow candies is reasonably probable as well.
+
+Now imagine that we would take multiple samples, and calculate the observed effect size for each sample. If we would plot these observed effect sizes, we would get a distribution of observed effect sizes. 
+
+In research we can conduct replication studies to see if the observed effect size is consistent over multiple replications. If this is the case, we can be more confident that the average observed effect size is the true effect size and we can determine the true population mean. As we have seen in Chapter @sec-samp-dist, it is in practical to draw many number of samples to create a sampling distribution. But we can use the results from multiple studies to get an indication of the true population mean.
+
+Imagine that we get a hundred bags of candy (100 replications) and we consistently find 7 to 9 yellow candies, this would give us an indication that the true population value is 8. It would also indicate that our initial alternative hypothesis is highly unlikely. 
+This is essentially what meta analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size. 
+
+<!-- [to-do] add communication meta analysis example. -->
+
+Meta-analysis is a good example of combining research efforts to increase our understanding. It is useful to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept _New Statistics_. See Cumming's book [-@RefWorks:3883], [website](http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci), or [YouTube channel](https://www.youtube.com/user/geoffdcumming) if you are curious to learn more.
+
+### Sample size {#sample-size}
+
+As stated in Chapter @sec-power, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In Figure @fig-twobinomN20, we increased the number of candies in the bag to 20. We can see on the x-axis that the possible outcome space for the number of yellow candies in the bag is now 0 to 20. This still assumes our $H_0$ to be true, and the parameter of the machine is still  $\theta = .5$, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 candies is now $.5 \times 20 = 10$, right in the middle of our distribution.
+
+Figure @fig-twobinomN20 still follows the reasoning scheme we have setup earlier. We decide to reject $H_0$ on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an $\alpha = .05$. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.
+
+With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that $H_A$ is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.
+
+```{r twobinomN20, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="820px", screenshot.opts = list(delay = 5), dev="png"}
+
+title = "Both distributions"
+
+colh0 = 'yellow'
+colha = 'lightyellow'
+
+n = 20
+
+barplot( rbind(dbinom(0:n, n, .5),
+               dbinom(0:n, n, .2)), 
+         main=title, 
+         names.arg = 0:n, 
+         xlab      = "number of yellow candies", 
+         ylab      = "Probability", 
+         col       = rbind(colh0,colha),
+         beside    = TRUE,
+         cex.names  = .6
+         # density   = c(0, 10)
+         #legend.text = c("H0", "HA")
+         ) -> p
+
+
+abline(v = p[1,6]+2, col='darkgreen', lwd=2)
+abline(v = p[1,15]+2, col='darkgreen', lwd=2)
+
+
+# abline(v = c(6.5,27.5), lty=2, col='red')
+
+legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+
+```
+
+The same reasoning is applied when using continuous sample statistics. Let's revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let's say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%.
+
+Figure @fig-sample-size-power shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.
+
+```{r sample-size-power, fig.pos='H', fig.align='center', fig.cap="How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Shiny app to determine sample size for a specified (standardized) effect size,
+# significance level, and test power for a (simple) one-sample _t_ test, using the
+# pwr:: package. Illustrate power with hypothesized and true sampling
+# distributions as _t_ distributions (as in app reshyp-althyp) with effect size on
+# x axis. SLiders or inputs vor standardized effect size (0.2 - small, 0.5 -
+# medium, 0.8 -large), significance level (90% two-sided, 90% one-sided, 95%
+# two-sided, 95% one-sided, 99% two-sided, 99% one-sided), and test power {50%,
+# 80%, 90%, 95%, 99%}.
+# simplify PS.shiny_master (doesn't work yet?) Use R code from
+# http://powerandsamplesize.com/Calculators/ in our own app?
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
+```
+
+For continuous sample statistics, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
+
+The reasoning is again the same as in the discrete case, when we use categorical sample statistics. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
+
+#### How to determine sample size
+
+As stated in Chapter @sec-power about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don't know the true effect size. We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence.
+
+In research you can take these assumptions into account by conducting a power analysis. A power analysis is a statistical method to determine the sample size you need to get a desired power for a given effect size. 
+
+It can be difficult to specify the effect size that we should expect or that is practically relevant. If there is little prior research comparable to our new project, we cannot reasonably specify an effect size and calculate sample size. Though, if there are meta analyses available for your research topic of interest or you have the effect sizes from a few previous studies, you can use programs such as G\*Power to calculate the sample size you need to get a desired power for a given effect size. G\*Power is a stand alone program that can be downloaded for free from the internet, and is specifically designed to calculate the required sample size for a wide range of statistical tests.
+
+> Download [G\*Power here](http://www.gpower.hhu.de/)
+
+In G\*Power you can specify the test you want to conduct, the effect size you expect, the alpha level you want to use, and the power you want to achieve. G\*Power will then calculate the sample size you need to get the desired power for the given effect size.
+
+For our candy color example, we can use G\*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3. 
+
+```{r g-power, eval=TRUE, echo=FALSE, out.width="500px", fig.pos='H', fig.align='center', fig.cap="Power analysis in G*Power for a binomial distribution"}
+knitr::include_graphics("figures/g-power.png")
+```
+
+In Figure @fig-g-power you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G\*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in Figure @fig-twobinomN20, though with lines instead of bars.
+
+As mentioned in Chapter @sec-true-effect-size about the true effect size, the sensitivity of a test is determined by the sample size. The larger the sample size, the more sensitive the test will be. This means that if we want to detect a small effect size, we need a large sample size. If we want to detect a large effect size, we can suffice with a smaller sample.
+
+Try to determine what sample size you would need using Figure @fig-sample-size-power, if you would want to detect an effect size of .2, .5 or .8 with a power of 80% and an alpha level of 5%. You can see that the sample size ranges from 197 to about 15 for these effect sizes.
+
+Something to consider is that with extremely large sample sizes you will very easily find significant results. Even if these results are not practically relevant. This is why it is important to determine the sample size you need before you start collecting data. 
+
+### One-Sided and Two-Sided Tests {#one-twosidedtests}
+
+As was explained in Chapter @sec-alternative-hypothesis, the alternative hypothesis can be one-sided or two-sided. The choice between a one-sided or two-sided test is based on the research question. In our media literacy example, we could have a one-sided alternative hypothesis that the average media literacy is below 5.5. This would be the case if we hypothesize that children on average score very low on media literacy. We could also have a different hypothesis, that a media literacy intervention program will increase media literacy. Both would be a one-sided alternative hypothesis. We could also have no idea about the media literacy of children, and just want to know if children score below or above 5.5 on media literacy. This would be a two-sided alternative hypothesis. Equation \@ref(eq:MediaAlt) formalizes these different hypothesis. 
+
+\begin{equation}
+\begin{split}
+\text{Two-sided} \\
+H_{A} & : \hat{x} & \neq 5.5 \\
+
+\text{One-sided} \\
+H_{A} & : \hat{x} & < 5.5 \\
+H_{A} & : \hat{x} & > 5.5 \\
+\end{split}
+(\#eq:MediaAlt)
+\end{equation}
+
+In null hypothesis significance testing, testing one or two-sided has some consequences for the critical values. In a two-sided test, the critical values are on both sides of the null hypothesis value. In a one-sided test, the critical value is only on one side of the null hypothesis value. If we are using an alpha significance level of 5%, the critical value for a two-sided test results in 2.5% on both sides, while for a one sided test the 5% would only be on one side of the null distribution.
+
+```{r nonsig-1sided, fig.pos='H', fig.align='center', fig.cap="One-sided and two-sided tests of a null hypothesis.", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+# Display the sampling distribution of average media literacy as a normal curve with 5% two-sided significance areas dark blue and 5% one-sided significance areas light blue. Generate randomly one out of six possible values for the sample mean: (from left to right) in the 0-2.5% region, 2.5%-5%, 5%-50%, 50%-95%, 95%-97.5%, 97.5%-100%. Let the user select the answers (Yes/No) to three questions: Is this sample mean significant at a 5% significance level? "Left-sided test?", "Right-sided test?",  "Two-sided test?". Give feedback when the user presses the submit button. 
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/", height="310px")
+```
+
+In the right-sided test of the media literacy hypothesis, the researcher is not interested in demonstrating that average media literacy among children can be lower than 5.5. She only wants to test if it is above 5.5, because an average score above 5.5 indicates that the intervention worked.
+
+If it is deemed important to note values well over 5.5 as well as values well below 5.5, the alternative hypotheses should be two-sided. Then, a sample average well below 5.5 would also have resulted in a rejection of the null hypothesis. 
+
+Figure @fig-nonsig-1sided shows the $H_0$ distribution of the sample mean 5.5. The dark blue areas represent the 5% probability for a two-sided te  st, 2.5% on either side. The light blue areas represent the 5% probability for a one-sided (right-sided) test. The critical value for the one-sided test is 7.8, and the critical values for the two-sided test are 2.9 and 8.1. The critical value is the value that separates the rejection region from the non-rejection region. Where the rejection region are the values on the x-axis that are on the outside of the critical value.
+
+You can take a sample and see the result of the sample in the figure. You can then determine if the sample mean is significant at a 5% significance level for a right-sided test, and a two-sided test.
+
+#### From one-sided to two-sided _p_ values and back again
+
+Statistical software like SPSS usually reports either one-sided or two-sided _p_ values. What if a one-sided _p_ value is reported but you need a two-sided _p_ value or the other way around?
+
+In Figure @fig-onetwosided, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true that average media literacy is 5.5 in the population. This probability is the surface under the curve to the left of the solid red line representing the sample mean. It is the one-sided _p_ value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.
+
+```{r onetwosided, fig.pos='H', fig.align='center', fig.cap="Halve a two-sided _p_ value to obtain a one-sided _p_ value, double a one-sided _p_ value to obtain a two-sided _p_ value.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
+# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour the area in each tail according to the p-value. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p-value). Also display the two-sided p-value.
+# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/onetwosided/", height="268px")
+```
+
+In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. The p-value still represents the probability of drawing a random sample with a sample statistic (here the mean) that is as extreme or more extreme than the sample statistics in our current sample. In the one-sided test example described above, more extreme can only mean “even smaller”. In a two-sided test, more extreme means even more distant from the null hypothesis on either end of the sampling distribution. 
+
+In Figure @fig-onetwosided, you can see tha sample meen as indicated by the solid red line. The dotted red line is the mirror image of the sample mean on the other side of the hypothesized population mean. When testing two-sided, we not only consider the sample mean, but also its mirror opposite. The two-sided _p_ value is the probability of finding a sample mean as extreme or more extreme than the sample mean in the sample, and also its mirror opposite. Hence, the two-sided _p_ value is the sum of the probabilities for both the left tail and the right tail of the sampling distribution. As these tails are symmetrical, the two-sided _p_ value is twice the one-sided _p_ value.
+
+So, if our statistical software tells us the two-sided _p_ value and we want to have the one-sided _p_ value, we can simply halve the two-sided _p_ value. The two-sided _p_ value is divided equally between the left and right tails. If we are interested in just one tail, we can ignore the half of the _p_ value that is situated in the other tail.
+
+Be careful if you divide a two-sided _p_ value to obtain a one-sided _p_ value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided _p_ value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.
+
+You might have already realized that if you use the same alpha criterion for rejecting the null hypothesis (e.g. 5%) as is usually done, it is easier to reject a one-sided null hypothesis, because the entire 5% of most extreme samples is located on one side of the distribution, whereas a two-sided null hypothesis would require us to highlight 2.5% of samples in the lower tail of the distribution and 2.5% in the upper tail. To avoid making too many unnecessary type 1 errors (Chapter @sec-cap-chance), we should always have a good theoretical justification for using one-sided null hypotheses and tests.
+
+One final warning: Two-sided tests are only relevant if the probability distribution that you are using to test your hypothesis is symmetrical. If you are using a non-symmetrical distribution, such as the chi-square distribution, or the F-distribution you should always use a one-sided test. This is because such distributions do not have negative values, and the critical values are always on the right side of the distribution. As the F-value, for example, represents a signal to noise ratio, it can never be negative. 
+
+## Reporting test results {#sec-reporting}
+
+### Reporting to fellow scientists
+
+Fellow scientists need to be able to see the precise statistical test results. According to the APA guidelines, we should report the test statistic, the associated degrees of freedom (if any), the value of the test statistic, the _p_ value of the test statistic, and the confidence interval (if any). APA requires a particular format for presenting statistical results and it demands that the results are included at the end of a sentence.  
+
+The statistical results for a _t_ test on one mean, for example, would be:  
+
+<center>_t_ (67) = 2.73, _p_ = .004, 95% CI [4.13, 4.87]</center>  
+
+* The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, _N_ = 89) = 23.14, _p_ = .027.
+* The value of the test statistic is 2.73 in this example.
+* The _p_ value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities---less than .05---so we need the third decimal here. If SPSS rounds the _p_ value to .000, report: _p_ < .001. Add (one-sided) after the _p_ value if the test is one-sided.
+* The 95% confidence interval is 4.13 to 4.87, so we 95% confident that the population mean lies within the CI. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.
+
+Not all tests produce all results reported in the example above. For example, a _z_ test does not have degrees of freedom and _F_ or chi-squared tests do not have confidence intervals. Exact tests or bootstrap tests usually do not have a test statistic. Just report the items that your statistical software produces, and give them in the correct format.
+
+### Reporting to the general reader
+
+For fellow scientists and especially for the general reader, it is important to read an interpretation of the results that clarifies both the subject of the test and the test results. Make sure that you tell your reader who or what the test is about:  
+
+* What is the population that you investigate?  
+* What are the variables?  
+* What are the values of the relevant sample statistics?  
+* Which comparison(s) do you make?  
+* Are the results statistically significant and, if so, what are the estimates for the population?  
+* If the results are statistically significant, how large are the differences or associations?
+
+A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:  
+
+::: {.callout-important appearance="simple"}
+
+"The television station reaches significantly and substantially (61%) more than half of all households in Greece in 2012, _z_ = 4.01, _p_ < .001."
+
+:::
+
+The interpretation of this test tells us the population ("all households in Greece"), the variable ("reaching a household") and the sample statistic of interest (61%, indicating a proportion). It tells us that the result is statistically significant, which a fellow scientist can check with the reported _p_ value. 
+
+Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the _effect size_, and give a more precise interpretation (see Chapter @sec-power for more information).  
+
+## Statistical test selection {#test-selection}
+
+Knowing what statistical test fits your research question is crucial for the success of your research. If you do not know what test to apply or even choose the wrong test, you may draw the wrong conclusions. This can lead to a waste of time and resources, and it can even lead to harm if the wrong conclusions are used to make decisions.
+
+Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main  distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in Figure @fig-flowchart helps you to identify the right statistical test.
+
+```{r flowchart, echo=FALSE, fig.width=9, fig.pos='H', fig.align='center', fig.cap="Flow chart for selecting a test in SPSS."}
+#Create and draw flow chart for selecting tests in SPSS.
+source("flowchart.R")
+#Show plot.
+p
+#Cleanup.
+rm(p, x, y)
+```
+
+You use the flow chart by identifying the type of your dependent variable (categorical or numerical) and the number and type of your independent variable (categorical or numerical). The flow chart then guides you to the right statistical test.
+
+Consider the following example. You want to measure the difference in media literacy between man and women, and want to control for age. You measure media literacy on a scale from 1 to 7, and age in years. You have a numerical dependent variable (media literacy) and a categorical independent (biological sex), and a numerical independent variable (age). As your dependent variable is numerical, you follow the flow chart to the right. As you have two independent variables, you follow the flow chart to the right to indicate that you have both a categorical and numerical independent variable. The flow chart guides you to the _F test multiple regression model_. 
+
+## Confidence Intervals to test hypotheses {#null-ci}
+
+In Chapter @sec-param-estim, we learned how to calculate a confidence interval for the population mean. We also learned that the confidence interval is a range of values that is likely to contain the true population mean. We learned that the true population mean falls within the confidence in 95% of a hundred samples. We can use this knowledge to test hypotheses. If we, again, have the hypothesis that the average media literacy in the population is 5.5, we can use the confidence interval to test this hypothesis. If we draw a sample and calculate the confidence interval, we can see if the hypothesized population mean falls within the confidence interval. If it does, we can conclude that we are probably right. If it does not, we can conclude that we are probably wrong.
+
+With the hypothesis that we can improve media literacy through some intervention program, we can also use the confidence interval to test this hypothesis. If the lower bound of the confidence interval is higher than 5.5, we can conclude that the intervention program works.
+
+### Estimation in addidion to NHST
+
+Following up on a report commissioned by the American Psychological Association APA [@RefWorks:3934], the 6^th^ edition of the _Publication Manual of the American Psychological Association_ recommends reporting and interpreting confidence intervals in addition to null hypothesis significance testing. 
+
+Estimation is becoming more important: Assessing the precision of our statements about the population rather than just rejecting or not rejecting our hypothesis about the population. This is an important step forward and it is easy to accomplish with your statistical software.  
+
+```{r ci-nullhyp, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', out.width="640px", fig.cap="What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?"}
+#REPLACED BY STATIC IMAGE
+
+# Display an x-axis labeled "Effect size" with values "none
+# (H0)"/"tiny"/"small"/"moderate"/"large" with a vertical line (unlabeled) at
+# "none (H0)". As in app sig-effect-power.
+# Generate a confidence interval for a positive effect and represent it by a
+# horizontal errorbar with the sample value (point estimate) as a fat dot.
+# Successive confidence intervals should differ on one or two of the following characteristics: 
+# (1) includes/excludes H0, 
+# (2) small/wide, 
+# (3) tiny versus moderate-large effect size. 
+# Add a slider to adjust sample size (range [10, 250], initial setting 30), which changes the width of the confidence interval. 
+# Finally, add a button to generate a new confidence interval.
+d <- data.frame(x = c(6, 5, 4, 3, 2, 1),
+                 lb95 = c(-2, -0.1, 0.1, -0.1, 0.1, 2), 
+                 ub95 = c(2.6, 0.7, 0.5, 3.2, 3.0, 3.0),
+                 lab = c("A", "B", "C", "D", "E", "F"))
+d$point <- (d$ub95 + d$lb95)/2
+ggplot2::ggplot(d) +
+  geom_errorbar(aes(x = x, ymin = lb95, ymax = ub95), colour = brewercolors["Blue"]) + 
+  geom_point(aes(x = x, y = point), size = 3, colour = brewercolors["Blue"]) +
+  geom_hline(yintercept = 0, colour = brewercolors["Red"]) +
+  geom_text(aes(x = x, y = ub95, label = lab), nudge_y = 0.15) +
+  scale_x_continuous(name = "", breaks = NULL) +
+  scale_y_continuous(name = "Unstandardized effect size (b)", 
+                     breaks = c(-2, -1, 0, 0.3, 1.55, 2.5),
+                     sec.axis = sec_axis(~./5.6, name = "Standardized effect size (b*)",
+                     breaks = c(-0.3, -0.1, 0, 0.1, 0.3, 0.5),
+                     labels = c("-0.3\nmoderate", "-0.1\nweak", "0\nH0", "0.1\nweak", "0.3\nmoderate", "0.5\nstrong"))) +
+  coord_flip() +
+  theme_general()
+rm(d)
+```
+
+Figure @fig-ci-nullhyp shows six confidence intervals for a population value, for instance, the effect of exposure to advertisements on brand awareness, and the sample result as point estimate (dot). The horizontal axis is labeled by the size of the effect: the difference between the effect in the sample and the absence of an effect according to the null hypothesis.
+
+A confidence interval shows us whether or not our null hypothesis must be rejected. The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil (Section @sec-fixed-pop-values). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1. SPSS usually tests nil hypotheses, this can be adjusted for some tests, but not all. Though it is almost always possible to visualize the confidence interval in graphs created in SPSS.
+
+Confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis, but the value specified in the null hypothesis is located near one of its boundaries (e.g., Confidence Interval D in Figure @fig-ci-nullhyp), we do not reject the null hypothesis. However, it still is plausible that the population value is substantially different from the hypothesized value. 
+
+For example, we could interpret Confidence Interval D in Figure @fig-ci-nullhyp in the following way:
+
+> The effect of exposure to advertisements on brand awareness is of moderate size in the sample (_b_* = 0.28). It is, however, not statistically significant, _t_ (23) = 1.62, _p_ = .119, 95% CI [-0.1, 3.2], meaning that we are not sufficiently confident that there is a positive effect in the population.  It is important to note that the sample is small (_N_ = 25-- this number is not included in the figure--), so test power is probably low, meaning that it is difficult to reject a false null hypothesis. On the basis of the confidence interval we conclude that the effect can be weak and negative, but the plausible effects are predominantly positive, including strong positive effects. One additional daily exposure may decrease predicted brand awareness by 0.1, but it may also increase brand awareness by up to 3.2 points on a scale from 1 (unaware of the brand) to 7 (highly aware of the brand). The latter effect is substantial: A single additional exposure to advertisements would lead to a substantial change in brand awareness. 
+
+We should report that the population value seems to be larger (smaller) than specified in the null hypothesis but that we do not have sufficient confidence in this result because the test is not statistically significant. This is better than reporting that there is no difference because the statistical test is not significant.  
+
+```{block2, type='rmdfisher'}
+The fashion of speaking of a null hypothesis as "accepted when false", whenever a test of significance gives us no strong reason for rejecting it, and when in fact it is in some way imperfect, shows real ignorance of the research workers' attitude, by suggesting that in such a case he has come to an irreversible decision.
+
+The worker's real attitude in such a case might be, according to the circumstances:
+
+(a) "The possible deviation from truth of my working hypothesis, to examine which the test is appropriate, seems not to be of sufficient magnitude to warrant any immediate modification."
+
+Or it might be:
+
+(b) "The deviation is in the direction expected for certain influences which seemed to me not improbable, and to this extent my suspicion has been confirmed; but the body of data available so far is not by itself sufficient to demonstrate their reality." 
+
+[@RefWorks:3907: 73]
+
+Sir Ronald Aylmer Fisher, Wikimedia Commons
+```
+
+In a similar way, a very narrow confidence interval including the null hypothesis (e.g., Confidence Interval B in Figure @fig-ci-nullhyp) and a very narrow confidence interval near the null hypothesis but excluding it (e.g., Confidence Interval C in Figure @fig-ci-nullhyp) should not yield opposite conclusions because the statistical test is significant in the second but not in the first situation. After all, even for the significant situation, we know with high confidence (narrow confidence interval) that the population value is close to the hypothesized value.
+
+For example, we could interpret Confidence Interval C in Figure @fig-ci-nullhyp in the following way:
+
+> The effect of exposure to advertisements on brand awareness is statistically significant, _t_ (273) = 3.67, _p_ < .001, 95% CI [0.1, 0.5]. On the basis of the confidence interval we are confident that the effect is positive but small (maximum _b_* = 0.05). One additional daily exposure increases predicted brand awareness by 0.1 to 0.5 on a scale from 1 (unaware of the brand) to 7 (highly aware of the brand). We need a lot of additional exposure to advertisements before brand awareness changes substantially.
+
+In addition, it is good practice to include confidence intervals in research report figures. Especially in figures depicting moderation (see Chapter @sec-anova2way), confidence intervals can help to interpret where differences between multiple groups are likely to occur. 
+
+<!-- [ToDo] Ad example and graph to illustrate the above paragraph -->
+
+Using confidence intervals in this way, we avoid the problem that statistically non-significant effects are not published. Not publishing non-significant results, either because of self-selection by the researcher or selection by journal editors and reviewers, offers a misleading view of research results.
+
+If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, which brings us to meta-analysis.
+
+### Bootstrapped confidence intervals
+
+Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.
+
+```{r null-bootstrap, eval=FALSE, echo=FALSE}
+# Create a (left) skewed sample of media literacy scores (N = 30, such that the sampling dsitribution is skewed?). Generate a sampling distribution of median media literacy scores and display it as a histogram (with narrow bins). Show to vertical lines for the lower and upper limit of the confidence interval and display the percentage of cases to left/middle/right of these lines. Add a range slider, so the user can set the lower and upper limits of the 95% confidence interval for the sample median.
+
+1. Figure @fig-null-bootstrap shows the bootstrapped sampling distribution of sample medians for media literacy of teenagers. Use the sliders to determine the 95% confidence interval of the sample median.
+
+2. Test the null hypothesis that teenager media literacy in the population is 6.0.
+```
+
+Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section @sec-bootstrap-confidenceinterval). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it. We will encounter this in Chapter @sec-mediation about mediation, where indirect effects are tested with bootstrapped confidence intervals.
+
+## Bayesian hypothesis testing {#bayesian-hypothesis-testing}
+
+A more radical way of including previous knowledge in statistical inference is _Bayesian inference_. Bayesian inference regards the sample that we draw as a means to update the knowledge that we already have or think we have on the population. Our previous knowledge is our starting point and we are not going to just discard our previous knowledge if a new sample points in a different direction, as we do when we reject a null hypothesis.  
+
+Think of Bayesian inference as a process similar to predicting the weather. If I try to predict tomorrow's weather, I am using all my weather experience to make a prediction. If my prediction turns out to be more or less correct, I don't change the way I predict the weather. But if my prediction is patently wrong, I try to reconsider the way I predict the weather, for example, paying attention to new indicators of weather change.  
+
+Bayesian inference uses a concept of probability that is fundamentally different from the type of inference presented in previous chapters, which is usually called _frequentist inference_. Bayesian inference does not assume that there is a true population value. Instead, it regards the population value as a random variable, that is, as something with a probability.  
+
+Again, think of predicting the weather. I am not saying to myself: "Let us hypothesize that tomorrow will be a rainy day. If this is correct, what is the probability that the weather today looks like it does?" Instead, I think of the probability that it will rain tomorrow. Bayesian probabilities are much more in line with our everyday concept of probability than the dice-based probabilities of frequentist inference. 
+
+Remember that we are not allowed to interpret the 95% confidence interval as a probability (Chapter @sec-param-estim)? We should never conclude that the parameter is between the upper and lower limits of our confidence interval with 95 per cent probability. This is because a parameter does not have a probability in frequentist inference. The _credible interval_ (sometimes called _posterior interval_) is the Bayesian equivalent of the confidence interval. In Bayesian inference, a parameter has a probability, so we are allowed to say that the parameter lies within the credible interval with 95% probability. This interpretation is much more in line with our intuitive notion of probabilities.
+
+Bayesian inference is intuitively appealing but it has not yet spread widely in the social and behavioral sciences. Therefore, I merely mention this strand of statistical inference and I refrain from giving details. Its popularity, however, is increasing, so you may come in contact with Bayesian inference sooner or later.
+
+## Critical Discussion {#critical-discussion}
+
+### Criticisms of Null Hypothesis Significance Testing {#sec-criticismsNHST}
+
+In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video.
+
+```{r pdance, echo=FALSE, out.width="640px", dev="png", fig.pos='H', fig.align='center', fig.cap="The dance of the _p_ values by Geoff Cumming.", screenshot.opts = list(delay = 5)}
+knitr::include_url("https://www.youtube.com/embed/ez4DgdurRPg", height = "315px")
+```
+
+As the video indicates, only focusing on the p-value can provide wildly misleading results. Specially with low sample sizes, you can find significant effects that do not correspond with results we find while using confidence intervals. Blindly following the p-value mantra is considered to be bad practice.
+
+I hope that by now, Chapter @sec-null-hypothesis-significance-testing has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that "studies have found that in many areas of Psychology, the median size effect is .5". Though blaming the _p_-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the $H_0$ and $H_A$ distributions in the video it is clear to see that both distributions overlap.
+
+Most criticism of null hypothesis significance testing focuses on the _p_-value as a decision criterion. This critique is justified when not taking every aspect of the Neyman Pearson approach into consideration. The result has been an enormous amount of under powered studies and a failure to replicate seminal studies from the last decade. 
+
+### Statistical significance is not a measure of effect size  
+
+When our sample is small, say a few dozens of cases, the power to reject a null hypothesis is rather small, so it often happens that we retain the null hypothesis even if it is wrong. There is a lot of uncertainty about the population if our sample is small. So we must be lucky to draw a sample that is sufficiently at odds with the null hypothesis to reject it.
+
+If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. All in all, statistical significance on it's own, does not tell us much about the effect in the population. 
+
+```{r tiny-effects, fig.pos='H', fig.align='center', fig.cap="Any effect can be statistically significant.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
+# Illustrate that even tiny effects can yield statistically significant test results if the sample is sufficiently large.
+# Generate a normal distribution as hypothesized sampling distribution (M = 2.8, SE = SD / sqrt(N) = 0.6 / sqrt(10) = 0.2) with 2.5% of each tail area coloured. Add a vertical line with value for the sample average linked to a slider (range [2.82, 3.00] initial value 2.90). Add a sample size slider (range [10, 5,000], initial value 10), which is linked to the standard error of the normal curve. With slider for (assumed) true population mean and test power.
+knitr::include_app("https://sharon-klinkenberg.shinyapps.io/tiny-effects/", height="340px")
+```
+
+It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (Figure @fig-pdance), this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
+
+It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in Chapter @sec-binarydecision that our decision is a binary one, so, never forget:
+
+::: {.callout-important appearance="simple"}
+
+A statistically significant result ONLY means that the null hypothesis must be rejected.
+
+:::
+
+If we want to say something about the magnitude of an effect in the population, we should use effect size. All we have is the effect size measured in our sample and a statistical test usually telling us whether or not we should reject the null hypothesis that there is no effect in the population.  
+
+If the statistical test is significant, we conclude that an effect probably exists in the population. We may use the effect size in the sample as a point estimate of the population effect. This effect size should be at the core of our interpretation. Is it large (strong), small (weak), or perhaps tiny and practically irrelevant?
+
+If the statistical test is not significant, it is tempting to conclude that the null hypothesis is true, namely, that there is no effect in the population. If so, we do not have to interpret the effect that we find in our sample. But this is not right. Finding insufficient evidence for rejecting the null hypothesis does not prove that the null hypothesis is true. Even if the null hypothesis is false, we can draw a sample that does not reject the null hypothesis.
+
+In a two-sided significance test, the null hypothesis specifies one particular value for the sample outcome. If the outcome is continuous, for instance, a mean or regression coefficient, the null hypothesis can hardly ever be true, strictly speaking. The true population value is very likely not exactly the same as the hypothesized value. It may be only slightly different, but it is different.
+
+::: {.callout-important appearance="simple"}
+
+A statistically non-significant result does NOT mean that the null hypothesis is true.
+
+:::
+
+When we evaluate a _p_ value, we had better take into account the probability that we correctly reject the null hypothesis, which is test power. If test power is low, as it often is in social scientific research with small effect sizes and not very large samples, we should realize that there can be an interesting difference between true and hypothesized population values even if the test is not statistically significant. Though, in recent years, the focus on pre-registration of required sample sizes has increased the power in many studies.
+
+With low power, we have high probability of not rejecting a false null hypothesis (type II error) even if the true population value is quite different from the hypothesized value. For example, a small sample of candies drawn from a population with average candy weight of 3.0 grams may not reject the null hypothesis that average candy weight is 2.8 grams in the population. The non-significant test result should not make us conclude that there is no interesting effect. The test may not pick up substantively interesting effects.
+
+In contrast, if our test has very high power, we should expect effects to be statistically significant, even tiny effects that are totally irrelevant from a substantive point of view. For example, an effect of exposure on attitude of 0.01 on a 10-point scale is likely to be statistically significant in a very large sample but it is probably substantively uninteresting.
+
+In a way, a statistically non-significant result is more interesting than a significant result in a test with high power. If it is easy to get significant results even for small effect sizes (high power), a non-significant result probably indicates that the true effect in the population is very small. In this situation, we are most confident that the effect is close to zero or absent in the population.
+
+By now, however, you understand that test power is affected by sample size. You should realize that null hypotheses are easily rejected in large samples but they are more difficult to reject in small samples. A significant test result in a small sample suggests a substantive effect in the population but not necessarily so in a large sample. A non-significant test result in a small sample does not mean that the effect size in the population is too small to be of interest. Don't let your selection of interesting results be guided only by statistical significance.
+
+### Capitalization on Chance {#cap-chance}
+
+The relation between null hypothesis testing and confidence intervals (Section @sec-null-ci) may have given the impression that we can test a range of null hypotheses using just one sample and one confidence interval. For instance, we could simultaneously test the null hypotheses that average media literacy among children is 5.5, 4.5, or 3.5. Just check if these values are inside or outside the confidence interval and we are done, right?  
+
+This impression is wrong. The probabilities that we calculate using one sample assume that we only apply one test to the data. If we test the original null hypothesis that average media literacy is 5.5, we run a risk of five per cent to reject the null hypothesis if the null hypothesis is true. The significance level is the probability of making a type I error (Section @sec-alpha). 
+
+If we apply a second test to the same sample, for example, testing the null hypothesis that average media literacy is 4.5, we again run this risk of five per cent. The probability of not rejecting a true null hypothesis is .95, so the probability of not rejecting two true null hypotheses is .95 * .95  = 0.9025. The risk of rejecting at least one true null hypothesis in two tests is 1 - 0.9025 = .0975. This risk is dramatically higher than the significance level (.05) that we want to use. The situation becomes even worse if we do three or more tests on the same sample. 
+
+The phenomenon that we are dealing with probabilities of making type I errors that are higher (*inflated type I errors*) than the significance level that we want to use, is called _capitalization on chance_. Applying more than one test to the same data is one way to capitalize on chance. If you do a lot of tests on the same data, you are likely to find some statistically significant results even if all null hypotheses are true.  
+
+#### Example of capitalization on chance
+
+This type of capitalization on chance may occur, for example, if we want to compare average media literacy among three groups: second, fourth, and sixth grade students. We can use a _t_ test to test if average media literacy among fourth grade students is higher than among second grade students. We need a second _t_ test to compare average media literacy of sixth grade students to second grade students, and a third one to compare sixth to fourth grade students.
+
+If we execute three tests, the probability of rejecting at least one true null hypothesis of no difference is much higher than five per cent if we use a significance level of five per cent for each single _t_ test. In other words, we are more likely to obtain at least one statistically significant result than we want. 
+
+#### Correcting for capitalization on chance  
+
+We can correct in several ways for this type of capitalization on chance; one such way is the Bonferroni correction. This correction divides the significance level that we use for each test by the number of tests that we do. In our example, we do three _t_ tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each _t_ test is .0167. If a _t_ test's _p_ value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.
+
+The Bonferroni correction is a rather stringent correction. However, it has a simple logic that directly links to the problem of capitalization on chance. Therefore, it is a good technique to help understand the problem, which is the main goal we want to attain, here. We will skip better, but more complicated alternatives to the Bonferroni correction.
+
+It has been argued that we do not have to apply a correction for capitalization on chance if we specify a hypothesis beforehand for each test that we execute. Formulating hypotheses does not solve the problem of capitalization on chance. The probability of rejecting at least one true null hypothesis still increases with the number of tests that we execute. If all hypotheses and associated tests are reported [as recommended in @wassersteinASAStatementPValues2016], however, the reader of the report can evaluate capitalization on chance. If one out of twenty tests at five per cent significance level turns out to be statistically significant, this is what we would expect based on chance if all null hypotheses are true. The evidence for rejecting this null hypothesis is less convincing than if only one test was applied and that test turned out to be statistically significant.
+
+### What If I Do Not Have a Random Sample? {#no-random-sample}
+
+In our approach to statistical inference, we have always assumed that we have drawn a random sample. That in our research we truly sample from the population of interest, not a subset or convenience sample. What if we do not have a random sample? Can we still estimate confidence intervals or test null hypotheses? 
+
+If you carefully read reports of scientific research, you will encounter examples of statistical inference on non-random samples or data that are not samples at all but rather represent an entire population, for instance, all people visiting a particular web site. Here, statistical inference is clearly being applied to data that are not sampled at random from an observable population. The fact that it happens, however, is not a guarantee that it is right.
+
+We should note that statistical inference based on a random sample is the most convincing type of inference because we know the nature of the uncertainty in the data, namely chance variation introduced by random sampling. Think of exact methods for creating a sampling distribution. If we know the distribution of candy colours in the population of all candies, we can calculate the exact probability of drawing a sample bag with, for example, 25 per cent of all candies being yellow if we carefully draw the sample at random.
+
+We can calculate the probability because we understand the process of random sampling. For example, we know that each candy has the same probability to be included in the sample. The uncertainty or probabilities arise from the way we designed our data collection, namely as a random sample from a much larger population.
+
+In summary, we work with an observable population and we know how chance affects our sample if we draw a random sample. We do not have an observable population or we do not know the workings of chance if we want to apply statistical inference to data that are not collected as a random sample. In this situation, we have to substantiate the claim that our data set can be treated as a random sample. For example, we can argue that the data set is a random sample from a population of all people who visit a particular web site. Or that we do not want to infer to the entire population but only to a subset.
+
+### Specifying hypotheses afterwards
+
+As journals favor research results that are statistically significant, researchers may be tempted to first look at the data and then formulate a hypothesis. It is easy to specify a null hypothesis that will be rejected. If we first look at the data and then specify a null hypothesis, we can always find a null hypothesis that is rejected. This is called _HARKing_ (Hypothesizing After the Results are Known). This is plain cheating and it must be avoided at all times. The temptation arises because career opportunities are better for researchers that have high citation indices and non significant findings are less likely to be published and cited.
+
+Nowadays, many journals require that researchers specify their hypotheses before they collect data. This is called _pre-registration_. Pre-registration is a good way to avoid HARKing. If we specify our hypotheses before we collect data, we cannot be accused of HARKing. We can still test other hypotheses than the ones we pre-registered, but we should report that we did so.
+
+### Replication
+
+Replication refers to the process of repeating research to determine whether the results of a previous study are the same. Replication is a cornerstone of the scientific method. In the Nayman-Pearson decision theory, we have seen that in order to accurately determine the true population value, the true effect size, we can use the observed effect size from multiple studies. Through meta analysis, we can combine the results of multiple studies to get a more precise estimate of the population value / true effect size. To enable meta-analysis, the same effects have to be studied in a reasonably comparable manner in multiple studies (i.e. they need to be replicated). The gold standard is a direct replication which exactly repeats all procedures and measures used in the original study. More often, you might see conceptual replications which study the same effect with slightly different procedures or in a slightly different population. Conceptual replications might still add or detract from our confidence about the existence or size of a given effect but usually leave us uncertain about whether any differences in effect size between the original study and conceptual replication are due to the differences between the studies. In any case, making bold claims based on a single study is risky. If we have a single study that shows a significant effect, we should be cautious in interpreting the results. We should wait for a replication of the study to confirm the results.
+
+Though Bayesian statistics allows to incorporate prior knowledge in the analysis, researchers do actively need to replicate to incorporate new data in the analysis. Running a Bayesian analysis on a single study suffers from the same problems as running a frequentist analysis on a single study. Replication is therefore important in both statistical paradigms.
+
+## Take home points
+
+Hypothesis:
+
+* Statistical inference includes estimation and hypothesis testing.
+* Hypothesis testing involves rejecting or not rejecting a hypothesis based on data.
+
+Null Hypothesis Significance Testing:
+
+* Involves null and alternative hypotheses, significance level, p-values, and test power.
+* Importance of sample size and effect sizes.
+
+Reporting Test Results:
+
+* Emphasizes clarity and transparency.
+* Report test statistics, p-values, effect sizes, and confidence intervals.
+
+Statistical Test Selection:
+
+* Choose tests based on data type, groups compared, and study design.
+* Includes decision-making frameworks and examples.
+
+Confidence Intervals:
+
+* Provide a range of plausible values for population parameters.
+* Can be used to infer hypotheses, with bootstrapped intervals as an alternative.
+
+Bayesian Hypothesis Testing:
+
+* Bayesian approach updates prior beliefs with data.
+* Utilizes prior, likelihood, and posterior distributions for decision-making.
+
+Critical Discussion:
+
+* Examines limitations of null hypothesis significance testing.
+* Discusses misinterpretation of p-values, overemphasis on significance, and publication bias.
