@@ -1,3 +1,7 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
+
 # Mediation with Regression Analysis {#sec-mediation}
 > Key concepts: causality, causal and time order, common cause, direct, indirect, and total effects, causal model, path diagram and path model, parallel and serial mediation, partial mediation, covariate, controlling mediator values.
 
@@ -158,7 +162,7 @@ Mediation or, more generally, path models can be estimated with a series of regr
 # Goal: Exemplify the different regression models required to estimate the direct effects in a path model.
 # Image of path model with age, education level (in years), political interest, news site use, and (current) newspaper reading time. Distinguish between hypothesized direct effects and non-hypothesized direct effects. Display the unstandardized regression coefficients with their 95% confidence intervals for the direct effects of all variables that are causally prior to the selected dependent variable.
 # Basic colours and layout.
-source("apps/plottheme/styling.R")
+# source("apps/plottheme/styling.R")
 # Create effect sizes.
 readers <- haven::read_spss("data/readers.sav")
 #model_1 <- lm(education ~ age, data = readers)
@@ -168,7 +172,6 @@ model_2 <- lm(polinterest ~ age , data = readers)
 #model_4 <- lm(readingtime ~ age + education + polinterest + newssite, data = readers)
 model_4 <- lm(readingtime ~ age  + polinterest , data = readers)
 # Create network
-library(visNetwork)
 nodes <- data.frame(
   id = 1:3, x = c(0,  550,  1000),
   y = c(500,  0,  500),
@@ -274,7 +277,6 @@ Multiplication of direct effects assigns the right direction (positive or negati
 If each indirect effect in a path model contains at most one mediator, we have _single mediation_ or _parallel mediation_. Figure @fig-mediationparallel illustrates single and parallel mediation. 
 
 ```{r mediationparallel, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagrams for single (left) and parallel mediation (right).", fig.asp=0.6, fig.show="hold", out.width="50%"}
-library(ggplot2)
 # Single mediation.
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7), 
@@ -308,7 +310,6 @@ rm(variables)
 If at least one of the indirect effects in a path model contains two or more mediators, we are dealing with _serial mediation_. Figure @fig-mediationserial illustrates serial mediation. It contains an indirect effect from age on reading time with two mediators: Age > Political Interest > News Site Use > Reading Time. The distinction between parallel and serial mediation is relevant to the software (PROCESS) that we will use to estimate indirect and total effects (Section @sec-SPSSPROCESS).
 
 ```{r mediationserial, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagram for serial mediation.", fig.asp=0.3}
-library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.45, 0.7, 0.55), 
                         y = c(.2, .3, .2, .1),
@@ -375,7 +376,6 @@ In total, there is a substantial indirect effect of age on newspaper reading tim
 It may happen that an indirect effect is not statistically significant (the confidence interval includes zero) whereas all direct effects that constitute the indirect effect are statistically significant. In Figure @fig-causaldiagram3, for example, both the effect of age on political interest (_b_ = 0.30, 95% CI [0.22, 0.38]) and the effect of political interest on reading time (_b_ = 0.20, 95% CI [0.12, 0.28]) are statistically significant at the .05 level. The indirect effect of age via political interest on reading time, however, is not statistically significant at this level [_b_ = 0.30 * 0.20 = 0.06, 95% CI [-0.02, 0.14], (bootstrapped)]. 
 
 ```{r causaldiagram3, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagram for the effects of age and interest in politics on newspaper reading time: unstandardized estimates with 95% confidence intervals.", fig.asp=0.3}
-library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7), 
                         y = c(.1, .3, .1),
@@ -407,7 +407,6 @@ This sounds like a paradox but it should not upset you. The unstandardized indir
 We usually have theoretical reasons to expect that a variable mediates an effect, for example, that political interest mediates the effect of age on newspaper reading time. At the same time, we know that our dependent variable and perhaps our mediator may depend on other variables. Newspaper reading time, for instance, may also depend on education. In this situation, we would use the other variables as covariates (or control variables) for which we want to control statistically.
 
 ```{r causaldiagram4, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagram for  interest in politics as mediator between age and newspaper reading time with education as covariate.", fig.asp=0.3}
-library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7, 0.3), 
                         y = c(.1, .3, .1, .3),
@@ -483,8 +482,6 @@ model_3 <- lm(newssite ~ age + education + polinterest, data = readers)
 model_4 <- lm(readingtime ~ age + education + polinterest + newssite, data = readers)
 ci <- confint.lm(model_4)
 # Create network
-library(visNetwork)
-library(stringr)
 nodes <- data.frame(
   id = 1:5, x = c(0, 100, 300, 360, 1000),
   y = c(550, 0, 75, 300, 550),
@@ -609,32 +606,6 @@ knitr::include_url("https://www.youtube.com/embed/olOEqeZE9WE", height = "360px"
 # (Windows) Paint does not have arrows that can be rotated. 
 ```
 
-```{html, echo = Qch11}
-### Exercises
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Criticisms of Mediation
 
 If we think of causality, we usually think of a process in which one thing leads to another thing, which leads to something else, and so on. This is apparent if we want to explain why we think that one phenomenon causes another (see Section @sec-indirecteffect). Mediation, however, is difficult to establish with regression analysis and, as some argue, perhaps impossible to establish.
@@ -682,7 +653,6 @@ Mediation and moderation (Chapters @sec-moderationcat and @sec-moderationcont) c
 If the indirect effect is different for females and males, at least one of the two direct effects (predictor on mediator or mediator on dependent variable) must be different for females and males. In Figure @fig-causaldiagram5, the direct effect of age on interest in politics is moderated and as a consequence, indirect effects including this effect are moderated. This is called _moderated mediation_. In this example, sex is the moderator and interest in politics is the mediator.
 
 ```{r causaldiagram5, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagram for interest in politics as mediator between age and newspaper reading time with sex as moderator of the effect of age on interest in politics.", fig.asp=0.3}
-library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7, 0.35), 
                         y = c(.1, .3, .1, .3),

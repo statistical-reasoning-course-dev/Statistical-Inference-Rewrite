@@ -50,6 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./07-anova.html" rel="next">
 <link href="./03-estimation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -192,6 +193,54 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-moderation-categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-moderation-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mediation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-colophon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colophon</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
     <nav id="TOC" role="doc-toc" class="toc-active">
@@ -281,9 +330,11 @@ Watch this micro lecture on hypothesis testing for an overview of the chapter.
 
 
 
+
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://www.youtube.com/embed/8AmJHaQnWGk" width="640px" height="360px" data-external="1"></iframe>
 :::
+
 
 
 
@@ -687,7 +738,7 @@ H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
 <h4 data-number="4.2.8.1" class="anchored" data-anchor-id="cohens-d"><span class="header-section-number">4.2.8.1</span> Cohen’s <em>d</em></h4>
 <p>In scientific research, we rarely have precise norms for raw differences (unstandardized effects) that are practically relevant or substantial. For example, what would be a practically relevant attitude change among people exposed to a health campaign?</p>
 <p>To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.</p>
-<p>For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as <em>Cohen’s</em> d.&nbsp;Equation @ref(eq:CoD) illustrates how the sample mean <span class="math inline">\(\bar{x}\)</span> is compared to the hypothesized population mean <span class="math inline">\(\mu_{H_0}\)</span>, and how this difference is standardized by deviding through the standard deviation <span class="math inline">\(s\)</span>. In appendix <span class="quarto-unresolved-ref">?sec-CohenCalculations</span> we will cover the calculation of the paired and independent t-tests.</p>
+<p>For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as <em>Cohen’s</em> d.&nbsp;Equation @ref(eq:CoD) illustrates how the sample mean <span class="math inline">\(\bar{x}\)</span> is compared to the hypothesized population mean <span class="math inline">\(\mu_{H_0}\)</span>, and how this difference is standardized by deviding through the standard deviation <span class="math inline">\(s\)</span>. In appendix <a href="12-Appendix.html#sec-CohenCalculations" class="quarto-xref"><span>Section 1</span></a> we will cover the calculation of the paired and independent t-tests.</p>
 <p><span class="math display">\[\begin{equation}
 d = \frac{\bar{x} - \mu_{H_0}}{s_x}
   (\#eq:CoD)
@@ -956,7 +1007,7 @@ Sir Ronald Aylmer Fisher, Wikimedia Commons
 <section id="bootstrapped-confidence-intervals" class="level3" data-number="4.5.2">
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="bootstrapped-confidence-intervals"><span class="header-section-number">4.5.2</span> Bootstrapped confidence intervals</h3>
 <p>Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.</p>
-<p>Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section <span class="quarto-unresolved-ref">?sec-bootstrap-confidenceinterval</span>). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it. We will encounter this in Chapter <span class="quarto-unresolved-ref">?sec-mediation</span> about mediation, where indirect effects are tested with bootstrapped confidence intervals.</p>
+<p>Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see Section <span class="quarto-unresolved-ref">?sec-bootstrap-confidenceinterval</span>). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it. We will encounter this in Chapter <a href="11-mediation.html" class="quarto-xref"><span>Chapter 1</span></a> about mediation, where indirect effects are tested with bootstrapped confidence intervals.</p>
 </section>
 </section>
 <section id="bayesian-hypothesis-testing" class="level2" data-number="4.6">
@@ -1558,6 +1609,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./07-anova.html" class="pagination-link" aria-label="Moderation with Analysis of Variance (ANOVA)">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

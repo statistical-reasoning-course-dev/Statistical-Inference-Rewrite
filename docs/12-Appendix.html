@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix – Statistical Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./13-colophon.html" rel="next">
+<link href="./11-mediation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styleX.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./12-Appendix.html">Appendix</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ShKlinkenberg/Statistical-Inference" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and Reader’s Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-samplingdistr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling Distribution: How Different Could My Sample Have Been?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-moderation-categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-moderation-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mediation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Appendix.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Appendix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-colophon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colophon</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#flow-chart-statistical-test-selection" id="toc-flow-chart-statistical-test-selection" class="nav-link active" data-scroll-target="#flow-chart-statistical-test-selection">Flow chart statistical test selection</a></li>
+  <li><a href="#all-spss-tutorial-videos-list" id="toc-all-spss-tutorial-videos-list" class="nav-link" data-scroll-target="#all-spss-tutorial-videos-list">All SPSS Tutorial Videos List</a></li>
+  <li><a href="#formulating-statistical-hypotheses" id="toc-formulating-statistical-hypotheses" class="nav-link" data-scroll-target="#formulating-statistical-hypotheses">Formulating Statistical Hypotheses</a></li>
+  <li><a href="#proportions-shares" id="toc-proportions-shares" class="nav-link" data-scroll-target="#proportions-shares">Proportions: shares</a>
+  <ul class="collapse">
+  <li><a href="#testing-proportions-in-spss" id="toc-testing-proportions-in-spss" class="nav-link" data-scroll-target="#testing-proportions-in-spss">Testing proportions in SPSS</a></li>
+  </ul></li>
+  <li><a href="#mean-and-median-level" id="toc-mean-and-median-level" class="nav-link" data-scroll-target="#mean-and-median-level">Mean and median: level</a>
+  <ul class="collapse">
+  <li><a href="#testing-one-mean-or-median-in-spss" id="toc-testing-one-mean-or-median-in-spss" class="nav-link" data-scroll-target="#testing-one-mean-or-median-in-spss">Testing one mean or median in SPSS</a></li>
+  </ul></li>
+  <li><a href="#variance-disagreement" id="toc-variance-disagreement" class="nav-link" data-scroll-target="#variance-disagreement">Variance: (dis)agreement</a>
+  <ul class="collapse">
+  <li><a href="#testing-two-variances-in-spss" id="toc-testing-two-variances-in-spss" class="nav-link" data-scroll-target="#testing-two-variances-in-spss">Testing two variances in SPSS</a></li>
+  </ul></li>
+  <li><a href="#association-relations-between-characteristics" id="toc-association-relations-between-characteristics" class="nav-link" data-scroll-target="#association-relations-between-characteristics">Association: relations between characteristics</a>
+  <ul class="collapse">
+  <li><a href="#score-level-differences" id="toc-score-level-differences" class="nav-link" data-scroll-target="#score-level-differences">Score level differences</a></li>
+  <li><a href="#comparing-means-in-spss" id="toc-comparing-means-in-spss" class="nav-link" data-scroll-target="#comparing-means-in-spss">Comparing means in SPSS</a></li>
+  <li><a href="#combinations-of-scores" id="toc-combinations-of-scores" class="nav-link" data-scroll-target="#combinations-of-scores">Combinations of scores</a></li>
+  <li><a href="#testing-associations-in-spss" id="toc-testing-associations-in-spss" class="nav-link" data-scroll-target="#testing-associations-in-spss">Testing associations in SPSS</a></li>
+  </ul></li>
+  <li><a href="#sec-CohenCalculations" id="toc-sec-CohenCalculations" class="nav-link" data-scroll-target="#sec-CohenCalculations">Cohen’s <em>d</em> calculatons</a>
+  <ul class="collapse">
+  <li><a href="#obtaining-cohens-d-with-spss" id="toc-obtaining-cohens-d-with-spss" class="nav-link" data-scroll-target="#obtaining-cohens-d-with-spss">Obtaining Cohen’s <em>d</em> with SPSS</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/12-Appendix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/12-Appendix.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Appendix</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="flow-chart-statistical-test-selection" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="flow-chart-statistical-test-selection">Flow chart statistical test selection</h2>
+<p>The flow chart in figure <span class="quarto-unresolved-ref">?fig-choice-diagram-copy</span> helps you select the appropriate statistical test based on the type of dependent and independent variables.</p>
+<p>It helps in the learning proces to think of different research designs for each test. Try to think of one for the independent samples <em>t</em>-test. Work your way from right to left to determine the type of variables and think of some research that conforms to this.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="12-Appendix_files/figure-html/choice-diagram-copy-1.png" class="img-fluid figure-img" width="864"></p>
+<figcaption>Flow chart for statistical test selection.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>An interactive tool for test selection made by <a href="https://scholar.google.co.uk/citations?user=MUanZDgAAAAJ&amp;hl=en">Matt Jackson-Wood</a> can be found <a href="https://www.statsflowchart.co.uk">here</a>.</p>
+</section>
+<section id="all-spss-tutorial-videos-list" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="all-spss-tutorial-videos-list">All SPSS Tutorial Videos List</h2>
+<p><strong>Chapter <a href="02-probability.html" class="quarto-xref"><span>2&nbsp; Probability Models: How Do I Get a Sampling Distribution?</span></a>: Probability Models: How Do I Get a Sampling Distribution?</strong></p>
+<p>(ref:bootstrap1SPSS) Bootstrapping in SPSS.</p>
+<p>(ref:bootstrap2SPSS) Interpreting bootstrap results in SPSS.</p>
+<p>(ref:Exact1SPSS) Performing an exact test in SPSS.</p>
+<p>(ref:Exact2SPSS) Interpreting exact test results in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSbootstrap1</span>: (ref:bootstrap1SPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSbootstrap2</span>: (ref:bootstrap2SPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSExact1</span>: (ref:Exact1SPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSExact2</span>: (ref:Exact2SPSS)</li>
+</ul>
+<p><strong>Chapter <span class="quarto-unresolved-ref">?sec-param-estim</span>: Estimating a Parameter: Which Population Values Are Plausible?</strong></p>
+<p>(ref:conflevelSPSS) Setting the confidence level in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSconflevel</span>: (ref:conflevelSPSS)</li>
+</ul>
+<p><strong>Chapter <a href="04-hypothesis.html" class="quarto-xref"><span>4&nbsp; Hypothesis testing</span></a>: Testing a Null Hypothesis: Am I Right or Am I Wrong?</strong></p>
+<p>(ref:binomialSPSS) A binomial test on a single proportion in SPSS.</p>
+<p>(ref:chisq1SPSS) A chi-squared test on a frequency distribution in SPSS.</p>
+<p>(ref:1meanSPSS) A one-sample <em>t</em> test in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSbinomial</span>: (ref:binomialSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSchisq1</span>: (ref:chisq1SPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSS1mean</span>: (ref:1meanSPSS)</li>
+</ul>
+<p><strong>Chapter <a href="04-hypothesis.html#sec-power" class="quarto-xref"><span>4.2.3 Power</span></a>: Which Sample Size Do I Need? Power!</strong></p>
+<p>(ref:cohendtitle) Obtaining Cohen’s <em>d</em> with SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-cohend</span>: (ref:cohendtitle)</li>
+</ul>
+<p><strong>Chapter <a href="07-anova.html" class="quarto-xref"><span>5&nbsp; Moderation with Analysis of Variance (ANOVA)</span></a>: Moderation with Analysis of Variance</strong></p>
+<p>(ref:1waySPSS) One-way analysis of variance (ANOVA) in SPSS.</p>
+<p>(ref:2waySPSS) Two-way analysis of variance with moderation in SPSS.</p>
+<p>(ref:eta2SPSS) Calculating eta<sup>2</sup> from SPSS output.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSS1way</span>: (ref:1waySPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSS2way</span>: (ref:2waySPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSeta2</span>: (ref:eta2SPSS)</li>
+</ul>
+<p><strong>Chapter <a href="08-moderation-categorical.html" class="quarto-xref"><span>6&nbsp; Regression Analysis And A Categorical Moderator</span></a>: Regression Analysis And A Categorical Moderator</strong></p>
+<p>(ref:regsimpleSPSS) Executing and interpreting regression analysis in SPSS.</p>
+<p>(ref:regdummy2SPSS) Creating dummy variables in SPSS.</p>
+<p>(ref:regdummySPSS) Using dummy variables in a regression model in SPSS.</p>
+<p>(ref:regassumptSPSS) Checking assumptions for regression models in SPSS.</p>
+<p>(ref:regpredSPSS) Creating categorical by numerical interaction predictors for regression in SPSS.</p>
+<p>(ref:regcatmodSPSS) Estimating categorical by numerical moderation with regression in SPSS.</p>
+<p>(ref:regmodlinesSPSS) Representing moderation by regression lines in a scatterplot in SPSS.</p>
+<p>(ref:regSupport1SPSS) Checking common support for a predictor at different moderator values in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregsimple</span>: (ref:regsimpleSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregdummy2</span>: (ref:regdummy2SPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregdummy</span>: (ref:regdummySPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregassumpt</span>: (ref:regassumptSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregpred</span>: (ref:regpredSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregcatmod</span>: (ref:regcatmodSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregmodlines</span>: (ref:regmodlinesSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregSupport1</span>: (ref:regSupport1SPSS)</li>
+</ul>
+<p><strong>Chapter <a href="09-moderation-continuous.html" class="quarto-xref"><span>7&nbsp; Regression Analysis With A Numerical Moderator</span></a>: Regression Analysis With A Numerical Moderator</strong></p>
+<p>(ref:regcenterSPSS) Mean-centering variables for regression analysis in SPSS.</p>
+<p>(ref:reglines2SPSS) Regression lines for a numerical moderator in a scatterplot in SPSS.</p>
+<p>(ref:regSupport2SPSS) Checking common support with a numerical moderator in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregcenter</span>: (ref:regcenterSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSreglines2</span>: (ref:reglines2SPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregSupport2</span>: (ref:regSupport2SPSS)</li>
+</ul>
+<p><strong>Chapter <a href="10-confounding.html" class="quarto-xref"><span>8&nbsp; Regression Analysis And Confounders</span></a>: Regression Analysis And Confounders</strong></p>
+<p>(ref:regconfoundSPSS) Identifying confounders with regression in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSregconfound</span>: (ref:regconfoundSPSS)</li>
+</ul>
+<p><strong>Chapter <a href="11-mediation.html" class="quarto-xref"><span>1&nbsp; Mediation with Regression Analysis</span></a>: Mediation with Regression Analysis</strong></p>
+<p>(ref:mediatparSPSS) Estimating a single or parallel mediation model with PROCESS (Model 4).</p>
+<p>(ref:mediatserialSPSS) Estimating a serial mediation model with PROCESS (Model 6).</p>
+<p>(ref:mediatcovSPSS) Estimating a mediation model including covariates with PROCESS.</p>
+<p>(ref:pathSPSS) Estimating a path model in SPSS.</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSmediatpar</span>: (ref:mediatparSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSmediatserial</span>: (ref:mediatserialSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSmediatcov</span>: (ref:mediatcovSPSS)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSpath</span>: (ref:pathSPSS)</li>
+</ul>
+<p><strong>Appendix: Variance / Association</strong></p>
+<p>(ref:SPSSLevene) Levene’s <em>F</em> test on equal variances in SPSS.</p>
+<p>(ref:SPSSTindep) Independent samples <em>t</em> test on two means.</p>
+<p>(ref:SPSSTpaired) Paired samples <em>t</em> test on two means.</p>
+<p>(ref:SPSScorrelation) Test on a correlation.</p>
+<p>(ref:SPSSchisqcross) Chi-squared test on a contingency table (crosstab).</p>
+<ul>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSLevene</span>: (ref:SPSSLevene)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSTindep</span>: (ref:SPSSTindep)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSTpaired</span>: (ref:SPSSTpaired)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSScorrelation</span>: (ref:SPSScorrelation)</li>
+<li>Video <span class="quarto-unresolved-ref">?fig-SPSSchisqcross</span>: (ref:SPSSchisqcross)</li>
+</ul>
+</section>
+<section id="formulating-statistical-hypotheses" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="formulating-statistical-hypotheses">Formulating Statistical Hypotheses</h2>
+<p>A <em>research hypothesis</em> is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:</p>
+<ul>
+<li><p>a television station reaches half of all households in a country,</p></li>
+<li><p>media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children,</p></li>
+<li><p>opinions about immigrants are not equally polarized among young and old voters,</p></li>
+<li><p>the celebrity endorsing a fundraising campaign makes a difference to people’s willingness to donate,</p></li>
+<li><p>more exposure to brand advertisements increases brand awareness,</p></li>
+<li><p>and so on.</p></li>
+</ul>
+<p>As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need such statistics to test a hypothesis. The researcher must translate the hypothesis into a new hypothesis specifying a statistic in the population, for example, the population mean. The new hypothesis is called a <em>statistical hypothesis</em>.</p>
+<p>Translating the research hypothesis into a statistical hypothesis is perhaps the most creative part of statistical analysis, which is just a fancy way of saying that it is difficult to give general guidelines stating which statistic fits which research hypothesis. All we can do is give some hints.</p>
+<p>Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see Figure <span class="quarto-unresolved-ref">?fig-choice-diagram-copy</span>).</p>
+<p>If a research question asks how high a group scores or whether one group scores higher than another group, we are dealing with score levels. The variable of central interest usually is numerical (interval or ratio measurement level) and we are concerned with mean or median scores. There is a range of tests that we can apply, depending on the number of groups that we want to compare (one, two, three or more): <em>t</em> tests or analysis of variance.</p>
+<p>Instead of comparing mean scores of groups, a research question about score levels can address associations between numerical variables, for example, Are heavier candies more sticky? Here, the score level on one variable (candy weight) is linked to the score level on another variable (candy stickiness). This is where we use correlations or regression analysis.</p>
+<p>Finally, a research question may address the variation of numeric scores, for example, Does the weight of yellow candies vary more strongly than the weight of red candies? Variance is the statistic that we use to measure variation in numeric scores.</p>
+</section>
+<section id="proportions-shares" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="proportions-shares">Proportions: shares</h2>
+<p>A proportion is the statistic best suited to test research hypotheses addressing the share of a category or entity in the population. The hypothesis that a television station reaches half of all households in a country provides an example. All households in the country constitute the population. The share of the television station is the proportion or percentage of all households watching this television station.</p>
+<p>If we want to use a statistic, we need to know the variable and cases (units of analysis) for which the statistic must be calculated. In this example, a household does or does not watch the television station, so our variable is a dichotomy with the two categories (“No, does not watch this station”, “Yes, watches this station”) usually coded as 0 versus 1 or 1 versus 2.</p>
+<p>Each household provides an observation, namely either the score 0 or the score 1 on this variable or no score if there are missing values. To test the research hypothesis that a television station reaches half of all households in a country, we have to formulate a statistical hypothesis about the proportion—of households viewing this television station—in the population—all households in this country. For example, the researcher’s statistical hypothesis could be that the proportion in the population is 0.5.</p>
+<p>We can also be interested in more than two categories, for instance, does the television station reach the same share of all households in the north, east, south, and west of the country? This translates into a statistical hypothesis containing three or more proportions in the population. If 30% of households in the population are situated in the west, 25 % in the south and east, and 20% in the north, we would expect these proportions in the sample if all regions are equally represented. Our statistical hypothesis is actually a relative frequency distribution, such as, for instance, in Table <span class="citation" data-cites="tab-hypo-freq2">(<a href="#ref-tab-hypo-freq2" role="doc-biblioref"><strong>tab-hypo-freq2?</strong></a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Statistical hypothesis about four proportions as a frequency table.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Region</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Hypothesized Proportion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">North</td>
+<td style="text-align: right;">0.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">East</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">South</td>
+<td style="text-align: right;">0.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">West</td>
+<td style="text-align: right;">0.30</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>A test for this type of statistical hypothesis is called a one-sample chi-squared test. It is up to the researcher to specify the hypothesized proportions for all categories. This is not a simple task: What reasons do we have to expect particular values, say a region’s share of thirty per cent of all households instead of twenty-five per cent?</p>
+<p>The test is mainly used if researchers know the true proportions of the categories in the population from which they aimed to draw their sample. If we try to draw a sample from all citizens of a country, we usually know the frequency distribution of sex, age, educational level, and so on for all citizens from the national bureau of statistics. With the bureau’s information, we can test if the respondents in our sample have the same distribution with respect to sex, age, or educational level as the population from which we tried to draw the sample; just use the official population proportions in the null hypothesis.</p>
+<p>If the proportions in the sample do not differ more from the known proportions in the population than we expect based on chance, the sample is <em>representative</em> of the population <em>in the statistical sense</em> (see Section <a href="01-samplingdistr.html#sec-representative" class="quarto-xref"><span>1.2.6 Representative sample</span></a>). As always, we use the <em>p</em> value of the test as the probability of obtaining our sample or a sample that is even more different from the null hypothesis, if the null hypothesis is true. Note that the null hypothesis now represents the (distribution in) the population from which we tried to draw our sample. We conclude that the sample is representative of this population in the statistical sense if we can <em>not</em> reject the null hypothesis, that is, if the <em>p</em> value is <em>larger</em> than .05. Not rejecting the null hypothesis means that we have sufficient probability that our sample was drawn from the population that we wanted to investigate. We can now be more confident that our sample results generalize to the population that we meant to investigate.</p>
+<section id="testing-proportions-in-spss" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="testing-proportions-in-spss">Testing proportions in SPSS</h3>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/tmdZpOSObco" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/Gupx40D5bLY" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<p>For a binomial test, see the video in Figure <span class="quarto-unresolved-ref">?fig-SPSSbinomial</span>. A one-sample chi-squared test is explained in the video of Figure <span class="quarto-unresolved-ref">?fig-SPSSchisq1</span>.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/8DAau9jFUhA" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+</section>
+</section>
+<section id="mean-and-median-level" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="mean-and-median-level">Mean and median: level</h2>
+<p>Research hypotheses that focus on the level of scores are usually best tested with the mean or another measure of central tendency such as the median value. For example, the hypothesis that media literacy is below a particular standard (e.g., 5.5 on a 10-point scale) among children refers to a level: the level of media literacy scores.</p>
+<p>The hypothesis probably does not argue that all children have a media literacy score below 5.5. Instead, it means to say that the overall level is below this standard. The center of the distribution offers a good indication of the general score level.</p>
+<p>For a numeric (interval or ratio measurement level) variable such as the 10-point scale in the example, the mean is a good measure of the distribution’s center. In this example, our statistical hypothesis would be that average media literacy score of all children in the population is (below) 5.5.</p>
+<section id="testing-one-mean-or-median-in-spss" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="testing-one-mean-or-median-in-spss">Testing one mean or median in SPSS</h3>
+<p>The one-sample <em>t</em> test in SPSS is explained in Figure <span class="quarto-unresolved-ref">?fig-SPSS1mean</span>.</p>
+</section>
+</section>
+<section id="variance-disagreement" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="variance-disagreement">Variance: (dis)agreement</h2>
+<p>Although rare, research hypotheses may focus on the variation in scores rather than on score level. The hypothesis about polarization provides an example. Polarization means that we have scores well above the center and well below the center rather than all scores concentrated in the middle. If voters’ opinions about immigrants are strongly polarized, we have a lot of voters strongly in favour of admitting immigrants as well as many voters strongly opposed to admitting immigrants.</p>
+<p>For a numeric variable, the variance or standard deviation—the latter is just the square root of the former—is the appropriate statistic to test a hypothesis about polarization. The research hypothesis concerns the variation of scores in two groups, for instance, young versus old voters. The statistical hypothesis would be that the variance in opinions in the population of young voters is different from the variance in the population of old voters.</p>
+<section id="testing-two-variances-in-spss" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="testing-two-variances-in-spss">Testing two variances in SPSS</h3>
+<section id="instructions" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="instructions">Instructions</h4>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/8k-OIXiRdCc" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+</section>
+<section id="exercises" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="exercises">Exercises</h4>
+</section>
+</section>
+</section>
+<section id="association-relations-between-characteristics" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="association-relations-between-characteristics">Association: relations between characteristics</h2>
+<p>Finally, research hypotheses may address the relation between two or more variables. Relations between variables are at stake if the research hypothesis states or implies that one (type of) characteristic is related to another (type of) characteristic. The statistical name for a relation between variables is <em>association</em>.</p>
+<p>Take, for example, an analysis of the effect of a celebrity endorser on the willingness to donate. Here, the endorser to whom a person is exposed (one characteristic) is related to this person’s willingness to donate (another characteristic). Another example: If exposure to the campaign increases willingness to donate, a person’s willingness to donate is positively related to this person’s exposure to the campaign.</p>
+<section id="score-level-differences" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="score-level-differences">Score level differences</h3>
+<p>Association comes in two related flavors: a difference in score level between groups or the predominance of particular combinations of scores on different variables.</p>
+<p>The relation between the endorser’s identity and willingness to donate is an example of the first flavor. All people are confronted with one of the celebrities as endorser of the fund-raising campaign. This is captured by a categorical variable: the endorsing celebrity.</p>
+<p>The categorical variable clusters people into groups: One group is confronted with Celebrity A, another group with Celebrity B, and so on. If the celebrity matters to the willingness to donate, the general level of donation willingness should be higher in the group exposed to one celebrity than in the group exposed to another celebrity.</p>
+<p>Thus, we return to statistics needed to test research hypotheses about score levels, namely measures of central tendency. If willingness to donate is a numeric variable, we can use group means to test the association between endorsing celebrity (grouping variable) and willingness to donate (score variable). The statistical hypothesis would then be that group means are not equal in the population of all people.</p>
+<p>If you closely inspect the choice diagram in Figure <span class="quarto-unresolved-ref">?fig-flowchart</span>, you will see that we prefer to use a <em>t</em> distribution if we compare two different groups (independent-samples <em>t</em> test) or two repeated observations for the same group (paired-samples <em>t</em> test). By contrast, if we have three or more groups, we use analysis of variance with an <em>F</em> distribution.</p>
+</section>
+<section id="comparing-means-in-spss" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="comparing-means-in-spss">Comparing means in SPSS</h3>
+<section id="instructions-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="instructions-1">Instructions</h4>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/g4O0oTVm-Tk" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/7mGKG3mLqN0" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<p>For an instruction and exercises on one-way analysis of variance, see Figure <span class="quarto-unresolved-ref">?fig-SPSS1way</span> and Section <a href="07-anova.html#sec-onewaySPSS" class="quarto-xref"><span>5.2 One-Way Analysis of Variance in SPSS</span></a>. For two-way analysis of variance, see Section <a href="07-anova.html#sec-twowaySPSS" class="quarto-xref"><span>5.6 Two-Way Analysis of Variance in SPSS</span></a> (instructions and exercises).</p>
+</section>
+<section id="exercises-1" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="exercises-1">Exercises</h4>
+</section>
+</section>
+<section id="combinations-of-scores" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="combinations-of-scores">Combinations of scores</h3>
+<p>The other flavor of association represents situations in which some combinations of scores on different variables are much more common than other combinations of scores.</p>
+<p>Think of the hypothesis that brand awareness is related to exposure to advertisements for that brand. If the hypothesis is true, people with high exposure and high brand awareness should occur much more often than people with high exposure and low brand awareness or low exposure and high brand awareness.</p>
+<p>The two variables here are exposure and brand awareness. One combination of scores on the two variables is high exposure combined with high brand awareness. This combination should be more common than high exposure combined with low brand awareness.</p>
+<p>Measures of association are statistics that put a number to the pattern in combinations of scores. The exact statistic that we use depends on the measurement level of the variables. For numerical variables, measured at the interval or ratio level, we use Pearson’s correlation coefficient or the regression coefficient. For ordinal variables with quite a lot of different scores, we use Spearman’s rank correlation.</p>
+<p>For categorical variables, measured at the nominal or ordinal level, chi-squared indicates whether variables are statistically associated. The larger chi-squared, the more likely we are to conclude that the variables are associated in the population. If variables are not associated, they are said to be <em>statistically independent</em>.</p>
+<p>Several measures exist that express the strength of the association between two categorical variables. We use Phi and Cramer’s <em>V</em> (two nominal variables, symmetric association), Goodman &amp; Kruskals tau (two nominal variables, asymmetric association), Kendalls tau-b (two categorical ordinal variables, symmetric association), and Somers’ <em>d</em> (two categorical ordinal variables, asymmetric association).</p>
+</section>
+<section id="testing-associations-in-spss" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="testing-associations-in-spss">Testing associations in SPSS</h3>
+<section id="instructions-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="instructions-2">Instructions</h4>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/2g3Oyfe76h0" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/Nqtg8q-S0k8" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<p>For regression analysis (instructions and exercises), see Section <span class="quarto-unresolved-ref">?sec-SPSS-regression</span>.</p>
+</section>
+<section id="exercises-2" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="exercises-2">Exercises</h4>
+</section>
+</section>
+</section>
+<section id="sec-CohenCalculations" class="level2">
+<h2 class="anchored" data-anchor-id="sec-CohenCalculations">Cohen’s <em>d</em> calculatons</h2>
+<hr>
+<p>These are the formulas for Cohen’s <em>d</em> for a one-sample <em>t</em> test, a paired-samples <em>t</em> test, and an independent-samples <em>t</em> test (they will be provided if needed):</p>
+<div style="column-count: 3; -moz-column-count: 3">
+<span class="math display">\[\begin{equation}
+  d_{one_-sample} = \frac{M - \mu_0}{SD}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+  d_{paired_-samples} = \frac{M_{diff} - \mu_{0_-diff}}{SD_{diff}}
+\end{equation}\]</span>
+<span class="math display">\[\begin{equation}
+  d_{independent_-samples} = \frac{2*t}{\sqrt(df)}
+\end{equation}\]</span>
+</div>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(M\)</span> is the sample mean, <span class="math inline">\(\mu_0\)</span> is the hypothesized population mean, and <span class="math inline">\(SD\)</span> is the standard deviation in the sample,</p></li>
+<li><p><span class="math inline">\(M_{diff}\)</span> is the difference between the two means in the sample, <span class="math inline">\(\mu_{0_-diff}\)</span> is the hypothesized difference between the two means in the population mean, which is zero in case of a nil hypothesis, and <span class="math inline">\(SD_{diff}\)</span> is the standard deviation of the difference in the sample,</p></li>
+<li><p><span class="math inline">\(t\)</span> is the test statistic value and <span class="math inline">\(df\)</span> is the number of degrees of freedom of the <em>t</em> test.</p></li>
+</ul>
+<hr>
+<p>The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section <a href="02-probability.html#sec-dependentsamples" class="quarto-xref"><span>2.3.6 Dependent samples</span></a>). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (<em>pooled</em>) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the <em>t</em> value and degrees of freedom to calculate Cohen’s <em>d</em>.</p>
+<section id="obtaining-cohens-d-with-spss" class="level3">
+<h3 class="anchored" data-anchor-id="obtaining-cohens-d-with-spss">Obtaining Cohen’s <em>d</em> with SPSS</h3>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/HmyW7HRM64Q" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<p>It is, relatively easy to calculate Cohen’s <em>d</em> by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.</p>
+<p>For a t test on one mean, the unstandardized effect is the difference between the sample mean and the hypothesized mean. SPSS reports this value in the column <strong>Mean Difference</strong> of the table with test results. Drop any negative signs! Divide it by the standard deviation of the variable as given in Table <strong>One-Sample Statistics</strong>.</p>
+<p>In the example, Cohen’s <em>d</em> is 0.036 / 0.169 = 0.21. This is a weak effect.</p>
+<p>For a paired-samples t test, the unstandardized effect size is reported in the column <strong>Mean</strong> in the Table <strong>Paired Samples Test</strong>. The standard deviation of the difference can be found in column <strong>Std. Deviation</strong> in the same table. Divide the first by the second, for instance, 1.880 / 1.033 = 1.82. This is a strong effect.</p>
+<p>For an independent-samples t test, the situation is less fortuitous because SPSS does not report the pooled sample standard deviation that we need. The pooled sample standard deviation takes a sort of average of the outcome variable’s standard deviations in the two groups. As an approximation, we can calculate Cohen’s <em>d</em> as follows: Double the t value and divide it by the square root of the degrees of freedom.</p>
+<p>In the example, Cohen’s <em>d</em> equals <span class="math inline">\((2 * 0.651) / \surd(18) = 0.31\)</span>. This is a moderate effect size.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11-mediation.html" class="pagination-link" aria-label="Mediation with Regression Analysis">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./13-colophon.html" class="pagination-link" aria-label="Colophon">
+        <span class="nav-page-text">Colophon</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/12-Appendix.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/12-Appendix.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

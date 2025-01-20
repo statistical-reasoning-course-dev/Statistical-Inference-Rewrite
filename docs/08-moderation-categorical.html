@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.39">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>6&nbsp; Regression Analysis And A Categorical Moderator – Statistical Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09-moderation-continuous.html" rel="next">
+<link href="./07-anova.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styleX.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-moderation-categorical.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ShKlinkenberg/Statistical-Inference" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and Reader’s Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-samplingdistr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling Distribution: How Different Could My Sample Have Been?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-moderation-categorical.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-moderation-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mediation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-colophon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colophon</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#regression-equation" id="toc-regression-equation" class="nav-link" data-scroll-target="#regression-equation"><span class="header-section-number">6.1</span> The Regression Equation</a>
+  <ul class="collapse">
+  <li><a href="#a-numerical-predictor" id="toc-a-numerical-predictor" class="nav-link" data-scroll-target="#a-numerical-predictor"><span class="header-section-number">6.1.1</span> A numerical predictor</a></li>
+  <li><a href="#sec-dichpredictor" id="toc-sec-dichpredictor" class="nav-link" data-scroll-target="#sec-dichpredictor"><span class="header-section-number">6.1.2</span> Dichotomous predictors</a></li>
+  <li><a href="#categorical-predictor" id="toc-categorical-predictor" class="nav-link" data-scroll-target="#categorical-predictor"><span class="header-section-number">6.1.3</span> A categorical independent variable and dummy variables</a></li>
+  <li><a href="#regr-inference" id="toc-regr-inference" class="nav-link" data-scroll-target="#regr-inference"><span class="header-section-number">6.1.4</span> Sampling distributions and assumptions</a></li>
+  </ul></li>
+  <li><a href="#SPSS-regression" id="toc-SPSS-regression" class="nav-link" data-scroll-target="#SPSS-regression"><span class="header-section-number">6.2</span> Regression Analysis in SPSS</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">6.2.1</span> Instructions</a></li>
+  </ul></li>
+  <li><a href="#sec-categoricalmoderator" id="toc-sec-categoricalmoderator" class="nav-link" data-scroll-target="#sec-categoricalmoderator"><span class="header-section-number">6.3</span> Different Lines for Different Groups</a>
+  <ul class="collapse">
+  <li><a href="#a-dichotomous-moderator-and-numerical-predictor" id="toc-a-dichotomous-moderator-and-numerical-predictor" class="nav-link" data-scroll-target="#a-dichotomous-moderator-and-numerical-predictor"><span class="header-section-number">6.3.1</span> A dichotomous moderator and numerical predictor</a></li>
+  <li><a href="#interaction-variable" id="toc-interaction-variable" class="nav-link" data-scroll-target="#interaction-variable"><span class="header-section-number">6.3.2</span> Interaction variable</a></li>
+  <li><a href="#conditional-effects" id="toc-conditional-effects" class="nav-link" data-scroll-target="#conditional-effects"><span class="header-section-number">6.3.3</span> Conditional effects, not main effects</a></li>
+  <li><a href="#sec-interactioninterpretation" id="toc-sec-interactioninterpretation" class="nav-link" data-scroll-target="#sec-interactioninterpretation"><span class="header-section-number">6.3.4</span> Interpretation and statistical inference</a></li>
+  <li><a href="#a-categorical-moderator" id="toc-a-categorical-moderator" class="nav-link" data-scroll-target="#a-categorical-moderator"><span class="header-section-number">6.3.5</span> A categorical moderator</a></li>
+  <li><a href="#sec-commonsupportdichotomous" id="toc-sec-commonsupportdichotomous" class="nav-link" data-scroll-target="#sec-commonsupportdichotomous"><span class="header-section-number">6.3.6</span> Common support</a></li>
+  <li><a href="#visualizing-moderation-and-covariates" id="toc-visualizing-moderation-and-covariates" class="nav-link" data-scroll-target="#visualizing-moderation-and-covariates"><span class="header-section-number">6.3.7</span> Visualizing moderation and covariates</a></li>
+  </ul></li>
+  <li><a href="#sec-catmodSPSS" id="toc-sec-catmodSPSS" class="nav-link" data-scroll-target="#sec-catmodSPSS"><span class="header-section-number">6.4</span> A Dichotomous or Categorical Moderator in SPSS</a>
+  <ul class="collapse">
+  <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">6.4.1</span> Instructions</a></li>
+  </ul></li>
+  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">6.5</span> Take-Home Points</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-moderationcat" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>Key concepts: regression equation, dummy variables, normally distributed residuals, linearity, homoscedasticity, independent observations, statistical diagram, interaction variable, covariate, common support, simple slope, conditional effect.</p>
+</blockquote>
+<p>Watch this micro lecture on regression analysis with a categorical moderator for an overview of the chapter.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/lDkGyTvPzOY" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<section id="summary" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>My dependent variable is numerical but at least one predictor is also numerical, so I cannot apply analysis of variance. How can I investigate moderation with regression analysis?</p>
+</div>
+</div>
+</div>
+<p>The linear regression model is a powerful and very popular tool for predicting a numerical dependent variable from one or more independent variables. In this chapter, we use regression analysis to evaluate the effects of an anti-smoking campaign. We predict attitude towards smoking from exposure to the anti-smoking campaign (numerical), time spent with smokers (numerical), and the respondent’s smoking status (categorical).</p>
+<p>Regression coefficients, that is, the slopes of regression lines, are the effects in a regression model. They show the predicted difference in the dependent variable for a one unit difference in the independent variable (exposure, time spent with smokers) or the predicted mean difference for two categories (smokers versus non-smokers).</p>
+<p>But what if the predictive effect is not the same in all contexts? For example, exposure to an anti-smoking campaign may generally generate a more negative attitude towards smoking. The effect, however, is probably different for people who smoke than for people who do not smoke. In this case, the effect of campaign exposure on attitude towards smoking is moderated by context: Whether or not the person exposed to the campaign is a smoker.</p>
+<p>Different effect sizes for different contexts are different regression coefficients for different contexts. We need different regression lines for different groups of people. We can use an interaction variable as an independent variable in a regression model to accommodate for moderation as different effects. An interaction variable is just the product of the predictor variable and the moderator variable.</p>
+<p>As an independent variable in the model, the regression coefficient of an interaction variable (interaction effect for short) has a confidence interval and a <em>p</em> value. The confidence interval tells us the plausible values for the size of the interaction effect in the population. The <em>p</em> value tests the null hypothesis that there is no interaction effect at all in the population.</p>
+<p>To interpret the interaction effect, we must determine the size of the effect of the predictor on the dependent variable for each group of the moderator. For example, the effect of campaign exposure on smoking attitude for smokers and the effect for non-smokers.</p>
+<p>An interaction effect in a regression model closely resembles an interaction effect in analysis of variance. The effect of a single predictor that is involved in an interaction effect in a regression model, however, is not a main effect as in analysis of variance. It is a conditional effect, namely the effect for one particular value of the moderator, that is, the effect within one particular context. To understand this, we must pay close attention to the regression equation.</p>
+</section>
+<section id="regression-equation" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="regression-equation"><span class="header-section-number">6.1</span> The Regression Equation</h2>
+<p>In the social sciences, we usually expect that a particular outcome has several causes. Investigating the effects of an anti-smoking campaign, for instance, we would not assume that a person’s attitude towards smoking depends only on exposure to a particular anti-smoking campaign. It is easy to think of other and perhaps more influential causes such as personal smoking status, contact with people who do or do not smoke, susceptibility to addiction, and so on.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-moderation-categorical_files/figure-html/concept-smoke-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>A conceptual model with some hypothesized causes of attitude towards smoking.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure <span class="quarto-unresolved-ref">?fig-concept-smoke</span> summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable (<span class="math inline">\(y\)</span>) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.</p>
+<p>A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter <span class="math inline">\(y\)</span>) as the sum of a constant, the effects (<span class="math inline">\(b\)</span>) of independent variables or predictors (<span class="math inline">\(x\)</span>), which are <em>predictive effects</em>, and an error term (<span class="math inline">\(e\)</span>), which is also called the <em>residuals</em>, see Equation @ref(eq:regression).</p>
+<span class="math display">\[\begin{equation}
+\small
+  y = constant + b_1*x_1 + b_2*x_2 + b_3*x_3 + e
+  (\#eq:regression)
+\normalsize
+\end{equation}\]</span>
+<p>If we want to predict the dependent variable (<span class="math inline">\(y\)</span>), we ignore the error term (<span class="math inline">\(e\)</span>) in the equation. The equation without the error term [Eq. @ref(eq:regressionpred)] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in Section <span class="quarto-unresolved-ref">?sec-regr-inference</span>.</p>
+<span class="math display">\[\begin{equation}
+\small
+  y = constant + b_1*x_1 + b_2*x_2 + b_3*x_3
+  (\#eq:regressionpred)
+\normalsize
+\end{equation}\]</span>
+<section id="a-numerical-predictor" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="a-numerical-predictor"><span class="header-section-number">6.1.1</span> A numerical predictor</h3>
+<p>Let us first have a close look at a <em>simple regression equation</em>, that is, a regression equation with just one predictor (<span class="math inline">\(x\)</span>). Let us try to predict attitude towards smoking from exposure to an anti-smoking campaign.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-continuous/?showcase=0" width="775px" height="408px" data-external="1">
+</iframe>
+</div>
+<p>Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation [Eq. @ref(eq:regrexample)]. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.</p>
+<span class="math display">\[\begin{equation}
+\small
+  attitude = constant + b*exposure
+  (\#eq:regrexample)
+\normalsize
+\end{equation}\]</span>
+<p>The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (Eq. @ref(eq:regsmokedummy)) and remember that zero times something yields zero. This reduces the equation to the constant.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b*0 \\
+  attitude &amp;= constant + 0 \\
+  attitude &amp;= constant
+\end{split}
+  (\#eq:regsmokedummy)
+\normalsize
+\end{equation}\]</span>
+<p>For all persons scoring zero on exposure, the predicted attitude equals the value of the regression constant. This interpretation only makes sense if the predictor can be zero. If, for example, exposure had been measured on a scale ranging from one to seven, nobody can have zero exposure, so the constant has no straightforward meaning.</p>
+<p>The unstandardized regression coefficient <span class="math inline">\(b\)</span> represents the predicted difference in the dependent variable for a difference of one unit in the independent variable. For example, plug in the values 1 and 0 for the <em>exposure</em> variable in the equation. If we take the difference of the two equations, we are left with <span class="math inline">\(b\)</span>. Other terms in the two equations cancel out.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = constant + b*1 \\
+  \underline{- \mspace{20mu} attitude = constant + b*0} \\
+  attitude \mspace{4mu} difference = b*1 - b*0 = b - 0 = b
+\end{split}
+(\#eq:regweight)
+\normalsize
+\end{equation}\]</span>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The unstandardized regression coefficient <span class="math inline">\(b\)</span> represents the predicted difference in the dependent variable for a difference of one unit in the independent variable.</p>
+<p>It is the slope of the regression line.</p>
+</div>
+</div>
+</div>
+<p>Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in Figure <span class="quarto-unresolved-ref">?fig-regression-continuous</span>, one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.</p>
+<p>In the data, the smallest exposure score is (about) zero, predicting a positive attitude of 1.6. The largest observed exposure score is around eight, predicting a negative attitude of -3.2. If exposure causes the predicted differences in attitude, the campaign would have interesting effects. It may change a positive attitude into a rather strong negative attitude.</p>
+<p>If we want to apply a rule of thumb for the strength of the effect, we usually look at the standardized regression coefficient (<span class="math inline">\(b^*\)</span> according to APA, <em>Beta</em> in SPSS output). See Section <span class="quarto-unresolved-ref">?sec-assoc-size</span> for some rules of thumb for effect size interpretation.</p>
+<p>Note that the regression coefficient is calculated for predictor values that occur within the data set. For example, if the observed exposure scores are within the range zero to eight, these values are used to predict attitude towards smoking.</p>
+<p>We cannot see this in the regression equation, which allows us to plug in -10, 10, or 100 as exposure values. But the values for attitude that we predict from these exposure values are probably nonsensical (if possible at all: -10 exposure?) Our data do not tell us anything about the relation between exposure and anti-smoking attitude for predictor values outside the observed zero to eight range. We should not pretend to know the effects of exposure levels outside this range. It is good practice to check the actual range of predictor values.</p>
+</section>
+<section id="sec-dichpredictor" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="sec-dichpredictor"><span class="header-section-number">6.1.2</span> Dichotomous predictors</h3>
+<p>Instead of a numerical independent variable, we can use a dichotomy as an independent variable in a regression model. The dichotomy is preferably coded as 1 versus 0, for example, 1 for smokers and 0 for non-smokers among our respondents.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-dichotomy/?showcase=0" width="775px" height="330px" data-external="1">
+</iframe>
+</div>
+<p>The interpretation of the effect of a dichotomous independent variable in a regression model is quite different from the interpretation of a numerical independent variable’s effect.</p>
+<p>It does not make sense to interpret the unstandardized regression coefficient of, for example, smoking status as predicted difference in attitude for a difference of one ‘more’ smoking status. After all, the 0 and 1 scores do not mean that there is one unit ‘more’ smoking. Instead, the coefficient indicates that we are dealing with different groups: smokers versus non-smokers.</p>
+<p>If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first equation @ref(eq:regdicho1) represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely <span class="math inline">\(b\)</span>.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b*status \\
+  attitude_{smokers} &amp;= constant + b*1 \\
+  attitude_{smokers} &amp;= constant + b
+\end{split}
+(\#eq:regdicho1)
+\normalsize
+\end{equation}\]</span>
+<p>Regression equation @ref(eq:regdicho0) represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b*status \\
+  attitude_{non-smokers} &amp;= constant + b*0 \\
+  attitude_{non-smokers} &amp;= constant + 0
+\end{split}
+  (\#eq:regdicho0)
+\normalsize
+\end{equation}\]</span>
+<p>If you compare the final equations for smokers [Eq. @ref(eq:regdicho1)] and non-smokers [Eq. @ref(eq:regdicho0)], the only difference is <span class="math inline">\(b\)</span>, which is present for smokers but absent for non-smokers. It is the difference between the average score on the dependent variable (attitude) for smokers and the average score for non-smokers. We are testing a mean difference. Actually, this is exactly the same as an independent-samples <em>t</em> test!</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The unstandardized regression coefficient for a dummy (0/1) variable represents the difference between the average outcome score of the group coded as ‘1’ and the average outcome score of the group coded as ‘0’.</p>
+</div>
+</div>
+</div>
+<p>Imagine that <span class="math inline">\(b\)</span> equals 1.6. This indicates that the average attitude towards smoking among smokers (coded ‘1’) is 1.6 units above the average attitude among non-smokers (coded ‘0’). Is this a small or large effect? In the case of a dichotomous independent variable, we should <strong>not</strong> use the standardized regression coefficient to evaluate effect size. The standardized coefficient depends on the distribution of 1s and 0s, that is, which part of the respondents are smokers. But this should be irrelevant to the size of the effect.</p>
+<p>Therefore, it is recommended to interpret only the unstandardized regression coefficient for a dichotomous independent variable. Interpret it as the difference in average scores for two groups.</p>
+</section>
+<section id="categorical-predictor" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="categorical-predictor"><span class="header-section-number">6.1.3</span> A categorical independent variable and dummy variables</h3>
+<p>How about a categorical variable containing three or more groups, for example, the distinction between respondents who smoke (smokers), stopped smoking (former smokers), and respondents who never smoked (non-smokers)? Can we include a categorical variable as an independent variable in a regression model? Yes, we can but we need a trick.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-categorical/?showcase=0" width="775px" height="325px" data-external="1">
+</iframe>
+</div>
+<p>In this example, smoking status is measured with three categories: (1) non-smokers, (2) former smokers, and (3) smokers. Let us use the term <em>categorical variable</em> only for variables containing three or more categories or groups. This makes it easy to distinguish them from dichotomous variables. This distinction is important because we can include a dichotomous variable straight away as a predictor in a regression model but we cannot do so for a variable with more than two categories. We can only include such a categorical independent variable if we change it into a set of dichotomies.</p>
+<p>We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables <em>neversmoked</em>, <em>smokesnomore</em>, and <em>smoking</em>. Every respondent would score 1 on one of the three variables and 0 on the other two variables (Table <span class="citation" data-cites="tab-dummytable">(<a href="#ref-tab-dummytable" role="doc-biblioref"><strong>tab-dummytable?</strong></a>)</span>). These variables are called <em>dummy variables</em> or <em>indicator variables</em>.</p>
+<div class="cell" data-screenshot.opts="{&quot;delay&quot;:2}">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Dummy variables for a categorical independent variable: One dummy variable is superfluous.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Original categorical variable:</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">neversmoked</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">smokesnomore</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">smoking</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1 - Non-smoker</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2 - Former smoker</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3 - Smoker</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables <strong>except one</strong>. In the example, we must include two out of the three dummy variables. Equation @ref(eq:regcat) includes dummy variables for former smokers (<span class="math inline">\(smokesnomore\)</span>) and smokers (<span class="math inline">\(smoking\)</span>).</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Include dummy variables as independent variables for <em>all except one</em> categories of a categorical variable.</p>
+<p>The category without dummy variable is the <em>reference group</em>.</p>
+</div>
+</div>
+</div>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b_1*smokesnomore + b_2*smoking
+\end{split}
+(\#eq:regcat)
+\normalsize
+\end{equation}\]</span>
+<p>The two dummy variables give us three different regression equations: one for each smoking status category. Just plug in the correct 0 or 1 values for respondents with a particular smoking status.</p>
+<p>Let us first create the equation for non-smokers. To this end, we replace both <span class="math inline">\(smokesnomore\)</span> and <span class="math inline">\(smoking\)</span> by 0. As a result, both dummy variables drop from the equation [Eq. @ref(eq:regcat1)], so the constant is the predicted attitude for non-smokers. The non-smokers are our <em>reference group</em> because they are not represented by a dummy variable in the equation.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b_1*smokesnomore + b_2*smoking \\
+  attitude_{non-smokers} &amp;= constant + b_1*0 + b_2*0 \\
+  attitude_{non-smokers} &amp;= constant
+\end{split}
+(\#eq:regcat1)
+\normalsize
+\end{equation}\]</span>
+<p>For former smokers, we plug in 1 for <span class="math inline">\(smokesnomore\)</span> and 0 for <span class="math inline">\(smoking\)</span>. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the <span class="math inline">\(smokesnomore\)</span> dummy variable (<span class="math inline">\(b_1\)</span>), see Equation @ref(eq:regcat2). Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient <span class="math inline">\(b_1\)</span> for the <span class="math inline">\(smokesnomore\)</span> dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b_1*smokesnomore + b_2*smoking \\
+  attitude_{former smokers} &amp;= constant + b_1*1 + b_2*0 \\
+  attitude_{former smokers} &amp;= constant + b_1
+\end{split}
+(\#eq:regcat2)
+\normalsize
+\end{equation}\]</span>
+<p>Finally, for smokers, we plug in 0 for <span class="math inline">\(smokesnomore\)</span> and 1 for <span class="math inline">\(smoking\)</span> [Eq. @ref(eq:regcat3)]. The predicted attitude for smokers equals the constant plus the unstandardized regression coefficient for the <span class="math inline">\(smoking\)</span> dummy variable (<span class="math inline">\(b_2\)</span>). This regression coefficient, then, represents the difference in average attitude between smokers and non-smokers (reference group).</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude &amp;= constant + b_1*smokesnomore + b_2*smoking \\
+  attitude_{smokers} &amp;= constant + b_1*0 + b_2*1 \\
+  attitude_{smokers} &amp;= constant + b_2
+\end{split}
+(\#eq:regcat3)
+\normalsize
+\end{equation}\]</span>
+<p>The interpretation of the effects (regression coefficients) for the included dummies is similar to the interpretation for a single dichotomous independent variable such as smoker versus non-smoker. It is the difference between the average score of the group coded 1 on the dummy variable and the average score of the reference group on the dependent variable. The reference group is the group scoring 0 on all dummy variables that represent the categorical independent variable.</p>
+<p>If we exclude the dummy variable for the respondents who never smoked, as in the above example, the regression weight of the dummy variable <span class="math inline">\(smokesnomore\)</span> gives the average difference between former smokers and non-smokers. If the regression weight is negative, for instance -0.8, former smokers have on average a more negative attitude towards smoking than non-smokers. If the difference is positive, former smokers have on average a more positive attitude towards smoking.</p>
+<p>Which group should we use as reference category, that is, which group should not be represented by a dummy variable in the regression model? This is hard to say in general. If one group is of greatest interest to us, we could use this as the reference group, so all dummy variable effects express differences with this group. Alternatively, if we expect a particular ranking of the average scores, we may pick the group at the highest, lowest or middle rank as the reference group. If you can’t decide, run the regression model several times with a different reference group.</p>
+<p>Finally, note that we should not include all three dummy variables in the regression model [Eq. @ref(eq:regcat)]. We can already identify the non-smokers, because they score 0 on both the <span class="math inline">\(smokesnomore\)</span> and <span class="math inline">\(smoking\)</span> dummy variables. Adding the <span class="math inline">\(neversmoked\)</span> dummy variable to the regression model is like including the same independent variable twice. How can the estimation process decide which of the two identical independent variable is responsible for the effect? It can’t decide, so the estimation process fails or it drops one of the dummy variables. If this happens, the independent variables are said to be perfectly <em>multicollinear</em>.</p>
+</section>
+<section id="regr-inference" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="regr-inference"><span class="header-section-number">6.1.4</span> Sampling distributions and assumptions</h3>
+<p>If we are working with a random sample or we have other reasons to believe that our data could have been different due to chance (Section <span class="quarto-unresolved-ref">?sec-no-random-sample</span>), we should not just interpret the results for the data set that we collected. We should apply statistical inference—confidence intervals and significance tests—to our results. The confidence interval gives us bounds for plausible population values of the unstandardized regression coefficient. The <em>p</em> value is used to test the <em>null hypothesis that the unstandardized regression coefficient is zero in the population</em>.</p>
+<p>Each regression coefficient as well as the constant may vary from sample to sample drawn from the same population, so we should devise a sampling distribution for each of them. These sampling distributions happen to have a <em>t</em> distribution under particular assumptions.</p>
+<p>Chapters <span class="quarto-unresolved-ref">?sec-param-estim</span> and <a href="04-hypothesis.html" class="quarto-xref"><span>Chapter 4</span></a> have extensively discussed how confidence intervals and <em>p</em> values are constructed and how they must be interpreted. So we focus now on the assumptions under which the <em>t</em> distribution is a good approximation of the sampling distribution of a regression coefficient.</p>
+<section id="independent-observations" class="level4" data-number="6.1.4.1">
+<h4 data-number="6.1.4.1" class="anchored" data-anchor-id="independent-observations"><span class="header-section-number">6.1.4.1</span> Independent observations</h4>
+<p>The two most important assumptions require that the observations are <em>independent and identically distributed</em>. These requirements arise from probability theory. If they are violated, the statistical results should not be trusted.</p>
+<p>Each observation, for instance, a measurement on a respondent, must be independent of all other observations. A respondent’s dependent variable score is not allowed to depend on scores of other respondents.</p>
+<p>It is hardly possible to check that our observations are independent. We usually have to assume that this is the case. But there are situations in which we should not make this assumption. In time series data, for example, the daily amount of political news, we usually have trends, cyclic movements, or issues that affect the amount of news over a period of time. As a consequence, the amount and contents of political news on one day may depend on the amount and contents of political news on the preceding days.</p>
+<p>Clustered data should also not be considered as independent observations. Think, for instance, of student evaluations of statistics tutorials. Students in the same tutorial group are likely to give similar evaluations because they had the same tutor and because of group processes: Both enthusiasm and dissatisfaction can be contagious.</p>
+</section>
+<section id="identically-distributed-observations" class="level4" data-number="6.1.4.2">
+<h4 data-number="6.1.4.2" class="anchored" data-anchor-id="identically-distributed-observations"><span class="header-section-number">6.1.4.2</span> Identically distributed observations</h4>
+<p>To check the assumption of identically distributed observations, we inspect the residuals. Remember, the residuals are represented by the error term (<span class="math inline">\(e\)</span>) in the regression equation. They are the difference between the scores that we observe for our respondents and the scores that we predict for them with our regression model.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/resid-normal/?showcase=0" width="775px" height="264px" data-external="1">
+</iframe>
+</div>
+<p>If we sample from a population where attitude towards smoking depends on exposure, smoking status, and contact with smokers, we will be able to predict attitude from the independent variables in our sample. Our predictions will not be perfect, sometimes too high and sometimes too low. The differences between predicted and observed attitude scores are the residuals.</p>
+<p>If our sample is truly a random sample with independent and identically distributed observations, the sizes of our errors (residuals) should be normally distributed for each value of the dependent variable, that is, attitude in our example. The residuals should result from chance for the relation between chance and a normal distribution).</p>
+<p>So for all possible values of the dependent variable, we must collect the residuals for the observations that have this score on the dependent variable. For example, we should select all respondents who score 4.5 on the attitude towards smoking scale. Then, we select the residuals for these respondents and see whether they are approximately normally distributed.</p>
+<p>Usually, we do not have more than one observation (if any) for a single dependent variable score, so we cannot apply this check. Instead, we use a simple and coarse approach: Are all residuals normally distributed?</p>
+<p>A histogram with an added normal curve (like the right-hand plot in Figure <span class="quarto-unresolved-ref">?fig-resid-normal</span>) helps us to evaluate the distribution of the residuals. If the curve more or less follows the histogram, we conclude that the assumption of identically distributed observations is plausible. If not, we conclude that the assumption is not plausible and we warn the reader that the results can be biased.</p>
+</section>
+<section id="linearity-and-prediction-errors" class="level4" data-number="6.1.4.3">
+<h4 data-number="6.1.4.3" class="anchored" data-anchor-id="linearity-and-prediction-errors"><span class="header-section-number">6.1.4.3</span> Linearity and prediction errors</h4>
+<p>The other two assumptions that we use tell us about problems in our model rather than problems in our statistical inferences. Our regression model assumes a linear effect of the independent variables on the dependent variable (<em>linearity</em>) and it assumes that we can predict the dependent variable equally well or equally badly for all levels of the dependent variable (<em>homoscedasticity</em>, next section).</p>
+<p>The regression models that we estimate assume a linear model. This means that an additional unit of the independent variable always increases or decreases the predicted value by the same amount. If our regression coefficient for the effect of exposure on attitude is -0.25, an exposure score of one predicts a 0.25 more negative attitude towards smoking than zero exposure. Exposure score five predicts the same difference in comparison to score four as exposure score ten in comparison to exposure score nine, and so on. Because of the linearity assumption, we can draw a regression model as a straight line. Residuals of the regression model help us to see whether the assumption of a linear effect is plausible.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pred-linearity/?showcase=0" width="775px" height="460px" data-external="1">
+</iframe>
+</div>
+<p>The relation between an independent and dependent variable, for example, exposure and attitude towards smoking, does not have to be linear. It can be curved or have some other fancy shape. Then, the linearity assumption is not met. A straight regression line does not nicely fit such data.</p>
+<p>We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in Figure <span class="quarto-unresolved-ref">?fig-pred-linearity</span>. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.</p>
+<p>This indicates that our linear model does not fit the data. If it would fit, the average prediction error is zero for all predicted levels of the dependent variable. Graphically speaking, our linear model matches the data if positive prediction errors (residuals) are more or less balanced by negative prediction errors everywhere along the regression line.</p>
+</section>
+<section id="homoscedasticity-and-prediction-errors" class="level4" data-number="6.1.4.4">
+<h4 data-number="6.1.4.4" class="anchored" data-anchor-id="homoscedasticity-and-prediction-errors"><span class="header-section-number">6.1.4.4</span> Homoscedasticity and prediction errors</h4>
+<p>The plot of residuals by predicted values of the dependent variable tells us more than whether a linear model fits the data.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pred-homoscedasticity/?showcase=0" width="775px" height="460px" data-external="1">
+</iframe>
+</div>
+<p>The other assumption states that we can predict the dependent variable equally well at all dependent variable levels. In other words, the prediction errors (residuals) are more or less the same at all levels of the dependent variable. This is called <em>homoscedasticity</em>. If we have large prediction errors at some levels of the dependent variable, we should also have large prediction errors at other levels. As a result, the vertical width of the residuals by predictions scatter plot should be more or less the same from left to right. The dots representing residuals resemble a more or less rectangular band.</p>
+<p>If the prediction errors are not more or less equal for all levels of the predicted scores, our model is better at predicting some values than other values. For example, low values can be predicted better than high values of the dependent variable. The dots representing residuals resemble a cone. This may signal, among other things, that we need to include moderation in the model.</p>
+</section>
+</section>
+</section>
+<section id="SPSS-regression" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="SPSS-regression"><span class="header-section-number">6.2</span> Regression Analysis in SPSS</h2>
+<section id="essential-analytics" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
+<p>In SPSS, we use the <em>Linear</em> option in the <em>Regression</em> submenu for regression analysis. For a moderation model, we first use the <em>Compute Variable</em> option in the <em>Transform</em> menu to calculate an interaction variable: we multiply (using <code>*</code>) the predictor variable by the moderator variable. The interaction variable is included in the regression model as an independent variable, just like the predictor, moderator, and any other independent variables (covariates).</p>
+<p>A categorical predictor variable such as a participant’s residential area (urban, suburban, rural) is included in the regression model as dummy variables, which have the values 0 or 1, for example: dummy variables <em>suburban</em> and <em>rural</em>, each with values yes (1) and no (0). The category without dummy variable is the reference group.</p>
+<p>The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in Figure <span class="quarto-unresolved-ref">?fig-regressiontable</span>, the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S8_AE1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>SPSS table of regression effects for a model in which the effect of exposure is moderated by participant’s smoking status (reference group: people who never smoked).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The predictor variable <em>Exposure</em> is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in Figure <span class="quarto-unresolved-ref">?fig-regressiontable</span>) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking <strong>for people who never smoked</strong>.</p>
+<p>If we would like to know the effect of exposure on attitude towards smoking for former smokers, we must add the regression coefficient for the interaction of exposure with former smokers (blue box) to the regression coefficient of exposure (green box): A one unit increase in exposure predicts a 0.47 more negative (-0.465 = -0.197 + -0.268) attitude towards smoking for former smokers.</p>
+<p>An interaction effect such as -0.27 for <em>Former smoker * exposure</em> tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (Figure <span class="quarto-unresolved-ref">?fig-regressionplot</span>). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S8_AE2.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Simple regression lines showing the effect of exposure on attitude towards smoking for former smokers and people who never smoked (in an urban environment).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="instructions" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">6.2.1</span> Instructions</h3>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/XrxlCOi6SgE" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/c2b4dtlPS54" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/Vs26zuwAZdk" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<hr>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/hx2qdaVhlaM" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+</section>
+</section>
+<section id="sec-categoricalmoderator" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-categoricalmoderator"><span class="header-section-number">6.3</span> Different Lines for Different Groups</h2>
+<p>What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.</p>
+<p>In a conceptual diagram (Figure <span class="quarto-unresolved-ref">?fig-moderator-concept2</span>), moderation is represented by an arrow pointing at another arrow. The moderator (smoking status) changes the relation between the predictor (campaign exposure) and the dependent variable (attitude towards smoking).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-moderation-categorical_files/figure-html/moderator-concept2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Conceptual diagram of moderation.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We used a similar diagram to express moderation in two-way analysis of variance (Section <a href="07-anova.html#sec-moderationanova" class="quarto-xref"><span>Section 5.4</span></a>). But now at least one of our independent variables is numeric, for example, the number of times the respondent has been exposed to the campaign.</p>
+<p>Analysis of variance (ANOVA) investigates the effects of categorical variables on a numerical dependent variable. It cannot handle numerical independent variables. Although there are ways to include numerical independent variables in analysis of variance, for example, analysis of covariance (ANCOVA), we use regression analysis if we have a numerical dependent variable and at least one numerical independent variable.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Use regression analysis if you have a numerical dependent variable and at least one numerical independent variable.</p>
+</div>
+</div>
+</div>
+<p>In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (Chapter <a href="09-moderation-continuous.html" class="quarto-xref"><span>Chapter 7</span></a>) presents regression models in which both the predictor and the moderator are numerical.</p>
+<section id="a-dichotomous-moderator-and-numerical-predictor" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="a-dichotomous-moderator-and-numerical-predictor"><span class="header-section-number">6.3.1</span> A dichotomous moderator and numerical predictor</h3>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/dichotomous-moderator/?showcase=0" width="420px" height="350px" data-external="1">
+</iframe>
+</div>
+<p>In Section <span class="quarto-unresolved-ref">?sec-regression-equation</span>, we have analyzed the predictive effects of exposure to an anti-smoking campaign and smoking status on a person’s attitude towards smoking. We have found a negative effect for exposure and a positive effect for smoking. More exposure predicts a more negative attitude whereas smokers have on average a more positive attitude towards smoking than non-smokers.</p>
+<p>Our current question is: Does exposure to the campaign have the same effect for smokers and non-smokers? We want to compare an effect (exposure on attitude) for different contexts (smokers versus non-smokers), so our current question involves moderation. Is the effect of exposure on attitude moderated by smoking status?</p>
+<p>Our moderator (smoker vs.&nbsp;non-smoker) is a dichotomous variable but our predictor (exposure) is numerical, so we cannot use analysis of variance. Instead, we use regression analysis, which allows numerical predictors.</p>
+<p>In the context of a regression model, moderation means <strong>different slopes for different groups</strong>. The slope of the regression line is the regression coefficient, which expresses the effect of the predictor on the dependent variable. If we have different effects in different contexts (moderation), we must have different regression coefficients for different groups.</p>
+</section>
+<section id="interaction-variable" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="interaction-variable"><span class="header-section-number">6.3.2</span> Interaction variable</h3>
+<p>How do we obtain different regression coefficients and lines for smokers and non-smokers? The statistical trick is quite easy: Include an additional predictor in the model that is the product of the predictor (exposure) and the moderator (smoking status). This new predictor is the <em>interaction variable</em>. The regression coefficient of the interaction variable is called the <em>interaction effect</em>.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interaction-var/?showcase=0" width="775px" height="440px" data-external="1">
+</iframe>
+</div>
+<p>The interaction variable must be included together with the original predictor and moderator variables, see Equation @ref(eq:intvar). This is also visible in the statistical diagram (Figure <span class="quarto-unresolved-ref">?fig-moderator-statistical</span>) for moderation in a regression model.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker
+\end{split}
+(\#eq:intvar)
+\normalsize
+\end{equation}\]</span>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-moderation-categorical_files/figure-html/moderator-statistical-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Statistical diagram of moderation.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The smoking status variable is coded 1 for smokers and 0 for non-smokers. For clarity, we name this variable <em>smoker</em> with score 1 for Yes and score 0 for No.&nbsp;We have two different regression equations, one for each group on the dichotomous predictor <em>smoker</em>. Just plug in the two possible values (1 and 0) for this variable. For non-smokers [Equation @ref(eq:intvarnonsmoker)], the interaction variable drops from the model because multiplying by zero yields zero. For non-smokers, our reference group, <span class="math inline">\(b_1\)</span> represents the effect of exposure on attitude. It is called the <em>simple slope</em> of exposure for non-smokers.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker \\
+  attitude_{non-smokers} = &amp;\ constant + b_1*exposure + b_2*0 + b_3*exposure*0 \\
+  attitude_{non-smokers} = &amp;\ constant + b_1*exposure
+\end{split}
+(\#eq:intvarnonsmoker)
+\normalsize
+\end{equation}\]</span>
+<p>In contrast, the interaction variable remains in the model for smokers [Equation @ref(eq:intvarsmoker)], who score 1 on smoking status. Note what happens with the coefficient of the exposure effect if we rearrange the terms a little: The exposure effect equals the effect for the reference group of non-smokers (<span class="math inline">\(b_1\)</span>) plus the effect of the interaction variable (<span class="math inline">\(b_3\)</span>). The simple slope for smokers, then, is (<span class="math inline">\(b_1 + b_3\)</span>).</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker \\
+  attitude_{smokers} = &amp;\ constant + b_1*exposure + b_2*1 + b_3*exposure*1 \\
+  attitude_{smokers} = &amp;\ constant + b_1*exposure + b_3*exposure + b_2 \\
+  attitude_{smokers} = &amp;\ constant + (b_1 + b_3)*exposure + b_2
+\end{split}
+(\#eq:intvarsmoker)
+\normalsize
+\end{equation}\]</span>
+<p>The interaction variable changes the slope of the effect of exposure on attitude. More specifically, the regression coefficient of the interaction variable (<span class="math inline">\(b_3\)</span>) shows the difference between the simple slope of the exposure effect for smokers (<span class="math inline">\(b_1+b_3\)</span>) and the simple slope for non-smokers (<span class="math inline">\(b_1\)</span>).</p>
+<p>Let us assume that the unstandardized regression coefficient of the interaction effect is -0.3. This means that the effect of exposure on attitude is more strongly negative (or less positive) for smokers than for non-smokers. One additional unit of exposure decreases the predicted attitude for smokers by 0.3 <strong>more</strong> than for non-smokers.</p>
+</section>
+<section id="conditional-effects" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="conditional-effects"><span class="header-section-number">6.3.3</span> Conditional effects, not main effects</h3>
+<p>It is very important to note that the effects of exposure and smoking status in a model with exposure by smoking status interaction are <strong>not</strong> main effects as in analysis of variance. As we have seen in the preceding section [Equation @ref(eq:intvarnonsmoker)], the regression coefficient <span class="math inline">\(b_1\)</span> for exposure expresses the effect of exposure for non-smokers. It is a <em>conditional effect</em>, namely the effect for non-smokers only. Non-smokers are the <em>reference group</em> because they score zero on the moderator (<em>smoker</em>). This is quite different from a main effect in analysis of variance, which is an average effect over all groups.</p>
+<p>In a similar way, the regression coefficient <span class="math inline">\(b_2\)</span> for smoking status expresses the effect for persons who score zero on the exposure predictor. Simply plug in the value 0 for exposure in the regression equation [Eq. @ref(eq:simplestatus)].</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker\\
+  attitude_{no-expo} = &amp;\ constant + b_1*0 + b_2*smoker + b_3*0*smoker \\
+  attitude_{no-expo} = &amp;\ constant + b_2*smoker
+\end{split}
+(\#eq:simplestatus)
+\normalsize
+\end{equation}\]</span>
+<p>Smoking status is a dichotomy, so its regression coefficient (<span class="math inline">\(b_2\)</span>) tells us the average difference in attitude between smokers and non-smokers. Due to the inclusion of the interaction variable, it now tells us the difference in average attitude between smokers and non-smokers <strong>who have zero exposure to the anti-smoking campaign</strong>. Note again that this is a conditional effect, not a main effect.</p>
+</section>
+<section id="sec-interactioninterpretation" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="sec-interactioninterpretation"><span class="header-section-number">6.3.4</span> Interpretation and statistical inference</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Predicting attitude towards smoking: regression analysis results.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Beta</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sig.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Lower Bound</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Upper Bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: white !important; background-color: rgba(253, 174, 97, 255) !important;">(Constant)</td>
+<td style="text-align: right; color: rgba(253, 174, 97, 255) !important;">0.900</td>
+<td style="text-align: right;">0.357</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">2.521</td>
+<td style="text-align: right;">0.014</td>
+<td style="text-align: right;">0.190</td>
+<td style="text-align: right;">1.610</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: white !important; background-color: rgba(43, 131, 186, 255) !important;">Exposure</td>
+<td style="text-align: right; color: rgba(43, 131, 186, 255) !important;">-0.162</td>
+<td style="text-align: right;">0.061</td>
+<td style="text-align: right;">-0.410</td>
+<td style="text-align: right;">-2.651</td>
+<td style="text-align: right;">0.010</td>
+<td style="text-align: right;">-0.284</td>
+<td style="text-align: right;">-0.040</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: white !important; background-color: rgba(171, 221, 164, 255) !important;">Status (smoker = 1, non-smoker = 0)</td>
+<td style="text-align: right; color: rgba(171, 221, 164, 255) !important;">1.980</td>
+<td style="text-align: right;">0.738</td>
+<td style="text-align: right;">0.096</td>
+<td style="text-align: right;">2.683</td>
+<td style="text-align: right;">0.009</td>
+<td style="text-align: right;">0.512</td>
+<td style="text-align: right;">3.448</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: white !important; background-color: rgba(215, 25, 28, 255) !important;">Exposure*Status (smoker)</td>
+<td style="text-align: right; color: rgba(215, 25, 28, 255) !important;">-0.327</td>
+<td style="text-align: right;">0.142</td>
+<td style="text-align: right;">-0.238</td>
+<td style="text-align: right;">-2.311</td>
+<td style="text-align: right;">0.023</td>
+<td style="text-align: right;">-0.609</td>
+<td style="text-align: right;">-0.045</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>In Table <span class="citation" data-cites="tab-dich-moderator-output">(<a href="#ref-tab-dich-moderator-output" role="doc-biblioref"><strong>tab-dich-moderator-output?</strong></a>)</span>, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude <strong>for non-smokers</strong>. If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from Table <span class="citation" data-cites="tab-dich-moderator-output">(<a href="#ref-tab-dich-moderator-output" role="doc-biblioref"><strong>tab-dich-moderator-output?</strong></a>)</span>.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ \color{#FDAE61}{constant} + \color{#2B83BA}{b_1*exposure} + \color{#ABDDA4}{b_2*status} + \color{#D7191C}{b_3*exposure*status}\\
+  attitude_{non-smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{1.980*0} + \color{#D7191C}{-0.327*exposure*0}\\
+  attitude_{non-smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{0} + \color{#D7191C}{0}\\
+  attitude_{non-smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure}
+\end{split}
+(\#eq:nonsmokers)
+\normalsize
+\end{equation}\]</span>
+<p>Multiplying by zero yields zero, so for non-smokers, the resulting effect of exposure on attitude is -0.16. An additional unit of exposure predicts a smoking attitude among non-smokers that is 0.16 points more negative. More exposure to the campaign goes together with a more negative attitude towards smoking for non-smokers. The <em>p</em> value for this effect tests the null hypothesis that the effect is zero in the population. If the exposure effect is statistically significant, we reject this null hypothesis.</p>
+<p>Smokers are coded 1 on the (smoking) status variable and non-smokers are coded 0, so the regression coefficient for the interaction variable tells us that the slope of the exposure effect is 0.33 lower for smokers than for non-smokers. The estimated slope of the exposure effect is -0.16 for non-smokers. We can add the regression coefficient of the interaction variable to obtain the estimated slope for smokers, which is -0.49.</p>
+<p>If you want to check this, plug in 1 for the smoking status variable in the regression equation. Add the two effects of exposure in the equation to obtain the effect of exposure on attitude for smokers.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ \color{#FDAE61}{constant} + \color{#2B83BA}{b_1*exposure} + \color{#ABDDA4}{b_2*status} + \color{#D7191C}{b_3*exposure*status}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{1.980*1} + \color{#D7191C}{-0.327*exposure*1}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{1.980} + \color{#D7191C}{-0.327*exposure}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#D7191C}{-0.327*exposure} + \color{#ABDDA4}{1.980}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + (\color{#2B83BA}{-0.162} + \color{#D7191C}{-0.327})*exposure + \color{#ABDDA4}{1.980}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + -0.489*exposure + \color{#ABDDA4}{1.980}
+\end{split}
+(\#eq:smokers)
+\normalsize
+\end{equation}\]</span>
+<p>Now we can compare the slopes (regression coefficients) for the two groups, which gives good insight into the nature of moderation in this example. The effect of exposure on attitude is more strongly negative for smokers (-0.49) than for non-smokers (-0.16).</p>
+<p>The interaction variable is treated as an ordinary predictor in the estimation process, so it receives a confidence interval and a <em>p</em> value. The null hypothesis for the <em>p</em> value is that the interaction effect is zero in the population. In other words, the effect of exposure on attitude is hypothesized to be the same for smokers and non-smokers in the population; no moderation is expected in the population.</p>
+<p>We know the confidence intervals and <em>p</em> values of the exposure effect for non-smokers (the regression coefficient for exposure) and for the difference between their exposure effect and the exposure effect for smokers (the regression coefficient for the interaction effect). We do not know, however, the confidence interval and statistical significance of the exposure effect for smokers. We cannot add confidence intervals or <em>p</em> values, so we do not know if the effect of exposure for smokers is significantly different from zero in the population.</p>
+<p>If you want to know the confidence interval or <em>p</em> value of the exposure effect for smokers, you have to rerun the regression analysis using a different dummy variable for the moderator. You should create a dichotomous variable that assigns 0 to smokers and 1 to non-smokers, and an interaction variable created with this dichotomy. The regression coefficient of the exposure effect now expresses the effect for smokers because smokers are the reference group on the new dummy variable. The associated <em>p</em> value and confidence interval apply to the exposure effect for smokers.</p>
+<p>Interaction variables are used just like ordinary predictors, so the general assumptions of regression analysis apply. See Section <span class="quarto-unresolved-ref">?sec-regr-inference</span> for a description of the assumptions and checks.</p>
+<p>In a similar way, the effect of smoking status on attitude is conditional on exposure because smoking status and exposure are included in the interaction variable. The regression coefficient for status tells us the difference between smokers and non-smokers who have 0 exposure. So, without exposure to the campaign, smokers are on average 1.98 more positive towards smoking than non-smokers. The <em>p</em> value tests the null hypothesis that the difference is zero for people without exposure (exposure = 0) to the anti-smoking campaign.</p>
+<p>Let us conclude the interpretation with a warning. The standardized regression coefficients that SPSS reports for interaction effects or effects of predictors that are involved in interaction effects <strong>must not be used</strong>. They are calculated in the wrong way if the regression model includes an interaction variable. As a result, they are misleading.</p>
+</section>
+<section id="a-categorical-moderator" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="a-categorical-moderator"><span class="header-section-number">6.3.5</span> A categorical moderator</h3>
+<p>What if we have three or more groups on our moderator? For example, smoking status measured with three categories: (1) never smoked, (2) formerly smoked, (3) currently smoking? Does the effect of exposure on attitude vary between non-smokers, participants who stopped smoking, and those who are still smoking?</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/categorical-moderator/?showcase=0" width="420px" height="350px" data-external="1">
+</iframe>
+</div>
+<p>In Section <span class="quarto-unresolved-ref">?sec-categorical-predictor</span>, we learned that we must create dummy variables for all but one groups of a categorical predictor in a regression model. This is what we have to do also for a categorical moderator. If the effect of a predictor, such as exposure, is moderated by a categorical variable, we have to create an interaction variable for each dummy variable in the equation. To create the interaction variables, we multiply the predictor by each of the dummy variables.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-moderation-categorical_files/figure-html/categorical-moderator-fig-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Statistical diagram with a moderator consisting of three groups. Non-smokers are the reference group</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure <span class="quarto-unresolved-ref">?fig-categorical-moderator-fig</span> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (Table <span class="citation" data-cites="tab-cat-moderator-results">(<a href="#ref-tab-cat-moderator-results" role="doc-biblioref"><strong>tab-cat-moderator-results?</strong></a>)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Predicting attitude towards smoking for three smoking status groups: regression analysis results.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sig.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Lower Bound</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Upper Bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Constant)</td>
+<td style="text-align: right;">1.644</td>
+<td style="text-align: right;">0.288</td>
+<td style="text-align: right;">5.717</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">1.072</td>
+<td style="text-align: right;">2.216</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exposure</td>
+<td style="text-align: right;">-0.185</td>
+<td style="text-align: right;">0.046</td>
+<td style="text-align: right;">-3.987</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">-0.277</td>
+<td style="text-align: right;">-0.093</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Former smoker</td>
+<td style="text-align: right;">-1.095</td>
+<td style="text-align: right;">0.544</td>
+<td style="text-align: right;">-2.013</td>
+<td style="text-align: right;">0.048</td>
+<td style="text-align: right;">-2.178</td>
+<td style="text-align: right;">-0.012</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smoker</td>
+<td style="text-align: right;">1.235</td>
+<td style="text-align: right;">0.521</td>
+<td style="text-align: right;">2.372</td>
+<td style="text-align: right;">0.020</td>
+<td style="text-align: right;">0.199</td>
+<td style="text-align: right;">2.272</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exposure*Former smoker</td>
+<td style="text-align: right;">-0.405</td>
+<td style="text-align: right;">0.112</td>
+<td style="text-align: right;">-3.604</td>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;">-0.629</td>
+<td style="text-align: right;">-0.181</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exposure*Smoker</td>
+<td style="text-align: right;">-0.304</td>
+<td style="text-align: right;">0.098</td>
+<td style="text-align: right;">-3.116</td>
+<td style="text-align: right;">0.003</td>
+<td style="text-align: right;">-0.498</td>
+<td style="text-align: right;">-0.110</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Remember that the effects of predictors that are included in interactions are conditional effects: effects for the reference group or reference value on the other variable involved in the interaction. Non-smokers are the reference group for participant’s smoking status. The <em>p</em> value for the <em>exposure</em> predictor tests the hypothesis that the exposure effect for non-smokers is zero in the population.</p>
+<p>For the two dummy variables <em>Former smoker</em> and <em>Smoker</em>, the null hypothesis is tested that they have the same average attitude in the population as the non-smokers (reference group) if they are not exposed to the anti-smoking campaign. Participants who are not exposed to the campaign (zero exposure) are the reference group here.</p>
+<p>Interaction predictors show effect differences. In Table <span class="citation" data-cites="tab-cat-moderator-results">(<a href="#ref-tab-cat-moderator-results" role="doc-biblioref"><strong>tab-cat-moderator-results?</strong></a>)</span>, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (<em>Exposure*Former smoker</em>) or for smokers and non-smokers (<em>Exposure*Smoker</em>) in the population.</p>
+<p>If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.</p>
+</section>
+<section id="sec-commonsupportdichotomous" class="level3" data-number="6.3.6">
+<h3 data-number="6.3.6" class="anchored" data-anchor-id="sec-commonsupportdichotomous"><span class="header-section-number">6.3.6</span> Common support</h3>
+<p>In a regression model with moderation, we have to interpret the effect of a predictor involved in an interaction at a particular value of the moderator (Section <span class="quarto-unresolved-ref">?sec-conditional-effects</span>). The estimated effect at a particular value of the moderator can only be trusted if there are quite some observations at or near this value of the moderator. In addition, these observations should cover the full range of values on the predictor. After all, the effect that we estimate must tell us whether high values on the predictor go together with higher (or lower) values on the dependent variable than low values on the predictor.</p>
+<p>For example, we need quite some observations for smokers to estimate the conditional effect of exposure on attitude for smokers. If there are hardly any smokers in our sample, we cannot estimate the effect of exposure on attitude for them in a reliable way. Even if we have quite some observations for smokers but all smokers have low exposure, we cannot say much about the effect of exposure on attitude for them. If we cannot say much about the effect within this group, we cannot say much about the difference between this effect and effects for other groups. In short, the moderation model is problematic in this situation.</p>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/common-support/?showcase=0" width="775px" height="305px" data-external="1">
+</iframe>
+</div>
+<p>The variation of predictor scores for a particular value of the moderator is called <em>common support</em> <span class="citation" data-cites="RefWorks:3838">(<a href="#ref-RefWorks:3838" role="doc-biblioref">Hainmueller, Mummolo, and Xu 2016</a>)</span>. If common support for predictors involved in moderation is poor, we should hesitate to draw conclusions from the estimated effects. Guidelines for good common support are hard to give. Common support is usually acceptable if there are observations over the entire range of the predictor.</p>
+<p>It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of Figure <span class="quarto-unresolved-ref">?fig-common-support</span> shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of Figure <span class="quarto-unresolved-ref">?fig-common-support</span>.</p>
+</section>
+<section id="visualizing-moderation-and-covariates" class="level3" data-number="6.3.7">
+<h3 data-number="6.3.7" class="anchored" data-anchor-id="visualizing-moderation-and-covariates"><span class="header-section-number">6.3.7</span> Visualizing moderation and covariates</h3>
+<p>A plot with different regression lines for different categories of the moderator is a very useful way of presenting your results. We can, however, only plot a regression line if we have a single independent variable. After all, we only have one horizontal (X) axis in a plot to display a predictor.</p>
+<p>In a moderation model, we have at least two independent variables: the predictor and the moderator. For example, exposure is our predictor because our interest focuses on the effect of campaign exposure on attitude. Participant’s smoking status is the moderator because we expect different exposure effects for participants with different smoking statuses. We may even have additional independent variables for which we want to control (more on this in Chapter <a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>), for example, a participant’s contacts with smokers. Let us call these additional independent variables <em>covariates</em>.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A <em>predictor</em> is the independent variable that is currently central to our analysis.</p>
+<p>A <em>moderator</em> is an independent variable for which we expect different effects of the predictor.</p>
+<p>A <em>covariate</em> is an independent variable that is currently not central to our analysis.</p>
+</div>
+</div>
+</div>
+<p>Note that the distinction between predictor, moderator, and covariate is temporary. As soon as we focus on another variable, that variable becomes the predictor and the other predictors become moderators or covariates. The distinction between predictor, moderator, and covariate is just terminology to show on which variable we focus.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-moderation-categorical_files/figure-html/moderator-covar-statistical-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Statistical diagram of moderation with contact as covariate.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure <span class="quarto-unresolved-ref">?fig-moderator-covar-statistical</span> shows the statistical diagram of a moderation model with contact as covariate and Table <span class="citation" data-cites="tab-dich-moderator-cov-output">(<a href="#ref-tab-dich-moderator-cov-output" role="doc-biblioref"><strong>tab-dich-moderator-cov-output?</strong></a>)</span> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Predicting attitude towards smoking: regression analysis results with contact as covariate.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Beta</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Sig.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Lower Bound</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Upper Bound</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: white !important; background-color: rgba(253, 174, 97, 255) !important;">(Constant)</td>
+<td style="text-align: right; color: rgba(253, 174, 97, 255) !important;">-0.087</td>
+<td style="text-align: right;">0.684</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">-0.127</td>
+<td style="text-align: right;">0.899</td>
+<td style="text-align: right;">-1.448</td>
+<td style="text-align: right;">1.275</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: white !important; background-color: rgba(43, 131, 186, 255) !important;">Exposure</td>
+<td style="text-align: right; color: rgba(43, 131, 186, 255) !important;">-0.118</td>
+<td style="text-align: right;">0.066</td>
+<td style="text-align: right;">-0.332</td>
+<td style="text-align: right;">-1.786</td>
+<td style="text-align: right;">0.078</td>
+<td style="text-align: right;">-0.249</td>
+<td style="text-align: right;">0.013</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: white !important; background-color: rgba(171, 221, 164, 255) !important;">Smoker (0 = no, 1 = yes))</td>
+<td style="text-align: right; color: rgba(171, 221, 164, 255) !important;">1.982</td>
+<td style="text-align: right;">0.730</td>
+<td style="text-align: right;">0.095</td>
+<td style="text-align: right;">2.717</td>
+<td style="text-align: right;">0.008</td>
+<td style="text-align: right;">0.530</td>
+<td style="text-align: right;">3.434</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: white !important; background-color: rgba(215, 25, 28, 255) !important;">Exposure*Smoker</td>
+<td style="text-align: right; color: rgba(215, 25, 28, 255) !important;">-0.329</td>
+<td style="text-align: right;">0.140</td>
+<td style="text-align: right;">-0.239</td>
+<td style="text-align: right;">-2.348</td>
+<td style="text-align: right;">0.021</td>
+<td style="text-align: right;">-0.607</td>
+<td style="text-align: right;">-0.050</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: white !important; background-color: brown !important;">Contact</td>
+<td style="text-align: right; color: brown !important;">0.152</td>
+<td style="text-align: right;">0.090</td>
+<td style="text-align: right;">0.180</td>
+<td style="text-align: right;">1.683</td>
+<td style="text-align: right;">0.096</td>
+<td style="text-align: right;">-0.028</td>
+<td style="text-align: right;">0.331</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (Table <span class="citation" data-cites="tab-dich-moderator-cov-output">(<a href="#ref-tab-dich-moderator-cov-output" role="doc-biblioref"><strong>tab-dich-moderator-cov-output?</strong></a>)</span>) to create a regression equation [Eq. @ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ \color{#FDAE61}{-0.087} + \color{#2B83BA}{-0.118*exposure} + \color{#ABDDA4}{1.982*smoker} + \color{#D7191C}{-0.329*exposure*smoker}\\
+  &amp;+ \color{brown}{0.152*contact}
+\end{split}
+(\#eq:intvarcov1)
+\normalsize
+\end{equation}\]</span>
+<p>As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the <em>smoker</em> variable. For a numerical covariate such as <em>contact</em>, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">5.091</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation [Eq. @ref(eq:intvarcov2)].</p>
+<span class="math display">\[\begin{equation}
+\small
+\begin{split}
+  attitude = &amp;\ \color{#FDAE61}{-0.087} + \color{#2B83BA}{-0.118*exposure} + \color{#ABDDA4}{1.982*smoker} + \color{#D7191C}{-0.329*exposure*smoker}\\
+  &amp;+ \color{brown}{0.152*contact}\\
+  attitude = &amp;\ \color{#FDAE61}{-0.087} + \color{#2B83BA}{-0.118*exposure} + \color{#ABDDA4}{1.982*1} + \color{#D7191C}{-0.329*exposure*1} + \color{brown}{0.152*5.091}\\
+  attitude = &amp;\ \color{#FDAE61}{-0.087} + \color{#2B83BA}{-0.118*exposure} + \color{#ABDDA4}{1.982} + \color{#D7191C}{-0.329*exposure} + \color{brown}{0.772}\\
+  attitude = &amp;\ (\color{#FDAE61}{-0.087} + \color{#ABDDA4}{1.982}+ \color{brown}{0.772}) + (\color{#2B83BA}{-0.118*exposure} + \color{#D7191C}{-0.329*exposure})\\
+  attitude = &amp;\ 2.669 + -0.447*exposure
+\end{split}
+(\#eq:intvarcov2)
+\normalsize
+\end{equation}\]</span>
+<p>The terms with <em>smoker</em> and <em>contact</em> disappear from the equation, so <em>exposure</em> is the only independent variable that remains in the equation. Now, we can draw the simple regression line predicting attitude from exposure for smokers using this equation. Note that this is the regression line for people with average contact with smokers.</p>
+<p>Repeat these steps but plug in the score 0 for the <em>smoker</em> predictor to obtain the simple regression line for non-smokers. Figure <span class="quarto-unresolved-ref">?fig-dich-moderator-cov-plot</span> shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-moderation-categorical_files/figure-html/dich-moderator-cov-plot-1.png" class="img-fluid figure-img" width="600"></p>
+<figcaption>The effects of exposure on attitude for non-smokers and smokers. Both smokers and non-smokers are assumed to have average contact with smokers.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-catmodSPSS" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-catmodSPSS"><span class="header-section-number">6.4</span> A Dichotomous or Categorical Moderator in SPSS</h2>
+<section id="instructions-1" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">6.4.1</span> Instructions</h3>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/5ORuOV4obUU" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/9Yf2rHgoBt8" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/5KgpEjFzHiQ" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<iframe src="https://www.youtube.com/embed/kxX4rqsyWQQ" width="640px" height="360px" data-external="1">
+</iframe>
+</div>
+<!-- ## Test Your Understanding
+
+Figure @fig-regression-predict2 shows how much respondents were exposed to an anti-smoking campaign (horizontal axis) and their attitudes towards smoking, ranging from negative (-5) to positive (5, vertical axis). Attitude towards smoking is predicted from exposure as well as from the respondent's smoking status and daily contacts with smokers as specified by the (red) multiple regression equation. The blue line represents the (blue) simple regression equation, which predicts attitude from exposure for the selected value of smoking status and contact.
+
+
+
+
+
+::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-predict2/?showcase=0" width="775px" height="375px" data-external="1"></iframe>
+:::
+
+::: {.cell}
+::: {.cell-output-display}
+
+`````{=html}
+
+<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>Regression model predicting attitude towards smoking.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">b</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">SE</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">b\*</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">95\%CI</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Constant</td>
+<td style="text-align: right;">0.550</td>
+<td style="text-align: right;">0.466</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">1.181</td>
+<td style="text-align: right;">0.241</td>
+<td style="text-align: center;">[-0.377, 1.477]</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exposure to anti-smoking campaign</td>
+<td style="text-align: right;">-0.137</td>
+<td style="text-align: right;">0.047</td>
+<td style="text-align: right;">-0.242</td>
+<td style="text-align: right;">-2.888</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: center;">[-0.231, -0.042]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Former smoker</td>
+<td style="text-align: right;">-1.139</td>
+<td style="text-align: right;">0.520</td>
+<td style="text-align: right;">-0.269</td>
+<td style="text-align: right;">-2.188</td>
+<td style="text-align: right;">0.032</td>
+<td style="text-align: center;">[-2.174, -0.103]</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Smoker</td>
+<td style="text-align: right;">1.223</td>
+<td style="text-align: right;">0.498</td>
+<td style="text-align: right;">0.302</td>
+<td style="text-align: right;">2.456</td>
+<td style="text-align: right;">0.016</td>
+<td style="text-align: center;">[.232, 2.214]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Exposure \* Former smoker</td>
+<td style="text-align: right;">-0.402</td>
+<td style="text-align: right;">0.107</td>
+<td style="text-align: right;">-0.442</td>
+<td style="text-align: right;">-3.739</td>
+<td style="text-align: right;">&lt;.001</td>
+<td style="text-align: center;">[-0.616, -0.188]</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exposure \* Smoker</td>
+<td style="text-align: right;">-0.304</td>
+<td style="text-align: right;">0.093</td>
+<td style="text-align: right;">-0.394</td>
+<td style="text-align: right;">-3.262</td>
+<td style="text-align: right;">0.002</td>
+<td style="text-align: center;">[-0.490, -0.119]</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Contact with smokers</td>
+<td style="text-align: right;">0.171</td>
+<td style="text-align: right;">0.059</td>
+<td style="text-align: right;">0.202</td>
+<td style="text-align: right;">2.910</td>
+<td style="text-align: right;">0.005</td>
+<td style="text-align: center;">[.054, .287]</td>
+</tr>
+</tbody>
+</table>
+
+
+`````
+
+:::
+:::
+
+::: {.cell layout-align="center"}
+::: {.cell-output-display}
+![Four examples of common support.](figures/Q8.5.7.png){fig-align='center' fig-pos='H' width=640px height=478px}
+:::
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+</section>
+</section>
+<section id="take-home-points" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">6.5</span> Take-Home Points</h2>
+<ul>
+<li><p>We use regression analysis if our dependent variable is numeric and we have at least one numeric independent (predictor) variable.</p></li>
+<li><p>We use dummy variables to include a categorical variable as a predictor in a regression model. We need a dummy (1/0) variable for each category on the categorical variable except for one category, which represents the reference group.</p></li>
+<li><p>We use an <em>F</em> test to test the null hypothesis that the regression model does not help to predict the dependent variable in the population. We use a <em>t</em> test to test the null hypothesis that a regression coefficient is zero in the population.</p></li>
+<li><p>In a regression model, moderation means that there are different slopes (effects of the predictor) for different groups or contexts (moderator).</p></li>
+<li><p>Interaction variables represent moderation in a regression model.</p></li>
+<li><p>An interaction variable is the product of the predictor and moderator. If a categorical moderator is represented by one or more dummy variables, we need an interaction variable for each of the moderator’s dummy variables.</p></li>
+<li><p>Statistical inference for an interaction variable is exactly the same as for “ordinary” regression predictors.</p></li>
+<li><p>The effect of the predictor in a model with an interaction variable does <em>not</em> represent a main or average effect. It is a conditional effect: The effect for cases that score zero on the moderator.</p></li>
+<li><p>To interpret moderation, describe the effects (slopes, unstandardized regression coefficients) and visualize the regression lines for different groups.</p></li>
+<li><p>Warn the reader if the predictor scores are not nicely distributed for all groups or levels (no common support).</p></li>
+<li><p>Don’t use the standardized regression coefficients (Beta) for interaction variables, variables included in interactions, or for dummy variables in SPSS.</p></li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-RefWorks:3838" class="csl-entry" role="listitem">
+Hainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. <span>“How Much Should We Trust Estimates from Multiplicative Interaction Models? Simple Tools to Improve Empirical Practice.”</span> <a href="https://doi.org/10.2139/ssrn.2739221">https://doi.org/10.2139/ssrn.2739221</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./07-anova.html" class="pagination-link" aria-label="Moderation with Analysis of Variance (ANOVA)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09-moderation-continuous.html" class="pagination-link" aria-label="Regression Analysis With A Numerical Moderator">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/08-moderation-categorical.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

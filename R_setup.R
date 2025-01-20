@@ -1,6 +1,6 @@
 
 # List of packages needed for the project
-list.of.packages <- c("tidyverse", "knitr", "kableExtra", "visNetwork", "RColorBrewer" )
+list.of.packages <- c("tidyverse", "knitr", "kableExtra", "visNetwork", "RColorBrewer", "ggplot2", "dplyr", "stringr" )
 
 # Install missing packages
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
@@ -12,8 +12,9 @@ library(knitr)
 library(kableExtra)
 library(visNetwork)
 library(RColorBrewer)
-
-library(RColorBrewer)
+library(ggplot2)
+library(dplyr)
+library(stringr)
 
 #General ggplot2 theme
 theme_general <- function() {

@@ -1,3 +1,6 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
 # Regression Analysis With A Numerical Moderator {#sec-moderationcont}
 
 > Key concepts: interaction variable, common support, simple slope, conditional effect, mean-centering.
@@ -633,9 +636,6 @@ knitr::include_url("https://www.youtube.com/embed/x45Tv6nvta4", height = "360px"
 # : (for enthusiasts?) don't interpret the standardized regression coefficients (Beta) for interaction variables in SPSS because they are calculated in the wrong way ; the predictor and moderator variables are multiplied to obtain the interaction variable and aferwards they are standardized ; instead, the predictor and moderator variables should be standardized before they are multiplied ; if you want to interpret the standardized regression coefficients, you have to standardize _all_ numerical variables yourself (Analyze > Descriptive Statistics > Descriptives with option 'Save standardized values as variables' checked) before you calculate the interaction variable and include them in the regression analysis ; in this situation, the output of the regression analysis lists the standardized regression weights in the column 'Unstandardized Coefficients'. 
 ```
 
-```{html, echo = Qch9}
-### Exercises
-```
 
 
 

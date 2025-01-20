@@ -1,3 +1,7 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
+
 # Moderation with Analysis of Variance (ANOVA) {#sec-anova}
 
 > Key concepts: eta-squared, between-groups variance, within-groups variance, *F* test on analysis of variance model, pairwise comparisons, post-hoc tests, one-way analysis of variance, two-way analysis of variance, balanced design, main effects, moderation, interaction effect.
@@ -76,7 +80,6 @@ In analysis of variance, then, we are simply interested in differences between g
 ```{r anova-meansplot, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows.", fig.asp=0.6, out.width="70%"}
 # Insert means plot for celebrity endorsement example.
 d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), willingness_av = c(3, 6, 7), const = 1)
-library(ggplot2)
 ggplot(d, aes(endorser, willingness_av)) + 
   geom_point(size = 3, color=brewercolors["Blue"]) + 
   geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
@@ -765,15 +768,13 @@ The main purpose of reporting a two-way analysis of variance is to show the read
 
 ```{r 2way-meansplot, echo=FALSE, message=FALSE, warning=FALSE, out.width="70%", fig.asp=0.6, fig.pos='H', fig.align='center', fig.cap="An example of a means plot."}
 # Basic colours and layout.
-source("apps/plottheme/styling.R")
+#source("apps/plottheme/styling.R")
 # Create effect sizes.
 donors <- haven::read_spss("data/donors.sav")
 donors$sex <- factor(donors$sex, labels = names(attributes(donors$sex)$labels))
 donors$endorser <- factor(donors$endorser, labels = names(attributes(donors$endorser)$labels))
-library(dplyr)
 d <- donors %>% group_by(sex, endorser) %>%
   summarise(mean_willing = mean(willing_post), .groups = "drop_last")
-library(ggplot2)
 ggplot(d, aes(x = endorser, y = mean_willing, group = sex, color = sex)) + 
   geom_path(size = 1) + 
   geom_point(size = 3) + 
@@ -842,9 +843,6 @@ knitr::include_url("https://www.youtube.com/embed/BUqAm1H7FW8", height = "360px"
 knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px")
 ```
 
-```{html, echo = Qch7}
-### Exercises
-```
 
 
 
@@ -864,30 +862,9 @@ knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px"
 
 ```{r anova-overview, fig.pos='H', fig.align='center', fig.cap="How do we recognize main effects and interaction effects in a means plot and in a table of means?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="780px"}
 # Use app anova-interaction. Manipulate group means in a a means plot of a 3x2 design. Create main and interaction effects and inspect effect size and statistical significance.
-source("apps/plottheme/styling.R")
+#source("apps/plottheme/styling.R")
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/", height="380px")
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -->
 
 ## Take-Home Points

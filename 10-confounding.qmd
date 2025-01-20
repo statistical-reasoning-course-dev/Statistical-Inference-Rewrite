@@ -1,3 +1,7 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
+
 # Regression Analysis And Confounders {#sec-confounder}
 > Key concepts: partial effect, statistically controlling for effects of other predictors, indirect correlation, confounders, suppression and suppressor, spuriousness and reinforcer.
 
@@ -317,9 +321,6 @@ knitr::include_url("https://www.youtube.com/embed/Du2mzxWifCM", height = "360px"
 # Check assumptions: See other video.
 ```
 
-```{html, echo = Qch10}
-### Exercises
-```
 
 
 

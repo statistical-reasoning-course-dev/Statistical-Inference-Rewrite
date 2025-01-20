@@ -1,3 +1,7 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
+
 # Regression Analysis And A Categorical Moderator {#sec-moderationcat}
 
 > Key concepts: regression equation, dummy variables, normally distributed residuals, linearity, homoscedasticity, independent observations, statistical diagram, interaction variable, covariate, common support, simple slope, conditional effect.
@@ -582,9 +586,7 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 # Interpret output = check assumptions: Chart Editor of zresid * zpred plot: add reference line at 0 and perhaps at +2 and -2 to inspect shape of residual distribution.
 ```
 
-```{html, echo = Qch8}
-### Exercises
-```
+
 
 
 
@@ -1284,9 +1286,6 @@ knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px"
 #   - make histograms of the predictor panelled by the categorical grouping variable ; check that there are observations for more or less all values of the predictor (on the X axis) 
 ```
 
-```{html, echo = Qch8}
-### Exercises
-```
 
 
 
