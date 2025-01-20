@@ -88,6 +88,10 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -255,23 +259,155 @@ div.csl-indent {
 <section id="exact-approaches-to-the-sampling-distribution" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="exact-approaches-to-the-sampling-distribution"><span class="header-section-number">2.1</span> Exact Approaches to the Sampling Distribution</h2>
 <p>The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (<a href="01-samplingdistr.html#sec-probdistribution" class="quarto-xref"><span>Section 1.2.3</span></a>). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (<a href="01-samplingdistr.html#sec-discreterandomvariable" class="quarto-xref"><span>Section 1.2</span></a>).</p>
-<!-- # ```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does an exact aproach to the sampling distribution work?"} -->
-<!-- # # Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities. -->
-<!-- # # Scenarios: number of heads per toss if we toss 1, 2, 3 unbiased coins; sum of the number of eyes per throw if we throw 1 or 2 unbiased dice. -->
-<!-- # # If feasible: Don't show probabilities but let user enter probabilities if a scenario is used for the second (or later) time within a session. -->
-<!-- # d <- data.frame(Outcome = c(0,1,1,1,2,2,2,3,"Total"), -->
-<!-- #                 Combinations = c("tail-tail-tail", "tail-tail-head", "head-tail-tail", "tail-head-tail", "head-head-tail", "head-tail-head", "tail-head-head", "head-head-head", "8"), -->
-<!-- #                 Probability_of_combination = c("1/2 * 1/2 * 1/2 = 1/8 =  .125", "1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125","1/2 * 1/2 * 1/2 = 1/8 =  .125", ""), -->
-<!-- #                 Probability_of_outcome = c("1/8 =  .125", "", "", "3/8 =  .375", "", "", "3/8 =  .375", "1/8 =  .125", "1.000")) -->
-<!-- # knitr::kable(d, -->
-<!-- #              booktabs  = TRUE, -->
-<!-- #              caption   = "Number of heads for a toss of three coins.", -->
-<!-- #              col.names = c("Outcome", "Combination", "Probability: Combination", "Probability: Outcome"), -->
-<!-- #              align     = c("l", "l", "l", "r")) %>% -->
-<!-- #   kable_styling(font_size = 12, full_width = F, latex_options = c("HOLD_position", "scale_down")) %>% -->
-<!-- #   row_spec(c(2:4, 8), color = "black", background = "#EEEEEE") %>% -->
-<!-- #   row_spec(c(1, 5:7), color = "black", background = "white") -->
-<!-- # ``` -->
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+Number of heads for a toss of three coins.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Outcome
+</th>
+<th style="text-align:left;">
+Combination
+</th>
+<th style="text-align:left;">
+Probability: Combination
+</th>
+<th style="text-align:right;">
+Probability: Outcome
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+0
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+tail-tail-tail
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: white !important;">
+1/8 = .125
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+tail-tail-head
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+head-tail-tail
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+tail-head-tail
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+3/8 = .375
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+2
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+head-head-tail
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: white !important;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+2
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+head-tail-head
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: white !important;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+2
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+tail-head-head
+</td>
+<td style="text-align:left;color: black !important;background-color: white !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: white !important;">
+3/8 = .375
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+3
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+head-head-head
+</td>
+<td style="text-align:left;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1/2 * 1/2 * 1/2 = 1/8 = .125
+</td>
+<td style="text-align:right;color: black !important;background-color: rgba(238, 238, 238, 255) !important;">
+1/8 = .125
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+</tr>
+</tbody>
+</table>
+<p>How does an exact aproach to the sampling distribution work?</p>
+</div>
+</div>
 <p>The calculated probabilities of all possible sample statistic outcomes give us an exact approach to the sampling distribution. Note that I use the word <em>approach</em> instead of <em>approximation</em> here because the obtained sampling distribution is no longer an approximation, that is, more or less similar to the true sampling distribution. No, it is the true sampling distribution itself.</p>
 <section id="exact-approaches-for-categorical-data" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="exact-approaches-for-categorical-data"><span class="header-section-number">2.1.1</span> Exact approaches for categorical data</h3>
@@ -466,7 +602,6 @@ div.csl-indent {
 
 
 
-
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/?showcase=0" width="775px" height="462px" data-external="1"></iframe>
 :::
@@ -477,7 +612,6 @@ div.csl-indent {
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/?showcase=0" width="420px" height="300px" data-external="1"></iframe>
 :::
-
 
 
 

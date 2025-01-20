@@ -1,3 +1,7 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
+
 # Probability Models: How Do I Get a Sampling Distribution? {#sec-probmodels}
 
 > Key concepts: bootstrapping/bootstrap sample, sampling with replacement, exact approach, approximation with a theoretical probability distribution, binomial distribution, (standard) normal distribution, (Student) _t_ distribution, _F_ distribution, chi-squared distribution, condition checks for theoretical probability distributions, sample size, equal population variances, independent samples, dependent/paired samples.
@@ -25,7 +29,7 @@ After studying this chapter, you should know the limitations of the three method
 
 The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (@sec-probdistribution). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (@sec-discreterandomvariable).  
 
-```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does an exact aproach to the sampling distribution work?"}
+```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', warning= FALSE, fig.cap="How does an exact aproach to the sampling distribution work?"}
 # Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities.
 # Scenarios: number of heads per toss if we toss 1, 2, 3 unbiased coins; sum of the number of eyes per throw if we throw 1 or 2 unbiased dice.
 # If feasible: Don't show probabilities but let user enter probabilities if a scenario is used for the second (or later) time within a session.

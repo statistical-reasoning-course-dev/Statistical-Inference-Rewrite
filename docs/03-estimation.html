@@ -322,7 +322,7 @@ window.Quarto = {
 <p>Let us assume, for instance, that the standard error of the average weight of candies in samples is 0.6. Loosely stated, this means that the average difference between true average candy weight and average candy weight in a sample is 0.6 if we draw very many samples from the same population.</p>
 <p>The smaller the standard error, the more the sample statistic values resemble the true population value, and the more precise our interval estimate is with a given confidence level, for instance, 95%. Because we like more precise interval estimates, we prefer small standard errors over high standard errors.</p>
 <p>It is easy to obtain smaller standard errors: just increase sample size. See Figure <span class="quarto-unresolved-ref">?fig-interval-size</span>, where larger samples yield more peaked sampling distributions. In a peaked distribution, values are closer to the mean and the standard error is smaller. In our example, average candy weights in larger sample bags are closer to the average candy weight in the population.</p>
-<p>In practice, however, it is both time-consuming and expensive to draw a very large sample. Usually, we want to settle on the optimal size of the sample, namely a sample that is large enough to have interval estimates at the confidence level and precision that we need but as small as possible to save on time and expenses. We return to this matter in Chapter <span class="quarto-unresolved-ref">?sec-power</span>.</p>
+<p>In practice, however, it is both time-consuming and expensive to draw a very large sample. Usually, we want to settle on the optimal size of the sample, namely a sample that is large enough to have interval estimates at the confidence level and precision that we need but as small as possible to save on time and expenses. We return to this matter in Chapter <a href="04-hypothesis.html#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a>.</p>
 <p>The standard error may also depend on other factors, such as the variation in population scores. In our example, more variation in the weight of candies in the population produces a larger standard error for average candy weight in a sample bag. If there are more very heavy candies and very light candies, it is easier to draw a sample with several heavy candies or with several very light candies. Average weight in these sample bags will be too high or too low. We cannot influence the variation in candy weights in the population, so let us ignore this factor influencing the standard error.</p>
 </section>
 </section>
@@ -387,7 +387,7 @@ window.Quarto = {
 <p>By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.</p>
 <section id="fixed-pop-values" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="fixed-pop-values"><span class="header-section-number">3.5.1</span> Reverse reasoning from one sample mean</h3>
-<p>In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (Figure <span class="quarto-unresolved-ref">?sec-crit-values</span>). 95% of all sample means would fall within this interval estimate around the known population mean.</p>
+<p>In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (Figure <span class="quarto-unresolved-ref">?fig-crit-values</span>). 95% of all sample means would fall within this interval estimate around the known population mean.</p>
 <p>In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.</p>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/?showcase=0" width="630px" height="800px" data-external="1">
@@ -453,7 +453,7 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
 <p>If we approximate the sampling distribution with a theoretical probability distribution such as the normal (<em>z</em>) or <em>t</em> distribution, critical values and the standard error are used to calculate the confidence interval (see Section <span class="quarto-unresolved-ref">?sec-fixed-pop-values</span>).</p>
 <p>There are theoretical probability distributions that do not work with a standard error, such as the <em>F</em> distribution or chi-squared distribution. If we use those distributions to approximate the sampling distribution of a continuous sample statistic, for instance, the association between two categorical variables, we cannot use the formula for a confidence interval (Section <span class="quarto-unresolved-ref">?sec-fixed-pop-values</span>) because we do not have a standard error. We must use bootstrapping to obtain a confidence interval.</p>
 <p>As you might remember from Section <a href="02-probability.html#sec-boot-approx" class="quarto-xref"><span>Section 2.5</span></a>, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in chapter 11.</p>
-<p>It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report <em>p</em> values (see Section <span class="quarto-unresolved-ref">?sec-pvalue</span>), not confidence intervals.</p>
+<p>It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report <em>p</em> values (see Section <a href="04-hypothesis.html#sec-pvalue" class="quarto-xref"><span>Section 4.2.6</span></a>), not confidence intervals.</p>
 </section>
 </section>
 <section id="SPSS-CI" class="level2" data-number="3.6">
@@ -469,11 +469,9 @@ Photo of Jerzy Neyman by Ohonik, Commons Wikimedia, CC BY-SA 4.0]
 
 
 
-
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/estimation/?showcase=0" width="775px" height="258px" data-external="1"></iframe>
 :::
-
 
 
 

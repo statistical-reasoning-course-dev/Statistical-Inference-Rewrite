@@ -466,32 +466,6 @@ H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
 </div>
 <p>In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in Figure <span class="quarto-unresolved-ref">?fig-nulldistribution</span>. We have already determined that if <span class="math inline">\(H_0\)</span> is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of Figure <span class="quarto-unresolved-ref">?fig-nulldistribution</span>, and are also shown in the Table <span class="citation" data-cites="tab-nullprobtable">(<a href="#ref-tab-nullprobtable" role="doc-biblioref"><strong>tab-nullprobtable?</strong></a>)</span> below. Looking at the probability of getting 0 or 10 candies in Table <span class="citation" data-cites="tab-nullprobtable">(<a href="#ref-tab-nullprobtable" role="doc-biblioref"><strong>tab-nullprobtable?</strong></a>)</span>, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our type I error, alpha, significance level, would be .002.</p>
 <div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'tidyverse' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'kableExtra' was built under R version 4.3.3</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'kableExtra'
-
-The following object is masked from 'package:dplyr':
-
-    group_rows</code></pre>
-</div>
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <caption>Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true.</caption>
@@ -935,40 +909,16 @@ H_{A} &amp; : \hat{x} &amp; &gt; 5.5 \\
 <h3 data-number="4.5.1" class="anchored" data-anchor-id="estimation-in-addidion-to-nhst"><span class="header-section-number">4.5.1</span> Estimation in addidion to NHST</h3>
 <p>Following up on a report commissioned by the American Psychological Association APA <span class="citation" data-cites="RefWorks:3934">(<a href="#ref-RefWorks:3934" role="doc-biblioref">Wilkinson 1999</a>)</span>, the 6<sup>th</sup> edition of the <em>Publication Manual of the American Psychological Association</em> recommends reporting and interpreting confidence intervals in addition to null hypothesis significance testing.</p>
 <p>Estimation is becoming more important: Assessing the precision of our statements about the population rather than just rejecting or not rejecting our hypothesis about the population. This is an important step forward and it is easy to accomplish with your statistical software.</p>
-<!-- # ```{r ci-nullhyp, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', out.width="640px", fig.cap="What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?"} -->
-<!-- # #REPLACED BY STATIC IMAGE -->
-<!-- # -->
-<!-- # # Display an x-axis labeled "Effect size" with values "none -->
-<!-- # # (H0)"/"tiny"/"small"/"moderate"/"large" with a vertical line (unlabeled) at -->
-<!-- # # "none (H0)". As in app sig-effect-power. -->
-<!-- # # Generate a confidence interval for a positive effect and represent it by a -->
-<!-- # # horizontal errorbar with the sample value (point estimate) as a fat dot. -->
-<!-- # # Successive confidence intervals should differ on one or two of the following characteristics: -->
-<!-- # # (1) includes/excludes H0, -->
-<!-- # # (2) small/wide, -->
-<!-- # # (3) tiny versus moderate-large effect size. -->
-<!-- # # Add a slider to adjust sample size (range [10, 250], initial setting 30), which changes the width of the confidence interval. -->
-<!-- # # Finally, add a button to generate a new confidence interval. -->
-<!-- # d <- data.frame(x = c(6, 5, 4, 3, 2, 1), -->
-<!-- #                  lb95 = c(-2, -0.1, 0.1, -0.1, 0.1, 2), -->
-<!-- #                  ub95 = c(2.6, 0.7, 0.5, 3.2, 3.0, 3.0), -->
-<!-- #                  lab = c("A", "B", "C", "D", "E", "F")) -->
-<!-- # d$point <- (d$ub95 + d$lb95)/2 -->
-<!-- # ggplot2::ggplot(d) + -->
-<!-- #   geom_errorbar(aes(x = x, ymin = lb95, ymax = ub95), colour = brewercolors["Blue"]) + -->
-<!-- #   geom_point(aes(x = x, y = point), size = 3, colour = brewercolors["Blue"]) + -->
-<!-- #   geom_hline(yintercept = 0, colour = brewercolors["Red"]) + -->
-<!-- #   geom_text(aes(x = x, y = ub95, label = lab), nudge_y = 0.15) + -->
-<!-- #   scale_x_continuous(name = "", breaks = NULL) + -->
-<!-- #   scale_y_continuous(name = "Unstandardized effect size (b)", -->
-<!-- #                      breaks = c(-2, -1, 0, 0.3, 1.55, 2.5), -->
-<!-- #                      sec.axis = sec_axis(~./5.6, name = "Standardized effect size (b*)", -->
-<!-- #                      breaks = c(-0.3, -0.1, 0, 0.1, 0.3, 0.5), -->
-<!-- #                      labels = c("-0.3\nmoderate", "-0.1\nweak", "0\nH0", "0.1\nweak", "0.3\nmoderate", "0.5\nstrong"))) + -->
-<!-- #   coord_flip() + -->
-<!-- #   theme_general() -->
-<!-- # rm(d) -->
-<!-- # ``` -->
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="04-hypothesis_files/figure-html/ci-nullhyp-1.png" class="img-fluid figure-img" width="640"></p>
+<figcaption>What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p>Figure <span class="quarto-unresolved-ref">?fig-ci-nullhyp</span> shows six confidence intervals for a population value, for instance, the effect of exposure to advertisements on brand awareness, and the sample result as point estimate (dot). The horizontal axis is labeled by the size of the effect: the difference between the effect in the sample and the absence of an effect according to the null hypothesis.</p>
 <p>A confidence interval shows us whether or not our null hypothesis must be rejected. The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil (Section <span class="quarto-unresolved-ref">?sec-fixed-pop-values</span>). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1. SPSS usually tests nil hypotheses, this can be adjusted for some tests, but not all. Though it is almost always possible to visualize the confidence interval in graphs created in SPSS.</p>
 <p>Confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis, but the value specified in the null hypothesis is located near one of its boundaries (e.g., Confidence Interval D in Figure <span class="quarto-unresolved-ref">?fig-ci-nullhyp</span>), we do not reject the null hypothesis. However, it still is plausible that the population value is substantially different from the hypothesized value.</p>
