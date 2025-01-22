@@ -47,16 +47,20 @@ An obvious but key insight in statistical inference is this: If we draw random s
 
 We are usually interested in a particular characteristic of the sample rather than in the exact nature of each observation within the sample. For instance, I happen to be very fond of yellow candies. If I buy a bag of candies, my first impulse is to tear the bag open and count the number of yellow candies. Am I lucky today? Does my bag contain a lot of yellow candies?
 
-```{r random-variable, fig.pos='H', fig.align='center', fig.cap="How many yellow candies will our sample bag contain?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+::: {#fig-random-variable}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/random-variable/" width="100%" height="360px" style="border:none;">
+</iframe>
+
+<!-- 
 #interactive content: a button to draw a sample from a population of points uniformly distributed over five colours, display the sample (as a set of coloured circles) and the number of yellow candies with each sample ; relevant expectations: (1) number of yellow candies per sample varies (variable), (2) this number depends on chance (random variable), (3) the number may range from 0 to 10 (sampling space), (4) the most likely number of yellow candies is two (expected value, expectation).
 # knitr::include_app("https://sharon-klinkenberg.shinyapps.io/random-variable/", height="360px")
+-->
+``` 
 
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/random-variable/", height="360px")
-```
-
-
-
-
+How many yellow candies will our sample bag contain?
+:::
 
 The number of yellow candies in a bag is an example of a _sample statistic_: a value describing a characteristic of the sample. Each bag, that is, each sample, has one outcome score on the sample statistic. For instance, one bag contains four yellow candies, another bag contains seven, and so on. All possible outcome scores constitute the _sampling space_. A bag of ten candies may contain 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10 yellow candies. The numbers 0 to 10 are the sampling space of the sample statistic _number of yellow candies in a bag_.
 

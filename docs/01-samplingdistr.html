@@ -125,13 +125,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -290,9 +290,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-samplestatistic" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="sec-samplestatistic"><span class="header-section-number">1.2.1</span> Sample statistic</h3>
 <p>We are usually interested in a particular characteristic of the sample rather than in the exact nature of each observation within the sample. For instance, I happen to be very fond of yellow candies. If I buy a bag of candies, my first impulse is to tear the bag open and count the number of yellow candies. Am I lucky today? Does my bag contain a lot of yellow candies?</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/random-variable/?showcase=0" width="420px" height="360px" data-external="1">
+<div id="fig-random-variable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-random-variable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/random-variable/" width="100%" height="360px" style="border:none;">
 </iframe>
+
+<!-- 
+#interactive content: a button to draw a sample from a population of points uniformly distributed over five colours, display the sample (as a set of coloured circles) and the number of yellow candies with each sample ; relevant expectations: (1) number of yellow candies per sample varies (variable), (2) this number depends on chance (random variable), (3) the number may range from 0 to 10 (sampling space), (4) the most likely number of yellow candies is two (expected value, expectation).
+# knitr::include_app("https://sharon-klinkenberg.shinyapps.io/random-variable/", height="360px")
+-->
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-random-variable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: How many yellow candies will our sample bag contain?
+</figcaption>
+</figure>
 </div>
 <p>The number of yellow candies in a bag is an example of a <em>sample statistic</em>: a value describing a characteristic of the sample. Each bag, that is, each sample, has one outcome score on the sample statistic. For instance, one bag contains four yellow candies, another bag contains seven, and so on. All possible outcome scores constitute the <em>sampling space</em>. A bag of ten candies may contain 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10 yellow candies. The numbers 0 to 10 are the sampling space of the sample statistic <em>number of yellow candies in a bag</em>.</p>
 <p>The sample statistic is called a <em>random variable</em>. It is a variable because different samples can have different scores. The value of a variable may vary from sample to sample. It is a random variable because the score depends on chance, namely the chance that a particular sample is drawn.</p>
@@ -923,8 +935,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02-probability.html" class="pagination-link" aria-label="Probability Models: How Do I Get a Sampling Distribution?">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-probability.html" class="pagination-link" aria-label="Probability Models">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
