@@ -19,7 +19,7 @@ My moderator is numerical. How can I construct different regression lines for di
 
 :::
 
-Chapter @sec-moderationcat shows us how we can include dichotomous and categorical variables as predictors and moderators in a regression model. Using dummy variables, we can analyze mean differences between groups and we can construct different regression lines for different groups (moderation). A graph showing the different regression models for different moderator groups communicates the results of a moderation model in an attractive way.
+@sec-moderationcat shows us how we can include dichotomous and categorical variables as predictors and moderators in a regression model. Using dummy variables, we can analyze mean differences between groups and we can construct different regression lines for different groups (moderation). A graph showing the different regression models for different moderator groups communicates the results of a moderation model in an attractive way.
 
 What if our moderator is not dichotomous or categorical but numerical? For example, the effect of exposure to an anti-smoking campaign on attitude towards smoking can be different for people of different age or for people who spend more time with smokers.
 
@@ -31,7 +31,7 @@ This interpretation is quite abstract and not easy to understand. It is better t
 
 Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.
 
-## A Numerical Moderator {#cont-moderator-regression}
+## A Numerical Moderator {#sec-cont-moderator-regression}
 
 With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?
 
@@ -64,7 +64,7 @@ In addition, the anti-smoking campaign may be less effective for people who spen
 
 Our moderator, contact with smokers, is numerical. As a consequence, we can have an endless number of contact levels as groups for which the slope may change. This is the only difference with a categorical moderator. Other than that, we will analyze a numerical moderator in the same way as we analyzed a categorical moderator.
 
-### Interaction variable {#interpret-cont-interaction}
+### Interaction variable {#sec-interpret-cont-interaction}
 
 We need one interaction variable to include a numerical moderator in a regression model. As before, the interaction variable is the product of the predictor and the moderator. Multiply the predictor by the moderator to obtain the interaction variable.
 
@@ -87,9 +87,9 @@ We can interpret the regression coefficient of the interaction effect ($b_3$) he
 
 Note that positive and negative are used here in their mathematical meaning, not in an appreciative way. A positive effect of exposure implies a more positive attitude towards smoking. Anti-smoking campaigners probably evaluate this as a negative result.
 
-### Conditional effect {#conditional-effect-cont}
+### Conditional effect {#sec-conditional-effect-cont}
 
-In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see Section @sec-conditional-effects), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only $b_1$ is left as the effect of exposure.
+In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see @sec-conditional-effects), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only $b_1$ is left as the effect of exposure.
 
 ```{=tex}
 \begin{equation}
@@ -103,7 +103,7 @@ In the presence of an interaction effect of exposure and contact, the regression
 \normalsize
 \end{equation}
 ```
-The zero score on the moderator is the *reference value* for the conditional effect of the predictor. Cases that score zero on the moderator are the *reference group* just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (Section @sec-dichpredictor).
+The zero score on the moderator is the *reference value* for the conditional effect of the predictor. Cases that score zero on the moderator are the *reference group* just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (@sec-dichpredictor).
 
 ### Mean-centering
 
@@ -161,7 +161,7 @@ ggplot(df) +
 
 With mean-centered numerical moderators, a conditional effect in the presence of interaction always makes sense. It is the effect of the predictor for respondents who have an average score on the moderator because they score zero on the mean-centered variable. An average score always falls within the range of scores that actually occur. If we mean-center the moderator variable contact with smokers, the regression coefficient $b_1$ for exposure expresses the effect of exposure on attitude for people with average contacts with smokers. This makes sense.
 
-Remember that the interaction variable is the product of the predictor and moderator (Section @sec-interaction-variable). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.
+Remember that the interaction variable is the product of the predictor and moderator (@sec-interaction-variable). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.
 
 ### Symmetry of predictor and moderator
 
@@ -223,7 +223,7 @@ rm(variables)
 
 For example, let us assume that the regression coefficient of the interaction effect of exposure and contact is 0.2. We can interpret this regression coefficient with contact as moderator and exposure as predictor: An additional unit of contact with smokers increases the effect of exposure on attitude by 0.2. But we can also interpret it with exposure as moderator and contact as predictor: An additional unit of exposure increases the effect of contact with smokers on attitude by 0.2.
 
-The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to *mean-center both the predictor and moderator if they are numerical*. In case of a dichotomous or categorical moderator (Section @sec-categoricalmoderator), the predictor can also be mean-centered.
+The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to *mean-center both the predictor and moderator if they are numerical*. In case of a dichotomous or categorical moderator (@sec-categoricalmoderator), the predictor can also be mean-centered.
 
 ### Visualization of the interaction effect
 
@@ -243,7 +243,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/continuous-interacti
 
 
 
-As we have seen in Section @sec-interpret-cont-interaction, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.
+As we have seen in @sec-interpret-cont-interaction, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.
 
 The size of the interaction effect tells us the moderation trend, for instance, people who are more around smokers tend to be less opposed to smoking if they are exposed to the anti-smoking campaign. But we do not know how much an anti-smoking attitude is fostered by exposure to a campaign and whether exposure to the campaign increases anti-smoking attitude for everyone. Perhaps, people hanging out with smokers a lot may even get a more positive attitude towards smoking from campaign exposure.
 
@@ -314,7 +314,7 @@ rm(results, report_n)
 
 ### Common support
 
-In Section @sec-commonsupportdichotomous, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.
+In @sec-commonsupportdichotomous, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.
 
 With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. [-@RefWorks:3838] recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects. Create a histogram for the predictor in each of these groups to check common support of moderation in the data, as explained in micro lecture @fig-SPSSregSupport1.
 
@@ -338,7 +338,7 @@ According to Figure @fig-cont-moderator-support, the predictor variable exposure
 
 ### Assumptions
 
-The general assumptions for regression analysis (Section @sec-regr-inference) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.
+The general assumptions for regression analysis (@sec-regr-inference) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.
 
 Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in Figure @fig-continuous-moderator at the beginning of this section on numerical moderators.
 
@@ -580,7 +580,7 @@ Finally, inspect the residual plots but do not include them in the report. Warn 
 
 #### Essential Analytics {.unnumbered}
 
-As in Chapter @sec-moderationcat, we calculate an interaction variable as the product of the predictor and moderator (the *Compute Variable* option in the *Transform* menu) and we use it as one of the independent variables in a linear regression model (the *Linear* option in the *Regression* submenu).
+As in @sec-moderationcat, we calculate an interaction variable as the product of the predictor and moderator (the *Compute Variable* option in the *Transform* menu) and we use it as one of the independent variables in a linear regression model (the *Linear* option in the *Regression* submenu).
 
 The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure @fig-meancentertable, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
 

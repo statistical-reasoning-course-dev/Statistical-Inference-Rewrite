@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Mediation with Regression Analysis – Statistical Inference</title>
+<title>9&nbsp; Mediation with Regression Analysis – Statistical Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -51,16 +51,16 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./12-Appendix.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./10-confounding.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,17 +89,13 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-
 <link href="site_libs/vis-9.1.0/vis-network.min.css" rel="stylesheet">
-
 <script src="site_libs/vis-9.1.0/vis-network.min.js"></script>
-
 <script src="site_libs/visNetwork-binding-2.1.2/visNetwork.js"></script>
-
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -143,7 +139,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-mediation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-mediation.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -179,8 +175,56 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./01-samplingdistr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling Distribution: How Different Could My Sample Have Been?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models: How Do I Get a Sampling Distribution?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter: Which Population Values Are Plausible?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-moderation-categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-moderation-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./11-mediation.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -208,37 +252,37 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#mediation-as-causal-process" id="toc-mediation-as-causal-process" class="nav-link" data-scroll-target="#mediation-as-causal-process"><span class="header-section-number">1.1</span> Mediation as Causal Process</a>
+  <li><a href="#mediation-as-causal-process" id="toc-mediation-as-causal-process" class="nav-link" data-scroll-target="#mediation-as-causal-process"><span class="header-section-number">9.1</span> Mediation as Causal Process</a>
   <ul class="collapse">
-  <li><a href="#sec-causalcriteria" id="toc-sec-causalcriteria" class="nav-link" data-scroll-target="#sec-causalcriteria"><span class="header-section-number">1.1.1</span> Criteria for a causal relation</a></li>
-  <li><a href="#sec-indirecteffect" id="toc-sec-indirecteffect" class="nav-link" data-scroll-target="#sec-indirecteffect"><span class="header-section-number">1.1.2</span> Mediation as indirect effect</a></li>
-  <li><a href="#causal-process" id="toc-causal-process" class="nav-link" data-scroll-target="#causal-process"><span class="header-section-number">1.1.3</span> Causal process</a></li>
+  <li><a href="#sec-causalcriteria" id="toc-sec-causalcriteria" class="nav-link" data-scroll-target="#sec-causalcriteria"><span class="header-section-number">9.1.1</span> Criteria for a causal relation</a></li>
+  <li><a href="#sec-indirecteffect" id="toc-sec-indirecteffect" class="nav-link" data-scroll-target="#sec-indirecteffect"><span class="header-section-number">9.1.2</span> Mediation as indirect effect</a></li>
+  <li><a href="#causal-process" id="toc-causal-process" class="nav-link" data-scroll-target="#causal-process"><span class="header-section-number">9.1.3</span> Causal process</a></li>
   </ul></li>
-  <li><a href="#path-model-with-regression-analysis" id="toc-path-model-with-regression-analysis" class="nav-link" data-scroll-target="#path-model-with-regression-analysis"><span class="header-section-number">1.2</span> Path Model with Regression Analysis</a>
+  <li><a href="#path-model-with-regression-analysis" id="toc-path-model-with-regression-analysis" class="nav-link" data-scroll-target="#path-model-with-regression-analysis"><span class="header-section-number">9.2</span> Path Model with Regression Analysis</a>
   <ul class="collapse">
-  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">1.2.1</span> Requirements</a></li>
-  <li><a href="#size-indirect-effects" id="toc-size-indirect-effects" class="nav-link" data-scroll-target="#size-indirect-effects"><span class="header-section-number">1.2.2</span> Size of indirect effects</a></li>
-  <li><a href="#direction-of-indirect-effects" id="toc-direction-of-indirect-effects" class="nav-link" data-scroll-target="#direction-of-indirect-effects"><span class="header-section-number">1.2.3</span> Direction of indirect effects</a></li>
-  <li><a href="#sec-partialserialmediation" id="toc-sec-partialserialmediation" class="nav-link" data-scroll-target="#sec-partialserialmediation"><span class="header-section-number">1.2.4</span> Parallel and serial mediation</a></li>
-  <li><a href="#sec-partialfullmediation" id="toc-sec-partialfullmediation" class="nav-link" data-scroll-target="#sec-partialfullmediation"><span class="header-section-number">1.2.5</span> Partial and full mediation</a></li>
-  <li><a href="#significance-of-indirect-effects" id="toc-significance-of-indirect-effects" class="nav-link" data-scroll-target="#significance-of-indirect-effects"><span class="header-section-number">1.2.6</span> Significance of indirect effects</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements"><span class="header-section-number">9.2.1</span> Requirements</a></li>
+  <li><a href="#sec-size-indirect-effects" id="toc-sec-size-indirect-effects" class="nav-link" data-scroll-target="#sec-size-indirect-effects"><span class="header-section-number">9.2.2</span> Size of indirect effects</a></li>
+  <li><a href="#direction-of-indirect-effects" id="toc-direction-of-indirect-effects" class="nav-link" data-scroll-target="#direction-of-indirect-effects"><span class="header-section-number">9.2.3</span> Direction of indirect effects</a></li>
+  <li><a href="#sec-partialserialmediation" id="toc-sec-partialserialmediation" class="nav-link" data-scroll-target="#sec-partialserialmediation"><span class="header-section-number">9.2.4</span> Parallel and serial mediation</a></li>
+  <li><a href="#sec-partialfullmediation" id="toc-sec-partialfullmediation" class="nav-link" data-scroll-target="#sec-partialfullmediation"><span class="header-section-number">9.2.5</span> Partial and full mediation</a></li>
+  <li><a href="#significance-of-indirect-effects" id="toc-significance-of-indirect-effects" class="nav-link" data-scroll-target="#significance-of-indirect-effects"><span class="header-section-number">9.2.6</span> Significance of indirect effects</a></li>
   </ul></li>
-  <li><a href="#sec-mediationcovariate" id="toc-sec-mediationcovariate" class="nav-link" data-scroll-target="#sec-mediationcovariate"><span class="header-section-number">1.3</span> Controlling for Covariates</a></li>
-  <li><a href="#reporting-mediation-results" id="toc-reporting-mediation-results" class="nav-link" data-scroll-target="#reporting-mediation-results"><span class="header-section-number">1.4</span> Reporting Mediation Results</a></li>
-  <li><a href="#sec-SPSSPROCESS" id="toc-sec-SPSSPROCESS" class="nav-link" data-scroll-target="#sec-SPSSPROCESS"><span class="header-section-number">1.5</span> Mediation with SPSS and PROCESS</a>
+  <li><a href="#sec-mediationcovariate" id="toc-sec-mediationcovariate" class="nav-link" data-scroll-target="#sec-mediationcovariate"><span class="header-section-number">9.3</span> Controlling for Covariates</a></li>
+  <li><a href="#reporting-mediation-results" id="toc-reporting-mediation-results" class="nav-link" data-scroll-target="#reporting-mediation-results"><span class="header-section-number">9.4</span> Reporting Mediation Results</a></li>
+  <li><a href="#sec-SPSSPROCESS" id="toc-sec-SPSSPROCESS" class="nav-link" data-scroll-target="#sec-SPSSPROCESS"><span class="header-section-number">9.5</span> Mediation with SPSS and PROCESS</a>
   <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">1.5.1</span> Instructions</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">9.5.1</span> Instructions</a></li>
   </ul></li>
-  <li><a href="#criticisms-of-mediation" id="toc-criticisms-of-mediation" class="nav-link" data-scroll-target="#criticisms-of-mediation"><span class="header-section-number">1.6</span> Criticisms of Mediation</a>
+  <li><a href="#criticisms-of-mediation" id="toc-criticisms-of-mediation" class="nav-link" data-scroll-target="#criticisms-of-mediation"><span class="header-section-number">9.6</span> Criticisms of Mediation</a>
   <ul class="collapse">
-  <li><a href="#causal-order-assumed" id="toc-causal-order-assumed" class="nav-link" data-scroll-target="#causal-order-assumed"><span class="header-section-number">1.6.1</span> Causal order assumed</a></li>
-  <li><a href="#time-order" id="toc-time-order" class="nav-link" data-scroll-target="#time-order"><span class="header-section-number">1.6.2</span> Time order</a></li>
-  <li><a href="#causality-or-underlying-construct" id="toc-causality-or-underlying-construct" class="nav-link" data-scroll-target="#causality-or-underlying-construct"><span class="header-section-number">1.6.3</span> Causality or underlying construct?</a></li>
-  <li><a href="#every-effect-in-a-path-model-can-be-confounded" id="toc-every-effect-in-a-path-model-can-be-confounded" class="nav-link" data-scroll-target="#every-effect-in-a-path-model-can-be-confounded"><span class="header-section-number">1.6.4</span> Every effect in a path model can be confounded</a></li>
-  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations"><span class="header-section-number">1.6.5</span> Recommendations</a></li>
+  <li><a href="#causal-order-assumed" id="toc-causal-order-assumed" class="nav-link" data-scroll-target="#causal-order-assumed"><span class="header-section-number">9.6.1</span> Causal order assumed</a></li>
+  <li><a href="#time-order" id="toc-time-order" class="nav-link" data-scroll-target="#time-order"><span class="header-section-number">9.6.2</span> Time order</a></li>
+  <li><a href="#causality-or-underlying-construct" id="toc-causality-or-underlying-construct" class="nav-link" data-scroll-target="#causality-or-underlying-construct"><span class="header-section-number">9.6.3</span> Causality or underlying construct?</a></li>
+  <li><a href="#every-effect-in-a-path-model-can-be-confounded" id="toc-every-effect-in-a-path-model-can-be-confounded" class="nav-link" data-scroll-target="#every-effect-in-a-path-model-can-be-confounded"><span class="header-section-number">9.6.4</span> Every effect in a path model can be confounded</a></li>
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations"><span class="header-section-number">9.6.5</span> Recommendations</a></li>
   </ul></li>
-  <li><a href="#combining-mediation-and-moderation" id="toc-combining-mediation-and-moderation" class="nav-link" data-scroll-target="#combining-mediation-and-moderation"><span class="header-section-number">1.7</span> Combining Mediation and Moderation</a></li>
-  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">1.8</span> Take-Home Points</a></li>
+  <li><a href="#combining-mediation-and-moderation" id="toc-combining-mediation-and-moderation" class="nav-link" data-scroll-target="#combining-mediation-and-moderation"><span class="header-section-number">9.7</span> Combining Mediation and Moderation</a></li>
+  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">9.8</span> Take-Home Points</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/11-mediation.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/11-mediation.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
 </nav>
@@ -251,7 +295,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-mediation" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></h1>
+<h1 class="title"><span id="sec-mediation" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></h1>
 </div>
 
 
@@ -308,28 +352,43 @@ window.Quarto = {
 <p>Figure <span class="quarto-unresolved-ref">?fig-mediationtable</span> shows the results of a model in which political interest and news site use mediate the effect of age on newspaper reading time. Apart from a direct effect (<em>b</em> = 4.55, 95%CI[3.62, 5.47], red box in Figure <span class="quarto-unresolved-ref">?fig-mediationtable</span>), three indirect effects have been estimated. Clearly the strongest indirect effect of age is the effect mediated by news site use (Figure <span class="quarto-unresolved-ref">?fig-mediationtable</span>, green boxes). An additional unit of age increases predicted newspaper reading time by 1.44. The 95% confidence interval (95%CI[0.64, 2.24], bootstrapped) does not include zero, so this indirect effect is statistically significant at the .05 significance level.</p>
 </section>
 </section>
-<section id="mediation-as-causal-process" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="mediation-as-causal-process"><span class="header-section-number">1.1</span> Mediation as Causal Process</h2>
+<section id="mediation-as-causal-process" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="mediation-as-causal-process"><span class="header-section-number">9.1</span> Mediation as Causal Process</h2>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-commoncause/?showcase=0" width="775px" height="325px" data-external="1">
 </iframe>
 </div>
-<section id="sec-causalcriteria" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="sec-causalcriteria"><span class="header-section-number">1.1.1</span> Criteria for a causal relation</h3>
+<section id="sec-causalcriteria" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="sec-causalcriteria"><span class="header-section-number">9.1.1</span> Criteria for a causal relation</h3>
 <p>Researchers are usually interested in causal effects, so let us theorize a causal order between age and reading newspapers. From previous research and personal experience, we strongly suspect that older people spend more time on reading newspapers than young people. In statistical language, we expect a positive correlation between age and newspaper reading time. Can age be a cause of current newspaper reading?</p>
 <p>Correlation is the first criterion. A causal relation implies correlation or another type of statistical association. If newspaper reading is not correlated with age, it is hard to imagine that age affects newspaper reading. But correlation does not imply causation, as the saying goes. Correlated variables do not have to be causally related. We need additional arguments to add plausibility to a causal relation.</p>
 <p>The second criterion is the time order between cause and consequence. A cause must appear before the consequence. In our example, a person’s age must be fixed before she displays the behaviour that we want to explain, namely reading newspapers. The time order is very plausible here because age stands for the moment a person was born, which must be prior in time to reading newspapers. If there is a causal relation between age and reading newspapers, age must be the cause and newspaper reading the consequence.</p>
-<p>A third criterion for causality is that the correlation is not spurious. In Section <span class="quarto-unresolved-ref">?sec-spuriousness</span>, we have encountered a spurious effect as an effect that incorrectly includes the effect of a confounder (reinforcer).</p>
+<p>A third criterion for causality is that the correlation is not spurious. In <a href="10-confounding.html#sec-spuriousness" class="quarto-xref"><span>Section 8.3.2</span></a>, we have encountered a spurious effect as an effect that incorrectly includes the effect of a confounder (reinforcer).</p>
 <p>In the context of causality, spuriousness is linked to a confounder that is a <em>common cause</em> to both the assumed cause (predictor) and consequence (dependent variable). Age, for instance, can be a common cause both to having (grand)children and reading newspapers. Older people tend to have more (grand)children and they read more newspapers. If we do not control for age in a regression model predicting newspaper reading time from the number of (grand)children a person has, we may find a positive effect.</p>
 <p>This effect is probably not causal: We do not spend more time reading newspapers because we have more (grand)children. Unless we use newspaper reading to ignore our children and grandchildren when they are around. Most if not all of the effect of (grand)children on newspaper reading is spurious because it results from a common cause, namely age or the habits and opportunities represented by age.</p>
-<p>To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem (Chapter <span class="quarto-unresolved-ref">?sec-confounder</span>). With non-experimental data, for example data on newspaper reading habits gathered in a survey, we cannot be sure that we have included all common causes in our model. In this situation, we should always keep in mind that the effects that we find may be caused by variables not included in our regression model. In an experiment, however, we can use experimental randomization to minimize the chance of having any confounders at all (Section <span class="quarto-unresolved-ref">?sec-randomization</span>).</p>
+<p>To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem (<a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>). With non-experimental data, for example data on newspaper reading habits gathered in a survey, we cannot be sure that we have included all common causes in our model. In this situation, we should always keep in mind that the effects that we find may be caused by variables not included in our regression model. In an experiment, however, we can use experimental randomization to minimize the chance of having any confounders at all (<a href="10-confounding.html#sec-randomization" class="quarto-xref"><span>Section 8.2.2</span></a>).</p>
 </section>
-<section id="sec-indirecteffect" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="sec-indirecteffect"><span class="header-section-number">1.1.2</span> Mediation as indirect effect</h3>
+<section id="sec-indirecteffect" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="sec-indirecteffect"><span class="header-section-number">9.1.2</span> Mediation as indirect effect</h3>
 <p>A common cause does not have to remove the entire effect between a predictor and dependent variable. Even if part of newspaper reading is caused by age, another part can be caused by a variable related to age, for example, interest in politics. During their lifetime, people may gain more experience with politics and, for that reason, become more interested in reading about politics. This may cause them to invest more time in reading newspapers for collecting information.</p>
 <p>Not all people become more interested in politics as they grow older and their interest in politics does not have to increase regularly during all of their lifetime. The relation between age and interest in politics, therefore, will not be perfect. This allows us to technically distinguish between the effect of age and the effect of interest in politics.</p>
-<p>If we include both age and interest in politics as predictors in a regression model for newspaper reading time, the partial effect (Section <span class="quarto-unresolved-ref">?sec-partialeffect</span>) of interest in politics is corrected for the spurious correlation between interest in politics and newspaper reading caused by age as their common cause. The partial effect of political interest can be interpreted as causal if current interest in politics was attained before the newspaper readings that we measure (very plausible) and age is the only common cause of interest in politics and newspaper reading (highly questionable).</p>
+<p>If we include both age and interest in politics as predictors in a regression model for newspaper reading time, the partial effect (<a href="10-confounding.html#sec-partialeffect" class="quarto-xref"><span>Section 8.1.1</span></a>) of interest in politics is corrected for the spurious correlation between interest in politics and newspaper reading caused by age as their common cause. The partial effect of political interest can be interpreted as causal if current interest in politics was attained before the newspaper readings that we measure (very plausible) and age is the only common cause of interest in politics and newspaper reading (highly questionable).</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.06, yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -343,6 +402,26 @@ window.Quarto = {
 <p>In the causal order that we theorize, age is causally prior (antecedent) to interest in politics, which is causally prior to current newspaper reading time. We have an <em>indirect effect</em> of age on newspaper reading by way of interest in politics. When adults grow older, they tend to be more interested in politics and because of this, they tend to spend more time on reading newspapers. We say that interest in politics <em>mediates</em> the effect of age on newspaper reading time. Interest in politics is a <em>mediator</em>, an <em>intermediary variable</em>, or an <em>intervening variable</em> in this causal diagram.</p>
 <p>A causal diagram like Figure <span class="quarto-unresolved-ref">?fig-causaldiagram</span> is also called a <em>path diagram</em>. Each indirect effect is a sequence of direct effects. Each direct effect is a “step” from one variable to another variable, represented by an arrow. An indirect effect, then, can be regarded as a <em>path</em> that we can follow to “travel” from one variable to another variable.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.07, yend = y[1]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.07, yend = y[3]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[3], y = y[3], xend = x[4] - 0.04, yend = y[4] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -367,60 +446,100 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="causal-process" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="causal-process"><span class="header-section-number">1.1.3</span> Causal process</h3>
+<section id="causal-process" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="causal-process"><span class="header-section-number">9.1.3</span> Causal process</h3>
 <p>In our example (Figure <span class="quarto-unresolved-ref">?fig-causaldiagram2</span>), age has a direct effect on newspaper reading time. What does the direct effect mean? If we start thinking about why older people spend more time on reading newspapers, we soon realize that this is probably not some biological process. It is hard to believe that an ageing human body requires more newspaper reading time. The effect is more likely to be social.</p>
 <p>In the middle of the 20th century, newspapers were among the most important sources of information. A person who was born and grew up in that period is accustomed to using newspapers as main information source. For later generations, however, news sites on the internet have become important sources of information. Newspapers being less important to them, they are less oriented and accustomed to reading newspapers.</p>
 <p>This line of reasoning shows us two things. First, we discover that our common cause may actually represent different things. Age, for instance, refers to life experience in its effect on interest in politics. In contrast, it relates to the period of coming of age in its direct effect on newspaper reading time.</p>
 <p>Our second discovery is that we usually look for mediators if we want to understand a direct effect. Date of birth affects exposure to people using newspapers as information sources, which affects the habit of reading newspapers, which finally affects the time spent on reading newspapers later on. Exposure and habit are mediators here. A direct effect of age on newspaper reading represents a causal process that may contain many intermediary steps. Adding mediators to our model is a way of getting more insight in the causal process.</p>
 </section>
 </section>
-<section id="path-model-with-regression-analysis" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="path-model-with-regression-analysis"><span class="header-section-number">1.2</span> Path Model with Regression Analysis</h2>
+<section id="path-model-with-regression-analysis" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="path-model-with-regression-analysis"><span class="header-section-number">9.2</span> Path Model with Regression Analysis</h2>
 <p>Mediation or, more generally, path models can be estimated with a series of regression models. Every variable in the path diagram with at least one predictor (or incoming arrow) is a dependent variable, so for each of them, we estimate a regression model. The regression model contains all variables as predictors that may cause changes in the dependent variable. In other words, all variables that are causally prior to the outcome are used as predictors. In a well-designed causal diagram, all variables to the left of the outcome are causally prior to it.</p>
 <div class="cell" data-layout-align="center" data-screenshot.alt="figures/mediation-regression.png">
 <div class="cell-output-display">
-<div id="htmlwidget-4fbcdb27a57be06dc071" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4fbcdb27a57be06dc071">{"x":{"nodes":{"id":[1,2,3],"x":[0,550,1000],"y":[500,0,500],"label":["Age (/10)","Pol. Interest","Newspaper \n Reading Time"],"shape":["box","box","box"],"font.size":[42,42,42],"shadow":["FALSE","FALSE","FALSE"],"physics":[false,false,false],"borderWidth":[1,1,1],"color.background":["white","white","white"],"color.border":["black","black","black"]},"edges":{"from":[1,1,2],"to":[2,3,3],"label":["0.1 \n [0; 0.19]","5.99 \n [5.64; 6.35]","0.32 \n [-0.09; 0.74]"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to","font":{"size":30}},"interaction":{"dragNodes":true,"multiselect":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b74ee13c2155ed0fe645" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b74ee13c2155ed0fe645">{"x":{"nodes":{"id":[1,2,3],"x":[0,550,1000],"y":[500,0,500],"label":["Age (/10)","Pol. Interest","Newspaper \n Reading Time"],"shape":["box","box","box"],"font.size":[42,42,42],"shadow":["FALSE","FALSE","FALSE"],"physics":[false,false,false],"borderWidth":[1,1,1],"color.background":["white","white","white"],"color.border":["black","black","black"]},"edges":{"from":[1,1,2],"to":[2,3,3],"label":["0.1 \n [0; 0.19]","5.99 \n [5.64; 6.35]","0.32 \n [-0.09; 0.74]"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to","font":{"size":30}},"interaction":{"dragNodes":true,"multiselect":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 <p>Path diagram with unstandardized effect sizes and their 95% confidence intervals.</p>
 </div>
 </div>
 <p>In the path diagram displayed in Figure <span class="quarto-unresolved-ref">?fig-mediation-regression</span>, we would regress newspaper reading time, the final dependent variable, on age and political interest. As a next step, we would predict political interest as outcome from age.</p>
-<section id="requirements" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="requirements"><span class="header-section-number">1.2.1</span> Requirements</h3>
+<section id="requirements" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="requirements"><span class="header-section-number">9.2.1</span> Requirements</h3>
 <p>We can estimate mediation and path models with regression analysis if we meet the following requirements:</p>
 <ol type="1">
 <li><p>Each variable used as a dependent variable is numeric. This is a general requirement of a linear regression model. In a path diagram, it means that all mediators and dependent variables must be numeric.</p>
 <p>For detail lovers: Variables with only incoming arrows may be dichotomous but that requires logistic regression, which we do not discuss.</p></li>
 <li><p>Each variable used only as a predictor must be a numeric or dichotomous (dummy) variable. Again, this is a general requirement of regression models.</p></li>
 <li><p>There are no causal feedback loops. Causality must work in one direction. It must be impossible to travel from a variable back to it while following the direction of the arrows. Note that it can be difficult to assign a causal order. For example, does political interest cause (low) political cynicism or the other way around? Or are they not causally related at all?</p></li>
-<li><p>All regression models meet the assumptions for regression analysis. Check if the residuals are normally distributed, centered around zero for all levels of the predicted outcome scores, and that scores are predicted equally well at all outcome levels (see Section <span class="quarto-unresolved-ref">?sec-regr-inference</span>).</p></li>
+<li><p>All regression models meet the assumptions for regression analysis. Check if the residuals are normally distributed, centered around zero for all levels of the predicted outcome scores, and that scores are predicted equally well at all outcome levels (see <a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>).</p></li>
 </ol>
 </section>
-<section id="size-indirect-effects" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="size-indirect-effects"><span class="header-section-number">1.2.2</span> Size of indirect effects</h3>
+<section id="sec-size-indirect-effects" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="sec-size-indirect-effects"><span class="header-section-number">9.2.2</span> Size of indirect effects</h3>
 <p>The regression results tell us the sizes and statistical significance of all direct effects on the dependent variable. Both unstandardized and standardized regression coefficients can be used to interpret effects in the usual way. But how do we obtain the size, confidence interval, and statistical significance of indirect effects?</p>
-<p>The size of an indirect effect is calculated in exactly the same way as the size of indirect correlations (Section <span class="quarto-unresolved-ref">?sec-indirectcorrelation</span>): Just multiply the size of direct effects. This can be done with either the standardized regression coefficients or the unstandardized regression coefficients.</p>
+<p>The size of an indirect effect is calculated in exactly the same way as the size of indirect correlations (<a href="10-confounding.html#sec-indirectcorrelation" class="quarto-xref"><span>Section 8.2</span></a>): Just multiply the size of direct effects. This can be done with either the standardized regression coefficients or the unstandardized regression coefficients.</p>
 <div class="cell" data-layout-align="center" data-screenshot.alt="figures/pathdiagram-unstandardized.png">
 <div class="cell-output-display">
-<div id="htmlwidget-dbfcd3c383bd34446451" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dbfcd3c383bd34446451">{"x":{"nodes":{"id":[1,2,3],"x":[0,550,1000],"y":[500,0,500],"label":["Age (/10)","Pol. Interest","Newspaper \n Reading Time"],"shape":["box","box","box"],"font.size":[42,42,42],"shadow":["FALSE","FALSE","FALSE"],"physics":[false,false,false],"borderWidth":[1,1,1],"color.background":["white","white","white"],"color.border":["black","black","black"]},"edges":{"from":[1,1,2],"to":[2,3,3],"label":["0.1 \n [0; 0.19]","5.99 \n [5.64; 6.35]","0.32 \n [-0.09; 0.74]"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to","font":{"size":30}},"interaction":{"dragNodes":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c597709868d99cec8345" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c597709868d99cec8345">{"x":{"nodes":{"id":[1,2,3],"x":[0,550,1000],"y":[500,0,500],"label":["Age (/10)","Pol. Interest","Newspaper \n Reading Time"],"shape":["box","box","box"],"font.size":[42,42,42],"shadow":["FALSE","FALSE","FALSE"],"physics":[false,false,false],"borderWidth":[1,1,1],"color.background":["white","white","white"],"color.border":["black","black","black"]},"edges":{"from":[1,1,2],"to":[2,3,3],"label":["0.1 \n [0; 0.19]","5.99 \n [5.64; 6.35]","0.32 \n [-0.09; 0.74]"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to","font":{"size":30}},"interaction":{"dragNodes":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false},"byselection":{"enabled":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 <p>Path diagram with unstandardized effect sizes and their 95% confidence intervals.</p>
 </div>
 </div>
 <p>It may sound weird that we can multiply the unstandardized regression coefficients but it really works. In Figure <span class="quarto-unresolved-ref">?fig-pathdiagram-unstandardized</span>, for instance, the unstandardized partial effect of age (measured in tens of years) on interest in politics is 0.1. This means that an additional 10 years of life predict an average increase in interest in politics of 0.1.</p>
 <p>In its turn, interest in politics has an unstandardized effect of 0.32 on reading time (in minutes). An additional unit of interest in politics predicts an average increase in reading time of 0.32 minutes.</p>
 <p>Ten additional years of life only predict an increase of 0.1 in political interest, not a full unit increase. The predicted increase of 0.1 in political interest predicts 0.1 * 0.32 = 0.03 minutes of additional newspaper reading time. As a result, an additional ten years of life predict 0.1 * 0.32 = 0.03 minutes of additional newspaper reading time as an indirect effect via political interest.</p>
-<p>Note that the indirect effect is interpreted in terms of the measurement units of the initial predictor (age in tens of years) and the final outcome (reading time in minutes): A difference in (tens of) years predicts a difference in reading time in minutes. As a consequence, we can directly compare unstandardized indirect effect sizes of different paths between the same predictor and outcome, as we will see in Section <a href="#sec-partialfullmediation" class="quarto-xref"><span>Section 1.2.5</span></a>.</p>
+<p>Note that the indirect effect is interpreted in terms of the measurement units of the initial predictor (age in tens of years) and the final outcome (reading time in minutes): A difference in (tens of) years predicts a difference in reading time in minutes. As a consequence, we can directly compare unstandardized indirect effect sizes of different paths between the same predictor and outcome, as we will see in <a href="#sec-partialfullmediation" class="quarto-xref"><span>Section 9.2.5</span></a>.</p>
 </section>
-<section id="direction-of-indirect-effects" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="direction-of-indirect-effects"><span class="header-section-number">1.2.3</span> Direction of indirect effects</h3>
+<section id="direction-of-indirect-effects" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="direction-of-indirect-effects"><span class="header-section-number">9.2.3</span> Direction of indirect effects</h3>
 <p>Multiplication of direct effects assigns the right direction (positive or negative) to indirect effects. In the example above, age has a positive effect on interest in politics, which has a positive effect on newspaper reading time. If age goes up, interest in politics goes up and if interest in politics goes up, reading time increases. Thus, higher age is indirectly associated with more reading time through interest in politics: Plus times plus yields a plus.</p>
 </section>
-<section id="sec-partialserialmediation" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="sec-partialserialmediation"><span class="header-section-number">1.2.4</span> Parallel and serial mediation</h3>
+<section id="sec-partialserialmediation" class="level3" data-number="9.2.4">
+<h3 data-number="9.2.4" class="anchored" data-anchor-id="sec-partialserialmediation"><span class="header-section-number">9.2.4</span> Parallel and serial mediation</h3>
 <p>If each indirect effect in a path model contains at most one mediator, we have <em>single mediation</em> or <em>parallel mediation</em>. Figure <span class="quarto-unresolved-ref">?fig-mediationparallel</span> illustrates single and parallel mediation.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.09, yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.09, yend = y[1]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.07, yend = y[2] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.09, yend = y[4] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.09, yend = y[3] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[3] - 0.09, yend = y[3] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -438,8 +557,38 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>If at least one of the indirect effects in a path model contains two or more mediators, we are dealing with <em>serial mediation</em>. Figure <span class="quarto-unresolved-ref">?fig-mediationserial</span> illustrates serial mediation. It contains an indirect effect from age on reading time with two mediators: Age &gt; Political Interest &gt; News Site Use &gt; Reading Time. The distinction between parallel and serial mediation is relevant to the software (PROCESS) that we will use to estimate indirect and total effects (Section <a href="#sec-SPSSPROCESS" class="quarto-xref"><span>Section 1.5</span></a>).</p>
+<p>If at least one of the indirect effects in a path model contains two or more mediators, we are dealing with <em>serial mediation</em>. Figure <span class="quarto-unresolved-ref">?fig-mediationserial</span> illustrates serial mediation. It contains an indirect effect from age on reading time with two mediators: Age &gt; Political Interest &gt; News Site Use &gt; Reading Time. The distinction between parallel and serial mediation is relevant to the software (PROCESS) that we will use to estimate indirect and total effects (<a href="#sec-SPSSPROCESS" class="quarto-xref"><span>Section 9.5</span></a>).</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.06, yend = y[1]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.05, yend = y[2] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.06, yend = y[4] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.06, yend = y[3] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[4] - 0.02, yend = y[4] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[3] - 0.06, yend = y[3] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -450,21 +599,21 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="sec-partialfullmediation" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="sec-partialfullmediation"><span class="header-section-number">1.2.5</span> Partial and full mediation</h3>
-<p>The unstandardized direct effect and indirect effects between a predictor and outcome can be compared directly because they are all expressed in the same measurement units, namely the predicted change in the dependent variable (reading time in minutes) for a difference of one unit in the predictor (ten additional years of life) (Section <span class="quarto-unresolved-ref">?sec-size-indirect-effects</span>). Because of this, we can sum the unstandardized direct and indirect effects to obtain the total unstandardized effect.</p>
+<section id="sec-partialfullmediation" class="level3" data-number="9.2.5">
+<h3 data-number="9.2.5" class="anchored" data-anchor-id="sec-partialfullmediation"><span class="header-section-number">9.2.5</span> Partial and full mediation</h3>
+<p>The unstandardized direct effect and indirect effects between a predictor and outcome can be compared directly because they are all expressed in the same measurement units, namely the predicted change in the dependent variable (reading time in minutes) for a difference of one unit in the predictor (ten additional years of life) (<a href="#sec-size-indirect-effects" class="quarto-xref"><span>Section 9.2.2</span></a>). Because of this, we can sum the unstandardized direct and indirect effects to obtain the total unstandardized effect.</p>
 <p>With this in mind, we see that the relation between age and newspaper reading time is dominated by the positive direct effect (<em>b</em> = 5.99) and the positive indirect effect via news site use (<em>b</em> = 0.03). The remaining indirect effects are relatively small as indirect effects usually are.</p>
 <p>Summing all effects, we obtain a <em>total effect</em> of age on newspaper reading time around 6 (<em>b</em> = 6.03). A person who is ten years older but in other respects the same as another person, is predicted to spend on average 6 additional minutes on reading newspapers per day.</p>
 <p>If the direct effect of a predictor on the outcome is zero in a model with mediators, the predictor’s effect is <em>fully mediated</em>. This clearly is not the case in our example: There still is a substantial direct effect of age on newspaper reading time. This is what we usually encounter; it is called <em>partial mediation</em>.</p>
-<p>Sometimes, researchers decide that an effect is fully mediated if the direct effect is no longer statistically significant once a mediator is added to the model. This strategy is contestable because a statistically non-significant direct effect does not mean that the effect is absent (zero) in the population. It can be absent but it is much more likely to be present but just too small to be picked up by our significance test (see Chapter <span class="quarto-unresolved-ref">?sec-true-effect-size</span>).</p>
-<p>The distinction between full and partial mediation is a little bit problematic. From a substantive point of view, we may argue that direct effects are probably always mediated. As we have seen in Section <a href="#sec-indirecteffect" class="quarto-xref"><span>Section 1.1.2</span></a>, a direct effect usually summarizes a causal process that consists of intermediary steps, which is mediation. We may wonder whether it makes theoretical sense to talk about unmediated effects. Do we really believe that age can directly affect newspaper reading time?</p>
+<p>Sometimes, researchers decide that an effect is fully mediated if the direct effect is no longer statistically significant once a mediator is added to the model. This strategy is contestable because a statistically non-significant direct effect does not mean that the effect is absent (zero) in the population. It can be absent but it is much more likely to be present but just too small to be picked up by our significance test (see <a href="04-hypothesis.html#sec-true-effect-size" class="quarto-xref"><span>Section 4.2.7</span></a>).</p>
+<p>The distinction between full and partial mediation is a little bit problematic. From a substantive point of view, we may argue that direct effects are probably always mediated. As we have seen in <a href="#sec-indirecteffect" class="quarto-xref"><span>Section 9.1.2</span></a>, a direct effect usually summarizes a causal process that consists of intermediary steps, which is mediation. We may wonder whether it makes theoretical sense to talk about unmediated effects. Do we really believe that age can directly affect newspaper reading time?</p>
 <p>If the variables that we entered in the model as mediators do not create any indirect effects, the direct effect is equal to the total effect. We may conclude that the direct effect is not mediated by the mediators that are included in the model. For example, if education, political interest, and news site use do not create indirect effects from age on newspaper reading time (Figure <span class="quarto-unresolved-ref">?fig-pathdiagram-unstandardized</span>), we only have the direct effect of age on reading time in our model. However, this effect is very likely to be mediated by other variables that we did not include in the model. We should not conclude that the effect is unmediated because we have not found mediation yet.</p>
 </section>
-<section id="significance-of-indirect-effects" class="level3" data-number="1.2.6">
-<h3 data-number="1.2.6" class="anchored" data-anchor-id="significance-of-indirect-effects"><span class="header-section-number">1.2.6</span> Significance of indirect effects</h3>
+<section id="significance-of-indirect-effects" class="level3" data-number="9.2.6">
+<h3 data-number="9.2.6" class="anchored" data-anchor-id="significance-of-indirect-effects"><span class="header-section-number">9.2.6</span> Significance of indirect effects</h3>
 <p>SPSS does not calculate the size of indirect effects for us or their confidence intervals and <em>p</em> values. It is easy to calculate the sizes of indirect effects, as we have seen in a preceding section: just take the product of direct effects.</p>
 <p>In contrast, it is not possible to calculate the confidence interval or <em>p</em> value of an indirect effect in a reliable way from the confidence intervals or <em>p</em> values of the direct effects <span class="citation" data-cites="RefWorks:3873">(see <a href="#ref-RefWorks:3873" role="doc-biblioref">Hayes 2013</a>: Section 4.4 for a detailed and critical discussion of approaches that try to calculate the <em>p</em> value of an indirect effect from <em>p</em> values of direct effects)</span>.</p>
-<p>We use bootstrapping to create the sampling distribution of the size of an indirect effect. We have learned the principles and limitations of bootstrapping in Section <span class="quarto-unresolved-ref">?sec-boot-approx</span>, so we do not have to go into details here. Suffice it to repeat that our original sample must not be too small and it must be quite representative of the population if we apply bootstrapping.</p>
+<p>We use bootstrapping to create the sampling distribution of the size of an indirect effect. We have learned the principles and limitations of bootstrapping in <a href="02-probability.html#sec-boot-approx" class="quarto-xref"><span>Section 2.5</span></a>, so we do not have to go into details here. Suffice it to repeat that our original sample must not be too small and it must be quite representative of the population if we apply bootstrapping.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -518,6 +667,21 @@ window.Quarto = {
 <p>It may happen that an indirect effect is not statistically significant (the confidence interval includes zero) whereas all direct effects that constitute the indirect effect are statistically significant. In Figure <span class="quarto-unresolved-ref">?fig-causaldiagram3</span>, for example, both the effect of age on political interest (<em>b</em> = 0.30, 95% CI [0.22, 0.38]) and the effect of political interest on reading time (<em>b</em> = 0.20, 95% CI [0.12, 0.28]) are statistically significant at the .05 level. The indirect effect of age via political interest on reading time, however, is not statistically significant at this level [<em>b</em> = 0.30 * 0.20 = 0.06, 95% CI [-0.02, 0.14], (bootstrapped)].</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.06, yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning in is.na(x): is.na() applied to non-(list or vector) of type
 'expression'</code></pre>
 </div>
@@ -530,13 +694,38 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero. With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see Chapter <span class="quarto-unresolved-ref">?sec-power</span> on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population.</p>
+<p>This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero. With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see <a href="04-hypothesis.html#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a> on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population.</p>
 </section>
 </section>
-<section id="sec-mediationcovariate" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="sec-mediationcovariate"><span class="header-section-number">1.3</span> Controlling for Covariates</h2>
+<section id="sec-mediationcovariate" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-mediationcovariate"><span class="header-section-number">9.3</span> Controlling for Covariates</h2>
 <p>We usually have theoretical reasons to expect that a variable mediates an effect, for example, that political interest mediates the effect of age on newspaper reading time. At the same time, we know that our dependent variable and perhaps our mediator may depend on other variables. Newspaper reading time, for instance, may also depend on education. In this situation, we would use the other variables as covariates (or control variables) for which we want to control statistically.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.06, yend = y[1]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[2] - 0.04, yend = y[2]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[3] - 0.06, yend = y[3]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -550,9 +739,9 @@ window.Quarto = {
 <p>If education predicts political interest and political interest predicts newspaper reading time as in Figure <span class="quarto-unresolved-ref">?fig-causaldiagram4</span>, political interest mediates the effect of education on newspaper reading time. We are, however, not interested in mediation in the case of a covariate, so we do not estimate or report the indirect effects of education on newspaper reading time. In the context of a mediation model, a <em>covariate</em> is a predictor for which we do not investigate if its effect is mediated.</p>
 <p>Note that covariates should only be allowed to have an effect on variables that can be caused by the covariate. We should not include effects of a covariate on a variable that is causally prior to it. If a covariate is a consequence rather than a cause of a mediator, it had better be used as another mediator in the model. If, for instance, political cynicism may affect newspaper reading time but it is a consequence of political interest, it should be included as a second (serial) mediator instead of as a covariate.</p>
 </section>
-<section id="reporting-mediation-results" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="reporting-mediation-results"><span class="header-section-number">1.4</span> Reporting Mediation Results</h2>
-<p>We analyse a path model as a series of regression models, so the general rules for reporting mediation are the same as for reporting regression analyses (see Section <span class="quarto-unresolved-ref">?sec-reportmoderation</span>). If you summarize results in a table, make sure that the table includes:</p>
+<section id="reporting-mediation-results" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="reporting-mediation-results"><span class="header-section-number">9.4</span> Reporting Mediation Results</h2>
+<p>We analyse a path model as a series of regression models, so the general rules for reporting mediation are the same as for reporting regression analyses (see <a href="09-moderation-continuous.html#sec-reportmoderation" class="quarto-xref"><span>Section 7.2</span></a>). If you summarize results in a table, make sure that the table includes:</p>
 <ol type="1">
 <li><p>The unstandardized regression coefficients for all direct and indirect effects tested in the regression models.</p></li>
 <li><p>The confidence intervals and significance levels of the unstandardized effects.</p></li>
@@ -674,7 +863,7 @@ window.Quarto = {
 <td style="text-align: center;">[0.61; 2.17]</td>
 </tr>
 </tbody><tfoot>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note.</span> <sup></sup> \* _p_ &lt; .05. \*\* _p_ &lt; .01. \*** _p_ &lt; .001.</td>
 <td style="text-align: right;"></td>
 <td style="text-align: left;"></td>
@@ -687,22 +876,22 @@ window.Quarto = {
 
 </div>
 </div>
-<p>A path model may yield a lot of direct effects, so it is good practice to present results as a path diagram with the values of the standardized or unstandardized regression coefficients as labels to the arrows. A path model conveniently summarizes the results for the reader (Figure <span class="quarto-unresolved-ref">?fig-results-pathdiagram</span>). Remember that we don’t use standardized regression coefficients if the predictor or a covariate is dichotomous variable or a set of dummy variables (see Section <span class="quarto-unresolved-ref">?sec-dichpredictor</span>).</p>
+<p>A path model may yield a lot of direct effects, so it is good practice to present results as a path diagram with the values of the standardized or unstandardized regression coefficients as labels to the arrows. A path model conveniently summarizes the results for the reader (Figure <span class="quarto-unresolved-ref">?fig-results-pathdiagram</span>). Remember that we don’t use standardized regression coefficients if the predictor or a covariate is dichotomous variable or a set of dummy variables (see <a href="08-moderation-categorical.html#sec-dichpredictor" class="quarto-xref"><span>Section 6.1.2</span></a>).</p>
 <div class="cell" data-layout-align="center" data-screenshot.alt="figures/results-pathdiagram.png">
 <div class="cell-output-display">
-<div id="htmlwidget-fd378cb1bec1ab51172c" style="width:100%;height:336px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fd378cb1bec1ab51172c">{"x":{"nodes":{"id":[1,2,3,4,5],"x":[0,100,300,360,1000],"y":[550,0,75,300,550],"label":["Age (/10)","Education","Pol. Interest","News Site Use","Newspaper \n Reading Time"],"shape":["box","box","box","box","box"],"font.size":[42,42,42,42,42],"shadow":["FALSE","FALSE","FALSE","FALSE","FALSE"],"physics":[false,false,false,false,false],"borderWidth":[1,1,1,1,1],"color.background":["white","white","white","white","white"],"color.border":["black","black","black","black","black"]},"edges":{"from":[1,2,3,1,2,3,4],"to":[4,4,4,5,5,5,5],"color.highlight":["#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA"],"shadow":[false,false,false,false,false,false,false],"label":["-0.93","0.06","0.12","Direct: b = 4.54, 95% CI [3.62, 5.47]\nIndirect effect: b = 1.44, 95% CI [0.61, 2.17]","0.06","0.52","-1.55"],"font.color":["#D7191C","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#D7191C"],"font.size":[35,35,35,35,35,35,35]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to"},"interaction":{"dragNodes":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3ac06d241fc1304b5340" style="width:100%;height:336px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3ac06d241fc1304b5340">{"x":{"nodes":{"id":[1,2,3,4,5],"x":[0,100,300,360,1000],"y":[550,0,75,300,550],"label":["Age (/10)","Education","Pol. Interest","News Site Use","Newspaper \n Reading Time"],"shape":["box","box","box","box","box"],"font.size":[42,42,42,42,42],"shadow":["FALSE","FALSE","FALSE","FALSE","FALSE"],"physics":[false,false,false,false,false],"borderWidth":[1,1,1,1,1],"color.background":["white","white","white","white","white"],"color.border":["black","black","black","black","black"]},"edges":{"from":[1,2,3,1,2,3,4],"to":[4,4,4,5,5,5,5],"color.highlight":["#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA"],"shadow":[false,false,false,false,false,false,false],"label":["-0.93","0.06","0.12","Direct: b = 4.54, 95% CI [3.62, 5.47]\nIndirect effect: b = 1.44, 95% CI [0.61, 2.17]","0.06","0.52","-1.55"],"font.color":["#D7191C","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#D7191C"],"font.size":[35,35,35,35,35,35,35]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to"},"interaction":{"dragNodes":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 <p>Unstandardized direct effects for a path model with one mediator and two covariates.</p>
 </div>
 </div>
 <p>If effect mediation is central to your report, focus your presentation and interpretation on the indirect effects and compare them to the direct effects. Report the size and confidence interval of each indirect effect. If possible, add both the direct and indirect effect to a diagram such as Figure <span class="quarto-unresolved-ref">?fig-results-pathdiagram</span>.</p>
 <p>Interpret an unstandardized indirect effect just like any unstandardized regression effect, namely, as the predicted difference in the outcome for a one unit difference in the predictor. It is usually interesting to compare the sizes of the direct and indirect effects. Is the effect predominantly mediated in the model or is only a minor part of the effect mediated in the model?</p>
-<p>Inform the reader that you bootstrapped the indirect effect and report the number of bootstrap samples and the method used for the confidence intervals (see Section <a href="#sec-SPSSPROCESS" class="quarto-xref"><span>Section 1.5</span></a>). For a more elaborate discussion of reporting mediation, see Hayes <span class="citation" data-cites="RefWorks:3873">(<a href="#ref-RefWorks:3873" role="doc-biblioref">2013</a>: 198-202)</span>.</p>
+<p>Inform the reader that you bootstrapped the indirect effect and report the number of bootstrap samples and the method used for the confidence intervals (see <a href="#sec-SPSSPROCESS" class="quarto-xref"><span>Section 9.5</span></a>). For a more elaborate discussion of reporting mediation, see Hayes <span class="citation" data-cites="RefWorks:3873">(<a href="#ref-RefWorks:3873" role="doc-biblioref">2013</a>: 198-202)</span>.</p>
 </section>
-<section id="sec-SPSSPROCESS" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="sec-SPSSPROCESS"><span class="header-section-number">1.5</span> Mediation with SPSS and PROCESS</h2>
-<section id="instructions" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1.5.1</span> Instructions</h3>
+<section id="sec-SPSSPROCESS" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="sec-SPSSPROCESS"><span class="header-section-number">9.5</span> Mediation with SPSS and PROCESS</h2>
+<section id="instructions" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">9.5.1</span> Instructions</h3>
 <p>SPSS cannot apply statistical inference to indirect effects, so we use the PROCESS macro developed for this purpose <span class="citation" data-cites="RefWorks:3873">(<a href="#ref-RefWorks:3873" role="doc-biblioref">Hayes 2013</a>)</span>. If correctly installed (see below), the macro can be used from within the SPSS Regression menu. Please note that you had better not paste the PROCESS commands to the SPSS syntax because it produces a lot of code that is difficult to understand. Instead, run the PROCESS command directly from the menu and manually add a comment to your SPSS syntax file reminding yourself of the model that you estimated with PROCESS.</p>
 <p><a href="http://processmacro.org/download.html">Download the PROCESS macro</a> and <a href="http://www.processmacro.org/uploads/3/4/8/5/34858384/dialoginstall.pdf">install the SPSS custom dialog file</a>. Check the <a href="http://processmacro.org/faq.html">FAQ at the PROCESS website</a> if installation is not successful. If PROCESS is successfully installed, it can be found in the Analyze &gt; Regression menu.</p>
 <hr>
@@ -727,33 +916,33 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="criticisms-of-mediation" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="criticisms-of-mediation"><span class="header-section-number">1.6</span> Criticisms of Mediation</h2>
-<p>If we think of causality, we usually think of a process in which one thing leads to another thing, which leads to something else, and so on. This is apparent if we want to explain why we think that one phenomenon causes another (see Section <a href="#sec-indirecteffect" class="quarto-xref"><span>Section 1.1.2</span></a>). Mediation, however, is difficult to establish with regression analysis and, as some argue, perhaps impossible to establish.</p>
-<section id="causal-order-assumed" class="level3" data-number="1.6.1">
-<h3 data-number="1.6.1" class="anchored" data-anchor-id="causal-order-assumed"><span class="header-section-number">1.6.1</span> Causal order assumed</h3>
-<p>It is paramount to note that the regression approach to mediation and path models does not tell us anything about the causal order of the variables. The causal order is purely an assumption that we make. The plausibility of the assumptions depends on how well we can justify the time order of the variables and the absence of common causes for cause-consequence pairs (see <a href="#sec-causalcriteria" class="quarto-xref"><span>Section 1.1.1</span></a>).</p>
+<section id="criticisms-of-mediation" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="criticisms-of-mediation"><span class="header-section-number">9.6</span> Criticisms of Mediation</h2>
+<p>If we think of causality, we usually think of a process in which one thing leads to another thing, which leads to something else, and so on. This is apparent if we want to explain why we think that one phenomenon causes another (see <a href="#sec-indirecteffect" class="quarto-xref"><span>Section 9.1.2</span></a>). Mediation, however, is difficult to establish with regression analysis and, as some argue, perhaps impossible to establish.</p>
+<section id="causal-order-assumed" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="causal-order-assumed"><span class="header-section-number">9.6.1</span> Causal order assumed</h3>
+<p>It is paramount to note that the regression approach to mediation and path models does not tell us anything about the causal order of the variables. The causal order is purely an assumption that we make. The plausibility of the assumptions depends on how well we can justify the time order of the variables and the absence of common causes for cause-consequence pairs (see <a href="#sec-causalcriteria" class="quarto-xref"><span>Section 9.1.1</span></a>).</p>
 </section>
-<section id="time-order" class="level3" data-number="1.6.2">
-<h3 data-number="1.6.2" class="anchored" data-anchor-id="time-order"><span class="header-section-number">1.6.2</span> Time order</h3>
+<section id="time-order" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="time-order"><span class="header-section-number">9.6.2</span> Time order</h3>
 <p>To establish the time order of variables, we must think about the time at which the behaviours or opinions that we measure took place. This is what matters, not the time at which we measure them. We can collect information on behaviour a long time after the fact, for example by asking respondents when they started using news sites or checking internet use logs.</p>
 <p>If cause and consequence appear very closely in time, it may be difficult to argue that one variable precedes the other. This may also apply to the time at which measurement takes place. If we measure cause and consequence nearly at the same time, it can be difficult to establish the time order of the two.</p>
 </section>
-<section id="causality-or-underlying-construct" class="level3" data-number="1.6.3">
-<h3 data-number="1.6.3" class="anchored" data-anchor-id="causality-or-underlying-construct"><span class="header-section-number">1.6.3</span> Causality or underlying construct?</h3>
+<section id="causality-or-underlying-construct" class="level3" data-number="9.6.3">
+<h3 data-number="9.6.3" class="anchored" data-anchor-id="causality-or-underlying-construct"><span class="header-section-number">9.6.3</span> Causality or underlying construct?</h3>
 <p>For causes and consequences that appear nearly simultaneously, we should take into account that the two variables may measure the same underlying construct. Think of the way we construct a scale from items: We assume that the items measure the same underlying attitude, for instance, political cynicism.</p>
 <p>The indicators of a scale are correlated because they have a common cause, namely, the underlying attitude. But it does not make sense to interpret the correlation as a sign of mediation. One item does not trigger another item, and so on. A mediator must be theoretically and conceptually different from both the predictor and outcome. We have to provide arguments that they are really different.</p>
 </section>
-<section id="every-effect-in-a-path-model-can-be-confounded" class="level3" data-number="1.6.4">
-<h3 data-number="1.6.4" class="anchored" data-anchor-id="every-effect-in-a-path-model-can-be-confounded"><span class="header-section-number">1.6.4</span> Every effect in a path model can be confounded</h3>
-<p>In Chapter <span class="quarto-unresolved-ref">?sec-confounder</span>, you learned that the estimated regression coefficients can be too small, too large, or have the wrong sign (direction) if there are confounders: variables not included in the regression model that are correlated with the predictor and outcome variable. If we analyze a path model with a series of regression models, there can be confounders for each regression model. Every estimated direct effect can be wrong. As a consequence, every indirect effect, which is the product of direct effects, can be wrong.</p>
-<p>The surest way to get rid of a confounder is adding it to the regression model. In a path model, we can add a variable that we expect to be a confounder as a covariate (Section <a href="#sec-mediationcovariate" class="quarto-xref"><span>Section 1.3</span></a>) or as an additional mediator. If a confounder comes after the outcome variable in the causal order of the path model, it cannot be a common cause to both a predictor and the outcome variable. In this situation, the confounder can be ignored. This underlines the importance of choosing a correct causal order when we construct a path model. Unfortunately, we can never be sure about this.</p>
-<p>In practice, we do not know all confounders and we cannot include all of them in our regression models. We can minimize the risk of having confounders if we use randomization in an experiment. Section <span class="quarto-unresolved-ref">?sec-randomization</span> explained how randomization of the experimental treatment variable helps to eliminate confounders for the effect of the experimental treatment (predictor variable) on the dependent variable. We expect that this effect is not confounded.</p>
+<section id="every-effect-in-a-path-model-can-be-confounded" class="level3" data-number="9.6.4">
+<h3 data-number="9.6.4" class="anchored" data-anchor-id="every-effect-in-a-path-model-can-be-confounded"><span class="header-section-number">9.6.4</span> Every effect in a path model can be confounded</h3>
+<p>In <a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>, you learned that the estimated regression coefficients can be too small, too large, or have the wrong sign (direction) if there are confounders: variables not included in the regression model that are correlated with the predictor and outcome variable. If we analyze a path model with a series of regression models, there can be confounders for each regression model. Every estimated direct effect can be wrong. As a consequence, every indirect effect, which is the product of direct effects, can be wrong.</p>
+<p>The surest way to get rid of a confounder is adding it to the regression model. In a path model, we can add a variable that we expect to be a confounder as a covariate (<a href="#sec-mediationcovariate" class="quarto-xref"><span>Section 9.3</span></a>) or as an additional mediator. If a confounder comes after the outcome variable in the causal order of the path model, it cannot be a common cause to both a predictor and the outcome variable. In this situation, the confounder can be ignored. This underlines the importance of choosing a correct causal order when we construct a path model. Unfortunately, we can never be sure about this.</p>
+<p>In practice, we do not know all confounders and we cannot include all of them in our regression models. We can minimize the risk of having confounders if we use randomization in an experiment. <a href="10-confounding.html#sec-randomization" class="quarto-xref"><span>Section 8.2.2</span></a> explained how randomization of the experimental treatment variable helps to eliminate confounders for the effect of the experimental treatment (predictor variable) on the dependent variable. We expect that this effect is not confounded.</p>
 <p>In a path model, a mediator also serves as a predictor, so we also have to randomize the mediator variable to get correct estimates for the causal effect of the mediator on the outcome variable. With randomized predictor and mediator variables, the direct effects are probably not confounded, so the indirect effects calculated from the direct effects are also unlikely to be confounded.</p>
 <p>It is difficult to manipulate a mediator in an experiment <span class="citation" data-cites="bullock_ha_2011">(<a href="#ref-bullock_ha_2011" role="doc-biblioref">Bullock and Ha 2011</a>)</span>. If we hypothesize, for example, that political interest mediates the effect of age on newspaper reading time, how can we assign a random level of political interest to a participant in an experiment? By the way, it will also be impossible to randomize participant age in this example.</p>
 </section>
-<section id="recommendations" class="level3" data-number="1.6.5">
-<h3 data-number="1.6.5" class="anchored" data-anchor-id="recommendations"><span class="header-section-number">1.6.5</span> Recommendations</h3>
+<section id="recommendations" class="level3" data-number="9.6.5">
+<h3 data-number="9.6.5" class="anchored" data-anchor-id="recommendations"><span class="header-section-number">9.6.5</span> Recommendations</h3>
 <p>All in all, mediation is an intuitively simple and appealing concept. Unfortunately, it is very difficult to substantiate the claim that indirect effects in path models represent mediation. Mediation assumes causal effects and causality is difficult to establish.</p>
 <p>If you plan to investigate mediation:</p>
 <ol type="1">
@@ -763,11 +952,31 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="combining-mediation-and-moderation" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="combining-mediation-and-moderation"><span class="header-section-number">1.7</span> Combining Mediation and Moderation</h2>
-<p>Mediation and moderation (Chapters <span class="quarto-unresolved-ref">?sec-moderationcat</span> and <span class="quarto-unresolved-ref">?sec-moderationcont</span>) can occur in the same model. For example, the effect of age on newspaper reading time mediated by interest in politics can be different for females and males. In other words, the indirect effect is different for females and males.</p>
+<section id="combining-mediation-and-moderation" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="combining-mediation-and-moderation"><span class="header-section-number">9.7</span> Combining Mediation and Moderation</h2>
+<p>Mediation and moderation (Chapters <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a> and <a href="09-moderation-continuous.html" class="quarto-xref"><span>Chapter 7</span></a>) can occur in the same model. For example, the effect of age on newspaper reading time mediated by interest in politics can be different for females and males. In other words, the indirect effect is different for females and males.</p>
 <p>If the indirect effect is different for females and males, at least one of the two direct effects (predictor on mediator or mediator on dependent variable) must be different for females and males. In Figure <span class="quarto-unresolved-ref">?fig-causaldiagram5</span>, the direct effect of age on interest in politics is moderated and as a consequence, indirect effects including this effect are moderated. This is called <em>moderated mediation</em>. In this example, sex is the moderator and interest in politics is the mediator.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.06, yend = y[1]), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = 0.375, yend = 0.19), : All aesthetics have length 1, but the data has 4 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -784,6 +993,94 @@ window.Quarto = {
 
 
 ::: {.cell layout-align="center"}
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[5] - 0.055, yend = y[5] - : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.05, yend = y[3]), : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.05, yend = y[4] - : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[5] - 0.055, yend = y[5] + : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[4] - 0.05, yend = y[4]), : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[3], y = y[3], xend = x[4], yend = y[4] - : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[3], y = y[3], xend = x[5] - 0.055, yend = y[5] - : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
+::: {.cell-output .cell-output-stderr}
+
+```
+Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[5] - 0.055, yend = y[5] + : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.
+```
+
+
+:::
+
 ::: {.cell-output-display}
 ![A path model with unstandardized regression coefficients.](11-mediation_files/figure-html/mediationserial2-1.png){fig-align='center' fig-pos='H' width=672}
 :::
@@ -828,8 +1125,8 @@ window.Quarto = {
 
 -->
 </section>
-<section id="take-home-points" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">1.8</span> Take-Home Points</h2>
+<section id="take-home-points" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">9.8</span> Take-Home Points</h2>
 <ul>
 <li><p>A causal or path model without causal feedback loops can be estimated as a series of regression models: one regression model for each variable that has at least one predictor in the path model.</p></li>
 <li><p>Unstandardized regression coefficients, standardized regression coefficients, and correlations can be multiplied to obtain indirect effects and indirect correlations.</p></li>
@@ -941,6 +1238,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1056,6 +1355,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -1283,8 +1583,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Introduction and Reader's Guide">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction and Reader’s Guide</span>
+      <a href="./10-confounding.html" class="pagination-link" aria-label="Regression Analysis And Confounders">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

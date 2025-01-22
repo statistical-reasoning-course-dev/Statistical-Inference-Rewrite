@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -226,7 +226,7 @@ window.Quarto = {
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#sec-controlling" id="toc-sec-controlling" class="nav-link" data-scroll-target="#sec-controlling"><span class="header-section-number">8.1</span> Controlling for Effects of Other Predictors</a>
   <ul class="collapse">
-  <li><a href="#partialeffect" id="toc-partialeffect" class="nav-link" data-scroll-target="#partialeffect"><span class="header-section-number">8.1.1</span> Partial effect</a></li>
+  <li><a href="#sec-partialeffect" id="toc-sec-partialeffect" class="nav-link" data-scroll-target="#sec-partialeffect"><span class="header-section-number">8.1.1</span> Partial effect</a></li>
   <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables"><span class="header-section-number">8.1.2</span> Confounding variables</a></li>
   </ul></li>
   <li><a href="#sec-indirectcorrelation" id="toc-sec-indirectcorrelation" class="nav-link" data-scroll-target="#sec-indirectcorrelation"><span class="header-section-number">8.2</span> Indirect Correlation</a>
@@ -305,16 +305,16 @@ window.Quarto = {
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-multipleregression/?showcase=0" width="775px" height="405px" data-external="1">
 </iframe>
 </div>
-<section id="partialeffect" class="level3" data-number="8.1.1">
-<h3 data-number="8.1.1" class="anchored" data-anchor-id="partialeffect"><span class="header-section-number">8.1.1</span> Partial effect</h3>
+<section id="sec-partialeffect" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="sec-partialeffect"><span class="header-section-number">8.1.1</span> Partial effect</h3>
 <p>How does a multiple regression model control the effect of an independent variable for the effects of all other independent variables? Conceptually, the regression model first removes the variation in the dependent variable that is predicted by all other independent variables. Then it determines how well the remaining independent variable predicts the variation that is left (residual variation). This is the variation in outcome scores that can be predicted by this particular independent variable but not by any of the other independent variables in the model.</p>
 <p>In this sense, a regression coefficient in a multiple regression model expresses the unique contribution of a variable to the prediction of the dependent variable. It is the contribution to the prediction of the dependent variable over and above the predictions that we can make with all other independent variables in the model. This is called a <em>partial effect</em>. This is what we mean if we say that we are <em>controlling for all other independent variables</em> in our interpretation of a regression model.</p>
 </section>
 <section id="confounding-variables" class="level3" data-number="8.1.2">
 <h3 data-number="8.1.2" class="anchored" data-anchor-id="confounding-variables"><span class="header-section-number">8.1.2</span> Confounding variables</h3>
 <p>It is important to note that the effect is only unique in comparison to the other independent variables that are included in the model. It may well be that we did not include variables in the model that are actually responsible for part of the effects that are attributed to the independent variables in the model. Such left-out variables are called <em>confounding variables</em> or, for short, <em>confounders</em>.</p>
-<p>If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In Figure <span class="quarto-unresolved-ref">?fig-mediation-multipleregression</span>, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In Section <a href="#sec-confounders" class="quarto-xref"><span>Section 8.3</span></a>, we will learn that regression coefficients can increase and decrease if confounders are included in the model.</p>
-<p>If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in Chapter <a href="11-mediation.html" class="quarto-xref"><span>Chapter 1</span></a> (Section <a href="11-mediation.html#sec-causalcriteria" class="quarto-xref"><span>Section 1.1.1</span></a>).</p>
+<p>If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In Figure <span class="quarto-unresolved-ref">?fig-mediation-multipleregression</span>, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In <a href="#sec-confounders" class="quarto-xref"><span>Section 8.3</span></a>, we will learn that regression coefficients can increase and decrease if confounders are included in the model.</p>
+<p>If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in <a href="11-mediation.html" class="quarto-xref"><span>Chapter 9</span></a> (<a href="11-mediation.html#sec-causalcriteria" class="quarto-xref"><span>Section 9.1.1</span></a>).</p>
 <section id="confounders-are-not-included-in-the-regression-model" class="level4" data-number="8.1.2.1">
 <h4 data-number="8.1.2.1" class="anchored" data-anchor-id="confounders-are-not-included-in-the-regression-model"><span class="header-section-number">8.1.2.1</span> Confounders are not included in the regression model</h4>
 <p>Finally, it is important to remember that a confounder, such as age in the present example, is a variable that is <strong>not included in our regression model</strong>. As long as it is not included, the indirect correlation between predictor (political interest) and outcome (newspaper reading time) due to the confounder (age) is not controlled for when the effect of the predictor is estimated. The estimated effect is confused (confounded) with the effect of the confounder.</p>
@@ -345,12 +345,12 @@ window.Quarto = {
 <p>In Figure <span class="quarto-unresolved-ref">?fig-mediation-indirectcorrelation</span>, we start with a simple regression model with political interest as the only predictor of newspaper reading time. Respondent’s age, however, is correlated both with political interest (<span class="math inline">\(r\)</span> = 0.12) and with newspaper reading time (<span class="math inline">\(r\)</span> = 0.88). Age creates a positive indirect correlation between political interest and reading time.</p>
 <p>As long as age is not included in the regression model, the model believes that the indirect correlation due to age is part of the effect of political interest. It assigns the indirect correlation due to age to the effect of political interest, that is, it includes the indirect correlation in the regression coefficient of political interest. In this situation, the regression coefficient for political interest expresses both the effect of political interest itself and the effect of age (the confounder).</p>
 <p>Once we add age as a new predictor to the regression model, the indirect correlation due to age is removed from the effect of political interest. The effect of age on newspaper reading time is now correctly assigned to age. As a result, the value of the regression coefficient for political interest changes if we add age as a new predictor.</p>
-<p>The size of the change is related to the size of the indirect correlation. The larger the indirect correlation, the more the regression coefficient of political interest changes if age (the former confounder) is included as a new predictor. This answers the second part of the question with which we started Section <a href="#sec-indirectcorrelation" class="quarto-xref"><span>Section 8.2</span></a>: When is a variable a stronger confounder?</p>
+<p>The size of the change is related to the size of the indirect correlation. The larger the indirect correlation, the more the regression coefficient of political interest changes if age (the former confounder) is included as a new predictor. This answers the second part of the question with which we started <a href="#sec-indirectcorrelation" class="quarto-xref"><span>Section 8.2</span></a>: When is a variable a stronger confounder?</p>
 <p>If you love the details: The size of the change in the standardized regression coefficient is not exactly the same as the size of the indirect correlation. It is equal to the correlation between the confounder (age) and the predictor (political interest) times the standardized regression coefficient of the effect of the confounder (age) on the dependent variable (newspaper reading time) that controls for the effect of the predictor (political interest).</p>
 </section>
 <section id="sec-randomization" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="sec-randomization"><span class="header-section-number">8.2.2</span> Randomization for avoiding confounders</h3>
-<p>There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of Chapter <a href="07-anova.html" class="quarto-xref"><span>Chapter 5</span></a>, where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment.</p>
+<p>There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of <a href="07-anova.html" class="quarto-xref"><span>Chapter 5</span></a>, where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment.</p>
 <p>How does this help us to avoid having confounders? The example research aimed to find out whether the celebrity endorser affects the willingness to donate to a charity. The experimental treatment (celebrity endorser video) is the independent variable or predictor variable in the model. If participants’ scores on this variable — in the example, seeing Jolie, Clooney, or no celebrity endorser — are random, the variable is expected not to correlate with any other characteristic of the participants when the experiment starts.</p>
 <p>For example, female and male participants would have the same chance to see Jolie, Clooney, or no endorser. We expect one third of all females and one third of all males to see Jolie, to see Clooney, and to see no endorser. If there is no systematic difference between females and males in this respect, participant’s experimental treatment is not correlated with sex of the participant. The same reasoning applies to every other characteristic of the participant at the start of the experiment: age, hair colour, favourite movie star, and so on. We expect that all of these participant characteristics are not correlated with the experimental treatment variable.</p>
 <p>Let us now turn to the definition of a confounder: A confounder is a variable that is correlated with both the predictor and dependent variable but is not included in the regression model. A confounder must be correlated with the predictor, which is the experimental treatment here. Thanks to experimental randomization, we expect that all participant characteristics that are not included in the experiment do not meet this criterion. There should not be any confounders!</p>
@@ -396,12 +396,9 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -420,12 +417,30 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_curve(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_curve(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -458,12 +473,9 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -482,12 +494,30 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -534,12 +564,9 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -558,12 +585,30 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.01, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -595,12 +640,9 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -619,12 +661,30 @@ window.Quarto = {
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -692,11 +752,9 @@ window.Quarto = {
 
 
 
-
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/?showcase=0" width="775px" height="305px" data-external="1"></iframe>
 :::
-
 
 
 
@@ -818,6 +876,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -933,6 +993,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

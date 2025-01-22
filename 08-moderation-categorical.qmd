@@ -34,7 +34,7 @@ To interpret the interaction effect, we must determine the size of the effect of
 
 An interaction effect in a regression model closely resembles an interaction effect in analysis of variance. The effect of a single predictor that is involved in an interaction effect in a regression model, however, is not a main effect as in analysis of variance. It is a conditional effect, namely the effect for one particular value of the moderator, that is, the effect within one particular context. To understand this, we must pay close attention to the regression equation.
 
-## The Regression Equation {#regression-equation}
+## The Regression Equation {#sec-regression-equation}
 
 In the social sciences, we usually expect that a particular outcome has several causes. Investigating the effects of an anti-smoking campaign, for instance, we would not assume that a person's attitude towards smoking depends only on exposure to a particular anti-smoking campaign. It is easy to think of other and perhaps more influential causes such as personal smoking status, contact with people who do or do not smoke, susceptibility to addiction, and so on.
 
@@ -68,7 +68,7 @@ A regression model translates this conceptual diagram into a statistical model. 
 \normalsize
 \end{equation}
 ```
-If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation. The equation without the error term [Eq. \@ref(eq:regressionpred)] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in Section @sec-regr-inference.
+If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation. The equation without the error term [Eq. \@ref(eq:regressionpred)] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
 
 ```{=tex}
 \begin{equation} 
@@ -152,7 +152,7 @@ Whether this predicted difference is small or large depends on the practical con
 
 In the data, the smallest exposure score is (about) zero, predicting a positive attitude of 1.6. The largest observed exposure score is around eight, predicting a negative attitude of -3.2. If exposure causes the predicted differences in attitude, the campaign would have interesting effects. It may change a positive attitude into a rather strong negative attitude.
 
-If we want to apply a rule of thumb for the strength of the effect, we usually look at the standardized regression coefficient ($b^*$ according to APA, *Beta* in SPSS output). See Section @sec-assoc-size for some rules of thumb for effect size interpretation.
+If we want to apply a rule of thumb for the strength of the effect, we usually look at the standardized regression coefficient ($b^*$ according to APA, *Beta* in SPSS output). See @sec-assoc-size for some rules of thumb for effect size interpretation.
 
 Note that the regression coefficient is calculated for predictor values that occur within the data set. For example, if the observed exposure scores are within the range zero to eight, these values are used to predict attitude towards smoking.
 
@@ -223,7 +223,7 @@ Imagine that $b$ equals 1.6. This indicates that the average attitude towards sm
 
 Therefore, it is recommended to interpret only the unstandardized regression coefficient for a dichotomous independent variable. Interpret it as the difference in average scores for two groups.
 
-### A categorical independent variable and dummy variables {#categorical-predictor}
+### A categorical independent variable and dummy variables {#sec-categorical-predictor}
 
 How about a categorical variable containing three or more groups, for example, the distinction between respondents who smoke (smokers), stopped smoking (former smokers), and respondents who never smoked (non-smokers)? Can we include a categorical variable as an independent variable in a regression model? Yes, we can but we need a trick.
 
@@ -338,7 +338,7 @@ Which group should we use as reference category, that is, which group should not
 
 Finally, note that we should not include all three dummy variables in the regression model [Eq. \@ref(eq:regcat)]. We can already identify the non-smokers, because they score 0 on both the $smokesnomore$ and $smoking$ dummy variables. Adding the $neversmoked$ dummy variable to the regression model is like including the same independent variable twice. How can the estimation process decide which of the two identical independent variable is responsible for the effect? It can't decide, so the estimation process fails or it drops one of the dummy variables. If this happens, the independent variables are said to be perfectly *multicollinear*.
 
-### Sampling distributions and assumptions {#regr-inference}
+### Sampling distributions and assumptions {#sec-regr-inference}
 
 ```{r regression-sampling, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="What happens to regression lines from sample to sample?"}
 # Goal: Understand that regression constant and coefficient(s) have sampling
@@ -362,7 +362,7 @@ Finally, note that we should not include all three dummy variables in the regres
 3. What happens if you draw samples of larger size? Think of what you learned in preceding chapters. Formulate your answer before you change sample size in Figure @fig-regression-sampling.
 ```
 
-If we are working with a random sample or we have other reasons to believe that our data could have been different due to chance (Section @sec-no-random-sample), we should not just interpret the results for the data set that we collected. We should apply statistical inference---confidence intervals and significance tests---to our results. The confidence interval gives us bounds for plausible population values of the unstandardized regression coefficient. The *p* value is used to test the *null hypothesis that the unstandardized regression coefficient is zero in the population*.
+If we are working with a random sample or we have other reasons to believe that our data could have been different due to chance (@sec-no-random-sample), we should not just interpret the results for the data set that we collected. We should apply statistical inference---confidence intervals and significance tests---to our results. The confidence interval gives us bounds for plausible population values of the unstandardized regression coefficient. The *p* value is used to test the *null hypothesis that the unstandardized regression coefficient is zero in the population*.
 
 Each regression coefficient as well as the constant may vary from sample to sample drawn from the same population, so we should devise a sampling distribution for each of them. These sampling distributions happen to have a *t* distribution under particular assumptions.
 
@@ -496,7 +496,7 @@ Why do we use the residuals and predicted values instead of a scatterplot for ea
 
 
 
-## Regression Analysis in SPSS {#SPSS-regression}
+## Regression Analysis in SPSS {#sec-SPSS-regression}
 
 #### Essential Analytics {.unnumbered}
 
@@ -628,7 +628,7 @@ ggplot(variables, aes(x, y)) +
 rm(variables)
 ```
 
-We used a similar diagram to express moderation in two-way analysis of variance (Section @sec-moderationanova). But now at least one of our independent variables is numeric, for example, the number of times the respondent has been exposed to the campaign.
+We used a similar diagram to express moderation in two-way analysis of variance (@sec-moderationanova). But now at least one of our independent variables is numeric, for example, the number of times the respondent has been exposed to the campaign.
 
 Analysis of variance (ANOVA) investigates the effects of categorical variables on a numerical dependent variable. It cannot handle numerical independent variables. Although there are ways to include numerical independent variables in analysis of variance, for example, analysis of covariance (ANCOVA), we use regression analysis if we have a numerical dependent variable and at least one numerical independent variable.
 
@@ -638,7 +638,7 @@ Use regression analysis if you have a numerical dependent variable and at least 
 
 :::
 
-In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (Chapter @sec-moderationcont) presents regression models in which both the predictor and the moderator are numerical.
+In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (@sec-moderationcont) presents regression models in which both the predictor and the moderator are numerical.
 
 ### A dichotomous moderator and numerical predictor
 
@@ -657,7 +657,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/dichotomous-moderato
 
 
 
-In Section @sec-regression-equation, we have analyzed the predictive effects of exposure to an anti-smoking campaign and smoking status on a person's attitude towards smoking. We have found a negative effect for exposure and a positive effect for smoking. More exposure predicts a more negative attitude whereas smokers have on average a more positive attitude towards smoking than non-smokers.
+In @sec-regression-equation, we have analyzed the predictive effects of exposure to an anti-smoking campaign and smoking status on a person's attitude towards smoking. We have found a negative effect for exposure and a positive effect for smoking. More exposure predicts a more negative attitude whereas smokers have on average a more positive attitude towards smoking than non-smokers.
 
 Our current question is: Does exposure to the campaign have the same effect for smokers and non-smokers? We want to compare an effect (exposure on attitude) for different contexts (smokers versus non-smokers), so our current question involves moderation. Is the effect of exposure on attitude moderated by smoking status?
 
@@ -665,7 +665,7 @@ Our moderator (smoker vs. non-smoker) is a dichotomous variable but our predicto
 
 In the context of a regression model, moderation means **different slopes for different groups**. The slope of the regression line is the regression coefficient, which expresses the effect of the predictor on the dependent variable. If we have different effects in different contexts (moderation), we must have different regression coefficients for different groups.
 
-### Interaction variable {#interaction-variable}
+### Interaction variable {#sec-interaction-variable}
 
 How do we obtain different regression coefficients and lines for smokers and non-smokers? The statistical trick is quite easy: Include an additional predictor in the model that is the product of the predictor (exposure) and the moderator (smoking status). This new predictor is the *interaction variable*. The regression coefficient of the interaction variable is called the *interaction effect*.
 
@@ -767,7 +767,7 @@ The interaction variable changes the slope of the effect of exposure on attitude
 
 Let us assume that the unstandardized regression coefficient of the interaction effect is -0.3. This means that the effect of exposure on attitude is more strongly negative (or less positive) for smokers than for non-smokers. One additional unit of exposure decreases the predicted attitude for smokers by 0.3 **more** than for non-smokers.
 
-### Conditional effects, not main effects {#conditional-effects}
+### Conditional effects, not main effects {#sec-conditional-effects}
 
 It is very important to note that the effects of exposure and smoking status in a model with exposure by smoking status interaction are **not** main effects as in analysis of variance. As we have seen in the preceding section [Equation \@ref(eq:intvarnonsmoker)], the regression coefficient $b_1$ for exposure expresses the effect of exposure for non-smokers. It is a *conditional effect*, namely the effect for non-smokers only. Non-smokers are the *reference group* because they score zero on the moderator (*smoker*). This is quite different from a main effect in analysis of variance, which is an average effect over all groups.
 
@@ -877,7 +877,7 @@ We know the confidence intervals and *p* values of the exposure effect for non-s
 
 If you want to know the confidence interval or *p* value of the exposure effect for smokers, you have to rerun the regression analysis using a different dummy variable for the moderator. You should create a dichotomous variable that assigns 0 to smokers and 1 to non-smokers, and an interaction variable created with this dichotomy. The regression coefficient of the exposure effect now expresses the effect for smokers because smokers are the reference group on the new dummy variable. The associated *p* value and confidence interval apply to the exposure effect for smokers.
 
-Interaction variables are used just like ordinary predictors, so the general assumptions of regression analysis apply. See Section @sec-regr-inference for a description of the assumptions and checks.
+Interaction variables are used just like ordinary predictors, so the general assumptions of regression analysis apply. See @sec-regr-inference for a description of the assumptions and checks.
 
 In a similar way, the effect of smoking status on attitude is conditional on exposure because smoking status and exposure are included in the interaction variable. The regression coefficient for status tells us the difference between smokers and non-smokers who have 0 exposure. So, without exposure to the campaign, smokers are on average `r report_n(results[3, 1], digits = 2)` more positive towards smoking than non-smokers. The *p* value tests the null hypothesis that the difference is zero for people without exposure (exposure = 0) to the anti-smoking campaign.
 
@@ -907,7 +907,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/categorical-moderato
 
 
 
-In Section @sec-categorical-predictor, we learned that we must create dummy variables for all but one groups of a categorical predictor in a regression model. This is what we have to do also for a categorical moderator. If the effect of a predictor, such as exposure, is moderated by a categorical variable, we have to create an interaction variable for each dummy variable in the equation. To create the interaction variables, we multiply the predictor by each of the dummy variables.
+In @sec-categorical-predictor, we learned that we must create dummy variables for all but one groups of a categorical predictor in a regression model. This is what we have to do also for a categorical moderator. If the effect of a predictor, such as exposure, is moderated by a categorical variable, we have to create an interaction variable for each dummy variable in the equation. To create the interaction variables, we multiply the predictor by each of the dummy variables.
 
 ```{r categorical-moderator-fig, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Statistical diagram with a moderator consisting of three groups. Non-smokers are the reference group", fig.asp=0.4}
 library(ggplot2)
@@ -972,7 +972,7 @@ If we would like to know whether the exposure effect for former smokers is signi
 
 ### Common support {#sec-commonsupportdichotomous}
 
-In a regression model with moderation, we have to interpret the effect of a predictor involved in an interaction at a particular value of the moderator (Section @sec-conditional-effects). The estimated effect at a particular value of the moderator can only be trusted if there are quite some observations at or near this value of the moderator. In addition, these observations should cover the full range of values on the predictor. After all, the effect that we estimate must tell us whether high values on the predictor go together with higher (or lower) values on the dependent variable than low values on the predictor.
+In a regression model with moderation, we have to interpret the effect of a predictor involved in an interaction at a particular value of the moderator (@sec-conditional-effects). The estimated effect at a particular value of the moderator can only be trusted if there are quite some observations at or near this value of the moderator. In addition, these observations should cover the full range of values on the predictor. After all, the effect that we estimate must tell us whether high values on the predictor go together with higher (or lower) values on the dependent variable than low values on the predictor.
 
 For example, we need quite some observations for smokers to estimate the conditional effect of exposure on attitude for smokers. If there are hardly any smokers in our sample, we cannot estimate the effect of exposure on attitude for them in a reliable way. Even if we have quite some observations for smokers but all smokers have low exposure, we cannot say much about the effect of exposure on attitude for them. If we cannot say much about the effect within this group, we cannot say much about the difference between this effect and effects for other groups. In short, the moderation model is problematic in this situation.
 
@@ -1011,7 +1011,7 @@ It is recommended to check the number of observations per value of the moderator
 
 A plot with different regression lines for different categories of the moderator is a very useful way of presenting your results. We can, however, only plot a regression line if we have a single independent variable. After all, we only have one horizontal (X) axis in a plot to display a predictor.
 
-In a moderation model, we have at least two independent variables: the predictor and the moderator. For example, exposure is our predictor because our interest focuses on the effect of campaign exposure on attitude. Participant's smoking status is the moderator because we expect different exposure effects for participants with different smoking statuses. We may even have additional independent variables for which we want to control (more on this in Chapter @sec-confounder), for example, a participant's contacts with smokers. Let us call these additional independent variables *covariates*.
+In a moderation model, we have at least two independent variables: the predictor and the moderator. For example, exposure is our predictor because our interest focuses on the effect of campaign exposure on attitude. Participant's smoking status is the moderator because we expect different exposure effects for participants with different smoking statuses. We may even have additional independent variables for which we want to control (more on this in @sec-confounder), for example, a participant's contacts with smokers. Let us call these additional independent variables *covariates*.
 
 ::: {.callout-important appearance="simple"}
 

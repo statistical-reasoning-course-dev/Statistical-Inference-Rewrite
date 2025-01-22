@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -221,10 +221,10 @@ div.csl-indent {
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#different-means-for-three-or-more-groups" id="toc-different-means-for-three-or-more-groups" class="nav-link" data-scroll-target="#different-means-for-three-or-more-groups"><span class="header-section-number">5.1</span> Different Means for Three or More Groups</a>
   <ul class="collapse">
-  <li><a href="#anova-meandiffs" id="toc-anova-meandiffs" class="nav-link" data-scroll-target="#anova-meandiffs"><span class="header-section-number">5.1.1</span> Mean differences as effects</a></li>
-  <li><a href="#between-variance" id="toc-between-variance" class="nav-link" data-scroll-target="#between-variance"><span class="header-section-number">5.1.2</span> Between-groups variance and within-groups variance</a></li>
-  <li><a href="#anova-model" id="toc-anova-model" class="nav-link" data-scroll-target="#anova-model"><span class="header-section-number">5.1.3</span> <em>F</em> test on the model</a></li>
-  <li><a href="#anova-assumpt" id="toc-anova-assumpt" class="nav-link" data-scroll-target="#anova-assumpt"><span class="header-section-number">5.1.4</span> Assumptions for the <em>F</em> test in analysis of variance</a></li>
+  <li><a href="#sec-anova-meandiffs" id="toc-sec-anova-meandiffs" class="nav-link" data-scroll-target="#sec-anova-meandiffs"><span class="header-section-number">5.1.1</span> Mean differences as effects</a></li>
+  <li><a href="#sec-between-variance" id="toc-sec-between-variance" class="nav-link" data-scroll-target="#sec-between-variance"><span class="header-section-number">5.1.2</span> Between-groups variance and within-groups variance</a></li>
+  <li><a href="#sec-anova-model" id="toc-sec-anova-model" class="nav-link" data-scroll-target="#sec-anova-model"><span class="header-section-number">5.1.3</span> <em>F</em> test on the model</a></li>
+  <li><a href="#sec-anova-assumpt" id="toc-sec-anova-assumpt" class="nav-link" data-scroll-target="#sec-anova-assumpt"><span class="header-section-number">5.1.4</span> Assumptions for the <em>F</em> test in analysis of variance</a></li>
   <li><a href="#which-groups-have-different-average-scores" id="toc-which-groups-have-different-average-scores" class="nav-link" data-scroll-target="#which-groups-have-different-average-scores"><span class="header-section-number">5.1.5</span> Which groups have different average scores?</a></li>
   </ul></li>
   <li><a href="#sec-onewaySPSS" id="toc-sec-onewaySPSS" class="nav-link" data-scroll-target="#sec-onewaySPSS"><span class="header-section-number">5.2</span> One-Way Analysis of Variance in SPSS</a>
@@ -323,8 +323,8 @@ div.csl-indent {
 <p>Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group (<em>the control group</em>) sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.</p>
 <p>Our dependent variable is a numeric scale assessing the participant’s willingness to donate to the fund raiser on a scale from 1 (“absolutely certain that I will not donate”) to 10 (“absolutely certain that I will donate”). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.</p>
 <p>In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data <span class="citation" data-cites="RefWorks:3955">(<a href="#ref-RefWorks:3955" role="doc-biblioref">Fisher 1919</a>)</span>, so it is widely used in the context of experiments.</p>
-<section id="anova-meandiffs" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="anova-meandiffs"><span class="header-section-number">5.1.1</span> Mean differences as effects</h3>
+<section id="sec-anova-meandiffs" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="sec-anova-meandiffs"><span class="header-section-number">5.1.1</span> Mean differences as effects</h3>
 <p>Figure <span class="quarto-unresolved-ref">?fig-anova-means</span> shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.</p>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-means/?showcase=0" width="540px" height="490px" data-external="1">
@@ -332,13 +332,38 @@ div.csl-indent {
 </div>
 <p>A group’s average score on the dependent variable represents the group’s score level. The group averages in Figure <span class="quarto-unresolved-ref">?fig-anova-means</span> tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.</p>
 <p>Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.</p>
-<p>If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in Chapter <a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>). Mean differences are said to represent the <em>effect</em> of experimental treatment in analysis of variance.</p>
+<p>If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in <a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>). Mean differences are said to represent the <em>effect</em> of experimental treatment in analysis of variance.</p>
 <p>Analysis of variance was developed for the analysis of randomized experiments, where effects can be interpreted as causal effects. Note, however, that analysis of variance can also be applied to non-experimental data. Although mean differences are still called effects in the latter type of analysis, these do not have to be causal effects.</p>
 <p>In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as Figure <span class="quarto-unresolved-ref">?fig-anova-meansplot</span>, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 3, y = d[1, 2], yend = d[1, 2]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[1, 2], yend = (d[2, 2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.02, y = (d[1, 2] + d[2, 2])/2, label = "Clooney effect", : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = d[1, 2], yend = (d[3, 2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.98, y = (d[1, 2] + d[3, 2])/2, label = "Jolie effect", : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -357,8 +382,8 @@ div.csl-indent {
 <li>0.5 (.4 ≤ eta<sup>2</sup>) = large or strong effect.</li>
 </ul>
 </section>
-<section id="between-variance" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="between-variance"><span class="header-section-number">5.1.2</span> Between-groups variance and within-groups variance</h3>
+<section id="sec-between-variance" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-between-variance"><span class="header-section-number">5.1.2</span> Between-groups variance and within-groups variance</h3>
 <p>For a better understanding of eta<sup>2</sup> and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. Figure <span class="quarto-unresolved-ref">?fig-anova-between</span> adds overall average willingness to donate to the plot (horizontal black line) with participants’ scores and average experimental group scores (coloured horizontal lines).</p>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-between/?showcase=0" width="540px" height="490px" data-external="1">
@@ -371,33 +396,33 @@ div.csl-indent {
 <p>Now what part of the variance in outcome scores (dotted black arrows in Figure <span class="quarto-unresolved-ref">?fig-anova-between</span>) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant’s willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant’s experimental treatment.</p>
 <p>So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in Figure <span class="quarto-unresolved-ref">?fig-anova-between</span>. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the <em>between-groups variance</em>.</p>
 <p>Playing with the group means in Figure <span class="quarto-unresolved-ref">?fig-anova-between</span>, you may have noticed that eta<sup>2</sup> is high if there are large differences between group means. In this situation we have high between-groups variance—large black arrows—so we can predict a lot of the variation in outcome scores between participants.</p>
-<p>In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in Section <span class="quarto-unresolved-ref">?sec-anova-model</span>, zero between-groups variance is central to the null hypothesis in analysis of variance.</p>
+<p>In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in <a href="#sec-anova-model" class="quarto-xref"><span>Section 5.1.3</span></a>, zero between-groups variance is central to the null hypothesis in analysis of variance.</p>
 <p>The experimental treatment predicts that a participant’s willingness equals the average willingness of the participant’s group. It cannot predict or explain that a participant’s willingness score is slightly different from her group mean (the red double-sided arrows in Figure <span class="quarto-unresolved-ref">?fig-anova-between</span>). <em>Within-groups variance</em> in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as “Error”.</p>
 </section>
-<section id="anova-model" class="level3" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="anova-model"><span class="header-section-number">5.1.3</span> <em>F</em> test on the model</h3>
-<p>Average group scores tell us whether the experimental treatment has effects within the sample (Section <span class="quarto-unresolved-ref">?sec-anova-meandiffs</span>). If the group who saw Angelina Jolie as endorser has higher average willingness to donate than the group who did not see an endorser, we conclude that Angelina Jolie makes a difference in the sample. But how about the population?</p>
+<section id="sec-anova-model" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="sec-anova-model"><span class="header-section-number">5.1.3</span> <em>F</em> test on the model</h3>
+<p>Average group scores tell us whether the experimental treatment has effects within the sample (<a href="#sec-anova-meandiffs" class="quarto-xref"><span>Section 5.1.1</span></a>). If the group who saw Angelina Jolie as endorser has higher average willingness to donate than the group who did not see an endorser, we conclude that Angelina Jolie makes a difference in the sample. But how about the population?</p>
 <p>If we want to test whether the difference that we find in the sample also applies to the population, we use the null hypothesis that all average outcome scores are equal in the population from which the samples were drawn. In our example, the null hypothesis states that people in the population who would see George Clooney as endorser are on average just as willing to donate as people who would see Angelina Jolie or who would not see a celebrity endorser at all.</p>
-<p>We use the variance in group means as the number that expresses the differences between group means. If all groups have the same average outcome score, the between-groups variance is zero. The larger the differences, the larger the between-groups variance (see Section <span class="quarto-unresolved-ref">?sec-between-variance</span>).</p>
+<p>We use the variance in group means as the number that expresses the differences between group means. If all groups have the same average outcome score, the between-groups variance is zero. The larger the differences, the larger the between-groups variance (see <a href="#sec-between-variance" class="quarto-xref"><span>Section 5.1.2</span></a>).</p>
 <p>We cannot just use the between-groups variance as the test statistic because we have to take into account chance differences between sample means. Even if we draw different samples from the same population, the sample means will be different because we draw samples at random. These sample mean differences are due to chance, they do not reflect true differences between groups in the population.</p>
 <p>We have to correct for chance differences and this is done by taking the ratio of between-groups variance over within-groups variance. This ratio gives us the relative size of observed differences between group means over group mean differences that we expect by chance.</p>
 <p>Our test statistic, then, is the ratio of two variances: between-groups variance and within-groups variance. The <em>F</em> distribution approximates the sampling distribution of the ratio of two variances, so we can use this probability distribution to test the significance of the group mean differences we observe in our sample.</p>
 <p>Long story short: We test the null hypothesis that all groups have the same population means in an analysis of variance. But behind the scenes, we actually test between-groups variance against within-groups variance. That is why it is called analysis of variance.</p>
 </section>
-<section id="anova-assumpt" class="level3" data-number="5.1.4">
-<h3 data-number="5.1.4" class="anchored" data-anchor-id="anova-assumpt"><span class="header-section-number">5.1.4</span> Assumptions for the <em>F</em> test in analysis of variance</h3>
+<section id="sec-anova-assumpt" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="sec-anova-assumpt"><span class="header-section-number">5.1.4</span> Assumptions for the <em>F</em> test in analysis of variance</h3>
 <p>There are two important assumptions that we must make if we use the <em>F</em> distribution in analysis of variance: (1) independent samples and (2) homogeneous population variances.</p>
 <section id="independent-samples" class="level4" data-number="5.1.4.1">
 <h4 data-number="5.1.4.1" class="anchored" data-anchor-id="independent-samples"><span class="header-section-number">5.1.4.1</span> Independent samples</h4>
 <p>The first assumption is that the groups can be regarded as independent samples. As in an independent-samples <em>t</em> test, it must be possible <em>in principle</em> to draw a separate sample for each group in the analysis. Because this is a matter of principle instead of how we actually draw the sample, we have to argue that the assumption is reasonable. We cannot check the assumption against the data.</p>
 <p>Here is an example of an argument that we can make. In an experiment, we usually draw one sample of participants and, as a next step, we assign participants randomly to one of the experimental conditions. We could have easily drawn a separate sample for each experimental group. For example, we first draw a participant for the first condition: seeing George Clooney endorsing the fundraising campaign. Next, we draw a participant for the second condition, e.g., Angelina Jolie. The two draws are independent: whomever we have drawn for the Clooney condition is irrelevant to whom we draw for the Jolie condition. Therefore, draws are independent and the samples can be regarded as independent.</p>
-<p>Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples <em>t</em> tests (see Section <a href="02-probability.html#sec-dependentsamples" class="quarto-xref"><span>Section 2.3.6</span></a>). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.</p>
+<p>Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples <em>t</em> tests (see <a href="02-probability.html#sec-dependentsamples" class="quarto-xref"><span>Section 2.3.6</span></a>). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.</p>
 </section>
 <section id="homogeneous-population-variances" class="level4" data-number="5.1.4.2">
 <h4 data-number="5.1.4.2" class="anchored" data-anchor-id="homogeneous-population-variances"><span class="header-section-number">5.1.4.2</span> Homogeneous population variances</h4>
 <p>The <em>F</em> test on the null hypothesis of no effect (the nil) in analysis of variance assumes that the groups are drawn from the same population. This implies that they have the same average score on the dependent variable in the population as well as the same variance of outcome scores. The null hypothesis tests the equality of population means but we must assume that the groups have equal dependent variable variances in the population.</p>
 <p>We can use a statistical test to decide whether or not the population variances are equal (homogeneous). This is Levene’s <em>F</em> test, which is also used in combination with independent samples <em>t</em> tests. The test’s null hypothesis is that the population variances of the groups are equal. If we do <em>not</em> reject the null hypothesis, we decide that the assumption of equal population variances is plausible.</p>
-<p>The assumption of equal population variances is less important if group samples are more or less of equal size (a balanced design, see Section <a href="#sec-balanced" class="quarto-xref"><span>Section 5.3.2</span></a>). We use a rule of thumb that groups are of equal size if the size of the largest group is less than 10% (of the largest group) larger than the size of the smallest group. If this is the case, we do not care about the assumption of homogeneous population variances.</p>
+<p>The assumption of equal population variances is less important if group samples are more or less of equal size (a balanced design, see <a href="#sec-balanced" class="quarto-xref"><span>Section 5.3.2</span></a>). We use a rule of thumb that groups are of equal size if the size of the largest group is less than 10% (of the largest group) larger than the size of the smallest group. If this is the case, we do not care about the assumption of homogeneous population variances.</p>
 </section>
 </section>
 <section id="which-groups-have-different-average-scores" class="level3" data-number="5.1.5">
@@ -413,7 +438,7 @@ div.csl-indent {
 <p>With a statistically significant <em>F</em> test for the analysis of variance model, several questions remain to be answered. Does an endorser increase or decrease the willingness to donate? Are both endorsers equally effective? The <em>F</em> test does not provide answers to these questions. We have to compare groups one by one to see which condition (endorser) is associated with a higher level of willingness to donate.</p>
 <p>In a pairwise comparison, we have two groups, for instance, participants confronted with George Clooney and participants who did not see a celebrity endorse the fund raiser. We want to compare the two groups on a numeric dependent variable, namely their willingness to donate. An independent-samples <em>t</em> test is appropriate here.</p>
 <p>With three groups, we can make three pairs: Clooney versus Jolie, Clooney versus nobody, and Jolie versus nobody. We have to execute three <em>t</em> tests on the same data. We already know that there are most likely differences in average scores, so the <em>t</em> tests are executed after the fact, in Latin <em>post hoc</em>. Hence the name <em>post-hoc tests</em>.</p>
-<p>Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. Section <span class="quarto-unresolved-ref">?sec-cap-chance</span> discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples <em>t</em> tests that we execute if the analysis of variance <em>F</em> test is statistically significant.</p>
+<p>Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. <a href="04-hypothesis.html#sec-cap-chance" class="quarto-xref"><span>Section 4.7.3</span></a> discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples <em>t</em> tests that we execute if the analysis of variance <em>F</em> test is statistically significant.</p>
 <p>The Bonferroni correction divides the significance level by the number of tests that we do. In our example, we do three <em>t</em> tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each <em>t</em> test is .0167. If a <em>t</em> test’s <em>p</em> value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.</p>
 </section>
 <section id="two-steps-in-analysis-of-variance" class="level4" data-number="5.1.5.2">
@@ -424,7 +449,7 @@ div.csl-indent {
 <section id="contradictory-results" class="level4" data-number="5.1.5.3">
 <h4 data-number="5.1.5.3" class="anchored" data-anchor-id="contradictory-results"><span class="header-section-number">5.1.5.3</span> Contradictory results</h4>
 <p>It may happen that the <em>F</em> test on the model is statistically significant but none of the post-hoc tests is statistically significant. This mainly happens when the <em>p</em> value of the <em>F</em> test is near .05. Perhaps the correction for capitalization on chance is too strong; this is known to be the case with the Bonferroni correction. Alternatively, the sample can be too small for the post-hoc test. Note that we have fewer observations in a post-hoc test than in the <em>F</em> test because we only look at two of the groups.</p>
-<p>This situation illustrates the limitations of null hypothesis significance tests (Chapter <span class="quarto-unresolved-ref">?sec-critical-discussion</span>). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the <em>F</em> and <em>t</em> tests have contradictory results.</p>
+<p>This situation illustrates the limitations of null hypothesis significance tests (<a href="04-hypothesis.html#sec-critical-discussion" class="quarto-xref"><span>Section 4.7</span></a>). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the <em>F</em> and <em>t</em> tests have contradictory results.</p>
 <p>A statistically significant <em>F</em> test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc <em>t</em> tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.</p>
 </section>
 </section>
@@ -527,6 +552,46 @@ div.csl-indent {
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="sec-maineffects"><span class="header-section-number">5.3.3</span> Main effects in two-way analysis of variance</h3>
 <p>A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to Clooney have the same average willingness to donate in the population as participants exposed to Jolie or those who are not exposed to an endorser. At the same time, it tests the null hypothesis that females and males have the same average willingness to donate in the population.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 3, y = willing[[1]], yend = willing[[1]]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.02, y = (willing[[1]] + willing[[2]])/2, : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = willing[[1]], yend = (willing[[3]] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.98, y = (willing[[1]] + willing[[3]])/2, : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 2, y = willing[[1]], yend = willing[[1]]), : All aesthetics have length 1, but the data has 2 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - : All aesthetics have length 1, but the data has 2 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 1.98, y = (willing[[1]] + willing[[2]])/2, : All aesthetics have length 1, but the data has 2 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -555,6 +620,16 @@ div.csl-indent {
 <p>If the effect of a factor is different for different groups on another factor, the first factor’s effect is <em>moderated</em> by the second factor. The phenomenon that effects are moderated is called <em>moderation</em>. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.</p>
 <p>With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. Figure <span class="quarto-unresolved-ref">?fig-anova-diagram</span> shows the conceptual diagram for participant’s sex moderating the effect of endorsing celebrity on willingness to donate.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.05, yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -579,6 +654,36 @@ div.csl-indent {
 <p>In analysis of variance, effects are differences between average outcome scores. The effect of Clooney on willingness to donate, for instance, is the difference between the average willingness score of participants exposed to Clooney and the average score of participants who were not exposed to a celebrity endorser.</p>
 <p>Different “Clooney effects” for female and male participants imply different differences! The difference in average willingness scores between females exposed to Clooney and females who are not exposed to an endorser is different from the difference in average scores for males. We have four subgroups with average willingness scores that we have to compare. We have six subgroups if we also include endorsement by Angelina Jolie.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[5, 3], yend = d[5, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[4, 3], yend = d[5, 3]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.02, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[1, 3], yend = (d[2, 3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[1, 3] + d[2, 3])/2, label = "Clooney effect\nfor males", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -597,6 +702,36 @@ div.csl-indent {
 <h4 data-number="5.4.1.2" class="anchored" data-anchor-id="effect-direction-moderation"><span class="header-section-number">5.4.1.2</span> Effect direction moderation</h4>
 <p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In figure <span class="quarto-unresolved-ref">?fig-anova-effectdirmod1</span>, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this <em>effect direction moderation</em>. Males reverse the Clooney effect that we find for females.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[5, 3], yend = d[5, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[4, 3], yend = d[5, 3]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 1.98, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[1, 3], yend = (d[2, 3] + : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[1, 3] + d[2, 3])/2, label = "Clooney effect\nfor males", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -608,6 +743,31 @@ div.csl-indent {
 </div>
 <p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (Figure <span class="quarto-unresolved-ref">?fig-anova-effectdirmod2</span>). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 3.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[4, 3], yend = (d[5, 3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = d[4, 3], yend = d[6, 3]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 3.02, y = (d[4, 3] + d[6, 3])/2, label = "Jolie effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -623,7 +783,7 @@ div.csl-indent {
 </section>
 <section id="testing-main-and-interaction-effects" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="testing-main-and-interaction-effects"><span class="header-section-number">5.4.2</span> Testing main and interaction effects</h3>
-<p>The effect of a single factor is called a main effect, as we learned in Section <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see Section <span class="quarto-unresolved-ref">?sec-anova2way</span>), for example a main effect of sex and a main effect of endorser.</p>
+<p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see <span class="quarto-unresolved-ref">?sec-anova2way</span>), for example a main effect of sex and a main effect of endorser.</p>
 <p>For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In Figure <span class="quarto-unresolved-ref">?fig-anova-interaction</span>, we compare average willingness to donate for combinations of endorser and participant’s sex. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/?showcase=0" width="780px" height="380px" data-external="1">
@@ -647,7 +807,7 @@ div.csl-indent {
 </section>
 <section id="assumptions-for-two-way-analysis-of-variance" class="level3" data-number="5.4.3">
 <h3 data-number="5.4.3" class="anchored" data-anchor-id="assumptions-for-two-way-analysis-of-variance"><span class="header-section-number">5.4.3</span> Assumptions for two-way analysis of variance</h3>
-<p>The assumptions for two-way analysis of variance are the same as for one-way analysis of variance (Section <span class="quarto-unresolved-ref">?sec-anova-assumpt</span>). Just note that equal group sizes and equal population variances now apply to the subgroups formed by the combination of the two factors.</p>
+<p>The assumptions for two-way analysis of variance are the same as for one-way analysis of variance (<a href="#sec-anova-assumpt" class="quarto-xref"><span>Section 5.1.4</span></a>). Just note that equal group sizes and equal population variances now apply to the subgroups formed by the combination of the two factors.</p>
 </section>
 </section>
 <section id="reporting-two-way-analysis-of-variance" class="level2" data-number="5.5">
@@ -754,11 +914,9 @@ div.csl-indent {
 
 
 
-
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/?showcase=0" width="780px" height="380px" data-external="1"></iframe>
 :::
-
 
 
 
@@ -878,6 +1036,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -993,6 +1153,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

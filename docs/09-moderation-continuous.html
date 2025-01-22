@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -248,10 +248,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#cont-moderator-regression" id="toc-cont-moderator-regression" class="nav-link" data-scroll-target="#cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</a>
+  <li><a href="#sec-cont-moderator-regression" id="toc-sec-cont-moderator-regression" class="nav-link" data-scroll-target="#sec-cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</a>
   <ul class="collapse">
-  <li><a href="#interpret-cont-interaction" id="toc-interpret-cont-interaction" class="nav-link" data-scroll-target="#interpret-cont-interaction"><span class="header-section-number">7.1.1</span> Interaction variable</a></li>
-  <li><a href="#conditional-effect-cont" id="toc-conditional-effect-cont" class="nav-link" data-scroll-target="#conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</a></li>
+  <li><a href="#sec-interpret-cont-interaction" id="toc-sec-interpret-cont-interaction" class="nav-link" data-scroll-target="#sec-interpret-cont-interaction"><span class="header-section-number">7.1.1</span> Interaction variable</a></li>
+  <li><a href="#sec-conditional-effect-cont" id="toc-sec-conditional-effect-cont" class="nav-link" data-scroll-target="#sec-conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</a></li>
   <li><a href="#mean-centering" id="toc-mean-centering" class="nav-link" data-scroll-target="#mean-centering"><span class="header-section-number">7.1.3</span> Mean-centering</a></li>
   <li><a href="#symmetry-of-predictor-and-moderator" id="toc-symmetry-of-predictor-and-moderator" class="nav-link" data-scroll-target="#symmetry-of-predictor-and-moderator"><span class="header-section-number">7.1.4</span> Symmetry of predictor and moderator</a></li>
   <li><a href="#visualization-of-the-interaction-effect" id="toc-visualization-of-the-interaction-effect" class="nav-link" data-scroll-target="#visualization-of-the-interaction-effect"><span class="header-section-number">7.1.5</span> Visualization of the interaction effect</a></li>
@@ -315,15 +315,15 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Chapter <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a> shows us how we can include dichotomous and categorical variables as predictors and moderators in a regression model. Using dummy variables, we can analyze mean differences between groups and we can construct different regression lines for different groups (moderation). A graph showing the different regression models for different moderator groups communicates the results of a moderation model in an attractive way.</p>
+<p><a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a> shows us how we can include dichotomous and categorical variables as predictors and moderators in a regression model. Using dummy variables, we can analyze mean differences between groups and we can construct different regression lines for different groups (moderation). A graph showing the different regression models for different moderator groups communicates the results of a moderation model in an attractive way.</p>
 <p>What if our moderator is not dichotomous or categorical but numerical? For example, the effect of exposure to an anti-smoking campaign on attitude towards smoking can be different for people of different age or for people who spend more time with smokers.</p>
 <p>We can include a numerical moderator in a regression model just like a dichotomous moderator. Add the predictor, the moderator, and an interaction variable, which is the product of the moderator and the predictor. If both the predictor and moderator are numerical, the interaction variable is numerical. It gives us numbers, not groups.</p>
 <p>The interpretation of an interaction effect is different if the moderator is numerical instead of dichotomous or categorical. In general, the regression coefficient of a numerical variable expresses the effect of a one unit change. For a numerical predictor, this is the predicted change in the dependent variable. For a numerical moderator, however, it is the predicted change in the effect of the predictor. The unstandardized regression coefficient for a numerical moderator, then, tells us the predicted change in the effect of the predictor for a one unit increase in the moderator.</p>
 <p>This interpretation is quite abstract and not easy to understand. It is better to visualize the regression lines for different values of the moderator. We usually draw regression lines for three interesting moderator values. The mean value of the moderator shows us the effect at a medium level of the moderator. One standard deviation below or above the mean of the moderator represent attractive low and high moderator values.</p>
 <p>Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.</p>
 </section>
-<section id="cont-moderator-regression" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</h2>
+<section id="sec-cont-moderator-regression" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</h2>
 <p>With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?</p>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-moderator/?showcase=0" width="775px" height="350px" data-external="1">
@@ -332,8 +332,8 @@ window.Quarto = {
 <p>People hanging around a lot with smokers may have a more positive attitude towards smoking than people who have little contact with smokers. If people whose company you value are smokers, you are less likely to condemn smoking. This is an overall effect of contact with smokers on attitude towards smoking.</p>
 <p>In addition, the anti-smoking campaign may be less effective for people who spend a lot of time with smokers. The attitude towards smoking may be stronger among people who spend more time with smokers, so it is more difficult to change the attitude. In this situation, contact with smokers decreases the effect of campaign exposure on attitude. The effect of exposure is moderated by contact with smokers.</p>
 <p>Our moderator, contact with smokers, is numerical. As a consequence, we can have an endless number of contact levels as groups for which the slope may change. This is the only difference with a categorical moderator. Other than that, we will analyze a numerical moderator in the same way as we analyzed a categorical moderator.</p>
-<section id="interpret-cont-interaction" class="level3" data-number="7.1.1">
-<h3 data-number="7.1.1" class="anchored" data-anchor-id="interpret-cont-interaction"><span class="header-section-number">7.1.1</span> Interaction variable</h3>
+<section id="sec-interpret-cont-interaction" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="sec-interpret-cont-interaction"><span class="header-section-number">7.1.1</span> Interaction variable</h3>
 <p>We need one interaction variable to include a numerical moderator in a regression model. As before, the interaction variable is the product of the predictor and the moderator. Multiply the predictor by the moderator to obtain the interaction variable.</p>
 <p>Although we have an endless number of different moderator values or “groups”, we only need one interaction variable. It represents the gradual (linear) change of the effect of the predictor for higher values of the moderator.</p>
 <span class="math display">\[\begin{equation}
@@ -349,9 +349,9 @@ window.Quarto = {
 <p>We can interpret the regression coefficient of the interaction effect (<span class="math inline">\(b_3\)</span>) here as the predicted change in the exposure effect (slope) for a one unit difference in contact (the moderator). A positive coefficient indicates that the exposure effect is more positive (or less negative) for higher levels of contact with smokers. A negative coefficient indicates that the effect is more negative (or less positive) for people with more contacts with smokers.</p>
 <p>Note that positive and negative are used here in their mathematical meaning, not in an appreciative way. A positive effect of exposure implies a more positive attitude towards smoking. Anti-smoking campaigners probably evaluate this as a negative result.</p>
 </section>
-<section id="conditional-effect-cont" class="level3" data-number="7.1.2">
-<h3 data-number="7.1.2" class="anchored" data-anchor-id="conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</h3>
-<p>In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see Section <span class="quarto-unresolved-ref">?sec-conditional-effects</span>), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only <span class="math inline">\(b_1\)</span> is left as the effect of exposure.</p>
+<section id="sec-conditional-effect-cont" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="sec-conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</h3>
+<p>In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see <a href="08-moderation-categorical.html#sec-conditional-effects" class="quarto-xref"><span>Section 6.3.3</span></a>), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only <span class="math inline">\(b_1\)</span> is left as the effect of exposure.</p>
 <span class="math display">\[\begin{equation}
 \small
 \begin{split}
@@ -362,7 +362,7 @@ window.Quarto = {
 (\#eq:conditionaleffect)
 \normalsize
 \end{equation}\]</span>
-<p>The zero score on the moderator is the <em>reference value</em> for the conditional effect of the predictor. Cases that score zero on the moderator are the <em>reference group</em> just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (Section <a href="08-moderation-categorical.html#sec-dichpredictor" class="quarto-xref"><span>Section 6.1.2</span></a>).</p>
+<p>The zero score on the moderator is the <em>reference value</em> for the conditional effect of the predictor. Cases that score zero on the moderator are the <em>reference group</em> just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (<a href="08-moderation-categorical.html#sec-dichpredictor" class="quarto-xref"><span>Section 6.1.2</span></a>).</p>
 </section>
 <section id="mean-centering" class="level3" data-number="7.1.3">
 <h3 data-number="7.1.3" class="anchored" data-anchor-id="mean-centering"><span class="header-section-number">7.1.3</span> Mean-centering</h3>
@@ -394,7 +394,7 @@ window.Quarto = {
 </div>
 </div>
 <p>With mean-centered numerical moderators, a conditional effect in the presence of interaction always makes sense. It is the effect of the predictor for respondents who have an average score on the moderator because they score zero on the mean-centered variable. An average score always falls within the range of scores that actually occur. If we mean-center the moderator variable contact with smokers, the regression coefficient <span class="math inline">\(b_1\)</span> for exposure expresses the effect of exposure on attitude for people with average contacts with smokers. This makes sense.</p>
-<p>Remember that the interaction variable is the product of the predictor and moderator (Section <span class="quarto-unresolved-ref">?sec-interaction-variable</span>). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.</p>
+<p>Remember that the interaction variable is the product of the predictor and moderator (<a href="08-moderation-categorical.html#sec-interaction-variable" class="quarto-xref"><span>Section 6.3.2</span></a>). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.</p>
 </section>
 <section id="symmetry-of-predictor-and-moderator" class="level3" data-number="7.1.4">
 <h3 data-number="7.1.4" class="anchored" data-anchor-id="symmetry-of-predictor-and-moderator"><span class="header-section-number">7.1.4</span> Symmetry of predictor and moderator</h3>
@@ -412,6 +412,26 @@ window.Quarto = {
 \end{equation}\]</span>
 <p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (Figure <span class="quarto-unresolved-ref">?fig-moderator-symmetry</span>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3], yend = y[1]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[6], yend = y[4]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[5], y = y[5], xend = x[5], yend = y[4]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -422,7 +442,7 @@ window.Quarto = {
 </div>
 </div>
 <p>For example, let us assume that the regression coefficient of the interaction effect of exposure and contact is 0.2. We can interpret this regression coefficient with contact as moderator and exposure as predictor: An additional unit of contact with smokers increases the effect of exposure on attitude by 0.2. But we can also interpret it with exposure as moderator and contact as predictor: An additional unit of exposure increases the effect of contact with smokers on attitude by 0.2.</p>
-<p>The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to <em>mean-center both the predictor and moderator if they are numerical</em>. In case of a dichotomous or categorical moderator (Section <a href="08-moderation-categorical.html#sec-categoricalmoderator" class="quarto-xref"><span>Section 6.3</span></a>), the predictor can also be mean-centered.</p>
+<p>The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to <em>mean-center both the predictor and moderator if they are numerical</em>. In case of a dichotomous or categorical moderator (<a href="08-moderation-categorical.html#sec-categoricalmoderator" class="quarto-xref"><span>Section 6.3</span></a>), the predictor can also be mean-centered.</p>
 </section>
 <section id="visualization-of-the-interaction-effect" class="level3" data-number="7.1.5">
 <h3 data-number="7.1.5" class="anchored" data-anchor-id="visualization-of-the-interaction-effect"><span class="header-section-number">7.1.5</span> Visualization of the interaction effect</h3>
@@ -431,7 +451,7 @@ window.Quarto = {
 <iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-interaction-visualization/?showcase=0" width="775px" height="308px" data-external="1">
 </iframe>
 </div>
-<p>As we have seen in Section <span class="quarto-unresolved-ref">?sec-interpret-cont-interaction</span>, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.</p>
+<p>As we have seen in <a href="#sec-interpret-cont-interaction" class="quarto-xref"><span>Section 7.1.1</span></a>, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.</p>
 <p>The size of the interaction effect tells us the moderation trend, for instance, people who are more around smokers tend to be less opposed to smoking if they are exposed to the anti-smoking campaign. But we do not know how much an anti-smoking attitude is fostered by exposure to a campaign and whether exposure to the campaign increases anti-smoking attitude for everyone. Perhaps, people hanging out with smokers a lot may even get a more positive attitude towards smoking from campaign exposure.</p>
 <p>We can be more specific about exposure effects at different levels of contact with smokers if we pick some interesting values of the moderator and calculate the conditional effects at these levels.</p>
 <p>The minimum or maximum values of the moderator are usually not very interesting. We tend to have few observations for these values, so our confidence in the estimated effect at that level is low. Instead, the values one standard deviation below and above the mean of the moderator are popular values to be picked. One standard deviation below the mean (M - SD) indicates a low value, the mean (M) indicates a central value, and one standard deviation above the mean (M + SD) indicates a high value.</p>
@@ -517,7 +537,7 @@ window.Quarto = {
 </section>
 <section id="common-support" class="level3" data-number="7.1.7">
 <h3 data-number="7.1.7" class="anchored" data-anchor-id="common-support"><span class="header-section-number">7.1.7</span> Common support</h3>
-<p>In Section <a href="08-moderation-categorical.html#sec-commonsupportdichotomous" class="quarto-xref"><span>Section 6.3.6</span></a>, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.</p>
+<p>In <a href="08-moderation-categorical.html#sec-commonsupportdichotomous" class="quarto-xref"><span>Section 6.3.6</span></a>, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.</p>
 <p>With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. <span class="citation" data-cites="RefWorks:3838">(<a href="#ref-RefWorks:3838" role="doc-biblioref">2016</a>)</span> recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects. Create a histogram for the predictor in each of these groups to check common support of moderation in the data, as explained in micro lecture <span class="quarto-unresolved-ref">?fig-SPSSregSupport1</span>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -533,7 +553,7 @@ window.Quarto = {
 </section>
 <section id="assumptions" class="level3" data-number="7.1.8">
 <h3 data-number="7.1.8" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">7.1.8</span> Assumptions</h3>
-<p>The general assumptions for regression analysis (Section <span class="quarto-unresolved-ref">?sec-regr-inference</span>) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.</p>
+<p>The general assumptions for regression analysis (<a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.</p>
 <p>Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in Figure <span class="quarto-unresolved-ref">?fig-continuous-moderator</span> at the beginning of this section on numerical moderators.</p>
 <p>It is difficult to check this assumption, so let us not pursue this here. Just remember that the interaction effect is assumed to be linear: a gradually increasing or decreasing effect of the predictor at higher moderator values.</p>
 </section>
@@ -633,6 +653,26 @@ window.Quarto = {
 <p>Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as Table <span class="citation" data-cites="tab-report-moderation-table">(<a href="#ref-tab-report-moderation-table" role="doc-biblioref"><strong>tab-report-moderation-table?</strong></a>)</span>. Note that <em>t</em> and <em>p</em> values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.</p>
 <p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in Table <span class="citation" data-cites="tab-report-moderation-table">(<a href="#ref-tab-report-moderation-table" role="doc-biblioref"><strong>tab-report-moderation-table?</strong></a>)</span>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.06, p &lt; .001) and by smoking status (<em>b</em> = -0.20, p = 0.003 for former smoker).</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[5], yend = y[1]), : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[3], y = y[3], xend = x[3], yend = y[1]), : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = x[4], yend = y[1]), : All aesthetics have length 1, but the data has 5 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -673,7 +713,7 @@ window.Quarto = {
 <h2 data-number="7.3" class="anchored" data-anchor-id="sec-RegressionContModSPSS"><span class="header-section-number">7.3</span> A Numerical Moderator in SPSS</h2>
 <section id="essential-analytics" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
-<p>As in Chapter <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
+<p>As in <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
 <p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure <span class="quarto-unresolved-ref">?fig-meancentertable</span>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -723,7 +763,6 @@ Figure @fig-moderator-overview shows the relation between exposure to an anti-sm
 
 
 
-
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-moderator1/?showcase=0" width="775px" height="325px" data-external="1"></iframe>
 :::
@@ -731,7 +770,6 @@ Figure @fig-moderator-overview shows the relation between exposure to an anti-sm
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mean-centering-moderator/?showcase=0" width="775px" height="310px" data-external="1"></iframe>
 :::
-
 
 
 
@@ -863,6 +901,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -978,6 +1018,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -70,13 +70,13 @@ Correlation is the first criterion. A causal relation implies correlation or ano
 
 The second criterion is the time order between cause and consequence. A cause must appear before the consequence. In our example, a person's age must be fixed before she displays the behaviour that we want to explain, namely reading newspapers. The time order is very plausible here because age stands for the moment a person was born, which must be prior in time to reading newspapers. If there is a causal relation between age and reading newspapers, age must be the cause and newspaper reading the consequence.
 
-A third criterion for causality is that the correlation is not spurious. In Section @sec-spuriousness, we have encountered a spurious effect as an effect that incorrectly includes the effect of a confounder (reinforcer).
+A third criterion for causality is that the correlation is not spurious. In @sec-spuriousness, we have encountered a spurious effect as an effect that incorrectly includes the effect of a confounder (reinforcer).
 
 In the context of causality, spuriousness is linked to a confounder that is a _common cause_ to both the assumed cause (predictor) and consequence (dependent variable). Age, for instance, can be a common cause both to having (grand)children and reading newspapers. Older people tend to have more (grand)children and they read more newspapers. If we do not control for age in a regression model predicting newspaper reading time from the number of (grand)children a person has, we may find a positive effect.
 
 This effect is probably not causal: We do not spend more time reading newspapers because we have more (grand)children. Unless we use newspaper reading to ignore our children and grandchildren when they are around. Most if not all of the effect of (grand)children on newspaper reading is spurious because it results from a common cause, namely age or the habits and opportunities represented by age.
 
-To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem (Chapter @sec-confounder). With non-experimental data, for example data on newspaper reading habits gathered in a survey, we cannot be sure that we have included all common causes in our model. In this situation, we should always keep in mind that the effects that we find may be caused by variables not included in our regression model. In an experiment, however, we can use experimental randomization to minimize the chance of having any confounders at all (Section @sec-randomization).
+To interpret an effect that we find as causal, then, we must ensure that there are no confounding variables that are common causes to both our predictors and dependent variable. Including them as controls in the regression model is a way to solve the problem (@sec-confounder). With non-experimental data, for example data on newspaper reading habits gathered in a survey, we cannot be sure that we have included all common causes in our model. In this situation, we should always keep in mind that the effects that we find may be caused by variables not included in our regression model. In an experiment, however, we can use experimental randomization to minimize the chance of having any confounders at all (@sec-randomization).
 
 ### Mediation as indirect effect {#sec-indirecteffect}
 
@@ -84,7 +84,7 @@ A common cause does not have to remove the entire effect between a predictor and
 
 Not all people become more interested in politics as they grow older and their interest in politics does not have to increase regularly during all of their lifetime. The relation between age and interest in politics, therefore, will not be perfect. This allows us to technically distinguish between the effect of age and the effect of interest in politics.
 
-If we include both age and interest in politics as predictors in a regression model for newspaper reading time, the partial effect (Section @sec-partialeffect) of interest in politics is corrected for the spurious correlation between interest in politics and newspaper reading caused by age as their common cause. The partial effect of political interest can be interpreted as causal if current interest in politics was attained before the newspaper readings that we measure (very plausible) and age is the only common cause of interest in politics and newspaper reading (highly questionable).
+If we include both age and interest in politics as predictors in a regression model for newspaper reading time, the partial effect (@sec-partialeffect) of interest in politics is corrected for the spurious correlation between interest in politics and newspaper reading caused by age as their common cause. The partial effect of political interest can be interpreted as causal if current interest in politics was attained before the newspaper readings that we measure (very plausible) and age is the only common cause of interest in politics and newspaper reading (highly questionable).
 
 ```{r causaldiagram, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagram for the effects of age and interest in politics on newspaper reading time.", fig.asp=0.3}
 library(ggplot2)
@@ -240,13 +240,13 @@ We can estimate mediation and path models with regression analysis if we meet th
 
 3. There are no causal feedback loops. Causality must work in one direction. It must be impossible to travel from a variable back to it while following the direction of the arrows. Note that it can be difficult to assign a causal order. For example, does political interest cause (low) political cynicism or the other way around? Or are they not causally related at all?
 
-4. All regression models meet the assumptions for regression analysis. Check if the residuals are normally distributed, centered around zero for all levels of the predicted outcome scores, and that scores are predicted equally well at all outcome levels (see Section @sec-regr-inference).
+4. All regression models meet the assumptions for regression analysis. Check if the residuals are normally distributed, centered around zero for all levels of the predicted outcome scores, and that scores are predicted equally well at all outcome levels (see @sec-regr-inference).
 
-### Size of indirect effects {#size-indirect-effects}
+### Size of indirect effects {#sec-size-indirect-effects}
 
 The regression results tell us the sizes and statistical significance of all direct effects on the dependent variable. Both unstandardized and standardized regression coefficients can be used to interpret effects in the usual way. But how do we obtain the size, confidence interval, and statistical significance of indirect effects?
 
-The size of an indirect effect is calculated in exactly the same way as the size of indirect correlations (Section @sec-indirectcorrelation): Just multiply the size of direct effects. This can be done with either the standardized regression coefficients or the unstandardized regression coefficients.
+The size of an indirect effect is calculated in exactly the same way as the size of indirect correlations (@sec-indirectcorrelation): Just multiply the size of direct effects. This can be done with either the standardized regression coefficients or the unstandardized regression coefficients.
 
 ```{r pathdiagram-unstandardized, echo=FALSE, fig.pos='H', fig.align='center', out.width="640px", fig.cap="Path diagram with unstandardized effect sizes and their 95% confidence intervals.", screenshot.alt = "figures/pathdiagram-unstandardized.png"}
 # Causal model/path diagram with unstandardized effect sizes (and 95% confidence intervals). All effects.
@@ -265,7 +265,7 @@ In its turn, interest in politics has an unstandardized effect of `r round(model
 
 Ten additional years of life only predict an increase of `r round(model_2$coefficients[2], digits=2)` in political interest, not a full unit increase. The predicted increase of `r round(model_2$coefficients[2], digits=2)` in political interest predicts `r round(model_2$coefficients[2], digits=2)` * `r round(model_4$coefficients[3], digits=2)` = `r round(model_2$coefficients[2] * model_4$coefficients[3], digits=2)` minutes of additional newspaper reading time.  As a result, an additional ten years of life predict `r round(model_2$coefficients[2], digits=2)` * `r round(model_4$coefficients[3], digits=2)` = `r round(model_2$coefficients[2] * model_4$coefficients[3], digits=2)` minutes of additional newspaper reading time as an indirect effect via political interest. 
 
-Note that the indirect effect is interpreted in terms of the measurement units of the initial predictor (age in tens of years) and the final outcome (reading time in minutes): A difference in (tens of) years predicts a difference in reading time in minutes. As a consequence, we can directly compare unstandardized indirect effect sizes of different paths between the same predictor and outcome, as we will see in Section @sec-partialfullmediation.
+Note that the indirect effect is interpreted in terms of the measurement units of the initial predictor (age in tens of years) and the final outcome (reading time in minutes): A difference in (tens of) years predicts a difference in reading time in minutes. As a consequence, we can directly compare unstandardized indirect effect sizes of different paths between the same predictor and outcome, as we will see in @sec-partialfullmediation.
 
 ### Direction of indirect effects
 
@@ -307,7 +307,7 @@ ggplot(variables, aes(x, y)) +
 rm(variables)
 ```
 
-If at least one of the indirect effects in a path model contains two or more mediators, we are dealing with _serial mediation_. Figure @fig-mediationserial illustrates serial mediation. It contains an indirect effect from age on reading time with two mediators: Age > Political Interest > News Site Use > Reading Time. The distinction between parallel and serial mediation is relevant to the software (PROCESS) that we will use to estimate indirect and total effects (Section @sec-SPSSPROCESS).
+If at least one of the indirect effects in a path model contains two or more mediators, we are dealing with _serial mediation_. Figure @fig-mediationserial illustrates serial mediation. It contains an indirect effect from age on reading time with two mediators: Age > Political Interest > News Site Use > Reading Time. The distinction between parallel and serial mediation is relevant to the software (PROCESS) that we will use to estimate indirect and total effects (@sec-SPSSPROCESS).
 
 ```{r mediationserial, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Causal diagram for serial mediation.", fig.asp=0.3}
 # Create coordinates for the variable names.
@@ -329,7 +329,7 @@ rm(variables)
 
 ### Partial and full mediation {#sec-partialfullmediation}
 
-The unstandardized direct effect and indirect effects between a predictor and outcome can be compared directly because they are all expressed in the same measurement units, namely the predicted change in the dependent variable (reading time in minutes) for a difference of one unit in the predictor (ten additional years of life) (Section @sec-size-indirect-effects). Because of this, we can sum the unstandardized direct and indirect effects to obtain the total unstandardized effect.
+The unstandardized direct effect and indirect effects between a predictor and outcome can be compared directly because they are all expressed in the same measurement units, namely the predicted change in the dependent variable (reading time in minutes) for a difference of one unit in the predictor (ten additional years of life) (@sec-size-indirect-effects). Because of this, we can sum the unstandardized direct and indirect effects to obtain the total unstandardized effect.
 
 With this in mind, we see that the relation between age and newspaper reading time is dominated by the positive direct effect (_b_ = `r round(model_4$coefficients[2], digits=2)`) and the positive indirect effect via news site use (_b_ = `r round(model_2$coefficients[2]*model_4$coefficients[3], digits=2)`). The remaining indirect effects are relatively small as indirect effects usually are. 
 
@@ -337,9 +337,9 @@ Summing all effects, we obtain a _total effect_ of age on newspaper reading time
 
 If the direct effect of a predictor on the outcome is zero in a model with mediators, the predictor's effect is _fully mediated_. This clearly is not the case in our example: There still is a substantial direct effect of age on newspaper reading time. This is what we usually encounter; it is called _partial mediation_.
 
-Sometimes, researchers decide that an effect is fully mediated if the direct effect is no longer statistically significant once a mediator is added to the model. This strategy is contestable because a statistically non-significant direct effect does not mean that the effect is absent (zero) in the population. It can be absent but it is much more likely to be present but just too small to be picked up by our significance test (see Chapter @sec-true-effect-size).
+Sometimes, researchers decide that an effect is fully mediated if the direct effect is no longer statistically significant once a mediator is added to the model. This strategy is contestable because a statistically non-significant direct effect does not mean that the effect is absent (zero) in the population. It can be absent but it is much more likely to be present but just too small to be picked up by our significance test (see @sec-true-effect-size).
 
-The distinction between full and partial mediation is a little bit problematic. From a substantive point of view, we may argue that direct effects are probably always mediated. As we have seen in Section @sec-indirecteffect, a direct effect usually summarizes a causal process that consists of intermediary steps, which is mediation. We may wonder whether it makes theoretical sense to talk about unmediated effects. Do we really believe that age can directly affect newspaper reading time?
+The distinction between full and partial mediation is a little bit problematic. From a substantive point of view, we may argue that direct effects are probably always mediated. As we have seen in @sec-indirecteffect, a direct effect usually summarizes a causal process that consists of intermediary steps, which is mediation. We may wonder whether it makes theoretical sense to talk about unmediated effects. Do we really believe that age can directly affect newspaper reading time?
 
 If the variables that we entered in the model as mediators do not create any indirect effects, the direct effect is equal to the total effect. We may conclude that the direct effect is not mediated by the mediators that are included in the model. For example, if education, political interest, and news site use do not create indirect effects from age on newspaper reading time (Figure @fig-pathdiagram-unstandardized), we only have the direct effect of age on reading time in our model. However, this effect is very likely to be mediated by other variables that we did not include in the model. We should not conclude that the effect is unmediated because we have not found mediation yet.
 
@@ -349,7 +349,7 @@ SPSS does not calculate the size of indirect effects for us or their confidence 
 
 In contrast, it is not possible to calculate the confidence interval or _p_ value of an indirect effect in a reliable way from the confidence intervals or _p_ values of the direct effects [see @RefWorks:3873: Section 4.4 for a detailed and critical discussion of approaches that try to calculate the _p_ value of an indirect effect from _p_ values of direct effects].
 
-We use bootstrapping to create the sampling distribution of the size of an indirect effect. We have learned the principles and limitations of bootstrapping in Section @sec-boot-approx, so we do not have to go into details here. Suffice it to repeat that our original sample must not be too small and it must be quite representative of the population if we apply bootstrapping.
+We use bootstrapping to create the sampling distribution of the size of an indirect effect. We have learned the principles and limitations of bootstrapping in @sec-boot-approx, so we do not have to go into details here. Suffice it to repeat that our original sample must not be too small and it must be quite representative of the population if we apply bootstrapping.
 
 ```{r indirect-sim, echo=FALSE}
 # Example of bootstrapped CI and p value for the indirect effects of age via political interest and/or news site use on reading time, similar to output from PROCESS (Model 6 with 2 mediators).
@@ -392,7 +392,7 @@ ggplot(variables, aes(x, y)) +
 rm(variables)
 ```
 
-This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero. With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see Chapter @sec-power on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population. 
+This sounds like a paradox but it should not upset you. The unstandardized indirect effect tends to be weaker than the direct effects, that is, closer to zero. With a weaker effect, it is more difficult to reject the null hypothesis that the effect is zero in the population. We need a larger sample to reject null hypotheses for smaller effects (see @sec-power on power). In this case, report that all direct effects that create the indirect effect are statistically significant, so non-significance is likely to arise from low test power rather than from absence of an indirect effect in the population. 
 
 
 
@@ -432,7 +432,7 @@ Note that covariates should only be allowed to have an effect on variables that 
 
 ## Reporting Mediation Results
 
-We analyse a path model as a series of regression models, so the general rules for reporting mediation are the same as for reporting regression analyses (see Section @sec-reportmoderation). If you summarize results in a table, make sure that the table includes:
+We analyse a path model as a series of regression models, so the general rules for reporting mediation are the same as for reporting regression analyses (see @sec-reportmoderation). If you summarize results in a table, make sure that the table includes:
 
 1. The unstandardized regression coefficients for all direct and indirect effects tested in the regression models.
 
@@ -472,7 +472,7 @@ knitr::kable(results, booktabs = TRUE,
 rm(results)
 ```
 
-A path model may yield a lot of direct effects, so it is good practice to present results as a path diagram with the values of the standardized or unstandardized regression coefficients as labels to the arrows. A path model conveniently summarizes the results for the reader (Figure @fig-results-pathdiagram). Remember that we don't use standardized regression coefficients if the predictor or a covariate is dichotomous variable or a set of dummy variables (see Section @sec-dichpredictor).
+A path model may yield a lot of direct effects, so it is good practice to present results as a path diagram with the values of the standardized or unstandardized regression coefficients as labels to the arrows. A path model conveniently summarizes the results for the reader (Figure @fig-results-pathdiagram). Remember that we don't use standardized regression coefficients if the predictor or a covariate is dichotomous variable or a set of dummy variables (see @sec-dichpredictor).
 
 ```{r results-pathdiagram, echo=FALSE, fig.asp=0.5, fig.pos='H', fig.align='center', fig.cap="Unstandardized direct effects for a path model with one mediator and two covariates.", screenshot.alt = "figures/results-pathdiagram.png"}
 # Load data.
@@ -517,7 +517,7 @@ If effect mediation is central to your report, focus your presentation and inter
 
 Interpret an unstandardized indirect effect just like any unstandardized regression effect, namely, as the predicted difference in the outcome for a one unit difference in the predictor. It is usually interesting to compare the sizes of the direct and indirect effects. Is the effect predominantly mediated in the model or is only a minor part of the effect mediated in the model?
 
-Inform the reader that you bootstrapped the indirect effect and report the number of bootstrap samples and the method used for the confidence intervals (see Section @sec-SPSSPROCESS). For a more elaborate discussion of reporting mediation, see Hayes [-@RefWorks:3873: 198-202].
+Inform the reader that you bootstrapped the indirect effect and report the number of bootstrap samples and the method used for the confidence intervals (see @sec-SPSSPROCESS). For a more elaborate discussion of reporting mediation, see Hayes [-@RefWorks:3873: 198-202].
 
 ## Mediation with SPSS and PROCESS {#sec-SPSSPROCESS}
 
@@ -608,7 +608,7 @@ knitr::include_url("https://www.youtube.com/embed/olOEqeZE9WE", height = "360px"
 
 ## Criticisms of Mediation
 
-If we think of causality, we usually think of a process in which one thing leads to another thing, which leads to something else, and so on. This is apparent if we want to explain why we think that one phenomenon causes another (see Section @sec-indirecteffect). Mediation, however, is difficult to establish with regression analysis and, as some argue, perhaps impossible to establish.
+If we think of causality, we usually think of a process in which one thing leads to another thing, which leads to something else, and so on. This is apparent if we want to explain why we think that one phenomenon causes another (see @sec-indirecteffect). Mediation, however, is difficult to establish with regression analysis and, as some argue, perhaps impossible to establish.
 
 ### Causal order assumed
 It is paramount to note that the regression approach to mediation and path models does not tell us anything about the causal order of the variables. The causal order is purely an assumption that we make. The plausibility of the assumptions depends on how well we can justify the time order of the variables and the absence of common causes for cause-consequence pairs (see @sec-causalcriteria).
@@ -625,11 +625,11 @@ The indicators of a scale are correlated because they have a common cause, namel
 
 ### Every effect in a path model can be confounded
 
-In Chapter @sec-confounder, you learned that the estimated regression coefficients can be too small, too large, or have the wrong sign (direction) if there are confounders: variables not included in the regression model that are correlated with the predictor and outcome variable. If we analyze a path model with a series of regression models, there can be confounders for each regression model. Every estimated direct effect can be wrong. As a consequence, every indirect effect, which is the product of direct effects, can be wrong.
+In @sec-confounder, you learned that the estimated regression coefficients can be too small, too large, or have the wrong sign (direction) if there are confounders: variables not included in the regression model that are correlated with the predictor and outcome variable. If we analyze a path model with a series of regression models, there can be confounders for each regression model. Every estimated direct effect can be wrong. As a consequence, every indirect effect, which is the product of direct effects, can be wrong.
 
-The surest way to get rid of a confounder is adding it to the regression model. In a path model, we can add a variable that we expect to be a confounder as a covariate (Section @sec-mediationcovariate) or as an additional mediator. If a confounder comes after the outcome variable in the causal order of the path model, it cannot be a common cause to both a predictor and the outcome variable. In this situation, the confounder can be ignored. This underlines the importance of choosing a correct causal order when we construct a path model. Unfortunately, we can never be sure about this.
+The surest way to get rid of a confounder is adding it to the regression model. In a path model, we can add a variable that we expect to be a confounder as a covariate (@sec-mediationcovariate) or as an additional mediator. If a confounder comes after the outcome variable in the causal order of the path model, it cannot be a common cause to both a predictor and the outcome variable. In this situation, the confounder can be ignored. This underlines the importance of choosing a correct causal order when we construct a path model. Unfortunately, we can never be sure about this.
 
-In practice, we do not know all confounders and we cannot include all of them in our regression models. We can minimize the risk of having confounders if we use randomization in an experiment. Section @sec-randomization explained how randomization of the experimental treatment variable helps to eliminate confounders for the effect of the experimental treatment (predictor variable) on the dependent variable. We expect that this effect is not confounded. 
+In practice, we do not know all confounders and we cannot include all of them in our regression models. We can minimize the risk of having confounders if we use randomization in an experiment. @sec-randomization explained how randomization of the experimental treatment variable helps to eliminate confounders for the effect of the experimental treatment (predictor variable) on the dependent variable. We expect that this effect is not confounded. 
 
 In a path model, a mediator also serves as a predictor, so we also have to randomize the mediator variable to get correct estimates for the causal effect of the mediator on the outcome variable. With randomized predictor and mediator variables, the direct effects are probably not confounded, so the indirect effects calculated from the direct effects are also unlikely to be confounded.
 

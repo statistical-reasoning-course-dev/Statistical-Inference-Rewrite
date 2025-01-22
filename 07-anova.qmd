@@ -51,7 +51,7 @@ Our dependent variable is a numeric scale assessing the participant's willingnes
 
 In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data [@RefWorks:3955], so it is widely used in the context of experiments.
 
-### Mean differences as effects {#anova-meandiffs}
+### Mean differences as effects {#sec-anova-meandiffs}
 
 Figure @fig-anova-means shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.
 
@@ -71,7 +71,7 @@ A group's average score on the dependent variable represents the group's score l
 
 Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.
 
-If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in Chapter @sec-confounder). Mean differences are said to represent the *effect* of experimental treatment in analysis of variance.
+If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in @sec-confounder). Mean differences are said to represent the *effect* of experimental treatment in analysis of variance.
 
 Analysis of variance was developed for the analysis of randomized experiments, where effects can be interpreted as causal effects. Note, however, that analysis of variance can also be applied to non-experimental data. Although mean differences are still called effects in the latter type of analysis, these do not have to be causal effects.
 
@@ -116,7 +116,7 @@ This proportion is informative and precise. If you want to classify the effect s
 - 0.3 (.2 ≤ eta^2^ < .4) = medium-sized or moderate effect,
 - 0.5 (.4 ≤ eta^2^) = large or strong effect.
 
-### Between-groups variance and within-groups variance {#between-variance}
+### Between-groups variance and within-groups variance {#sec-between-variance}
 
 For a better understanding of eta^2^ and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. Figure @fig-anova-between adds overall average willingness to donate to the plot (horizontal black line) with participants' scores and average experimental group scores (coloured horizontal lines).
 
@@ -149,12 +149,12 @@ So the difference between the overall average and the group average is what we p
 
 Playing with the group means in Figure @fig-anova-between, you may have noticed that eta^2^ is high if there are large differences between group means. In this situation we have high between-groups variance---large black arrows---so we can predict a lot of the variation in outcome scores between participants.
 
-In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in Section @sec-anova-model, zero between-groups variance is central to the null hypothesis in analysis of variance.
+In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in @sec-anova-model, zero between-groups variance is central to the null hypothesis in analysis of variance.
 
 ```{r skipped1, eval = FALSE, echo = FALSE}
 # Skipped to simplify the explanation of ANOVA.
 
-### Within-groups variance {#within-variance}
+### Within-groups variance {#sec-within-variance}
 
 # {r anova-within, fig.pos='H', fig.align='center', fig.cap="How does within-groups variance relate to between-groups variance?"}
 # Goal: Sensitize students to the fact that larger population variance creates larger random variance of sample means.
@@ -180,9 +180,9 @@ The amount of variation in population scores is important. Chance differences be
 
 The experimental treatment predicts that a participant's willingness equals the average willingness of the participant's group. It cannot predict or explain that a participant's willingness score is slightly different from her group mean (the red double-sided arrows in Figure @fig-anova-between). *Within-groups variance* in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as "Error".
 
-### *F* test on the model {#anova-model}
+### *F* test on the model {#sec-anova-model}
 
-Average group scores tell us whether the experimental treatment has effects within the sample (Section @sec-anova-meandiffs). If the group who saw Angelina Jolie as endorser has higher average willingness to donate than the group who did not see an endorser, we conclude that Angelina Jolie makes a difference in the sample. But how about the population?
+Average group scores tell us whether the experimental treatment has effects within the sample (@sec-anova-meandiffs). If the group who saw Angelina Jolie as endorser has higher average willingness to donate than the group who did not see an endorser, we conclude that Angelina Jolie makes a difference in the sample. But how about the population?
 
 ```{r skipped2, eval=FALSE, echo=FALSE}
 # Skipped to simplify the explanation of ANOVA.
@@ -210,7 +210,7 @@ It is easy to see that subtraction of three means may yield zero even if the mea
 Instead of subtraction, 
 ```
 
-We use the variance in group means as the number that expresses the differences between group means. If all groups have the same average outcome score, the between-groups variance is zero. The larger the differences, the larger the between-groups variance (see Section @sec-between-variance).
+We use the variance in group means as the number that expresses the differences between group means. If all groups have the same average outcome score, the between-groups variance is zero. The larger the differences, the larger the between-groups variance (see @sec-between-variance).
 
 ```{r skipped4, eval=FALSE, echo=FALSE}
 # Skipped to simplify the explanation of ANOVA.
@@ -234,7 +234,7 @@ Our test statistic, then, is the ratio of two variances: between-groups variance
 
 Long story short: We test the null hypothesis that all groups have the same population means in an analysis of variance. But behind the scenes, we actually test between-groups variance against within-groups variance. That is why it is called analysis of variance.
 
-### Assumptions for the *F* test in analysis of variance {#anova-assumpt}
+### Assumptions for the *F* test in analysis of variance {#sec-anova-assumpt}
 
 There are two important assumptions that we must make if we use the *F* distribution in analysis of variance: (1) independent samples and (2) homogeneous population variances.
 
@@ -244,7 +244,7 @@ The first assumption is that the groups can be regarded as independent samples. 
 
 Here is an example of an argument that we can make. In an experiment, we usually draw one sample of participants and, as a next step, we assign participants randomly to one of the experimental conditions. We could have easily drawn a separate sample for each experimental group. For example, we first draw a participant for the first condition: seeing George Clooney endorsing the fundraising campaign. Next, we draw a participant for the second condition, e.g., Angelina Jolie. The two draws are independent: whomever we have drawn for the Clooney condition is irrelevant to whom we draw for the Jolie condition. Therefore, draws are independent and the samples can be regarded as independent.
 
-Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples *t* tests (see Section @sec-dependentsamples). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.
+Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples *t* tests (see @sec-dependentsamples). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.
 
 #### Homogeneous population variances
 
@@ -252,7 +252,7 @@ The *F* test on the null hypothesis of no effect (the nil) in analysis of varian
 
 We can use a statistical test to decide whether or not the population variances are equal (homogeneous). This is Levene's *F* test, which is also used in combination with independent samples *t* tests. The test's null hypothesis is that the population variances of the groups are equal. If we do *not* reject the null hypothesis, we decide that the assumption of equal population variances is plausible.
 
-The assumption of equal population variances is less important if group samples are more or less of equal size (a balanced design, see Section @sec-balanced). We use a rule of thumb that groups are of equal size if the size of the largest group is less than 10% (of the largest group) larger than the size of the smallest group. If this is the case, we do not care about the assumption of homogeneous population variances.
+The assumption of equal population variances is less important if group samples are more or less of equal size (a balanced design, see @sec-balanced). We use a rule of thumb that groups are of equal size if the size of the largest group is less than 10% (of the largest group) larger than the size of the smallest group. If this is the case, we do not care about the assumption of homogeneous population variances.
 
 ### Which groups have different average scores?
 
@@ -284,7 +284,7 @@ In a pairwise comparison, we have two groups, for instance, participants confron
 
 With three groups, we can make three pairs: Clooney versus Jolie, Clooney versus nobody, and Jolie versus nobody. We have to execute three *t* tests on the same data. We already know that there are most likely differences in average scores, so the *t* tests are executed after the fact, in Latin *post hoc*. Hence the name *post-hoc tests*.
 
-Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. Section @sec-cap-chance discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples *t* tests that we execute if the analysis of variance *F* test is statistically significant.
+Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. @sec-cap-chance discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples *t* tests that we execute if the analysis of variance *F* test is statistically significant.
 
 The Bonferroni correction divides the significance level by the number of tests that we do. In our example, we do three *t* tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each *t* test is .0167. If a *t* test's *p* value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.
 
@@ -298,7 +298,7 @@ If the *F* test is statistically significant, we proceed to the second step. Her
 
 It may happen that the *F* test on the model is statistically significant but none of the post-hoc tests is statistically significant. This mainly happens when the *p* value of the *F* test is near .05. Perhaps the correction for capitalization on chance is too strong; this is known to be the case with the Bonferroni correction. Alternatively, the sample can be too small for the post-hoc test. Note that we have fewer observations in a post-hoc test than in the *F* test because we only look at two of the groups.
 
-This situation illustrates the limitations of null hypothesis significance tests (Chapter @sec-critical-discussion). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the *F* and *t* tests have contradictory results.
+This situation illustrates the limitations of null hypothesis significance tests (@sec-critical-discussion). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the *F* and *t* tests have contradictory results.
 
 A statistically significant *F* test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc *t* tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.
 
@@ -708,7 +708,7 @@ This does not mean that the endorser does not matter. On the contrary, the inter
 
 ### Testing main and interaction effects
 
-The effect of a single factor is called a main effect, as we learned in Section @sec-maineffects. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see Section @sec-anova2way), for example a main effect of sex and a main effect of endorser.
+The effect of a single factor is called a main effect, as we learned in @sec-maineffects. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see @sec-anova2way), for example a main effect of sex and a main effect of endorser.
 
 For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In Figure @fig-anova-interaction, we compare average willingness to donate for combinations of endorser and participant's sex. The effect of differences among subgroups on the dependent variable is called an *interaction effect*. Just like a main effect, an interaction effect is tested with an *F* test and its effect size is expressed by eta^2^.
 
@@ -744,7 +744,7 @@ Moderation between three or more factors is possible. These are called *higher-o
 
 ### Assumptions for two-way analysis of variance
 
-The assumptions for two-way analysis of variance are the same as for one-way analysis of variance (Section @sec-anova-assumpt). Just note that equal group sizes and equal population variances now apply to the subgroups formed by the combination of the two factors.
+The assumptions for two-way analysis of variance are the same as for one-way analysis of variance (@sec-anova-assumpt). Just note that equal group sizes and equal population variances now apply to the subgroups formed by the combination of the two factors.
 
 
 

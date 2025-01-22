@@ -20,7 +20,7 @@ An interactive tool for test selection made by [Matt Jackson-Wood](https://schol
 
 ## All SPSS Tutorial Videos List {-}
 
-__Chapter @sec-probmodels: Probability Models: How Do I Get a Sampling Distribution?__
+__@sec-probmodels: Probability Models: How Do I Get a Sampling Distribution?__
 
 (ref:bootstrap1SPSS) Bootstrapping in SPSS.
 
@@ -35,13 +35,13 @@ __Chapter @sec-probmodels: Probability Models: How Do I Get a Sampling Distribut
 * Video @fig-SPSSExact1: (ref:Exact1SPSS)
 * Video @fig-SPSSExact2: (ref:Exact2SPSS)
 
-__Chapter @sec-param-estim: Estimating a Parameter: Which Population Values Are Plausible?__
+__@sec-param-estim: Estimating a Parameter: Which Population Values Are Plausible?__
 
 (ref:conflevelSPSS) Setting the confidence level in SPSS.
 
 * Video @fig-SPSSconflevel: (ref:conflevelSPSS)
 
-__Chapter @sec-hypothesis: Testing a Null Hypothesis: Am I Right or Am I Wrong?__
+__@sec-hypothesis: Testing a Null Hypothesis: Am I Right or Am I Wrong?__
 
 (ref:binomialSPSS) A binomial test on a single proportion in SPSS.
 
@@ -53,13 +53,13 @@ __Chapter @sec-hypothesis: Testing a Null Hypothesis: Am I Right or Am I Wrong?_
 * Video @fig-SPSSchisq1: (ref:chisq1SPSS)
 * Video @fig-SPSS1mean: (ref:1meanSPSS)
 
-__Chapter @sec-power: Which Sample Size Do I Need? Power!__
+__@sec-power: Which Sample Size Do I Need? Power!__
 
 (ref:cohendtitle) Obtaining Cohen's _d_ with SPSS.
 
 * Video @fig-cohend: (ref:cohendtitle)
 
-__Chapter @sec-anova: Moderation with Analysis of Variance__
+__@sec-anova: Moderation with Analysis of Variance__
 
 (ref:1waySPSS) One-way analysis of variance (ANOVA) in SPSS.
 
@@ -71,7 +71,7 @@ __Chapter @sec-anova: Moderation with Analysis of Variance__
 * Video @fig-SPSS2way: (ref:2waySPSS)
 * Video @fig-SPSSeta2: (ref:eta2SPSS)
 
-__Chapter @sec-moderationcat: Regression Analysis And A Categorical Moderator__
+__@sec-moderationcat: Regression Analysis And A Categorical Moderator__
 
 (ref:regsimpleSPSS) Executing and interpreting regression analysis in SPSS.
 
@@ -98,7 +98,7 @@ __Chapter @sec-moderationcat: Regression Analysis And A Categorical Moderator__
 * Video @fig-SPSSregmodlines: (ref:regmodlinesSPSS)
 * Video @fig-SPSSregSupport1: (ref:regSupport1SPSS)
 
-__Chapter @sec-moderationcont: Regression Analysis With A Numerical Moderator__
+__@sec-moderationcont: Regression Analysis With A Numerical Moderator__
 
 (ref:regcenterSPSS) Mean-centering variables for regression analysis in SPSS.
 
@@ -110,13 +110,13 @@ __Chapter @sec-moderationcont: Regression Analysis With A Numerical Moderator__
 * Video @fig-SPSSreglines2: (ref:reglines2SPSS)
 * Video @fig-SPSSregSupport2: (ref:regSupport2SPSS)
 
-__Chapter @sec-confounder: Regression Analysis And Confounders__
+__@sec-confounder: Regression Analysis And Confounders__
 
 (ref:regconfoundSPSS) Identifying confounders with regression in SPSS.
 
 * Video @fig-SPSSregconfound: (ref:regconfoundSPSS)
 
-__Chapter @sec-mediation: Mediation with Regression Analysis__
+__@sec-mediation: Mediation with Regression Analysis__
 
 (ref:mediatparSPSS) Estimating a single or parallel mediation model with PROCESS (Model 4).
 
@@ -196,7 +196,7 @@ A test for this type of statistical hypothesis is called a one-sample chi-square
 
 The test is mainly used if researchers know the true proportions of the categories in the population from which they aimed to draw their sample. If we try to draw a sample from all citizens of a country, we usually know the frequency distribution of sex, age, educational level, and so on for all citizens from the national bureau of statistics. With the bureau's information, we can test if the respondents in our sample have the same distribution with respect to sex, age, or educational level as the population from which we tried to draw the sample; just use the official population proportions in the null hypothesis. 
 
-If the proportions in the sample do not differ more from the known proportions in the population than we expect based on chance, the sample is _representative_ of the population _in the statistical sense_ (see Section @sec-representative). As always, we use the _p_ value of the test as the probability of obtaining our sample or a sample that is even more different from the null hypothesis, if the null hypothesis is true. Note that the null hypothesis now represents the (distribution in) the population from which we tried to draw our sample. We conclude that the sample is representative of this population in the statistical sense if we can _not_ reject the null hypothesis, that is, if the _p_ value is _larger_ than .05. Not rejecting the null hypothesis means that we have sufficient probability that our sample was drawn from the population that we wanted to investigate. We can now be more confident that our sample results generalize to the population that we meant to investigate.
+If the proportions in the sample do not differ more from the known proportions in the population than we expect based on chance, the sample is _representative_ of the population _in the statistical sense_ (see @sec-representative). As always, we use the _p_ value of the test as the probability of obtaining our sample or a sample that is even more different from the null hypothesis, if the null hypothesis is true. Note that the null hypothesis now represents the (distribution in) the population from which we tried to draw our sample. We conclude that the sample is representative of this population in the statistical sense if we can _not_ reject the null hypothesis, that is, if the _p_ value is _larger_ than .05. Not rejecting the null hypothesis means that we have sufficient probability that our sample was drawn from the population that we wanted to investigate. We can now be more confident that our sample results generalize to the population that we meant to investigate.
 
 ### Testing proportions in SPSS {-}
 
@@ -335,7 +335,7 @@ knitr::include_url("https://www.youtube.com/embed/7mGKG3mLqN0", height = "360px"
 
 ----
 
-For an instruction and exercises on one-way analysis of variance, see Figure @fig-SPSS1way and Section @sec-onewaySPSS. For two-way analysis of variance, see Section @sec-twowaySPSS (instructions and exercises).
+For an instruction and exercises on one-way analysis of variance, see Figure @fig-SPSS1way and @sec-onewaySPSS. For two-way analysis of variance, see @sec-twowaySPSS (instructions and exercises).
 
 #### Exercises {-}
 
@@ -394,7 +394,7 @@ knitr::include_url("https://www.youtube.com/embed/Nqtg8q-S0k8", height = "360px"
 
 ----
 
-For regression analysis (instructions and exercises), see Section @sec-SPSS-regression.
+For regression analysis (instructions and exercises), see @sec-SPSS-regression.
 
 #### Exercises {-}
 
@@ -446,7 +446,7 @@ Where:
 
 ------------------------------------------------------------------------
 
-The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (Section @sec-dependentsamples). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (*pooled*) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the *t* value and degrees of freedom to calculate Cohen's *d*.
+The sample outcome can be a single mean, for instance the average weight of candies, but it can also be the difference between two means, for example, the difference in colourfulness of yellow candies at the beginning and end of a time period. In the latter case, the standard deviation that we need is the standard deviation of colourfulness difference across all candies (@sec-dependentsamples). In the case of independent samples, such as average weight of red versus yellow candies, we need a special combined (*pooled*) standard deviation for yellow and red candy weight that is not reported by SPSS. Here, we use the *t* value and degrees of freedom to calculate Cohen's *d*.
 
 ### Obtaining Cohen's *d* with SPSS
 

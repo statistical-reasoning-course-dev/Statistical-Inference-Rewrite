@@ -175,7 +175,7 @@ Note that this rule of thumb uses one minus the probability, if the probability 
 
 Apart from the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), there are several other theoretical probability distributions. We have the [_binomial distribution_](https://en.wikipedia.org/wiki/Binomial_distribution) for a proportion, the [_t distribution_](https://en.wikipedia.org/wiki/Student%27s_t-distribution) for one or two sample means, regression coefficients, and correlation coefficients, the [_F distribution_](https://en.wikipedia.org/wiki/F-distribution) for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the [_chi-squared distribution_](https://en.wikipedia.org/wiki/Chi-squared_distribution) for frequency tables and contingency tables.
 
-For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table @tab-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see Chapter @sec-moderationcat, @sec-regr-inference).
+For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table @tab-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see @sec-moderationcat, @sec-regr-inference).
 
 
 Table @tab-thumb shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.
@@ -219,7 +219,7 @@ If we draw a sample from both the red and yellow candies in the population, we m
 
 The sampling distribution of the difference between two means is similar to a _t_-distribution, so we may use the latter to approximate the former. Of course, the conditions for using the _t_-distribution must be met.  
 
-It is important to note that we do not create separate sampling distributions for the average weight of yellow candies and for the average weight of red candies and then look at the difference between the two sampling distributions. Instead, we create _one sampling distribution for the statistic of interest_, namely the difference between means. We cannot combine different sampling distributions into a new sampling distribution. We will see the importance of this when we discuss mediation (Chapter @sec-mediation).
+It is important to note that we do not create separate sampling distributions for the average weight of yellow candies and for the average weight of red candies and then look at the difference between the two sampling distributions. Instead, we create _one sampling distribution for the statistic of interest_, namely the difference between means. We cannot combine different sampling distributions into a new sampling distribution. We will see the importance of this when we discuss mediation (@sec-mediation).
 
 ### Independent samples  
 
@@ -317,7 +317,7 @@ The _bootstrap_ concept refers to the story in which Baron von M&uuml;nchhausen 
 
 ### Sampling with and without replacement  
 
-As we will see in Chapter @sec-param-estim, for example @sec-precisionsesamplesize, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.  
+As we will see in @sec-param-estim, for example @sec-precisionsesamplesize, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.  
 
 How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?
 
@@ -366,7 +366,7 @@ A sample is more likely to be representative of the population if the sample is 
 
 The big advantage of the bootstrap approach (_bootstrapping_) is that we can get a sampling distribution for any sample statistic that we are interested in. Every statistic that we can calculate for our original sample can also be calculated for each bootstrap sample. The sampling distribution is just the collection of the sample statistics calculated for all bootstrap samples.  
 
-Bootstrapping is more or less the only way to get a sampling distribution for the sample median, for example, the median weight of candies in a sample bag. We may create sampling distributions for the wildest and weirdest sample statistics, for instance the difference between sample mean and sample median squared. I would not know why you would be interested in the squared difference of sample mean and median, but there are very interesting statistics that we can only get at through bootstrapping. A case in point is the strength of an indirect effect in a mediation model (Chapter @sec-mediation).  
+Bootstrapping is more or less the only way to get a sampling distribution for the sample median, for example, the median weight of candies in a sample bag. We may create sampling distributions for the wildest and weirdest sample statistics, for instance the difference between sample mean and sample median squared. I would not know why you would be interested in the squared difference of sample mean and median, but there are very interesting statistics that we can only get at through bootstrapping. A case in point is the strength of an indirect effect in a mediation model (@sec-mediation).  
 
 
 

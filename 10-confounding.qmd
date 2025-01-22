@@ -43,7 +43,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-multiplere
 
 
 
-### Partial effect {#partialeffect}  
+### Partial effect {#sec-partialeffect}  
 
 How does a multiple regression model control the effect of an independent variable for the effects of all other independent variables? Conceptually, the regression model first removes the variation in the dependent variable that is predicted by all other independent variables. Then it determines how well the remaining independent variable predicts the variation that is left (residual variation). This is the variation in outcome scores that can be predicted by this particular independent variable but not by any of the other independent variables in the model.
 
@@ -53,9 +53,9 @@ In this sense, a regression coefficient in a multiple regression model expresses
 
 It is important to note that the effect is only unique in comparison to the other independent variables that are included in the model. It may well be that we did not include variables in the model that are actually responsible for part of the effects that are attributed to the independent variables in the model. Such left-out variables are called _confounding variables_ or, for short, _confounders_.
 
-If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In Figure @fig-mediation-multipleregression, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In Section @sec-confounders, we will learn that regression coefficients can increase and decrease if confounders are included in the model.
+If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In Figure @fig-mediation-multipleregression, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In @sec-confounders, we will learn that regression coefficients can increase and decrease if confounders are included in the model.
 
-If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in Chapter @sec-mediation (Section @sec-causalcriteria).
+If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in @sec-mediation (@sec-causalcriteria).
 
 #### Confounders are not included in the regression model
 
@@ -108,13 +108,13 @@ As long as age is not included in the regression model, the model believes that 
 
 Once we add age as a new predictor to the regression model, the indirect correlation due to age is removed from the effect of political interest. The effect of age on newspaper reading time is now correctly assigned to age. As a result, the value of the regression coefficient for political interest changes if we add age as a new predictor.
 
-The size of the change is related to the size of the indirect correlation. The larger the indirect correlation, the more the regression coefficient of political interest changes if age (the former confounder) is included as a new predictor. This answers the second part of the question with which we started Section @sec-indirectcorrelation: When is a variable a stronger confounder?
+The size of the change is related to the size of the indirect correlation. The larger the indirect correlation, the more the regression coefficient of political interest changes if age (the former confounder) is included as a new predictor. This answers the second part of the question with which we started @sec-indirectcorrelation: When is a variable a stronger confounder?
 
 If you love the details: The size of the change in the standardized regression coefficient is not exactly the same as the size of the indirect correlation. It is equal to the correlation between the confounder (age) and the predictor (political interest) times the standardized regression coefficient of the effect of the confounder (age) on the dependent variable (newspaper reading time) that controls for the effect of the predictor (political interest). 
 
 ### Randomization for avoiding confounders {#sec-randomization}
 
-There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of Chapter @sec-anova, where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment. 
+There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of @sec-anova, where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment. 
 
 How does this help us to avoid having confounders? The example research aimed to find out whether the celebrity endorser affects the willingness to donate to a charity. The experimental treatment (celebrity endorser video) is the independent variable or predictor variable in the model. If participants' scores on this variable --- in the example, seeing Jolie, Clooney, or no celebrity endorser --- are random, the variable is expected not to correlate with any other characteristic of the participants when the experiment starts.
 
