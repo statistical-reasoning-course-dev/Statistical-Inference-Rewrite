@@ -481,7 +481,7 @@ window.Quarto = {
 </iframe>
 </div>
 <p>In this example, smoking status is measured with three categories: (1) non-smokers, (2) former smokers, and (3) smokers. Let us use the term <em>categorical variable</em> only for variables containing three or more categories or groups. This makes it easy to distinguish them from dichotomous variables. This distinction is important because we can include a dichotomous variable straight away as a predictor in a regression model but we cannot do so for a variable with more than two categories. We can only include such a categorical independent variable if we change it into a set of dichotomies.</p>
-<p>We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables <em>neversmoked</em>, <em>smokesnomore</em>, and <em>smoking</em>. Every respondent would score 1 on one of the three variables and 0 on the other two variables (Table <span class="quarto-unresolved-ref">?tbl-dummytable</span>). These variables are called <em>dummy variables</em> or <em>indicator variables</em>.</p>
+<p>We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables <em>neversmoked</em>, <em>smokesnomore</em>, and <em>smoking</em>. Every respondent would score 1 on one of the three variables and 0 on the other two variables (<span class="quarto-unresolved-ref">?tbl-dummytable</span>). These variables are called <em>dummy variables</em> or <em>indicator variables</em>.</p>
 <div class="cell" data-screenshot.opts="{&quot;delay&quot;:2}">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -877,7 +877,7 @@ window.Quarto = {
 
 </div>
 </div>
-<p>In Table <span class="quarto-unresolved-ref">?tbl-dich-moderator-output</span>, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude <strong>for non-smokers</strong>. If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from Table <span class="quarto-unresolved-ref">?tbl-dich-moderator-output</span>.</p>
+<p>In <span class="quarto-unresolved-ref">?tbl-dich-moderator-output</span>, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude <strong>for non-smokers</strong>. If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from <span class="quarto-unresolved-ref">?tbl-dich-moderator-output</span>.</p>
 <span class="math display">\[\begin{equation}
 \small
 \begin{split}
@@ -956,7 +956,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure <span class="quarto-unresolved-ref">?fig-categorical-moderator-fig</span> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (Table <span class="quarto-unresolved-ref">?tbl-cat-moderator-results</span>).</p>
+<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure <span class="quarto-unresolved-ref">?fig-categorical-moderator-fig</span> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (<span class="quarto-unresolved-ref">?tbl-cat-moderator-results</span>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -1035,7 +1035,7 @@ window.Quarto = {
 </div>
 <p>Remember that the effects of predictors that are included in interactions are conditional effects: effects for the reference group or reference value on the other variable involved in the interaction. Non-smokers are the reference group for participant’s smoking status. The <em>p</em> value for the <em>exposure</em> predictor tests the hypothesis that the exposure effect for non-smokers is zero in the population.</p>
 <p>For the two dummy variables <em>Former smoker</em> and <em>Smoker</em>, the null hypothesis is tested that they have the same average attitude in the population as the non-smokers (reference group) if they are not exposed to the anti-smoking campaign. Participants who are not exposed to the campaign (zero exposure) are the reference group here.</p>
-<p>Interaction predictors show effect differences. In Table <span class="quarto-unresolved-ref">?tbl-cat-moderator-results</span>, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (<em>Exposure*Former smoker</em>) or for smokers and non-smokers (<em>Exposure*Smoker</em>) in the population.</p>
+<p>Interaction predictors show effect differences. In <span class="quarto-unresolved-ref">?tbl-cat-moderator-results</span>, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (<em>Exposure*Former smoker</em>) or for smokers and non-smokers (<em>Exposure*Smoker</em>) in the population.</p>
 <p>If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.</p>
 </section>
 <section id="sec-commonsupportdichotomous" class="level3" data-number="6.3.6">
@@ -1096,7 +1096,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Figure <span class="quarto-unresolved-ref">?fig-moderator-covar-statistical</span> shows the statistical diagram of a moderation model with contact as covariate and Table <span class="quarto-unresolved-ref">?tbl-dich-moderator-cov-output</span> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
+<p>Figure <span class="quarto-unresolved-ref">?fig-moderator-covar-statistical</span> shows the statistical diagram of a moderation model with contact as covariate and <span class="quarto-unresolved-ref">?tbl-dich-moderator-cov-output</span> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -1170,7 +1170,7 @@ window.Quarto = {
 
 </div>
 </div>
-<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (Table <span class="quarto-unresolved-ref">?tbl-dich-moderator-cov-output</span>) to create a regression equation [Eq. @ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
+<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (<span class="quarto-unresolved-ref">?tbl-dich-moderator-cov-output</span>) to create a regression equation [Eq. @ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
 <span class="math display">\[\begin{equation}
 \small
 \begin{split}

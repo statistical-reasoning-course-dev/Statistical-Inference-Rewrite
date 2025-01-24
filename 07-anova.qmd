@@ -434,7 +434,7 @@ knitr::kable(df, booktabs = TRUE, caption = "Number of observations per subgroup
 rm(df)
 ```
 
-Table @tbl-anova-balanced shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate statistical independence. In the example, the distributions are the same across columns (and rows), so the factors are statistically independent.
+@tbl-anova-balanced shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate statistical independence. In the example, the distributions are the same across columns (and rows), so the factors are statistically independent.
 
 In practice, it may not always be possible to have exactly the same number of observations for each subgroup. A participant may drop out from the experiment, a measurement may go wrong, and so on. If the numbers of observations are more or less the same for all subgroups, the factors are nearly independent, which is okay. We can use the same rule of thumb for a balanced design as for the conditions of an *F* test in analysis of variance: If the size of the smallest subgroup is less than ten per cent smaller than the size of the largest group, we call a factorial design balanced.
 
@@ -803,7 +803,7 @@ For the statistically informed reader, you should include the following informat
 
 -   Report it if the main assumption is violated, that is, if you have (sub)groups of unequal size and the test on homogeneous variances is statistically significant. Report Levene's test just like you report the *F* test of a main effect (see above). If the assumption is violated, we still report and interpret the results of the analysis of variance but we warn that the results may not be trustworthy.
 
-A two-way analysis of variance may produce many numeric results to report. It is recommended to present them as a table (in the text or in an appendix). If you report the table, include the error, the sums of squares and mean squares in the same way that SPSS reports them. Table @tbl-2way-table presents an example.
+A two-way analysis of variance may produce many numeric results to report. It is recommended to present them as a table (in the text or in an appendix). If you report the table, include the error, the sums of squares and mean squares in the same way that SPSS reports them. @tbl-2way-table presents an example.
 
 ```{r 2way-table, warning=FALSE, message=FALSE, echo=FALSE}
 results <- anova(lm(willing_post ~ sex*endorser, data = donors))

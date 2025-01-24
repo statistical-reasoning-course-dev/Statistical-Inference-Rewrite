@@ -369,7 +369,7 @@ knitr::kable(results, booktabs = TRUE,
 rm(results)
 ```
  
-The confidence interval of an indirect effect can be calculated from its bootstrapped sampling distribution. Table @tbl-indirect-sim shows bootstrap results for the indirect effects in a model with age as predictor, newspaper reading time as dependent variable, and interest in politics and news site use as mediators. 
+The confidence interval of an indirect effect can be calculated from its bootstrapped sampling distribution. @tbl-indirect-sim shows bootstrap results for the indirect effects in a model with age as predictor, newspaper reading time as dependent variable, and interest in politics and news site use as mediators. 
 
 In total, there is a substantial indirect effect of age on newspaper reading time in this model. We are confident that this effect is positive [_b_ = 1.47, 95% CI [0.62, 2.25] (bootstrapped)]. It is easy to see that the indirect effect of age via news site use on reading time is by far the most important indirect effect [_b_ = 1.44, 95% CI [0.60, 2.23] (bootstrapped)]. On its own, it is responsible for almost the entire total indirect effect.
 
