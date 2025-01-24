@@ -255,7 +255,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/regression-categoric
 
 In this example, smoking status is measured with three categories: (1) non-smokers, (2) former smokers, and (3) smokers. Let us use the term *categorical variable* only for variables containing three or more categories or groups. This makes it easy to distinguish them from dichotomous variables. This distinction is important because we can include a dichotomous variable straight away as a predictor in a regression model but we cannot do so for a variable with more than two categories. We can only include such a categorical independent variable if we change it into a set of dichotomies.
 
-We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables *neversmoked*, *smokesnomore*, and *smoking*. Every respondent would score 1 on one of the three variables and 0 on the other two variables (Table @tab-dummytable). These variables are called *dummy variables* or *indicator variables*.
+We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables *neversmoked*, *smokesnomore*, and *smoking*. Every respondent would score 1 on one of the three variables and 0 on the other two variables (Table @tbl-dummytable). These variables are called *dummy variables* or *indicator variables*.
 
 ```{r dummytable, echo=FALSE, screenshot.opts=list(delay = 2)}
 knitr::kable(rbind(c("1 - Non-smoker", "1", "0", "0"), 
@@ -830,8 +830,8 @@ source("report_n.R")
 rm(smokers, model_1, ci, results_2, model_2, z_attitude, z_status2, z_expostatus2, z_exposure)
 ```
 
-In Table @tab-dich-moderator-output, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude **for non-smokers**. 
-If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from Table @tab-dich-moderator-output. 
+In Table @tbl-dich-moderator-output, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude **for non-smokers**. 
+If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from Table @tbl-dich-moderator-output. 
 
 ```{=tex}
 \begin{equation}
@@ -931,7 +931,7 @@ ggplot(variables, aes(x, y)) +
   theme_void()
 ```
 
-In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure @fig-categorical-moderator-fig shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and *p* values for all independent variables (Table @tab-cat-moderator-results).
+In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure @fig-categorical-moderator-fig shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and *p* values for all independent variables (Table @tbl-cat-moderator-results).
 
 ```{r cat-moderator-results, echo=FALSE, message=FALSE, warning=FALSE}
 # Table of regression coefficients for exposure moderated by status3. Similar to SPSS output (without correct standardized coefficients).
@@ -966,7 +966,7 @@ Remember that the effects of predictors that are included in interactions are co
 
 For the two dummy variables *Former smoker* and *Smoker*, the null hypothesis is tested that they have the same average attitude in the population as the non-smokers (reference group) if they are not exposed to the anti-smoking campaign. Participants who are not exposed to the campaign (zero exposure) are the reference group here.
 
-Interaction predictors show effect differences. In Table @tab-cat-moderator-results, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (*Exposure\*Former smoker*) or for smokers and non-smokers (*Exposure\*Smoker*) in the population.
+Interaction predictors show effect differences. In Table @tbl-cat-moderator-results, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (*Exposure\*Former smoker*) or for smokers and non-smokers (*Exposure\*Smoker*) in the population.
 
 If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.
 
@@ -1046,7 +1046,7 @@ ggplot(variables, aes(x, y)) +
   theme_void()
 ```
 
-Figure @fig-moderator-covar-statistical shows the statistical diagram of a moderation model with contact as covariate and Table @tab-dich-moderator-cov-output summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?
+Figure @fig-moderator-covar-statistical shows the statistical diagram of a moderation model with contact as covariate and Table @tbl-dich-moderator-cov-output summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?
 
 ```{r dich-moderator-cov-output, echo=FALSE, message=FALSE, warning=FALSE}
 # Table of regression coefficients for exposure moderated by status. Similar to SPSS output (with correct standardized coefficients).
@@ -1095,7 +1095,7 @@ contact_avg = mean(contact)
 rm(model_1, ci, results_2, model_2, z_attitude, z_status2, z_expostatus2, z_exposure, z_contact)
 ```
 
-As a first step, use the estimated values of the regression coefficients in the SPSS output (Table @tab-dich-moderator-cov-output) to create a regression equation [Eq. \@ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (*B*) and the independent variable names.
+As a first step, use the estimated values of the regression coefficients in the SPSS output (Table @tbl-dich-moderator-cov-output) to create a regression equation [Eq. \@ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (*B*) and the independent variable names.
 
 ```{=tex}
 \begin{equation}

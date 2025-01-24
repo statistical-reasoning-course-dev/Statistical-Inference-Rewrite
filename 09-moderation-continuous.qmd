@@ -301,7 +301,7 @@ source("report_n.R")
 rm(model_1, ci, results_2, model_2)
 ```
 
-The regression model yields a *p* value and confidence interval for the predictor at the reference value of the moderator. In the model estimated in Table @tab-cont-moderator-output, for instance, we obtain a *p* value of `r report_n(results[2,5], 3)` and a 95% confidence interval of [`r report_n(results[2,6],2)`, `r report_n(results[2,7],2)`] for the effect of exposure on attitude. This is the conditional effect of exposure on attitude for cases that score zero on the moderator variable (contact with smokers).
+The regression model yields a *p* value and confidence interval for the predictor at the reference value of the moderator. In the model estimated in Table @tbl-cont-moderator-output, for instance, we obtain a *p* value of `r report_n(results[2,5], 3)` and a 95% confidence interval of [`r report_n(results[2,6],2)`, `r report_n(results[2,7],2)`] for the effect of exposure on attitude. This is the conditional effect of exposure on attitude for cases that score zero on the moderator variable (contact with smokers).
 
 If the moderator variable *contact* is mean-centered, the *p* value tests the null hypothesis that the effect of exposure is zero for people who have average contact with smokers. The confidence interval tells us that the effect of exposure on attitude for people with average contacts with smokers in the population ranges between `r report_n(results[2,6],2)` and `r report_n(results[2,7],2)` with 95% confidence. If the moderator is not mean-centered, the results apply to people who have no contact with smokers.
 
@@ -448,7 +448,7 @@ If we report a regression model, we first present the significance test and pred
 
 How well does the regression model predict attitude towards smoking? The effect size of a regression model or its predictive power is summarized by $R^2$ (*R Square*), which is the proportion of the variance in the dependent variable scores (attitude towards smoking) that can be predicted with the regression model. In this example, $R^2$ is `r report_n(summ$r.squared, 2)`, so the regression model predicts `r report_n(summ$r.squared * 100, 0)`% of the variance in attitude towards smoking among the respondents. In communication research, $R^2$ is usually smaller.
 
-$R^2$ tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use *Adjusted R Square*. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is `r report_n(summ$adj.r.squared, 2)` (not reported in Table @tab-report-moderation-table).
+$R^2$ tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use *Adjusted R Square*. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is `r report_n(summ$adj.r.squared, 2)` (not reported in Table @tbl-report-moderation-table).
 
 ```{r report-moderation-table, echo=FALSE}
 # Table.
@@ -468,9 +468,9 @@ As a next step, we discuss the size, statistical significance, and confidence in
 
 Exposure, in our example, has a negative predictive effect on attitude towards smoking (*b* = `r report_n(results[2,1])`) for non-smokers with average contacts with smokers, *t* = `r report_n(results[2,3])`, `r ifelse(results[2,4] < .0005, "p < .001", paste0("p = ", report_n(results[2,4], digits=3)))`, 95% CI [`r report_n(ci[2,1])`, `r report_n(ci[2,2])`]. Note that SPSS does not report the degrees of freedom for the *t* test on a regression coefficient, so we cannot report them.
 
-Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as Table @tab-report-moderation-table. Note that *t* and *p* values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.
+Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as Table @tbl-report-moderation-table. Note that *t* and *p* values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.
 
-A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in Table @tab-report-moderation-table, the effect of exposure on attitude seems to be moderated by contact with smokers (*b* = `r report_n(results[6,1])`, `r ifelse(results[6,4] < .0005, "p < .001", paste0("p = ", report_n(results[6,4], digits=3)))`) and by smoking status (*b* = `r report_n(results[7,1])`, `r ifelse(results[7,4] < .0005, "p < 0.001", paste0("p = ", report_n(results[7,4], digits=3)))` for former smoker).
+A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in Table @tbl-report-moderation-table, the effect of exposure on attitude seems to be moderated by contact with smokers (*b* = `r report_n(results[6,1])`, `r ifelse(results[6,4] < .0005, "p < .001", paste0("p = ", report_n(results[6,4], digits=3)))`) and by smoking status (*b* = `r report_n(results[7,1])`, `r ifelse(results[7,4] < .0005, "p < 0.001", paste0("p = ", report_n(results[7,4], digits=3)))` for former smoker).
 
 ```{r moderator-concept3, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Conceptual diagram of the estimated moderation model.", fig.asp=0.3}
 # Create coordinates for the variable names.

@@ -177,12 +177,12 @@ Note that this rule of thumb uses one minus the probability, if the probability 
 
 Apart from the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution), there are several other theoretical probability distributions. We have the [_binomial distribution_](https://en.wikipedia.org/wiki/Binomial_distribution) for a proportion, the [_t distribution_](https://en.wikipedia.org/wiki/Student%27s_t-distribution) for one or two sample means, regression coefficients, and correlation coefficients, the [_F distribution_](https://en.wikipedia.org/wiki/F-distribution) for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the [_chi-squared distribution_](https://en.wikipedia.org/wiki/Chi-squared_distribution) for frequency tables and contingency tables.
 
-For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table @tab-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see @sec-moderationcat, @sec-regr-inference).
+For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in Table @tbl-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see @sec-moderationcat, @sec-regr-inference).
 
 
-Table @tab-thumb shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.
+Table @tbl-thumb shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.
 
-In Table @tab-thumb the minimal required sample sizes for using theoretical approximation of  sampling distributions are presented. If you plan to do a *t* test, each group should contain more than thirty cases. So if you intend to apply *t* tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.
+In Table @tbl-thumb the minimal required sample sizes for using theoretical approximation of  sampling distributions are presented. If you plan to do a *t* test, each group should contain more than thirty cases. So if you intend to apply *t* tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.
 
 Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.
 
@@ -200,7 +200,7 @@ We could use a histogram of the scores in our sample with a normal distribution 
 
 ### More complicated sample statistics: differences {#sec-complicatedsampling}
 
-Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. Table @tab-thumb, however, contains more complicated sample statistics. 
+Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. Table @tbl-thumb, however, contains more complicated sample statistics. 
 
 If we compare two groups, for instance, the average weight of yellow and red candies, the sample statistic for which we want to have a sampling distribution must take into account both the average weight of yellow candies and the average weight of red candies. The sample statistic that we are interested in is the difference between the averages of the two samples.
 
@@ -435,7 +435,7 @@ SPSS reports bootstrapping results as confidence intervals. We will discuss conf
 knitr::include_graphics("figures/decision.png")
 ```
 
-By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see Table @tab-thumb.
+By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see Table @tbl-thumb.
 
 If the conditions for using a theoretical probability distribution are not met or if we do not have a theoretical approximation to the sampling distribution, we use bootstrapping or an exact approach. We can always use bootstrapping but an exact approach is available only if the variables are categorical. An exact approach is more accurate than bootstrapping and approximation with a theoretical probability distribution, for example, the chi-squared distribution, so we prefer the exact approach over bootstrapping if we are dealing with categorical variables.
 
