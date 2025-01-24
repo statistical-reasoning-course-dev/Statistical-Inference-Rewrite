@@ -153,7 +153,7 @@ Theoretical probability distributions, then, are plausible models for sampling d
 
 If we use a theoretical probability distribution, we must assume that the conditions for its use are met. We have to check the conditions and decide whether they are close enough to the ideal conditions. _Close enough_ is of course a matter of judgement. In practice, rules of thumb have been developed to decide if the theoretical probability distribution can be used.
 
-Figure @fig-normal-approx-proportion shows an example in which the normal distribution is a good approximation for the sampling distribution of a proportion in some situations, but not in all situations.
+@fig-normal-approx-proportion shows an example in which the normal distribution is a good approximation for the sampling distribution of a proportion in some situations, but not in all situations.
 
 ```{r normal-approx-proportion, fig.pos='H', fig.align='center', fig.cap="How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?", echo = FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 #Generate a binomial sampling distribution with population proportion 0.5 and a
@@ -167,7 +167,7 @@ Figure @fig-normal-approx-proportion shows an example in which the normal distri
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/", height="305px")
 ```
 
-Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with Figure @fig-normal-approx-proportion, this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.
+Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with @fig-normal-approx-proportion, this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.
 
 This illustrates that we often have several conditions for a theoretical probability distribution to fit the sampling distribution. We should evaluate all of them at the same time. In the example of proportions, a large sample is less important if the true proportion is closer to .5 but it is more important for true proportions that are more distant from .5.
 
@@ -225,7 +225,7 @@ It is important to note that we do not create separate sampling distributions fo
 
 ### Independent samples  
 
-If we compare two means, there are two fundamentally different situations that are sometimes difficult to distinguish. When comparing the average weight of yellow candies to the average weight of red candies, we are comparing two samples that are _statistically independent_ (see Figure @fig-mean-independent), which means that we could have drawn the samples separately.  
+If we compare two means, there are two fundamentally different situations that are sometimes difficult to distinguish. When comparing the average weight of yellow candies to the average weight of red candies, we are comparing two samples that are _statistically independent_ (see @fig-mean-independent), which means that we could have drawn the samples separately.  
 
 In principle, we could distinguish between a population of yellow candies and a population of red candies, and sample yellow candies from the first population and separately sample red candies from the other population. Whether we sampled the colours separately or not does not matter. The fact that we could have done so implies that the sample of red candies is not affected by the sample of yellow candies or the other way around. The samples are statistically independent.
 
@@ -301,7 +301,7 @@ The first way to obtain a sampling distribution is still based on the idea of dr
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
 ```
 
-In Figure @fig-bootstrapping, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
+In @fig-bootstrapping, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
 
 
 
@@ -338,7 +338,7 @@ If we allow every case in the original sample to be sampled only once, each boot
 
 By the way, we often use the type of sampling described above, which is called _sampling without replacement_. If a person is (randomly) chosen for our sample, we do not put this person back into the population so she or he can be chosen again. We want our respondents to fill out our questionnaire only once or participate in our experiment only once.  
 
-If we do allow the same person to be chosen more than once, we sample _with replacement_. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in Figure @fig-replacement. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.  
+If we do allow the same person to be chosen more than once, we sample _with replacement_. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in @fig-replacement. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.  
 
 In conclusion, we sample bootstrap samples in a different way (with replacement) than participants for our research (without replacement).
 

@@ -141,7 +141,7 @@ To *mean-center* a variable, you subtract the variable's mean from all scores on
 \normalsize
 \end{equation*}
 ```
-Mean-centering shifts the values of a variable such that the mean of the new variable becomes zero (Figure @fig-mean-centering-plot). Below-average values on the original variable are negative on a mean-centered variable and above-average values are positive. The shape of the distribution remains the same.
+Mean-centering shifts the values of a variable such that the mean of the new variable becomes zero (@fig-mean-centering-plot). Below-average values on the original variable are negative on a mean-centered variable and above-average values are positive. The shape of the distribution remains the same.
 
 ```{r mean-centering-plot, eval=TRUE, echo=FALSE, fig.pos='H', out.width="640px", fig.align='center', fig.cap="Histograms of the original contacts with smokers variable and the mean-centered variable. The red lines represent the means."}
 #create dataframe
@@ -201,7 +201,7 @@ If we want to interpret the conditional effect of contact on attitude ($b_2$), w
 \normalsize
 \end{equation}
 ```
-But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (Figure @fig-moderator-symmetry). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.
+But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (@fig-moderator-symmetry). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.
 
 ```{r moderator-symmetry, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Two conceptual diagrams of moderation for the same interaction effect.", fig.asp=0.2}
 # Create coordinates for the variable names.
@@ -334,13 +334,13 @@ smokers %>% #data read in previous code chunk
 rm(smokers)
 ```
 
-According to Figure @fig-cont-moderator-support, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.
+According to @fig-cont-moderator-support, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.
 
 ### Assumptions
 
 The general assumptions for regression analysis (@sec-regr-inference) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.
 
-Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in Figure @fig-continuous-moderator at the beginning of this section on numerical moderators.
+Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in @fig-continuous-moderator at the beginning of this section on numerical moderators.
 
 It is difficult to check this assumption, so let us not pursue this here. Just remember that the interaction effect is assumed to be linear: a gradually increasing or decreasing effect of the predictor at higher moderator values.
 
@@ -500,7 +500,7 @@ For a numerical moderator, we can interpret the general pattern reflected by the
 
 This interpretation in terms of effect differences remains difficult to understand. It is recommended to select some interesting values for the moderator and report the size of the effect for each value. For a categorical moderator, each category is of interest. For a numerical moderator, the mean and one standard deviation below and above the mean are usually interesting values. The regression coefficients show whether the effect is positive, negative, or nearly zero at different values of the moderator.
 
-Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in Figure @fig-report-moderator-visual), not the original predictor.
+Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in @fig-report-moderator-visual), not the original predictor.
 
 ```{r report-moderator-visual, fig.pos='H', fig.align='center', fig.cap="The effect of exposure on attitude towards smoking. Left: Effects for groups with different smoking status (at average contact with smokers). Right: Effects at different levels of contact with smokers (effects for non-smokers).", out.width='50%', fig.asp=1, fig.show='hold', echo=FALSE}
 # Create grouping variable. 
@@ -568,9 +568,9 @@ ggplot(df, aes(x = exposure_mc, y = attitude)) +
 rm(ci, df, results, resultsF, table, attitude, cl, contact, exposure, former, n, regmodel_1, smoker, status, summ, report_n)
 ```
 
-The left panel in Figure @fig-report-moderator-visual clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.
+The left panel in @fig-report-moderator-visual clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.
 
-Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of Figure @fig-report-moderator-visual, the groups (colours) vary nicely over the entire range of the predictor *exposure*, so that is okay. We need histograms to check common support for the right-hand plot.
+Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of @fig-report-moderator-visual, the groups (colours) vary nicely over the entire range of the predictor *exposure*, so that is okay. We need histograms to check common support for the right-hand plot.
 
 Do not report that common support of the predictor at different moderator values is good. If it is bad, warn the reader that we cannot fully trust the estimated moderation because we do not have a nice range of predictor values within each level of the moderator. If the predictor is supported only within a restricted range, you may report this range.
 
@@ -582,7 +582,7 @@ Finally, inspect the residual plots but do not include them in the report. Warn 
 
 As in @sec-moderationcat, we calculate an interaction variable as the product of the predictor and moderator (the *Compute Variable* option in the *Transform* menu) and we use it as one of the independent variables in a linear regression model (the *Linear* option in the *Regression* submenu).
 
-The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure @fig-meancentertable, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
+The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (@fig-meancentertable, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
 
 ```{r meancentertable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right)."}
 knitr::include_graphics("figures/S9_AE1.png")
@@ -590,11 +590,11 @@ knitr::include_graphics("figures/S9_AE1.png")
 
 It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
 
-The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (Figure @fig-meancentertable, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
+The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (@fig-meancentertable, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
 
-The regression coefficient of the interaction effect (Figure @fig-meancentertable, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
+The regression coefficient of the interaction effect (@fig-meancentertable, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
 
-Communicate the results of a numerical moderator in a scatterplot (*Scatter/Dot* in the *Legacy Dialogs* submenu of the *Graphs* menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (Figure @fig-nummoderatorplot). Get the mean and standard deviation of the moderator variable with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics* and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the *Reference Line from Equation* option in the *Options* menu of the  *Chart Editor*.
+Communicate the results of a numerical moderator in a scatterplot (*Scatter/Dot* in the *Legacy Dialogs* submenu of the *Graphs* menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (@fig-nummoderatorplot). Get the mean and standard deviation of the moderator variable with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics* and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the *Reference Line from Equation* option in the *Options* menu of the  *Chart Editor*.
 
 ```{r nummoderatorplot, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers."}
 knitr::include_graphics("figures/S9_AE2.png")
@@ -665,7 +665,7 @@ knitr::include_url("https://www.youtube.com/embed/x45Tv6nvta4", height = "360px"
 
 <!-- ## Test Your Understanding
 
-Figure @fig-moderator-overview shows the relation between exposure to an anti-smoking campaign and attitude towards smoking. The effect of exposure on attitude is moderated by daily contacts with people who smoke.
+@fig-moderator-overview shows the relation between exposure to an anti-smoking campaign and attitude towards smoking. The effect of exposure on attitude is moderated by daily contacts with people who smoke.
 
 ```{r moderator-overview, fig.pos='H', fig.align='center', fig.cap="How does moderation work in a regression model?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
 # Use app continuous-moderator.

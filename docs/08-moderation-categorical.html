@@ -359,7 +359,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Figure <span class="quarto-unresolved-ref">?fig-concept-smoke</span> summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable (<span class="math inline">\(y\)</span>) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.</p>
+<p><span class="quarto-unresolved-ref">?fig-concept-smoke</span> summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable (<span class="math inline">\(y\)</span>) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.</p>
 <p>A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter <span class="math inline">\(y\)</span>) as the sum of a constant, the effects (<span class="math inline">\(b\)</span>) of independent variables or predictors (<span class="math inline">\(x\)</span>), which are <em>predictive effects</em>, and an error term (<span class="math inline">\(e\)</span>), which is also called the <em>residuals</em>, see Equation @ref(eq:regression).</p>
 <span class="math display">\[\begin{equation}
 \small
@@ -422,7 +422,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in Figure <span class="quarto-unresolved-ref">?fig-regression-continuous</span>, one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.</p>
+<p>Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in <span class="quarto-unresolved-ref">?fig-regression-continuous</span>, one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.</p>
 <p>In the data, the smallest exposure score is (about) zero, predicting a positive attitude of 1.6. The largest observed exposure score is around eight, predicting a negative attitude of -3.2. If exposure causes the predicted differences in attitude, the campaign would have interesting effects. It may change a positive attitude into a rather strong negative attitude.</p>
 <p>If we want to apply a rule of thumb for the strength of the effect, we usually look at the standardized regression coefficient (<span class="math inline">\(b^*\)</span> according to APA, <em>Beta</em> in SPSS output). See <a href="04-hypothesis.html#sec-assoc-size" class="quarto-xref"><span>Section 4.2.8.2</span></a> for some rules of thumb for effect size interpretation.</p>
 <p>Note that the regression coefficient is calculated for predictor values that occur within the data set. For example, if the observed exposure scores are within the range zero to eight, these values are used to predict attitude towards smoking.</p>
@@ -601,7 +601,7 @@ window.Quarto = {
 <p>If our sample is truly a random sample with independent and identically distributed observations, the sizes of our errors (residuals) should be normally distributed for each value of the dependent variable, that is, attitude in our example. The residuals should result from chance for the relation between chance and a normal distribution).</p>
 <p>So for all possible values of the dependent variable, we must collect the residuals for the observations that have this score on the dependent variable. For example, we should select all respondents who score 4.5 on the attitude towards smoking scale. Then, we select the residuals for these respondents and see whether they are approximately normally distributed.</p>
 <p>Usually, we do not have more than one observation (if any) for a single dependent variable score, so we cannot apply this check. Instead, we use a simple and coarse approach: Are all residuals normally distributed?</p>
-<p>A histogram with an added normal curve (like the right-hand plot in Figure <span class="quarto-unresolved-ref">?fig-resid-normal</span>) helps us to evaluate the distribution of the residuals. If the curve more or less follows the histogram, we conclude that the assumption of identically distributed observations is plausible. If not, we conclude that the assumption is not plausible and we warn the reader that the results can be biased.</p>
+<p>A histogram with an added normal curve (like the right-hand plot in <span class="quarto-unresolved-ref">?fig-resid-normal</span>) helps us to evaluate the distribution of the residuals. If the curve more or less follows the histogram, we conclude that the assumption of identically distributed observations is plausible. If not, we conclude that the assumption is not plausible and we warn the reader that the results can be biased.</p>
 </section>
 <section id="linearity-and-prediction-errors" class="level4" data-number="6.1.4.3">
 <h4 data-number="6.1.4.3" class="anchored" data-anchor-id="linearity-and-prediction-errors"><span class="header-section-number">6.1.4.3</span> Linearity and prediction errors</h4>
@@ -612,7 +612,7 @@ window.Quarto = {
 </iframe>
 </div>
 <p>The relation between an independent and dependent variable, for example, exposure and attitude towards smoking, does not have to be linear. It can be curved or have some other fancy shape. Then, the linearity assumption is not met. A straight regression line does not nicely fit such data.</p>
-<p>We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in Figure <span class="quarto-unresolved-ref">?fig-pred-linearity</span>. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.</p>
+<p>We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in <span class="quarto-unresolved-ref">?fig-pred-linearity</span>. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.</p>
 <p>This indicates that our linear model does not fit the data. If it would fit, the average prediction error is zero for all predicted levels of the dependent variable. Graphically speaking, our linear model matches the data if positive prediction errors (residuals) are more or less balanced by negative prediction errors everywhere along the regression line.</p>
 </section>
 <section id="homoscedasticity-and-prediction-errors" class="level4" data-number="6.1.4.4">
@@ -633,7 +633,7 @@ window.Quarto = {
 <h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
 <p>In SPSS, we use the <em>Linear</em> option in the <em>Regression</em> submenu for regression analysis. For a moderation model, we first use the <em>Compute Variable</em> option in the <em>Transform</em> menu to calculate an interaction variable: we multiply (using <code>*</code>) the predictor variable by the moderator variable. The interaction variable is included in the regression model as an independent variable, just like the predictor, moderator, and any other independent variables (covariates).</p>
 <p>A categorical predictor variable such as a participant’s residential area (urban, suburban, rural) is included in the regression model as dummy variables, which have the values 0 or 1, for example: dummy variables <em>suburban</em> and <em>rural</em>, each with values yes (1) and no (0). The category without dummy variable is the reference group.</p>
-<p>The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in Figure <span class="quarto-unresolved-ref">?fig-regressiontable</span>, the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).</p>
+<p>The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in <span class="quarto-unresolved-ref">?fig-regressiontable</span>, the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -644,9 +644,9 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The predictor variable <em>Exposure</em> is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in Figure <span class="quarto-unresolved-ref">?fig-regressiontable</span>) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking <strong>for people who never smoked</strong>.</p>
+<p>The predictor variable <em>Exposure</em> is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in <span class="quarto-unresolved-ref">?fig-regressiontable</span>) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking <strong>for people who never smoked</strong>.</p>
 <p>If we would like to know the effect of exposure on attitude towards smoking for former smokers, we must add the regression coefficient for the interaction of exposure with former smokers (blue box) to the regression coefficient of exposure (green box): A one unit increase in exposure predicts a 0.47 more negative (-0.465 = -0.197 + -0.268) attitude towards smoking for former smokers.</p>
-<p>An interaction effect such as -0.27 for <em>Former smoker * exposure</em> tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (Figure <span class="quarto-unresolved-ref">?fig-regressionplot</span>). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked).</p>
+<p>An interaction effect such as -0.27 for <em>Former smoker * exposure</em> tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (<span class="quarto-unresolved-ref">?fig-regressionplot</span>). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -684,7 +684,7 @@ window.Quarto = {
 <section id="sec-categoricalmoderator" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="sec-categoricalmoderator"><span class="header-section-number">6.3</span> Different Lines for Different Groups</h2>
 <p>What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.</p>
-<p>In a conceptual diagram (Figure <span class="quarto-unresolved-ref">?fig-moderator-concept2</span>), moderation is represented by an arrow pointing at another arrow. The moderator (smoking status) changes the relation between the predictor (campaign exposure) and the dependent variable (attitude towards smoking).</p>
+<p>In a conceptual diagram (<span class="quarto-unresolved-ref">?fig-moderator-concept2</span>), moderation is represented by an arrow pointing at another arrow. The moderator (smoking status) changes the relation between the predictor (campaign exposure) and the dependent variable (attitude towards smoking).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3], yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
@@ -736,7 +736,7 @@ window.Quarto = {
 <iframe src="https://sharon-klinkenberg.shinyapps.io/interaction-var/?showcase=0" width="775px" height="440px" data-external="1">
 </iframe>
 </div>
-<p>The interaction variable must be included together with the original predictor and moderator variables, see Equation @ref(eq:intvar). This is also visible in the statistical diagram (Figure <span class="quarto-unresolved-ref">?fig-moderator-statistical</span>) for moderation in a regression model.</p>
+<p>The interaction variable must be included together with the original predictor and moderator variables, see Equation @ref(eq:intvar). This is also visible in the statistical diagram (<span class="quarto-unresolved-ref">?fig-moderator-statistical</span>) for moderation in a regression model.</p>
 <span class="math display">\[\begin{equation}
 \small
 \begin{split}
@@ -956,7 +956,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure <span class="quarto-unresolved-ref">?fig-categorical-moderator-fig</span> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (<span class="quarto-unresolved-ref">?tbl-cat-moderator-results</span>).</p>
+<p>In the end, we have an interaction variable for all groups but one on the categorical moderator. <span class="quarto-unresolved-ref">?fig-categorical-moderator-fig</span> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (<span class="quarto-unresolved-ref">?tbl-cat-moderator-results</span>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -1047,7 +1047,7 @@ window.Quarto = {
 </iframe>
 </div>
 <p>The variation of predictor scores for a particular value of the moderator is called <em>common support</em> <span class="citation" data-cites="RefWorks:3838">(<a href="#ref-RefWorks:3838" role="doc-biblioref">Hainmueller, Mummolo, and Xu 2016</a>)</span>. If common support for predictors involved in moderation is poor, we should hesitate to draw conclusions from the estimated effects. Guidelines for good common support are hard to give. Common support is usually acceptable if there are observations over the entire range of the predictor.</p>
-<p>It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of Figure <span class="quarto-unresolved-ref">?fig-common-support</span> shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of Figure <span class="quarto-unresolved-ref">?fig-common-support</span>.</p>
+<p>It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of <span class="quarto-unresolved-ref">?fig-common-support</span> shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of <span class="quarto-unresolved-ref">?fig-common-support</span>.</p>
 </section>
 <section id="visualizing-moderation-and-covariates" class="level3" data-number="6.3.7">
 <h3 data-number="6.3.7" class="anchored" data-anchor-id="visualizing-moderation-and-covariates"><span class="header-section-number">6.3.7</span> Visualizing moderation and covariates</h3>
@@ -1096,7 +1096,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Figure <span class="quarto-unresolved-ref">?fig-moderator-covar-statistical</span> shows the statistical diagram of a moderation model with contact as covariate and <span class="quarto-unresolved-ref">?tbl-dich-moderator-cov-output</span> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
+<p><span class="quarto-unresolved-ref">?fig-moderator-covar-statistical</span> shows the statistical diagram of a moderation model with contact as covariate and <span class="quarto-unresolved-ref">?tbl-dich-moderator-cov-output</span> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
@@ -1195,7 +1195,7 @@ window.Quarto = {
 \normalsize
 \end{equation}\]</span>
 <p>The terms with <em>smoker</em> and <em>contact</em> disappear from the equation, so <em>exposure</em> is the only independent variable that remains in the equation. Now, we can draw the simple regression line predicting attitude from exposure for smokers using this equation. Note that this is the regression line for people with average contact with smokers.</p>
-<p>Repeat these steps but plug in the score 0 for the <em>smoker</em> predictor to obtain the simple regression line for non-smokers. Figure <span class="quarto-unresolved-ref">?fig-dich-moderator-cov-plot</span> shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.</p>
+<p>Repeat these steps but plug in the score 0 for the <em>smoker</em> predictor to obtain the simple regression line for non-smokers. <span class="quarto-unresolved-ref">?fig-dich-moderator-cov-plot</span> shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in geom_text(aes(x = 0.1, y = -4.9, label = paste0("Non-smokers: attitude = ", : All aesthetics have length 1, but the data has 85 rows.
@@ -1240,7 +1240,7 @@ window.Quarto = {
 </div>
 <!-- ## Test Your Understanding
 
-Figure @fig-regression-predict2 shows how much respondents were exposed to an anti-smoking campaign (horizontal axis) and their attitudes towards smoking, ranging from negative (-5) to positive (5, vertical axis). Attitude towards smoking is predicted from exposure as well as from the respondent's smoking status and daily contacts with smokers as specified by the (red) multiple regression equation. The blue line represents the (blue) simple regression equation, which predicts attitude from exposure for the selected value of smoking status and contact.
+@fig-regression-predict2 shows how much respondents were exposed to an anti-smoking campaign (horizontal axis) and their attitudes towards smoking, ranging from negative (-5) to positive (5, vertical axis). Attitude towards smoking is predicted from exposure as well as from the respondent's smoking status and daily contacts with smokers as specified by the (red) multiple regression equation. The blue line represents the (blue) simple regression equation, which predicts attitude from exposure for the selected value of smoking status and contact.
 
 
 

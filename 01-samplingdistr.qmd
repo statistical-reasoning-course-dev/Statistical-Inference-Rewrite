@@ -84,7 +84,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distributio
 
 What is the probability of buying a bag with exactly five yellow candies? In statistical terminology, what is the probability of drawing a sample with five yellow candies as sample statistic outcome? This probability is the proportion of all possible samples that we could have drawn that happen to contain five yellow candies.
 
-Of course, the probability of a sample bag with exactly five yellow candies depends on the share of yellow candies in the population of all candies. Figure @fig-probability-distribution displays the probabilities of a sample bag with a particular number of yellow candies if twenty per cent of the candies in the population are yellow. You can adjust the population share of yellow candies to see what happens.
+Of course, the probability of a sample bag with exactly five yellow candies depends on the share of yellow candies in the population of all candies. @fig-probability-distribution displays the probabilities of a sample bag with a particular number of yellow candies if twenty per cent of the candies in the population are yellow. You can adjust the population share of yellow candies to see what happens.
 
 ```{r probability-distribution, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does the probability of drawing a sample bag with two out of ten candies yellow depend on the proportion of yellow candies in the population?", out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
 #Generate a binomial probability distribution for the number of yellow candies in a random sample of ten from a population with the specified proportion of yellow candies and display this as a table ; the user is able to change the population proportion (range [0.0 - 1.0]), which is initially set to .2.
@@ -103,9 +103,9 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/probability-distribu
 
 The sampling distribution tells us all possible samples that we could have drawn. We can use the distribution of all samples to get the probability of buying a bag with exactly five yellow candies from the sampling distribution: We divide the number of samples with five yellow candies by the total number of samples we have drawn. For example, if 26 out of all 1000 samples have five yellow candies, the proportion of samples with five yellow candies is 26 / 1000 = 0.026. Then, the probability of drawing a sample with five yellow candies is 0.026 (we usually write: .026).
 
-If we change the frequencies in the sampling distribution into proportions, we obtain the _probability distribution_ of the sample statistic: A sampling space with a probability (between 0 and 1) for each outcome of the sample statistic. Because we are usually interested in probabilities, sampling distributions tend to have proportions, that is probabilities, instead of frequencies on the vertical axis. See Figure @fig-expected-value for an example.
+If we change the frequencies in the sampling distribution into proportions, we obtain the _probability distribution_ of the sample statistic: A sampling space with a probability (between 0 and 1) for each outcome of the sample statistic. Because we are usually interested in probabilities, sampling distributions tend to have proportions, that is probabilities, instead of frequencies on the vertical axis. See @fig-expected-value for an example.
 
-Figure @fig-probability-distribution displays the probability distribution of the number of yellow candies per bag of ten candies. This is an example of a _discrete probability distribution_ because only a limited number of outcomes are possible. It is feasible to list the probability of each outcome separately.
+@fig-probability-distribution displays the probability distribution of the number of yellow candies per bag of ten candies. This is an example of a _discrete probability distribution_ because only a limited number of outcomes are possible. It is feasible to list the probability of each outcome separately.
 
 The sampling distribution as a probability distribution conveys very important information. It tells us which outcomes we can expect,  in our example, how many yellow candies we may find in our bag of ten candies. Moreover, it tells us the probability that a particular outcome may occur. If the sample is drawn from a population in which 20% of candies are yellow, we are quite likely to find zero, one, two, three, or four yellow candies in our bag. A bag with five yellow candies would be rare, six or seven candies would be very rare, and a bag with more than seven yellow candies is extremely unlikely but not impossible. If we buy such a bag, we know that we have been extremely lucky.  
 
@@ -128,7 +128,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/expected-value/", he
 
 If the share of yellow candies in the population is 0.20 (or 20%), we expect one out of each five candies in a bag (sample) to be yellow. In a bag with 10 candies, we would expect two candies to be yellow: one out of each five candies or the population proportion times the total number of candies in the sample = 0.20 * 10 = 2.0. This is the expected value. 
 
-The expected value of the proportion of yellow candies in the sample is equal to the proportion of yellow candies in the population. If you carefully inspect a sampling distribution (Figure @fig-expected-value), you will see that the expected value also equals the mean of the sampling distribution. This makes sense: Excess yellow candies in some bags must be compensated for by a shortage in other bags.  
+The expected value of the proportion of yellow candies in the sample is equal to the proportion of yellow candies in the population. If you carefully inspect a sampling distribution (@fig-expected-value), you will see that the expected value also equals the mean of the sampling distribution. This makes sense: Excess yellow candies in some bags must be compensated for by a shortage in other bags.  
 
 Thus we arrive at the definition of the _expected value_ of a random variable:
 
@@ -206,7 +206,7 @@ We are not interested in the weight of a single candy. If a relatively light can
 
 #Generate a continuous normally distributed sampling distribution representing average candy weight (using a fixed y scale) ; display it as a histogram with average candy weight in a sample bag on the x-axis and probability on the y-axis ; allow the user to decrease histogram bin width to see how smaller bins reduce the probabilities and with very narrow bins, the probabilities approach zero ("negligible probabilities") 
 
-# Figure @fig-cont-prob shows a typical probability distribution of average candy weight.
+# @fig-cont-prob shows a typical probability distribution of average candy weight.
 # 
 # 1. What do you expect to happen if you decrease the bin width of the histogram? Use the slider to check your expectations.  
 ```
@@ -221,7 +221,7 @@ With a continuous sample statistic, we must look at a range of values instead of
 
 If we cannot determine the probability of a single value, which we used to depict on the vertical axis in a plot of a sampling distribution, and we have to link probabilities to a range of values on the x axis, for example, average candy weight above/below 2.8 grams, how can we display probabilities? We have to display a probability as an area between the horizontal axis and a curve. This curve is called a _probability density function_, so if there is a label to the vertical axis of a continuous probability distribution, it is "Probability density" instead of "Probability".
 
-Figure @fig-p-values shows an example of a continuous probability distribution for the average weight of candies in a sample bag. This is the familiar normal distribution so we could say that the normal curve is the probability density function here. The total area under this curve is set to one, so the area belonging to a range of sample outcomes (average candy weight) is 1 or less, as probabilities should be.
+@fig-p-values shows an example of a continuous probability distribution for the average weight of candies in a sample bag. This is the familiar normal distribution so we could say that the normal curve is the probability density function here. The total area under this curve is set to one, so the area belonging to a range of sample outcomes (average candy weight) is 1 or less, as probabilities should be.
 
 ```{r p-values, fig.pos='H', fig.align='center', fig.cap="How do we display probabilities in a continuous sampling distribution? Tip: Click on a slider handle and use your keyboard arrow keys to make small changes to the slider handle position.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
 # Generate a normal sampling distribution representing average candy weight in a sample bag (M = 2.8, SD = 0.6) ; add a range slider to the x-axis linked to vertical lines, showing the proportions of the probabilities to left and to right and between the lines ; initial setting is 2.8 for the right-hand slider
@@ -238,11 +238,11 @@ A probability density function can give us the probability of values between two
 
 Why did I put _(and including)_ between parentheses? It does not really matter whether we add the exact boundary value (2.8 grams) to the probability on the left or on the right because the probability of getting a bag with average candy weight at exactly 2.8 grams (with a very long trail of zero decimals) is negligible.  
 
-Are you struggling with the idea of areas instead of heights (values on the vertical axis) as probabilities? Just realize that we could use the area of a bar in a histogram instead of the height as indication of the probability in discrete probability distributions, for example, Figure @fig-expected-value. The bars in a histogram are all equally wide, so (relative) differences between bar areas are equal to differences in bar height. 
+Are you struggling with the idea of areas instead of heights (values on the vertical axis) as probabilities? Just realize that we could use the area of a bar in a histogram instead of the height as indication of the probability in discrete probability distributions, for example, @fig-expected-value. The bars in a histogram are all equally wide, so (relative) differences between bar areas are equal to differences in bar height. 
 
 ### Probabilities always sum to 1
 
-While you were playing with Figure @fig-p-values, you may have noticed that displayed probabilities always add up to one. This is true for every probability distribution because it is part of the definition of a probability distribution. 
+While you were playing with @fig-p-values, you may have noticed that displayed probabilities always add up to one. This is true for every probability distribution because it is part of the definition of a probability distribution. 
 
 In addition, you may have realized that we can use probability distributions in two ways. We can use them to say how likely or unlikely we are to draw a sample with the sample statistic value in a particular range. For example, what is the chance that we draw a sample bag with average candy weight over 2.9 grams? But we can also use a probability distribution to find the threshold values that separate the top ten per cent or the bottom five per cent in a distribution. If we want a sample bag with highest average candy weight, say, belonging to the ten per cent bags with highest average candy weight, what should be the minimum average candy weight in the sample bag?
 
@@ -300,7 +300,7 @@ The sampling distribution is the crucial link between the sample and the populat
 
 <!-- ## Test Your Understanding
 
-Figure @fig-sampling-distribution-summary1 simulates drawing random samples from a candy factory's stock of candies. We are interested in the colour of the candies in our sample.
+@fig-sampling-distribution-summary1 simulates drawing random samples from a candy factory's stock of candies. We are interested in the colour of the candies in our sample.
 The top-left histogram shows the distribution of candies according to colour in the population. Draw some samples, have a look at the number of yellow candies in each sample, and inspect the sampling distribution.
 
 ```{r sampling-distribution-summary1, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A discrete sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}

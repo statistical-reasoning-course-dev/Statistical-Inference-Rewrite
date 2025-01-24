@@ -56,7 +56,7 @@ ggplot(variables, aes(x, y)) +
 rm(variables)
 ```
 
-Figure @fig-concept-smoke summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable ($y$) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.
+@fig-concept-smoke summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable ($y$) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.
 
 A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter $y$) as the sum of a constant, the effects ($b$) of independent variables or predictors ($x$), which are *predictive effects*, and an error term ($e$), which is also called the *residuals*, see Equation \@ref(eq:regression).
 
@@ -148,7 +148,7 @@ It is the slope of the regression line.
 
 :::
 
-Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in Figure @fig-regression-continuous, one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.
+Whether this predicted difference is small or large depends on the practical context. Is the predicted decrease in attitude towards smoking worth the effort of the campaign? In the example shown in @fig-regression-continuous, one additional unit of exposure decreases the predicted attitude by 0.6. This seems to be quite a substantial change on a scale from -5 to 5.
 
 In the data, the smallest exposure score is (about) zero, predicting a positive attitude of 1.6. The largest observed exposure score is around eight, predicting a negative attitude of -3.2. If exposure causes the predicted differences in attitude, the campaign would have interesting effects. It may change a positive attitude into a rather strong negative attitude.
 
@@ -359,7 +359,7 @@ Finally, note that we should not include all three dummy variables in the regres
 
 2. What is the shape of the sampling distribution if you draw a lot of samples?
 
-3. What happens if you draw samples of larger size? Think of what you learned in preceding chapters. Formulate your answer before you change sample size in Figure @fig-regression-sampling.
+3. What happens if you draw samples of larger size? Think of what you learned in preceding chapters. Formulate your answer before you change sample size in @fig-regression-sampling.
 ```
 
 If we are working with a random sample or we have other reasons to believe that our data could have been different due to chance (@sec-no-random-sample), we should not just interpret the results for the data set that we collected. We should apply statistical inference---confidence intervals and significance tests---to our results. The confidence interval gives us bounds for plausible population values of the unstandardized regression coefficient. The *p* value is used to test the *null hypothesis that the unstandardized regression coefficient is zero in the population*.
@@ -410,7 +410,7 @@ So for all possible values of the dependent variable, we must collect the residu
 
 Usually, we do not have more than one observation (if any) for a single dependent variable score, so we cannot apply this check. Instead, we use a simple and coarse approach: Are all residuals normally distributed?
 
-A histogram with an added normal curve (like the right-hand plot in Figure @fig-resid-normal) helps us to evaluate the distribution of the residuals. If the curve more or less follows the histogram, we conclude that the assumption of identically distributed observations is plausible. If not, we conclude that the assumption is not plausible and we warn the reader that the results can be biased.
+A histogram with an added normal curve (like the right-hand plot in @fig-resid-normal) helps us to evaluate the distribution of the residuals. If the curve more or less follows the histogram, we conclude that the assumption of identically distributed observations is plausible. If not, we conclude that the assumption is not plausible and we warn the reader that the results can be biased.
 
 #### Linearity and prediction errors
 
@@ -432,7 +432,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pred-linearity/", he
 
 The relation between an independent and dependent variable, for example, exposure and attitude towards smoking, does not have to be linear. It can be curved or have some other fancy shape. Then, the linearity assumption is not met. A straight regression line does not nicely fit such data.
 
-We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in Figure @fig-pred-linearity. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.
+We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in @fig-pred-linearity. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.
 
 This indicates that our linear model does not fit the data. If it would fit, the average prediction error is zero for all predicted levels of the dependent variable. Graphically speaking, our linear model matches the data if positive prediction errors (residuals) are more or less balanced by negative prediction errors everywhere along the regression line.
 
@@ -504,17 +504,17 @@ In SPSS, we use the *Linear* option in the *Regression* submenu for regression a
 
 A categorical predictor variable such as a participant's residential area (urban, suburban, rural) is included in the regression model as dummy variables, which have the values 0 or 1, for example: dummy variables *suburban* and *rural*, each with values yes (1) and no (0). The category without dummy variable is the reference group. 
 
-The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in Figure @fig-regressiontable, the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).
+The regression coefficient of a dummy variable gives us the difference between the average score on the dependent variable of the group scoring 1 on the dummy variable and the reference group. In the example presented in @fig-regressiontable, the attitude towards smoking for participants living in a suburban environment (red box) is on average 0.33 more positive than among participants in an urban environment (the reference group).
 
 ```{r regressiontable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression effects for a model in which the effect of exposure is moderated by participant's smoking status (reference group: people who never smoked)."}
 knitr::include_graphics("figures/S8_AE1.png")
 ```
 
-The predictor variable *Exposure* is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in Figure @fig-regressiontable) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking **for people who never smoked**.
+The predictor variable *Exposure* is included in the interaction effect. As a consequence, the regression coefficient for this variable (green box in @fig-regressiontable) expresses the effect of exposure on attitude towards smoking for the reference group on the other variable included in the interaction effect, namely, people who never smoked. A one unit increase in exposure predicts a 0.20 more negative (-0.197) attitude towards smoking **for people who never smoked**.
 
 If we would like to know the effect of exposure on attitude towards smoking for former smokers, we must add the regression coefficient for the interaction of exposure with former smokers (blue box) to the regression coefficient of exposure (green box): A one unit increase in exposure predicts a 0.47 more negative (-0.465 = -0.197 + -0.268) attitude towards smoking for former smokers.
 
-An interaction effect such as -0.27 for *Former smoker \* exposure* tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (Figure @fig-regressionplot). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked). 
+An interaction effect such as -0.27 for *Former smoker \* exposure* tells us the difference between the exposure effect for former smokers and the exposure effect for people who never smoked (reference group). A plot of the regression lines shows the different exposure effects (@fig-regressionplot). The red line (effect of exposure for former smokers) has a stronger downward tendency than the blue line (exposure effect for people who never smoked). 
 
 ```{r regressionplot, echo=FALSE, out.width="75%", fig.pos='H', fig.align='center', fig.cap="Simple regression lines showing the effect of exposure on attitude towards smoking for former smokers and people who never smoked (in an urban environment)."}
 knitr::include_graphics("figures/S8_AE2.png")
@@ -610,7 +610,7 @@ knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px"
 
 What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.
 
-In a conceptual diagram (Figure @fig-moderator-concept2), moderation is represented by an arrow pointing at another arrow. The moderator (smoking status) changes the relation between the predictor (campaign exposure) and the dependent variable (attitude towards smoking).
+In a conceptual diagram (@fig-moderator-concept2), moderation is represented by an arrow pointing at another arrow. The moderator (smoking status) changes the relation between the predictor (campaign exposure) and the dependent variable (attitude towards smoking).
 
 ```{r moderator-concept2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Conceptual diagram of moderation.", fig.asp=0.3}
 # Create coordinates for the variable names.
@@ -690,7 +690,7 @@ How do we obtain different regression coefficients and lines for smokers and non
 
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interaction-var/", height="440px")
 
-# 1. In Figure @fig-interaction-var-effect, does the fat grey line represent the effect of exposure on attitude in a simple regression model, a multiple regression model, or both?
+# 1. In @fig-interaction-var-effect, does the fat grey line represent the effect of exposure on attitude in a simple regression model, a multiple regression model, or both?
 # 
 # 2. Select an option under "Add product" and explain what the newly created regression line means.
 # 
@@ -701,7 +701,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interaction-var/", h
 
 
 
-The interaction variable must be included together with the original predictor and moderator variables, see Equation \@ref(eq:intvar). This is also visible in the statistical diagram (Figure @fig-moderator-statistical) for moderation in a regression model.
+The interaction variable must be included together with the original predictor and moderator variables, see Equation \@ref(eq:intvar). This is also visible in the statistical diagram (@fig-moderator-statistical) for moderation in a regression model.
 
 ```{=tex}
 \begin{equation}
@@ -931,7 +931,7 @@ ggplot(variables, aes(x, y)) +
   theme_void()
 ```
 
-In the end, we have an interaction variable for all groups but one on the categorical moderator. Figure @fig-categorical-moderator-fig shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and *p* values for all independent variables (@tbl-cat-moderator-results).
+In the end, we have an interaction variable for all groups but one on the categorical moderator. @fig-categorical-moderator-fig shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and *p* values for all independent variables (@tbl-cat-moderator-results).
 
 ```{r cat-moderator-results, echo=FALSE, message=FALSE, warning=FALSE}
 # Table of regression coefficients for exposure moderated by status3. Similar to SPSS output (without correct standardized coefficients).
@@ -1005,7 +1005,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/common-support/", he
 
 The variation of predictor scores for a particular value of the moderator is called *common support* [@RefWorks:3838]. If common support for predictors involved in moderation is poor, we should hesitate to draw conclusions from the estimated effects. Guidelines for good common support are hard to give. Common support is usually acceptable if there are observations over the entire range of the predictor.
 
-It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of Figure @fig-common-support shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of Figure @fig-common-support.
+It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of @fig-common-support shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of @fig-common-support.
 
 ### Visualizing moderation and covariates
 
@@ -1046,7 +1046,7 @@ ggplot(variables, aes(x, y)) +
   theme_void()
 ```
 
-Figure @fig-moderator-covar-statistical shows the statistical diagram of a moderation model with contact as covariate and @tbl-dich-moderator-cov-output summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?
+@fig-moderator-covar-statistical shows the statistical diagram of a moderation model with contact as covariate and @tbl-dich-moderator-cov-output summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?
 
 ```{r dich-moderator-cov-output, echo=FALSE, message=FALSE, warning=FALSE}
 # Table of regression coefficients for exposure moderated by status. Similar to SPSS output (with correct standardized coefficients).
@@ -1129,7 +1129,7 @@ As a second step, choose an interesting value for every independent variable in 
 
 The terms with *smoker* and *contact* disappear from the equation, so *exposure* is the only independent variable that remains in the equation. Now, we can draw the simple regression line predicting attitude from exposure for smokers using this equation. Note that this is the regression line for people with average contact with smokers.
 
-Repeat these steps but plug in the score 0 for the *smoker* predictor to obtain the simple regression line for non-smokers. Figure @fig-dich-moderator-cov-plot shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.
+Repeat these steps but plug in the score 0 for the *smoker* predictor to obtain the simple regression line for non-smokers. @fig-dich-moderator-cov-plot shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.
 
 ```{r dich-moderator-cov-plot, echo=FALSE, out.width="600px", fig.pos='H', fig.align='center', fig.cap="The effects of exposure on attitude for non-smokers and smokers. Both smokers and non-smokers are assumed to have average contact with smokers."}
 #Create and show the plot.
@@ -1307,7 +1307,7 @@ knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px"
 
 <!-- ## Test Your Understanding
 
-Figure @fig-regression-predict2 shows how much respondents were exposed to an anti-smoking campaign (horizontal axis) and their attitudes towards smoking, ranging from negative (-5) to positive (5, vertical axis). Attitude towards smoking is predicted from exposure as well as from the respondent's smoking status and daily contacts with smokers as specified by the (red) multiple regression equation. The blue line represents the (blue) simple regression equation, which predicts attitude from exposure for the selected value of smoking status and contact.
+@fig-regression-predict2 shows how much respondents were exposed to an anti-smoking campaign (horizontal axis) and their attitudes towards smoking, ranging from negative (-5) to positive (5, vertical axis). Attitude towards smoking is predicted from exposure as well as from the respondent's smoking status and daily contacts with smokers as specified by the (red) multiple regression equation. The blue line represents the (blue) simple regression equation, which predicts attitude from exposure for the selected value of smoking status and contact.
 
 ```{r regression-predict2, fig.pos='H', fig.align='center', fig.cap="How do predictions based on exposure depend on values of smoking status and smoker contact?", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
 # Goal: sensitize student to the notion that prediction in a multiple regression

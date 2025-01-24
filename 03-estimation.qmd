@@ -26,7 +26,7 @@ Our second guess uses the sampling distribution to make a statement about the ap
 ```{r point-estimates", fig.pos='H', fig.align='center', fig.pos='H', fig.align='center', fig.cap="A sample from a population with unknown proportion of yelow candies.", eval=FALSE, echo=FALSE}
 # A button allows to draw a sample of size 20 from a population with five colours and random proportion of yellow candies within the range .10 .40 ; the sample is shown as a dotplot (stacks of coloured dots) with the proportion of yellow as a number ; result: true population proportion, sample proportion, and student's proportion with current winner (closest to true population proportion) and a bar chart showing cumulative number of wins for sample proportion versus student's choice.
 
-Figure @fig-point-estimates generates random samples from a population of candies for which we do not know the proportion of yellow candies. It uses the sample proportion as estimate of the population proportion. Note that each sample is drawn from a different population. 
+@fig-point-estimates generates random samples from a population of candies for which we do not know the proportion of yellow candies. It uses the sample proportion as estimate of the population proportion. Note that each sample is drawn from a different population. 
 
 1. Can you do better than the sample proportion? Draw a sample and guess the population proportion. See which estimate is better. Repeat this until you are convinced that you can or cannot do better than the sample proportion.  
 ```
@@ -56,7 +56,7 @@ Between which boundaries do we find the sample statistic values that are closest
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/ci-borders/", height="290px")
 ```
 
-Figure @fig-ci-borders shows the sampling distribution of average sample candy weight.
+@fig-ci-borders shows the sampling distribution of average sample candy weight.
 
 
 
@@ -100,13 +100,13 @@ A less practical but very useful method of narrowing the interval estimate is in
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-size/", height="310px")
 ```
 
-Figure @fig-interval-size shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.
+@fig-interval-size shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.
 
 
 
 
 
-As you may have noticed while playing with Figure @fig-interval-size, a larger sample yields a narrower, that is, more precise interval. You may have expected intuitively that larger samples give more precise estimates because they offer more information. This intuition is correct.  
+As you may have noticed while playing with @fig-interval-size, a larger sample yields a narrower, that is, more precise interval. You may have expected intuitively that larger samples give more precise estimates because they offer more information. This intuition is correct.  
 
 In a larger sample, an observation above the mean is more likely to be compensated by an observation below the mean. Just because there are more observations, it is less likely that we sample relatively high scores but no or considerably fewer scores that are relatively low. 
 
@@ -135,7 +135,7 @@ Let us assume, for instance, that the standard error of the average weight of ca
 
 The smaller the standard error, the more the sample statistic values resemble the true population value, and the more precise our interval estimate is with a given confidence level, for instance, 95%. Because we like more precise interval estimates, we prefer small standard errors over high standard errors. 
 
-It is easy to obtain smaller standard errors: just increase sample size. See Figure @fig-interval-size, where larger samples yield more peaked sampling distributions. In a peaked distribution, values are closer to the mean and the standard error is smaller. In our example, average candy weights in larger sample bags are closer to the average candy weight in the population.
+It is easy to obtain smaller standard errors: just increase sample size. See @fig-interval-size, where larger samples yield more peaked sampling distributions. In a peaked distribution, values are closer to the mean and the standard error is smaller. In our example, average candy weights in larger sample bags are closer to the average candy weight in the population.
 
 In practice, however, it is both time-consuming and expensive to draw a very large sample. Usually, we want to settle on the optimal size of the sample, namely a sample that is large enough to have interval estimates at the confidence level and precision that we need but as small as possible to save on time and expenses. We return to this matter in @sec-power.
 
@@ -168,17 +168,17 @@ In theoretical probability distributions like the normal distribution, the perce
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-values/", height="360px")
 ```
 
-Figure @fig-crit-values shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called _z_ scores (top).
+@fig-crit-values shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called _z_ scores (top).
 
 
 
 
 
-In Figure @fig-crit-values, we approximate the sampling distribution with a theoretical probability distribution, namely the normal distribution. The theoretical probability distribution links probabilities (areas under the curve) to sample statistic outcome values (scores on the horizontal axis). For example, we have 2.5% probability of drawing a sample bag with average candy weight below 1.2 grams or 2.5% probability of drawing a sample bag with average candy weight over 4.4 grams.  
+In @fig-crit-values, we approximate the sampling distribution with a theoretical probability distribution, namely the normal distribution. The theoretical probability distribution links probabilities (areas under the curve) to sample statistic outcome values (scores on the horizontal axis). For example, we have 2.5% probability of drawing a sample bag with average candy weight below 1.2 grams or 2.5% probability of drawing a sample bag with average candy weight over 4.4 grams.  
 
 ### Standardization and _z_ scores
 
-The average candy weights that are associated with 2.5% and 97.5% probabilities in Figure @fig-crit-values depend on the sample that we have drawn. As you may notice while playing with Figure @fig-interval-size, changing the size of the sample also changes the average candy weights that mark the 2.5% and 97.5% probabilities.
+The average candy weights that are associated with 2.5% and 97.5% probabilities in @fig-crit-values depend on the sample that we have drawn. As you may notice while playing with @fig-interval-size, changing the size of the sample also changes the average candy weights that mark the 2.5% and 97.5% probabilities.
 
 We can simplify the situation if we _standardize_ the sampling distribution: Subtract the mean of the sampling distribution from each sample mean in this distribution, and divide the result by the standard error. Thus, we transform the sampling distribution into a distribution of standardized scores. The mean of the new standardized variable is always zero.  
 
@@ -222,7 +222,7 @@ In addition, you may have realized that, if we want to construct the sampling di
 knitr::include_graphics("figures/exactapproach.png")
 ```
 
-In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (Figure @fig-exactapproachfigure), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.
+In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (@fig-exactapproachfigure), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.
 
 In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means. But we do not know the population mean; we want to estimate it. 
 
@@ -237,7 +237,7 @@ In the candy weight example, we first need to know the mean of population candy 
 
 ![Example layout](figures/CI_2.png)
 
-Figure @fig-normal-param shows a standard normal distribution that we could use to approximate the sampling distribution of average candy weight in a sample (bag) of candies. This theoretical distribution can be used only if some of the statistics (see the check boxes) are known. Uncheck a box if you think this statistic is _not_ needed to use the standard normal distribution. If you are right, nothing happens. If you are wrong, you will see a series of normal curves for different values of the statistic. Then, check the statistic again and try another statistic.
+@fig-normal-param shows a standard normal distribution that we could use to approximate the sampling distribution of average candy weight in a sample (bag) of candies. This theoretical distribution can be used only if some of the statistics (see the check boxes) are known. Uncheck a box if you think this statistic is _not_ needed to use the standard normal distribution. If you are right, nothing happens. If you are wrong, you will see a series of normal curves for different values of the statistic. Then, check the statistic again and try another statistic.
 
 1. Which mean is required for using the standard normal distribution? Which characteristic of the distribution is fixed by this statistic?
 
@@ -254,7 +254,7 @@ By the way, we also need the standard error to know how peaked or flat the bell 
 
 ### Reverse reasoning from one sample mean  {#sec-fixed-pop-values}
 
-In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (Figure @fig-crit-values). 95% of all sample means would fall within this interval estimate around the known population mean. 
+In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (@fig-crit-values). 95% of all sample means would fall within this interval estimate around the known population mean. 
 
 In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.
 
@@ -265,11 +265,11 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/", h
 
 Instead of checking whether a sample mean is inside or outside of the interval estimate of the **population mean** (@sec-crit-values), we use the interval estimate around that one **sample mean**, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a **95% confidence interval**.
 
-The middle plot of Figure @fig-pop-ci-sampling, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of $N=30$ is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.
+The middle plot of @fig-pop-ci-sampling, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of $N=30$ is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.
 
-Now, increase the number of times of samples (replications) by adjusting the slider in Figure @fig-pop-ci-sampling. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher. 
+Now, increase the number of times of samples (replications) by adjusting the slider in @fig-pop-ci-sampling. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher. 
 
-Now, also increase the sample size in Figure @fig-pop-ci-sampling by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size. 
+Now, also increase the sample size in @fig-pop-ci-sampling by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size. 
 
 Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.
 
@@ -289,9 +289,9 @@ Only when we replicate data collection many many times, we do know that about 95
 
 :::
 
-Now imagine that you have a large sample for your research project. Looking at Figure @fig-pop-ci-sampling, this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn't it?
+Now imagine that you have a large sample for your research project. Looking at @fig-pop-ci-sampling, this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn't it?
 
-In the bottom plot of Figure @fig-pop-ci-sampling, we revisit @sec-samp-dist, to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the  samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication. 
+In the bottom plot of @fig-pop-ci-sampling, we revisit @sec-samp-dist, to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the  samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication. 
 
 We also see the theoretical approximation of this sampling distribution (as was discussed in @sec-theoretical-approx) of sample means, which is a normal distribution. As the number of replications and sample size increases, the shape of the histogram gets closer to the shape of the theoretical approximation of the sampling distribution (green line), which in turn also gets narrower. 
 
@@ -393,7 +393,7 @@ knitr::include_url("https://www.youtube.com/embed/GoGrsHpfIWM", height = "360px"
 knitr::include_app("https://sharon-klinkenberg.shinyapps.io/estimation/", height="258px")
 ```
 
-Figure @fig-estimation shows the sampling distribution of average candy weight in a sample bag, which is a normal distribution. 
+@fig-estimation shows the sampling distribution of average candy weight in a sample bag, which is a normal distribution. 
 
 
 

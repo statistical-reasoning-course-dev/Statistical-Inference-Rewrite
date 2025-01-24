@@ -6,7 +6,7 @@ source("R_setup.R")
 
 ## Flow chart statistical test selection {-}
 
-The flow chart in figure @fig-choice-diagram-copy helps you select the appropriate statistical test based on the type of dependent and independent variables. 
+The flow chart in @fig-choice-diagram-copy helps you select the appropriate statistical test based on the type of dependent and independent variables. 
 
 It helps in the learning proces to think of different research designs for each test. Try to think of one for the independent samples _t_-test. Work your way from right to left to determine the type of variables and think of some research that conforms to this.
 
@@ -169,7 +169,7 @@ As these examples illustrate, research hypotheses seldom refer to statistics suc
 
 Translating the research hypothesis into a statistical hypothesis is perhaps the most creative part of statistical analysis, which is just a fancy way of saying that it is difficult to give general guidelines stating which statistic fits which research hypothesis. All we can do is give some hints.  
 
-Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see Figure @fig-choice-diagram-copy).
+Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see @fig-choice-diagram-copy).
 
 If a research question asks how high a group scores or whether one group scores higher than another group, we are dealing with score levels. The variable of central interest usually is numerical (interval or ratio measurement level) and we are concerned with mean or median scores. There is a range of tests that we can apply, depending on the number of groups that we want to compare (one, two, three or more): _t_ tests or analysis of variance. 
 
@@ -228,7 +228,7 @@ knitr::include_url("https://www.youtube.com/embed/Gupx40D5bLY", height = "360px"
 ```
 
 
-For a binomial test, see the video in Figure @fig-SPSSbinomial. A one-sample chi-squared test is explained in the video of Figure @fig-SPSSchisq1.
+For a binomial test, see the video in @fig-SPSSbinomial. A one-sample chi-squared test is explained in the video of @fig-SPSSchisq1.
 
 
 
@@ -254,7 +254,7 @@ For a numeric (interval or ratio measurement level) variable such as the 10-poin
 
 ### Testing one mean or median in SPSS {-}
 
-The one-sample _t_ test in SPSS is explained in Figure @fig-SPSS1mean.
+The one-sample _t_ test in SPSS is explained in @fig-SPSS1mean.
 
 ## Variance: (dis)agreement {-}
 Although rare, research hypotheses may focus on the variation in scores rather than on score level. The hypothesis about polarization provides an example. Polarization means that we have scores well above the center and well below the center rather than all scores concentrated in the middle. If voters' opinions about immigrants are strongly polarized, we have a lot of voters strongly in favour of admitting immigrants as well as many voters strongly opposed to admitting immigrants.  
@@ -269,7 +269,7 @@ For a numeric variable, the variance or standard deviation---the latter is just 
 knitr::include_url("https://www.youtube.com/embed/8k-OIXiRdCc", height = "360px")
 # Levene's F test for the null hypothesis that two groups have equal population variances is part of the independent-samples t test. 
 
-# The output in Figure @fig-Levene-output shows that the polarization (variation) in attitudes towards immigrants is not the same among young and old voters, _F_ = 4.99, _p_ = .029. Polarization is stronger among old voters (_SD_ = 2.06) than among young voters (_SD_ = 1.26). 
+# The output in @fig-Levene-output shows that the polarization (variation) in attitudes towards immigrants is not the same among young and old voters, _F_ = 4.99, _p_ = .029. Polarization is stronger among old voters (_SD_ = 2.06) than among young voters (_SD_ = 1.26). 
 # 
 # In a similar way, we can test if two, three or more groups have equal population variances with Levene's F test using the option _Homogeneity of variance test_ in a one-way analysis of variance (command _Analyze >  COMPARE MEANS > ONE-WAY ANOVA_).
 
@@ -303,7 +303,7 @@ The categorical variable clusters people into groups: One group is confronted wi
 
 Thus, we return to statistics needed to test research hypotheses about score levels, namely measures of central tendency. If willingness to donate is a numeric variable, we can use group means to test the association between endorsing celebrity (grouping variable) and willingness to donate (score variable). The statistical hypothesis would then be that group means are not equal in the population of all people. 
 
-If you closely inspect the choice diagram in Figure @fig-flowchart, you will see that we prefer to use a _t_ distribution if we compare two different groups (independent-samples _t_ test) or two repeated observations for the same group (paired-samples _t_ test). By contrast, if we have three or more groups, we use analysis of variance with an _F_ distribution. 
+If you closely inspect the choice diagram in @fig-flowchart, you will see that we prefer to use a _t_ distribution if we compare two different groups (independent-samples _t_ test) or two repeated observations for the same group (paired-samples _t_ test). By contrast, if we have three or more groups, we use analysis of variance with an _F_ distribution. 
 
 ### Comparing means in SPSS {-}
 
@@ -335,7 +335,7 @@ knitr::include_url("https://www.youtube.com/embed/7mGKG3mLqN0", height = "360px"
 
 ----
 
-For an instruction and exercises on one-way analysis of variance, see Figure @fig-SPSS1way and @sec-onewaySPSS. For two-way analysis of variance, see @sec-twowaySPSS (instructions and exercises).
+For an instruction and exercises on one-way analysis of variance, see @fig-SPSS1way and @sec-onewaySPSS. For two-way analysis of variance, see @sec-twowaySPSS (instructions and exercises).
 
 #### Exercises {-}
 

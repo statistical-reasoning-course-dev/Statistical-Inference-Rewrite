@@ -53,7 +53,7 @@ In this sense, a regression coefficient in a multiple regression model expresses
 
 It is important to note that the effect is only unique in comparison to the other independent variables that are included in the model. It may well be that we did not include variables in the model that are actually responsible for part of the effects that are attributed to the independent variables in the model. Such left-out variables are called _confounding variables_ or, for short, _confounders_.
 
-If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In Figure @fig-mediation-multipleregression, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In @sec-confounders, we will learn that regression coefficients can increase and decrease if confounders are included in the model.
+If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In @fig-mediation-multipleregression, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In @sec-confounders, we will learn that regression coefficients can increase and decrease if confounders are included in the model.
 
 If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in @sec-mediation (@sec-causalcriteria).
 
@@ -98,11 +98,11 @@ A confounder is a variable that is correlated with both the predictor and depend
 
 :::
 
-The size of the indirect correlation equals the product of the correlation between confounder and predictor and the correlation between confounder and dependent variable. In Figure @fig-mediation-indirectcorrelation, the correlation between age and political interest is .12 and the correlation between age and newspaper reading time is .88, the indirect correlation between interest in politics and reading time established by age is .12 * .88 = .11.
+The size of the indirect correlation equals the product of the correlation between confounder and predictor and the correlation between confounder and dependent variable. In @fig-mediation-indirectcorrelation, the correlation between age and political interest is .12 and the correlation between age and newspaper reading time is .88, the indirect correlation between interest in politics and reading time established by age is .12 * .88 = .11.
 
 ### Indirect correlation and size of confounding
 
-In Figure @fig-mediation-indirectcorrelation, we start with a simple regression model with political interest as the only predictor of newspaper reading time. Respondent's age, however, is correlated both with political interest ($r$ = 0.12) and with newspaper reading time ($r$ = 0.88). Age creates a positive indirect correlation between political interest and reading time. 
+In @fig-mediation-indirectcorrelation, we start with a simple regression model with political interest as the only predictor of newspaper reading time. Respondent's age, however, is correlated both with political interest ($r$ = 0.12) and with newspaper reading time ($r$ = 0.88). Age creates a positive indirect correlation between political interest and reading time. 
 
 As long as age is not included in the regression model, the model believes that the indirect correlation due to age is part of the effect of political interest. It assigns the indirect correlation due to age to the effect of political interest, that is, it includes the indirect correlation in the regression coefficient of political interest. In this  situation, the regression coefficient for political interest expresses both the effect of political interest itself and the effect of age (the confounder).
 
@@ -248,7 +248,7 @@ As an example, the effect of political interest on newspaper reading time may in
 
 If age is not included as a predictor in the regression model, the indirect correlation is attributed to the effect of interest in politics. The estimated effect is too strong. Once we include age as a predictor, the effect of political interest is cleansed of the age effect, so the effect size decreases.
 
-In Figure @fig-reinforcement1, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (Figure @fig-reinforcement2). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.
+In @fig-reinforcement1, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (@fig-reinforcement2). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.
 
 ```{r reinforcement2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.", fig.asp=0.3}
 library(ggplot2)
@@ -299,13 +299,13 @@ To summarize the two types of confounders:
 
 #### Essential Analytics {.unnumbered}
 
-We can detect confounders by adding each independent variable as a separate *Block* in a linear regression model (the *Linear* option in the *Regression* submenu). The SPSS output estimates a regression model for each block (Figure @fig-confounderstable).
+We can detect confounders by adding each independent variable as a separate *Block* in a linear regression model (the *Linear* option in the *Regression* submenu). The SPSS output estimates a regression model for each block (@fig-confounderstable).
 
 ```{r confounderstable, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one."}
 knitr::include_graphics("figures/S10_AE1.png")
 ```
 
-In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (Figure @fig-confounderstable, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (Figure @fig-confounderstable, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (Figure @fig-confounderstable, blue box); news site use suppressed the effect of interest in politics in the second model.
+In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (@fig-confounderstable, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (@fig-confounderstable, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (@fig-confounderstable, blue box); news site use suppressed the effect of interest in politics in the second model.
 
 ###  Instructions
 

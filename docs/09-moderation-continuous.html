@@ -378,7 +378,7 @@ window.Quarto = {
   contactcentered = contact - mean(contact)
 \normalsize
 \end{equation*}\]</span>
-<p>Mean-centering shifts the values of a variable such that the mean of the new variable becomes zero (Figure <span class="quarto-unresolved-ref">?fig-mean-centering-plot</span>). Below-average values on the original variable are negative on a mean-centered variable and above-average values are positive. The shape of the distribution remains the same.</p>
+<p>Mean-centering shifts the values of a variable such that the mean of the new variable becomes zero (<span class="quarto-unresolved-ref">?fig-mean-centering-plot</span>). Below-average values on the original variable are negative on a mean-centered variable and above-average values are positive. The shape of the distribution remains the same.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
@@ -410,7 +410,7 @@ window.Quarto = {
 (\#eq:contactbyexposure)
 \normalsize
 \end{equation}\]</span>
-<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (Figure <span class="quarto-unresolved-ref">?fig-moderator-symmetry</span>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
+<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (<span class="quarto-unresolved-ref">?fig-moderator-symmetry</span>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3], yend = y[1]), : All aesthetics have length 1, but the data has 6 rows.
@@ -549,12 +549,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>According to Figure <span class="quarto-unresolved-ref">?fig-cont-moderator-support</span>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
+<p>According to <span class="quarto-unresolved-ref">?fig-cont-moderator-support</span>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
 </section>
 <section id="assumptions" class="level3" data-number="7.1.8">
 <h3 data-number="7.1.8" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">7.1.8</span> Assumptions</h3>
 <p>The general assumptions for regression analysis (<a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.</p>
-<p>Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in Figure <span class="quarto-unresolved-ref">?fig-continuous-moderator</span> at the beginning of this section on numerical moderators.</p>
+<p>Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in <span class="quarto-unresolved-ref">?fig-continuous-moderator</span> at the beginning of this section on numerical moderators.</p>
 <p>It is difficult to check this assumption, so let us not pursue this here. Just remember that the interaction effect is assumed to be linear: a gradually increasing or decreasing effect of the predictor at higher moderator values.</p>
 </section>
 <section id="higher-order-interaction-effects" class="level3" data-number="7.1.9">
@@ -685,7 +685,7 @@ window.Quarto = {
 <p>The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is -0.20.</p>
 <p>For a numerical moderator, we can interpret the general pattern reflected by the interaction effect. A positive interaction effect, such as 0.06 for the interaction between exposure and smoker contact, signals that the effect of exposure is more strongly positive or less strongly negative at higher levels of contact with smokers.</p>
 <p>This interpretation in terms of effect differences remains difficult to understand. It is recommended to select some interesting values for the moderator and report the size of the effect for each value. For a categorical moderator, each category is of interest. For a numerical moderator, the mean and one standard deviation below and above the mean are usually interesting values. The regression coefficients show whether the effect is positive, negative, or nearly zero at different values of the moderator.</p>
-<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in Figure <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span>), not the original predictor.</p>
+<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span>), not the original predictor.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -704,8 +704,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>The left panel in Figure <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
-<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of Figure <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
+<p>The left panel in <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
+<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
 <p>Do not report that common support of the predictor at different moderator values is good. If it is bad, warn the reader that we cannot fully trust the estimated moderation because we do not have a nice range of predictor values within each level of the moderator. If the predictor is supported only within a restricted range, you may report this range.</p>
 <p>Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.</p>
 </section>
@@ -714,7 +714,7 @@ window.Quarto = {
 <section id="essential-analytics" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
 <p>As in <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
-<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (Figure <span class="quarto-unresolved-ref">?fig-meancentertable</span>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
+<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<span class="quarto-unresolved-ref">?fig-meancentertable</span>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -726,9 +726,9 @@ window.Quarto = {
 </div>
 </div>
 <p>It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
-<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (Figure <span class="quarto-unresolved-ref">?fig-meancentertable</span>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
-<p>The regression coefficient of the interaction effect (Figure <span class="quarto-unresolved-ref">?fig-meancentertable</span>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
-<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (Figure <span class="quarto-unresolved-ref">?fig-nummoderatorplot</span>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
+<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<span class="quarto-unresolved-ref">?fig-meancentertable</span>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
+<p>The regression coefficient of the interaction effect (<span class="quarto-unresolved-ref">?fig-meancentertable</span>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
+<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<span class="quarto-unresolved-ref">?fig-nummoderatorplot</span>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -758,7 +758,7 @@ window.Quarto = {
 </div>
 <!-- ## Test Your Understanding
 
-Figure @fig-moderator-overview shows the relation between exposure to an anti-smoking campaign and attitude towards smoking. The effect of exposure on attitude is moderated by daily contacts with people who smoke.
+@fig-moderator-overview shows the relation between exposure to an anti-smoking campaign and attitude towards smoking. The effect of exposure on attitude is moderated by daily contacts with people who smoke.
 
 
 
