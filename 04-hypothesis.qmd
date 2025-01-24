@@ -829,19 +829,18 @@ Something to consider is that with extremely large sample sizes you will very ea
 
 ### One-Sided and Two-Sided Tests {#sec-one-twosidedtests}
 
-As was explained in @sec-alternative-hypothesis, the alternative hypothesis can be one-sided or two-sided. The choice between a one-sided or two-sided test is based on the research question. In our media literacy example, we could have a one-sided alternative hypothesis that the average media literacy is below 5.5. This would be the case if we hypothesize that children on average score very low on media literacy. We could also have a different hypothesis, that a media literacy intervention program will increase media literacy. Both would be a one-sided alternative hypothesis. We could also have no idea about the media literacy of children, and just want to know if children score below or above 5.5 on media literacy. This would be a two-sided alternative hypothesis. Equation \@ref(eq:MediaAlt) formalizes these different hypothesis. 
+As was explained in @sec-alternative-hypothesis, the alternative hypothesis can be one-sided or two-sided. The choice between a one-sided or two-sided test is based on the research question. In our media literacy example, we could have a one-sided alternative hypothesis that the average media literacy is below 5.5. This would be the case if we hypothesize that children on average score very low on media literacy. We could also have a different hypothesis, that a media literacy intervention program will increase media literacy. Both would be a one-sided alternative hypothesis. We could also have no idea about the media literacy of children, and just want to know if children score below or above 5.5 on media literacy. This would be a two-sided alternative hypothesis. @eq-MediaAlt formalizes these different hypothesis. 
 
-\begin{equation}
-\begin{split}
+$$
+\begin{eqnarray*}
 \text{Two-sided} \\
-H_{A} & : \hat{x} & \neq 5.5 \\
-
+H_{A} & : \theta & \neq 5.5 \\
 \text{One-sided} \\
-H_{A} & : \hat{x} & < 5.5 \\
-H_{A} & : \hat{x} & > 5.5 \\
-\end{split}
-(\#eq:MediaAlt)
-\end{equation}
+H_{A} & : \theta & < 5.5 \\
+H_{A} & : \theta & > 5.5 \\
+\end{eqnarray*}
+$$ {#eq-MediaAlt}
+
 
 In null hypothesis significance testing, testing one or two-sided has some consequences for the critical values. In a two-sided test, the critical values are on both sides of the null hypothesis value. In a one-sided test, the critical value is only on one side of the null hypothesis value. If we are using an alpha significance level of 5%, the critical value for a two-sided test results in 2.5% on both sides, while for a one sided test the 5% would only be on one side of the null distribution.
 
@@ -888,9 +887,7 @@ One final warning: Two-sided tests are only relevant if the probability distribu
 
 Fellow scientists need to be able to see the precise statistical test results. According to the APA guidelines, we should report the test statistic, the associated degrees of freedom (if any), the value of the test statistic, the _p_ value of the test statistic, and the confidence interval (if any). APA requires a particular format for presenting statistical results and it demands that the results are included at the end of a sentence.  
 
-The statistical results for a _t_ test on one mean, for example, would be:  
-
-<center>_t_ (67) = 2.73, _p_ = .004, 95% CI [4.13, 4.87]</center>  
+The statistical results for a _t_ test on one mean, for example, would be:_t_ (67) = 2.73, _p_ = .004, 95% CI [4.13, 4.87].
 
 * The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, _N_ = 89) = 23.14, _p_ = .027.
 * The value of the test statistic is 2.73 in this example.
@@ -928,7 +925,12 @@ Knowing what statistical test fits your research question is crucial for the suc
 
 Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main  distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in @fig-flowchart helps you to identify the right statistical test.
 
-```{r flowchart, echo=FALSE, fig.width=9, fig.pos='H', fig.align='center', fig.cap="Flow chart for selecting a test in SPSS."}
+```{r}
+#| label: fig-flowchart
+#| fig-cap: "Flow chart for selecting a test in SPSS."
+#| echo: false
+#| warning: false
+
 #Create and draw flow chart for selecting tests in SPSS.
 source("flowchart.R")
 #Show plot.
@@ -953,7 +955,13 @@ Following up on a report commissioned by the American Psychological Association 
 
 Estimation is becoming more important: Assessing the precision of our statements about the population rather than just rejecting or not rejecting our hypothesis about the population. This is an important step forward and it is easy to accomplish with your statistical software.  
 
-```{r ci-nullhyp, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', out.width="640px", fig.cap="What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?"}
+```{r}
+#| label: fig-ci-nullhyp
+#| fig-cap: "What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?"
+#| echo: false
+#| warning: false
+
+
 #REPLACED BY STATIC IMAGE
 
 # Display an x-axis labeled "Effect size" with values "none
@@ -1000,7 +1008,8 @@ For example, we could interpret Confidence Interval D in @fig-ci-nullhyp in the 
 
 We should report that the population value seems to be larger (smaller) than specified in the null hypothesis but that we do not have sufficient confidence in this result because the test is not statistically significant. This is better than reporting that there is no difference because the statistical test is not significant.  
 
-```{block2, type='rmdfisher'}
+::: {.callout-important appearance="simple" #rmdfisher}
+
 The fashion of speaking of a null hypothesis as "accepted when false", whenever a test of significance gives us no strong reason for rejecting it, and when in fact it is in some way imperfect, shows real ignorance of the research workers' attitude, by suggesting that in such a case he has come to an irreversible decision.
 
 The worker's real attitude in such a case might be, according to the circumstances:
@@ -1014,7 +1023,8 @@ Or it might be:
 [@RefWorks:3907: 73]
 
 Sir Ronald Aylmer Fisher, Wikimedia Commons
-```
+
+:::
 
 In a similar way, a very narrow confidence interval including the null hypothesis (e.g., Confidence Interval B in @fig-ci-nullhyp) and a very narrow confidence interval near the null hypothesis but excluding it (e.g., Confidence Interval C in @fig-ci-nullhyp) should not yield opposite conclusions because the statistical test is significant in the second but not in the first situation. After all, even for the significant situation, we know with high confidence (narrow confidence interval) that the population value is close to the hypothesized value.
 
