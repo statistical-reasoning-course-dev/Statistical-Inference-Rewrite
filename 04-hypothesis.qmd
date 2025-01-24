@@ -243,18 +243,9 @@ Doing research is essentially the same. You collect one sample, and have to dete
 
 ### Alpha {#sec-alpha}
 
-The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ decision table in @fig-alphatable, this corresponds to the top left quadrant.
+The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ decision table in @fig-decisiontable, this corresponds to the top left quadrant.
 
 As a researcher, you decide how much risk you are willing to take to make a type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for $\alpha$ is .05, which means that you accept a 5% chance of making a type I error of rejecting the null hypothesis when it is in reality true.
-
-```{r}
-#| label: fig-alphatable
-#| fig-cap: "NHST decision table."
-#| echo: false
-#| warning: false
-
-knitr::include_graphics("figures/decision_table.svg")
-```
 
 In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in @fig-nulldistribution. We have already determined that if $H_0$ is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of @fig-nulldistribution, and are also shown in the @tbl-nullprobtable below. Looking at the probability of getting 0 or 10 candies in @tbl-nullprobtable, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our type I error, alpha, significance level, would be .002. 
 
@@ -280,7 +271,12 @@ kable(t( binomprob ),
 
 Choosing such an alpha level would result in a threshold between 0 and 1 and 9 and 10. We call this the **critical value** associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criterion, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a type I error rate of .002 or 0.2%. @fig-nulldistributionalpha shows the critical values for the null hypothesis distribution, and indicate what the decision would be for values on the outside and inside of the decision boundary.
 
-```{r nulldistributionalpha, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="H0 binomial distribution with critical values", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+```{r}
+#| label: fig-nulldistributionalpha
+#| fig-cap: "H0 binomial distribution with critical values."
+#| echo: false
+#| warning: false
+
 
 title = expression(paste("Null distributions ", theta, " = .5"))
 
@@ -343,7 +339,12 @@ The power is the probability of making the correct decision to reject the null h
 
 As the right column of @fig-decisiontable only states that $H_0 = \text{FALSE}$, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In @fig-altdistributionpower, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.  
 
-```{r altdistributionpower, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="HA binomial distributions with critical values", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+```{r}
+#| label: fig-altdistributionpower
+#| fig-cap: "HA binomial distributions with critical values."
+#| echo: false
+#| warning: false
+
 
 title = expression(paste("Alternative distributions ", theta, " = .2"))
 
@@ -438,8 +439,13 @@ If the dice is not fair, we don't know the probability of throwing sixes. In the
 
 @fig-t-alpha-p shows a t-distribution, which represents the null distribution. A statistical test was set up with an alpha level of 5% (blue area). The and the p-value (red area) indicates the probability of drawing a random sample with a t-value of 2 or values that are even further removed from the null hypothesis (more extreem). The figure shows what this test would look like for a two sided test (left) and a one two sided hypothesis test (right). We will cover one and two sided testing in @sec-one-twosidedtests. For now, just notice that, looking at the left graph, the p-value is greater than 0.05, because the test statistic is not as or more extreme than the critical value. In other words, the test is not significant. In the one-sided test depicted on the right, the p-value lies in the rejection region and is, thus, significant.
 
-```{r t-alpha-p, fig.show="hold", out.width="50%", echo=FALSE, fig.pos='H', fig.align='center', fig.cap="T-distributions with alpha level and p-value", echo=FALSE, screenshot.opts = list(delay = 5), dev="png"}
-# layout(matrix(1:2, 1, 2))
+```{r}
+#| label: fig-t-alpha-p
+#| fig-cap: "T-distributions with alpha level and p-value."
+#| echo: false
+#| warning: false
+
+layout(matrix(1:2, 1, 2))
 
 plot(function(x) dt(x, df = 10), -4, 4,
      main     = "T distribution (df=10) with two sided alpha",
@@ -555,7 +561,11 @@ The true effect size is the difference between the null hypothesis and the true 
 
 In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In @fig-twobinomeffect you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is 5 - 3 expected number of yellow candies in the bag. In terms of the parameter it is the proportion .5 - .2.
 
-```{r twobinomeffect, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+```{r}
+#| label: fig-twobinomeffect
+#| fig-cap: "Effect in discrete binomial distributions."
+#| echo: false
+#| warning: false
 
 title = "Both distributions"
 
@@ -626,12 +636,11 @@ In scientific research, we rarely have precise norms for raw differences (unstan
 
 To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.
 
-For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as *Cohen's* d. Equation  \@ref(eq:CoD) illustrates how the sample mean $\bar{x}$ is compared to the hypothesized population mean $\mu_{H_0}$, and how this difference is standardized by deviding through the standard deviation $s$. In appendix @sec-CohenCalculations we will cover the calculation of the paired and independent t-tests.
+For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as *Cohen's* d. @eq-CoD illustrates how the sample mean $\bar{x}$ is compared to the hypothesized population mean $\mu_{H_0}$, and how this difference is standardized by deviding through the standard deviation $s$. In appendix @sec-CohenCalculations we will cover the calculation of the paired and independent t-tests.
 
-\begin{equation}
+$$
 d = \frac{\bar{x} - \mu_{H_0}}{s_x}
-  (\#eq:CoD)
-\end{equation} 
+$$ {#eq-CoD}
 
 Using an inventory of published results of tests on one or two means, @RefWorks:3933 proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):
 
@@ -668,7 +677,11 @@ Just as the observed effect size is based on the test statistic acquired from yo
 
 The post hoc power refers to the probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed sample mean or more accurately the observed test statistic. 
 
-```{r posthocpower, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions showing post hoc power", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
+```{r}
+#| label: fig-posthocpower
+#| fig-cap: "Discrete binomial distributions showing post hoc power."
+#| echo: false
+#| warning: false
 
 title = "Both distributions"
 
@@ -731,7 +744,11 @@ As stated in @sec-power, the only way to increase the power of a test is to incr
 
 With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that $H_A$ is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.
 
-```{r twobinomN20, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Discrete binomial distributions", echo=FALSE, out.width="820px", screenshot.opts = list(delay = 5), dev="png"}
+```{r}
+#| label: fig-twobinomN20
+#| fig-cap: "Discrete binomial distributions for higher sample size."
+#| echo: false
+#| warning: false
 
 title = "Both distributions"
 
@@ -800,9 +817,7 @@ In G\*Power you can specify the test you want to conduct, the effect size you ex
 
 For our candy color example, we can use G\*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3. 
 
-```{r g-power, eval=TRUE, echo=FALSE, out.width="500px", fig.pos='H', fig.align='center', fig.cap="Power analysis in G*Power for a binomial distribution"}
-knitr::include_graphics("figures/g-power.png")
-```
+![Power analysis in G*Power for a binomial distribution](figures/g-power.png){#fig-g-power width=400 fig-align="left"}
 
 In @fig-g-power you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G\*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in @fig-twobinomN20, though with lines instead of bars.
 

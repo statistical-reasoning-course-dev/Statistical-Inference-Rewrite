@@ -489,22 +489,8 @@ Figure&nbsp;4.4: Discrete alternative binomial distributions.
 <p>Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent (<span class="math inline">\(H_0 = \text{true}\)</span>) or that there is something going on (<span class="math inline">\(H_0 \neq \text{true}\)</span>).</p>
 <section id="sec-alpha" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="sec-alpha"><span class="header-section-number">4.2.1</span> Alpha</h3>
-<p>The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, <span class="math inline">\(\alpha\)</span>. This is the probability of rejecting the null hypothesis when it is in reality true. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-alphatable" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>, this corresponds to the top left quadrant.</p>
+<p>The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, <span class="math inline">\(\alpha\)</span>. This is the probability of rejecting the null hypothesis when it is in reality true. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top left quadrant.</p>
 <p>As a researcher, you decide how much risk you are willing to take to make a type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for <span class="math inline">\(\alpha\)</span> is .05, which means that you accept a 5% chance of making a type I error of rejecting the null hypothesis when it is in reality true.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-alphatable" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-alphatable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/decision_table.svg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-alphatable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.5: NHST decision table.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p>In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in <a href="#fig-nulldistribution" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. We have already determined that if <span class="math inline">\(H_0\)</span> is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of <a href="#fig-nulldistribution" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>, and are also shown in the <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a> below. Looking at the probability of getting 0 or 10 candies in <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a>, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our type I error, alpha, significance level, would be .002.</p>
 <div class="cell">
 <div id="tbl-nullprobtable" class="cell quarto-float quarto-figure quarto-figure-center anchored">
@@ -553,13 +539,17 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 </figure>
 </div>
 </div>
-<p>Choosing such an alpha level would result in a threshold between 0 and 1 and 9 and 10. We call this the <strong>critical value</strong> associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criterion, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a type I error rate of .002 or 0.2%. <span class="quarto-unresolved-ref">?fig-nulldistributionalpha</span> shows the critical values for the null hypothesis distribution, and indicate what the decision would be for values on the outside and inside of the decision boundary.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<p>Choosing such an alpha level would result in a threshold between 0 and 1 and 9 and 10. We call this the <strong>critical value</strong> associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criterion, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a type I error rate of .002 or 0.2%. <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> shows the critical values for the null hypothesis distribution, and indicate what the decision would be for values on the outside and inside of the decision boundary.</p>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/nulldistributionalpha-1.png" class="img-fluid figure-img" width="420"></p>
-<figcaption>H0 binomial distribution with critical values</figcaption>
+<div id="fig-nulldistributionalpha" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nulldistributionalpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-nulldistributionalpha-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nulldistributionalpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: H0 binomial distribution with critical values.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -575,19 +565,23 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 </section>
 <section id="alpha" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="alpha"><span class="header-section-number">4.2.2</span> 1 - Alpha</h3>
-<p>The decision to not reject the null hypothesis when it is in reality true is indicated by <span class="math inline">\(1 - \alpha\)</span>. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to the probabilities in <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a> of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example. We have a 99.8% (1 - .002) chance of making the correct decision to not reject <span class="math inline">\(H_0\)</span> when we assume it to be true. The inside of the critical value in <span class="quarto-unresolved-ref">?fig-nulldistributionalpha</span> is the area where we do not reject the null hypothesis. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the bottom left green quadrant.</p>
+<p>The decision to not reject the null hypothesis when it is in reality true is indicated by <span class="math inline">\(1 - \alpha\)</span>. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to the probabilities in <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a> of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example. We have a 99.8% (1 - .002) chance of making the correct decision to not reject <span class="math inline">\(H_0\)</span> when we assume it to be true. The inside of the critical value in <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> is the area where we do not reject the null hypothesis. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the bottom left green quadrant.</p>
 <p>Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this critical value to look at the power.</p>
 </section>
 <section id="sec-power" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="sec-power"><span class="header-section-number">4.2.3</span> Power</h3>
 <p>The power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In figure (fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.</p>
-<p>As the right column of <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> only states that <span class="math inline">\(H_0 = \text{FALSE}\)</span>, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In <span class="quarto-unresolved-ref">?fig-altdistributionpower</span>, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<p>As the right column of <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> only states that <span class="math inline">\(H_0 = \text{FALSE}\)</span>, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In <a href="#fig-altdistributionpower" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.</p>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/altdistributionpower-1.png" class="img-fluid figure-img" width="420"></p>
-<figcaption>HA binomial distributions with critical values</figcaption>
+<div id="fig-altdistributionpower" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-altdistributionpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-altdistributionpower-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-altdistributionpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.6: HA binomial distributions with critical values.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -602,14 +596,14 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 </section>
 <section id="beta" class="level3" data-number="4.2.4">
 <h3 data-number="4.2.4" class="anchored" data-anchor-id="beta"><span class="header-section-number">4.2.4</span> Beta</h3>
-<p>The probability of making a type II error is indicated by <span class="math inline">\(\beta\)</span>. It is the probability of not rejecting the null hypothesis when it is in reality false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the bottom right quadrant. The power of the test is <span class="math inline">\(1 - \beta\)</span>. In our candy factory example, the power of the test is .11, so the probability of making a type II error is .89. It is the sum of the probabilities of getting 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies, when the machine actually produces bags with 2 yellow candies with the corresponding probabilities as shown in <span class="quarto-unresolved-ref">?fig-altdistributionpower</span>.</p>
+<p>The probability of making a type II error is indicated by <span class="math inline">\(\beta\)</span>. It is the probability of not rejecting the null hypothesis when it is in reality false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the bottom right quadrant. The power of the test is <span class="math inline">\(1 - \beta\)</span>. In our candy factory example, the power of the test is .11, so the probability of making a type II error is .89. It is the sum of the probabilities of getting 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies, when the machine actually produces bags with 2 yellow candies with the corresponding probabilities as shown in <a href="#fig-altdistributionpower" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>.</p>
 </section>
 <section id="sec-test-statistic" class="level3" data-number="4.2.5">
 <h3 data-number="4.2.5" class="anchored" data-anchor-id="sec-test-statistic"><span class="header-section-number">4.2.5</span> Test statistic</h3>
 <p>In <a href="01-samplingdistr.html#sec-samplestatistic" class="quarto-xref"><span>Section 1.2.1</span></a> we discussed the <strong>sample statistic</strong>, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, <span class="math inline">\(t\)</span>-values, <span class="math inline">\(F\)</span>-values, and <span class="math inline">\(\chi^2\)</span>-values are also sample statistics.</p>
 <p>The <strong>test statistic</strong> is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4.</p>
 <p>In the previous sections, we have determined our decision criterion, the critical value, based on our desired alpha level. We have also determined the power of the test, based on the alternative hypothesis. The test statistic is used to determine if we reject the null hypothesis or not. If the test statistic is equal to the critical value or more extreme, we reject the null hypothesis. If the test statistic is inside the critical value, we do not reject the null hypothesis.</p>
-<p>Looking at <span class="quarto-unresolved-ref">?fig-nulldistributionalpha</span>, we see that the critical value is between 0 and 1 and 9 and 10. If we would draw a bag with 4 yellow candies, we can check if the value 4 is inside or outside the critical value. As 4 is inside the critical value, we would not reject the null hypothesis.</p>
+<p>Looking at <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>, we see that the critical value is between 0 and 1 and 9 and 10. If we would draw a bag with 4 yellow candies, we can check if the value 4 is inside or outside the critical value. As 4 is inside the critical value, we would not reject the null hypothesis.</p>
 <blockquote class="blockquote">
 <p>The test statistic is the value that is used to decide if we reject the null hypothesis or not.</p>
 </blockquote>
@@ -643,26 +637,22 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 </blockquote>
 <p>Compare it to the probability that we throw sixes with a dice. This probability is one out of six under the assumption that the dice is fair. Probabilities rest on assumptions. If the assumptions are violated, we cannot calculate probabilities.</p>
 <p>If the dice is not fair, we don’t know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.</p>
-<p><span class="quarto-unresolved-ref">?fig-t-alpha-p</span> shows a t-distribution, which represents the null distribution. A statistical test was set up with an alpha level of 5% (blue area). The and the p-value (red area) indicates the probability of drawing a random sample with a t-value of 2 or values that are even further removed from the null hypothesis (more extreem). The figure shows what this test would look like for a two sided test (left) and a one two sided hypothesis test (right). We will cover one and two sided testing in <a href="#sec-one-twosidedtests" class="quarto-xref"><span>Section 4.2.12</span></a>. For now, just notice that, looking at the left graph, the p-value is greater than 0.05, because the test statistic is not as or more extreme than the critical value. In other words, the test is not significant. In the one-sided test depicted on the right, the p-value lies in the rejection region and is, thus, significant.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<p><a href="#fig-t-alpha-p" class="quarto-xref">Figure&nbsp;<span>4.7</span></a> shows a t-distribution, which represents the null distribution. A statistical test was set up with an alpha level of 5% (blue area). The and the p-value (red area) indicates the probability of drawing a random sample with a t-value of 2 or values that are even further removed from the null hypothesis (more extreem). The figure shows what this test would look like for a two sided test (left) and a one two sided hypothesis test (right). We will cover one and two sided testing in <a href="#sec-one-twosidedtests" class="quarto-xref"><span>Section 4.2.12</span></a>. For now, just notice that, looking at the left graph, the p-value is greater than 0.05, because the test statistic is not as or more extreme than the critical value. In other words, the test is not significant. In the one-sided test depicted on the right, the p-value lies in the rejection region and is, thus, significant.</p>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/t-alpha-p-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>T-distributions with alpha level and p-value</figcaption>
-</figure>
+<div id="fig-t-alpha-p" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-alpha-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-t-alpha-p-1.png" class="img-fluid figure-img" width="672">
 </div>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/t-alpha-p-2.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>T-distributions with alpha level and p-value</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-alpha-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.7: T-distributions with alpha level and p-value.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In <span class="quarto-unresolved-ref">?fig-t-alpha-p</span>, the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
+<p>In <a href="#fig-t-alpha-p" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>, the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
 <p><span class="quarto-unresolved-ref">?fig-twosided</span> represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.</p>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/?showcase=0" width="775px" height="268px" data-external="1">
@@ -673,13 +663,17 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 <section id="sec-true-effect-size" class="level3" data-number="4.2.7">
 <h3 data-number="4.2.7" class="anchored" data-anchor-id="sec-true-effect-size"><span class="header-section-number">4.2.7</span> True effect size</h3>
 <p>The true effect size is the difference between the null hypothesis and the true population value. This can also be expressed in terms of the test statistic. For example, if the IQ scores for communication science students are 120 in the population, the true affect size can be expressed as 20 IQ points, but also as a <em>t</em>-value. The <strong>true</strong> effect size denotes the genuine effect within the population, representing the actual difference, correlation, or parameter value.</p>
-<p>In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In <span class="quarto-unresolved-ref">?fig-twobinomeffect</span> you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is 5 - 3 expected number of yellow candies in the bag. In terms of the parameter it is the proportion .5 - .2.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<p>In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In <a href="#fig-twobinomeffect" class="quarto-xref">Figure&nbsp;<span>4.8</span></a> you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is 5 - 3 expected number of yellow candies in the bag. In terms of the parameter it is the proportion .5 - .2.</p>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/twobinomeffect-1.png" class="img-fluid figure-img" width="420"></p>
-<figcaption>Discrete binomial distributions</figcaption>
+<div id="fig-twobinomeffect" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-twobinomeffect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-twobinomeffect-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twobinomeffect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.8: Effect in discrete binomial distributions.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -720,11 +714,10 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 <h4 data-number="4.2.8.1" class="anchored" data-anchor-id="cohens-d"><span class="header-section-number">4.2.8.1</span> Cohen’s <em>d</em></h4>
 <p>In scientific research, we rarely have precise norms for raw differences (unstandardized effects) that are practically relevant or substantial. For example, what would be a practically relevant attitude change among people exposed to a health campaign?</p>
 <p>To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.</p>
-<p>For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as <em>Cohen’s</em> d.&nbsp;Equation @ref(eq:CoD) illustrates how the sample mean <span class="math inline">\(\bar{x}\)</span> is compared to the hypothesized population mean <span class="math inline">\(\mu_{H_0}\)</span>, and how this difference is standardized by deviding through the standard deviation <span class="math inline">\(s\)</span>. In appendix <a href="12-Appendix.html#sec-CohenCalculations" class="quarto-xref"><span>Section 1</span></a> we will cover the calculation of the paired and independent t-tests.</p>
-<p><span class="math display">\[\begin{equation}
+<p>For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as <em>Cohen’s</em> d. <a href="#eq-CoD" class="quarto-xref">Equation&nbsp;<span>4.3</span></a> illustrates how the sample mean <span class="math inline">\(\bar{x}\)</span> is compared to the hypothesized population mean <span class="math inline">\(\mu_{H_0}\)</span>, and how this difference is standardized by deviding through the standard deviation <span class="math inline">\(s\)</span>. In appendix <a href="12-Appendix.html#sec-CohenCalculations" class="quarto-xref"><span>Section 1</span></a> we will cover the calculation of the paired and independent t-tests.</p>
+<p><span id="eq-CoD"><span class="math display">\[
 d = \frac{\bar{x} - \mu_{H_0}}{s_x}
-  (\#eq:CoD)
-\end{equation}\]</span></p>
+\tag{4.3}\]</span></span></p>
 <p>Using an inventory of published results of tests on one or two means, <span class="citation" data-cites="RefWorks:3933">Cohen (<a href="#ref-RefWorks:3933" role="doc-biblioref">1969</a>)</span> proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):</p>
 <ul>
 <li>0.2: weak (small) effect,</li>
@@ -757,17 +750,21 @@ d = \frac{\bar{x} - \mu_{H_0}}{s_x}
 <p>— <span class="citation" data-cites="doi:10.1080/19312450701641375">(<a href="#ref-doi:10.1080/19312450701641375" role="doc-biblioref">O’Keefe 2007</a>)</span></p>
 </blockquote>
 <p>The post hoc power refers to the probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed sample mean or more accurately the observed test statistic.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/posthocpower-1.png" class="img-fluid figure-img" width="420"></p>
-<figcaption>Discrete binomial distributions showing post hoc power</figcaption>
+<div id="fig-posthocpower" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-posthocpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-posthocpower-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posthocpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.9: Discrete binomial distributions showing post hoc power.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p><span class="quarto-unresolved-ref">?fig-posthocpower</span> shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution when rejecting the null hypothesis on the outside of the critical values.</p>
+<p><a href="#fig-posthocpower" class="quarto-xref">Figure&nbsp;<span>4.9</span></a> shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution when rejecting the null hypothesis on the outside of the critical values.</p>
 <p>You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would not be the same. The post hoc power does not have much practical use, though SPSS produces this when you ask it, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the actual power is fixed and should not vary.</p>
 <!-- [To-Do] create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 </section>
@@ -782,15 +779,19 @@ d = \frac{\bar{x} - \mu_{H_0}}{s_x}
 </section>
 <section id="sec-sample-size" class="level3" data-number="4.2.11">
 <h3 data-number="4.2.11" class="anchored" data-anchor-id="sec-sample-size"><span class="header-section-number">4.2.11</span> Sample size</h3>
-<p>As stated in <a href="#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In <span class="quarto-unresolved-ref">?fig-twobinomN20</span>, we increased the number of candies in the bag to 20. We can see on the x-axis that the possible outcome space for the number of yellow candies in the bag is now 0 to 20. This still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 candies is now <span class="math inline">\(.5 \times 20 = 10\)</span>, right in the middle of our distribution.</p>
-<p><span class="quarto-unresolved-ref">?fig-twobinomN20</span> still follows the reasoning scheme we have setup earlier. We decide to reject <span class="math inline">\(H_0\)</span> on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an <span class="math inline">\(\alpha = .05\)</span>. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.</p>
+<p>As stated in <a href="#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In <a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.10</span></a>, we increased the number of candies in the bag to 20. We can see on the x-axis that the possible outcome space for the number of yellow candies in the bag is now 0 to 20. This still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 candies is now <span class="math inline">\(.5 \times 20 = 10\)</span>, right in the middle of our distribution.</p>
+<p><a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.10</span></a> still follows the reasoning scheme we have setup earlier. We decide to reject <span class="math inline">\(H_0\)</span> on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an <span class="math inline">\(\alpha = .05\)</span>. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.</p>
 <p>With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that <span class="math inline">\(H_A\)</span> is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="04-hypothesis_files/figure-html/twobinomN20-1.png" class="img-fluid figure-img" width="820"></p>
-<figcaption>Discrete binomial distributions</figcaption>
+<div id="fig-twobinomN20" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-twobinomN20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-twobinomN20-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twobinomN20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.10: Discrete binomial distributions for higher sample size.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -813,17 +814,17 @@ d = \frac{\bar{x} - \mu_{H_0}}{s_x}
 </blockquote>
 <p>In G*Power you can specify the test you want to conduct, the effect size you expect, the alpha level you want to use, and the power you want to achieve. G*Power will then calculate the sample size you need to get the desired power for the given effect size.</p>
 <p>For our candy color example, we can use G*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/g-power.png" class="img-fluid figure-img" width="500"></p>
-<figcaption>Power analysis in G*Power for a binomial distribution</figcaption>
+<div id="fig-g-power" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-g-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/g-power.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.11: Power analysis in G*Power for a binomial distribution
+</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p>In <span class="quarto-unresolved-ref">?fig-g-power</span> you can see that for the binomial test we have set the proportion p1 to .5 (<span class="math inline">\(H_0\)</span>) and the proportion p2 (<span class="math inline">\(H_A\)</span>) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in <span class="quarto-unresolved-ref">?fig-twobinomN20</span>, though with lines instead of bars.</p>
+<p>In <a href="#fig-g-power" class="quarto-xref">Figure&nbsp;<span>4.11</span></a> you can see that for the binomial test we have set the proportion p1 to .5 (<span class="math inline">\(H_0\)</span>) and the proportion p2 (<span class="math inline">\(H_A\)</span>) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in <a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.10</span></a>, though with lines instead of bars.</p>
 <p>As mentioned in <a href="#sec-true-effect-size" class="quarto-xref"><span>Section 4.2.7</span></a> about the true effect size, the sensitivity of a test is determined by the sample size. The larger the sample size, the more sensitive the test will be. This means that if we want to detect a small effect size, we need a large sample size. If we want to detect a large effect size, we can suffice with a smaller sample.</p>
 <p>Try to determine what sample size you would need using <span class="quarto-unresolved-ref">?fig-sample-size-power</span>, if you would want to detect an effect size of .2, .5 or .8 with a power of 80% and an alpha level of 5%. You can see that the sample size ranges from 197 to about 15 for these effect sizes.</p>
 <p>Something to consider is that with extremely large sample sizes you will very easily find significant results. Even if these results are not practically relevant. This is why it is important to determine the sample size you need before you start collecting data.</p>
