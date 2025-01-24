@@ -1072,11 +1072,17 @@ Bayesian inference is intuitively appealing but it has not yet spread widely in 
 
 ### Criticisms of Null Hypothesis Significance Testing {#sec-criticismsNHST}
 
-In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video.
+In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch the video in @fig-vidoe-cumming.
 
-```{r pdance, echo=FALSE, out.width="640px", dev="png", fig.pos='H', fig.align='center', fig.cap="The dance of the _p_ values by Geoff Cumming.", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/ez4DgdurRPg", height = "315px")
-```
+::: {#fig-vidoe-cumming}
+{{< video https://www.youtube.com/embed/ez4DgdurRPg 
+    width="100%" 
+    height="315" 
+    title = "The dance of the _p_ values by Geoff Cumming."
+>}}
+
+The dance of the _p_ values by Geoff Cumming.
+:::
 
 As the video indicates, only focusing on the p-value can provide wildly misleading results. Specially with low sample sizes, you can find significant effects that do not correspond with results we find while using confidence intervals. Blindly following the p-value mantra is considered to be bad practice.
 
