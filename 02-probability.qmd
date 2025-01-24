@@ -31,7 +31,13 @@ After studying this chapter, you should know the limitations of the three method
 
 The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (@sec-probdistribution). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (@sec-discreterandomvariable).  
 
-```{r exact-approach, echo=FALSE, fig.pos='H', fig.align='center', warning= FALSE, fig.cap="How does an exact aproach to the sampling distribution work?"}
+```{r}
+#| label: tbl-exact-approach
+#| tbl-cap: "Number of heads for a toss of three coins."
+#| echo: false
+#| warning: false
+
+
 # Several scenarios (choice list) for discrete probability distributions (dice, coin flips) ; display a table with all outcomes sampling space), all possible combinations for each oucome , and calculated probabilities.
 # Scenarios: number of heads per toss if we toss 1, 2, 3 unbiased coins; sum of the number of eyes per throw if we throw 1 or 2 unbiased dice.
 # If feasible: Don't show probabilities but let user enter probabilities if a scenario is used for the second (or later) time within a session.
@@ -41,16 +47,16 @@ d <- data.frame(Outcome = c(0,1,1,1,2,2,2,3,"Total"),
                 Probability_of_outcome = c("1/8 =  .125", "", "", "3/8 =  .375", "", "", "3/8 =  .375", "1/8 =  .125", "1.000"))
 knitr::kable(d, 
              booktabs  = TRUE, 
-             caption   = "Number of heads for a toss of three coins.", 
              col.names = c("Outcome", "Combination", "Probability: Combination", "Probability: Outcome"), 
              align     = c("l", "l", "l", "r")) %>%
-  kable_styling(font_size = 12, full_width = F, latex_options = c("HOLD_position", "scale_down")) %>%
-  row_spec(c(2:4, 8), color = "black", background = "#EEEEEE") %>%
-  row_spec(c(1, 5:7), color = "black", background = "white")
+  kable_styling(font_size = 12, full_width = F, latex_options = c("HOLD_position", "scale_down")) 
+# %>%
+#   row_spec(c(2:4, 8), color = "black", background = "#EEEEEE") %>%
+#   row_spec(c(1, 5:7), color = "black", background = "white")
 ```
 
 
-
+> Examine @tbl-exact-approach, and try to determine why the probability of throwing 2 times head out of 3 is .375.
 
 
 The calculated probabilities of all possible sample statistic outcomes give us an exact approach to the sampling distribution. Note that I use the word _approach_ instead of _approximation_ here because the obtained sampling distribution is no longer an approximation, that is, more or less similar to the true sampling distribution. No, it is the true sampling distribution itself.  

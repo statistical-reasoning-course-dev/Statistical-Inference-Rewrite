@@ -310,155 +310,90 @@ div.csl-indent {
 <section id="exact-approaches-to-the-sampling-distribution" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="exact-approaches-to-the-sampling-distribution"><span class="header-section-number">2.1</span> Exact Approaches to the Sampling Distribution</h2>
 <p>The first approach we will discuss to constructing a sampling distribution has implicitly been demonstrated in the section on probability distributions (<a href="01-samplingdistr.html#sec-probdistribution" class="quarto-xref"><span>Section 1.2.3</span></a>). In this section, we calculated the true sampling distribution of the proportion of yellow candies in a sample from the probabilities of the colours. If we know or think we know the proportion of yellow candies in the population, we can exactly calculate the probability that a sample of ten candies includes one, two, three, or ten yellow candies. See the section on discrete random variables for details (<a href="01-samplingdistr.html#sec-discreterandomvariable" class="quarto-xref"><span>Section 1.2</span></a>).</p>
-<div class="cell" data-layout-align="center">
+<div class="cell">
+<div id="tbl-exact-approach" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-exact-approach-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Number of heads for a toss of three coins.
+</figcaption>
+<div aria-describedby="tbl-exact-approach-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption style="font-size: initial !important;">
-Number of heads for a toss of three coins.
-</caption>
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
-<tr>
-<th style="text-align:left;">
-Outcome
-</th>
-<th style="text-align:left;">
-Combination
-</th>
-<th style="text-align:left;">
-Probability: Combination
-</th>
-<th style="text-align:right;">
-Probability: Outcome
-</th>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Outcome</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Combination</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Probability: Combination</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Probability: Outcome</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-0
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-tail-tail-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-1/8 = .125
-</td>
+<tr class="odd">
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">tail-tail-tail</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;">1/8 = .125</td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-tail-tail-head
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-</td>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">tail-tail-head</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;"></td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-head-tail-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-</td>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">head-tail-tail</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;"></td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-tail-head-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-3/8 = .375
-</td>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">tail-head-tail</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;">3/8 = .375</td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-2
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-head-head-tail
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-</td>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">head-head-tail</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;"></td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-2
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-head-tail-head
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-</td>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">head-tail-head</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;"></td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-2
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-tail-head-head
-</td>
-<td style="text-align:left;color: black !important;background-color: white !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: white !important;">
-3/8 = .375
-</td>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">tail-head-head</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;">3/8 = .375</td>
 </tr>
-<tr>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-3
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-head-head-head
-</td>
-<td style="text-align:left;color: black !important;background-color: #EEEEEE !important;">
-1/2 * 1/2 * 1/2 = 1/8 = .125
-</td>
-<td style="text-align:right;color: black !important;background-color: #EEEEEE !important;">
-1/8 = .125
-</td>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">head-head-head</td>
+<td style="text-align: left;">1/2 * 1/2 * 1/2 = 1/8 = .125</td>
+<td style="text-align: right;">1/8 = .125</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Total
-</td>
-<td style="text-align:left;">
-8
-</td>
-<td style="text-align:left;">
-</td>
-<td style="text-align:right;">
-1.000
-</td>
+<tr class="odd">
+<td style="text-align: left;">Total</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;"></td>
+<td style="text-align: right;">1.000</td>
 </tr>
 </tbody>
 </table>
-<p>How does an exact aproach to the sampling distribution work?</p>
+
+
 </div>
 </div>
+</figure>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>Examine <a href="#tbl-exact-approach" class="quarto-xref">Table&nbsp;<span>2.1</span></a>, and try to determine why the probability of throwing 2 times head out of 3 is .375.</p>
+</blockquote>
 <p>The calculated probabilities of all possible sample statistic outcomes give us an exact approach to the sampling distribution. Note that I use the word <em>approach</em> instead of <em>approximation</em> here because the obtained sampling distribution is no longer an approximation, that is, more or less similar to the true sampling distribution. No, it is the true sampling distribution itself.</p>
 <section id="exact-approaches-for-categorical-data" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="exact-approaches-for-categorical-data"><span class="header-section-number">2.1.1</span> Exact approaches for categorical data</h3>
@@ -653,6 +588,7 @@ Total
 
 
 
+
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/?showcase=0" width="775px" height="462px" data-external="1"></iframe>
 :::
@@ -663,6 +599,7 @@ Total
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/?showcase=0" width="420px" height="300px" data-external="1"></iframe>
 :::
+
 
 
 
