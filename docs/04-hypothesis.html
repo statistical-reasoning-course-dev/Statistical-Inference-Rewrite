@@ -355,12 +355,12 @@ window.Quarto = {
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="null-hypothesis"><span class="header-section-number">4.1.1</span> Null hypothesis</h3>
 <p>The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental conditions, the new intervention is not better than the previous, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. <a href="#eq-Hnull" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> shows some examples of null hypotheses expressed in test statistics.</p>
 <p><span id="eq-Hnull"><span class="math display">\[
-\begin{split}
-H_{0} &amp; : \theta = .5 \\
-H_{0} &amp; : \mu = 100 \\
-H_{0} &amp; : t = 0 \\
-H_{0} &amp; : \mu_1 = \mu_2 \\
-\end{split}
+\begin{eqnarray*}
+H_{0} &amp; : \theta &amp; = .5 \\
+H_{0} &amp; : \mu &amp; = 100 \\
+H_{0} &amp; : t &amp; = 0 \\
+H_{0} &amp; : \mu_1 &amp; = \mu_2 \\
+\end{eqnarray*}
 \tag{4.1}\]</span></span></p>
 <p>The null hypothesis does not always assume that the population parameter is zero; it can take any specified value. For instance, a null hypothesis might state that there is no difference in intelligence between communication science students and the general population. In this case, we could compare the average intelligence score of a sample of communication science students to the known population average of 100. Although we are testing whether the difference is zero, in practical terms, we express the null hypothesis as the sample mean being equal to 100.</p>
 <p>Though a null hypothesis can be expressed as a single value, that does not mean that we always get that specific value when we take a random sample. Given the null hypothesis that our candy factory machine produces bags with an average of 5 out of 10 yellow candies, there remains a probability that some bags will contain as few as one yellow candy or even none at all. This variability is illustrated in Figure <a href="#fig-nulldistribution" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>, which shows that while values near the expected 5 yellow candies are most likely, deviations can occur.</p>
@@ -399,23 +399,21 @@ Figure&nbsp;4.2: Discrete alternative binomial distribution.
 </div>
 <p>Note that the probability distribution for <span class="math inline">\(H_0\)</span> indicates the null assumption about reality, while the probability distribution for <span class="math inline">\(H_A\)</span> is based on the true population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.</p>
 <p>When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.</p>
-<p>The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. Equation @ref(eq:Halt) shows some examples of alternative hypotheses expressed in test statistics.</p>
-<p><span class="math display">\[\begin{equation}
-\begin{split}
+<p>The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. <a href="#eq-Halt" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> shows some examples of alternative hypotheses expressed in test statistics.</p>
+<p><span id="eq-Halt"><span class="math display">\[
+\begin{eqnarray*}
 \text{Two-sided} \\
 H_{A} &amp; : \theta &amp; \neq .5 \\
 H_{A} &amp; : \hat{x} &amp; \neq \mu \\
 H_{A} &amp; : t &amp; \neq 0 \\
 H_{A} &amp; : \mu_1 &amp; \neq \mu_2 \\
-
 \text{One-sided} \\
 H_{A} &amp; : \theta &amp; &lt; .5 \\
 H_{A} &amp; : \hat{x} &amp; &gt; 100 \\
 H_{A} &amp; : t &amp; &gt; 0 \\
 H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
-\end{split}
-(\#eq:Halt)
-\end{equation}\]</span></p>
+\end{eqnarray*}
+\tag{4.2}\]</span></span></p>
 <p>The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in <a href="#sec-one-twosidedtests" class="quarto-xref"><span>Section 4.2.12</span></a>.</p>
 </section>
 <section id="testing-hypothesis" class="level3" data-number="4.1.3">

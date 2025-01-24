@@ -48,12 +48,12 @@ Statistical hypotheses usually come in pairs: a null hypothesis (_H_~0~) and an 
 The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental conditions, the new intervention is not better than the previous, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. @eq-Hnull shows some examples of null hypotheses expressed in test statistics.
 
 $$
-\begin{split}
-H_{0} & : \theta = .5 \\
-H_{0} & : \mu = 100 \\
-H_{0} & : t = 0 \\
-H_{0} & : \mu_1 = \mu_2 \\
-\end{split}
+\begin{eqnarray*}
+H_{0} & : \theta & = .5 \\
+H_{0} & : \mu & = 100 \\
+H_{0} & : t & = 0 \\
+H_{0} & : \mu_1 & = \mu_2 \\
+\end{eqnarray*}
 $$ {#eq-Hnull}
 
 The null hypothesis does not always assume that the population parameter is zero; it can take any specified value. For instance, a null hypothesis might state that there is no difference in intelligence between communication science students and the general population. In this case, we could compare the average intelligence score of a sample of communication science students to the known population average of 100. Although we are testing whether the difference is zero, in practical terms, we express the null hypothesis as the sample mean being equal to 100.
@@ -126,24 +126,22 @@ Note that the probability distribution for $H_0$ indicates the null assumption a
 
 When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.
 
-The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. Equation \@ref(eq:Halt) shows some examples of alternative hypotheses expressed in test statistics.
+The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. @eq-Halt shows some examples of alternative hypotheses expressed in test statistics.
 
-\begin{equation}
-\begin{split}
+$$ 
+\begin{eqnarray*}
 \text{Two-sided} \\
 H_{A} & : \theta & \neq .5 \\
 H_{A} & : \hat{x} & \neq \mu \\
 H_{A} & : t & \neq 0 \\
 H_{A} & : \mu_1 & \neq \mu_2 \\
-
 \text{One-sided} \\
 H_{A} & : \theta & < .5 \\
 H_{A} & : \hat{x} & > 100 \\
 H_{A} & : t & > 0 \\
 H_{A} & : \mu_1 & < \mu_2 \\
-\end{split}
-(\#eq:Halt)
-\end{equation}
+\end{eqnarray*}
+$$ {#eq-Halt}
 
 The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in @sec-one-twosidedtests.
 
