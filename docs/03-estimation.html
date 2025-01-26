@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -296,10 +296,7 @@ window.Quarto = {
 
 
 <blockquote class="blockquote">
-<p>Which Population Values Are Plausible?</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.</p>
+<p>Which Population Values Are Plausible? Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.</p>
 </blockquote>
 <section id="summary" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
@@ -330,20 +327,34 @@ window.Quarto = {
 <p>Note that we are reasoning from sampling distribution to sample now. This is not what we want to do in actual research, where we want to reason from sample to sampling distribution to population. We get to that in <a href="#sec-ci-parameter" class="quarto-xref"><span>Section 3.5</span></a>. For now, assume that we know the true sampling distribution.</p>
 <p>Remember that the average or expected value of a sampling distribution is equal to the population value if the estimator is unbiased. For example, the mean weight of yellow candies averaged over a very large number of samples is equal to the mean weight of yellow candies in the population. For an interval estimate, we now select the sample statistic values that are closest to the average of the sampling distribution.</p>
 <p>Between which boundaries do we find the sample statistic values that are closest to the population value? Of course, we have to specify what we mean by “closest”. Which part of all samples do we want to include? A popular proportion is 95%, so we want to know the boundary values that include 95% of all samples that are closest to the population value. For example, between which boundaries is average candy weight situated for 95% of all samples that are closest to the average candy weight in the population?</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/ci-borders/?showcase=0" width="420px" height="290px" data-external="1">
+<div id="fig-ci-borders" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ci-borders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/ci-borders/" width="100%" height="290px" style="border:none;">
 </iframe>
 </div>
-<p><span class="quarto-unresolved-ref">?fig-ci-borders</span> shows the sampling distribution of average sample candy weight.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ci-borders-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Within which interval do we find the sample results that are closest to the population value?
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-ci-borders" class="quarto-xref">Figure&nbsp;<span>3.1</span></a> shows the sampling distribution of average sample candy weight.</p>
 <p>Say, for instance, that 95% of all possible samples in the middle of the sampling distribution have an average candy weight ranging from 1.6 to 4.0 grams. The proportion .95 can be interpreted as a probability. Our sampling distribution tells us that we have 95% probability that the average weight of yellow candies lies between 1.6 and 4.0 grams in a random sample that we draw from this population.</p>
 <p>We now have boundary values, that is, a range of sample statistic values, and a probability of drawing a sample with a statistic falling within this range. The probability shows our <em>confidence</em> in the estimate. It is called the <em>confidence level</em> of an interval estimate.</p>
 </section>
 <section id="sec-precisionsesamplesize" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-precisionsesamplesize"><span class="header-section-number">3.3</span> Precision, Standard Error, and Sample Size</h2>
 <p>The width of the estimated interval represents the <em>precision</em> of our estimate. The wider the interval, the less precise our estimate. With a less precise interval estimate, we will have to take into account a wider variety of outcomes in our sample.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-level/?showcase=0" width="420px" height="310px" data-external="1">
+<div id="fig-interval-level" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-interval-level-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-level/" width="100%" height="310px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interval-level-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: How does the confidence level affect the precision of an interval estimate?
+</figcaption>
+</figure>
 </div>
 <p>If we want to predict something, we value precision. We would rather conclude that the average weight of candies in the next sample we draw is between 2.0 and 3.6 grams than between 1.6 and 4.0 grams. If we would be satisfied with a very imprecise estimate, we need not do any research at all. With relatively little knowledge about the candies that we are investigating, we could straightaway predict that the average candy weight is between zero and ten grams. The goal of our research is to find a more precise estimate.</p>
 <p>There are several ways to increase the precision of our interval estimate, that is, to obtain a narrower interval for our estimate. The easiest and least useful way is to decrease our confidence that our estimate is correct. If we lower the confidence that we are right, we can discard a large number of other possible sample statistic outcomes and focus on a narrower range of sample outcomes around the true population value.</p>
@@ -351,12 +362,19 @@ window.Quarto = {
 <section id="sec-sample-sizes" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="sec-sample-sizes"><span class="header-section-number">3.3.1</span> Sample sizes</h3>
 <p>A less practical but very useful method of narrowing the interval estimate is increasing sample size. If we buy a larger bag containing more candies, we get a better idea of average candy weight in the population and a better idea of the averages that we should expect in our sample.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-size/?showcase=0" width="420px" height="310px" data-external="1">
+<div id="fig-interval-size" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-interval-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-size/" width="100%" height="310px" style="border:none;">
 </iframe>
 </div>
-<p><span class="quarto-unresolved-ref">?fig-interval-size</span> shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.</p>
-<p>As you may have noticed while playing with <span class="quarto-unresolved-ref">?fig-interval-size</span>, a larger sample yields a narrower, that is, more precise interval. You may have expected intuitively that larger samples give more precise estimates because they offer more information. This intuition is correct.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-interval-size-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: How does sample size affect the precision of an interval estimate?
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-interval-size" class="quarto-xref">Figure&nbsp;<span>3.3</span></a> shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.</p>
+<p>As you may have noticed while playing with <a href="#fig-interval-size" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>, a larger sample yields a narrower, that is, more precise interval. You may have expected intuitively that larger samples give more precise estimates because they offer more information. This intuition is correct.</p>
 <p>In a larger sample, an observation above the mean is more likely to be compensated by an observation below the mean. Just because there are more observations, it is less likely that we sample relatively high scores but no or considerably fewer scores that are relatively low.</p>
 <p>The larger the sample, the more the distribution of scores for a variable in the sample will resemble the distribution of scores for this variable in the population. As a consequence, a sample statistic value will be closer to the population value for this statistic.</p>
 <p>Larger samples resemble the population more closely, and therefore large samples drawn from the same population are more similar. The result is that the sample statistic values in the sampling distribution are less varied and more similar. They are more concentrated around the true population value. The middle 95% of all sample statistic values are closer to the centre, so the sampling distribution is more peaked.</p>
@@ -365,14 +383,21 @@ window.Quarto = {
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="sec-standard-error"><span class="header-section-number">3.3.2</span> Standard error</h3>
 <p>The concentration of sample statistic values, such as average candy weight in a sample bag, around the centre (mean) of the sampling distribution is expressed by the standard deviation of the sampling distribution. Up until now, we have only paid attention to the centre of the sampling distribution, its mean, because it is the expected value in a sample and it is equal to the population value if the estimator is unbiased.</p>
 <p>Now, we start looking at the standard deviation of the sampling distribution as well, because it tells us how precise our interval estimate is going to be. The sampling distribution’s standard deviation is so important that it has received a special name: the <em>standard error</em>.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/se-point-est/?showcase=0" width="420px" height="310px" data-external="1">
+<div id="fig-se-point-est" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-se-point-est-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/se-point-est/" width="100%" height="310px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-se-point-est-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.4: How does sample size affect the standard error?
+</figcaption>
+</figure>
 </div>
 <p>The word <em>error</em> reminds us that the standard error represents the size of the error that we are likely to make (on average under many repetitions) if we use the value of the sample statistic as a point estimate for the population value.</p>
 <p>Let us assume, for instance, that the standard error of the average weight of candies in samples is 0.6. Loosely stated, this means that the average difference between true average candy weight and average candy weight in a sample is 0.6 if we draw very many samples from the same population.</p>
 <p>The smaller the standard error, the more the sample statistic values resemble the true population value, and the more precise our interval estimate is with a given confidence level, for instance, 95%. Because we like more precise interval estimates, we prefer small standard errors over high standard errors.</p>
-<p>It is easy to obtain smaller standard errors: just increase sample size. See <span class="quarto-unresolved-ref">?fig-interval-size</span>, where larger samples yield more peaked sampling distributions. In a peaked distribution, values are closer to the mean and the standard error is smaller. In our example, average candy weights in larger sample bags are closer to the average candy weight in the population.</p>
+<p>It is easy to obtain smaller standard errors: just increase sample size. See <a href="#fig-interval-size" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>, where larger samples yield more peaked sampling distributions. In a peaked distribution, values are closer to the mean and the standard error is smaller. In our example, average candy weights in larger sample bags are closer to the average candy weight in the population.</p>
 <p>In practice, however, it is both time-consuming and expensive to draw a very large sample. Usually, we want to settle on the optimal size of the sample, namely a sample that is large enough to have interval estimates at the confidence level and precision that we need but as small as possible to save on time and expenses. We return to this matter in <a href="04-hypothesis.html#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a>.</p>
 <p>The standard error may also depend on other factors, such as the variation in population scores. In our example, more variation in the weight of candies in the population produces a larger standard error for average candy weight in a sample bag. If there are more very heavy candies and very light candies, it is easier to draw a sample with several heavy candies or with several very light candies. Average weight in these sample bags will be too high or too low. We cannot influence the variation in candy weights in the population, so let us ignore this factor influencing the standard error.</p>
 </section>
@@ -382,15 +407,22 @@ window.Quarto = {
 <p>In the preceding section, we learned that the standard error is related to the precision of the interval estimate. A larger standard error yields a less precise estimate, that is, with a wider interval estimate.</p>
 <p>We are interested in the interval that includes a particular percentage of all samples that can be drawn, usually the 95% of all samples that are closest to the population value. In our current example, the 95% of all samples with average candy weight that is closest to average candy weight in the population (2.8 grams).</p>
 <p>In theoretical probability distributions like the normal distribution, the percentage of samples is related to the standard error. If we know the standard error, we know the interval within which we find the 95% of samples that are closest to the population value.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/crit-values/?showcase=0" width="440px" height="360px" data-external="1">
+<div id="fig-crit-values" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-crit-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/crit-values/" width="100%" height="360px" style="border:none;">
 </iframe>
 </div>
-<p><span class="quarto-unresolved-ref">?fig-crit-values</span> shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called <em>z</em> scores (top).</p>
-<p>In <span class="quarto-unresolved-ref">?fig-crit-values</span>, we approximate the sampling distribution with a theoretical probability distribution, namely the normal distribution. The theoretical probability distribution links probabilities (areas under the curve) to sample statistic outcome values (scores on the horizontal axis). For example, we have 2.5% probability of drawing a sample bag with average candy weight below 1.2 grams or 2.5% probability of drawing a sample bag with average candy weight over 4.4 grams.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-crit-values-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.5: Standardized sample outcomes and the standard error.
+</figcaption>
+</figure>
+</div>
+<p><a href="#fig-crit-values" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called <em>z</em> scores (top).</p>
+<p>In <a href="#fig-crit-values" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>, we approximate the sampling distribution with a theoretical probability distribution, namely the normal distribution. The theoretical probability distribution links probabilities (areas under the curve) to sample statistic outcome values (scores on the horizontal axis). For example, we have 2.5% probability of drawing a sample bag with average candy weight below 1.2 grams or 2.5% probability of drawing a sample bag with average candy weight over 4.4 grams.</p>
 <section id="standardization-and-z-scores" class="level3" data-number="3.4.1">
 <h3 data-number="3.4.1" class="anchored" data-anchor-id="standardization-and-z-scores"><span class="header-section-number">3.4.1</span> Standardization and <em>z</em> scores</h3>
-<p>The average candy weights that are associated with 2.5% and 97.5% probabilities in <span class="quarto-unresolved-ref">?fig-crit-values</span> depend on the sample that we have drawn. As you may notice while playing with <span class="quarto-unresolved-ref">?fig-interval-size</span>, changing the size of the sample also changes the average candy weights that mark the 2.5% and 97.5% probabilities.</p>
+<p>The average candy weights that are associated with 2.5% and 97.5% probabilities in <a href="#fig-crit-values" class="quarto-xref">Figure&nbsp;<span>3.5</span></a> depend on the sample that we have drawn. As you may notice while playing with <a href="#fig-interval-size" class="quarto-xref">Figure&nbsp;<span>3.3</span></a>, changing the size of the sample also changes the average candy weights that mark the 2.5% and 97.5% probabilities.</p>
 <p>We can simplify the situation if we <em>standardize</em> the sampling distribution: Subtract the mean of the sampling distribution from each sample mean in this distribution, and divide the result by the standard error. Thus, we transform the sampling distribution into a distribution of standardized scores. The mean of the new standardized variable is always zero.</p>
 <p>If we use the normal distribution for standardized scores, which is called the <em>standard-normal distribution</em> or <em>z distribution</em>, there is a single <em>z</em> value that marks the boundary between the top 2.5% and the bottom 97.5% of any sample. This <em>z</em> value is 1.96. If we combine this value with -1.96, separating the bottom 2.5% of all samples from the rest, we obtain an interval [-1.96, 1.96] containing 95% of all samples that are closest to the mean of the sampling distribution.</p>
 <p>In a standard-normal or <em>z</em> distribution, 1.96 is called a <em>critical value</em>. Together with its negative (-1.96), it separates the 95% sample statistic outcomes that are closest to the parameter, hence that are most likely to appear, from the 5% that are furthest away and least likely to appear. There are also critical <em>z</em> values for other probabilities, for instance, 1.64 for the middle 90% of all samples and 2.58 for the middle 99% in a standard-normal distribution.</p>
@@ -421,33 +453,48 @@ window.Quarto = {
 <p>Working through the preceding sections, you may have realized that estimating the value of a statistic in a new sample with a specific precision and probability is not our ultimate goal, as it does not fully represent reality. In reality, we do not know the population parameter, and the primary objective of statistics is to estimate this unknown population parameter.</p>
 <p>For example, we don’t care much about the average weight of candies in our sample bag or in the next sample bag that we may buy. We want to say something about the average weight of candies in the population. How can we do this?</p>
 <p>In addition, you may have realized that, if we want to construct the sampling distribution of sample means, we first need to know the precise population value, for instance, average candy weight in the population. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution of sample means.</p>
+<div id="fig-exactapproachfigure" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-exactapproachfigure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/exactapproach.png" class="img-fluid figure-img" width="300"></p>
-<figcaption>Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.</figcaption>
+<p><img src="figures/exactapproach.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="300"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (<span class="quarto-unresolved-ref">?fig-exactapproachfigure</span>), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don’t know the population proportion of yellow candies; we want to estimate it.</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-exactapproachfigure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.6: Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
+</figcaption>
+</figure>
+</div>
+<p>In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (<a href="#fig-exactapproachfigure" class="quarto-xref">Figure&nbsp;<span>3.6</span></a>), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don’t know the population proportion of yellow candies; we want to estimate it.</p>
 <p>In the candy weight example, we first need to know the mean of population candy weight, then we can construct a theoretical probability distribution of sample means. But we do not know the population mean; we want to estimate it.</p>
 <p>A theoretical probability distribution can only be used as an approximation of a sampling distribution if we know some characteristics of the population. We know that the sampling distribution of sample means always has the bell shape of a normal distribution or <em>t</em> distribution. However, knowing the shape is not sufficient for using the theoretical distribution as an approximation of the sampling distribution.</p>
 <p>We must also know the population mean because it specifies where the centre of the sampling distribution is located. So, we must know the population mean to use a theoretical probability distribution to estimate the population mean.</p>
 <p>By the way, we also need the standard error to know how peaked or flat the bell shape is. The standard error can usually be estimated from the data in our sample. But let us not worry about how the standard error is being estimated and focus on estimating the population mean.</p>
 <section id="sec-fixed-pop-values" class="level3" data-number="3.5.1">
 <h3 data-number="3.5.1" class="anchored" data-anchor-id="sec-fixed-pop-values"><span class="header-section-number">3.5.1</span> Reverse reasoning from one sample mean</h3>
-<p>In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (<span class="quarto-unresolved-ref">?fig-crit-values</span>). 95% of all sample means would fall within this interval estimate around the known population mean.</p>
+<p>In the previous chapters, we were reasoning from population mean to sampling distribution of sample means, then to a single sample mean. Based on the known population mean and standard error, we could draw an interval estimate around the population mean of the sampling distribution (<a href="#fig-crit-values" class="quarto-xref">Figure&nbsp;<span>3.5</span></a>). 95% of all sample means would fall within this interval estimate around the known population mean.</p>
 <p>In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/?showcase=0" width="630px" height="800px" data-external="1">
+<div id="fig-pop-ci-sampling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pop-ci-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/" width="100%" height="630px" style="border:none;">
 </iframe>
 </div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pop-ci-sampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.7: Confidence intervals from replications
+</figcaption>
+</figure>
+</div>
 <p>Instead of checking whether a sample mean is inside or outside of the interval estimate of the <strong>population mean</strong> (<a href="#sec-crit-values" class="quarto-xref"><span>Section 3.4</span></a>), we use the interval estimate around that one <strong>sample mean</strong>, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a <strong>95% confidence interval</strong>.</p>
-<p>The middle plot of <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of <span class="math inline">\(N=30\)</span> is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.</p>
-<p>Now, increase the number of times of samples (replications) by adjusting the slider in <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher.</p>
-<p>Now, also increase the sample size in <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span> by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size.</p>
+<p>The middle plot of <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>, shows the 95% confidence interval for a single sample, from the population distribution in the top graph. The green line indicates that the interval estimate around the sample mean catches the population mean. The average candy weight in this samples of <span class="math inline">\(N=30\)</span> is 2.95 grams and the lower and upper boundary for 95% confidence interval are 2.59 grams and 3.32 grams. We use the blue vertical dashed line to indicate the population mean, which in reality we do not know. Though, in this simulation, we can see that the green 95% confidence interval catches the population mean.</p>
+<p>Now, increase the number of times of samples (replications) by adjusting the slider in <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>. The middle plot now shows how many of the samples with a 95% confidence intervals catch the population mean, indicated by the green lines. The red lines indicate that the 95% confidence interval does not catch the population mean. The percentage that catch the population mean approaches 95% as the number of samples gets higher.</p>
+<p>Now, also increase the sample size in <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a> by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size.</p>
 <p>Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.</p>
 <div class="callout callout-style-simple callout-important">
 <div class="callout-body d-flex">
@@ -466,8 +513,8 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Now imagine that you have a large sample for your research project. Looking at <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>, this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn’t it?</p>
-<p>In the bottom plot of <span class="quarto-unresolved-ref">?fig-pop-ci-sampling</span>, we revisit <a href="01-samplingdistr.html" class="quarto-xref"><span>Chapter 1</span></a>, to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication.</p>
+<p>Now imagine that you have a large sample for your research project. Looking at <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>, this would mean that if you would run the same research a hundred times, you would find the population mean within the 95% confidence interval in 95 of these hundred times. That is very reasuring, isn’t it?</p>
+<p>In the bottom plot of <a href="#fig-pop-ci-sampling" class="quarto-xref">Figure&nbsp;<span>3.7</span></a>, we revisit <a href="01-samplingdistr.html" class="quarto-xref"><span>Chapter 1</span></a>, to illustrate how these 95% confidence intervals around the sample means are related to the sampling distribution. Each confidence interval in the middle plot is an approximation of the width of the sampling distribution in the bottom plot. The larger the samples size, the narrower the confidence intervals are, and the narrower the sampling distribution becomes in the bottom plot. The histogram represents the sample means from the number replications. Each sample mean comes from one replication.</p>
 <p>We also see the theoretical approximation of this sampling distribution (as was discussed in <a href="02-probability.html#sec-theoretical-approx" class="quarto-xref"><span>Section 2.3</span></a>) of sample means, which is a normal distribution. As the number of replications and sample size increases, the shape of the histogram gets closer to the shape of the theoretical approximation of the sampling distribution (green line), which in turn also gets narrower.</p>
 <p>This sampling distribution is theoretically approximated by a normal distribution whose mean is the population mean and standard deviation is the standard error of the sample. To make our life easier, we can convert the sampling distribution, which is a normal distribution, to the standard normal distribution by converting to a z-score. The critical z value 1.96 and -1.96 together marks the upper and lower limit of the interval containing 95% of all samples with means closest to the population mean.</p>
 <p>As a consequence, we are able to calculate 95% confidence interval around a sample mean by adding and subtracting 1.96 standard errors from that sample mean.</p>
@@ -668,8 +715,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -785,7 +830,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

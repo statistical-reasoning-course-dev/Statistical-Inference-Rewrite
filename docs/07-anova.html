@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -233,7 +233,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#different-means-for-two-factors" id="toc-different-means-for-two-factors" class="nav-link" data-scroll-target="#different-means-for-two-factors"><span class="header-section-number">5.3</span> Different Means for Two Factors</a>
   <ul class="collapse">
-  <li><a href="#anova2way" id="toc-anova2way" class="nav-link" data-scroll-target="#anova2way"><span class="header-section-number">5.3.1</span> Two-way analysis of variance</a></li>
+  <li><a href="#sec-anova2way" id="toc-sec-anova2way" class="nav-link" data-scroll-target="#sec-anova2way"><span class="header-section-number">5.3.1</span> Two-way analysis of variance</a></li>
   <li><a href="#sec-balanced" id="toc-sec-balanced" class="nav-link" data-scroll-target="#sec-balanced"><span class="header-section-number">5.3.2</span> Balanced design</a></li>
   <li><a href="#sec-maineffects" id="toc-sec-maineffects" class="nav-link" data-scroll-target="#sec-maineffects"><span class="header-section-number">5.3.3</span> Main effects in two-way analysis of variance</a></li>
   </ul></li>
@@ -310,69 +310,67 @@ div.csl-indent {
 <h2 data-number="5.1" class="anchored" data-anchor-id="different-means-for-three-or-more-groups"><span class="header-section-number">5.1</span> Different Means for Three or More Groups</h2>
 <p>Celebrity endorsement theory states that celebrities who publicly state that they favour a product, candidate, or cause, help to persuade consumers to adopt or support the product, candidate, or cause <span class="citation" data-cites="RefWorks:3940 RefWorks:3941">(for a review, see <a href="14-references.html#ref-RefWorks:3940" role="doc-biblioref">Erdogan 1999</a>; for an alternative approach, see <a href="14-references.html#ref-RefWorks:3941" role="doc-biblioref">McCracken 1989</a>)</span>.</p>
 <p>Imagine that we want to test if the celebrity who endorses a fund raiser in a fund-raising campaign makes a difference to people’s willingness to donate. We will be using the celebrities George Clooney and Angelina Jolie, and we will compare campaigns with one of them to a campaign without celebrity endorsement.</p>
+<div id="fig-clooneyjolie" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-clooneyjolie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/ClooneyJolie.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<figcaption>George Clooney and Angelina Jolie. Photo Clooney by Angela George <a href="https://upload.wikimedia.org/wikipedia/commons/3/32/GeorgeClooneyHWoFJan12.jpg">CC BY-SA 3.0</a>. Photo Jolie by Foreign and Commonwealth Office <a href="https://upload.wikimedia.org/wikipedia/commons/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg">CC BY 2.0</a>, via Wikimedia Commons.</figcaption>
+<p><img src="figures/ClooneyJolie.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-clooneyjolie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: George Clooney and Angelina Jolie. Photo Clooney by Angela George <a href="https://upload.wikimedia.org/wikipedia/commons/3/32/GeorgeClooneyHWoFJan12.jpg">CC BY-SA 3.0</a>. Photo Jolie by Foreign and Commonwealth Office <a href="https://upload.wikimedia.org/wikipedia/commons/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg">CC BY 2.0</a>, via Wikimedia Commons.
+</figcaption>
+</figure>
 </div>
 <p>Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group (<em>the control group</em>) sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.</p>
 <p>Our dependent variable is a numeric scale assessing the participant’s willingness to donate to the fund raiser on a scale from 1 (“absolutely certain that I will not donate”) to 10 (“absolutely certain that I will donate”). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.</p>
 <p>In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data <span class="citation" data-cites="RefWorks:3955">(<a href="14-references.html#ref-RefWorks:3955" role="doc-biblioref">Fisher 1919</a>)</span>, so it is widely used in the context of experiments.</p>
 <section id="sec-anova-meandiffs" class="level3" data-number="5.1.1">
 <h3 data-number="5.1.1" class="anchored" data-anchor-id="sec-anova-meandiffs"><span class="header-section-number">5.1.1</span> Mean differences as effects</h3>
-<p><span class="quarto-unresolved-ref">?fig-anova-means</span> shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-means/?showcase=0" width="540px" height="490px" data-external="1">
+<p><a href="#fig-anova-means" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.</p>
+<div id="fig-anova-means" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-means/" width="100%" height="490px" style="border:none;">
 </iframe>
 </div>
-<p>A group’s average score on the dependent variable represents the group’s score level. The group averages in <span class="quarto-unresolved-ref">?fig-anova-means</span> tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-means-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.2: How do group means relate to effect size?
+</figcaption>
+</figure>
+</div>
+<p>A group’s average score on the dependent variable represents the group’s score level. The group averages in <a href="#fig-anova-means" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.</p>
 <p>Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.</p>
 <p>If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in <a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>). Mean differences are said to represent the <em>effect</em> of experimental treatment in analysis of variance.</p>
 <p>Analysis of variance was developed for the analysis of randomized experiments, where effects can be interpreted as causal effects. Note, however, that analysis of variance can also be applied to non-experimental data. Although mean differences are still called effects in the latter type of analysis, these do not have to be causal effects.</p>
-<p>In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as <span class="quarto-unresolved-ref">?fig-anova-meansplot</span>, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.</p>
+<p>In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as <a href="#fig-anova-meansplot" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.</p>
+<div id="fig-anova-meansplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-meansplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 1, xend = 3, y = d[1, 2], yend = d[1, 2]), : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[1, 2], yend = (d[2, 2] - : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 2.02, y = (d[1, 2] + d[2, 2])/2, label = "Clooney effect", : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = d[1, 2], yend = (d[3, 2] - : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 2.98, y = (d[1, 2] + d[3, 2])/2, label = "Jolie effect", : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="07-anova_files/figure-html/anova-meansplot-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows.</figcaption>
+<p><img src="07-anova_files/figure-html/anova-meansplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.3: A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows.
+</figcaption>
+</figure>
 </div>
 <p>Effect size in an analysis of variance refers to the overall differences between group means. We use eta<sup>2</sup> as effect size, which gives the proportion of variance in the dependent variable (willingness to donate) explained or predicted by the group variable (experimental condition).</p>
 <p>This proportion is informative and precise. If you want to classify the effect size in more general terms, you should take the square root of eta<sup>2</sup> to obtain <em>eta</em>. As a measure of association, eta can be interpreted with the following rules of thumb:</p>
@@ -384,20 +382,27 @@ div.csl-indent {
 </section>
 <section id="sec-between-variance" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-between-variance"><span class="header-section-number">5.1.2</span> Between-groups variance and within-groups variance</h3>
-<p>For a better understanding of eta<sup>2</sup> and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. <span class="quarto-unresolved-ref">?fig-anova-between</span> adds overall average willingness to donate to the plot (horizontal black line) with participants’ scores and average experimental group scores (coloured horizontal lines).</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-between/?showcase=0" width="540px" height="490px" data-external="1">
+<p>For a better understanding of eta<sup>2</sup> and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> adds overall average willingness to donate to the plot (horizontal black line) with participants’ scores and average experimental group scores (coloured horizontal lines).</p>
+<div id="fig-anova-between" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-between-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-between/" width="100%" height="490px" style="border:none;">
 </iframe>
 </div>
-<p>Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in <span class="quarto-unresolved-ref">?fig-anova-between</span>. Once we have our data, we first have a look at the percentage of variance that is explained, eta<sup>2</sup>. What does it mean if we say that a percentage of the variance is explained when we interpret eta<sup>2</sup>?</p>
-<p>The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in <span class="quarto-unresolved-ref">?fig-anova-between</span> express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.</p>
-<p>The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in <span class="quarto-unresolved-ref">?fig-anova-between</span>) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.</p>
-<p>If we know the group to which a participant belongs—which celebrity she saw endorsing the fundraising campaign—we can use the average outcome score for the group as the predicted outcome for each group member—her willingness to donate due to the endorser she saw. The predicted group scores are represented by the coloured horizontal lines for group means in <span class="quarto-unresolved-ref">?fig-anova-between</span>.</p>
-<p>Now what part of the variance in outcome scores (dotted black arrows in <span class="quarto-unresolved-ref">?fig-anova-between</span>) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant’s willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant’s experimental treatment.</p>
-<p>So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in <span class="quarto-unresolved-ref">?fig-anova-between</span>. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the <em>between-groups variance</em>.</p>
-<p>Playing with the group means in <span class="quarto-unresolved-ref">?fig-anova-between</span>, you may have noticed that eta<sup>2</sup> is high if there are large differences between group means. In this situation we have high between-groups variance—large black arrows—so we can predict a lot of the variation in outcome scores between participants.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-between-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.4: Which part of score differences tells us about the differences between groups?
+</figcaption>
+</figure>
+</div>
+<p>Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. Once we have our data, we first have a look at the percentage of variance that is explained, eta<sup>2</sup>. What does it mean if we say that a percentage of the variance is explained when we interpret eta<sup>2</sup>?</p>
+<p>The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.</p>
+<p>The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.</p>
+<p>If we know the group to which a participant belongs—which celebrity she saw endorsing the fundraising campaign—we can use the average outcome score for the group as the predicted outcome for each group member—her willingness to donate due to the endorser she saw. The predicted group scores are represented by the coloured horizontal lines for group means in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>.</p>
+<p>Now what part of the variance in outcome scores (dotted black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant’s willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant’s experimental treatment.</p>
+<p>So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the <em>between-groups variance</em>.</p>
+<p>Playing with the group means in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>, you may have noticed that eta<sup>2</sup> is high if there are large differences between group means. In this situation we have high between-groups variance—large black arrows—so we can predict a lot of the variation in outcome scores between participants.</p>
 <p>In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in <a href="#sec-anova-model" class="quarto-xref"><span>Section 5.1.3</span></a>, zero between-groups variance is central to the null hypothesis in analysis of variance.</p>
-<p>The experimental treatment predicts that a participant’s willingness equals the average willingness of the participant’s group. It cannot predict or explain that a participant’s willingness score is slightly different from her group mean (the red double-sided arrows in <span class="quarto-unresolved-ref">?fig-anova-between</span>). <em>Within-groups variance</em> in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as “Error”.</p>
+<p>The experimental treatment predicts that a participant’s willingness equals the average willingness of the participant’s group. It cannot predict or explain that a participant’s willingness score is slightly different from her group mean (the red double-sided arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>). <em>Within-groups variance</em> in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as “Error”.</p>
 </section>
 <section id="sec-anova-model" class="level3" data-number="5.1.3">
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="sec-anova-model"><span class="header-section-number">5.1.3</span> <em>F</em> test on the model</h3>
@@ -428,9 +433,16 @@ div.csl-indent {
 <section id="which-groups-have-different-average-scores" class="level3" data-number="5.1.5">
 <h3 data-number="5.1.5" class="anchored" data-anchor-id="which-groups-have-different-average-scores"><span class="header-section-number">5.1.5</span> Which groups have different average scores?</h3>
 <p>Analysis of variance tests the null hypothesis of equal population means but it does not yield confidence intervals for group means. It does not always tell us which groups score significantly higher or lower.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-posthoc/?showcase=0" width="525px" height="485px" data-external="1">
+<div id="fig-anova-posthoc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-posthoc/" width="100%" height="485px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.5: Which groups have different average outcome scores in the population? The <em>p</em> values belong to independent-samples <em>t</em> tests on the means of two groups.
+</figcaption>
+</figure>
 </div>
 <p>If the <em>F</em> test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average willingness to donate is equal for people who saw George Clooney, Angelina Jolie, or no endorser for the fund raiser. In other words, we <em>reject</em> the null hypothesis that the endorser does <em>not</em> matter to willingness to donate.</p>
 <section id="pairwise-comparisons-as-post-hoc-tests" class="level4" data-number="5.1.5.1">
@@ -459,32 +471,48 @@ div.csl-indent {
 <section id="instructions" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">5.2.1</span> Instructions</h3>
 <p>In SPSS, we use the <em>One-Way ANOVA</em> option in the <em>Compare Means</em> submenu for one-way analysis of variance and the <em>Univariate</em> option in the <em>General Linear Model</em> submenu for two-way analysis of variance.</p>
+<div id="fig-ANOVAtable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/S7_AE1.png" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption>SPSS table of main and interaction effects in a two-way analysis of variance.</figcaption>
+<p><img src="figures/S7_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. <span class="quarto-unresolved-ref">?fig-ANOVAtable</span> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.6: SPSS table of main and interaction effects in a two-way analysis of variance.
+</figcaption>
+</figure>
+</div>
+<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. <a href="#fig-ANOVAtable" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
 <p>Interpret the effects by comparing mean scores on the dependent variable among groups:</p>
 <ol type="1">
 <li><p>If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
 <li><p>If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
-<li><p>If you want to interpret an interaction effect, create means plots such as <span class="quarto-unresolved-ref">?fig-ANOVAplots</span>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).</p></li>
+<li><p>If you want to interpret an interaction effect, create means plots such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).</p></li>
 </ol>
+<div id="fig-ANOVAplots" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="figures/S7_AE2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.</figcaption>
+<p><img src="figures/S7_AE2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.7: SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.
+</figcaption>
+</figure>
 </div>
 <div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
 <iframe src="https://www.youtube.com/embed/_2MmzWRcm2k" width="640px" height="360px" data-external="1">
@@ -495,15 +523,22 @@ div.csl-indent {
 <section id="different-means-for-two-factors" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="different-means-for-two-factors"><span class="header-section-number">5.3</span> Different Means for Two Factors</h2>
 <p>The participants in the experiment do not only differ because they see different endorsers in the charity video. In addition, there can be personal characteristics that could cause differences. In this experiment, the researchers will look into sex, where only the sexes ‘male’ and ‘female’ will be taken into account. The researchers can then answer the question: Does participant’s sex matter to the effect of the endorser on willingness to donate?</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/?showcase=0" width="775px" height="408px" data-external="1">
+<div id="fig-anova-twoway" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/" width="100%" height="408px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.8: How do group means inform us about (main) effects in analysis of variance?
+</figcaption>
+</figure>
 </div>
 <p>In the preceding section, we have looked at the effect of a single factor on willingness to donate, namely, the endorser to whom participants are exposed. Thus, we take into account two variables: one independent variable and one dependent variable. This is an example of <em>bivariate analysis</em>.</p>
 <p>Usually, however, we expect an outcome to depend on more than one variable. Willingness to donate does not depend only on the celebrity endorsing a fundraising campaign. It is easy to think of more factors, such as a person’s available budget, her personal level of altruism, and so on.</p>
 <p>It is straightforward to include more factors in an analysis of variance. These can be additional experimental treatments in the context of an experiment as well as participant characteristics that are not manipulated by the researcher. For example, we may hypothesize that females are generally more charitable than males.</p>
-<section id="anova2way" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="anova2way"><span class="header-section-number">5.3.1</span> Two-way analysis of variance</h3>
+<section id="sec-anova2way" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-anova2way"><span class="header-section-number">5.3.1</span> Two-way analysis of variance</h3>
 <p>If we use one factor, the analysis is called one-way analysis of variance. With two factors, it is called two-way analysis of variance, and with three factors… well, you probably already guessed that name.</p>
 <p>A two-way analysis of variance using a factor with three levels, for instance, exposure to three different endorsers, and a second factor with two levels, for example, female versus male, is called a 3x2 (say: three by two) factorial design.</p>
 </section>
@@ -511,10 +546,15 @@ div.csl-indent {
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="sec-balanced"><span class="header-section-number">5.3.2</span> Balanced design</h3>
 <p>In analysis of variance with two or more factors, it is quite nice if the factors are statistically independent from one another. In other words, it is nice if the scores on one factor are not associated with scores on another factor. This is called a <em>balanced design</em>.</p>
 <p>In an experiment, we can ensure that factors are independent if we have the same number of participants in each combination of levels on all factors. In other words, a factorial design is balanced if we have the same number of observations in each subgroup. A subgroup contains the participants that have the same level on both factors just like a cell in a contingency table.</p>
+<div id="tbl-anova-balanced" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-anova-balanced-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial design.
+</figcaption>
+<div aria-describedby="tbl-anova-balanced-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Number of observations per subgroup in a balanced 3x2 factorial design.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -544,7 +584,10 @@ div.csl-indent {
 
 </div>
 </div>
-<p><span class="quarto-unresolved-ref">?tbl-anova-balanced</span> shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate statistical independence. In the example, the distributions are the same across columns (and rows), so the factors are statistically independent.</p>
+</div>
+</figure>
+</div>
+<p><a href="#tbl-anova-balanced" class="quarto-xref">Table&nbsp;<span>5.1</span></a> shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate statistical independence. In the example, the distributions are the same across columns (and rows), so the factors are statistically independent.</p>
 <p>In practice, it may not always be possible to have exactly the same number of observations for each subgroup. A participant may drop out from the experiment, a measurement may go wrong, and so on. If the numbers of observations are more or less the same for all subgroups, the factors are nearly independent, which is okay. We can use the same rule of thumb for a balanced design as for the conditions of an <em>F</em> test in analysis of variance: If the size of the smallest subgroup is less than ten per cent smaller than the size of the largest group, we call a factorial design balanced.</p>
 <p>A balanced design is nice but not necessary. Unbalanced designs can be analyzed but estimation is more complicated (a problem for the computer, not for us) and the assumption of equal population variances for all groups (Levene’s <em>F</em> test) is more important (a problem for us, not for the computer) because we do not have equal group sizes. Note that the requirement of equal group sizes applies to the <em>subgroups</em> in a two-way analysis of variance. With a balanced design, we ensure that we have the same number of observations in all subgroups, so we are on the safe side.</p>
 </section>
@@ -552,46 +595,6 @@ div.csl-indent {
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="sec-maineffects"><span class="header-section-number">5.3.3</span> Main effects in two-way analysis of variance</h3>
 <p>A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to Clooney have the same average willingness to donate in the population as participants exposed to Jolie or those who are not exposed to an endorser. At the same time, it tests the null hypothesis that females and males have the same average willingness to donate in the population.</p>
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 1, xend = 3, y = willing[[1]], yend = willing[[1]]), : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 2.02, y = (willing[[1]] + willing[[2]])/2, : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = willing[[1]], yend = (willing[[3]] - : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 2.98, y = (willing[[1]] + willing[[3]])/2, : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 1, xend = 2, y = willing[[1]], yend = willing[[1]]), : All aesthetics have length 1, but the data has 2 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - : All aesthetics have length 1, but the data has 2 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 1.98, y = (willing[[1]] + willing[[2]])/2, : All aesthetics have length 1, but the data has 2 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -618,34 +621,39 @@ div.csl-indent {
 <p>In the preceding section, we have analyzed the effects both of endorser and sex on willingness to donate to a fund raiser. The two main effects isolate the influence of endorser on willingness from the effect of sex and the other way around. This assumes that endorser and sex have an effect on their own, a general effect.</p>
 <p>We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? We could hypothesize that males and females might react differently towards seeing a male or female celebrity, either because they find one of them more attractive or because they identify better with one or the other. Thus, we could expect that one endorser is more effective among female participants and the other among male participants.</p>
 <p>If the effect of a factor is different for different groups on another factor, the first factor’s effect is <em>moderated</em> by the second factor. The phenomenon that effects are moderated is called <em>moderation</em>. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.</p>
-<p>With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. <span class="quarto-unresolved-ref">?fig-anova-diagram</span> shows the conceptual diagram for participant’s sex moderating the effect of endorsing celebrity on willingness to donate.</p>
+<p>With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. <a href="#fig-anova-diagram" class="quarto-xref">Figure&nbsp;<span>5.9</span></a> shows the conceptual diagram for participant’s sex moderating the effect of endorsing celebrity on willingness to donate.</p>
+<div id="fig-anova-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.05, yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="07-anova_files/figure-html/anova-diagram-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Conceptual diagram of moderation.</figcaption>
+<p><img src="07-anova_files/figure-html/anova-diagram-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.9: Conceptual diagram of moderation.
+</figcaption>
+</figure>
+</div>
 <section id="types-of-moderation" class="level3" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="types-of-moderation"><span class="header-section-number">5.4.1</span> Types of moderation</h3>
 <p>Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the <strong>Totals</strong> row and column contain the means for each factor separately, for example the means for males and females (factor sex) or the means for the endorsers (factor endorser). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.</p>
-<p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (<span class="quarto-unresolved-ref">?fig-anova-moderation</span>).</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-moderation/?showcase=0" width="775px" height="305px" data-external="1">
+<p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (<a href="#fig-anova-moderation" class="quarto-xref">Figure&nbsp;<span>5.10</span></a>).</p>
+<div id="fig-anova-moderation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-moderation/" width="100%" height="305px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.10: How can we recognize main effects and moderation in a means plot?
+</figcaption>
+</figure>
 </div>
 <p>Moderation happens a lot in communication science for the simple reason that the effects of messages are stronger for people who are more susceptible to the message. If you know more people who have adopted a new product or a healthy/risky lifestyle, you are more likely to be persuaded by media campaigns to also adopt that product or lifestyle. If you are more impressionable in general, media messages are more effective.</p>
 <section id="effect-strength-moderation" class="level4" data-number="5.4.1.1">
@@ -654,36 +662,6 @@ div.csl-indent {
 <p>In analysis of variance, effects are differences between average outcome scores. The effect of Clooney on willingness to donate, for instance, is the difference between the average willingness score of participants exposed to Clooney and the average score of participants who were not exposed to a celebrity endorser.</p>
 <p>Different “Clooney effects” for female and male participants imply different differences! The difference in average willingness scores between females exposed to Clooney and females who are not exposed to an endorser is different from the difference in average scores for males. We have four subgroups with average willingness scores that we have to compare. We have six subgroups if we also include endorsement by Angelina Jolie.</p>
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[5, 3], yend = d[5, : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[4, 3], yend = d[5, 3]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 2.02, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[1, 3], yend = (d[2, 3] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[1, 3] + d[2, 3])/2, label = "Clooney effect\nfor males", : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -700,82 +678,43 @@ div.csl-indent {
 </section>
 <section id="effect-direction-moderation" class="level4" data-number="5.4.1.2">
 <h4 data-number="5.4.1.2" class="anchored" data-anchor-id="effect-direction-moderation"><span class="header-section-number">5.4.1.2</span> Effect direction moderation</h4>
-<p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In <span class="quarto-unresolved-ref">?fig-anova-effectdirmod1</span>, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this <em>effect direction moderation</em>. Males reverse the Clooney effect that we find for females.</p>
+<p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In <a href="#fig-anova-effectdirmod1" class="quarto-xref">Figure&nbsp;<span>5.11</span></a>, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this <em>effect direction moderation</em>. Males reverse the Clooney effect that we find for females.</p>
+<div id="fig-anova-effectdirmod1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-effectdirmod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[5, 3], yend = d[5, : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[4, 3], yend = d[5, 3]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 1.98, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[1, 3], yend = (d[2, 3] + : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[1, 3] + d[2, 3])/2, label = "Clooney effect\nfor males", : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="07-anova_files/figure-html/anova-effectdirmod1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Moderation as a positive effect in one context and a negative effect in another context.</figcaption>
+<p><img src="07-anova_files/figure-html/anova-effectdirmod1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (<span class="quarto-unresolved-ref">?fig-anova-effectdirmod2</span>). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectdirmod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.11: Moderation as a positive effect in one context and a negative effect in another context.
+</figcaption>
+</figure>
+</div>
+<p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (<a href="#fig-anova-effectdirmod2" class="quarto-xref">Figure&nbsp;<span>5.12</span></a>). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.</p>
+<div id="fig-anova-effectdirmod2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-effectdirmod2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 3.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[4, 3], yend = (d[5, 3] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = d[4, 3], yend = d[6, 3]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 3.02, y = (d[4, 3] + d[6, 3])/2, label = "Jolie effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="07-anova_files/figure-html/anova-effectdirmod2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Moderation as opposite effects in different contexts.</figcaption>
+<p><img src="07-anova_files/figure-html/anova-effectdirmod2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" data-fig-pos="H"></p>
 </figure>
 </div>
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectdirmod2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.12: Moderation as opposite effects in different contexts.
+</figcaption>
+</figure>
 </div>
 <p>In this situation, the main effect of endorser on willingness to donate is around zero. If we average over females and males, we obtain the means represented by the three grey dots. There is no net difference between Clooney, Jolie, and the condition without an endorser.</p>
 <p>This does not mean that the endorser does not matter. On the contrary, the interaction effects tell us that the endorser is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the willingness to donate among particular target groups.</p>
@@ -783,14 +722,21 @@ div.csl-indent {
 </section>
 <section id="testing-main-and-interaction-effects" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="testing-main-and-interaction-effects"><span class="header-section-number">5.4.2</span> Testing main and interaction effects</h3>
-<p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see <span class="quarto-unresolved-ref">?sec-anova2way</span>), for example a main effect of sex and a main effect of endorser.</p>
-<p>For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In <span class="quarto-unresolved-ref">?fig-anova-interaction</span>, we compare average willingness to donate for combinations of endorser and participant’s sex. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/?showcase=0" width="780px" height="380px" data-external="1">
+<p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see <a href="#sec-anova2way" class="quarto-xref"><span>Section 5.3.1</span></a>), for example a main effect of sex and a main effect of endorser.</p>
+<p>For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a>, we compare average willingness to donate for combinations of endorser and participant’s sex. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
+<div id="fig-anova-interaction" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/" width="100%" height="380px" style="border:none;">
 </iframe>
 </div>
-<p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in <span class="quarto-unresolved-ref">?fig-anova-interaction</span> is not relevant to moderation.</p>
-<p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in <span class="quarto-unresolved-ref">?fig-anova-interaction</span> because the willingness scores of the individual participants are not shown.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.13: How can we recognize main effects and moderation in a means plot?
+</figcaption>
+</figure>
+</div>
+<p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a> is not relevant to moderation.</p>
+<p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a> because the willingness scores of the individual participants are not shown.</p>
 <p>We can use the between-groups and within-groups variances to execute an <em>F</em> test just like the <em>F</em> test we use for main effects. The <em>null hypothesis</em> of the <em>F</em> test on an interaction effect states that the subgroups have the same population averages if we correct for the main effects. Our statistical software takes care of this correction if we include the main effects in the model, which we should always do.</p>
 <p>Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of endorser is the same for both sexes in the population. Or, the other way around, that the effect of sex is the same for different endorser groups in the population.</p>
 <div class="callout callout-style-simple callout-important">
@@ -833,11 +779,16 @@ div.csl-indent {
 <li><p>As always, don’t forget to mention the units (cases) and the meaning of the variables (factors and outcome). They describe the topic of the analysis.</p></li>
 <li><p>Report it if the main assumption is violated, that is, if you have (sub)groups of unequal size and the test on homogeneous variances is statistically significant. Report Levene’s test just like you report the <em>F</em> test of a main effect (see above). If the assumption is violated, we still report and interpret the results of the analysis of variance but we warn that the results may not be trustworthy.</p></li>
 </ul>
-<p>A two-way analysis of variance may produce many numeric results to report. It is recommended to present them as a table (in the text or in an appendix). If you report the table, include the error, the sums of squares and mean squares in the same way that SPSS reports them. <span class="quarto-unresolved-ref">?tbl-2way-table</span> presents an example.</p>
+<p>A two-way analysis of variance may produce many numeric results to report. It is recommended to present them as a table (in the text or in an appendix). If you report the table, include the error, the sums of squares and mean squares in the same way that SPSS reports them. <a href="#tbl-2way-table" class="quarto-xref">Table&nbsp;<span>5.2</span></a> presents an example.</p>
+<div id="tbl-2way-table" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-2way-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.2: An example of a table summarizing results of a two-way analysis of variance.
+</figcaption>
+<div aria-describedby="tbl-2way-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>An example of a table summarizing results of a two-way analysis of variance.</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -894,6 +845,9 @@ div.csl-indent {
 
 
 </div>
+</div>
+</div>
+</figure>
 </div>
 </section>
 <section id="sec-twowaySPSS" class="level2" data-number="5.6">
@@ -1036,8 +990,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1153,7 +1105,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

@@ -321,11 +321,14 @@ For such continuous variables, we can estimate a sampling distribution around th
 
 Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.
 
-```{r nullsampling, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9.
-# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nullsampling/", height="410px")
-```
+::: {#fig-nullsampling}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/nullsampling/" width="100%" height="410px" style="border:none;">
+</iframe>
+``` 
+Sampling distribution of average media literacy according to the null hypothesis.
+:::
 
 ### 1 - Alpha
 
@@ -544,14 +547,14 @@ In @fig-t-alpha-p, the blue vertical boundaries represent the critical value ass
 
 @fig-twosided represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
 
-```{r twosided, fig.pos='H', fig.align='center', fig.cap="Sampling distribution of average media literacy according to the null hypothesis.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour 2.5% of the area situated in each tail, add 2.5% as text. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p-value). Also display the two-sided p-value.
-# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
+::: {#fig-twosided}
 
-# [to-do] add p-value area to the plot
-
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/twosided/", height="268px")
-```
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/" width="100%" height="268px" style="border:none;">
+</iframe>
+``` 
+Sampling distribution of average media literacy according to the null hypothesis.
+:::
 
 The reasoning is again the same as for discrete variables. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis. 
 
@@ -721,7 +724,7 @@ You can imagine that if we look at a different candy bag and we would find 7 yel
 
 <!-- [To-Do] create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
 
-### Meta analysis
+### Meta analysis {#sec-meta-analysis}
 
 As mentioned in @sec-observed-effect-size, the observed effect size is based on the sample statistic, and is likely to differ with every sample you take. If our research hypothesis is actually true, a random sample from a population described by the sampling distribution of the alternative hypothesis would be mot likely to result in us holding a bag with 2 yellow candies. But as we have seen in @fig-altdistribution, getting 4 yellow candies is reasonably probable as well.
 
@@ -785,19 +788,14 @@ The same reasoning is applied when using continuous sample statistics. Let's rev
 
 @fig-sample-size-power shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.
 
-```{r sample-size-power, fig.pos='H', fig.align='center', fig.cap="How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Shiny app to determine sample size for a specified (standardized) effect size,
-# significance level, and test power for a (simple) one-sample _t_ test, using the
-# pwr:: package. Illustrate power with hypothesized and true sampling
-# distributions as _t_ distributions (as in app reshyp-althyp) with effect size on
-# x axis. SLiders or inputs vor standardized effect size (0.2 - small, 0.5 -
-# medium, 0.8 -large), significance level (90% two-sided, 90% one-sided, 95%
-# two-sided, 95% one-sided, 99% two-sided, 99% one-sided), and test power {50%,
-# 80%, 90%, 95%, 99%}.
-# simplify PS.shiny_master (doesn't work yet?) Use R code from
-# http://powerandsamplesize.com/Calculators/ in our own app?
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sample-size-power2/", height="385px")
-```
+::: {#fig-sample-size-power}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/sample-size-power2/" width="100%" height="385px" style="border:none;">
+</iframe>
+``` 
+How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.
+:::
 
 For continuous sample statistics, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
 
@@ -844,10 +842,14 @@ $$ {#eq-MediaAlt}
 
 In null hypothesis significance testing, testing one or two-sided has some consequences for the critical values. In a two-sided test, the critical values are on both sides of the null hypothesis value. In a one-sided test, the critical value is only on one side of the null hypothesis value. If we are using an alpha significance level of 5%, the critical value for a two-sided test results in 2.5% on both sides, while for a one sided test the 5% would only be on one side of the null distribution.
 
-```{r nonsig-1sided, fig.pos='H', fig.align='center', fig.cap="One-sided and two-sided tests of a null hypothesis.", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
-# Display the sampling distribution of average media literacy as a normal curve with 5% two-sided significance areas dark blue and 5% one-sided significance areas light blue. Generate randomly one out of six possible values for the sample mean: (from left to right) in the 0-2.5% region, 2.5%-5%, 5%-50%, 50%-95%, 95%-97.5%, 97.5%-100%. Let the user select the answers (Yes/No) to three questions: Is this sample mean significant at a 5% significance level? "Left-sided test?", "Right-sided test?",  "Two-sided test?". Give feedback when the user presses the submit button. 
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/", height="310px")
-```
+::: {#fig-nonsig-1sided}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/" width="100%" height="310px" style="border:none;">
+</iframe>
+``` 
+One-sided and two-sided tests of a null hypothesis.
+:::
 
 In the right-sided test of the media literacy hypothesis, the researcher is not interested in demonstrating that average media literacy among children can be lower than 5.5. She only wants to test if it is above 5.5, because an average score above 5.5 indicates that the intervention worked.
 
@@ -863,11 +865,14 @@ Statistical software like SPSS usually reports either one-sided or two-sided _p_
 
 In @fig-onetwosided, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true that average media literacy is 5.5 in the population. This probability is the surface under the curve to the left of the solid red line representing the sample mean. It is the one-sided _p_ value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.
 
-```{r onetwosided, fig.pos='H', fig.align='center', fig.cap="Halve a two-sided _p_ value to obtain a one-sided _p_ value, double a one-sided _p_ value to obtain a two-sided _p_ value.", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Display a normal curve (M = 5.5) representing the sampling distribution of average media literacy. Colour the area in each tail according to the p-value. Add a vertical line representing the sample mean, initially 3.9, as well as a dotted line mirrored across the hypothesized mean. Display the percentage of the area under the curve to the left or right (outside) of this line (one-sided p-value). Also display the two-sided p-value.
-# Let the user manipulate the population mean according to the null hypothesis (range 1-10) and allow her to draw a new sample.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/onetwosided/", height="268px")
-```
+::: {#fig-onetwosided}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/onetwosided/" width="100%" height="268px" style="border:none;">
+</iframe>
+``` 
+Halve a two-sided _p_ value to obtain a one-sided _p_ value, double a one-sided _p_ value to obtain a two-sided _p_ value.
+:::
 
 In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. The p-value still represents the probability of drawing a random sample with a sample statistic (here the mean) that is as extreme or more extreme than the sample statistics in our current sample. In the one-sided test example described above, more extreme can only mean “even smaller”. In a two-sided test, more extreme means even more distant from the null hypothesis on either end of the sampling distribution. 
 
@@ -1096,13 +1101,16 @@ When our sample is small, say a few dozens of cases, the power to reject a null 
 
 If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. All in all, statistical significance on it's own, does not tell us much about the effect in the population. 
 
-```{r tiny-effects, fig.pos='H', fig.align='center', fig.cap="Any effect can be statistically significant.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Illustrate that even tiny effects can yield statistically significant test results if the sample is sufficiently large.
-# Generate a normal distribution as hypothesized sampling distribution (M = 2.8, SE = SD / sqrt(N) = 0.6 / sqrt(10) = 0.2) with 2.5% of each tail area coloured. Add a vertical line with value for the sample average linked to a slider (range [2.82, 3.00] initial value 2.90). Add a sample size slider (range [10, 5,000], initial value 10), which is linked to the standard error of the normal curve. With slider for (assumed) true population mean and test power.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/tiny-effects/", height="340px")
-```
+::: {#fig-tiny-effects}
 
-It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (@fig-pdance), this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/tiny-effects/" width="100%" height="340px" style="border:none;">
+</iframe>
+``` 
+Any effect can be statistically significant.
+:::
+
+It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (@fig-vidoe-cumming), this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
 
 It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in @sec-binarydecision that our decision is a binary one, so, never forget:
 

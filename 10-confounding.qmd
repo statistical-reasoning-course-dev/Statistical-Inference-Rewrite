@@ -31,13 +31,14 @@ In a regression model, we use the variation in scores on independent variables t
 
 For example, European citizens who are more interested in politics spend more time on reading newspapers and so do citizens who are older. We have two independent variables (interest in politics and age) to predict the dependent variable (newspaper reading time). The two independent variables can be correlated: Older citizens tend to be more interested in politics. How does the regression model decide which independent variable is responsible for which part of the variation in the dependent variable? 
 
-```{r mediation-multipleregression, fig.pos='H', fig.align='center', fig.cap="How do regression coefficients change if new predictors for reading time are added to the model?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Goal: Show that regression coefficients change if new predictors are added to
-# the regression model. For outcome Newspaper reading time, display the simple
-# regression effect of interest in politics and the partial effects if we
-# control for one or more other variables (age, education, news site use).
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-multipleregression/", height="405px")
-```
+::: {#fig-mediation-multipleregression}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-multipleregression/" width="100%" height="405px" style="border:none;">
+</iframe>
+``` 
+How do regression coefficients change if new predictors for reading time are added to the model?
+:::
 
 
 
@@ -71,22 +72,14 @@ Once the confounder (age) is added to the regression model, however, the estimat
 
 ## Indirect Correlation {#sec-indirectcorrelation}
 
-```{r mediation-indirectcorrelation, fig.pos='H', fig.align='center', fig.cap="What happens to the regression coefficient for the effect of political interest if we add a confounder to the model? Numbers represent correlations (lines) or standardized regression coefficients (arrows).", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Goal: Show that a regression coefficient changes more if the new predictor is more strongly correlated with the old predictor and dependent variable, hence, the indirect correlation is stronger.
-# Display the simple (standardized) regression coefficient as a black arrow from Pol.Interest to Reading Time with the width of the arrow corresponding to the size of the effect. Label arrow with "Simple: 0.14" and "Partial: ?". Add Age, Education, and News Site Use as confounders (gray), linked by gray lines with both Pol.Interest and Reading Time. Line widths represent and are labeled with the size of correlations. Allow the user to select one confounder at a time. Display this confounder and its lines to Age and Reading Time in blue and add a (semi-tranparent) blue arrow from Pol.Interest to reading Time on top of the black arrow with its width corresponding to the partial effect when controlling for the selected confounder.
-# Correlations and standardized coefficients that are in line with the example data file readers.sav:
-# Pol. Interest - Age: 0.12
-# Pol. Interest - Educ: 0.28
-# Pol. Interest - News: 0.01
-# Reading Time - Age: 0.88
-# Reading Time - Educ: -0.12
-# Reading Time - News: -0.84
-# Pol. Interest -> Reading Time (simple): 0.14
-# Pol. Interest -> Reading Time with Age: 0.04
-# Pol. Interest -> Reading Time with Educ: 0.19
-# Pol. Interest -> Reading Time with News: 0.15
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-indirectcorrelation/", height="305px")
-```
+::: {#fig-mediation-indirectcorrelation}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-indirectcorrelation/" width="100%" height="305px" style="border:none;">
+</iframe>
+``` 
+What happens to the regression coefficient for the effect of political interest if we add a confounder to the model? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
+:::
 
 
 
@@ -130,17 +123,14 @@ We have learned about probabilities and expectations in previous chapters. These
 
 ## Two Types of Confounders {#sec-confounders}
 
-```{r mediation-confoundertypes, fig.pos='H', fig.align='center', fig.cap="When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Goal: Intuitive understanding of how the pattern of correlation/effect
-# directions (signs) relates to decrease or increase of partial effect sizes.
-# Adjust app mediation-indirectcorrelation: Add Pol.Cynicism as a fourth
-# confounder (r is -0.18 with political interest and -0.14 with reading time).
-# Colour negative correlations red instead of blue if the associated confouder
-# is selected. This helps to discover that a positive indirect correlation
-# (blue-blue or red-red) decreases the partial effect whereas a negative
-# indirect correlation (blue-red) increases it.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/", height="305px")
-```
+::: {#fig-mediation-confoundertypes}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/" width="100%" height="305px" style="border:none;">
+</iframe>
+``` 
+When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
+:::
 
 
 
@@ -227,7 +217,8 @@ Adding a new predictor to a regression model may weaken the effects of other pre
 
 In both situations, regression effects are initially overestimated because the predictors cover part of the effect of an important variable that has not yet been added to the regression model. The part of the effect that is due to the confounding variable is called _spurious_. The confounding variable is called a _reinforcer_ because it makes an effect appear more strongly positive or more strongly negative than it really is as long as the confounder has not been added to the regression model.
 
-```{r reinforcement1, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Age as a confounder of the effect of interest in politics on newspaper reading time.", fig.asp=0.3}
+:::{#fig-reinforcement1}
+```{r reinforcement1, echo=FALSE, fig.pos='H', fig.align='center',  fig.asp=0.3}
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.39, 0.5, 0.61, 0.7, 0.5), 
@@ -243,6 +234,8 @@ ggplot(variables, aes(x, y)) +
 # Cleanup.
 rm(variables)
 ```
+Age as a confounder of the effect of interest in politics on newspaper reading time.
+:::
 
 As an example, the effect of political interest on newspaper reading time may include the effect of age on newspaper reading when age is not (yet) included in the regression model. If older people are more interested in politics and do more newspaper reading, age creates a positive indirect correlation between political interest and newspaper reading. 
 
@@ -250,7 +243,8 @@ If age is not included as a predictor in the regression model, the indirect corr
 
 In @fig-reinforcement1, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (@fig-reinforcement2). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.
 
-```{r reinforcement2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.", fig.asp=0.3}
+:::{#fig-reinforcement2}
+```{r reinforcement2, echo=FALSE, fig.pos='H', fig.align='center', fig.asp=0.3}
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.38, 0.5, 0.62, 0.7, 0.5), 
@@ -266,6 +260,8 @@ ggplot(variables, aes(x, y)) +
 # Cleanup.
 rm(variables)
 ```
+Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.
+:::
 
 As with suppression, spuriousness can have surprising results. It may happen that the entire estimated effect of a predictor is spurious. Adding a reinforcer variable to the regression model may make the entire effect of a predictor disappear. In other words, an effect that we initially thought was substantial may turn out to be too weak to be of interest.
 
@@ -301,9 +297,12 @@ To summarize the two types of confounders:
 
 We can detect confounders by adding each independent variable as a separate *Block* in a linear regression model (the *Linear* option in the *Regression* submenu). The SPSS output estimates a regression model for each block (@fig-confounderstable).
 
-```{r confounderstable, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center', fig.cap="SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one."}
+:::{#fig-confounderstable}
+```{r confounderstable, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center'}
 knitr::include_graphics("figures/S10_AE1.png")
 ```
+SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one.
+:::
 
 In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (@fig-confounderstable, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (@fig-confounderstable, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (@fig-confounderstable, blue box); news site use suppressed the effect of interest in politics in the second model.
 

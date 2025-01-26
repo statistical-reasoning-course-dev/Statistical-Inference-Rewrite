@@ -69,10 +69,14 @@ The sample statistic is called a _random variable_. It is a variable because dif
 ### Sampling distribution  
 Some sample statistic outcomes occur more often than other outcomes. We can see this if we draw very many random samples from a population and collect the frequencies of all outcome scores in a table or chart. We call the distribution of the outcome scores of very many samples a _sampling distribution_.  
 
-```{r sampling-distribution, fig.pos='H', fig.align='center', fig.cap="What is a sampling distribution?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-#interactive content: three histograms: a uniformly distributed discrete population of five colours on top, a sample in the middle (initially empty), and a sampling distribution in the bottom (initially empty) ; first button allows to draw one sample, simulating drawing one sample from the population and adding the number of yellow candies to the bottom histogram (ideally, the candies 'drop' from the population to the sample, then the number of yellow candies appears below the sample and this number 'drops' from the sample to the sampling distribution) ; second button (becomes active after the first button has been used) draws 1,000 samples and adds the yellow candy counts for all samples to the sampling distribution in one go
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/sampling-distribution/", height="425px")
-```
+::: {#fig-sampling-distribution}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/sampling-distribution/" width="100%" height="825px" style="border:none;">
+</iframe>
+``` 
+What is a sampling distribution?
+:::
 
 
 
@@ -86,10 +90,14 @@ What is the probability of buying a bag with exactly five yellow candies? In sta
 
 Of course, the probability of a sample bag with exactly five yellow candies depends on the share of yellow candies in the population of all candies. @fig-probability-distribution displays the probabilities of a sample bag with a particular number of yellow candies if twenty per cent of the candies in the population are yellow. You can adjust the population share of yellow candies to see what happens.
 
-```{r probability-distribution, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How does the probability of drawing a sample bag with two out of ten candies yellow depend on the proportion of yellow candies in the population?", out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
-#Generate a binomial probability distribution for the number of yellow candies in a random sample of ten from a population with the specified proportion of yellow candies and display this as a table ; the user is able to change the population proportion (range [0.0 - 1.0]), which is initially set to .2.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/probability-distribution/", height="590px")
-```
+::: {#fig-probability-distribution}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/probability-distribution/" width="100%" height="590px" style="border:none;">
+</iframe>
+``` 
+How does the probability of drawing a sample bag with two out of ten candies yellow depend on the proportion of yellow candies in the population?
+:::
 
 
 
@@ -115,10 +123,14 @@ We may refer to probabilities both as a proportion, that is, a number between 0 
 
 We haven't yet thought about the value that we are most likely to encounter in the sample that we are going to draw. Intuitively, it must be related to the distribution of colours in the population of candies from which the sample was drawn. In other words, the share of yellow candies in the factory's stock from which the bag was filled or in the machine that produces the candies, seems to be relevant to what we may expect to find in our sample.  
 
-```{r expected-valuequ, echo=FALSE, out.width="420px", fig.pos='H', fig.align='center', fig.cap="What is the expected value of a probability distribution?", screenshot.opts = list(delay = 5), dev="png"}
-#Generate a binomial probability distribution for the number of yellow candies in a random sample of ten from a population with the specified proportion of yellow candies and display this as a histogram ; the user is able to change the population proportion, which is initially set to .2 ; add a button to reveal the average of the probability distribution in the histogram as a vertical line with associated value.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/expected-value/", height="420px")
-```
+::: {#fig-expected-value}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/expected-value/" width="100%" height="420px" style="border:none;">
+</iframe>
+``` 
+What is the expected value of a probability distribution?
+:::
 
 
 
@@ -223,10 +235,14 @@ If we cannot determine the probability of a single value, which we used to depic
 
 @fig-p-values shows an example of a continuous probability distribution for the average weight of candies in a sample bag. This is the familiar normal distribution so we could say that the normal curve is the probability density function here. The total area under this curve is set to one, so the area belonging to a range of sample outcomes (average candy weight) is 1 or less, as probabilities should be.
 
-```{r p-values, fig.pos='H', fig.align='center', fig.cap="How do we display probabilities in a continuous sampling distribution? Tip: Click on a slider handle and use your keyboard arrow keys to make small changes to the slider handle position.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-# Generate a normal sampling distribution representing average candy weight in a sample bag (M = 2.8, SD = 0.6) ; add a range slider to the x-axis linked to vertical lines, showing the proportions of the probabilities to left and to right and between the lines ; initial setting is 2.8 for the right-hand slider
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/p-values/", height="260px")
-```
+::: {#fig-p-values}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/p-values/" width="100%" height="260px" style="border:none;">
+</iframe>
+``` 
+How do we display probabilities in a continuous sampling distribution? Tip: Click on a slider handle and use your keyboard arrow keys to make small changes to the slider handle position.
+:::
 
 
 
@@ -273,10 +289,14 @@ If we are dealing with the proportion of yellow candies in a sample (bag), the s
 
 Things become a little confusing if we are interested in a sample mean, such as the average weight of candies in a sample bag. Now we have means at three levels: the population, the sampling distribution, and the sample. 
 
-```{r three-means, echo=FALSE, out.width="420px", fig.pos='H', fig.align='center', fig.cap="What is the relation between the three distributions?", screenshot.opts = list(delay = 5), dev="png"}
-#Generate a population and sample distribution of candy weight, and (in the middle)  sampling distribution of average candy weight. Add the average of each distribution as a vertical line. Add two sliders, one for adjusting the population mean (also adjusts mean of sampling distribution) and one for the sample mean.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/three-means/", height="560px")
-```
+::: {#fig-three-means}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/three-means/" width="100%" height="560px" style="border:none;">
+</iframe>
+``` 
+What is the relation between the three distributions?
+:::
 
 
 

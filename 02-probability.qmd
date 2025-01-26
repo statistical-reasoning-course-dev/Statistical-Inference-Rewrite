@@ -71,7 +71,7 @@ Exact approaches are also available for the association between two categorical 
 ### Computer-intensive
 The exact approach can be applied to discrete variables because they have a limited number of values. Discrete variables are usually measured at the nominal or ordinal level. If the number of categories becomes large, a lot of computing time can be needed to calculate the probabilities of all possible sample statistic outcomes. Exact approaches are said to be _computer-intensive_. 
 
-It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (@sec-Exact Approaches in SPSS. 
+It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (@sec-SPSS-exact) 
 
 
 
@@ -129,15 +129,14 @@ knitr::include_url("https://www.youtube.com/embed/PlT28wfc6K4", height = "360px"
 
 Because bootstrapping and exact approaches to the sampling distribution require quite a lot of computing power, these methods were not practical in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the _normal distribution_ or the closely related _(Student) t distribution_. The mathematical functions are called _theoretical probability distributions_. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.
 
-```{r normal-approximation, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Normal curve as theoretical approximation of a sampling distribution.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-# Variant of app: p-values.
-# Let a button generate a normal sampling distribution (with mean 2.8 and a random SD between 0.2 and 0.8) representing average candy weight in a sample bag ; represent it as a histogram (with fixed x-axis, so distributions with different SD have different widths, and number of bins such that the outer (2) bin(s) contain(s) 2.5% of the area under the normal curve) ; colour the bars for the upper and lower 2.5% of cases in the histogram (to draw attention to the tails as important areas) ; project the normal function on top of it ; add two vertical lines to the graph demarcating the outer 2.5% of the area under the normal curve (display the probabilities to left and to right)
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation/", height="300px")
-```
+::: {#fig-normal-approximation}
 
-
-
-
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/" width="100%" height="300px" style="border:none;">
+</iframe>
+``` 
+Normal curve as theoretical approximation of a sampling distribution.
+:::
 
 
 
@@ -161,17 +160,14 @@ If we use a theoretical probability distribution, we must assume that the condit
 
 @fig-normal-approx-proportion shows an example in which the normal distribution is a good approximation for the sampling distribution of a proportion in some situations, but not in all situations.
 
-```{r normal-approx-proportion, fig.pos='H', fig.align='center', fig.cap="How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?", echo = FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-#Generate a binomial sampling distribution with population proportion 0.5 and a
-#large sample size and display it as a histogram.
-# Project the normal distribution with population proportion p as mean and sqrt
-# of p(1 - p)/N as standard deviation. Allow the user to change sample size and
-# population proportion and update both the sampling distribution and the normal
-# curve.
-#perhaps adapt/simplify CLT_prop from Shiny-Ed on GitHub,
-#https://github.com/ShinyEd/ShinyEd/tree/master/CLT_prop
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/", height="305px")
-```
+::: {#fig-normal-approx-proportion}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="305px" style="border:none;">
+</iframe>
+``` 
+How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?
+:::
 
 Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with @fig-normal-approx-proportion, this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.
 
@@ -210,10 +206,14 @@ Up to this point, we have focused on rather simple sample statistics such as the
 
 If we compare two groups, for instance, the average weight of yellow and red candies, the sample statistic for which we want to have a sampling distribution must take into account both the average weight of yellow candies and the average weight of red candies. The sample statistic that we are interested in is the difference between the averages of the two samples.
 
-```{r mean-independent, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we obtain a sampling distribution for the mean difference of two independent samples?", out.width="550px", screenshot.opts = list(delay = 5), dev="png"}
-# Demonstrate the construction of a sampling distribution of mean differences for independent samples; generate more or less normal dotplots for two populations (normal distributions): weight of red candies and yellow candies; a button allows to draw a random sample from each population, showing a dotplot for each sample (first draw the reds, then the yellows) with the mean added as vertical line with value ; then calculate the difference of the two means and store this difference in a sampling distribution, which is also shown as a histogram. Add a button to draw 1,000 samples and show the resulting sampling distribution.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-independent/", height="580px")
-```
+::: {#fig-mean-independent}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-independent/" width="100%" height="580px" style="border:none;">
+</iframe>
+``` 
+How do we obtain a sampling distribution for the mean difference of two independent samples?
+:::
 
 
 
@@ -301,11 +301,14 @@ We are not going to practice with theoretical approximations in SPSS, now. Becau
 
 The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
 
-```{r bootstrapping, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we create a sampling distribution with bootstrapping?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Variant of app random-variable (Ch. 1).
-# Generate and display a not too small (N = 50?) representative sample from a uniformly distributed population of five colours (don't show the population). Add a button to draw one bootstrap sample with replacement at a time, showing the distribution of colours in the sample (dotplot with coloured dots) and adding the proportion of yellow candies to the histogram of the sampling distribution (y-axis percentage of cases?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background. Allow the user to draw one thousand bootstrap samples and add the results to the histogram. Finally, allow the user to draw a new random initial sample.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
-```
+::: {#fig-bootstrapping}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/" width="100%" height="462px" style="border:none;">
+</iframe>
+``` 
+How do we create a sampling distribution with bootstrapping?
+:::
 
 In @fig-bootstrapping, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.
 
@@ -329,14 +332,14 @@ As we will see in @sec-param-estim, for example @sec-precisionsesamplesize, the 
 
 How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?
 
-```{r replacement, eval=TRUE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Sampling with and without replacement.", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-#Create a sample consisting of 10 candies (dots) that are coloured (5 colours)
-#and numbered. Display this sample as a dotplot.
-# Add a button to create three (bootstrap) samples with replacement and a button
-# to create three (bootstrap) samples without replacement.
-# Show the three samples: coloured dots with their ID numbers.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/", height="448px")
-```
+::: {#fig-replacement}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/" width="100%" height="448px" style="border:none;">
+</iframe>
+``` 
+Sampling with and without replacement.
+:::
 
 
 
@@ -352,11 +355,14 @@ In conclusion, we sample bootstrap samples in a different way (with replacement)
 
 Does the bootstrapped sampling distribution always reflect the true sampling distribution?
 
-```{r bootstrap-lim, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-# variant of app sampling-distribution.
-# Draw a sample of the user-specified size (slider) from a uniformly distributed population (five candy colours) ; show the sample (as dot plot) and collect the proportion of yellow candies for 1,000 bootstrap samples into a histogram (bin width = 0.1?), which already shows the true sampling distribution (binomial distribution) as a light histogram in the background.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/", height="560px")
-```
+::: {#fig-bootstrap-lim}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/" width="100%" height="560px" style="border:none;">
+</iframe>
+``` 
+How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.
+:::
 
 
 

@@ -40,11 +40,13 @@ Celebrity endorsement theory states that celebrities who publicly state that the
 
 Imagine that we want to test if the celebrity who endorses a fund raiser in a fund-raising campaign makes a difference to people's willingness to donate. We will be using the celebrities George Clooney and Angelina Jolie, and we will compare campaigns with one of them to a campaign without celebrity endorsement.
 
-```{r clooneyjolie, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center', fig.cap="George Clooney and Angelina Jolie. Photo Clooney by Angela George [CC BY-SA 3.0](https://upload.wikimedia.org/wikipedia/commons/3/32/GeorgeClooneyHWoFJan12.jpg). Photo Jolie by Foreign and Commonwealth Office [CC BY 2.0](https://upload.wikimedia.org/wikipedia/commons/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg), via Wikimedia Commons."}
+::: {#fig-clooneyjolie}
+```{r clooneyjolie, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center'}
 # Include portraits: Clooney, Jolie.
 knitr::include_graphics("figures/ClooneyJolie.png")
 ```
-
+George Clooney and Angelina Jolie. Photo Clooney by Angela George [CC BY-SA 3.0](https://upload.wikimedia.org/wikipedia/commons/3/32/GeorgeClooneyHWoFJan12.jpg). Photo Jolie by Foreign and Commonwealth Office [CC BY 2.0](https://upload.wikimedia.org/wikipedia/commons/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg), via Wikimedia Commons.
+:::
 Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group (*the control group*) sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.
 
 Our dependent variable is a numeric scale assessing the participant's willingness to donate to the fund raiser on a scale from 1 ("absolutely certain that I will not donate") to 10 ("absolutely certain that I will donate"). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.
@@ -55,11 +57,14 @@ In statistical terminology, we have a categorical independent (or predictor) var
 
 @fig-anova-means shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.
 
-```{r anova-means, fig.pos='H', fig.align='center', fig.cap="How do group means relate to effect size?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="540px"}
-# Goal: Illustrate that differences between group means represent effects (effect size given by eta^2).
-# Generate 4 randomobservations with mean 6.4 (Clooney), 4 observations with mean 6.8 (Jolie), and 4 observations with mean 3.3 (no endorser). Use colour for the treatment factor (3 levels). Represent observations in a dotplot, each with a separate value on the x axis, clustered by factor level (experimental condition). Display group means as horizontal line segments (coloured by factor level). Add vertical double-sided arrows between each pair of group means to illustrate group differences. Display eta^2 for the data. Allow user to change the group means and update the plot, mean (difference) lines, and eta^2.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-means/", height="490px")
-```
+::: {#fig-anova-means}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-means/" width="100%" height="490px" style="border:none;">
+</iframe>
+``` 
+How do group means relate to effect size?
+:::
 
 
 
@@ -77,7 +82,8 @@ Analysis of variance was developed for the analysis of randomized experiments, w
 
 In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as @fig-anova-meansplot, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.
 
-```{r anova-meansplot, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows.", fig.asp=0.6, out.width="70%"}
+::: {#fig-anova-meansplot}
+```{r anova-meansplot, echo=FALSE, fig.pos='H', fig.align='center', fig.asp=0.6, out.width="70%"}
 # Insert means plot for celebrity endorsement example.
 d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), willingness_av = c(3, 6, 7), const = 1)
 ggplot(d, aes(endorser, willingness_av)) + 
@@ -107,6 +113,8 @@ ggplot(d, aes(endorser, willingness_av)) +
   scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + labs(x = "Endorser", y = "Average willingness to donate")
 rm(d)
 ```
+A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows.
+:::
 
 Effect size in an analysis of variance refers to the overall differences between group means. We use eta^2^ as effect size, which gives the proportion of variance in the dependent variable (willingness to donate) explained or predicted by the group variable (experimental condition).
 
@@ -120,12 +128,14 @@ This proportion is informative and precise. If you want to classify the effect s
 
 For a better understanding of eta^2^ and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. @fig-anova-between adds overall average willingness to donate to the plot (horizontal black line) with participants' scores and average experimental group scores (coloured horizontal lines).
 
-```{r anova-between, fig.pos='H', fig.align='center', fig.cap="Which part of score differences tells us about the differences between groups?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="540px"}
-# Goal: Illustrate that between-groups variance represents differences between group means and the grand mean. And that it is a (smaller or larger) proportion of total variance.
-# App anova-means: Generate 4 random observations from a normally distributed population with mean 6.4, sd = 1 (Clooney), 4 observations from a population N(m = 6.8, sd = 1) (Jolie), and 4 observations from N(m = 3.3, sd = 1) (no endorser). Use colour for the treatment factor (3 levels). Represent observations in a dotplot, each with a separate value on the x axis, clustered by factor level (experimental condition). Display group means as horizontal line segments (coloured by factor level). Display eta^2 for the data. Allow user to change the group means and update the plot, mean (difference) lines, and eta^2.
-# Extension/replacement: Add horizontal line for grand mean, vertical red solid double-sided arrows between each observation and the grand mean (total variance), vertical black solid double-sided arrows for each observation between its group mean and the grand mean (between variance), and vertical black dotted double-sided arrows for each observation between the dot and its group mean (within variance). 
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-between/", height="490px")
-```
+::: {#fig-anova-between}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-between/" width="100%" height="490px" style="border:none;">
+</iframe>
+``` 
+Which part of score differences tells us about the differences between groups?
+:::
 
 
 
@@ -258,15 +268,14 @@ The assumption of equal population variances is less important if group samples 
 
 Analysis of variance tests the null hypothesis of equal population means but it does not yield confidence intervals for group means. It does not always tell us which groups score significantly higher or lower.
 
-```{r anova-posthoc, fig.pos='H', fig.align='center', fig.cap="Which groups have different average outcome scores in the population? The _p_ values belong to independent-samples _t_ tests on the means of two groups.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="525px"}
-# Goal: Sensitize students to the need for and problems with post-hoc tests.
-# Generate and display a sample as in the app anova-means with option to change
-# group means.
-# Display the model F test and the results of three t-tests (without Bonferroni
-# correction) for pairwise comparisons (if feasible: as labels to the vertical
-# arrows between group means in the plot).
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-posthoc/", height="485px")
-```
+::: {#fig-anova-posthoc}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-posthoc/" width="100%" height="485px" style="border:none;">
+</iframe>
+``` 
+Which groups have different average outcome scores in the population? The _p_ values belong to independent-samples _t_ tests on the means of two groups.
+:::
 
 
 
@@ -330,9 +339,12 @@ A statistically significant *F* test tells us that we may be quite confident tha
 
 In SPSS, we use the *One-Way ANOVA* option in the *Compare Means* submenu for one-way analysis of variance and the *Univariate* option in the *General Linear Model* submenu for two-way analysis of variance.
 
-```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center', fig.cap="SPSS table of main and interaction effects in a two-way analysis of variance."}
+:::{#fig-ANOVAtable}
+```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center'}
 knitr::include_graphics("figures/S7_AE1.png")
 ```
+SPSS table of main and interaction effects in a two-way analysis of variance.
+:::
 
 The significance tests on the main effects and interaction effect are reported in the **Tests of Between-Subjects Effects** table. @fig-ANOVAtable offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta^2^ by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
 
@@ -344,9 +356,12 @@ Interpret the effects by comparing mean scores on the dependent variable among g
 
 3. If you want to interpret an interaction effect, create means plots such as @fig-ANOVAplots. Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).
 
-```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center', fig.cap="SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation."}
+:::{#fig-ANOVAplots}
+```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center'}
 knitr::include_graphics("figures/S7_AE2.png")
 ```
+SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.
+:::
 
 ```{r SPSS1way, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:1waySPSS)", dev="png", screenshot.opts = list(delay = 5)}
 knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px")
@@ -375,27 +390,14 @@ knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px"
 
 The participants in the experiment do not only differ because they see different endorsers in the charity video. In addition, there can be personal characteristics that could cause differences. In this experiment, the researchers will look into sex, where only the sexes 'male' and 'female' will be taken into account. The researchers can then answer the question: Does participant's sex matter to the effect of the endorser on willingness to donate?
 
-```{r anova-twoway, fig.pos='H', fig.align='center', fig.cap="How do group means inform us about (main) effects in analysis of variance?", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Goal: Illustrate that different main effects merely use means of different
-# groupings.
-# Similar to app anova-between but with a double classification of cases
-# (according to endorser and sex) and te option to display means of different
-# groupings.
-# Generate 6 sets of 2 (random) observations (from a normally distributed
-# population with mean runif(3, 7) and sd = 1). Assign the groups to the
-# experimental treatment factor (endorser, 3 levels) and sex factor (2 levels).
-# Represent observations in a dotplot with treatment as dot colour and sex as
-# dot shape, each observation with a separate value on the x axis, ordered by
-# factor levels.
-# Display the grand mean as a horizontal line. 
-# Allow the user to select (display) group means on one of the two factors or
-# both. On selection, add group means as horizontal lines (coloured for the 3
-# levels factor and different line styles for 2 levels factor) with between
-# group variation indicated by double-sided arrows between group mean and grand
-# mean for each dot (between). Add subgroup (endorser by sex) means if both
-# factors are selected.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-twoway/", height="408px")
-```
+::: {#fig-anova-twoway}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/" width="100%" height="408px" style="border:none;">
+</iframe>
+``` 
+How do group means inform us about (main) effects in analysis of variance?
+:::
 
 
 
@@ -409,7 +411,7 @@ Usually, however, we expect an outcome to depend on more than one variable. Will
 
 It is straightforward to include more factors in an analysis of variance. These can be additional experimental treatments in the context of an experiment as well as participant characteristics that are not manipulated by the researcher. For example, we may hypothesize that females are generally more charitable than males.
 
-### Two-way analysis of variance {#anova2way}
+### Two-way analysis of variance {#sec-anova2way}
 
 If we use one factor, the analysis is called one-way analysis of variance. With two factors, it is called two-way analysis of variance, and with three factors... well, you probably already guessed that name.
 
@@ -421,18 +423,21 @@ In analysis of variance with two or more factors, it is quite nice if the factor
 
 In an experiment, we can ensure that factors are independent if we have the same number of participants in each combination of levels on all factors. In other words, a factorial design is balanced if we have the same number of observations in each subgroup. A subgroup contains the participants that have the same level on both factors just like a cell in a contingency table.
 
+:::{#tbl-anova-balanced}
 ```{r anova-balanced, echo=FALSE}
 # Table for a balanced 3x2 factorial design.
 # Create data.
 df <- data.frame(Female = rep(2, 3), Male = rep(2, 3))
 row.names(df) <- c("Clooney", "Jolie", "No endorser")
 # Display table.
-knitr::kable(df, booktabs = TRUE, caption = "Number of observations per subgroup in a balanced 3x2 factorial design.") %>%
+knitr::kable(df, booktabs = TRUE) %>%
   kable_styling(font_size = 12, full_width = F, position = "float_right",
                 latex_options = c("HOLD_position"))
 # Cleanup.
 rm(df)
 ```
+Number of observations per subgroup in a balanced 3x2 factorial design.
+:::
 
 @tbl-anova-balanced shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate statistical independence. In the example, the distributions are the same across columns (and rows), so the factors are statistically independent.
 
@@ -535,7 +540,8 @@ If the effect of a factor is different for different groups on another factor, t
 
 With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. @fig-anova-diagram shows the conceptual diagram for participant's sex moderating the effect of endorsing celebrity on willingness to donate.
 
-```{r anova-diagram, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Conceptual diagram of moderation.", fig.asp=0.3}
+:::{#fig-anova-diagram}
+```{r anova-diagram, echo=FALSE, fig.pos='H', fig.align='center',  fig.asp=0.3}
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7), 
@@ -550,6 +556,8 @@ ggplot(variables, aes(x, y)) +
 #Cleanup.
 rm(variables)
 ```
+Conceptual diagram of moderation.
+:::
 
 ### Types of moderation
 
@@ -557,13 +565,14 @@ Moderation as different effects for different groups is best interpreted using a
 
 In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (@fig-anova-moderation).
 
-```{r anova-moderation, fig.pos='H', fig.align='center', fig.cap="How can we recognize main effects and moderation in a means plot?", echo = FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Goals: Learn to recognize different types of moderation, visually distinguishing between main effects (differences) and moderation (different differences.
-# Create a means plot with 3x2 means, willingness on Y axis, endorser (nobody, Clooney, Jolie) on X axis, and different colours for sex. Initial means have main effects but no interaction effect.Connect the means per sex by line segments. Link the female & male mean for the same group by a vertical double-sided arrow. Allow user to change all six means (if possible, by dragging them vertically?). Display marginal (total) means for each sex and endorser.
-# Initial means.
-# d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(3, 5, 7, 4.5, 6.5, 8.5))
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-moderation/", height="305px")
-```
+::: {#fig-anova-moderation}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-moderation/" width="100%" height="305px" style="border:none;">
+</iframe>
+``` 
+How can we recognize main effects and moderation in a means plot?
+:::
 
 
 
@@ -631,7 +640,8 @@ Except for trivial cases such as the effect of anti-smoking campaigns on non-smo
 
 In the other type of moderation, the effect in one group is the opposite of the effect in another group. In @fig-anova-effectdirmod1, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this *effect direction moderation*. Males reverse the Clooney effect that we find for females.
 
-```{r anova-effectdirmod1, echo=FALSE, out.width="70%", fig.asp=0.6, fig.pos='H', fig.align='center', fig.cap="Moderation as a positive  effect in one context and a negative effect in another context."}
+:::{#fig-anova-effectdirmod1}
+```{r anova-effectdirmod1, echo=FALSE, out.width="70%", fig.asp=0.6, fig.pos='H', fig.align='center'}
 # Add means plot with Clooney, Jolie, and Nobody on the x axis, willingness to donate on the y axis, and separate (coloured) lines linking the mean scores for females and males. In the plot, the average for females*Clooney is much higher than males*Clooney but the reverse does not apply to Jolie.
 d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Clooney","Nobody","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(5, 3.5, 7, 6, 7.5, 9))
 library(ggplot2)
@@ -666,10 +676,13 @@ ggplot(d, aes(endorser, willingness_av, colour = sex)) +
   scale_color_manual(values=c(brewercolors[[1]], brewercolors[[5]]))
 rm(d)
 ```
+Moderation as a positive  effect in one context and a negative effect in another context.
+:::
 
 In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (@fig-anova-effectdirmod2). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.
 
-```{r anova-effectdirmod2, echo=FALSE, out.width="70%", fig.asp=0.6, fig.pos='H', fig.align='center', fig.cap="Moderation as opposite effects in different contexts."}
+:::{#fig-anova-effectdirmod2}
+```{r anova-effectdirmod2, echo=FALSE, out.width="70%", fig.asp=0.6, fig.pos='H', fig.align='center'}
 # Add means plot with Clooney, Jolie, and Nobody on the x axis, willingness to donate on the y axis, and separate (coloured) lines linking the mean scores for females and males. In the plot, the average for females*Clooney is much higher than males*Clooney but the reverse does not apply to Jolie.
 d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Clooney","Nobody","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(6, 3, 9, 6, 9, 3))
 library(ggplot2)
@@ -701,6 +714,8 @@ ggplot(d, aes(endorser, willingness_av, colour = sex)) +
   scale_color_manual(values=c(brewercolors[[1]], brewercolors[[5]]))
 rm(d)
 ```
+Moderation as opposite effects in different contexts.
+:::
 
 In this situation, the main effect of endorser on willingness to donate is around zero. If we average over females and males, we obtain the means represented by the three grey dots. There is no net difference between Clooney, Jolie, and the condition without an endorser.
 
@@ -712,13 +727,14 @@ The effect of a single factor is called a main effect, as we learned in @sec-mai
 
 For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In @fig-anova-interaction, we compare average willingness to donate for combinations of endorser and participant's sex. The effect of differences among subgroups on the dependent variable is called an *interaction effect*. Just like a main effect, an interaction effect is tested with an *F* test and its effect size is expressed by eta^2^.
 
-```{r anova-interaction, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How can we recognize main effects and moderation in a means plot?", screenshot.opts = list(delay = 5), dev="png", out.width="780px"}
-# Goals: Recognize effect size and statistical significance of main and interaction effects.
-# Exactly the same app as anova-moderation but now add Eta^2 and the _F_ value plus _p_ value of the main and interaction effects.
-# Initial means.
-# d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(3, 5, 7, 4.5, 6.5, 8.5))
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/anova-interaction/", height="380px")
-```
+::: {#fig-anova-interaction}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/" width="100%" height="380px" style="border:none;">
+</iframe>
+``` 
+How can we recognize main effects and moderation in a means plot?
+:::
 
 
 
@@ -805,6 +821,7 @@ For the statistically informed reader, you should include the following informat
 
 A two-way analysis of variance may produce many numeric results to report. It is recommended to present them as a table (in the text or in an appendix). If you report the table, include the error, the sums of squares and mean squares in the same way that SPSS reports them. @tbl-2way-table presents an example.
 
+:::{#tbl-2way-table}
 ```{r 2way-table, warning=FALSE, message=FALSE, echo=FALSE}
 results <- anova(lm(willing_post ~ sex*endorser, data = donors))
 results <- cbind(round(results[,2], digits = 2), round(results[,1], digits = 0), round(results[,3:4], digits = 2), round(results[,5], digits = 3))
@@ -814,12 +831,14 @@ results[5,] <- c(round(sum(results[,1]), digits = 2), round(sum(results[,2]), di
 row.names(results)[5] <- "Total"
 results$`round(results[, 5], digits = 3)`[results$`round(results[, 5], digits = 3)` < 0.001] <- "< 0.001"
 options(knitr.kable.NA = '')
-knitr::kable(results, booktabs = TRUE, caption = "An example of a table summarizing results of a two-way analysis of variance.", col.names = c("Sum of Squares", "df", "Mean Square", "F", "p"), align = rep("r", 5))  %>%
+knitr::kable(results, booktabs = TRUE, col.names = c("Sum of Squares", "df", "Mean Square", "F", "p"), align = rep("r", 5))  %>%
   kable_styling(font_size = 12, full_width = F,
                 latex_options = c("scale_down", "HOLD_position"))
 # Cleanup.
 rm(results, donors)
 ```
+An example of a table summarizing results of a two-way analysis of variance.
+:::
 
 ## Two-Way Analysis of Variance in SPSS {#sec-twowaySPSS}
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -404,7 +404,7 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <section id="computer-intensive" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="computer-intensive"><span class="header-section-number">2.1.2</span> Computer-intensive</h3>
 <p>The exact approach can be applied to discrete variables because they have a limited number of values. Discrete variables are usually measured at the nominal or ordinal level. If the number of categories becomes large, a lot of computing time can be needed to calculate the probabilities of all possible sample statistic outcomes. Exact approaches are said to be <em>computer-intensive</em>.</p>
-<p>It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (<span class="quarto-unresolved-ref">?sec-Exact</span> Approaches in SPSS.</p>
+<p>It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (<a href="#sec-SPSS-exact" class="quarto-xref"><span>Section 2.2</span></a>)</p>
 </section>
 </section>
 <section id="sec-SPSS-exact" class="level2" data-number="2.2">
@@ -432,9 +432,16 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <section id="sec-theoretical-approx" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-theoretical-approx"><span class="header-section-number">2.3</span> Theoretical Approximations of the Sampling Distribution</h2>
 <p>Because bootstrapping and exact approaches to the sampling distribution require quite a lot of computing power, these methods were not practical in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the <em>normal distribution</em> or the closely related <em>(Student) t distribution</em>. The mathematical functions are called <em>theoretical probability distributions</em>. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/?showcase=0" width="420px" height="300px" data-external="1">
+<div id="fig-normal-approximation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/" width="100%" height="300px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Normal curve as theoretical approximation of a sampling distribution.
+</figcaption>
+</figure>
 </div>
 <p>The <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a> is a mathematical function linking continuous scores, e.g., a sample statistic such as the average weight in the sample, to right-hand and left-hand probabilities, that is, to the probability of finding at least, or at most, this score. Such a function is called a <em>probability density function</em> (<a href="01-samplingdistr.html#sec-cont-random-var" class="quarto-xref"><span>Section 1.3</span></a>).</p>
 <p>We like to use a theoretical probability distribution as an approximation of the sampling distribution because it is convenient. A computer can calculate probabilities from the mathematical function very quickly. We also like theoretical probability distributions because they usually offer plausible arguments about chance and probabilities.</p>
@@ -448,12 +455,19 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <h3 data-number="2.3.2" class="anchored" data-anchor-id="sec-cond-probdistr"><span class="header-section-number">2.3.2</span> Conditions for the use of theoretical probability distributions</h3>
 <p>Theoretical probability distributions, then, are plausible models for sampling distributions. They are known or likely to have the same shape as the true sampling distributions under particular circumstances or conditions.</p>
 <p>If we use a theoretical probability distribution, we must assume that the conditions for its use are met. We have to check the conditions and decide whether they are close enough to the ideal conditions. <em>Close enough</em> is of course a matter of judgement. In practice, rules of thumb have been developed to decide if the theoretical probability distribution can be used.</p>
-<p><span class="quarto-unresolved-ref">?fig-normal-approx-proportion</span> shows an example in which the normal distribution is a good approximation for the sampling distribution of a proportion in some situations, but not in all situations.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/?showcase=0" width="775px" height="305px" data-external="1">
+<p><a href="#fig-normal-approx-proportion" class="quarto-xref">Figure&nbsp;<span>2.2</span></a> shows an example in which the normal distribution is a good approximation for the sampling distribution of a proportion in some situations, but not in all situations.</p>
+<div id="fig-normal-approx-proportion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-normal-approx-proportion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="305px" style="border:none;">
 </iframe>
 </div>
-<p>Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with <span class="quarto-unresolved-ref">?fig-normal-approx-proportion</span>, this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-approx-proportion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?
+</figcaption>
+</figure>
+</div>
+<p>Do theoretical probability distributions fit the true sampling distribution? As you may have noticed while playing with <a href="#fig-normal-approx-proportion" class="quarto-xref">Figure&nbsp;<span>2.2</span></a>, this is not always the case. In general, theoretical probability distributions fit sampling distributions better if the sample is larger. In addition, the population value may be relevant to the fit of the theoretical probability distribution. The sampling distribution of a sample proportion is more symmetrical, like the normal distribution, if the proportion in the population is closer to .5.</p>
 <p>This illustrates that we often have several conditions for a theoretical probability distribution to fit the sampling distribution. We should evaluate all of them at the same time. In the example of proportions, a large sample is less important if the true proportion is closer to .5 but it is more important for true proportions that are more distant from .5.</p>
 <p>The rule of thumb for using the normal distribution as the sampling distribution of a sample proportion combines the two aspects by multiplying them and requiring the resulting product to be larger than five. If the probability of drawing a yellow candy is .2 and our sample size is 30, the product is .2 * 30 = 6, which is larger than five. So we may use the normal distribution as approximation of the sampling distribution.</p>
 <p>Note that this rule of thumb uses one minus the probability, if the probability is larger than .5. In other words, it uses the smaller of two probabilities: the probability that an observation has the characteristic and the probability that it has not. For example, if we want to test the probability of drawing a candy that is not yellow, the probability is .8 and we use 1 - 0.8 = 0.2, which is then multiplied by the sample size.</p>
@@ -475,9 +489,16 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="sec-complicatedsampling"><span class="header-section-number">2.3.4</span> More complicated sample statistics: differences</h3>
 <p>Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. <span class="quarto-unresolved-ref">?tbl-thumb</span>, however, contains more complicated sample statistics.</p>
 <p>If we compare two groups, for instance, the average weight of yellow and red candies, the sample statistic for which we want to have a sampling distribution must take into account both the average weight of yellow candies and the average weight of red candies. The sample statistic that we are interested in is the difference between the averages of the two samples.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-independent/?showcase=0" width="550px" height="580px" data-external="1">
+<div id="fig-mean-independent" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mean-independent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-independent/" width="100%" height="580px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-independent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: How do we obtain a sampling distribution for the mean difference of two independent samples?
+</figcaption>
+</figure>
 </div>
 <p>If we draw a sample from both the red and yellow candies in the population, we may calculate the means for both samples and the difference between the two means. For example, the average weight of red candies in the sample bag is 2.76 grams and the average for yellow candies is 2.82 grams. For this pair of samples, the statistic of interest is 2.76 - 2.82 = -0.06, that is, the difference in average weight. If we repeat this many, many times and collect all differences between means in a distribution, we obtain the sampling distribution that we need.</p>
 <p>The sampling distribution of the difference between two means is similar to a <em>t</em>-distribution, so we may use the latter to approximate the former. Of course, the conditions for using the <em>t</em>-distribution must be met.</p>
@@ -485,7 +506,7 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 </section>
 <section id="independent-samples" class="level3" data-number="2.3.5">
 <h3 data-number="2.3.5" class="anchored" data-anchor-id="independent-samples"><span class="header-section-number">2.3.5</span> Independent samples</h3>
-<p>If we compare two means, there are two fundamentally different situations that are sometimes difficult to distinguish. When comparing the average weight of yellow candies to the average weight of red candies, we are comparing two samples that are <em>statistically independent</em> (see <span class="quarto-unresolved-ref">?fig-mean-independent</span>), which means that we could have drawn the samples separately.</p>
+<p>If we compare two means, there are two fundamentally different situations that are sometimes difficult to distinguish. When comparing the average weight of yellow candies to the average weight of red candies, we are comparing two samples that are <em>statistically independent</em> (see <a href="#fig-mean-independent" class="quarto-xref">Figure&nbsp;<span>2.3</span></a>), which means that we could have drawn the samples separately.</p>
 <p>In principle, we could distinguish between a population of yellow candies and a population of red candies, and sample yellow candies from the first population and separately sample red candies from the other population. Whether we sampled the colours separately or not does not matter. The fact that we could have done so implies that the sample of red candies is not affected by the sample of yellow candies or the other way around. The samples are statistically independent.</p>
 <p>This is important for the way in which probabilities are calculated. Just think of the simple example of flipping two coins. The probability of having heads twice in a row is .5 times .5, that is .25, if the coins are fair and the result of the second coin does not depend on the result of the first coin. The second flip is not affected by the first flip.</p>
 <p>Imagine that a magnetic field is activated if the first coin lands with heads up and that this magnetic field increases the odds that the second coin will also be heads. Now, the second toss is not independent of the first toss and the probability of getting heads twice is larger than .25.</p>
@@ -511,11 +532,18 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <section id="sec-boot-approx" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-boot-approx"><span class="header-section-number">2.5</span> The Bootstrap Approximation of the Sampling Distribution</h2>
 <p>The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called <em>bootstrap samples</em>. The technique was developed by Bradley Efron <span class="citation" data-cites="RefWorks:3956 RefWorks:3957">(<a href="14-references.html#ref-RefWorks:3956" role="doc-biblioref">1979</a>; <a href="14-references.html#ref-RefWorks:3957" role="doc-biblioref">1987</a>)</span>. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/?showcase=0" width="775px" height="462px" data-external="1">
+<div id="fig-bootstrapping" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bootstrapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/" width="100%" height="462px" style="border:none;">
 </iframe>
 </div>
-<p>In <span class="quarto-unresolved-ref">?fig-bootstrapping</span>, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: How do we create a sampling distribution with bootstrapping?
+</figcaption>
+</figure>
+</div>
+<p>In <a href="#fig-bootstrapping" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.</p>
 <div class="cell" type="rmdmunchhausen">
 
 <div class="rmdmunchhausen">
@@ -527,21 +555,35 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="sampling-with-and-without-replacement"><span class="header-section-number">2.5.1</span> Sampling with and without replacement</h3>
 <p>As we will see in <a href="03-estimation.html" class="quarto-xref"><span>Chapter 3</span></a>, for example <a href="03-estimation.html#sec-precisionsesamplesize" class="quarto-xref"><span>Section 3.3</span></a>, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.</p>
 <p>How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/?showcase=0" width="775px" height="448px" data-external="1">
+<div id="fig-replacement" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-replacement-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/" width="100%" height="448px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-replacement-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Sampling with and without replacement.
+</figcaption>
+</figure>
 </div>
 <p>If we allow every case in the original sample to be sampled only once, each bootstrap sample contains all cases of the original sample, so it is an exact copy of the original sample. Thus, we cannot create different bootstrap samples.</p>
 <p>By the way, we often use the type of sampling described above, which is called <em>sampling without replacement</em>. If a person is (randomly) chosen for our sample, we do not put this person back into the population so she or he can be chosen again. We want our respondents to fill out our questionnaire only once or participate in our experiment only once.</p>
-<p>If we do allow the same person to be chosen more than once, we sample <em>with replacement</em>. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in <span class="quarto-unresolved-ref">?fig-replacement</span>. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.</p>
+<p>If we do allow the same person to be chosen more than once, we sample <em>with replacement</em>. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in <a href="#fig-replacement" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.</p>
 <p>In conclusion, we sample bootstrap samples in a different way (with replacement) than participants for our research (without replacement).</p>
 </section>
 <section id="limitations-to-bootstrapping" class="level3" data-number="2.5.2">
 <h3 data-number="2.5.2" class="anchored" data-anchor-id="limitations-to-bootstrapping"><span class="header-section-number">2.5.2</span> Limitations to bootstrapping</h3>
 <p>Does the bootstrapped sampling distribution always reflect the true sampling distribution?</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/?showcase=0" width="420px" height="560px" data-external="1">
+<div id="fig-bootstrap-lim" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bootstrap-lim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrap-lim/" width="100%" height="560px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrap-lim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.
+</figcaption>
+</figure>
 </div>
 <p>We can create a sampling distribution by sampling from our original sample with replacement. It is hardly a miracle that we obtain different samples with different sample statistics if we sample with replacement. Much more miraculous, however, is that this bootstrap distribution resembles the true sampling distribution that we would get if we draw lots of samples directly from the population.</p>
 <p>Does this miracle always happen? No.&nbsp;The original sample that we have drawn from the population must be more or less representative of the population. The variables of interest in the sample should be distributed more or less the same as in the population. If this is not the case, the sampling distribution may give a distorted view of the true sampling distribution. This is the main limitation to the bootstrap approach to sampling distributions.</p>
@@ -588,7 +630,6 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 
 
 
-
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/?showcase=0" width="775px" height="462px" data-external="1"></iframe>
 :::
@@ -599,7 +640,6 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approximation/?showcase=0" width="420px" height="300px" data-external="1"></iframe>
 :::
-
 
 
 
@@ -735,8 +775,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -852,7 +890,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

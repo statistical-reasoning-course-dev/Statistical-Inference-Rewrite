@@ -4,9 +4,8 @@ source("R_setup.R")
 
 # Estimating a Parameter {#sec-param-estim}
 
-> Which Population Values Are Plausible?
-
-> Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.
+>Which Population Values Are Plausible?
+Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.
 
 
 ### Summary {-}
@@ -51,10 +50,14 @@ Remember that the average or expected value of a sampling distribution is equal 
 
 Between which boundaries do we find the sample statistic values that are closest to the population value? Of course, we have to specify what we mean by "closest". Which part of all samples do we want to include? A popular proportion is 95%, so we want to know the boundary values that include 95% of all samples that are closest to the population value. For example, between which boundaries is average candy weight situated for 95% of all samples that are closest to the average candy weight in the population?
 
-```{r ci-borders, fig.pos='H', fig.align='center', fig.cap="Within which interval do we find the sample results that are closest to the population value?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
-# Graph a normal distribution with mean 2.8 and standard deviation equal to a random number between 0.05 and 0.2 ; x-axis with scale and labelled "Average candy weight"; add two vertical lines, one to the extreme left, one to the extreme right with their values on the x-axis displayed and the percentage of observations (area) between the two lines displayed (initially near 50%) ; slider moves right line and left line (in opposite directions) and adjusts percentage of area between lines ; note that the lines cannot be moved across the centre of the distribution
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/ci-borders/", height="290px")
-```
+::: {#fig-ci-borders}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/ci-borders/" width="100%" height="290px" style="border:none;">
+</iframe>
+``` 
+Within which interval do we find the sample results that are closest to the population value?
+:::
 
 @fig-ci-borders shows the sampling distribution of average sample candy weight.
 
@@ -76,10 +79,14 @@ We now have boundary values, that is, a range of sample statistic values, and a 
 
 The width of the estimated interval represents the _precision_ of our estimate. The wider the interval, the less precise our estimate. With a less precise interval estimate, we will have to take into account a wider variety of outcomes in our sample. 
 
-```{r interval-level, fig.pos='H', fig.align='center', fig.cap="How does the confidence level affect the precision of an interval estimate?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
-# (as in ci-borders) Graph a normal distribution with mean 2.8 and standard deviation equal to a random number between 0.05 and 0.2 ; x-axis with scale and labelled "Average candy weight" ; vertical lines for boundaries  interval estimate ; show a double-pointed arrow on top of or above/under the x-axis representing the confidence interval for the initial confidence level (95%) and sample size (30); add a slider to adjust the confidence level (50%-100%?) ; update the vertical lines (boundaries ) and the arrow representing the precision of the confidence interval if the slider position changes.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-level/", height="310px")
-```
+::: {#fig-interval-level}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-level/" width="100%" height="310px" style="border:none;">
+</iframe>
+``` 
+How does the confidence level affect the precision of an interval estimate?
+:::
 
 
 
@@ -95,10 +102,14 @@ This method is not useful because we sacrifice our confidence that the range inc
 
 A less practical but very useful method of narrowing the interval estimate is increasing sample size. If we buy a larger bag containing more candies, we get a better idea of average candy weight in the population and a better idea of the averages that we should expect in our sample.
 
-```{r interval-size, fig.pos='H', fig.align='center', fig.cap="How does sample size affect the precision of an interval estimate?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
-# same as interval-level but the slider adjusts sample size (N between 5 and 100, steps of 5) ; update the line/arrow representing the precision of the confidence interval if the slider position changes ; also update the normal curve and ensure that the scale of the x-axis remains the same, so it is clear that the sampling distribution becomes more peaked for larger samples. 
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/interval-size/", height="310px")
-```
+::: {#fig-interval-size}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/interval-size/" width="100%" height="310px" style="border:none;">
+</iframe>
+``` 
+How does sample size affect the precision of an interval estimate?
+:::
 
 @fig-interval-size shows a sampling distribution of average candy weight in candy sample bags. The size of the horizontal arrow represents the precision of the interval estimate: the shorter the arrow, the more precise the interval estimate.
 
@@ -120,10 +131,14 @@ The concentration of sample statistic values, such as average candy weight in a 
 
 Now, we start looking at the standard deviation of the sampling distribution as well, because it tells us how precise our interval estimate is going to be. The sampling distribution's standard deviation is so important that it has received a special name: the _standard error_.  
 
-```{r se-point-est, fig.pos='H', fig.align='center', fig.cap="How does sample size affect the standard error?", echo=FALSE, out.width="420px", screenshot.opts = list(delay = 5), dev="png"}
-# Show how the standard error depends on sample size.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/se-point-est/", height="310px")
-```
+::: {#fig-se-point-est}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/se-point-est/" width="100%" height="310px" style="border:none;">
+</iframe>
+``` 
+How does sample size affect the standard error?
+:::
 
 
 
@@ -163,10 +178,14 @@ We are interested in the interval that includes a particular percentage of all s
 
 In theoretical probability distributions like the normal distribution, the percentage of samples is related to the standard error. If we know the standard error, we know the interval within which we find the 95% of samples that are closest to the population value.
 
-```{r crit-values, fig.pos='H', fig.align='center', fig.cap="Standardized sample outcomes and the standard error.", echo=FALSE, out.width="440px", screenshot.opts = list(delay = 5), dev="png"}
-# same as interval-size but the slider adjusts the standard error (start value = 0.1, so one standard error aligns with 0.1 grams above or below average; slider range 0.05 and 0.15?) ; the vertical lines are fixed at 2.5% and 97.5% of the cumulative area under the normal curve ; first x-axis has fixed scale in grams (population mean is 2.8) ; add a second x-axis representing z scores with values -1.96, -1.0, 0, 1.0, 1.96 ; if the standard error is adjusted, the normal curve changes as well as the scale of the second x-axis and the two vertical lines at -1.96 and 1.96. 
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/crit-values/", height="360px")
-```
+::: {#fig-crit-values}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/crit-values/" width="100%" height="360px" style="border:none;">
+</iframe>
+``` 
+Standardized sample outcomes and the standard error.
+:::
 
 @fig-crit-values shows the sampling distribution of average candy weight per sample bag. It contains two horizontal axes, one with average candy weight in grams (bottom) and one with average candy weight in standard errors, also called _z_ scores (top).
 
@@ -217,10 +236,13 @@ For example, we don't care much about the average weight of candies in our sampl
 
 In addition, you may have realized that, if we want to construct the sampling distribution of sample means, we first need to know the precise population value, for instance, average candy weight in the population. After all, the average of the sampling distribution is equal to the population mean for an unbiased estimator. In the preceding paragraphs, we acted as if we knew the sampling distribution of sample means.
 
+::: {#fig-exactapproachfigure}
 
-```{r exactapproachfigure, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center', fig.cap="Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population."}
+```{r exactapproachfigure, eval=TRUE, echo=FALSE, out.width="300px", fig.pos='H', fig.align='center'}
 knitr::include_graphics("figures/exactapproach.png")
 ```
+Probabilities of a sample with a particular number of yellow candies if 20 per cent of the candies are yellow in the population.
+:::
 
 In the exact approach to the sampling distribution of the proportion of yellow candies in a sample bag (@fig-exactapproachfigure), for instance, we first need to know the proportion of yellow candies in the population. If we know the population proportion, we can calculate the exact probability of getting a sample bag with a particular proportion of yellow candies. But we don't know the population proportion of yellow candies; we want to estimate it.
 
@@ -258,10 +280,14 @@ In the previous chapters, we were reasoning from population mean to sampling dis
 
 In practice though, the population mean is unknown. We only have the sample mean derived from our collected data. Using this sample mean, we would like to estimate the population mean.
 
-```{r pop-ci-sampling, fig.pos='H', fig.align='center', fig.cap="Confidence intervals from replications", echo=FALSE, out.width="630px", screenshot.opts = list(delay = 5), dev="png"}
-# draw two horizontal lines, the top line labeled 'population' and the bottom line labeled 'sample', both lines with a numerical scale (0-5) ; generate a sample mean and standard error within a particular range, say 1-4 for the sample mean and the standard error in a range convenient to have interval estimates within the 0-5 or -1-6 range ; mark the sample mean on the lower line and show the value of the standard error somewhere in the app ; if the user clicks on the upper line, the corresponding number is shown as an (imaginary) population mean ; the 95% probability interval estimate for the sample mean is shown as a horizontal line segment on top/near the lower line (plus a light triangle starting at the population value) ; if the line segment overlaps with the sample mean, the selected population value is marked by a green dot and the line segment is green, they are red dots otherwise ; also show the z value of the sample mean for the chosen population mean ; at next click, remove old interval estimate (line segment plus triangle) but keep the prevously selected population mean ; a 'Reset' button generates new values to restart the interaction (repeat the assignment with different values for the sample mean and standard error to emphasize that the z values remain the same)
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/", height="800px")
-```
+::: {#fig-pop-ci-sampling}
+
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/pop-ci-sampling/" width="100%" height="630px" style="border:none;">
+</iframe>
+``` 
+Confidence intervals from replications
+:::
 
 Instead of checking whether a sample mean is inside or outside of the interval estimate of the **population mean** (@sec-crit-values), we use the interval estimate around that one **sample mean**, to check whether this interval catches the population mean. These two ways are equivalent, but the second way does not require us to know the population mean. This is because the interval estimate around the sample means catches the population mean in 95% of the times, regardless if the population mean is known or not. We call such an interval estimate around the sample mean a **95% confidence interval**.
 
