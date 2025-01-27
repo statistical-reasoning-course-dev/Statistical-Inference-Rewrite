@@ -284,14 +284,18 @@ window.Quarto = {
 
 <section id="flow-chart-statistical-test-selection" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="flow-chart-statistical-test-selection">Flow chart statistical test selection</h2>
-<p>The flow chart in <span class="quarto-unresolved-ref">?fig-choice-diagram-copy</span> helps you select the appropriate statistical test based on the type of dependent and independent variables.</p>
+<p>The flow chart in <a href="#fig-choice-diagram-copy" class="quarto-xref">Figure&nbsp;<span>1</span></a> helps you select the appropriate statistical test based on the type of dependent and independent variables.</p>
 <p>It helps in the learning proces to think of different research designs for each test. Try to think of one for the independent samples <em>t</em>-test. Work your way from right to left to determine the type of variables and think of some research that conforms to this.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="12-Appendix_files/figure-html/choice-diagram-copy-1.png" class="img-fluid figure-img" width="864"></p>
-<figcaption>Flow chart for statistical test selection.</figcaption>
+<div id="fig-choice-diagram-copy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-choice-diagram-copy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="12-Appendix_files/figure-html/fig-choice-diagram-copy-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-choice-diagram-copy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Flow chart for statistical test selection.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -377,7 +381,7 @@ window.Quarto = {
 </ul>
 <p>As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need such statistics to test a hypothesis. The researcher must translate the hypothesis into a new hypothesis specifying a statistic in the population, for example, the population mean. The new hypothesis is called a <em>statistical hypothesis</em>.</p>
 <p>Translating the research hypothesis into a statistical hypothesis is perhaps the most creative part of statistical analysis, which is just a fancy way of saying that it is difficult to give general guidelines stating which statistic fits which research hypothesis. All we can do is give some hints.</p>
-<p>Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see <span class="quarto-unresolved-ref">?fig-choice-diagram-copy</span>).</p>
+<p>Research questions usually address shares, score levels, associations, or score variation. If a research question talks about how frequent some characteristic occurs (How many candies are yellow?) or which part has a particular characteristic (Which percentage of all candies are yellow?), we are dealing with one or two categorical variables. Here, we need a binomial, chi-squared, or exact test (see <a href="#fig-choice-diagram-copy" class="quarto-xref">Figure&nbsp;<span>1</span></a>).</p>
 <p>If a research question asks how high a group scores or whether one group scores higher than another group, we are dealing with score levels. The variable of central interest usually is numerical (interval or ratio measurement level) and we are concerned with mean or median scores. There is a range of tests that we can apply, depending on the number of groups that we want to compare (one, two, three or more): <em>t</em> tests or analysis of variance.</p>
 <p>Instead of comparing mean scores of groups, a research question about score levels can address associations between numerical variables, for example, Are heavier candies more sticky? Here, the score level on one variable (candy weight) is linked to the score level on another variable (candy stickiness). This is where we use correlations or regression analysis.</p>
 <p>Finally, a research question may address the variation of numeric scores, for example, Does the weight of yellow candies vary more strongly than the weight of red candies? Variance is the statistic that we use to measure variation in numeric scores.</p>
@@ -387,38 +391,65 @@ window.Quarto = {
 <p>A proportion is the statistic best suited to test research hypotheses addressing the share of a category or entity in the population. The hypothesis that a television station reaches half of all households in a country provides an example. All households in the country constitute the population. The share of the television station is the proportion or percentage of all households watching this television station.</p>
 <p>If we want to use a statistic, we need to know the variable and cases (units of analysis) for which the statistic must be calculated. In this example, a household does or does not watch the television station, so our variable is a dichotomy with the two categories (“No, does not watch this station”, “Yes, watches this station”) usually coded as 0 versus 1 or 1 versus 2.</p>
 <p>Each household provides an observation, namely either the score 0 or the score 1 on this variable or no score if there are missing values. To test the research hypothesis that a television station reaches half of all households in a country, we have to formulate a statistical hypothesis about the proportion—of households viewing this television station—in the population—all households in this country. For example, the researcher’s statistical hypothesis could be that the proportion in the population is 0.5.</p>
-<p>We can also be interested in more than two categories, for instance, does the television station reach the same share of all households in the north, east, south, and west of the country? This translates into a statistical hypothesis containing three or more proportions in the population. If 30% of households in the population are situated in the west, 25 % in the south and east, and 20% in the north, we would expect these proportions in the sample if all regions are equally represented. Our statistical hypothesis is actually a relative frequency distribution, such as, for instance, in <span class="quarto-unresolved-ref">?tbl-hypo-freq2</span>.</p>
+<p>We can also be interested in more than two categories, for instance, does the television station reach the same share of all households in the north, east, south, and west of the country? This translates into a statistical hypothesis containing three or more proportions in the population. If 30% of households in the population are situated in the west, 25 % in the south and east, and 20% in the north, we would expect these proportions in the sample if all regions are equally represented. Our statistical hypothesis is actually a relative frequency distribution, such as, for instance, in <a href="#tbl-hypo-freq2" class="quarto-xref">Table&nbsp;<span>1</span></a>.</p>
 <div class="cell">
+<div id="tbl-hypo-freq2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-hypo-freq2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-hypo-freq2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<caption>Statistical hypothesis about four proportions as a frequency table.</caption>
+<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Region</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Hypothesized Proportion</th>
+<tr>
+<th style="text-align:left;">
+Region
+</th>
+<th style="text-align:right;">
+Hypothesized Proportion
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">North</td>
-<td style="text-align: right;">0.20</td>
+<tr>
+<td style="text-align:left;">
+North
+</td>
+<td style="text-align:right;">
+0.20
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">East</td>
-<td style="text-align: right;">0.25</td>
+<tr>
+<td style="text-align:left;">
+East
+</td>
+<td style="text-align:right;">
+0.25
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">South</td>
-<td style="text-align: right;">0.25</td>
+<tr>
+<td style="text-align:left;">
+South
+</td>
+<td style="text-align:right;">
+0.25
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">West</td>
-<td style="text-align: right;">0.30</td>
+<tr>
+<td style="text-align:left;">
+West
+</td>
+<td style="text-align:right;">
+0.30
+</td>
 </tr>
 </tbody>
 </table>
-
-
+<p>Statistical hypothesis about four proportions as a frequency table.</p>
+</div>
+</div>
+</figure>
 </div>
 </div>
 <p>A test for this type of statistical hypothesis is called a one-sample chi-squared test. It is up to the researcher to specify the hypothesized proportions for all categories. This is not a simple task: What reasons do we have to expect particular values, say a region’s share of thirty per cent of all households instead of twenty-five per cent?</p>
@@ -446,7 +477,7 @@ Video&nbsp;2: Execute a one sample t test in SPSS,
 </figcaption>
 </figure>
 </div>
-<p>For a binomial test, see the video in <span class="quarto-unresolved-ref">?fig-SPSSbinomial</span>. A one-sample chi-squared test is explained in the video of <span class="quarto-unresolved-ref">?fig-SPSSchisq1</span>.</p>
+<p>For a binomial test, see the video in <a href="#vid-SPSSbinomial" class="quarto-xref">Video&nbsp;<span>1</span></a>. A one-sample chi-squared test is explained in the video of <a href="#vid-SPSSchisq1" class="quarto-xref">Video&nbsp;<span>3</span></a>.</p>
 <div id="vid-SPSSchisq1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSchisq1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -466,7 +497,7 @@ Video&nbsp;3: One-sample chi-squared test.
 <p>For a numeric (interval or ratio measurement level) variable such as the 10-point scale in the example, the mean is a good measure of the distribution’s center. In this example, our statistical hypothesis would be that average media literacy score of all children in the population is (below) 5.5.</p>
 <section id="testing-one-mean-or-median-in-spss" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="testing-one-mean-or-median-in-spss">Testing one mean or median in SPSS</h3>
-<p>The one-sample <em>t</em> test in SPSS is explained in <span class="quarto-unresolved-ref">?fig-SPSS1mean</span>.</p>
+<p>The one-sample <em>t</em> test in SPSS is explained in <a href="#vid-SPSS1mean" class="quarto-xref">Video&nbsp;<span>2</span></a>.</p>
 </section>
 </section>
 <section id="variance-disagreement" class="level2 unnumbered">
@@ -531,7 +562,7 @@ Video&nbsp;6: Association as score level change.
 </figure>
 </div>
 <hr>
-<p>For an instruction and exercises on one-way analysis of variance, see <span class="quarto-unresolved-ref">?fig-SPSS1way</span> and <a href="07-anova.html#sec-onewaySPSS" class="quarto-xref"><span>5.2 One-Way Analysis of Variance in SPSS</span></a>. For two-way analysis of variance, see <a href="07-anova.html#sec-twowaySPSS" class="quarto-xref"><span>5.6 Two-Way Analysis of Variance in SPSS</span></a> (instructions and exercises).</p>
+<p>For an instruction and exercises on one-way analysis of variance, see <a href="07-anova.html#vid-SPSS1way" class="quarto-xref">Video&nbsp;<span>5.1</span></a> and <a href="07-anova.html#sec-onewaySPSS" class="quarto-xref"><span>5.2 One-Way Analysis of Variance in SPSS</span></a>. For two-way analysis of variance, see <a href="07-anova.html#sec-twowaySPSS" class="quarto-xref"><span>5.6 Two-Way Analysis of Variance in SPSS</span></a> (instructions and exercises).</p>
 </section>
 <section id="exercises-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="exercises-1">Exercises</h4>
