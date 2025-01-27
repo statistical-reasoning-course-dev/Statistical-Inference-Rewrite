@@ -514,26 +514,6 @@ knitr::include_graphics("figures/S8_AE2.png")
 Simple regression lines showing the effect of exposure on attitude towards smoking for former smokers and people who never smoked (in an urban environment).
 :::
 
-```{r SPSS-PROCESS, eval=FALSE, echo=FALSE}
-# TERMINOLOGY: predictor (X, cause), moderator (M, represents context), covariate (C, control), dependent variable (Y).
-
-# SPSS versus PROCESS:
-# + SPSS: visual checks on residuals: normal distribution and zpred by zresid (linearity, homoscedasticity)
-# + SPSS: scatterplot (X, Y) with regression lines per group (Moderator) with original variable and value labels, showing common support ; add reference line for each group manually specifying the regression equation, setting covariates to their mean values (with categorical moderator and no covariates or covariates that are not correlated with the predictor, Regression Variable Plots can be used -not in SPSS V25? - or a regression line per subgroup with equation as label can be added in the Chart Editor)
-# - SPSS: manual entering of regression equation with selected values for covariates (and a numerical moderator; lines can only be labeled with the equation text)
-# - SPSS: interaction predictors have to be created by hand (also multiple interaction variables for a categorical predictor; Transform>Create Dummy Variables, taught in RMCS?)
-# - SPSS: mean-centering must be done by hand
-# - SPSS: statistical inference for non-zero moderator values requires separate regression models where the low category requires ADDING one SD instead of subtracting.
-# + PROCESS: must be used anyway for mediation models
-# - PROCESS: no visual checks on assumptions
-# - PROCESS: no visual impression of common support of predictor for different values of the moderator (requires additional work with numerical moderator also in SPSS)
-# - PROCESS: data list for visualization of results must be copied from output to syntax file, variable and value labels must be added, lines must be added (and this requires that the moderator has no decimal places in SPSS?) in chart editor
-# - PROCESS: model number must be remembered
-# - PROCESS: because the student need not create the interaction variables, mean-center or "re-center" for probing the interaction, PROCESS output is more mysterious (but the estimated slopes for different moderator values are directly linked to the graph)
-# - PROCESS: dichotomies are automatically treated as indicator variables but categorical predictors/moderators are treated as numerical ; it is not possible to use more than one moderator variable, so PROCESS cannot handle a categorical moderator. (Fixed in V3?)
-# DECISION: Use SPSS for results, interpretation, and assumption checks (interaction variables and, possibly, dummies must be created but no need for mean-centering).
-```
-
 ### Instructions
 
 ```{r SPSSregsimple, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regsimpleSPSS)", dev="png", screenshot.opts = list(delay = 5)}
