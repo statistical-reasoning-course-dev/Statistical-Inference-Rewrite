@@ -3,6 +3,7 @@ source("R_setup.R")
 ```
 
 # Mediation with Regression Analysis {#sec-mediation}
+
 > Key concepts: causality, causal and time order, common cause, direct, indirect, and total effects, causal model, path diagram and path model, parallel and serial mediation, partial mediation, covariate, controlling mediator values.
 
 Watch this micro lecture on mediation for an overview of the chapter (@vid-intro-mediation).
@@ -57,11 +58,8 @@ PROCESS output with estimated indirect and total effects of age on average newsp
 How does a common cause affect regression coefficients? The values in this path diagram represent standardized regression coefficients.
 :::
 
-
-
-
-
 ### Criteria for a causal relation {#sec-causalcriteria}
+
 Researchers are usually interested in causal effects, so let us theorize a causal order between age and reading newspapers. From previous research and personal experience, we strongly suspect that older people spend more time on reading newspapers than young people. In statistical language, we expect a positive correlation between age and newspaper reading time. Can age be a cause of current newspaper reading?
 
 Correlation is the first criterion. A causal relation implies correlation or another type of statistical association. If newspaper reading is not correlated with age, it is hard to imagine that age affects newspaper reading. But correlation does not imply causation, as the saying goes. Correlated variables do not have to be causally related. We need additional arguments to add plausibility to a causal relation.
@@ -150,14 +148,6 @@ This line of reasoning shows us two things. First, we discover that our common c
 
 Our second discovery is that we usually look for mediators if we want to understand a direct effect. Date of birth affects exposure to people using newspapers as information sources, which affects the habit of reading newspapers, which finally affects the time spent on reading newspapers later on. Exposure and habit are mediators here. A direct effect of age on newspaper reading represents a causal process that may contain many intermediary steps. Adding mediators to our model is a way of getting more insight in the causal process.
 
-
-
-
-  
-
-  
-
-  
 ## Path Model with Regression Analysis
 
 Mediation or, more generally, path models can be estimated with a series of regression models. Every variable in the path diagram with at least one predictor (or incoming arrow) is a dependent variable, so for each of them, we estimate a regression model. The regression model contains all variables as predictors that may cause changes in the dependent variable. In other words, all variables that are causally prior to the outcome are used as predictors. In a well-designed causal diagram, all variables to the left of the outcome are causally prior to it.
@@ -230,13 +220,10 @@ visNetwork(nodes, edges, width = "100%") %>%
 Path diagram with unstandardized effect sizes and their 95% confidence intervals.
 :::
 
-
-
-
-
 In the path diagram displayed in @fig-mediation-regression, we would regress newspaper reading time, the final dependent variable, on age and political interest. As a next step, we would predict political interest as outcome from age. 
 
 ### Requirements
+
 We can estimate mediation and path models with regression analysis if we meet the following requirements:
 
 1. Each variable used as a dependent variable is numeric. This is a general requirement of a linear regression model. In a path diagram, it means that all mediators and dependent variables must be numeric.
@@ -279,7 +266,6 @@ Note that the indirect effect is interpreted in terms of the measurement units o
 ### Direction of indirect effects
 
 Multiplication of direct effects assigns the right direction (positive or negative) to indirect effects. In the example above, age has a positive effect on interest in politics, which has a positive effect on newspaper reading time. If age goes up, interest in politics goes up and if interest in politics goes up, reading time increases. Thus, higher age is indirectly associated with more reading time through interest in politics: Plus times plus yields a plus.
-
 
 ### Parallel and serial mediation {#sec-partialserialmediation}
 
@@ -664,8 +650,6 @@ Estimating a (single mediator) mediation model including covariates with PROCESS
 Getting standardized direct effects and checking assumptions in SPSS,
 :::
 
-
-
 ```{r, echo=FALSE, eval=FALSE}
 # Goal: Getting standardized direct effects and checking assumptions in SPSS, estimating a path model with both parallel and serial mediators in SPSS that cannot be estimated in PROCESS (two models with covariates)?.
 # Example: readers.sav, the effect of age on newspaper reading time mediated by news site use and the effect of education mediated by both political interest (age -> educ -> pol.interest -> reading).
@@ -745,78 +729,6 @@ Causal diagram for interest in politics as mediator between age and newspaper re
 
 Several models with more than one mediator or with moderated mediation can be estimated with PROCESS. For an overview of the models, see Appendix A in Hayes [-@RefWorks:3873]. The models, however, are quite complex, so we leave them for enthusiasts.
 
-<!-- ## Test Your Understanding
-
-```{r mediationserial2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="A path model with unstandardized regression coefficients.", fig.asp=0.3}
-library(ggplot2)
-# Create coordinates for the variable names.
-variables <- data.frame(x = c(0.3, 0.3, 0.45, 0.55, 0.7), 
-                        y = c(.1, .5, .1, .5, .3),
-                        label = c("Age", "Girl", "Supervision", "Screen time", "Media literacy"))
-coeffs <- data.frame(
-  x = c(0.375, 0.375, 0.375, 0.375, 0.375, 0.485, 0.625, 0.575),
-  y = c(.525, .425, .3, .175, .075, .3, .425, .175),
-  label = c("0.3", "0.1", "0.4", "0.3", "0.1", "-0.5", "0.2", "0.3"))
-ggplot(variables, aes(x, y)) + 
-  geom_segment(aes(x = x[1], y = y[1], xend = x[5] - 0.055, yend = y[5] - 0.01), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
-  geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.05, yend = y[3]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.05, yend = y[4] - 0.01), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_segment(aes(x = x[2], y = y[2], xend = x[5] - 0.055, yend = y[5]+ 0.01), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_segment(aes(x = x[2], y = y[2], xend = x[4] - 0.05, yend = y[4]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_segment(aes(x = x[3], y = y[3], xend = x[4], yend = y[4] - 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_segment(aes(x = x[3], y = y[3], xend = x[5] - 0.055, yend = y[5] - 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_segment(aes(x = x[4], y = y[4], xend = x[5] - 0.055, yend = y[5] + 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_label(aes(label=label)) +
-  geom_text(data = coeffs, aes(x = x, y = y, label = label)) +
-  coord_cartesian(xlim = c(0.2, 0.8), ylim = c(0, 0.6)) +
-  theme_void()
-# Cleanup.
-rm(variables)
-```
-
-
-
-
-
-
-
-```{r mediation-selftest, fig.pos='H', fig.align='center', fig.cap="How does mediation work and how can we analyze mediation with regression models? The values to the arrows in the diagram are standardized regression coefficients.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Use app mediation-commoncause.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncause/", height="325px")
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
-
 ## Take-Home Points  
 
 * A causal or path model without causal feedback loops can be estimated as a series of regression models: one regression model for each variable that has at least one predictor in the path model.
@@ -831,7 +743,7 @@ knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncaus
 
 Read the little but very helpful book on the logic of causal order by James A. Davis [-@RefWorks:1494] for more information on causality and correlational analysis.
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 # Cleanup.
 rm(model_1, model_2)
 ```
