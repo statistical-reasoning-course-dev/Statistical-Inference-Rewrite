@@ -318,7 +318,7 @@ rm(results, report_n)
 
 In @sec-commonsupportdichotomous, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.
 
-With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. [-@RefWorks:3838] recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects. Create a histogram for the predictor in each of these groups to check common support of moderation in the data, as explained in micro lecture @fig-SPSSregSupport1.
+With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. [-@RefWorks:3838] recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects. Create a histogram for the predictor in each of these groups to check common support of moderation in the data, as explained in @vid-SPSSregSupport1.
 
 :::{#fig-cont-moderator-support}
 ```{r cont-moderator-support, echo=FALSE, message=FALSE, warning=FALSE, fig.pos='H', fig.align='center', out.width="640px"}

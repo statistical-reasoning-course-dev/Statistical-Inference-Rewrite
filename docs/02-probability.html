@@ -477,7 +477,7 @@ Figure&nbsp;2.1: Normal curve as theoretical approximation of a sampling distrib
 <div id="fig-normal-approx-proportion" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-approx-proportion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="555px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="315px" style="border:none;">
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-approx-proportion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -490,9 +490,96 @@ Figure&nbsp;2.2: How does the shape of the sampling distribution of sample propo
 <p>The rule of thumb for using the normal distribution as the sampling distribution of a sample proportion combines the two aspects by multiplying them and requiring the resulting product to be larger than five. If the probability of drawing a yellow candy is .2 and our sample size is 30, the product is .2 * 30 = 6, which is larger than five. So we may use the normal distribution as approximation of the sampling distribution.</p>
 <p>Note that this rule of thumb uses one minus the probability, if the probability is larger than .5. In other words, it uses the smaller of two probabilities: the probability that an observation has the characteristic and the probability that it has not. For example, if we want to test the probability of drawing a candy that is not yellow, the probability is .8 and we use 1 - 0.8 = 0.2, which is then multiplied by the sample size.</p>
 <p>Apart from the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>, there are several other theoretical probability distributions. We have the <a href="https://en.wikipedia.org/wiki/Binomial_distribution"><em>binomial distribution</em></a> for a proportion, the <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution"><em>t distribution</em></a> for one or two sample means, regression coefficients, and correlation coefficients, the <a href="https://en.wikipedia.org/wiki/F-distribution"><em>F distribution</em></a> for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution"><em>chi-squared distribution</em></a> for frequency tables and contingency tables.</p>
-<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in <span class="quarto-unresolved-ref">?tbl-thumb</span>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, <a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>).</p>
-<p><span class="quarto-unresolved-ref">?tbl-thumb</span> shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.</p>
-<p>In <span class="quarto-unresolved-ref">?tbl-thumb</span> the minimal required sample sizes for using theoretical approximation of sampling distributions are presented. If you plan to do a <em>t</em> test, each group should contain more than thirty cases. So if you intend to apply <em>t</em> tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.</p>
+<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in <a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, <a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>).</p>
+<div class="cell">
+<div id="tbl-thumb" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-thumb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: ules of thumb for using theoretical probability distributions.
+</figcaption>
+<div aria-describedby="tbl-thumb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Distribution</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Sample statistic</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Minimum sample size</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Other requirements</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Binomial distribution</td>
+<td style="text-align: left;">proportion</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">(Standard) normal distribution</td>
+<td style="text-align: left;">proportion</td>
+<td style="text-align: left;">times test proportion (&lt;= .5) &gt;= 5</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">(Standard) normal distribution</td>
+<td style="text-align: left;">one or two means</td>
+<td style="text-align: left;">&gt; 100</td>
+<td style="text-align: left;">OR variable is normally distributed in the population and population standard deviation is known (for each group)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t distribution</td>
+<td style="text-align: left;">one or two means</td>
+<td style="text-align: left;">each group &gt; 30</td>
+<td style="text-align: left;">OR variable is normally distributed in each group's population</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">t distribution</td>
+<td style="text-align: left;">(Pearson) correlation coefficient</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">variables are normally distributed in the population</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">t distribution</td>
+<td style="text-align: left;">(Spearman) rank correlation coefficient</td>
+<td style="text-align: left;">&gt; 30</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">t distribution</td>
+<td style="text-align: left;">regression coefficient</td>
+<td style="text-align: left;">20+ per independent variable</td>
+<td style="text-align: left;">See Chapter 8.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">F distribution</td>
+<td style="text-align: left;">3+ means</td>
+<td style="text-align: left;">all groups are more or less of equal size</td>
+<td style="text-align: left;">OR all groups have the same population variance</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">F distribution</td>
+<td style="text-align: left;">two variances</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">no conditions for Levene's F test</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">chi-squared distribution</td>
+<td style="text-align: left;">row or cell frequencies</td>
+<td style="text-align: left;">expected frequency &gt;= 1 and 80% &gt;= 5</td>
+<td style="text-align: left;">contingency table: 3+ rows or 3+ columns</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p><a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a> shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.</p>
+<p>In <a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a> the minimal required sample sizes for using theoretical approximation of sampling distributions are presented. If you plan to do a <em>t</em> test, each group should contain more than thirty cases. So if you intend to apply <em>t</em> tests, recruit more than thirty participants for each experimental group or more than thirty respondents for each group in your survey. If you expect non-response, that is, sampled participants or respondents unwilling to participate in your research, you should recruit more participants or respondents to have more than thirty observations in the end.</p>
 <p>Chi-squared tests require a minimum of five expected frequencies per category in a frequency distribution or cell in a contingency table. Your sample size should be at least the number of categories or cells times five to come even near this requirement. Regression analysis requires at least 20 cases per independent variable in the regression model.</p>
 <p>The variation of sample size across groups is important in analysis of variance (ANOVA), which uses the <em>F</em> distribution. If the number of cases is more or less the same across all groups, we do not have to worry about the variances of the dependent variable for the groups in the population. To be on the safe side, then, it is recommended to design your sampling strategy in such a way that you end up with more or less equal group sizes if you plan to use analysis of variance.</p>
 </section>
@@ -505,7 +592,7 @@ Figure&nbsp;2.2: How does the shape of the sampling distribution of sample propo
 </section>
 <section id="sec-complicatedsampling" class="level3" data-number="2.3.4">
 <h3 data-number="2.3.4" class="anchored" data-anchor-id="sec-complicatedsampling"><span class="header-section-number">2.3.4</span> More complicated sample statistics: differences</h3>
-<p>Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. <span class="quarto-unresolved-ref">?tbl-thumb</span>, however, contains more complicated sample statistics.</p>
+<p>Up to this point, we have focused on rather simple sample statistics such as the proportion of yellow candies or the average weight of candies in a sample. <a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a>, however, contains more complicated sample statistics.</p>
 <p>If we compare two groups, for instance, the average weight of yellow and red candies, the sample statistic for which we want to have a sampling distribution must take into account both the average weight of yellow candies and the average weight of red candies. The sample statistic that we are interested in is the difference between the averages of the two samples.</p>
 <div id="fig-mean-independent" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -660,7 +747,7 @@ Video&nbsp;2.5: Interpret bootstrap results in SPSS.
 </div>
 </div>
 </div>
-<p>By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see <span class="quarto-unresolved-ref">?tbl-thumb</span>.</p>
+<p>By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see <a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a>.</p>
 <p>If the conditions for using a theoretical probability distribution are not met or if we do not have a theoretical approximation to the sampling distribution, we use bootstrapping or an exact approach. We can always use bootstrapping but an exact approach is available only if the variables are categorical. An exact approach is more accurate than bootstrapping and approximation with a theoretical probability distribution, for example, the chi-squared distribution, so we prefer the exact approach over bootstrapping if we are dealing with categorical variables.</p>
 </section>
 <section id="take-home-points" class="level2" data-number="2.8">

@@ -1078,9 +1078,9 @@ Bayesian inference is intuitively appealing but it has not yet spread widely in 
 
 ### Criticisms of Null Hypothesis Significance Testing {#sec-criticismsNHST}
 
-In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch @vid-vidoe-cumming.
+In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch @vid-video-cumming.
 
-::: {#vid-vidoe-cumming}
+::: {#vid-video-cumming}
 {{< video https://www.youtube.com/embed/ez4DgdurRPg 
     width="100%" 
     height="315" 
@@ -1111,7 +1111,7 @@ If our sample is large or very large (a few thousand cases), small differences b
 Any effect can be statistically significant.
 :::
 
-It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In the video (@fig-vidoe-cumming), this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
+It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In @vid-video-cumming, this mistaken interpretation is expressed by the type of sound associated with a _p_ value: the lower the _p_ value of the test, the more joyous the sound.
 
 It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in @sec-binarydecision that our decision is a binary one, so, never forget:
 

@@ -190,7 +190,7 @@ If we use a theoretical probability distribution, we must assume that the condit
 ::: {#fig-normal-approx-proportion}
 
 ```{=html}
-<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="555px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="315px" style="border:none;">
 </iframe>
 ``` 
 How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?
@@ -208,6 +208,15 @@ Apart from the [normal distribution](https://en.wikipedia.org/wiki/Normal_distri
 
 For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in @tbl-thumb. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see @sec-moderationcat, @sec-regr-inference).
 
+```{r}
+#| label: tbl-thumb
+#| tbl-cap: "ules of thumb for using theoretical probability distributions."
+#| echo: false
+#| warning: false
+
+knitr::kable(rbind(c("Binomial distribution", "proportion", "-", "-"), c("(Standard) normal distribution", "proportion", "times test proportion (<= .5) >= 5", "-"), c("(Standard) normal distribution", "one or two means", "> 100", "OR variable is normally distributed in the population and population standard deviation is known (for each group)"), c("t distribution", "one or two means", "each group > 30", "OR variable is normally distributed in each group's population"), c("t distribution", "(Pearson) correlation coefficient", "-", "variables are normally distributed in the population"), c("t distribution", "(Spearman) rank correlation coefficient", "> 30", "-"), c("t distribution", "regression coefficient", "20+ per independent variable", "See Chapter 8."), c("F distribution", "3+ means", " all groups are more or less of equal size", "OR all groups have the same population variance"), c("F distribution", "two variances", "-", "no conditions for Levene's F test"), c("chi-squared distribution", "row or cell frequencies", "expected frequency >= 1 and 80% >= 5", "contingency table: 3+ rows or 3+ columns")), booktabs = TRUE, col.names = c("Distribution", "Sample statistic", "Minimum sample size", "Other requirements")) %>%
+  kable_styling(font_size = 12, latex_options = c("HOLD_position", "scale_down"))
+```
 
 @tbl-thumb shows the conditions that must be satisfied if we want to use a theoretical probability distribution to approximate a sampling distribution. Only if the conditions are met, the theoretical probability distribution resembles the sampling distribution sufficiently.
 
@@ -241,14 +250,6 @@ If we compare two groups, for instance, the average weight of yellow and red can
 ``` 
 How do we obtain a sampling distribution for the mean difference of two independent samples?
 :::
-
-
-
-
-
-
-
-
 
 If we draw a sample from both the red and yellow candies in the population, we may calculate the means for both samples and the difference between the two means. For example, the average weight of red candies in the sample bag is 2.76 grams and the average for yellow candies is 2.82 grams. For this pair of samples, the statistic of interest is 2.76 - 2.82 = -0.06, that is, the difference in average weight. If we repeat this many, many times and collect all differences between means in a distribution, we obtain the sampling distribution that we need.
 
