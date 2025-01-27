@@ -96,15 +96,11 @@ _Note_ a Fisher's exact test is automatically run when there is a 2x2 contingenc
 ::: {#vid-SPSSExact1}
 
 {{< video https://www.youtube.com/embed/SrfZeLvsHwg
-
     width="100%"
- 
     height="315" 
-
 >}}
 
-
-
+Perform an exact test in SPSS.
 :::
 
 
@@ -121,8 +117,18 @@ _Note_ a Fisher's exact test is automatically run when there is a 2x2 contingenc
 # Note that SPSS automatically executes a Fisher-exact test on a 2x2 table, that is, a table containing two rows and two columns. For larger tables, the _Exact_ option must be selected to get the exact test.
 ```
 
-```{r  SPSSExact2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:Exact2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/PlT28wfc6K4", height = "360px")
+::: {#vid-SPSSExact2}
+
+{{< video https://www.youtube.com/embed/PlT28wfc6K4
+    width="100%"
+    height="315" 
+>}}
+
+Interpret exact test results in SPSS.
+:::
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Interpret exact test results in SPSS.
 # Example: exact test on crosstab of candy colour and candy stickiness.
 # The output of a Fisher-exact test on the relation between candy colour and candy stickiness is shown below. We included column percentages in the cells and a symmetric measure of association (Phi and Cramer's V). 
@@ -416,15 +422,11 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 ::: {#vid-SPSSbootstrap1}
 
 {{< video https://www.youtube.com/embed/-6nQsBK4-E8
-
     width="100%"
- 
     height="315" 
-
 >}}
 
-
-
+Perform bootstrapping in SPSS.
 :::
 
 
@@ -448,7 +450,7 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 
 {{< video https://www.youtube.com/embed/6E2LgeMtkL4
     width="100%"
-     height="315" 
+    height="315" 
 >}}
 
 Interpret bootstrap results in SPSS. 

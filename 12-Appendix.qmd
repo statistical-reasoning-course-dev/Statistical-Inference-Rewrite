@@ -20,149 +20,75 @@ An interactive tool for test selection made by [Matt Jackson-Wood](https://schol
 
 ## All SPSS Tutorial Videos List {-}
 
-__@sec-probmodels: Probability Models: How Do I Get a Sampling Distribution?__
+Chapter @sec-probmodels
 
-(ref:bootstrap1SPSS) Bootstrapping in SPSS.
+* @vid-SPSSbootstrap1: Bootstrapping in SPSS.
+* @vid-SPSSbootstrap2: Interpreting bootstrap results in SPSS.
+* @vid-SPSSExact1: Performing an exact test in SPSS.
+* @vid-SPSSExact2: Interpreting exact test results in SPSS.
 
-(ref:bootstrap2SPSS) Interpreting bootstrap results in SPSS.
+Chapter @sec-param-estim
 
-(ref:Exact1SPSS) Performing an exact test in SPSS.
+* @vid-SPSSconflevel: Setting the confidence level in SPSS.
 
-(ref:Exact2SPSS) Interpreting exact test results in SPSS.
+Chapter @sec-hypothesis
 
-* Video @fig-SPSSbootstrap1: (ref:bootstrap1SPSS)
-* Video @fig-SPSSbootstrap2: (ref:bootstrap2SPSS)
-* Video @fig-SPSSExact1: (ref:Exact1SPSS)
-* Video @fig-SPSSExact2: (ref:Exact2SPSS)
+* @vid-SPSSbinomial: A binomial test on a single proportion in SPSS.
+* @vid-SPSSchisq1: A chi-squared test on a frequency distribution in SPSS.
+* @vid-SPSS1mean: A one-sample _t_ test in SPSS.
 
-__@sec-param-estim: Estimating a Parameter: Which Population Values Are Plausible?__
+Chapter @sec-anova
 
-(ref:conflevelSPSS) Setting the confidence level in SPSS.
+* @vid-SPSS1way: One-way analysis of variance (ANOVA) in SPSS.
+* @vid-SPSS2way: Two-way analysis of variance with moderation in SPSS.
+* @vid-SPSSeta2: Calculating eta^2^ from SPSS output.
 
-* Video @fig-SPSSconflevel: (ref:conflevelSPSS)
+Chapter @sec-moderationcat
 
-__@sec-hypothesis: Testing a Null Hypothesis: Am I Right or Am I Wrong?__
+* @vid-SPSSregsimple: Executing and interpreting regression analysis in SPSS.
+* @vid-SPSSregdummy2: Creating dummy variables in SPSS.
+* @vid-SPSSregdummy: Using dummy variables in a regression model in SPSS.
+* @vid-SPSSregassumpt: Checking assumptions for regression models in SPSS.
+* @vid-SPSSregpred: Creating categorical by numerical interaction predictors for regression in SPSS.
+* @vid-SPSSregcatmod: Estimating categorical by numerical moderation with regression in SPSS.
+* @vid-SPSSregmodlines: Representing moderation by regression lines in a scatterplot in SPSS.
+* @vid-SPSSregSupport1: Checking common support for a predictor at different moderator values in SPSS.
 
-(ref:binomialSPSS) A binomial test on a single proportion in SPSS.
+Chapter @sec-moderationcont
 
-(ref:chisq1SPSS) A chi-squared test on a frequency distribution in SPSS.
+* @vid-SPSSregcenter: Mean-centering variables for regression analysis in SPSS.
+* @vid-SPSSreglines2: Regression lines for a numerical moderator in a scatterplot in SPSS.
+* @vid-SPSSregSupport2: Checking common support with a numerical moderator in SPSS.
 
-(ref:1meanSPSS) A one-sample _t_ test in SPSS.
+Chapter @sec-confounder
 
-* Video @fig-SPSSbinomial: (ref:binomialSPSS)
-* Video @fig-SPSSchisq1: (ref:chisq1SPSS)
-* Video @fig-SPSS1mean: (ref:1meanSPSS)
+* @vid-SPSSregconfound: Identifying confounders with regression in SPSS.
 
-__@sec-power: Which Sample Size Do I Need? Power!__
+Chapter @sec-mediation
 
-(ref:cohendtitle) Obtaining Cohen's _d_ with SPSS.
+* @vid-SPSSmediatpar: Estimating a single or parallel mediation model with PROCESS (Model 4).
+* @vid-SPSSmediatserial: Estimating a serial mediation model with PROCESS (Model 6).
+* @vid-SPSSmediatcov: Estimating a mediation model including covariates with PROCESS.
+* @vid-SPSSpath: Estimating a path model in SPSS.
 
-* Video @fig-cohend: (ref:cohendtitle)
+Appendix: Variance / Association
 
-__@sec-anova: Moderation with Analysis of Variance__
-
-(ref:1waySPSS) One-way analysis of variance (ANOVA) in SPSS.
-
-(ref:2waySPSS) Two-way analysis of variance with moderation in SPSS.
-
-(ref:eta2SPSS) Calculating eta^2^ from SPSS output.
-
-* Video @fig-SPSS1way: (ref:1waySPSS)
-* Video @fig-SPSS2way: (ref:2waySPSS)
-* Video @fig-SPSSeta2: (ref:eta2SPSS)
-
-__@sec-moderationcat: Regression Analysis And A Categorical Moderator__
-
-(ref:regsimpleSPSS) Executing and interpreting regression analysis in SPSS.
-
-(ref:regdummy2SPSS) Creating dummy variables in SPSS.
-
-(ref:regdummySPSS) Using dummy variables in a regression model in SPSS.
-
-(ref:regassumptSPSS) Checking assumptions for regression models in SPSS.
-
-(ref:regpredSPSS) Creating categorical by numerical interaction predictors for regression in SPSS.
-
-(ref:regcatmodSPSS) Estimating categorical by numerical moderation with regression in SPSS.
-
-(ref:regmodlinesSPSS) Representing moderation by regression lines in a scatterplot in SPSS.
-
-(ref:regSupport1SPSS) Checking common support for a predictor at different moderator values in SPSS.
-
-* Video @fig-SPSSregsimple: (ref:regsimpleSPSS)
-* Video @fig-SPSSregdummy2: (ref:regdummy2SPSS)
-* Video @fig-SPSSregdummy: (ref:regdummySPSS)
-* Video @fig-SPSSregassumpt: (ref:regassumptSPSS)
-* Video @fig-SPSSregpred: (ref:regpredSPSS)
-* Video @fig-SPSSregcatmod: (ref:regcatmodSPSS)
-* Video @fig-SPSSregmodlines: (ref:regmodlinesSPSS)
-* Video @fig-SPSSregSupport1: (ref:regSupport1SPSS)
-
-__@sec-moderationcont: Regression Analysis With A Numerical Moderator__
-
-(ref:regcenterSPSS) Mean-centering variables for regression analysis in SPSS.
-
-(ref:reglines2SPSS) Regression lines for a numerical moderator in a scatterplot in SPSS.
-
-(ref:regSupport2SPSS) Checking common support with a numerical moderator in SPSS.
-
-* Video @fig-SPSSregcenter: (ref:regcenterSPSS)
-* Video @fig-SPSSreglines2: (ref:reglines2SPSS)
-* Video @fig-SPSSregSupport2: (ref:regSupport2SPSS)
-
-__@sec-confounder: Regression Analysis And Confounders__
-
-(ref:regconfoundSPSS) Identifying confounders with regression in SPSS.
-
-* Video @fig-SPSSregconfound: (ref:regconfoundSPSS)
-
-__@sec-mediation: Mediation with Regression Analysis__
-
-(ref:mediatparSPSS) Estimating a single or parallel mediation model with PROCESS (Model 4).
-
-(ref:mediatserialSPSS) Estimating a serial mediation model with PROCESS (Model 6).
-
-(ref:mediatcovSPSS) Estimating a mediation model including covariates with PROCESS.
-
-(ref:pathSPSS) Estimating a path model in SPSS.
-
-* Video @fig-SPSSmediatpar: (ref:mediatparSPSS)
-* Video @fig-SPSSmediatserial: (ref:mediatserialSPSS)
-* Video @fig-SPSSmediatcov: (ref:mediatcovSPSS)
-* Video @fig-SPSSpath: (ref:pathSPSS)
-
-__Appendix: Variance / Association__
-
-(ref:SPSSLevene) Levene's _F_ test on equal variances in SPSS.
-
-(ref:SPSSTindep) Independent samples _t_ test on two means.
-
-(ref:SPSSTpaired) Paired samples _t_ test on two means.
-
-(ref:SPSScorrelation) Test on a correlation.
-
-(ref:SPSSchisqcross) Chi-squared test on a contingency table (crosstab).
-
-* Video @fig-SPSSLevene: (ref:SPSSLevene)
-* Video @fig-SPSSTindep: (ref:SPSSTindep)
-* Video @fig-SPSSTpaired: (ref:SPSSTpaired)
-* Video @fig-SPSScorrelation: (ref:SPSScorrelation)
-* Video @fig-SPSSchisqcross: (ref:SPSSchisqcross)
+* @vid-SPSSLevene: Levene's _F_ test on equal variances in SPSS.
+* @vid-SPSSTindep: Independent samples _t_ test on two means.
+* @vid-SPSSTpaired: Paired samples _t_ test on two means.
+* @vid-SPSScorrelation: Test on a correlation.
+* @vid-SPSSchisqcross: Chi-squared test on a contingency table (crosstab).
+* @vid-cohend: Obtaining Cohen's _d_ with SPSS.
 
 ## Formulating Statistical Hypotheses {-}
 
 A _research hypothesis_ is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:  
 
 * a television station reaches half of all households in a country,
-
 * media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children,  
-
 * opinions about immigrants are not equally polarized among young and old voters,  
-
 * the celebrity endorsing a fundraising campaign makes a difference to people's willingness to donate,  
-
 * more exposure to brand advertisements increases brand awareness,
-
 * and so on.  
 
 As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need such statistics to test a hypothesis. The researcher must translate the hypothesis into a new hypothesis specifying a statistic in the population, for example, the population mean. The new hypothesis is called a _statistical hypothesis_.  
@@ -538,9 +464,15 @@ The sample outcome can be a single mean, for instance the average weight of cand
 
 ### Obtaining Cohen's *d* with SPSS
 
-```{r cohend, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:cohendtitle)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/HmyW7HRM64Q", height = "360px")
-```
+::: {#vid-cohend}
+
+{{< video https://www.youtube.com/embed/HmyW7HRM64Q
+    width="100%"
+    height="315" 
+>}}
+
+Obtaining Cohen's *d* with SPSS
+:::
 
 It is, relatively easy to calculate Cohen's _d_ by hand from SPSS output. Remember that we must divide the unstandardized effect by the standard deviation, though the latest versions of SPSS can also produce this in the output.
 
