@@ -4,8 +4,9 @@ source("R_setup.R")
 
 # Estimating a Parameter {#sec-param-estim}
 
->Which Population Values Are Plausible?
-Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.
+> Which Population Values Are Plausible?
+
+> Key concepts: point estimate, interval estimate, confidence (level), precision, standard error, critical value, confidence interval.
 
 
 ### Summary {-}
@@ -21,14 +22,6 @@ In this chapter, we set out to make educated guesses of a population value (para
 Our second guess uses the sampling distribution to make a statement about the approximate population value. In essence, we calculate an interval that we are confident will contain the population value. We can increase our confidence by widening the interval, but this decreases the precision of our guess.
 
 ## Point Estimate
-
-```{r point-estimates", fig.pos='H', fig.align='center', fig.pos='H', fig.align='center', fig.cap="A sample from a population with unknown proportion of yelow candies.", eval=FALSE, echo=FALSE}
-# A button allows to draw a sample of size 20 from a population with five colours and random proportion of yellow candies within the range .10 .40 ; the sample is shown as a dotplot (stacks of coloured dots) with the proportion of yellow as a number ; result: true population proportion, sample proportion, and student's proportion with current winner (closest to true population proportion) and a bar chart showing cumulative number of wins for sample proportion versus student's choice.
-
-@fig-point-estimates generates random samples from a population of candies for which we do not know the proportion of yellow candies. It uses the sample proportion as estimate of the population proportion. Note that each sample is drawn from a different population. 
-
-1. Can you do better than the sample proportion? Draw a sample and guess the population proportion. See which estimate is better. Repeat this until you are convinced that you can or cannot do better than the sample proportion.  
-```
 
 If we have to name one value for the population value, our best guess is the value of the sample statistic. For example, if 18% of the candies in our sample bag are yellow, our best guess for the proportion of yellow candies in the population of all candies from which this bag was filled, is .18. What other number can we give if we only have our sample? This type of guess is called a _point estimate_ and we use it a lot.  
 

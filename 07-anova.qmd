@@ -6,11 +6,17 @@ source("R_setup.R")
 
 > Key concepts: eta-squared, between-groups variance, within-groups variance, *F* test on analysis of variance model, pairwise comparisons, post-hoc tests, one-way analysis of variance, two-way analysis of variance, balanced design, main effects, moderation, interaction effect.
 
-Watch this micro lecture on moderation with analysis of variance for an overview of the chapter.
+Watch the micro lecture (@vid-intro-anova) on moderation with analysis of variance for an overview of the chapter.
 
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/klV2FFgH9OU", height = "360px")
-```
+::: {#vid-intro-anova}
+
+{{< video https://www.youtube.com/embed/klV2FFgH9OU
+    width="100%"
+    height="360" 
+>}}
+
+Introduction to analysis of variance.
+:::
 
 ### Summary {.unnumbered}
 

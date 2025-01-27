@@ -8,11 +8,17 @@ source("R_setup.R")
 
 > Key concepts: bootstrapping/bootstrap sample, sampling with replacement, exact approach, approximation with a theoretical probability distribution, binomial distribution, (standard) normal distribution, (Student) _t_ distribution, _F_ distribution, chi-squared distribution, condition checks for theoretical probability distributions, sample size, equal population variances, independent samples, dependent/paired samples.
 
-Watch this micro lecture on probability models for an overview of the chapter.
+Watch the micro lecture @vid-intro-prob-models on probability models for an overview of the chapter.
 
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/zA6_9Mbg8d0", height = "360px")
-```
+::: {#vid-intro-prob-models}
+
+{{< video https://www.youtube.com/embed/zA6_9Mbg8d0
+    width="100%"
+    height="360" 
+>}}
+
+Introduction to probability models.
+:::
 
 ### Summary {-}
 

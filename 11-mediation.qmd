@@ -5,11 +5,17 @@ source("R_setup.R")
 # Mediation with Regression Analysis {#sec-mediation}
 > Key concepts: causality, causal and time order, common cause, direct, indirect, and total effects, causal model, path diagram and path model, parallel and serial mediation, partial mediation, covariate, controlling mediator values.
 
-Watch this micro lecture on mediation for an overview of the chapter.
+Watch this micro lecture on mediation for an overview of the chapter (@vid-intro-mediation).
 
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/_cKP8d3ROtM", height = "360px")
-```
+::: {#vid-intro-mediation}
+
+{{< video https://www.youtube.com/embed/_cKP8d3ROtM
+    width="100%"
+    height="360" 
+>}}
+
+Introduction to mediation.
+:::
 
 ### Summary {-}
 

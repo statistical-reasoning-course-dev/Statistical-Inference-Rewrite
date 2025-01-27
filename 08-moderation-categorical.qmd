@@ -6,11 +6,17 @@ source("R_setup.R")
 
 > Key concepts: regression equation, dummy variables, normally distributed residuals, linearity, homoscedasticity, independent observations, statistical diagram, interaction variable, covariate, common support, simple slope, conditional effect.
 
-Watch this micro lecture on regression analysis with a categorical moderator for an overview of the chapter.
+Watch this micro lecture on regression analysis with a categorical moderator for an overview of the chapter (@vid-intro-moderation).
 
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/lDkGyTvPzOY", height = "360px")
-```
+::: {#vid-intro-moderation}
+
+{{< video https://www.youtube.com/embed/lDkGyTvPzOY
+    width="100%"
+    height="360" 
+>}}
+
+Introduction to moderation with categorical variables.
+:::
 
 ### Summary {.unnumbered}
 

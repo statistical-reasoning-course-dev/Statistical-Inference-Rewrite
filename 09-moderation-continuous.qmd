@@ -5,11 +5,18 @@ source("R_setup.R")
 
 > Key concepts: interaction variable, common support, simple slope, conditional effect, mean-centering.
 
-Watch this micro lecture on regression models with a numerical moderator for an overview of the chapter.
+Watch this micro lecture (@vid-intro-mod-num) on regression models with a numerical moderator for an overview of the chapter.
 
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/sEwvuItAq6w", height = "360px")
-```
+
+::: {#vid-intro-mod-num}
+
+{{< video https://www.youtube.com/embed/sEwvuItAq6w
+    width="100%"
+    height="360" 
+>}}
+
+Introduction to moderation with numerical variables.
+:::
 
 ### Summary {.unnumbered}
 
