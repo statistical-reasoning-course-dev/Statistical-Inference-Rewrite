@@ -42,25 +42,14 @@ PROCESS output with estimated indirect and total effects of age on average newsp
 
 ## Mediation as Causal Process
 
-```{r mediation-commoncause, fig.pos='H', fig.align='center', fig.cap="How does a common cause affect regression coefficients? The values in this path diagram represent standardized regression coefficients.", echo=FALSE, screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-# Goal: Sensitize students to the concept of a common cause creating a spurious effect and mediation as indirect effect.
-# Display causal diagram of age (predictor), political interest (mediator), and newspaper reading time (outcome) including a curved arrow representing the indirect effect of the predictor via the mediator on the outcome (if difficult to program, then just add label: "Indirect efect: 0.24"). If easy to program: relate width of arrows to the effect size (with some minimum width). Add values of partial effect sizes as labels to all direct effects and the indirect effect. Allow the user to change the correlations among the three variables (sliders with range [-.9, .9], initial values random choice in more limited range) and adjust the effect sizes to them.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-commoncause/", height="325px")
-# # Initial correlations.
-# #correlation between Predictor and mediator.
-# r_PM <- round(runif(n = 1, min = -.7, max = .7), digits = 2)
-# #correlation between mediator and Outcome.
-# r_MO <- round(runif(n = 1, min = -.7, max = .7), digits = 2)
-# #correlation between Predictor and Outcome.
-# r_PO <- round(runif(n = 1, min = -.7, max = .7), digits = 2)
-# # Partial standardized regression coefficients.
-# b_PM <- r_PM
-# b_PO <- round((r_PO - r_PM*r_MO)/(1 - r_PM^2), digits = 2)
-# b_MO <- round((r_MO - r_PM*r_PO)/(1 - r_PM^2), digits = 2)
-# b_indirect <- round(b_PM * b_MO, digits = 2)
-```
+::: {#fig-mediation-commoncause .column-page-inset-right}
 
-
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-commoncause/" width="100%" height="325px" style="border:none;">
+</iframe>
+``` 
+How does a common cause affect regression coefficients? The values in this path diagram represent standardized regression coefficients.
+:::
 
 
 

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -37,10 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -252,7 +252,7 @@ window.Quarto = {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -297,11 +297,11 @@ window.Quarto = {
 <p>Because the effects of predictors are adjusted for the effects of other predictors, the effects of predictors may change if a new predictor is added to a regression model. The effects can become stronger (the new variable was a suppressor) or weaker and even change direction (the new variable was a reinforcer). For example, adding respondents’ news site use to the regression model predicting newspaper reading time from age may change the effect of age on newspaper reading time.</p>
 <p>Indirect correlations play a central role here: the correlation between a predictor (age) and the dependent variable (newspaper reading time) due to a third variable (news site use) that is correlated both with the predictor and the dependent variable. The size of the indirect correlation is the product of the correlation between the predictor (age) and third variable (news site use) and the correlation between the third variable (news site use) and the dependent variable (newspaper reading time).</p>
 </section>
-<section id="sec-controlling" class="level2" data-number="8.1">
+<section id="sec-controlling" class="level2 page-columns page-full" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="sec-controlling"><span class="header-section-number">8.1</span> Controlling for Effects of Other Predictors</h2>
 <p>In a regression model, we use the variation in scores on independent variables to predict the variation of scores on the dependent variable: Does a person with a higher score on an independent variable also have a higher score or, on the contrary, a lower score on the dependent variable? A simple regression model contains only one independent variable but a multiple regression model includes more than one.</p>
 <p>For example, European citizens who are more interested in politics spend more time on reading newspapers and so do citizens who are older. We have two independent variables (interest in politics and age) to predict the dependent variable (newspaper reading time). The two independent variables can be correlated: Older citizens tend to be more interested in politics. How does the regression model decide which independent variable is responsible for which part of the variation in the dependent variable?</p>
-<div id="fig-mediation-multipleregression" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-mediation-multipleregression" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mediation-multipleregression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-multipleregression/" width="100%" height="405px" style="border:none;">
@@ -329,9 +329,9 @@ Figure&nbsp;8.1: How do regression coefficients change if new predictors for rea
 </section>
 </section>
 </section>
-<section id="sec-indirectcorrelation" class="level2" data-number="8.2">
+<section id="sec-indirectcorrelation" class="level2 page-columns page-full" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="sec-indirectcorrelation"><span class="header-section-number">8.2</span> Indirect Correlation</h2>
-<div id="fig-mediation-indirectcorrelation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-mediation-indirectcorrelation" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mediation-indirectcorrelation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-indirectcorrelation/" width="100%" height="305px" style="border:none;">
@@ -371,9 +371,9 @@ Figure&nbsp;8.2: What happens to the regression coefficient for the effect of po
 <p>We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of females and males seeing Angelina Jolie in our example experiment, we can end up with more females than males seeing Jolie in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the sex of the participant, so participant sex is a confounder if it is also correlated with the dependent variable (willingness to donate) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders.</p>
 </section>
 </section>
-<section id="sec-confounders" class="level2" data-number="8.3">
+<section id="sec-confounders" class="level2 page-columns page-full" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="sec-confounders"><span class="header-section-number">8.3</span> Two Types of Confounders</h2>
-<div id="fig-mediation-confoundertypes" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-mediation-confoundertypes" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mediation-confoundertypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/" width="100%" height="305px" style="border:none;">
@@ -417,12 +417,9 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -441,12 +438,30 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_curve(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_curve(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -479,12 +494,9 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -503,12 +515,30 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -558,12 +588,9 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -582,12 +609,30 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.01, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -627,12 +672,9 @@ Figure&nbsp;8.4: Age as a confounder of the effect of interest in politics on ne
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
@@ -651,12 +693,30 @@ Figure&nbsp;8.4: Age as a confounder of the effect of interest in politics on ne
 ℹ Use `y` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$x` is discouraged.
 ℹ Use `x` instead.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Use of `variables$y` is discouraged.
 ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$x` is discouraged.
+ℹ Use `x` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use of `variables$y` is discouraged.
+ℹ Use `y` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -861,6 +921,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -976,6 +1038,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

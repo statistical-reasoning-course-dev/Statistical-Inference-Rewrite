@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -257,7 +257,7 @@ div.csl-indent {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -357,6 +357,31 @@ Figure&nbsp;5.2: How do group means relate to effect size?
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 3, y = d[1, 2], yend = d[1, 2]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[1, 2], yend = (d[2, 2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.02, y = (d[1, 2] + d[2, 2])/2, label = "Clooney effect", : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = d[1, 2], yend = (d[3, 2] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.98, y = (d[1, 2] + d[3, 2])/2, label = "Jolie effect", : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -526,7 +551,7 @@ Figure&nbsp;5.7: SPSS means plots of the interaction effect of sex and endorser 
 <div id="fig-anova-twoway" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/" width="100%" height="408px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/" width="100%" height="558px" style="border:none;">
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -595,6 +620,46 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="sec-maineffects"><span class="header-section-number">5.3.3</span> Main effects in two-way analysis of variance</h3>
 <p>A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to Clooney have the same average willingness to donate in the population as participants exposed to Jolie or those who are not exposed to an endorser. At the same time, it tests the null hypothesis that females and males have the same average willingness to donate in the population.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 3, y = willing[[1]], yend = willing[[1]]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.02, y = (willing[[1]] + willing[[2]])/2, : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = willing[[1]], yend = (willing[[3]] - : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.98, y = (willing[[1]] + willing[[3]])/2, : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 2, y = willing[[1]], yend = willing[[1]]), : All aesthetics have length 1, but the data has 2 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - : All aesthetics have length 1, but the data has 2 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 1.98, y = (willing[[1]] + willing[[2]])/2, : All aesthetics have length 1, but the data has 2 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -616,7 +681,7 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 <p>We could have used two separate one-way analyses of variance to test the same effects. Moreover, we could have tested the difference between females and males with an independent-samples <em>t</em> test. The results would have been the same (if the design is balanced.) But there is an important advantage to using a two-way analysis of variance, to which we turn in the next section.</p>
 </section>
 </section>
-<section id="sec-moderationanova" class="level2" data-number="5.4">
+<section id="sec-moderationanova" class="level2 page-columns page-full" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="sec-moderationanova"><span class="header-section-number">5.4</span> Moderation: Group-Level Differences that Depend on Context</h2>
 <p>In the preceding section, we have analyzed the effects both of endorser and sex on willingness to donate to a fund raiser. The two main effects isolate the influence of endorser on willingness from the effect of sex and the other way around. This assumes that endorser and sex have an effect on their own, a general effect.</p>
 <p>We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? We could hypothesize that males and females might react differently towards seeing a male or female celebrity, either because they find one of them more attractive or because they identify better with one or the other. Thus, we could expect that one endorser is more effective among female participants and the other among male participants.</p>
@@ -626,6 +691,16 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.05, yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -640,11 +715,11 @@ Figure&nbsp;5.9: Conceptual diagram of moderation.
 </figcaption>
 </figure>
 </div>
-<section id="types-of-moderation" class="level3" data-number="5.4.1">
+<section id="types-of-moderation" class="level3 page-columns page-full" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="types-of-moderation"><span class="header-section-number">5.4.1</span> Types of moderation</h3>
 <p>Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the <strong>Totals</strong> row and column contain the means for each factor separately, for example the means for males and females (factor sex) or the means for the endorsers (factor endorser). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.</p>
 <p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (<a href="#fig-anova-moderation" class="quarto-xref">Figure&nbsp;<span>5.10</span></a>).</p>
-<div id="fig-anova-moderation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-anova-moderation" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-moderation/" width="100%" height="305px" style="border:none;">
@@ -662,6 +737,36 @@ Figure&nbsp;5.10: How can we recognize main effects and moderation in a means pl
 <p>In analysis of variance, effects are differences between average outcome scores. The effect of Clooney on willingness to donate, for instance, is the difference between the average willingness score of participants exposed to Clooney and the average score of participants who were not exposed to a celebrity endorser.</p>
 <p>Different “Clooney effects” for female and male participants imply different differences! The difference in average willingness scores between females exposed to Clooney and females who are not exposed to an endorser is different from the difference in average scores for males. We have four subgroups with average willingness scores that we have to compare. We have six subgroups if we also include endorsement by Angelina Jolie.</p>
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[5, 3], yend = d[5, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[4, 3], yend = d[5, 3]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 2.02, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[1, 3], yend = (d[2, 3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[1, 3] + d[2, 3])/2, label = "Clooney effect\nfor males", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -683,6 +788,36 @@ Figure&nbsp;5.10: How can we recognize main effects and moderation in a means pl
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-effectdirmod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[5, 3], yend = d[5, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 2, xend = 2, y = d[4, 3], yend = d[5, 3]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 1.98, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 2.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[1, 3], yend = (d[2, 3] + : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[1, 3] + d[2, 3])/2, label = "Clooney effect\nfor males", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -702,6 +837,31 @@ Figure&nbsp;5.11: Moderation as a positive effect in one context and a negative 
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-effectdirmod2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 0.8, xend = 3.2, y = d[1, 3], yend = d[1, : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 1, xend = 1, y = d[4, 3], yend = (d[5, 3] - : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 0.98, y = (d[4, 3] + d[5, 3])/2, label = "Clooney effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_segment(aes(x = 3, xend = 3, y = d[4, 3], yend = d[6, 3]), : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = 3.02, y = (d[4, 3] + d[6, 3])/2, label = "Jolie effect\nfor females", : All aesthetics have length 1, but the data has 6 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -990,6 +1150,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1105,6 +1267,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

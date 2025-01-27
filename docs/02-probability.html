@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <link rel="stylesheet" href="styleX.css">
@@ -259,7 +259,7 @@ div.csl-indent {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -459,7 +459,7 @@ Figure&nbsp;2.1: Normal curve as theoretical approximation of a sampling distrib
 <div id="fig-normal-approx-proportion" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-approx-proportion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="305px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="555px" style="border:none;">
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-normal-approx-proportion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -514,9 +514,16 @@ Figure&nbsp;2.3: How do we obtain a sampling distribution for the mean differenc
 <section id="sec-dependentsamples" class="level3" data-number="2.3.6">
 <h3 data-number="2.3.6" class="anchored" data-anchor-id="sec-dependentsamples"><span class="header-section-number">2.3.6</span> Dependent samples</h3>
 <p>The example of a manipulated second toss is applicable to repeated measurements. If we want to know how quickly the yellow colour fades when yellow candies are exposed to sun light, we may draw a sample of yellow candies once and measure the colourfulness of each candy at least twice: at the start and end of some time interval. We compare the colourfulness of a candy at the second measurement to its colourfulness at the first measurement.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-dependent/?showcase=0" width="650px" height="580px" data-external="1">
+<div id="fig-mean-dependent" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mean-dependent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-dependent/" width="100%" height="580px" style="border:none;">
 </iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mean-dependent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Dependent samples.
+</figcaption>
+</figure>
 </div>
 <p>In this example, we are comparing two means, just like the yellow versus red candy weight example, but now the samples for both measurements are the same. It is impossible to draw the sample for the second measurement independently from the sample for the first measurement if we want to compare repeated measurements. Here, the second sample is fixed once we have drawn the first sample. The samples are <em>statistically dependent</em>; they are <em>paired samples</em>.</p>
 <p>With dependent samples, probabilities have to be calculated in a different way, so we need a special sampling distribution. In the interactive content above, you may have noticed a relatively simple solution for two repeated measurements. We just calculate the difference between the two measurements for each candy in the sample and use the mean of this new difference variable as the sample statistic that we are interested in. The <em>t</em>-distribution, again, offers a good approximation of the sampling distribution of dependent samples if the samples are not too small.</p>
@@ -529,21 +536,21 @@ Figure&nbsp;2.3: How do we obtain a sampling distribution for the mean differenc
 <p>In one case, SPSS automatically selects an exact approach if the conditions for a theoretical approximation are not met. If you apply a chi-squared test to a contingency table in SPSS, SPSS will automatically apply Fisher’s exact test if the table has two rows and two columns. In all other cases, you have to select bootstrapping or an exact approach yourself if the conditions for a theoretical approximation are not met.</p>
 <p>We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters.</p>
 </section>
-<section id="sec-boot-approx" class="level2" data-number="2.5">
+<section id="sec-boot-approx" class="level2 page-columns page-full" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-boot-approx"><span class="header-section-number">2.5</span> The Bootstrap Approximation of the Sampling Distribution</h2>
 <p>The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called <em>bootstrap samples</em>. The technique was developed by Bradley Efron <span class="citation" data-cites="RefWorks:3956 RefWorks:3957">(<a href="14-references.html#ref-RefWorks:3956" role="doc-biblioref">1979</a>; <a href="14-references.html#ref-RefWorks:3957" role="doc-biblioref">1987</a>)</span>. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.</p>
-<div id="fig-bootstrapping" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-bootstrapping" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bootstrapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/" width="100%" height="462px" style="border:none;">
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.4: How do we create a sampling distribution with bootstrapping?
+Figure&nbsp;2.5: How do we create a sampling distribution with bootstrapping?
 </figcaption>
 </figure>
 </div>
-<p>In <a href="#fig-bootstrapping" class="quarto-xref">Figure&nbsp;<span>2.4</span></a>, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.</p>
+<p>In <a href="#fig-bootstrapping" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>, an initial sample (left panel) has been drawn from a population containing five candy colours in equal proportions.</p>
 <div class="cell" type="rmdmunchhausen">
 
 <div class="rmdmunchhausen">
@@ -551,24 +558,24 @@ Figure&nbsp;2.4: How do we create a sampling distribution with bootstrapping?
 <a href="https://commons.wikimedia.org/wiki/File:M%C3%BCnchhausen-Sumpf-Hosemann.png">Picture: Baron von Münchhausen pulls himself and his horse out of a swamp. Theodor Hosemann (1807-1875), public domain, via Wikimedia Commons</a>
 </div>
 </div>
-<section id="sampling-with-and-without-replacement" class="level3" data-number="2.5.1">
+<section id="sampling-with-and-without-replacement" class="level3 page-columns page-full" data-number="2.5.1">
 <h3 data-number="2.5.1" class="anchored" data-anchor-id="sampling-with-and-without-replacement"><span class="header-section-number">2.5.1</span> Sampling with and without replacement</h3>
 <p>As we will see in <a href="03-estimation.html" class="quarto-xref"><span>Chapter 3</span></a>, for example <a href="03-estimation.html#sec-precisionsesamplesize" class="quarto-xref"><span>Section 3.3</span></a>, the size of a sample is very important to the shape of the sampling distribution. The sampling distribution of samples with twenty-five cases can be very different from the sampling distribution of samples with fifty cases. To construct a sampling distribution from bootstrap samples, the bootstrap samples must be exactly as large as the original sample.</p>
 <p>How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?</p>
-<div id="fig-replacement" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-replacement" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-replacement-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/" width="100%" height="448px" style="border:none;">
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-replacement-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.5: Sampling with and without replacement.
+Figure&nbsp;2.6: Sampling with and without replacement.
 </figcaption>
 </figure>
 </div>
 <p>If we allow every case in the original sample to be sampled only once, each bootstrap sample contains all cases of the original sample, so it is an exact copy of the original sample. Thus, we cannot create different bootstrap samples.</p>
 <p>By the way, we often use the type of sampling described above, which is called <em>sampling without replacement</em>. If a person is (randomly) chosen for our sample, we do not put this person back into the population so she or he can be chosen again. We want our respondents to fill out our questionnaire only once or participate in our experiment only once.</p>
-<p>If we do allow the same person to be chosen more than once, we sample <em>with replacement</em>. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in <a href="#fig-replacement" class="quarto-xref">Figure&nbsp;<span>2.5</span></a>. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.</p>
+<p>If we do allow the same person to be chosen more than once, we sample <em>with replacement</em>. The same person can occur more than once in a sample. Bootstrap samples are sampled with replacement from the original sample, so one bootstrap sample may differ from another. Some cases in the original sample may not be sampled for a bootstrap sample while other cases are sampled several times. You probably have noticed this in <a href="#fig-replacement" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>. Sampling with replacement allows us to obtain different bootstrap samples from the original sample, and still have bootstrap samples of the same size as the original sample.</p>
 <p>In conclusion, we sample bootstrap samples in a different way (with replacement) than participants for our research (without replacement).</p>
 </section>
 <section id="limitations-to-bootstrapping" class="level3" data-number="2.5.2">
@@ -581,7 +588,7 @@ Figure&nbsp;2.5: Sampling with and without replacement.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bootstrap-lim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.6: How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.
+Figure&nbsp;2.7: How is bootstrapping influenced by sample size? In the population, twenty per cent of the candies are yellow.
 </figcaption>
 </figure>
 </div>
@@ -775,6 +782,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -890,6 +899,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

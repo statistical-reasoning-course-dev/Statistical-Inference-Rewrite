@@ -163,7 +163,7 @@ If we use a theoretical probability distribution, we must assume that the condit
 ::: {#fig-normal-approx-proportion}
 
 ```{=html}
-<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="305px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/normal-approx-proportion/" width="100%" height="555px" style="border:none;">
 </iframe>
 ``` 
 How does the shape of the sampling distribution of sample proportions change with sample size and proportion value?
@@ -243,18 +243,14 @@ Imagine that a magnetic field is activated if the first coin lands with heads up
 
 The example of a manipulated second toss is applicable to repeated measurements. If we want to know how quickly the yellow colour fades when yellow candies are exposed to sun light, we may draw a sample of yellow candies once and measure the colourfulness of each candy at least twice: at the start and end of some time interval. We compare the colourfulness of a candy at the second measurement to its colourfulness at the first measurement.  
 
-```{r mean-dependent, fig.pos='H', fig.align='center', fig.cap="Dependent samples.", echo=FALSE, out.width="650px", screenshot.opts = list(delay = 5), dev="png"}
- # Demonstrate the construction of a sampling distribution for mean differences
- # for paired/dependent samples. Variant of mean-independent.
- # Simulate a small (N = 100)) population with a normal distribution (M = 5, SD = @).
- # The example of a manipulated second toss is applicable to repeated measurements.
- # Add button to draw 1,00 samples, with results displayed in the sampling
- # distribution (histogram in 3rd ro wof the app). Only store the totals of the
- # bars in the histogram, get rid of the original samples to save on memory?
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mean-dependent/", height="580px")
-```
+::: {#fig-mean-dependent}
 
-
+```{=html}
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mean-dependent/" width="100%" height="580px" style="border:none;">
+</iframe>
+``` 
+Dependent samples.
+:::
 
 
 
@@ -301,7 +297,7 @@ We are not going to practice with theoretical approximations in SPSS, now. Becau
 
 The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
 
-::: {#fig-bootstrapping}
+::: {#fig-bootstrapping .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping/" width="100%" height="462px" style="border:none;">
@@ -332,7 +328,7 @@ As we will see in @sec-param-estim, for example @sec-precisionsesamplesize, the 
 
 How can we draw many different bootstrap samples from the original sample if each bootstrap sample must contain the same number of cases as the original sample?
 
-::: {#fig-replacement}
+::: {#fig-replacement .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/bootstrapping-replacement/" width="100%" height="448px" style="border:none;">

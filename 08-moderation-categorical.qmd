@@ -81,11 +81,12 @@ If we want to predict the dependent variable ($y$), we ignore the error term ($e
 \normalsize
 \end{equation}
 ```
+
 ### A numerical predictor
 
 Let us first have a close look at a *simple regression equation*, that is, a regression equation with just one predictor ($x$). Let us try to predict attitude towards smoking from exposure to an anti-smoking campaign.
 
-::: {#fig-regression-continuous}
+::: {#fig-regression-continuous .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/regression-continuous/" width="100%" height="408px" style="border:none;">
@@ -162,7 +163,7 @@ We cannot see this in the regression equation, which allows us to plug in -10, 1
 
 Instead of a numerical independent variable, we can use a dichotomy as an independent variable in a regression model. The dichotomy is preferably coded as 1 versus 0, for example, 1 for smokers and 0 for non-smokers among our respondents.
 
-::: {#fig-regression-dichotomy}
+::: {#fig-regression-dichotomy .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/regression-dichotomy/" width="100%" height="330px" style="border:none;">
@@ -223,7 +224,7 @@ Therefore, it is recommended to interpret only the unstandardized regression coe
 
 How about a categorical variable containing three or more groups, for example, the distinction between respondents who smoke (smokers), stopped smoking (former smokers), and respondents who never smoked (non-smokers)? Can we include a categorical variable as an independent variable in a regression model? Yes, we can but we need a trick.
 
-::: {#fig-regression-categorical}
+::: {#fig-regression-categorical .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/regression-categorical/" width="100%" height="325px" style="border:none;">
@@ -370,7 +371,7 @@ Clustered data should also not be considered as independent observations. Think,
 
 To check the assumption of identically distributed observations, we inspect the residuals. Remember, the residuals are represented by the error term ($e$) in the regression equation. They are the difference between the scores that we observe for our respondents and the scores that we predict for them with our regression model.
 
-::: {#fig-resid-normal}
+::: {#fig-resid-normal .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/resid-normal/" width="100%" height="264px" style="border:none;">
@@ -401,7 +402,7 @@ The other two assumptions that we use tell us about problems in our model rather
 
 The regression models that we estimate assume a linear model. This means that an additional unit of the independent variable always increases or decreases the predicted value by the same amount. If our regression coefficient for the effect of exposure on attitude is -0.25, an exposure score of one predicts a 0.25 more negative attitude towards smoking than zero exposure. Exposure score five predicts the same difference in comparison to score four as exposure score ten in comparison to exposure score nine, and so on. Because of the linearity assumption, we can draw a regression model as a straight line. Residuals of the regression model help us to see whether the assumption of a linear effect is plausible.
 
-::: {#fig-pred-linearity}
+::: {#fig-pred-linearity .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/pred-linearity/" width="100%" height="460px" style="border:none;">
@@ -424,7 +425,7 @@ This indicates that our linear model does not fit the data. If it would fit, the
 
 The plot of residuals by predicted values of the dependent variable tells us more than whether a linear model fits the data.
 
-::: {#fig-pred-homoscedasticity}
+::: {#fig-pred-homoscedasticity .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/pred-homoscedasticity/" width="100%" height="460px" style="border:none;">
@@ -661,7 +662,7 @@ In the context of a regression model, moderation means **different slopes for di
 
 How do we obtain different regression coefficients and lines for smokers and non-smokers? The statistical trick is quite easy: Include an additional predictor in the model that is the product of the predictor (exposure) and the moderator (smoking status). This new predictor is the *interaction variable*. The regression coefficient of the interaction variable is called the *interaction effect*.
 
-::: {#fig-interaction-var}
+::: {#fig-interaction-var .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/interaction-var/" width="100%" height="440px" style="border:none;">
@@ -956,7 +957,7 @@ In a regression model with moderation, we have to interpret the effect of a pred
 
 For example, we need quite some observations for smokers to estimate the conditional effect of exposure on attitude for smokers. If there are hardly any smokers in our sample, we cannot estimate the effect of exposure on attitude for them in a reliable way. Even if we have quite some observations for smokers but all smokers have low exposure, we cannot say much about the effect of exposure on attitude for them. If we cannot say much about the effect within this group, we cannot say much about the difference between this effect and effects for other groups. In short, the moderation model is problematic in this situation.
 
-::: {#fig-common-support}
+::: {#fig-common-support .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/common-support/" width="100%" height="305px" style="border:none;">

@@ -321,7 +321,7 @@ For such continuous variables, we can estimate a sampling distribution around th
 
 Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.
 
-::: {#fig-nullsampling}
+::: {#fig-nullsampling .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/nullsampling/" width="100%" height="410px" style="border:none;">
@@ -547,7 +547,7 @@ In @fig-t-alpha-p, the blue vertical boundaries represent the critical value ass
 
 @fig-twosided represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.
 
-::: {#fig-twosided}
+::: {#fig-twosided .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/" width="100%" height="268px" style="border:none;">
@@ -788,7 +788,8 @@ The same reasoning is applied when using continuous sample statistics. Let's rev
 
 @fig-sample-size-power shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.
 
-::: {#fig-sample-size-power}
+::: {#fig-sample-size-power .column-page-inset-right
+}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/sample-size-power2/" width="100%" height="385px" style="border:none;">
@@ -865,7 +866,7 @@ Statistical software like SPSS usually reports either one-sided or two-sided _p_
 
 In @fig-onetwosided, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true that average media literacy is 5.5 in the population. This probability is the surface under the curve to the left of the solid red line representing the sample mean. It is the one-sided _p_ value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.
 
-::: {#fig-onetwosided}
+::: {#fig-onetwosided .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/onetwosided/" width="100%" height="268px" style="border:none;">
@@ -1101,7 +1102,7 @@ When our sample is small, say a few dozens of cases, the power to reject a null 
 
 If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. All in all, statistical significance on it's own, does not tell us much about the effect in the population. 
 
-::: {#fig-tiny-effects}
+::: {#fig-tiny-effects .column-page-inset-right}
 
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/tiny-effects/" width="100%" height="340px" style="border:none;">

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.5.45">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-b343bb23504f009ddf7b24643a6af19a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -89,9 +89,9 @@ div.csl-indent {
   }
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -299,7 +299,7 @@ window.Quarto = {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -423,7 +423,7 @@ H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
 <p>In the next chapters, we will cover the logic behind NHST, confidence intervals, and Bayesian statistics. We will also discuss how to select the appropriate statistical test for your research question, and how to report the results of your statistical tests.</p>
 </section>
 </section>
-<section id="sec-null-hypothesis-significance-testing" class="level2" data-number="4.2">
+<section id="sec-null-hypothesis-significance-testing" class="level2 page-columns page-full" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-null-hypothesis-significance-testing"><span class="header-section-number">4.2</span> Null Hypothesis Significance Testing</h2>
 <p>Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach <span class="citation" data-cites="RefWorks:3930">(<a href="14-references.html#ref-RefWorks:3930" role="doc-biblioref">Lehmann 1993</a>)</span>. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.</p>
 <p>The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criterion and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the <span class="math inline">\(H_0\)</span> hypothesis.</p>
@@ -487,7 +487,7 @@ Figure&nbsp;4.4: Discrete alternative binomial distributions.
 </div>
 <p>We will use both distributions in <a href="#fig-twobinom" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 4 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies?</p>
 <p>Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent (<span class="math inline">\(H_0 = \text{true}\)</span>) or that there is something going on (<span class="math inline">\(H_0 \neq \text{true}\)</span>).</p>
-<section id="sec-alpha" class="level3" data-number="4.2.1">
+<section id="sec-alpha" class="level3 page-columns page-full" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="sec-alpha"><span class="header-section-number">4.2.1</span> Alpha</h3>
 <p>The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, <span class="math inline">\(\alpha\)</span>. This is the probability of rejecting the null hypothesis when it is in reality true. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top left quadrant.</p>
 <p>As a researcher, you decide how much risk you are willing to take to make a type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for <span class="math inline">\(\alpha\)</span> is .05, which means that you accept a 5% chance of making a type I error of rejecting the null hypothesis when it is in reality true.</p>
@@ -501,22 +501,6 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 <div aria-describedby="tbl-nullprobtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-</tr>
-</thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">#Y</td>
@@ -574,7 +558,7 @@ Figure&nbsp;4.5: H0 binomial distribution with critical values.
 <p>For continuous probability distributions, such as the normal distribution, it is possible to set the alpha level to exactly .05. For example the null hypothesis that average media literacy in the population of children equals 5.5 on a scale from one to ten.</p>
 <p>For such continuous variables, we can estimate a sampling distribution around the hypothesized population value using a theoretical approach (<a href="02-probability.html#sec-theoretical-approx" class="quarto-xref"><span>Section 2.3</span></a>). Remember (<a href="01-samplingdistr.html#sec-expectedvalue" class="quarto-xref"><span>Section 1.2.4</span></a>) that the population value is the expected value of the sampling distribution, that is, its mean (if the estimator is unbiased). The sampling distribution, then, is centered around the population value specified in the null hypothesis. This sampling distribution tells us the probabilities of all possible sample outcomes <em>if the null hypothesis is true</em>. It allows us to identify the most unlikely samples. In <strong>Step 2</strong> in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, we set the alpha level to .05. This means that we cut off 2.5% of the area in each tail of the sampling distribution. The <strong>critical values</strong> are the values that separate the 2.5% of the area in each tail from the 95% of the area in the middle. If we assume the population parameter to be 5.5, rejecting the null hypothesis would again be a wrong decision. Thus setting the boundary by using an alpha level of .05, would yield a wrong decision in 5% of the samples we take. Just like the discrete candy color case, we decide to reject <span class="math inline">\(H_0\)</span> on the outside of the critical value and not reject <span class="math inline">\(H_0\)</span> on the inside of the critical value. In <strong>Step 4</strong> in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, we add the result of a sample. You can redraw multiple samples by clicking the button in the app.</p>
 <p>Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.</p>
-<div id="fig-nullsampling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-nullsampling" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nullsampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/nullsampling/" width="100%" height="410px" style="border:none;">
@@ -632,7 +616,7 @@ Figure&nbsp;4.7: HA binomial distributions with critical values.
 </blockquote>
 <p>For continuous variables, as described in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for continuous variables is the same as for the discrete variables.</p>
 </section>
-<section id="sec-pvalue" class="level3" data-number="4.2.6">
+<section id="sec-pvalue" class="level3 page-columns page-full" data-number="4.2.6">
 <h3 data-number="4.2.6" class="anchored" data-anchor-id="sec-pvalue"><span class="header-section-number">4.2.6</span> P-value</h3>
 <p>We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the <em>p-value</em> of the test, which is sometimes referred to as <em>significance</em> or <em>Sig.</em> in SPSS.</p>
 <blockquote class="blockquote">
@@ -677,7 +661,7 @@ Figure&nbsp;4.8: T-distributions with alpha level and p-value.
 </div>
 <p>In <a href="#fig-t-alpha-p" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>, the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
 <p><a href="#fig-twosided" class="quarto-xref">Figure&nbsp;<span>4.9</span></a> represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.</p>
-<div id="fig-twosided" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-twosided" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-twosided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/" width="100%" height="268px" style="border:none;">
@@ -807,7 +791,7 @@ Figure&nbsp;4.11: Discrete binomial distributions showing post hoc power.
 <!-- [to-do] add communication meta analysis example. -->
 <p>Meta-analysis is a good example of combining research efforts to increase our understanding. It is useful to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept <em>New Statistics</em>. See Cumming’s book <span class="citation" data-cites="RefWorks:3883">(<a href="14-references.html#ref-RefWorks:3883" role="doc-biblioref">2012</a>)</span>, <a href="http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci">website</a>, or <a href="https://www.youtube.com/user/geoffdcumming">YouTube channel</a> if you are curious to learn more.</p>
 </section>
-<section id="sec-sample-size" class="level3" data-number="4.2.11">
+<section id="sec-sample-size" class="level3 page-columns page-full" data-number="4.2.11">
 <h3 data-number="4.2.11" class="anchored" data-anchor-id="sec-sample-size"><span class="header-section-number">4.2.11</span> Sample size</h3>
 <p>As stated in <a href="#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In <a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.12</span></a>, we increased the number of candies in the bag to 20. We can see on the x-axis that the possible outcome space for the number of yellow candies in the bag is now 0 to 20. This still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 candies is now <span class="math inline">\(.5 \times 20 = 10\)</span>, right in the middle of our distribution.</p>
 <p><a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.12</span></a> still follows the reasoning scheme we have setup earlier. We decide to reject <span class="math inline">\(H_0\)</span> on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an <span class="math inline">\(\alpha = .05\)</span>. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.</p>
@@ -828,7 +812,7 @@ Figure&nbsp;4.12: Discrete binomial distributions for higher sample size.
 </div>
 <p>The same reasoning is applied when using continuous sample statistics. Let’s revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let’s say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%.</p>
 <p><a href="#fig-sample-size-power" class="quarto-xref">Figure&nbsp;<span>4.13</span></a> shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.</p>
-<div id="fig-sample-size-power" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-sample-size-power" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sample-size-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/sample-size-power2/" width="100%" height="385px" style="border:none;">
@@ -867,7 +851,7 @@ Figure&nbsp;4.14: Power analysis in G*Power for a binomial distribution
 <p>Something to consider is that with extremely large sample sizes you will very easily find significant results. Even if these results are not practically relevant. This is why it is important to determine the sample size you need before you start collecting data.</p>
 </section>
 </section>
-<section id="sec-one-twosidedtests" class="level3" data-number="4.2.12">
+<section id="sec-one-twosidedtests" class="level3 page-columns page-full" data-number="4.2.12">
 <h3 data-number="4.2.12" class="anchored" data-anchor-id="sec-one-twosidedtests"><span class="header-section-number">4.2.12</span> One-Sided and Two-Sided Tests</h3>
 <p>As was explained in <a href="#sec-alternative-hypothesis" class="quarto-xref"><span>Section 4.1.2</span></a>, the alternative hypothesis can be one-sided or two-sided. The choice between a one-sided or two-sided test is based on the research question. In our media literacy example, we could have a one-sided alternative hypothesis that the average media literacy is below 5.5. This would be the case if we hypothesize that children on average score very low on media literacy. We could also have a different hypothesis, that a media literacy intervention program will increase media literacy. Both would be a one-sided alternative hypothesis. We could also have no idea about the media literacy of children, and just want to know if children score below or above 5.5 on media literacy. This would be a two-sided alternative hypothesis. <a href="#eq-MediaAlt" class="quarto-xref">Equation&nbsp;<span>4.4</span></a> formalizes these different hypothesis.</p>
 <p><span id="eq-MediaAlt"><span class="math display">\[
@@ -895,11 +879,11 @@ Figure&nbsp;4.15: One-sided and two-sided tests of a null hypothesis.
 <p>If it is deemed important to note values well over 5.5 as well as values well below 5.5, the alternative hypotheses should be two-sided. Then, a sample average well below 5.5 would also have resulted in a rejection of the null hypothesis.</p>
 <p><a href="#fig-nonsig-1sided" class="quarto-xref">Figure&nbsp;<span>4.15</span></a> shows the <span class="math inline">\(H_0\)</span> distribution of the sample mean 5.5. The dark blue areas represent the 5% probability for a two-sided te st, 2.5% on either side. The light blue areas represent the 5% probability for a one-sided (right-sided) test. The critical value for the one-sided test is 7.8, and the critical values for the two-sided test are 2.9 and 8.1. The critical value is the value that separates the rejection region from the non-rejection region. Where the rejection region are the values on the x-axis that are on the outside of the critical value.</p>
 <p>You can take a sample and see the result of the sample in the figure. You can then determine if the sample mean is significant at a 5% significance level for a right-sided test, and a two-sided test.</p>
-<section id="from-one-sided-to-two-sided-p-values-and-back-again" class="level4" data-number="4.2.12.1">
+<section id="from-one-sided-to-two-sided-p-values-and-back-again" class="level4 page-columns page-full" data-number="4.2.12.1">
 <h4 data-number="4.2.12.1" class="anchored" data-anchor-id="from-one-sided-to-two-sided-p-values-and-back-again"><span class="header-section-number">4.2.12.1</span> From one-sided to two-sided <em>p</em> values and back again</h4>
 <p>Statistical software like SPSS usually reports either one-sided or two-sided <em>p</em> values. What if a one-sided <em>p</em> value is reported but you need a two-sided <em>p</em> value or the other way around?</p>
 <p>In <a href="#fig-onetwosided" class="quarto-xref">Figure&nbsp;<span>4.16</span></a>, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true that average media literacy is 5.5 in the population. This probability is the surface under the curve to the left of the solid red line representing the sample mean. It is the one-sided <em>p</em> value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.</p>
-<div id="fig-onetwosided" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-onetwosided" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-onetwosided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/onetwosided/" width="100%" height="268px" style="border:none;">
@@ -1060,7 +1044,7 @@ Figure&nbsp;4.18: What is the most sensible interpretation of the results repres
 <p>Remember that we are not allowed to interpret the 95% confidence interval as a probability (<a href="03-estimation.html" class="quarto-xref"><span>Chapter 3</span></a>)? We should never conclude that the parameter is between the upper and lower limits of our confidence interval with 95 per cent probability. This is because a parameter does not have a probability in frequentist inference. The <em>credible interval</em> (sometimes called <em>posterior interval</em>) is the Bayesian equivalent of the confidence interval. In Bayesian inference, a parameter has a probability, so we are allowed to say that the parameter lies within the credible interval with 95% probability. This interpretation is much more in line with our intuitive notion of probabilities.</p>
 <p>Bayesian inference is intuitively appealing but it has not yet spread widely in the social and behavioral sciences. Therefore, I merely mention this strand of statistical inference and I refrain from giving details. Its popularity, however, is increasing, so you may come in contact with Bayesian inference sooner or later.</p>
 </section>
-<section id="sec-critical-discussion" class="level2" data-number="4.7">
+<section id="sec-critical-discussion" class="level2 page-columns page-full" data-number="4.7">
 <h2 data-number="4.7" class="anchored" data-anchor-id="sec-critical-discussion"><span class="header-section-number">4.7</span> Critical Discussion</h2>
 <section id="sec-criticismsNHST" class="level3" data-number="4.7.1">
 <h3 data-number="4.7.1" class="anchored" data-anchor-id="sec-criticismsNHST"><span class="header-section-number">4.7.1</span> Criticisms of Null Hypothesis Significance Testing</h3>
@@ -1079,11 +1063,11 @@ Figure&nbsp;4.19: The dance of the <em>p</em> values by Geoff Cumming.
 <p>I hope that by now, <a href="#sec-null-hypothesis-significance-testing" class="quarto-xref"><span>Section 4.2</span></a> has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that “studies have found that in many areas of Psychology, the median size effect is .5”. Though blaming the <em>p</em>-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> distributions in the video it is clear to see that both distributions overlap.</p>
 <p>Most criticism of null hypothesis significance testing focuses on the <em>p</em>-value as a decision criterion. This critique is justified when not taking every aspect of the Neyman Pearson approach into consideration. The result has been an enormous amount of under powered studies and a failure to replicate seminal studies from the last decade.</p>
 </section>
-<section id="statistical-significance-is-not-a-measure-of-effect-size" class="level3" data-number="4.7.2">
+<section id="statistical-significance-is-not-a-measure-of-effect-size" class="level3 page-columns page-full" data-number="4.7.2">
 <h3 data-number="4.7.2" class="anchored" data-anchor-id="statistical-significance-is-not-a-measure-of-effect-size"><span class="header-section-number">4.7.2</span> Statistical significance is not a measure of effect size</h3>
 <p>When our sample is small, say a few dozens of cases, the power to reject a null hypothesis is rather small, so it often happens that we retain the null hypothesis even if it is wrong. There is a lot of uncertainty about the population if our sample is small. So we must be lucky to draw a sample that is sufficiently at odds with the null hypothesis to reject it.</p>
 <p>If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. All in all, statistical significance on it’s own, does not tell us much about the effect in the population.</p>
-<div id="fig-tiny-effects" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-tiny-effects" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tiny-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/tiny-effects/" width="100%" height="340px" style="border:none;">
@@ -1316,6 +1300,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1431,6 +1417,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
