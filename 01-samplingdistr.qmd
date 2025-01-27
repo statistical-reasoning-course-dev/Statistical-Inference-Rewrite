@@ -4,11 +4,16 @@
 
 > Key concepts: inferential statistics, generalization, population, random sample, sample statistic, sampling space, random variable, sampling distribution, probability, probability distribution, discrete probability distribution, expected value/expectation, unbiased estimator, parameter, (downward) biased, representative sample, continuous variable, continuous probability distribution, probability density, (left-hand/right-hand) probability.
 
-Watch this micro lecture on sampling distributions for an overview of the chapter.
+Watch the micro lecture @vid-intro-sampling-distribution on sampling distributions for an overview of the chapter.
 
-```{r, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/GuJWgkSHywg", height = "360px")
-```
+::: {#vid-intro-sampling-distribution}
+{{< video https://www.youtube.com/embed/GuJWgkSHywg 
+    width="100%" 
+    height="315" 
+>}}
+
+Introduction to the sampling distribution.
+:::
 
 ### Summary {-}
 
@@ -69,10 +74,10 @@ The sample statistic is called a _random variable_. It is a variable because dif
 ### Sampling distribution  
 Some sample statistic outcomes occur more often than other outcomes. We can see this if we draw very many random samples from a population and collect the frequencies of all outcome scores in a table or chart. We call the distribution of the outcome scores of very many samples a _sampling distribution_.  
 
-::: {#fig-sampling-distribution}
+::: {#fig-sampling-distribution .column-page-inset-right}
 
 ```{=html}
-<iframe src="https://sharon-klinkenberg.shinyapps.io/sampling-distribution/" width="100%" height="825px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/sampling-distribution/" width="100%" height="425px" style="border:none;">
 </iframe>
 ``` 
 What is a sampling distribution?

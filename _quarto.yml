@@ -40,3 +40,11 @@ format:
   #   documentclass: scrreprt
 
 number-depth: 4
+
+# Define custom cross-references for embedded videos
+
+crossref:
+  custom:
+    - key: vid
+      kind: float
+      reference-prefix: Video

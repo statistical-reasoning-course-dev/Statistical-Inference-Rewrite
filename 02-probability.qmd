@@ -432,11 +432,6 @@ In principle, any sample statistic can be bootstrapped. SPSS, however, does not 
 
 SPSS reports bootstrapping results as confidence intervals. We will discuss confidence intervals in detail in the next chapter.
 
-
-
-
-
-
 ## When Do We Use Which Approach to the Sampling Distribution?
 
 ```{r decisionscheme, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Diagram for selecting the type of sampling distribution.", out.width="775px"}
@@ -446,52 +441,6 @@ knitr::include_graphics("figures/decision.png")
 By default, SPSS uses a theoretical approximation of the sampling distribution. Select the right test in SPSS and SPSS ensures that an appropriate theoretical probability distribution is used. You, however, must check whether the sample meets the conditions for using this theoretical probability distribution, see @tbl-thumb.
 
 If the conditions for using a theoretical probability distribution are not met or if we do not have a theoretical approximation to the sampling distribution, we use bootstrapping or an exact approach. We can always use bootstrapping but an exact approach is available only if the variables are categorical. An exact approach is more accurate than bootstrapping and approximation with a theoretical probability distribution, for example, the chi-squared distribution, so we prefer the exact approach over bootstrapping if we are dealing with categorical variables.
-
-<!-- ## Test Your Understanding
-
-```{r models-summary1, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="How do we bootstrap a sampling distribution?", screenshot.opts = list(delay = 5), dev="png", out.width="775px"}
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/bootstrapping/", height="462px")
-```
-
-
-
-
-
-
-
-```{r models-summary-3, echo=FALSE}
-
-
-
-
-
-```{r models-summary2, echo=FALSE, out.width="420px", fig.pos='H', fig.align='center', fig.cap="How do we approximate a sampling distribution with a theoretical probability distribution?", screenshot.opts = list(delay = 5), dev="png", out.width="420px"}
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/normal-approximation/", height="300px")
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
 
 ## Take-Home Points  
 

@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -253,10 +253,16 @@ ul.task-list li input[type="checkbox"] {
 <blockquote class="blockquote">
 <p>Key concepts: inferential statistics, generalization, population, random sample, sample statistic, sampling space, random variable, sampling distribution, probability, probability distribution, discrete probability distribution, expected value/expectation, unbiased estimator, parameter, (downward) biased, representative sample, continuous variable, continuous probability distribution, probability density, (left-hand/right-hand) probability.</p>
 </blockquote>
-<p>Watch this micro lecture on sampling distributions for an overview of the chapter.</p>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://www.youtube.com/embed/GuJWgkSHywg" width="640px" height="360px" data-external="1">
-</iframe>
+<p>Watch the micro lecture <a href="#vid-intro-sampling-distribution" class="quarto-xref">Video&nbsp;<span>1.1</span></a> on sampling distributions for an overview of the chapter.</p>
+<div id="vid-intro-sampling-distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-intro-sampling-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/GuJWgkSHywg" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-intro-sampling-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;1.1: Introduction to the sampling distribution.
+</figcaption>
+</figure>
 </div>
 <section id="summary" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
@@ -284,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Traditionally, statistical inference is generalization from the data collected in a <em>random sample</em> to the population from which the sample was drawn. This approach is the focus of the present book because it is currently the most widely used type of statistical inference in the social sciences. We will, however, point out other approaches in <a href="04-hypothesis.html" class="quarto-xref"><span>Chapter 4</span></a>.</p>
 <p>Statistical inference is conceptually complicated and for that reason quite often used incorrectly. We will therefore spend quite some time on the principles of statistical inference. Good understanding of the principles should help you to recognize and avoid incorrect use of statistical inference. In addition, it should help you to understand the controversies surrounding statistical inference and developments in the practice of applying statistical inference that are taking place. Investing time and energy in fully understanding the principles of statistical inference really pays off later.</p>
 </section>
-<section id="sec-discreterandomvariable" class="level2" data-number="1.2">
+<section id="sec-discreterandomvariable" class="level2 page-columns page-full" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="sec-discreterandomvariable"><span class="header-section-number">1.2</span> A Discrete Random Variable: How Many Yellow Candies in My Bag?</h2>
 <p>An obvious but key insight in statistical inference is this: If we draw random samples from the same population, we are likely to obtain different samples. No two random samples from the same population need to be identical, even though they can be identical.</p>
 <section id="sec-samplestatistic" class="level3" data-number="1.2.1">
@@ -309,13 +315,13 @@ Figure&nbsp;1.1: How many yellow candies will our sample bag contain?
 <p>The number of yellow candies in a bag is an example of a <em>sample statistic</em>: a value describing a characteristic of the sample. Each bag, that is, each sample, has one outcome score on the sample statistic. For instance, one bag contains four yellow candies, another bag contains seven, and so on. All possible outcome scores constitute the <em>sampling space</em>. A bag of ten candies may contain 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, or 10 yellow candies. The numbers 0 to 10 are the sampling space of the sample statistic <em>number of yellow candies in a bag</em>.</p>
 <p>The sample statistic is called a <em>random variable</em>. It is a variable because different samples can have different scores. The value of a variable may vary from sample to sample. It is a random variable because the score depends on chance, namely the chance that a particular sample is drawn.</p>
 </section>
-<section id="sampling-distribution" class="level3" data-number="1.2.2">
+<section id="sampling-distribution" class="level3 page-columns page-full" data-number="1.2.2">
 <h3 data-number="1.2.2" class="anchored" data-anchor-id="sampling-distribution"><span class="header-section-number">1.2.2</span> Sampling distribution</h3>
 <p>Some sample statistic outcomes occur more often than other outcomes. We can see this if we draw very many random samples from a population and collect the frequencies of all outcome scores in a table or chart. We call the distribution of the outcome scores of very many samples a <em>sampling distribution</em>.</p>
-<div id="fig-sampling-distribution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-sampling-distribution" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-sampling-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/sampling-distribution/" width="100%" height="825px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/sampling-distribution/" width="100%" height="425px" style="border:none;">
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sampling-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -474,6 +480,7 @@ The top-left histogram shows the distribution of candies according to colour in 
 
 
 
+
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/sampling-distribution/?showcase=0" width="775px" height="425px" data-external="1"></iframe>
 :::
@@ -481,6 +488,7 @@ The top-left histogram shows the distribution of candies according to colour in 
 ::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/p-values/?showcase=0" width="420px" height="260px" data-external="1"></iframe>
 :::
+
 
 
 
