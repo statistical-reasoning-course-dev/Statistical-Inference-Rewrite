@@ -93,6 +93,35 @@ div.csl-indent {
 <link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styleX.css">
 </head>
@@ -539,9 +568,15 @@ Figure&nbsp;5.7: SPSS means plots of the interaction effect of sex and endorser 
 </figcaption>
 </figure>
 </div>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://www.youtube.com/embed/_2MmzWRcm2k" width="640px" height="360px" data-external="1">
-</iframe>
+<div id="vid-SPSS1way" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSS1way-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/_2MmzWRcm2k" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS1way-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;5.1: Execute one-way analysis of variance in SPSS.
+</figcaption>
+</figure>
 </div>
 </section>
 </section>
@@ -1014,14 +1049,26 @@ Table&nbsp;5.2: An example of a table summarizing results of a two-way analysis 
 <h2 data-number="5.6" class="anchored" data-anchor-id="sec-twowaySPSS"><span class="header-section-number">5.6</span> Two-Way Analysis of Variance in SPSS</h2>
 <section id="instructions-1" class="level3" data-number="5.6.1">
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">5.6.1</span> Instructions</h3>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://www.youtube.com/embed/BUqAm1H7FW8" width="640px" height="360px" data-external="1">
-</iframe>
+<div id="vid-SPSS2way" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSS2way-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/BUqAm1H7FW8" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS2way-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;5.2: Executure two-way analysis of variance in SPSS
+</figcaption>
+</figure>
 </div>
 <hr>
-<div class="cell" data-layout-align="center" data-screenshot.opts="{&quot;delay&quot;:5}">
-<iframe src="https://www.youtube.com/embed/NWn8ty5BnDE" width="640px" height="360px" data-external="1">
-</iframe>
+<div id="vid-SPSSeta2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSeta2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/NWn8ty5BnDE" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSeta2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;5.3: Calculating <span class="math inline">\(\eta^2\)</span> from SPSS output.
+</figcaption>
+</figure>
 </div>
 <!-- ## Test Your Understanding
 

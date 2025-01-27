@@ -382,8 +382,19 @@ It is also possible to construct the entire sampling distribution in exact appro
 
 ### Instruction
 
-```{r SPSSconflevel, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:conflevelSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/GoGrsHpfIWM", height = "360px")
+::: {#vid-SPSSconflevel}
+
+{{< video https://www.youtube.com/embed/GoGrsHpfIWM
+    width="100%"
+    height="315" 
+>}}
+
+Displays the 95% confidence intervals in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # SPSS usually displays the 95% confidence interval automatically if you use the standard-normal (_z_) or _t_ distribution.
 # * t tests on one or two means: 95% CI displayed. Adjust confidence level under options.
 # * post-hoc tests with 1WAY-ANOVA: 95% CI by default, adjust significance level (under Post-Hoc) to change confidence level (1 - significance level)

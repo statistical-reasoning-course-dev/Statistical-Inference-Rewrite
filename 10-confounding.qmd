@@ -308,8 +308,19 @@ In the first model, interest in politics is the only predictor. One additional u
 
 ###  Instructions
 
-```{r SPSSregconfound, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regconfoundSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/Du2mzxWifCM", height = "360px")
+::: {#vid-SPSSregconfound}
+
+{{< video https://www.youtube.com/embed/Du2mzxWifCM
+    width="100%"
+    height="315" 
+>}}
+
+Stepwise regression.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # "stepwise" regression: Add predictors in blocks (and leave Method at Enter) if you want to specify the order in which predictors are added to the model.
 # Note: basic regression video in Ch. 4, checking assumptions (and plotting regression line) video in Ch. 8.
 

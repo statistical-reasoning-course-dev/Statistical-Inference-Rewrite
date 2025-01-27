@@ -93,8 +93,23 @@ _Note_ a Fisher's exact test is automatically run when there is a 2x2 contingenc
 
 ### Instructions
 
-```{r SPSSExact1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:Exact1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/SrfZeLvsHwg", height = "360px")
+::: {#vid-SPSSExact1}
+
+{{< video https://www.youtube.com/embed/SrfZeLvsHwg
+
+    width="100%"
+ 
+    height="315" 
+
+>}}
+
+
+
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Perform an exact test in SPSS.
 # Example: exact test on crosstab of candy colour and candy stickiness.
 # If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an _Exact_ button. You will find it in the dialog for contingency tables (_Analyze>Descriptive Statistics>Crosstabs_) and in several legacy dialogs for non-parametric tests (_Analyze>Nonparametric Tests>Legacy Dialogs_). 
@@ -398,8 +413,23 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 
 ### Instructions
 
-```{r SPSSbootstrap1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:bootstrap1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/-6nQsBK4-E8", height = "360px")
+::: {#vid-SPSSbootstrap1}
+
+{{< video https://www.youtube.com/embed/-6nQsBK4-E8
+
+    width="100%"
+ 
+    height="315" 
+
+>}}
+
+
+
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Perform bootstrapping in SPSS.
 # Example: candies.sav, independent-samples t test, average weight of red (colour = 4) and yellow (colour = 4) candies.
 # 
@@ -414,8 +444,19 @@ knitr::include_url("https://www.youtube.com/embed/-6nQsBK4-E8", height = "360px"
 # BCa bootstrap does not work for data with more than a few hundred cases? In tests with SPSS V25, the median is sometimes not bootstrapped with 550 cases (and sometimes it is).
 ```
 
-```{r SPSSbootstrap2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:bootstrap2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/6E2LgeMtkL4", height = "360px")
+::: {#vid-SPSSbootstrap2}
+
+{{< video https://www.youtube.com/embed/6E2LgeMtkL4
+    width="100%"
+     height="315" 
+>}}
+
+Interpret bootstrap results in SPSS. 
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Interpret bootstrap results in SPSS. 
 # SPSS generates the sampling distribution in the background, so you cannot see it. SPSS just provides new p values ( _Sig._ ) and confidence intervals marked as _Bootstrap_. Report these values instead of the "ordinary" p value and confidence interval. For example, a bootstrapped independent-samples t test on the difference between the average weight of yellow and red candies produces the following output in SPSS.
 # 

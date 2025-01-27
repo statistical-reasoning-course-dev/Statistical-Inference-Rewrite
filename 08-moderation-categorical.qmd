@@ -516,8 +516,19 @@ Simple regression lines showing the effect of exposure on attitude towards smoki
 
 ### Instructions
 
-```{r SPSSregsimple, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regsimpleSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/XrxlCOi6SgE", height = "360px")
+::: {#vid-SPSSregsimple}
+
+{{< video https://www.youtube.com/embed/XrxlCOi6SgE
+    width="100%"
+     height="315" 
+>}}
+
+Asymmetric association as prediction
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: asymmetric association as prediction
 # Example: consumers.sav, brand awareness by advertisement exposure
 # Technique: regression with confidence intervals
@@ -529,8 +540,19 @@ knitr::include_url("https://www.youtube.com/embed/XrxlCOi6SgE", height = "360px"
 
 ------------------------------------------------------------------------
 
-```{r SPSSregdummy2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regdummy2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/c2b4dtlPS54", height = "360px")
+::: {#vid-SPSSregdummy2}
+
+{{< video https://www.youtube.com/embed/c2b4dtlPS54
+    width="100%"
+    height="315" 
+>}}
+
+Creating dummy variables in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Creating dummy variables in SPSS.
 # Goal: Understand creating dummy variables.
 # Example: smokers.sav, respondent's smoking status ( 3 categories).
@@ -540,8 +562,19 @@ knitr::include_url("https://www.youtube.com/embed/c2b4dtlPS54", height = "360px"
 
 ------------------------------------------------------------------------
 
-```{r SPSSregdummy, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regdummySPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/Vs26zuwAZdk", height = "360px")
+::: {#vid-SPSSregdummy}
+
+{{< video https://www.youtube.com/embed/Vs26zuwAZdk
+    width="100%"
+    height="315" 
+>}}
+
+Using dummy variables in a regression model in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Using dummy variables in a regression model in SPSS.
 # Example: smokers.sav, predict the attitude towards smoking from exposure to an anti-smoking campaign and respondent's smoking status (dummies).
 # SPSS menu: Transform > Create Dummy Variables
@@ -551,8 +584,19 @@ knitr::include_url("https://www.youtube.com/embed/Vs26zuwAZdk", height = "360px"
 
 ------------------------------------------------------------------------
 
-```{r SPSSregassumpt, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regassumptSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/hx2qdaVhlaM", height = "360px")
+::: {#vid-SPSSregassumpt}
+
+{{< video https://www.youtube.com/embed/hx2qdaVhlaM
+    width="100%"
+    height="315" 
+>}}
+
+Inspecting residuals.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Inspecting residuals.  (see Chapter 4 on hypothesis testing for video about regression basics.)
 # Example: smokers.sav, predict the attitude towards smoking from exposure to an anti-smoking campaign and respondent's smoking status.
 # Technique: regression analysis
@@ -1179,8 +1223,18 @@ The effects of exposure on attitude for non-smokers and smokers. Both smokers an
 
 ### Instructions
 
-```{r SPSSregpred, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regpredSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/5ORuOV4obUU", height = "360px")
+::: {#vid-SPSSregpred}
+{{< video https://www.youtube.com/embed/5ORuOV4obUU
+    width="100%"
+    height="315" 
+>}}
+
+Creating categorical by numerical interaction predictors (2 methods).
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Creating categorical by numerical interaction predictors (2 methods).
 # Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable status2 and status3), use contact with smokers as a covariate.
 # SPSS menu: Transform > Compute Variable for status2 (already 0/1 variable) ; Transform > Create Dummy Variables for status3 (3 categories)
@@ -1195,8 +1249,19 @@ knitr::include_url("https://www.youtube.com/embed/5ORuOV4obUU", height = "360px"
 #   - Note: this procedure can also be used to create a numerical by numerical interaction variable
 ```
 
-```{r SPSSregcatmod, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regcatmodSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/9Yf2rHgoBt8", height = "360px")
+::: {#vid-SPSSregcatmod}
+
+{{< video https://www.youtube.com/embed/9Yf2rHgoBt8
+    width="100%"
+    height="315" 
+>}}
+
+Estimating categorical by numerical moderation with regression in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Estimating categorical by numerical moderation with regression in SPSS.
 # Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_), use contact with smokers as a covariate.
 # SPSS menu: linear regression, include descriptives for means and standard deviations of covariates for making reference lines.
@@ -1204,8 +1269,19 @@ knitr::include_url("https://www.youtube.com/embed/9Yf2rHgoBt8", height = "360px"
 # Check assumptions: See other video.
 ```
 
-```{r SPSSregmodlines, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regmodlinesSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/5KgpEjFzHiQ", height = "360px")
+::: {#vid-SPSSregmodlines}
+
+{{< video https://www.youtube.com/embed/5KgpEjFzHiQ
+    width="100%"
+    height="315" 
+>}}
+
+Representing moderation by regression lines in a scatterplot in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Representing moderation by regression lines in a scatterplot in SPSS.
 # Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_), use contact with smokers as a covariate.
 # Technique: linear regression
@@ -1228,8 +1304,19 @@ knitr::include_url("https://www.youtube.com/embed/5KgpEjFzHiQ", height = "360px"
 #     - close the Chart Editor
 ```
 
-```{r SPSSregSupport1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regSupport1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/kxX4rqsyWQQ", height = "360px")
+::: {#vid-SPSSregSupport1}
+
+{{< video https://www.youtube.com/embed/kxX4rqsyWQQ
+    width="100%"
+    height="315" 
+>}}
+
+Check common support for a predictor at different moderator values in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Check common support for a predictor at different moderator values in SPSS.
 # Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_), use contact with smokers as a covariate.
 # Technique: 

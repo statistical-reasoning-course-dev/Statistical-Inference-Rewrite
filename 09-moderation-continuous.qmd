@@ -612,8 +612,19 @@ Plot of the effect of exposure on attitude towards smoking for three levels of t
 
 ### Instructions
 
-```{r SPSSregcenter, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regcenterSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/yk1Uq1VHjpY", height = "360px")
+::: {#vid-SPSSregcenter}
+
+{{< video https://www.youtube.com/embed/yk1Uq1VHjpY
+    width="100%"
+    height="315" 
+>}}
+
+Mean-centering numerical variables.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Mean-centering numerical variables (both predictor and moderator) in SPSS.
 # Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
 # SPSS menu: 
@@ -625,8 +636,19 @@ knitr::include_url("https://www.youtube.com/embed/yk1Uq1VHjpY", height = "360px"
 
 ------------------------------------------------------------------------
 
-```{r SPSSreglines2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:reglines2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/ZKlFyu5HIjk", height = "360px")
+::: {#vid-SPSSreglines2}
+
+{{< video https://www.youtube.com/embed/ZKlFyu5HIjk
+    width="100%"
+    height="315" 
+>}}
+
+Graph regression lines for different moderator values.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Graph regression lines for different moderator values in a scatterplot.
 # Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers (both mean-centered), smoking status as covariate.
 # Techniques: using reference lines for M, M - SD, and M + SD ; with mean-centered moderator, add SD to obtain reference line for M - SD and M + SD.
@@ -636,8 +658,19 @@ knitr::include_url("https://www.youtube.com/embed/ZKlFyu5HIjk", height = "360px"
 
 ------------------------------------------------------------------------
 
-```{r SPSSregSupport2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:regSupport2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/x45Tv6nvta4", height = "360px")
+::: {#vid-SPSSregSupport2}
+
+{{< video https://www.youtube.com/embed/x45Tv6nvta4
+    width="100%"
+    height="315" 
+>}}
+
+Checking common support with a continuous moderator.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Checking common support with a continuous moderator; group moderator in 3 groups (terciles) and create (panelled) histograms for the predictor scores in each moderator group
 # Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
 # SPSS menu: Transform > Visual Binning

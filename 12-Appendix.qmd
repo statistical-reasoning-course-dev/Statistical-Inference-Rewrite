@@ -202,8 +202,19 @@ If the proportions in the sample do not differ more from the known proportions i
 
 
 
-```{r SPSSbinomial, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:binomialSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/tmdZpOSObco", height = "360px")
+::: {#vid-SPSSbinomial}
+
+{{< video https://www.youtube.com/embed/tmdZpOSObco
+    width="100%"
+    height="315" 
+>}}
+
+A binomial test on a single proportion.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 
 # A binomial test on a single proportion can be executed in SPSS with the command _Analyze > Nonparametric Tests > Binomial_. In the dialog , you have to enter a variable. 
 # 
@@ -219,8 +230,19 @@ knitr::include_url("https://www.youtube.com/embed/tmdZpOSObco", height = "360px"
 ```
 
 
-```{r SPSS1mean, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:1meanSPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/Gupx40D5bLY", height = "360px")
+::: {#vid-SPSS1mean}
+
+{{< video https://www.youtube.com/embed/Gupx40D5bLY
+    width="100%"
+    height="315" 
+>}}
+
+Execute a one sample t test in SPSS,
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # To execute a one sample t test in SPSS, use the command _ANALYZE > COMPARE MEANS > ONE SAMPLE T TEST_. Select a numeric variable in the dialog and enter the hypothesized population mean under _Test Value_. 
 # 
 # Media literacy is measured on a ten point scale. Is average media literacy (in the population) equal to 5.5? A one sample t test tells us that average media literacy in our sample (_M_ = 4.47, _SD_ = 1.64) is statistically significantly different from 5.5, _t_ (86) = -5.87, _p_ < .001, 95% CI [-1.38, -0.68]. We are confident that the population average media literacy score is 0.68 to 1.38 below 5.5, so somewhere between 4.12 and 4.82.
@@ -232,8 +254,19 @@ For a binomial test, see the video in @fig-SPSSbinomial. A one-sample chi-square
 
 
 
-```{r SPSSchisq1, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:chisq1SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/8DAau9jFUhA", height = "360px")
+::: {#vid-SPSSchisq1}
+
+{{< video https://www.youtube.com/embed/8DAau9jFUhA
+    width="100%"
+    height="315" 
+>}}
+
+One-sample chi-squared test.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # If we want to test a frequency distribution against a known or hypothesized population distribution, we must use a one-sample chi-squared test. This test is available in SPSS with the command _ANALYZE > NONPARAMETRIC TESTS > LEGACY DIALOGS > CHI SQUARE_. Select the categorical variable for which you want to test the distribution under _Test variable List_.
 # 
 # Select the option _All categories equal_ under _Expected Values_ if you hypothesize that all categories have the same proportions in the population. In the example, we hypothesize that households are equally distributed over the four regions. This is a plausible hypothesis if the four regions are known to contain a quarter of all households in the country or if the sample was stratified by region, that is, every region was meant to deliver the same number of households to the sample.
@@ -265,8 +298,19 @@ For a numeric variable, the variance or standard deviation---the latter is just 
 
 #### Instructions {-}
 
-```{r SPSSLevene, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:SPSSLevene)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/8k-OIXiRdCc", height = "360px")
+::: {#vid-SPSSLevene}
+
+{{< video https://www.youtube.com/embed/8k-OIXiRdCc
+    width="100%"
+    height="315" 
+>}}
+
+Levene's F test in SPSS
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Levene's F test for the null hypothesis that two groups have equal population variances is part of the independent-samples t test. 
 
 # The output in @fig-Levene-output shows that the polarization (variation) in attitudes towards immigrants is not the same among young and old voters, _F_ = 4.99, _p_ = .029. Polarization is stronger among old voters (_SD_ = 2.06) than among young voters (_SD_ = 1.26). 
@@ -309,8 +353,19 @@ If you closely inspect the choice diagram in @fig-flowchart, you will see that w
 
 #### Instructions {-}
 
-```{r SPSSTindep, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:SPSSTindep)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/g4O0oTVm-Tk", height = "360px")
+::: {#vid-SPSSTindep}
+
+{{< video https://www.youtube.com/embed/g4O0oTVm-Tk
+    width="100%"
+    height="315" 
+>}}
+
+Association as level differences between groups.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: association as level differences between groups: are females more wiling to donate to a fund raiser than males?
 # Example: donors.sav, outcome is willingness to donate (post), predictor (grouping variable) is sex (0, 1).
 # Technique: independent-samples t test.
@@ -322,8 +377,19 @@ knitr::include_url("https://www.youtube.com/embed/g4O0oTVm-Tk", height = "360px"
 
 ----
 
-```{r SPSSTpaired, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:SPSSTpaired)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/7mGKG3mLqN0", height = "360px")
+::: {#vid-SPSSTpaired}
+
+{{< video https://www.youtube.com/embed/7mGKG3mLqN0
+    width="100%"
+    height="315" 
+>}}
+
+Association as score level change.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: Association as score level change (due to intermediary treatment).
 # Example: donors.sav, outcome is willingness to donate post and prior exposure to a fund raiser campaign.
 # Technique: paired-samples t test ; repeated measurements.
@@ -367,8 +433,19 @@ Several measures exist that express the strength of the association between two 
 
 #### Instructions {-}
 
-```{r SPSScorrelation, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:SPSScorrelation)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/2g3Oyfe76h0", height = "360px")
+::: {#vid-SPSScorrelation}
+
+{{< video https://www.youtube.com/embed/2g3Oyfe76h0
+    width="100%"
+    height="315" 
+>}}
+
+Association as combinations of scores.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: association as combinations of scores
 # Example: consumers.sav, brand awareness by advertisement exposure
 # Technique: Pearson and Spearman correlations for two numeric variables
@@ -381,8 +458,19 @@ knitr::include_url("https://www.youtube.com/embed/2g3Oyfe76h0", height = "360px"
 
 ----
 
-```{r SPSSchisqcross, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:SPSSchisqcross)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/Nqtg8q-S0k8", height = "360px")
+::: {#vid-SPSSchisqcross}
+
+{{< video https://www.youtube.com/embed/Nqtg8q-S0k8
+    width="100%"
+    height="315" 
+>}}
+
+Association as relatively frequent/infrequent category combinations.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Goal: association as relatively frequent/infrequent category combinations
 # Example: consumers.sav, word of mouth and sex
 # Technique: cross-tabulation

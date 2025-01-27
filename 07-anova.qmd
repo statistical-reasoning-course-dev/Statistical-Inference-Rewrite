@@ -363,8 +363,19 @@ knitr::include_graphics("figures/S7_AE2.png")
 SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.
 :::
 
-```{r SPSS1way, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:1waySPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/_2MmzWRcm2k", height = "360px")
+::: {#vid-SPSS1way}
+
+{{< video https://www.youtube.com/embed/_2MmzWRcm2k
+    width="100%"
+     height="315" 
+>}}
+
+Execute one-way analysis of variance in SPSS.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Execute one-way analysis of variance in SPSS with Analyze > Compare Means > One-Way ANOVA {or use general Linear Model also for one-way? (MCRS probably uses Compare Means because it only disucsses one-way ANOVA) - between & within variance not labeled as such!).
 # Goal: association as level differences between three or more groups: Does the endorser matter to the level of willingness to donate to a fund raiser?
 # Example: donors.sav, outcome is willingness to donate (post), predictor (grouping variable) is endorser (0, 1).
@@ -844,8 +855,19 @@ An example of a table summarizing results of a two-way analysis of variance.
 
 ### Instructions
 
-```{r SPSS2way, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:2waySPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/BUqAm1H7FW8", height = "360px")
+::: {#vid-SPSS2way}
+
+{{< video https://www.youtube.com/embed/BUqAm1H7FW8
+    width="100%"
+    height="315" 
+>}}
+
+Executure two-way analysis of variance in SPSS
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
 # Video to executure two-way analysis of variance in SPSS
 # Goal: Test for moderation with categorical predictors (and a numerical dependent variable) 
 # Example: donors.sav, does the effect of celebrity endorsement on adults' willingness to donate differ for females and males?
@@ -858,9 +880,18 @@ knitr::include_url("https://www.youtube.com/embed/BUqAm1H7FW8", height = "360px"
 
 ------------------------------------------------------------------------
 
-```{r SPSSeta2, echo=FALSE, out.width="640px", fig.pos='H', fig.align='center', fig.cap="(ref:eta2SPSS)", dev="png", screenshot.opts = list(delay = 5)}
-knitr::include_url("https://www.youtube.com/embed/NWn8ty5BnDE", height = "360px")
-```
+::: {#vid-SPSSeta2}
+
+{{< video https://www.youtube.com/embed/NWn8ty5BnDE
+    width="100%"
+    height="315" 
+>}}
+
+Calculating $\eta^2$ from SPSS output.
+:::
+
+
+
 
 
 
