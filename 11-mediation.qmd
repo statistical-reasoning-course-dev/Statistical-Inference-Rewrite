@@ -289,9 +289,13 @@ If each indirect effect in a path model contains at most one mediator, we have _
 
 ```{r}
 #| label: fig-mediationparallel
-#| fig-cap: "Causal diagrams for single (left) and parallel mediation (right)."
+#| fig-cap: "Causal diagrams for:."
+#| fig-subcap: 
+#|   - "Single mediation."
+#|   - "Parallel mediation."
 #| echo: false
 #| warning: false
+#| layout-ncol: 2
 
 # Single mediation.
 # Create coordinates for the variable names.
@@ -302,9 +306,9 @@ ggplot(variables, aes(x, y)) +
   geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.09, yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
   geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
   geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
-  geom_label(aes(label=label), size = 7) + 
+  geom_label(aes(label=label), size = 5) + 
   coord_cartesian(xlim = c(0.2, 0.8), ylim = c(0, 0.8)) +
-  theme_void()
+  theme_void() 
 # Parallel mediation.
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7, 0.5), 
@@ -316,9 +320,13 @@ ggplot(variables, aes(x, y)) +
   geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.09, yend = y[4] + 0.01), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
   geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.09, yend = y[3] + 0.03), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
   geom_segment(aes(x = x[4], y = y[4], xend = x[3] - 0.09, yend = y[3] - 0.03), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_label(aes(label=label), size = 7) + 
+  geom_label(aes(label=label), size = 5) + 
   coord_cartesian(xlim = c(0.2, 0.8), ylim = c(0, 0.8)) +
-  theme_void()
+  theme_void() 
+
+
+# ggpubr::ggarrange(plot1, plot2, ncol = 2)
+
 # Cleanup.
 rm(variables)
 ```

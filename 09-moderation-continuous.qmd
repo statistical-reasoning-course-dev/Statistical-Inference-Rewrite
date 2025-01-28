@@ -505,9 +505,13 @@ Visualize the regression lines for different values of the moderator in addition
 
 ```{r}
 #| label: fig-report-moderator-visual
-#| fig-cap: "The effect of exposure on attitude towards smoking. Left: Effects for groups with different smoking status (at average contact with smokers). Right: Effects at different levels of contact with smokers (effects for non-smokers)."
+#| fig-cap: "The effect of exposure on attitude towards smoking."
+#| fig-subcap: 
+#|   - "Effects for groups with different smoking status (at average contact with smokers)."
+#|   - "Effects at different levels of contact with smokers (effects for non-smokers)."
 #| echo: false
 #| warning: false
+#| layout-ncol: 2
 
 # Create grouping variable. 
 status <- rep(0, n)
@@ -536,6 +540,7 @@ ggplot(df) +
   xlab("Exposure (mean-centered)") +
   ylab("Attitude towards smoking") +
   theme(legend.position = "bottom")
+
 # define colours.
 cl <- RColorBrewer::brewer.pal(5, "Blues")
 ggplot(df, aes(x = exposure_mc, y = attitude)) +
@@ -569,6 +574,8 @@ ggplot(df, aes(x = exposure_mc, y = attitude)) +
 #   ylab("Attitude towards smoking") +
 #   scale_color_continuous(breaks = c(mean(contact)-sd(contact), mean(contact), mean(contact)+sd(contact)), labels = c("M-SD", "M", "M+SD")) +
 #   theme(legend.position = "bottom", legend.key.size = unit(1.6, "cm") )
+
+# ggpubr::ggarrange(plot1, plot2, ncol = 2)
 
 #Cleanup.
 rm(ci, df, results, resultsF, table, attitude, cl, contact, exposure, former, n, regmodel_1, smoker, status, summ, report_n)

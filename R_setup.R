@@ -1,6 +1,13 @@
 
 # List of packages needed for the project
-list.of.packages <- c("tidyverse", "knitr", "kableExtra", "visNetwork", "RColorBrewer", "ggplot2", "dplyr", "stringr" )
+list.of.packages <- c("tidyverse", 
+                      "knitr", 
+                      "kableExtra", 
+                      "visNetwork", 
+                      "RColorBrewer", 
+                      "ggplot2", 
+                      "dplyr", 
+                      "stringr")
 
 # Install missing packages
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]

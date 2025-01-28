@@ -855,35 +855,44 @@ Figure&nbsp;7.7: Conceptual diagram of the estimated moderation model.
 <p>The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is -0.20.</p>
 <p>For a numerical moderator, we can interpret the general pattern reflected by the interaction effect. A positive interaction effect, such as 0.06 for the interaction between exposure and smoker contact, signals that the effect of exposure is more strongly positive or less strongly negative at higher levels of contact with smokers.</p>
 <p>This interpretation in terms of effect differences remains difficult to understand. It is recommended to select some interesting values for the moderator and report the size of the effect for each value. For a categorical moderator, each category is of interest. For a numerical moderator, the mean and one standard deviation below and above the mean are usually interesting values. The regression coefficients show whether the effect is positive, negative, or nearly zero at different values of the moderator.</p>
-<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span>), not the original predictor.</p>
-<div class="cell">
-<div class="cell-output-display">
+<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>), not the original predictor.</p>
+<div id="fig-report-moderator-visual" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-report-moderator-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-report-moderator-visual" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-report-moderator-visual-1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-report-moderator-visual-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="09-moderation-continuous_files/figure-html/fig-report-moderator-visual-1.png" class="img-fluid figure-img" width="672">
+<img src="09-moderation-continuous_files/figure-html/fig-report-moderator-visual-1.png" class="img-fluid figure-img" data-ref-parent="fig-report-moderator-visual" width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-report-moderator-visual-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.8: The effect of exposure on attitude towards smoking. Left: Effects for groups with different smoking status (at average contact with smokers). Right: Effects at different levels of contact with smokers (effects for non-smokers).
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-report-moderator-visual-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Effects for groups with different smoking status (at average contact with smokers).
 </figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output-display">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-report-moderator-visual" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div id="fig-report-moderator-visual-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
+<figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-report-moderator-visual-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="09-moderation-continuous_files/figure-html/fig-report-moderator-visual-2.png" class="img-fluid figure-img" width="672">
+<img src="09-moderation-continuous_files/figure-html/fig-report-moderator-visual-2.png" class="img-fluid figure-img" data-ref-parent="fig-report-moderator-visual" width="672">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-report-moderator-visual-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.9: The effect of exposure on attitude towards smoking. Left: Effects for groups with different smoking status (at average contact with smokers). Right: Effects at different levels of contact with smokers (effects for non-smokers).
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-report-moderator-visual-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Effects at different levels of contact with smokers (effects for non-smokers).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The left panel in <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
-<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <span class="quarto-unresolved-ref">?fig-report-moderator-visual</span>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-report-moderator-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: The effect of exposure on attitude towards smoking.
+</figcaption>
+</figure>
+</div>
+<p>The left panel in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
+<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
 <p>Do not report that common support of the predictor at different moderator values is good. If it is bad, warn the reader that we cannot fully trust the estimated moderation because we do not have a nice range of predictor values within each level of the moderator. If the predictor is supported only within a restricted range, you may report this range.</p>
 <p>Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.</p>
 </section>
@@ -892,7 +901,7 @@ Figure&nbsp;7.9: The effect of exposure on attitude towards smoking. Left: Effec
 <section id="essential-analytics" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
 <p>As in <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
-<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
+<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
 <div id="fig-meancentertable" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -907,14 +916,14 @@ Figure&nbsp;7.9: The effect of exposure on attitude towards smoking. Left: Effec
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.10: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
+Figure&nbsp;7.9: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
 </figcaption>
 </figure>
 </div>
 <p>It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
-<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
-<p>The regression coefficient of the interaction effect (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
-<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.11</span></a>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
+<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
+<p>The regression coefficient of the interaction effect (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
+<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
 <div id="fig-nummoderatorplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nummoderatorplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -929,7 +938,7 @@ Figure&nbsp;7.10: SPSS table of regression effects for a model in which the effe
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nummoderatorplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.11: Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers.
+Figure&nbsp;7.10: Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers.
 </figcaption>
 </figure>
 </div>
