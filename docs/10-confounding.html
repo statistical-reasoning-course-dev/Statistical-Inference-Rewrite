@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.45">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Regression Analysis And Confounders – Statistical Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./11-mediation.html" rel="next">
+<link href="./09-moderation-continuous.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styleX.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-confounding.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ShKlinkenberg/Statistical-Inference" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and Reader’s Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-samplingdistr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-moderation-categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-moderation-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-confounding.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mediation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-colophon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colophon</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#sec-controlling" id="toc-sec-controlling" class="nav-link" data-scroll-target="#sec-controlling"><span class="header-section-number">8.1</span> Controlling for Effects of Other Predictors</a>
+  <ul class="collapse">
+  <li><a href="#sec-partialeffect" id="toc-sec-partialeffect" class="nav-link" data-scroll-target="#sec-partialeffect"><span class="header-section-number">8.1.1</span> Partial effect</a></li>
+  <li><a href="#confounding-variables" id="toc-confounding-variables" class="nav-link" data-scroll-target="#confounding-variables"><span class="header-section-number">8.1.2</span> Confounding variables</a></li>
+  </ul></li>
+  <li><a href="#sec-indirectcorrelation" id="toc-sec-indirectcorrelation" class="nav-link" data-scroll-target="#sec-indirectcorrelation"><span class="header-section-number">8.2</span> Indirect Correlation</a>
+  <ul class="collapse">
+  <li><a href="#indirect-correlation-and-size-of-confounding" id="toc-indirect-correlation-and-size-of-confounding" class="nav-link" data-scroll-target="#indirect-correlation-and-size-of-confounding"><span class="header-section-number">8.2.1</span> Indirect correlation and size of confounding</a></li>
+  <li><a href="#sec-randomization" id="toc-sec-randomization" class="nav-link" data-scroll-target="#sec-randomization"><span class="header-section-number">8.2.2</span> Randomization for avoiding confounders</a></li>
+  </ul></li>
+  <li><a href="#sec-confounders" id="toc-sec-confounders" class="nav-link" data-scroll-target="#sec-confounders"><span class="header-section-number">8.3</span> Two Types of Confounders</a>
+  <ul class="collapse">
+  <li><a href="#sec-suppression" id="toc-sec-suppression" class="nav-link" data-scroll-target="#sec-suppression"><span class="header-section-number">8.3.1</span> Suppression</a></li>
+  <li><a href="#sec-spuriousness" id="toc-sec-spuriousness" class="nav-link" data-scroll-target="#sec-spuriousness"><span class="header-section-number">8.3.2</span> Reinforcement and spuriousness</a></li>
+  </ul></li>
+  <li><a href="#sec-compmodelSSPSS" id="toc-sec-compmodelSSPSS" class="nav-link" data-scroll-target="#sec-compmodelSSPSS"><span class="header-section-number">8.4</span> Comparing Regression Models in SPSS</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">8.4.1</span> Instructions</a></li>
+  </ul></li>
+  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">8.5</span> Take-Home Points</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/10-confounding.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/10-confounding.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-confounder" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>Key concepts: partial effect, statistically controlling for effects of other predictors, indirect correlation, confounders, suppression and suppressor, spuriousness and reinforcer.</p>
+</blockquote>
+<p>Watch this micro lecture on confounders for an overview of the chapter (<a href="#vid-intro-conf" class="quarto-xref">Video&nbsp;<span>8.1</span></a>).</p>
+<div id="vid-intro-conf" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-intro-conf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/AbGUdp9fTRU" width="100%" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-intro-conf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;8.1: Introduction to confounders.
+</figcaption>
+</figure>
+</div>
+<section id="summary" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>What happens if I use more than one predictor in a regression model? And do variables matter that are not in the regression model?</p>
+</div>
+</div>
+</div>
+<p>If we analyze the effects of two or more predictors on a dependent variable in a regression model, the effect of a predictor is adjusted for the effects of other predictors. Each predictor only predicts the part of the scores on the dependent variable that cannot be predicted by the other predictors. If we predict newspaper reading time, for example, from age and interest in politics, age predicts the part of newspaper reading time that interest in politics cannot predict.</p>
+<p>Because the effects of predictors are adjusted for the effects of other predictors, the effects of predictors may change if a new predictor is added to a regression model. The effects can become stronger (the new variable was a suppressor) or weaker and even change direction (the new variable was a reinforcer). For example, adding respondents’ news site use to the regression model predicting newspaper reading time from age may change the effect of age on newspaper reading time.</p>
+<p>Indirect correlations play a central role here: the correlation between a predictor (age) and the dependent variable (newspaper reading time) due to a third variable (news site use) that is correlated both with the predictor and the dependent variable. The size of the indirect correlation is the product of the correlation between the predictor (age) and third variable (news site use) and the correlation between the third variable (news site use) and the dependent variable (newspaper reading time).</p>
+</section>
+<section id="sec-controlling" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="sec-controlling"><span class="header-section-number">8.1</span> Controlling for Effects of Other Predictors</h2>
+<p>In a regression model, we use the variation in scores on independent variables to predict the variation of scores on the dependent variable: Does a person with a higher score on an independent variable also have a higher score or, on the contrary, a lower score on the dependent variable? A simple regression model contains only one independent variable but a multiple regression model includes more than one.</p>
+<p>For example, European citizens who are more interested in politics spend more time on reading newspapers and so do citizens who are older. We have two independent variables (interest in politics and age) to predict the dependent variable (newspaper reading time). The two independent variables can be correlated: Older citizens tend to be more interested in politics. How does the regression model decide which independent variable is responsible for which part of the variation in the dependent variable?</p>
+<div id="fig-mediation-multipleregression" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mediation-multipleregression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-multipleregression/" width="100%" height="405px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mediation-multipleregression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: How do regression coefficients change if new predictors for reading time are added to the model?
+</figcaption>
+</figure>
+</div>
+<section id="sec-partialeffect" class="level3" data-number="8.1.1">
+<h3 data-number="8.1.1" class="anchored" data-anchor-id="sec-partialeffect"><span class="header-section-number">8.1.1</span> Partial effect</h3>
+<p>How does a multiple regression model control the effect of an independent variable for the effects of all other independent variables? Conceptually, the regression model first removes the variation in the dependent variable that is predicted by all other independent variables. Then it determines how well the remaining independent variable predicts the variation that is left (residual variation). This is the variation in outcome scores that can be predicted by this particular independent variable but not by any of the other independent variables in the model.</p>
+<p>In this sense, a regression coefficient in a multiple regression model expresses the unique contribution of a variable to the prediction of the dependent variable. It is the contribution to the prediction of the dependent variable over and above the predictions that we can make with all other independent variables in the model. This is called a <em>partial effect</em>. This is what we mean if we say that we are <em>controlling for all other independent variables</em> in our interpretation of a regression model.</p>
+</section>
+<section id="confounding-variables" class="level3" data-number="8.1.2">
+<h3 data-number="8.1.2" class="anchored" data-anchor-id="confounding-variables"><span class="header-section-number">8.1.2</span> Confounding variables</h3>
+<p>It is important to note that the effect is only unique in comparison to the other independent variables that are included in the model. It may well be that we did not include variables in the model that are actually responsible for part of the effects that are attributed to the independent variables in the model. Such left-out variables are called <em>confounding variables</em> or, for short, <em>confounders</em>.</p>
+<p>If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In <a href="#fig-mediation-multipleregression" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In <a href="#sec-confounders" class="quarto-xref"><span>Section 8.3</span></a>, we will learn that regression coefficients can increase and decrease if confounders are included in the model.</p>
+<p>If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in <a href="11-mediation.html" class="quarto-xref"><span>Chapter 9</span></a> (<a href="11-mediation.html#sec-causalcriteria" class="quarto-xref"><span>Section 9.1.1</span></a>).</p>
+<section id="confounders-are-not-included-in-the-regression-model" class="level4" data-number="8.1.2.1">
+<h4 data-number="8.1.2.1" class="anchored" data-anchor-id="confounders-are-not-included-in-the-regression-model"><span class="header-section-number">8.1.2.1</span> Confounders are not included in the regression model</h4>
+<p>Finally, it is important to remember that a confounder, such as age in the present example, is a variable that is <strong>not included in our regression model</strong>. As long as it is not included, the indirect correlation between predictor (political interest) and outcome (newspaper reading time) due to the confounder (age) is not controlled for when the effect of the predictor is estimated. The estimated effect is confused (confounded) with the effect of the confounder.</p>
+<p>Once the confounder (age) is added to the regression model, however, the estimated effects are controlling for the variable formerly known as a confounder. The effects no longer partly represent the effect of the former confounder. In other words, they are no longer confounded by the effect of that variable. The former confounding variable now is a predictor or, if we are not interested in its effects, a <em>covariate</em> or <em>control variable</em> in the regression model.</p>
+</section>
+</section>
+</section>
+<section id="sec-indirectcorrelation" class="level2 page-columns page-full" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="sec-indirectcorrelation"><span class="header-section-number">8.2</span> Indirect Correlation</h2>
+<div id="fig-mediation-indirectcorrelation" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mediation-indirectcorrelation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-indirectcorrelation/" width="100%" height="305px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mediation-indirectcorrelation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2: What happens to the regression coefficient for the effect of political interest if we add a confounder to the model? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
+</figcaption>
+</figure>
+</div>
+<p>When is a variable a confounder and when does it change the effect of another predictor a lot if it is added to the regression model? The answer to the first part of this question is easy: A <em>confounder</em> is a variable that is correlated with both the predictor and dependent variable but is not (yet) included in the regression model. Because of the correlations, a confounder establishes an <em>indirect correlation</em> between the predictor and dependent variable.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A confounder is a variable that is correlated with both the predictor and dependent variable but is not included in the regression model.</p>
+</div>
+</div>
+</div>
+<p>The size of the indirect correlation equals the product of the correlation between confounder and predictor and the correlation between confounder and dependent variable. In <a href="#fig-mediation-indirectcorrelation" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>, the correlation between age and political interest is .12 and the correlation between age and newspaper reading time is .88, the indirect correlation between interest in politics and reading time established by age is .12 * .88 = .11.</p>
+<section id="indirect-correlation-and-size-of-confounding" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="indirect-correlation-and-size-of-confounding"><span class="header-section-number">8.2.1</span> Indirect correlation and size of confounding</h3>
+<p>In <a href="#fig-mediation-indirectcorrelation" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>, we start with a simple regression model with political interest as the only predictor of newspaper reading time. Respondent’s age, however, is correlated both with political interest (<span class="math inline">\(r\)</span> = 0.12) and with newspaper reading time (<span class="math inline">\(r\)</span> = 0.88). Age creates a positive indirect correlation between political interest and reading time.</p>
+<p>As long as age is not included in the regression model, the model believes that the indirect correlation due to age is part of the effect of political interest. It assigns the indirect correlation due to age to the effect of political interest, that is, it includes the indirect correlation in the regression coefficient of political interest. In this situation, the regression coefficient for political interest expresses both the effect of political interest itself and the effect of age (the confounder).</p>
+<p>Once we add age as a new predictor to the regression model, the indirect correlation due to age is removed from the effect of political interest. The effect of age on newspaper reading time is now correctly assigned to age. As a result, the value of the regression coefficient for political interest changes if we add age as a new predictor.</p>
+<p>The size of the change is related to the size of the indirect correlation. The larger the indirect correlation, the more the regression coefficient of political interest changes if age (the former confounder) is included as a new predictor. This answers the second part of the question with which we started <a href="#sec-indirectcorrelation" class="quarto-xref"><span>Section 8.2</span></a>: When is a variable a stronger confounder?</p>
+<p>If you love the details: The size of the change in the standardized regression coefficient is not exactly the same as the size of the indirect correlation. It is equal to the correlation between the confounder (age) and the predictor (political interest) times the standardized regression coefficient of the effect of the confounder (age) on the dependent variable (newspaper reading time) that controls for the effect of the predictor (political interest).</p>
+</section>
+<section id="sec-randomization" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="sec-randomization"><span class="header-section-number">8.2.2</span> Randomization for avoiding confounders</h3>
+<p>There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of <a href="07-anova.html" class="quarto-xref"><span>Chapter 5</span></a>, where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment.</p>
+<p>How does this help us to avoid having confounders? The example research aimed to find out whether the celebrity endorser affects the willingness to donate to a charity. The experimental treatment (celebrity endorser video) is the independent variable or predictor variable in the model. If participants’ scores on this variable — in the example, seeing Jolie, Clooney, or no celebrity endorser — are random, the variable is expected not to correlate with any other characteristic of the participants when the experiment starts.</p>
+<p>For example, female and male participants would have the same chance to see Jolie, Clooney, or no endorser. We expect one third of all females and one third of all males to see Jolie, to see Clooney, and to see no endorser. If there is no systematic difference between females and males in this respect, participant’s experimental treatment is not correlated with sex of the participant. The same reasoning applies to every other characteristic of the participant at the start of the experiment: age, hair colour, favourite movie star, and so on. We expect that all of these participant characteristics are not correlated with the experimental treatment variable.</p>
+<p>Let us now turn to the definition of a confounder: A confounder is a variable that is correlated with both the predictor and dependent variable but is not included in the regression model. A confounder must be correlated with the predictor, which is the experimental treatment here. Thanks to experimental randomization, we expect that all participant characteristics that are not included in the experiment do not meet this criterion. There should not be any confounders!</p>
+<p>We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of females and males seeing Angelina Jolie in our example experiment, we can end up with more females than males seeing Jolie in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the sex of the participant, so participant sex is a confounder if it is also correlated with the dependent variable (willingness to donate) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders.</p>
+</section>
+</section>
+<section id="sec-confounders" class="level2 page-columns page-full" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="sec-confounders"><span class="header-section-number">8.3</span> Two Types of Confounders</h2>
+<div id="fig-mediation-confoundertypes" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mediation-confoundertypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/" width="100%" height="305px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mediation-confoundertypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.3: When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
+</figcaption>
+</figure>
+</div>
+<p>In the preceding section, we learned that a partial effect expressed by a regression coefficient may change if a new predictor is added to the regression model. The partial effect of a predictor changes if the added variable is a confounder: It is correlated both with the predictor and dependent variable. In other words, there is an indirect correlation between the predictor and dependent variable due to the confounding variable.</p>
+<p>The partial effect of a predictor can become stronger, weaker, or even change direction if we add a confounder to the regression model. The following sections describe the two types of confounders that are responsible for these changes: suppressors and reinforcers.</p>
+<section id="sec-suppression" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="sec-suppression"><span class="header-section-number">8.3.1</span> Suppression</h3>
+<p>A predictor’s effect becomes stronger (more strongly positive or more strongly negative) if we include a confounding variable that is responsible for an indirect correlation that points in the opposite direction of the effect of the predictor in the model without the confounder. Here, the indirect correlation contradicts the effect of the predictor and as a result, the effect of the predictor is underestimated (suppressed) if the confounder is not included in the model. The confounder is a <em>suppressor variable</em>. If we add it to the model, it no longer suppresses the effect of the predictor, so this effect becomes stronger.</p>
+<p>There are two situations in which an indirect correlation can have the opposite sign of the effect of a predictor:</p>
+<ol type="1">
+<li><p>The indirect correlation is negative but the effect of the predictor is positive.</p></li>
+<li><p>The indirect correlation is positive but the effect of the predictor is negative.</p></li>
+</ol>
+<p>We start with the first situation and discuss the second situation later on in this section.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-suppression1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-suppression1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-confounding_files/figure-html/fig-suppression1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-suppression1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.4: News site use as a confounder of the effect of interest in politics on newspaper reading time.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Let us assume that political interest has a positive effect on reading newspapers. People who are more interested in politics tend to spend more time on reading newspapers than people who are less interested in politics. The use of news sites confounds this effect if it is correlated with both political interest and newspaper reading time. What happens if people interested in politics use news sites more often (positive correlation) because they offer the latest political news but using news sites decreases newspaper reading time (negative correlation) because most of the political information has already been provided by the news sites?</p>
+<p>In this situation, the indirect correlation between political interest and newspaper reading time due to news site use is negative: Positive times negative yields a negative. The indirect correlation tells us that people interested in politics use news sites more frequently but people who frequently use news sites read newspapers less often. The indirect correlation clearly contradicts the regression effect of political interest on newspaper reading time, which is positive: People who are more interested in politics spend more time on reading newspapers.</p>
+<p>If news site use is not included in the regression model, the standardized regression effect of political interest more or less adds the indirect correlation to the effect of political interest. Adding a negative amount (indirect correlation), however, is equal to subtracting this amount from the standardized regression coefficient. The positive effect of political interest on reading time is underestimated. In this example, the effect of political interest is <em>suppressed</em> (<em>masked</em>) by the confounder news site use. News site use is a <em>suppressor variable</em>.</p>
+<p>If we include this suppressor variable (news site use) in our regression model, we eliminate its suppression of the effect of political interest on newspaper reading time. The negative effect of news site use on reading time is now captured by the regression coefficient for the news site use predictor. The effect of political interest on newspaper reading time is now controlled for the effect of news site use; it no longer includes the indirect correlation due to news site use. In this example, the effect of political interest on newspaper reading time becomes more strongly positive.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-suppression2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-suppression2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-confounding_files/figure-html/fig-suppression2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-suppression2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.5: Interest in politics as a confounder of the effect of news site use on newspaper reading time.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, let us have a look at the situation in which the indirect correlation is positive but the regression effect of the predictor is negative. Just reverse the example and make news site use the predictor and political interest the confounder. The regression effect of news site use on newspaper reading time is negative if people tend to use news sites instead of newspapers as sources of information. The indirect correlation due to political interest, however, is positive if politically interested people use news sites more and spend more time on reading newspapers. In this scenario, the negative effect of news site use on newspaper reading is underestimated if we do not control for political interest.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A variable is a suppressor (1) if it is not included in the regression model and (2) it establishes an indirect correlation between predictor and dependent variable that has the opposite sign of the current effect of the predictor on the dependent variable.</p>
+</div>
+</div>
+</div>
+<p>Suppression can have surprising effects. If the predictor’s original effect was close to zero, adding a suppressor variable to the model will strengthen the effect. An effect that we initially believed to be absent may turn out to be substantial and statistically significant. If our regression model tells us that our predictor does not have an effect, we cannot rule out that it does have an effect that is suppressed by a suppressor variable.</p>
+<p>In addition, indirect correlations due to other predictors can add so much to the original partial effect of a predictor that the standardized regression coefficient becomes higher than 1 or lower than -1. This illustrates that standardized regression coefficients are not correlations in multiple regression models because correlations can never be higher than 1 or lower than -1. In contrast, the standardized regression coefficient in a simple regression model is equal to the correlation between predictor and outcome. This is an important difference between simple and multiple regression models.</p>
+</section>
+<section id="sec-spuriousness" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="sec-spuriousness"><span class="header-section-number">8.3.2</span> Reinforcement and spuriousness</h3>
+<p>Adding a new predictor to a regression model may weaken the effects of other predictors or even change the direction of effects. This happens if the indirect correlation due to a confounder has the same direction (sign) as the regression effect of the predictor in the model without the confounder. Either the indirect correlation and regression effect are both positive or they are both negative.</p>
+<p>In both situations, regression effects are initially overestimated because the predictors cover part of the effect of an important variable that has not yet been added to the regression model. The part of the effect that is due to the confounding variable is called <em>spurious</em>. The confounding variable is called a <em>reinforcer</em> because it makes an effect appear more strongly positive or more strongly negative than it really is as long as the confounder has not been added to the regression model.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-reinforcement1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reinforcement1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-confounding_files/figure-html/fig-reinforcement1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reinforcement1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.6: Age as a confounder of the effect of interest in politics on newspaper reading time.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As an example, the effect of political interest on newspaper reading time may include the effect of age on newspaper reading when age is not (yet) included in the regression model. If older people are more interested in politics and do more newspaper reading, age creates a positive indirect correlation between political interest and newspaper reading.</p>
+<p>If age is not included as a predictor in the regression model, the indirect correlation is attributed to the effect of interest in politics. The estimated effect is too strong. Once we include age as a predictor, the effect of political interest is cleansed of the age effect, so the effect size decreases.</p>
+<p>In <a href="#fig-reinforcement1" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (<a href="#fig-reinforcement2" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-reinforcement2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-reinforcement2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-confounding_files/figure-html/fig-reinforcement2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reinforcement2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.7: Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As with suppression, spuriousness can have surprising results. It may happen that the entire estimated effect of a predictor is spurious. Adding a reinforcer variable to the regression model may make the entire effect of a predictor disappear. In other words, an effect that we initially thought was substantial may turn out to be too weak to be of interest.</p>
+<p>Actually, the indirect correlation between a predictor and dependent variable due to a confounding variable can be so strong that a positive effect in a model without the confounder changes into a negative effect in a model that includes the variable. Adding the reinforcer to the model, the effect of the predictor not only moves towards zero (becoming weaker), but it moves beyond zero into a negative effect. It may even move so far beyond zero that the new negative effect is stronger than the reinforced positive effect.</p>
+<p>The opposite may happen as well: An initially negative effect may become positive if a strong reinforcer variable is added to the model. This would be the case if the indirect correlation between political interest and newspaper reading time via news site use is strongly negative, resulting in a negative effect of political interest on reading time if news site use is left out of the model. Adding news site use to the model may then result in a positive effect of political interest.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A variable is a reinforcer (1) if it is not included in the regression model and (2) it establishes an indirect correlation between predictor and dependent variable that has the same sign as the current effect of the predictor on the dependent variable.</p>
+</div>
+</div>
+</div>
+<p>To summarize the two types of confounders:</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p>If we add a <em>suppressor</em> to the model, the suppressed effect moves away from zero because suppression disappears. A positive effect becomes more strongly positive, a negative effect becomes more strongly negative.</p></li>
+<li><p>If we add a <em>reinforcer</em> to the model, the reinforced effect moves towards the opposite side because reinforcement disappears. A positive effect becomes less strongly positive or even negative and a negative effect becomes less strongly negative or even positive.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-compmodelSSPSS" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="sec-compmodelSSPSS"><span class="header-section-number">8.4</span> Comparing Regression Models in SPSS</h2>
+<section id="essential-analytics" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
+<p>We can detect confounders by adding each independent variable as a separate <em>Block</em> in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu). The SPSS output estimates a regression model for each block (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>).</p>
+<div id="fig-confounderstable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-confounderstable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S10_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confounderstable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.8: SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one.
+</figcaption>
+</figure>
+</div>
+<p>In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, blue box); news site use suppressed the effect of interest in politics in the second model.</p>
+</section>
+<section id="instructions" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">8.4.1</span> Instructions</h3>
+<div id="vid-SPSSregconfound" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSregconfound-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/Du2mzxWifCM" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSregconfound-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;8.2: Stepwise regression.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="take-home-points" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">8.5</span> Take-Home Points</h2>
+<ul>
+<li><p>In a multiple regression model, a regression coefficient represents the (predictive) effect of a variable while controlling for the effects of all other predictors. It is called a <em>partial effect</em>: It predicts variance of the dependent variable that cannot be predicted by the other predictors.</p></li>
+<li><p>If a new predictor is added to a regression model, the regression coefficient of an old predictor changes if the new predictor is correlated with both the old predictor and the dependent variable. If the old predictor’s effect becomes stronger, the new predictor <em>was</em> a suppressor. If it becomes weaker (the old effect was—partially—spurious) or changes direction (sign), the new predictor <em>was</em> a reinforcer.</p></li>
+<li><p>Random assignment of participants to experimental treatments (the independent variable/predictor in an experiment) is meant to create (near) zero correlations between the predictor and any other variable not included in the experiment. As a result, we expect that there are no confounders.</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./09-moderation-continuous.html" class="pagination-link" aria-label="Regression Analysis With A Numerical Moderator">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./11-mediation.html" class="pagination-link" aria-label="Mediation with Regression Analysis">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/10-confounding.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/10-confounding.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>

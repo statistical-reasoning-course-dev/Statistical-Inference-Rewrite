@@ -1,0 +1,49 @@
+```{r setup, include=FALSE}
+source("R_setup.R")
+```
+
+# Colophon {-}
+
+### Disclaimer {-}
+
+The example data sets have been generated for the purpose of demonstrating statistical techniques. These are not real data and no conclusions should be drawn from the results obtained from the data.
+
+### 2016 Acknowledgements {-}
+
+By the original author: Wouter de Nooy
+
+[Adam Sasiadek](https://www.linkedin.com/in/adam-sasiadek/) developed the more complicated Shiny apps in this book. The College of Communication at the University of Amsterdam generously supported the creation of the apps whereas this university's Grassroots Project for ICT in education refused to support it. [Renske van Bronswijk](https://www.linkedin.com/in/rvanbronswijk/) corrected my English. Any remaining errors result from changes and additions that I applied afterwards. My colleague Peter Neijens commented on a draft of this text. Among the first tutors using this book, Chei Billedo, Marcel van Egmond, Matthijs Elenbaas, Andreas Goldberg, Bregje van Groningen, Luzia Helfer, Rhianne Hoek, Laura Jacobs, Jeroen Jonkman, Fam te Poel, Sanne Schinkel, Christin Scholz, Ragnheiður Torfadóttir, Philipp Mendoza, and she whose name I am not allowed to mention offered many suggestions that improved the text substantially. Among the students who helped to improve the book, Alissa Hilbertz stands out for her careful language corrections and suggestions.
+
+### 2023 Technical changes {-}
+
+This book is a modification of the original work by Wouter de Nooy. His publication, licensed under CC-SA 4.0 and hosted from [his github repository](https://github.com/WdeNooy/Statistical-Inference), forms the basis for this publication. Some technical changes have been made to the book. Hosting is now managed through [GitHub pages](https://pages.github.com) and the source material is maintained from [this repository](https://github.com/ShKlinkenberg/Statistical-Inference). The Shiny apps are now available through [Shinyapps.io](https://www.shinyapps.io) and maintained at a separate [GitHub repository](https://github.com/ShKlinkenberg/statistics-shiny-apps).
+
+This version of the book is hosted by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). Modifications are collaboratively done by assigned teacher from the statistical modelling course of the College of Communication Science at the University of Amsterdam.
+
+### 2024 Rewrite {-}
+
+In 2024 the book has been partially rewriten. Through the [quality agreements funds](https://www.rijksoverheid.nl/onderwerpen/hoger-onderwijs/kwaliteitsafspraken-hoger-onderwijs), the College of Communication at the University of Amsterdam has been able to support the further development of the this opensource book. 
+
+The following changes have been made:
+
+* Rewrite of @sec-fixed-pop-values by [Xin Gao](https://www.uva.nl/en/profile/g/a/x.gao2/x.gao.html) to more thoroughly explain the concept and reasoning behind confidence intervals. Including the creation of a new Shiny app to demonstrate the concept.
+* Merging and rewrite of the previous chapters on Hypothesis testing, Sample size, and Critical discussion by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). This to place the discussion on pawer, and how this is related to sample size firmly in the context of null hypothesis significance testing.
+
+Many thanks to [Christin Scholz](https://www.linkedin.com/in/christin-scholz-7a07264b/) for her elaborate feedback on the rewrite of @sec-hypothesis.
+
+The 2023 version of the book is archived in the pre 2024 branch of the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/tree/pre_2024-07_archive)
+
+### 2025 Bookdown to quarto migration {-}
+
+In 2025 we migrated the book from [Bookdown](https://bookdown.org) to [Quarto](https://quarto.org). Because we were running into technical issues with incompatible packages, we decided to future proof the book by making the transition to quarto. With a lot of regular expressions, we managed to convert many of the bookdown syntax to quarto.
+
+Thanks to the efforts of [Saurabh Khanna](https://www.linkedin.com/in/saurabh90/), [Sten Paffen](), and [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/) the book is now fully migrated to quarto.
+
+### Contribute {-}
+
+If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in Rmarkdown and compiled using the bookdown package. The book is hosted on GitHub pages and the source material is maintained from [his github repository](https://github.com/WdeNooy/Statistical-Inference). If you find any typo's or errors, please submit an issue on the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/issues).
+
+### License {-}
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+

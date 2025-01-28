@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.45">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>4&nbsp; Hypothesis testing – Statistical Inference</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-anova.html" rel="next">
+<link href="./03-estimation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styleX.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-hypothesis.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Statistical Inference</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/ShKlinkenberg/Statistical-Inference" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and Reader’s Guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-samplingdistr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sampling Distribution</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-probability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Probability Models</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-hypothesis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-moderation-categorical.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Regression Analysis And A Categorical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-moderation-continuous.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Regression Analysis With A Numerical Moderator</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-confounding.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Regression Analysis And Confounders</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mediation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Mediation with Regression Analysis</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-Appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-colophon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Colophon</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#sec-binarydecision" id="toc-sec-binarydecision" class="nav-link" data-scroll-target="#sec-binarydecision"><span class="header-section-number">4.1</span> Hypothesis</a>
+  <ul class="collapse">
+  <li><a href="#null-hypothesis" id="toc-null-hypothesis" class="nav-link" data-scroll-target="#null-hypothesis"><span class="header-section-number">4.1.1</span> Null hypothesis</a></li>
+  <li><a href="#sec-alternative-hypothesis" id="toc-sec-alternative-hypothesis" class="nav-link" data-scroll-target="#sec-alternative-hypothesis"><span class="header-section-number">4.1.2</span> Alternative hypothesis</a></li>
+  <li><a href="#testing-hypothesis" id="toc-testing-hypothesis" class="nav-link" data-scroll-target="#testing-hypothesis"><span class="header-section-number">4.1.3</span> Testing hypothesis</a></li>
+  </ul></li>
+  <li><a href="#sec-null-hypothesis-significance-testing" id="toc-sec-null-hypothesis-significance-testing" class="nav-link" data-scroll-target="#sec-null-hypothesis-significance-testing"><span class="header-section-number">4.2</span> Null Hypothesis Significance Testing</a>
+  <ul class="collapse">
+  <li><a href="#sec-alpha" id="toc-sec-alpha" class="nav-link" data-scroll-target="#sec-alpha"><span class="header-section-number">4.2.1</span> Alpha</a></li>
+  <li><a href="#alpha" id="toc-alpha" class="nav-link" data-scroll-target="#alpha"><span class="header-section-number">4.2.2</span> 1 - Alpha</a></li>
+  <li><a href="#sec-power" id="toc-sec-power" class="nav-link" data-scroll-target="#sec-power"><span class="header-section-number">4.2.3</span> Power</a></li>
+  <li><a href="#beta" id="toc-beta" class="nav-link" data-scroll-target="#beta"><span class="header-section-number">4.2.4</span> Beta</a></li>
+  <li><a href="#sec-test-statistic" id="toc-sec-test-statistic" class="nav-link" data-scroll-target="#sec-test-statistic"><span class="header-section-number">4.2.5</span> Test statistic</a></li>
+  <li><a href="#sec-pvalue" id="toc-sec-pvalue" class="nav-link" data-scroll-target="#sec-pvalue"><span class="header-section-number">4.2.6</span> P-value</a></li>
+  <li><a href="#sec-true-effect-size" id="toc-sec-true-effect-size" class="nav-link" data-scroll-target="#sec-true-effect-size"><span class="header-section-number">4.2.7</span> True effect size</a></li>
+  <li><a href="#sec-observed-effect-size" id="toc-sec-observed-effect-size" class="nav-link" data-scroll-target="#sec-observed-effect-size"><span class="header-section-number">4.2.8</span> Observed effect size</a></li>
+  <li><a href="#post-hoc-power" id="toc-post-hoc-power" class="nav-link" data-scroll-target="#post-hoc-power"><span class="header-section-number">4.2.9</span> Post hoc power</a></li>
+  <li><a href="#sec-meta-analysis" id="toc-sec-meta-analysis" class="nav-link" data-scroll-target="#sec-meta-analysis"><span class="header-section-number">4.2.10</span> Meta analysis</a></li>
+  <li><a href="#sec-sample-size" id="toc-sec-sample-size" class="nav-link" data-scroll-target="#sec-sample-size"><span class="header-section-number">4.2.11</span> Sample size</a></li>
+  <li><a href="#sec-one-twosidedtests" id="toc-sec-one-twosidedtests" class="nav-link" data-scroll-target="#sec-one-twosidedtests"><span class="header-section-number">4.2.12</span> One-Sided and Two-Sided Tests</a></li>
+  </ul></li>
+  <li><a href="#sec-reporting" id="toc-sec-reporting" class="nav-link" data-scroll-target="#sec-reporting"><span class="header-section-number">4.3</span> Reporting test results</a>
+  <ul class="collapse">
+  <li><a href="#reporting-to-fellow-scientists" id="toc-reporting-to-fellow-scientists" class="nav-link" data-scroll-target="#reporting-to-fellow-scientists"><span class="header-section-number">4.3.1</span> Reporting to fellow scientists</a></li>
+  <li><a href="#reporting-to-the-general-reader" id="toc-reporting-to-the-general-reader" class="nav-link" data-scroll-target="#reporting-to-the-general-reader"><span class="header-section-number">4.3.2</span> Reporting to the general reader</a></li>
+  </ul></li>
+  <li><a href="#sec-test-selection" id="toc-sec-test-selection" class="nav-link" data-scroll-target="#sec-test-selection"><span class="header-section-number">4.4</span> Statistical test selection</a></li>
+  <li><a href="#sec-null-ci" id="toc-sec-null-ci" class="nav-link" data-scroll-target="#sec-null-ci"><span class="header-section-number">4.5</span> Confidence Intervals to test hypotheses</a>
+  <ul class="collapse">
+  <li><a href="#estimation-in-addidion-to-nhst" id="toc-estimation-in-addidion-to-nhst" class="nav-link" data-scroll-target="#estimation-in-addidion-to-nhst"><span class="header-section-number">4.5.1</span> Estimation in addidion to NHST</a></li>
+  <li><a href="#bootstrapped-confidence-intervals" id="toc-bootstrapped-confidence-intervals" class="nav-link" data-scroll-target="#bootstrapped-confidence-intervals"><span class="header-section-number">4.5.2</span> Bootstrapped confidence intervals</a></li>
+  </ul></li>
+  <li><a href="#sec-bayesian-hypothesis-testing" id="toc-sec-bayesian-hypothesis-testing" class="nav-link" data-scroll-target="#sec-bayesian-hypothesis-testing"><span class="header-section-number">4.6</span> Bayesian hypothesis testing</a></li>
+  <li><a href="#sec-critical-discussion" id="toc-sec-critical-discussion" class="nav-link" data-scroll-target="#sec-critical-discussion"><span class="header-section-number">4.7</span> Critical Discussion</a>
+  <ul class="collapse">
+  <li><a href="#sec-criticismsNHST" id="toc-sec-criticismsNHST" class="nav-link" data-scroll-target="#sec-criticismsNHST"><span class="header-section-number">4.7.1</span> Criticisms of Null Hypothesis Significance Testing</a></li>
+  <li><a href="#statistical-significance-is-not-a-measure-of-effect-size" id="toc-statistical-significance-is-not-a-measure-of-effect-size" class="nav-link" data-scroll-target="#statistical-significance-is-not-a-measure-of-effect-size"><span class="header-section-number">4.7.2</span> Statistical significance is not a measure of effect size</a></li>
+  <li><a href="#sec-cap-chance" id="toc-sec-cap-chance" class="nav-link" data-scroll-target="#sec-cap-chance"><span class="header-section-number">4.7.3</span> Capitalization on Chance</a></li>
+  <li><a href="#sec-no-random-sample" id="toc-sec-no-random-sample" class="nav-link" data-scroll-target="#sec-no-random-sample"><span class="header-section-number">4.7.4</span> What If I Do Not Have a Random Sample?</a></li>
+  <li><a href="#specifying-hypotheses-afterwards" id="toc-specifying-hypotheses-afterwards" class="nav-link" data-scroll-target="#specifying-hypotheses-afterwards"><span class="header-section-number">4.7.5</span> Specifying hypotheses afterwards</a></li>
+  <li><a href="#replication" id="toc-replication" class="nav-link" data-scroll-target="#replication"><span class="header-section-number">4.7.6</span> Replication</a></li>
+  </ul></li>
+  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">4.8</span> Take home points</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/04-hypothesis.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/04-hypothesis.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-hypothesis" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Hypothesis testing</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>Key concepts: research hypothesis, statistical null and alternative hypothesis, nil hypothesis, test statistic, <em>p</em> value, conditional probability, alpha, significance level (Type I error rate), Type I error, inflated type I error, type II error, Power, critical value, capitalization on chance, one-sided and two-sided tests and tests to which this distinction does not apply, rejection region, Bayesion statistics, confidence intervals.</p>
+</blockquote>
+<section id="summary" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
+<p>In the preceding chapter, we have learned that a confidence interval contains the population values that are plausible, given the sample that we have drawn. In the current chapter, we apply our knowledge of sampling distributions, probability models and parameter estimation to hypothesis testing.</p>
+<p>This chapter explores various methods for testing hypotheses. While we primarily focus on the widely used null hypothesis significance testing (NHST), we also discuss how confidence intervals and Bayesian statistics can aid in making decisions about hypotheses.</p>
+<p>We will first extensively cover the framework of null hypothesis significance testing (NHST). <a href="#sec-null-hypothesis-significance-testing" class="quarto-xref"><span>Section 4.2</span></a> covers key concepts such as the null and alternative hypotheses, significance level (alpha), power of a test, p-values, and effect sizes. The section also discusses one-sided and two-sided tests and the importance of sample size in determining the power of a test.</p>
+<p>In <a href="#sec-reporting" class="quarto-xref"><span>Section 4.3</span></a> we offer guidelines for reporting statistical test results. It emphasizes clarity and transparency in presenting findings to different audiences, including fellow scientists and general readers. The section covers the necessary components of a statistical report, such as test statistics, p-values, effect sizes, and confidence intervals.</p>
+<p><a href="#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a> on Statistical Test Selection guides the selection of appropriate statistical tests based on the data and research questions. It provides a framework for choosing tests by considering factors such as the type of data, the number of groups being compared, and the study design. The section includes flowcharts and examples to illustrate the decision-making process.</p>
+<p>We continue with a discussion of confidence intervals as an alternative to hypothesis testing in <a href="#sec-null-ci" class="quarto-xref"><span>Section 4.5</span></a>. It explains how confidence intervals provide a range of plausible values for population parameters and how they can be used to make inferences about hypotheses. The section also discusses bootstrapped confidence intervals and their application.</p>
+<p>We follow up with Bayesian hypothesis testing, contrasting it with frequentist methods. We explain the Bayesian approach of updating prior beliefs with data to obtain posterior probabilities. The section (<a href="#sec-bayesian-hypothesis-testing" class="quarto-xref"><span>Section 4.6</span></a>) covers the concepts of prior, likelihood, and posterior distributions, and how they are used to make decisions about hypotheses.</p>
+<p>In the final section (<a href="#sec-critical-discussion" class="quarto-xref"><span>Section 4.7</span></a>) we critically examine the limitations and criticisms of null hypothesis significance testing. We discuss issues such as the misinterpretation of p-values, the overemphasis on statistical significance over practical significance, and the risks of data dredging and publication bias. The section advocates for a more nuanced understanding and reporting of statistical results.</p>
+</section>
+<section id="sec-binarydecision" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-binarydecision"><span class="header-section-number">4.1</span> Hypothesis</h2>
+<p>The assumption that a researcher wants to test is called a <em>research hypothesis</em>. It is a statement about the empirical world that can be tested against data. Communication scientists, for instance, may hypothesize that:</p>
+<ul>
+<li>a television station reaches half of all households in a country,</li>
+<li>media literacy is below a particular standard (for instance, 5.5 on a 10-point scale) among children,</li>
+<li>opinions about immigrants are not equally polarized among young and old voters,<br>
+</li>
+<li>the celebrity endorsing a fundraising campaign makes a difference to adult’s willingness to donate,<br>
+</li>
+<li>more exposure to brand advertisements increases brand awareness among consumers,</li>
+<li>and so on.</li>
+</ul>
+<p>These are statements about populations: all households in a country, children, voters, adults, and consumers. As these examples illustrate, research hypotheses seldom refer to statistics such as means, proportions, variances, or correlations. Still, we need a statistic to test a hypothesis. The researcher must translate the research hypothesis into a new hypothesis that refers to a statistic in the population, for example, the population mean. The new hypothesis is called a statistical hypothesis.</p>
+<p>A statistical hypothesis is a statement about the empirical world that can be tested against data. It is a statement about the population, not the sample. For example, a hypothesis could be that the average age of a population is 30 years, that the average waight of candy bags is 500 grams, that the proportion of people that like a certain brand is .5, or that the correlation between two variables is .3. These are all statements about the population, not the sample.</p>
+<p>Scientists test these hypotheses by following the <em>empirical cycle</em> <span class="citation" data-cites="deGrootMethodologyFoundationsInference1969">(<a href="14-references.html#ref-deGrootMethodologyFoundationsInference1969" role="doc-biblioref">de Groot 1969</a>)</span>, which involves a systematic process of induction, deduction, testing, and evaluation. Based on the results, hypotheses can be either rejected or not rejected. If the hypothesis is based on theory and previous research, the scientist uses previous knowledge. As a next step, the researcher tests the hypothesis against data collected for this purpose. If the data contradict the hypothesis, the hypothesis is rejected and the researcher has to improve the theory. If the data does not contradict the hypothesis, it is not rejected and, for the time being, the researcher does not have to change the theory.</p>
+<p>Statistical hypotheses usually come in pairs: a null hypothesis (<em>H</em><sub>0</sub>) and an <em>alternative hypothesis</em> (<em>H</em><sub>1</sub> / <em>H</em><sub>A</sub>). We met the null hypothesis in the preceding sections. We use it to create a (hypothetical) sampling distribution. To this end, a null hypothesis must specify one value for the population statistic that we are interested in, for example, .5 as the proportion of yellow candies.</p>
+<section id="null-hypothesis" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="null-hypothesis"><span class="header-section-number">4.1.1</span> Null hypothesis</h3>
+<p>The null hypothesis reflects the skeptical stance in research. It assumes that there is nothing going on. There is no difference between experimental conditions, the new intervention is not better than the previous, there is no correlation between variables, there is no predictive value to your regression model, a coin is fair, and so forth. <a href="#eq-Hnull" class="quarto-xref">Equation&nbsp;<span>4.1</span></a> shows some examples of null hypotheses expressed in test statistics.</p>
+<p><span id="eq-Hnull"><span class="math display">\[
+\begin{eqnarray*}
+H_{0} &amp; : \theta &amp; = .5 \\
+H_{0} &amp; : \mu &amp; = 100 \\
+H_{0} &amp; : t &amp; = 0 \\
+H_{0} &amp; : \mu_1 &amp; = \mu_2 \\
+\end{eqnarray*}
+\tag{4.1}\]</span></span></p>
+<p>The null hypothesis does not always assume that the population parameter is zero; it can take any specified value. For instance, a null hypothesis might state that there is no difference in intelligence between communication science students and the general population. In this case, we could compare the average intelligence score of a sample of communication science students to the known population average of 100. Although we are testing whether the difference is zero, in practical terms, we express the null hypothesis as the sample mean being equal to 100.</p>
+<p>Though a null hypothesis can be expressed as a single value, that does not mean that we always get that specific value when we take a random sample. Given the null hypothesis that our candy factory machine produces bags with an average of 5 out of 10 yellow candies, there remains a probability that some bags will contain as few as one yellow candy or even none at all. This variability is illustrated in <a href="#fig-nulldistribution" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>, which shows that while values near the expected 5 yellow candies are most likely, deviations can occur.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-nulldistribution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nulldistribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-nulldistribution-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nulldistribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1: Discrete binomial distribution.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-alternative-hypothesis" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="sec-alternative-hypothesis"><span class="header-section-number">4.1.2</span> Alternative hypothesis</h3>
+<p>The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate. This would mean that our expected effect of difference would indeed reflect the true population value.</p>
+<p>Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produces bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine’s parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (<a href="#fig-altdistribution" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>) as we did for the null hypothesis.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-altdistribution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-altdistribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-altdistribution-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-altdistribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.2: Discrete alternative binomial distribution.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Note that the probability distribution for <span class="math inline">\(H_0\)</span> indicates the null assumption about reality, while the probability distribution for <span class="math inline">\(H_A\)</span> is based on the true population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.</p>
+<p>When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.</p>
+<p>The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. <a href="#eq-Halt" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> shows some examples of alternative hypotheses expressed in test statistics.</p>
+<p><span id="eq-Halt"><span class="math display">\[
+\begin{eqnarray*}
+\text{Two-sided} \\
+H_{A} &amp; : \theta &amp; \neq .5 \\
+H_{A} &amp; : \hat{x} &amp; \neq \mu \\
+H_{A} &amp; : t &amp; \neq 0 \\
+H_{A} &amp; : \mu_1 &amp; \neq \mu_2 \\
+\text{One-sided} \\
+H_{A} &amp; : \theta &amp; &lt; .5 \\
+H_{A} &amp; : \hat{x} &amp; &gt; 100 \\
+H_{A} &amp; : t &amp; &gt; 0 \\
+H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
+\end{eqnarray*}
+\tag{4.2}\]</span></span></p>
+<p>The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in <a href="#sec-one-twosidedtests" class="quarto-xref"><span>Section 4.2.12</span></a>.</p>
+</section>
+<section id="testing-hypothesis" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="testing-hypothesis"><span class="header-section-number">4.1.3</span> Testing hypothesis</h3>
+<p>In the empirical cycle, the researcher tests the hypothesis against data collected for this purpose. The most widely used method for testing hypotheses is null hypothesis significance testing (NHST). As we will read in this chapter, there are other methods that can be used to test hypotheses, such as confidence intervals and Bayesian statistics.</p>
+<p>All methods serve as decision frameworks that enable researchers to establish rules for evaluating their hypotheses. These rules are determined before data collection and are designed to minimize the risk of incorrect decisions. Null Hypothesis Significance Testing (NHST) manages this risk by defining it probabilistically. Confidence intervals provide a measure of accuracy through their width, while Bayesian statistics express this risk in terms of the credibility interval.</p>
+<p>In the next chapters, we will cover the logic behind NHST, confidence intervals, and Bayesian statistics. We will also discuss how to select the appropriate statistical test for your research question, and how to report the results of your statistical tests.</p>
+</section>
+</section>
+<section id="sec-null-hypothesis-significance-testing" class="level2 page-columns page-full" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-null-hypothesis-significance-testing"><span class="header-section-number">4.2</span> Null Hypothesis Significance Testing</h2>
+<p>Null Hypothesis Significance Testing (NHST) is the most widely used method for statistical inference in the social sciences and beyond. The logic underlying NHST is called the Neyman Pearson approach <span class="citation" data-cites="RefWorks:3930">(<a href="14-references.html#ref-RefWorks:3930" role="doc-biblioref">Lehmann 1993</a>)</span>. Though these names are not widely known, the work of Jerzy Neyman (1894–1981) and Egon Pearson (1895–1980) still has a profound impact on the way current research is conducted, reviews are considered, and papers are published.</p>
+<p>The Neyman Pearson approach ensures tight control on the probability of making correct and incorrect decisions. It is a decision framework that gives you a clear criterion and also an indication of what the probability is that your decision is wrong. The decision in this regard, is either the acceptance or rejection of the <span class="math inline">\(H_0\)</span> hypothesis.</p>
+<p>The Neyman Pearson approach is about choosing your desired probability of making correct and incorrect decisions, setting up the right conditions for this, and making a decision. It considers the following:</p>
+<ol type="1">
+<li>Alpha - Determine your desired risk of drawing the wrong conclusion.</li>
+<li>Power - Determine your desired probability of drawing the correct conclusion.</li>
+<li>The true effect size</li>
+<li>The sample size needed to achieve desired power.</li>
+<li>Conduct your research with this sample size.</li>
+<li>Determine the test statistic.</li>
+<li>Determine if <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span>. If so, reject <span class="math inline">\(H_0\)</span>.</li>
+</ol>
+<p>The two decisions can be visualized in a <span class="math inline">\(2 \times 2\)</span> table where in reality <span class="math inline">\(H_0\)</span> can be true or false (<span class="math inline">\(H_A\)</span> is true), and the decision can either be to reject <span class="math inline">\(H_0\)</span> or not. <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject <span class="math inline">\(H_0\)</span> when it is in fact false, and not to reject <span class="math inline">\(H_0\)</span> if it is in reality true. And the red squares indicate that it is a wrong decision to reject <span class="math inline">\(H_0\)</span> when it is actually true (Type I error), or not reject <span class="math inline">\(H_0\)</span> if it is in reality false (Type II error).</p>
+<div id="fig-decisiontable" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-decisiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/decision_table.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-decisiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.3: NHST decision table.
+</figcaption>
+</figure>
+</div>
+<p>Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Let’s consider the amount of yellow candies from the candy factory again. In <a href="01-samplingdistr.html#sec-discreterandomvariable" class="quarto-xref"><span>Section 1.2</span></a> we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don’t know this and our null hypothesis would be that half of the candies would be yellow. In <a href="01-samplingdistr.html#fig-expected-value" class="quarto-xref">Figure&nbsp;<span>1.4</span></a> you can set the parameter values to .5 and .2 and see what the discrete probability distributions look like.</p>
+<p>As the candy factory produces bags with ten candies, we can look at both probability distributions. <a href="#fig-twobinom" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> shows both distributions.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(H_0\)</span> Distribution
+<ul>
+<li>Half of the candies in the bag are yellow</li>
+<li>The parameter of the candy machine is .5</li>
+<li>With expected value 5 out of 10</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(H_A\)</span> Distribution
+<ul>
+<li>One fifth of the candies in the bag are yellow</li>
+<li>The parameter of the candy machine is .2</li>
+<li>With expected value 2 out of 10</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-twobinom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-twobinom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-twobinom-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twobinom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.4: Discrete alternative binomial distributions.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>We will use both distributions in <a href="#fig-twobinom" class="quarto-xref">Figure&nbsp;<span>4.4</span></a> to clarify the different components within the Neyman Pearson approach later in this chapter. For now, take a good look at both probability distributions, and consider a bag of candy containing 4 yellow candies. Are you able to determine if this bag is the result of a manufacturing process that produces bags with 20% or 50% yellow candies?</p>
+<p>Doing research is essentially the same. You collect one sample, and have to determine if the effect of your study is non existent (<span class="math inline">\(H_0 = \text{true}\)</span>) or that there is something going on (<span class="math inline">\(H_0 \neq \text{true}\)</span>).</p>
+<section id="sec-alpha" class="level3 page-columns page-full" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="sec-alpha"><span class="header-section-number">4.2.1</span> Alpha</h3>
+<p>The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, <span class="math inline">\(\alpha\)</span>. This is the probability of rejecting the null hypothesis when it is in reality true. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top left quadrant.</p>
+<p>As a researcher, you decide how much risk you are willing to take to make a type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for <span class="math inline">\(\alpha\)</span> is .05, which means that you accept a 5% chance of making a type I error of rejecting the null hypothesis when it is in reality true.</p>
+<p>In our yellow candy example, assuming the null hypothesis to be true, relates to the parameter value of .5 and the associated probability distribution shown in <a href="#fig-nulldistribution" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>. We have already determined that if <span class="math inline">\(H_0\)</span> is true, it is still possible we could get a bag with 0 or 10 yellow candies. Deciding to reject the null hypothesis in any of these cases, would be wrong, because the null hypothesis is assumed to be true. The exact probabilities can be found on the y-axis of <a href="#fig-nulldistribution" class="quarto-xref">Figure&nbsp;<span>4.1</span></a>, and are also shown in the <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a> below. Looking at the probability of getting 0 or 10 candies in <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a>, we see that together this amounts to .002 or 0.2%. If we would decide to only reject the null hypothesis if we would get 0 or 10 candies, this would be a wrong decision, but we would also know that the chance of such a decision is pretty low. Our type I error, alpha, significance level, would be .002.</p>
+<div class="cell">
+<div id="tbl-nullprobtable" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-nullprobtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from a bag of 10 candies, assuming the null hypothesis to be true.
+</figcaption>
+<div aria-describedby="tbl-nullprobtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">#Y</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Pr H0</td>
+<td style="text-align: left;">0.001</td>
+<td style="text-align: left;">0.010</td>
+<td style="text-align: left;">0.044</td>
+<td style="text-align: left;">0.117</td>
+<td style="text-align: left;">0.205</td>
+<td style="text-align: left;">0.246</td>
+<td style="text-align: left;">0.205</td>
+<td style="text-align: left;">0.117</td>
+<td style="text-align: left;">0.044</td>
+<td style="text-align: left;">0.010</td>
+<td style="text-align: left;">0.001</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Choosing such an alpha level would result in a threshold between 0 and 1 and 9 and 10. We call this the <strong>critical value</strong> associated with the chosen alpha level. Where on the outside of the threshold we would reject the null hypothesis, and inside the threshold we would not reject the null hypothesis. So, if that is our decision criterion, we would reject the null hypothesis if we would draw a bag with 0 or 10 yellow candies, and not reject the null hypothesis if we would draw a bag with 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies. Amounting to a type I error rate of .002 or 0.2%. <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> shows the critical values for the null hypothesis distribution, and indicate what the decision would be for values on the outside and inside of the decision boundary.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-nulldistributionalpha" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nulldistributionalpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-nulldistributionalpha-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nulldistributionalpha-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.5: H0 binomial distribution with critical values.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In the social sciences, we allow ourselves to make a wrong decision more often. We usually set the alpha level to .05. For our discrete example setting the alpha level to .05 is not really possible. Looking at <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a>, we could raise the significance level to .022 if we would reject the null hypothesis if we would draw 0, 1 or 9, 10 yellow candies. This would result in a type I error rate of 2.2%. Though if we would also reject the null hypothesis with 2 or 8 yellow candies, we would have a type I error rate of 11%. For a discrete probability distribution with a limited number of outcomes, it is not always possible to set the alpha level exactly to .05.</p>
+<p>For continuous probability distributions, such as the normal distribution, it is possible to set the alpha level to exactly .05. For example the null hypothesis that average media literacy in the population of children equals 5.5 on a scale from one to ten.</p>
+<p>For such continuous variables, we can estimate a sampling distribution around the hypothesized population value using a theoretical approach (<a href="02-probability.html#sec-theoretical-approx" class="quarto-xref"><span>Section 2.3</span></a>). Remember (<a href="01-samplingdistr.html#sec-expectedvalue" class="quarto-xref"><span>Section 1.2.4</span></a>) that the population value is the expected value of the sampling distribution, that is, its mean (if the estimator is unbiased). The sampling distribution, then, is centered around the population value specified in the null hypothesis. This sampling distribution tells us the probabilities of all possible sample outcomes <em>if the null hypothesis is true</em>. It allows us to identify the most unlikely samples. In <strong>Step 2</strong> in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, we set the alpha level to .05. This means that we cut off 2.5% of the area in each tail of the sampling distribution. The <strong>critical values</strong> are the values that separate the 2.5% of the area in each tail from the 95% of the area in the middle. If we assume the population parameter to be 5.5, rejecting the null hypothesis would again be a wrong decision. Thus setting the boundary by using an alpha level of .05, would yield a wrong decision in 5% of the samples we take. Just like the discrete candy color case, we decide to reject <span class="math inline">\(H_0\)</span> on the outside of the critical value and not reject <span class="math inline">\(H_0\)</span> on the inside of the critical value. In <strong>Step 4</strong> in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, we add the result of a sample. You can redraw multiple samples by clicking the button in the app.</p>
+<p>Note that the reasoning for the discrete case and the continuous case is the same. The only difference is that for the continuous case we can set the alpha level exactly to .05.</p>
+<div id="fig-nullsampling" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nullsampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/nullsampling/" width="100%" height="410px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nullsampling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.6: Sampling distribution of average media literacy according to the null hypothesis.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="alpha" class="level3" data-number="4.2.2">
+<h3 data-number="4.2.2" class="anchored" data-anchor-id="alpha"><span class="header-section-number">4.2.2</span> 1 - Alpha</h3>
+<p>The decision to not reject the null hypothesis when it is in reality true is indicated by <span class="math inline">\(1 - \alpha\)</span>. It does not go by any other name, but in terms of probability, it is directly dependent on your desired type I error rate, your chosen alpha level. It therefore corresponds to the probabilities in <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a> of 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies in the candy factory example. We have a 99.8% (1 - .002) chance of making the correct decision to not reject <span class="math inline">\(H_0\)</span> when we assume it to be true. The inside of the critical value in <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a> is the area where we do not reject the null hypothesis. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the bottom left green quadrant.</p>
+<p>Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this critical value to look at the power.</p>
+</section>
+<section id="sec-power" class="level3" data-number="4.2.3">
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="sec-power"><span class="header-section-number">4.2.3</span> Power</h3>
+<p>The power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In figure (fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.</p>
+<p>As the right column of <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> only states that <span class="math inline">\(H_0 = \text{FALSE}\)</span>, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In <a href="#fig-altdistributionpower" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-altdistributionpower" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-altdistributionpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-altdistributionpower-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-altdistributionpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.7: HA binomial distributions with critical values.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true, if the parameter truly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, if our sample originates from the alternative hypothesis, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null when this specific alternative is true is only 11%.</p>
+<blockquote class="blockquote">
+<p>The only way to increase the power is to increase the sample size of the study, or increase the type I error.</p>
+</blockquote>
+<p>As stated earlier we would rather have a higher probability of making the correct decision. In the social sciences we are striving for a power of .80. This means that we want to make the correct decision in 80% of the cases when the null hypothesis is false. In our candy factory example, this would mean that we would want to reject the null hypothesis in 80% of the replications. With our machine producing bags with 10 candies, this is just not possible. The only way to increase the power is to increase the sample size of the study. In the candy factory example, this would mean that we would have to increase the number of candies in the candy bags. We will come back to this in the <a href="#sec-sample-size" class="quarto-xref"><span>Section 4.2.11</span></a> on sample size.</p>
+<p>One more thing to note, is that the true power of the test can only be determined if you know the true population value. In practice, we do not know if the null or the alternative hypothesis is true. We can only calculate the power of the test when we assume some alternative hypothesis. It is good practice to base your assumptions about the alternative hypothesis on previous research, theory, or other empirical evidence. This is mostly expressed as the expected effect size, the expected difference between the null and the alternative hypothesis.</p>
+<p>In all statistical software, the power of the test is not calculated based on the true effect size, but on the found effect size in your sample. This is called the observed power and will be covered in <a href="#sec-observed-effect-size" class="quarto-xref"><span>Section 4.2.8</span></a>.</p>
+</section>
+<section id="beta" class="level3" data-number="4.2.4">
+<h3 data-number="4.2.4" class="anchored" data-anchor-id="beta"><span class="header-section-number">4.2.4</span> Beta</h3>
+<p>The probability of making a type II error is indicated by <span class="math inline">\(\beta\)</span>. It is the probability of not rejecting the null hypothesis when it is in reality false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the bottom right quadrant. The power of the test is <span class="math inline">\(1 - \beta\)</span>. In our candy factory example, the power of the test is .11, so the probability of making a type II error is .89. It is the sum of the probabilities of getting 1, 2, 3, 4, 5, 6, 7, 8, or 9 yellow candies, when the machine actually produces bags with 2 yellow candies with the corresponding probabilities as shown in <a href="#fig-altdistributionpower" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>.</p>
+</section>
+<section id="sec-test-statistic" class="level3" data-number="4.2.5">
+<h3 data-number="4.2.5" class="anchored" data-anchor-id="sec-test-statistic"><span class="header-section-number">4.2.5</span> Test statistic</h3>
+<p>In <a href="01-samplingdistr.html#sec-samplestatistic" class="quarto-xref"><span>Section 1.2.1</span></a> we discussed the <strong>sample statistic</strong>, and defined it as any value describing a characteristic of the sample. This could be the mean, or the proportion, or the correlation, or the regression coefficient. It is a value that is calculated from the sample. Note that conversions of the sample statistic, such as the difference between two sample means, or the ratio of two sample variances, <span class="math inline">\(t\)</span>-values, <span class="math inline">\(F\)</span>-values, and <span class="math inline">\(\chi^2\)</span>-values are also sample statistics.</p>
+<p>The <strong>test statistic</strong> is a sample statistic that is used to test the null hypothesis. In our candy factory example, the test statistic would be the number of yellow candies in the bag we sample. If we would draw a bag with 4 yellow candies, the test statistic would be 4.</p>
+<p>In the previous sections, we have determined our decision criterion, the critical value, based on our desired alpha level. We have also determined the power of the test, based on the alternative hypothesis. The test statistic is used to determine if we reject the null hypothesis or not. If the test statistic is equal to the critical value or more extreme, we reject the null hypothesis. If the test statistic is inside the critical value, we do not reject the null hypothesis.</p>
+<p>Looking at <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>, we see that the critical value is between 0 and 1 and 9 and 10. If we would draw a bag with 4 yellow candies, we can check if the value 4 is inside or outside the critical value. As 4 is inside the critical value, we would not reject the null hypothesis.</p>
+<blockquote class="blockquote">
+<p>The test statistic is the value that is used to decide if we reject the null hypothesis or not.</p>
+</blockquote>
+<p>For continuous variables, as described in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, the test statistic is the sample mean. If the sample mean is outside the critical value, we reject the null hypothesis. If the sample mean is inside the critical value, we do not reject the null hypothesis. If you select Step 4 in <a href="#fig-nullsampling" class="quarto-xref">Figure&nbsp;<span>4.6</span></a>, and draw a few samples, you can see if the test statistic, the sample mean, is inside or outside the critical value. Again, the reasoning for continuous variables is the same as for the discrete variables.</p>
+</section>
+<section id="sec-pvalue" class="level3 page-columns page-full" data-number="4.2.6">
+<h3 data-number="4.2.6" class="anchored" data-anchor-id="sec-pvalue"><span class="header-section-number">4.2.6</span> P-value</h3>
+<p>We have learned that a test is statistically significant if the test statistic is in the rejection region. Statistical software, however, usually does not report the rejection region for the sample statistic. Instead, it reports the <em>p-value</em> of the test, which is sometimes referred to as <em>significance</em> or <em>Sig.</em> in SPSS.</p>
+<blockquote class="blockquote">
+<p>The <strong>p-value</strong> is the probability of obtaining a test statistic at least as extreme as the result actually observed, under the assumption that the null hypothesis is true.</p>
+</blockquote>
+<p>In the previous section we considered a sample with 4 yellow candies. The p-value gives the probability of randomly drawing a sample that is as extreme or more extreme than our current sample assuming that the null hypothesis is true. “As extreme or more extreme” here means as far or further removed from the value specified by the null hypothesis. Concretely, in our case that means the probability of drawing a sample with 4 or fewer yellow candies. The p-value considers the probability of such a sample, but also ads the probability of getting a sample with less yellow candies. This is what is meant with “at least as extreme”. this is not really intuitive, but it refers to the less likely test statistics, iIn our case 0, 1, 2 and 3, are even less probable than 4 yellow candies. The assumption that the null hypothesis is true indicates that we need to look at the probabilities from the sampling distribution that is created based on the null distribution hypothesis. Looking at <a href="#tbl-nullprobtable" class="quarto-xref">Table&nbsp;<span>4.1</span></a>, we see that the probability of drawing a random sample with 0, 1, 2, 3 or 4 yellow candies under the null distribution is 0.001 + 0.010 + 0.044 + 0.117 + 0.205 = 0.377 according to the sampling distribution belonging to the null hypothesis. This 0.377 is the p-value. The conditional (conditional on H0 being true) probability of getting a sample that is as or less likely than the test statistic that we have of our current sample.</p>
+<blockquote class="blockquote">
+<p>Rejecting the null hypothesis does not mean that this hypothesis is false or that the alternative hypothesis is true. Please, never forget this.</p>
+</blockquote>
+<p>The reasoning applied when comparing our test statistic to the critical value is the same as when comparing the p-value to the alpha level. If the p-value is smaller or equal to than the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
+<p>If the test statistic is within the critical values, the p-value is always larger than the alpha level. If the test statistic lies outside the critical value, the p-value is always smaller than the alpha level. In the case that the test statistic is exactly the same as the critical value, the p-value is exactly equal to the alpha level, we still decide to reject the null hypothesis.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Reject <span class="math inline">\(H_0\)</span> when <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span></p>
+</div>
+</div>
+</div>
+<p>As both the p-value and the alpha level assume the null to be true, you can find both probabilities under the null distribution. For continuous variables, the p-value is the area under the curve of the probability distribution that is more extreme than the sample mean. The significance level is chosen by you as a researcher and is fixed.</p>
+<blockquote class="blockquote">
+<p>It is important to remember that a <em>p</em>-value is a probability <em>under the assumption that the null hypothesis is true</em>. Therefore, it is a <em>conditional probability</em>.</p>
+</blockquote>
+<p>Compare it to the probability that we throw sixes with a dice. This probability is one out of six under the assumption that the dice is fair. Probabilities rest on assumptions. If the assumptions are violated, we cannot calculate probabilities.</p>
+<p>If the dice is not fair, we don’t know the probability of throwing sixes. In the same way, we have no clue whatsoever of the probability of drawing a sample like the one we have if the null hypothesis is not true in the population.</p>
+<p><a href="#fig-t-alpha-p" class="quarto-xref">Figure&nbsp;<span>4.8</span></a> shows a t-distribution, which represents the null distribution. A statistical test was set up with an alpha level of 5% (blue area). The and the p-value (red area) indicates the probability of drawing a random sample with a t-value of 2 or values that are even further removed from the null hypothesis (more extreem). The figure shows what this test would look like for a two sided test (left) and a one two sided hypothesis test (right). We will cover one and two sided testing in <a href="#sec-one-twosidedtests" class="quarto-xref"><span>Section 4.2.12</span></a>. For now, just notice that, looking at the left graph, the p-value is greater than 0.05, because the test statistic is not as or more extreme than the critical value. In other words, the test is not significant. In the one-sided test depicted on the right, the p-value lies in the rejection region and is, thus, significant.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-t-alpha-p" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-t-alpha-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-t-alpha-p-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-t-alpha-p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.8: T-distributions with alpha level and p-value.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>In <a href="#fig-t-alpha-p" class="quarto-xref">Figure&nbsp;<span>4.8</span></a>, the blue vertical boundaries represent the critical value associated with a chosen alpha level of 5%, the blue area under the curve. The red vertical line represents the t-value from the sample, which in this example was 2. The red area under the curve represents the p-value, the probability of getting this t-value or more extreme.</p>
+<p><a href="#fig-twosided" class="quarto-xref">Figure&nbsp;<span>4.9</span></a> represents the sampling distribution of average media literacy. You can take a sample and play around with the population mean according to some null hypothesis. If the mean in the sample is outside the critical value, it falls in the alpha rejection region.</p>
+<div id="fig-twosided" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-twosided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/twosided/" width="100%" height="268px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twosided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.9: Sampling distribution of average media literacy according to the null hypothesis.
+</figcaption>
+</figure>
+</div>
+<p>The reasoning is again the same as for discrete variables. If the p-value is smaller or equal to the alpha level, we reject the null hypothesis. If the p-value is larger than the alpha level, we do not reject the null hypothesis.</p>
+</section>
+<section id="sec-true-effect-size" class="level3" data-number="4.2.7">
+<h3 data-number="4.2.7" class="anchored" data-anchor-id="sec-true-effect-size"><span class="header-section-number">4.2.7</span> True effect size</h3>
+<p>The true effect size is the difference between the null hypothesis and the true population value. This can also be expressed in terms of the test statistic. For example, if the IQ scores for communication science students are 120 in the population, the true affect size can be expressed as 20 IQ points, but also as a <em>t</em>-value. The <strong>true</strong> effect size denotes the genuine effect within the population, representing the actual difference, correlation, or parameter value.</p>
+<p>In the candy factory example, the true effect size is .5 - .2 = .3. This is the difference in the proportion of yellow candies in the bags. In <a href="#fig-twobinomeffect" class="quarto-xref">Figure&nbsp;<span>4.10</span></a> you can see the difference in the two distributions. The true effect size is the difference in the expected value of the two distributions. In absolute terms, it is 5 - 3 expected number of yellow candies in the bag. In terms of the parameter it is the proportion .5 - .2.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-twobinomeffect" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-twobinomeffect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-twobinomeffect-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twobinomeffect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.10: Effect in discrete binomial distributions.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>True</strong> refers to the actual difference in the population, which is unknown to us. In our candy factory example, we can only observe the sample from a candy bag and make assumptions based on the null and alternative hypotheses.</p>
+<p>Depending on the true value in the population, a true effect size could be small, medium, or large. In order to detect small true effect sizes, we need a large sample size. A larger sample offers more precision, so the difference between our sample outcome and the hypothesized value is more often sufficient to reject the null hypothesis. For example, we would reject the null hypothesis that average candy weight is 2.8 grams in the population if average weight in our sample bag is 2.70 grams and our sample is large. But we may not reject this null hypothesis if we have the same outcome in a small sample bag.</p>
+<p>The larger our sample, the more sensitive our test will be, so we will get statistically significant results more often. If we think of our statistical test as a security metal detector, a more sensitive detector will go off more often.</p>
+<section id="practical-relevance" class="level4" data-number="4.2.7.1">
+<h4 data-number="4.2.7.1" class="anchored" data-anchor-id="practical-relevance"><span class="header-section-number">4.2.7.1</span> Practical relevance</h4>
+<p>Investigating the effects of a new medicine on a person’s health, we may require some minimum level of health improvement to make the new medicine worthwhile medically or economically. If a particular level of improvement is clinically important, it is practically relevant (sometimes called practically significant).</p>
+<p>If we have decided on a minimum level of improvement that is relevant to us, we want our test to be statistically significant if the average true health improvement in the population is at least of this size. We want to reject the null hypothesis of no improvement in this situation.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li><p>A larger sample size makes a statistical test more sensitive. The test will pick up (be statistically significant for) smaller effect sizes.</p></li>
+<li><p>A larger effect size is more easily picked up by a statistical test. Larger effect sizes yield statistically significant results more easily, so they require smaller samples.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<p>For media interventions such as health, political, or advertisement campaigns, one could think of a minimum change of attitude affected by the campaign in relation to campaign costs. A choice between different campaigns could be based on their efficiency in terms of attitudinal change per cost unit.</p>
+<p>Note the important difference between practical relevance and statistical significance. Practical relevance is what we are interested in. If the new medicine is sufficiently effective, we want our statistical test to signal it. In the security metal detector example: If a person carries too much metal, we want the detector to pick it up.</p>
+<p>Statistical significance is just a tool that we use to signal practically relevant effects. Statistical significance is not meaningful in itself. For example, we do not want to have a security detector responding to a minimal quantity of metal in a person’s dental filling. Statistical significance is important only if it signals practical relevance. We will return to this topic in <a href="#sec-sample-size" class="quarto-xref"><span>Section 4.2.11</span></a> on sample size.</p>
+</section>
+</section>
+<section id="sec-observed-effect-size" class="level3" data-number="4.2.8">
+<h3 data-number="4.2.8" class="anchored" data-anchor-id="sec-observed-effect-size"><span class="header-section-number">4.2.8</span> Observed effect size</h3>
+<p>In <a href="#sec-true-effect-size" class="quarto-xref"><span>Section 4.2.7</span></a> we discussed the true effect, the difference between the null hypothesis and the true alternative hypothesis. The problem is that we do not know the true effect, we do not know which of the two hypothesis is actually true.</p>
+<p>We can only estimate the true effect using the sample statistic. The difference between the sample statistic and the null hypothesis is called the <strong>observed effect size</strong>. In the candy factory example, the observed effect size is the difference between the number of yellow candies in the sample and the number of yellow candies in the null hypothesis. If the null hypothesis is that the machine produces bags with 5 yellow candies, and the sample contains 4 yellow candies, the observed effect size is 1.</p>
+<p>The same definition holds for the continuous case. If the null hypothesis is that the average media literacy in the population is 5.5, and the sample mean is 3.9, the observed effect size is 1.6. Or if we hypothesize that average candy weight in the population is 2.8 grams and we find an average candy weight in our sample bag of 2.75 grams, the effect size is -0.05 grams. If a difference of 0.05 grams is a great deal to us, the effect is practically relevant.</p>
+<p>Note that the effect sizes depend on the scale on which we measure the sample outcome. The unstandardized effect size of average candy weight changes if we measure candy weight in grams, micro grams, kilograms, or ounces. Of course, changing the scale does not affect the meaning of the effect size but the number that we are looking at is very different: 0.05 grams, 50 milligrams, 0.00005 kilos, or 0.00176 ounces. For this reason, we do not have rules of thumb for interpreting these <strong>unstandardized effect sizes</strong> in terms of small, medium, or large effects. But we do have rules of thumb for <strong>standardized effect sizes</strong>. Unstandardized effect sizes are very useful for reporting the practical results of your study, but they are not very useful for comparing studies or for meta-analysis.</p>
+<p>You can imagine that estimating the true effect size on just one sample is not very reliable. The observed effect size could be the result of our sample being the result of the null being true, or the alternative being true. The way researchers try to get a notion of the true effect size is by replicating the study. If the observed effect size is consistent over multiple replications, we can be more confident that the average observed effect size is the true effect size. This is what we will cover in <a href="#sec-meta-analysis" class="quarto-xref"><span>Section 4.2.10</span></a> about meta analysis.</p>
+<section id="cohens-d" class="level4" data-number="4.2.8.1">
+<h4 data-number="4.2.8.1" class="anchored" data-anchor-id="cohens-d"><span class="header-section-number">4.2.8.1</span> Cohen’s <em>d</em></h4>
+<p>In scientific research, we rarely have precise norms for raw differences (unstandardized effects) that are practically relevant or substantial. For example, what would be a practically relevant attitude change among people exposed to a health campaign?</p>
+<p>To avoid answering this difficult question, we can take the variation in scores (standard deviation) into account. In the context of the candies example, we will not be impressed by a small difference between observed and expected (hypothesized) average candy weight if candy weights vary a lot. In contrast, if candy weight is quite constant, a small average difference can be important.</p>
+<p>For this reason, standardized effect sizes for sample means divide the difference between the sample mean and the hypothesized population mean by the standard deviation in the sample. Thus, we take into account the variation in scores. This standardized observed effect size for tests on one or two means is known as <em>Cohen’s</em> d. <a href="#eq-CoD" class="quarto-xref">Equation&nbsp;<span>4.3</span></a> illustrates how the sample mean <span class="math inline">\(\bar{x}\)</span> is compared to the hypothesized population mean <span class="math inline">\(\mu_{H_0}\)</span>, and how this difference is standardized by deviding through the standard deviation <span class="math inline">\(s\)</span>. In appendix <a href="12-Appendix.html#sec-CohenCalculations" class="quarto-xref"><span>Section 1</span></a> we will cover the calculation of the paired and independent t-tests.</p>
+<p><span id="eq-CoD"><span class="math display">\[
+d = \frac{\bar{x} - \mu_{H_0}}{s_x}
+\tag{4.3}\]</span></span></p>
+<p>Using an inventory of published results of tests on one or two means, <span class="citation" data-cites="RefWorks:3933">Cohen (<a href="14-references.html#ref-RefWorks:3933" role="doc-biblioref">1969</a>)</span> proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs):</p>
+<ul>
+<li>0.2: weak (small) effect,</li>
+<li>0.5: moderate (medium) effect,</li>
+<li>0.8: strong (large) effect.</li>
+</ul>
+<p>Note that Cohen’s <em>d</em> can take values above one. These are not errors, they reflect very strong or huge effects <span class="citation" data-cites="sawilowskyNewEffectSize2009">(<a href="14-references.html#ref-sawilowskyNewEffectSize2009" role="doc-biblioref">Sawilowsky 2009</a>)</span>.</p>
+</section>
+<section id="sec-assoc-size" class="level4" data-number="4.2.8.2">
+<h4 data-number="4.2.8.2" class="anchored" data-anchor-id="sec-assoc-size"><span class="header-section-number">4.2.8.2</span> Association as effect size</h4>
+<p>Measures of association such as Pearson’s product-moment correlation coefficient or Spearman’s rank correlation coefficient express effect size if the null hypothesis expects no correlation in the population. If zero correlation is expected, a correlation coefficient calculated for the sample expresses the difference between what is observed (sample correlation) and what is expected (zero correlation in the population).</p>
+<p>Effect size is also zero according to the standard null hypotheses used for tests on the regression coefficient (<em>b</em>), <em>R</em><sup>2</sup> for the regression model, and eta<sup>2</sup> for analysis of variance. As a result, we can use the standardized regression coefficient (Beta in SPSS and <em>b</em>* according to APA), <em>R</em><sup>2</sup>, and eta<sup>2</sup> as standardized effect sizes.</p>
+<p>Because they are standardized, we can interpret their effect sizes using rules of thumb. The rule of thumb for interpreting a standardized regression coefficient (<em>b</em>*) or a correlation coefficient, for example, could be:</p>
+<ul>
+<li>Very weak: between 0 and .10</li>
+<li>Weak: between .10 and .30</li>
+<li>Moderate: between .30 and .50</li>
+<li>Strong: between .50 and .80</li>
+<li>Very strong: between .80 and 1.00</li>
+<li>Perfect association: 1.00</li>
+</ul>
+<p>Note that we ignore the sign (plus or minus) of the effect when we interpret its size.</p>
+</section>
+</section>
+<section id="post-hoc-power" class="level3" data-number="4.2.9">
+<h3 data-number="4.2.9" class="anchored" data-anchor-id="post-hoc-power"><span class="header-section-number">4.2.9</span> Post hoc power</h3>
+<p>Just as the observed effect size is based on the test statistic acquired from your sample, so is the post hoc power. It is also known as: observed, retrospective, achieved power <span class="citation" data-cites="doi:10.1080/19312450701641375">(<a href="14-references.html#ref-doi:10.1080/19312450701641375" role="doc-biblioref">O’Keefe 2007</a>)</span>.</p>
+<blockquote class="blockquote">
+<p>The power of a test assuming a population effect size equal to the observed effect size in the current sample.</p>
+<p>— <span class="citation" data-cites="doi:10.1080/19312450701641375">(<a href="14-references.html#ref-doi:10.1080/19312450701641375" role="doc-biblioref">O’Keefe 2007</a>)</span></p>
+</blockquote>
+<p>The post hoc power refers to the probability of rejecting the null hypothesis assuming the alternative hypothesis has a population mean equal to the observed sample mean or more accurately the observed test statistic.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-posthocpower" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-posthocpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-posthocpower-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-posthocpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.11: Discrete binomial distributions showing post hoc power.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-posthocpower" class="quarto-xref">Figure&nbsp;<span>4.11</span></a> shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution when rejecting the null hypothesis on the outside of the critical values.</p>
+<p>You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would not be the same. The post hoc power does not have much practical use, though SPSS produces this when you ask it, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the actual power is fixed and should not vary.</p>
+<!-- [To-Do] create a new shiny app with null distribution, and random sample with mean and alternative distribtuion and post hoc power area under the HA distribution -->
+</section>
+<section id="sec-meta-analysis" class="level3" data-number="4.2.10">
+<h3 data-number="4.2.10" class="anchored" data-anchor-id="sec-meta-analysis"><span class="header-section-number">4.2.10</span> Meta analysis</h3>
+<p>As mentioned in <a href="#sec-observed-effect-size" class="quarto-xref"><span>Section 4.2.8</span></a>, the observed effect size is based on the sample statistic, and is likely to differ with every sample you take. If our research hypothesis is actually true, a random sample from a population described by the sampling distribution of the alternative hypothesis would be mot likely to result in us holding a bag with 2 yellow candies. But as we have seen in <a href="#fig-altdistribution" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>, getting 4 yellow candies is reasonably probable as well.</p>
+<p>Now imagine that we would take multiple samples, and calculate the observed effect size for each sample. If we would plot these observed effect sizes, we would get a distribution of observed effect sizes.</p>
+<p>In research we can conduct replication studies to see if the observed effect size is consistent over multiple replications. If this is the case, we can be more confident that the average observed effect size is the true effect size and we can determine the true population mean. As we have seen in <a href="01-samplingdistr.html" class="quarto-xref"><span>Chapter 1</span></a>, it is in practical to draw many number of samples to create a sampling distribution. But we can use the results from multiple studies to get an indication of the true population mean.</p>
+<p>Imagine that we get a hundred bags of candy (100 replications) and we consistently find 7 to 9 yellow candies, this would give us an indication that the true population value is 8. It would also indicate that our initial alternative hypothesis is highly unlikely. This is essentially what meta analysis is about. Collecting effect sizes from multiple studies and combining them to get an indication of the true effect size.</p>
+<!-- [to-do] add communication meta analysis example. -->
+<p>Meta-analysis is a good example of combining research efforts to increase our understanding. It is useful to obtain more precise estimates of population values or effects. Meta-analysis is strongly recommended as a research strategy by Geoff Cumming, who coined the concept <em>New Statistics</em>. See Cumming’s book <span class="citation" data-cites="RefWorks:3883">(<a href="14-references.html#ref-RefWorks:3883" role="doc-biblioref">2012</a>)</span>, <a href="http://www.latrobe.edu.au/psychology/research/research-areas/cognitive-and-developmental-psychology/esci">website</a>, or <a href="https://www.youtube.com/user/geoffdcumming">YouTube channel</a> if you are curious to learn more.</p>
+</section>
+<section id="sec-sample-size" class="level3 page-columns page-full" data-number="4.2.11">
+<h3 data-number="4.2.11" class="anchored" data-anchor-id="sec-sample-size"><span class="header-section-number">4.2.11</span> Sample size</h3>
+<p>As stated in <a href="#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a>, the only way to increase the power of a test is to increase the sample size. In the candy factory example, the sample size is the total number of candies in the bag. With only 10 candies in the bag, the power of the test is only 0.11. To reach our desired power of 80%, we clearly need to increase the sample size. In <a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.12</span></a>, we increased the number of candies in the bag to 20. We can see on the x-axis that the possible outcome space for the number of yellow candies in the bag is now 0 to 20. This still assumes our <span class="math inline">\(H_0\)</span> to be true, and the parameter of the machine is still <span class="math inline">\(\theta = .5\)</span>, half of the candies in the bag should be yellow. Though the parameter is still the same, the expected value when we have bags of 20 candies is now <span class="math inline">\(.5 \times 20 = 10\)</span>, right in the middle of our distribution.</p>
+<p><a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.12</span></a> still follows the reasoning scheme we have setup earlier. We decide to reject <span class="math inline">\(H_0\)</span> on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an <span class="math inline">\(\alpha = .05\)</span>. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.</p>
+<p>With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that <span class="math inline">\(H_A\)</span> is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-twobinomN20" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-twobinomN20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-twobinomN20-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-twobinomN20-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.12: Discrete binomial distributions for higher sample size.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>The same reasoning is applied when using continuous sample statistics. Let’s revisit the candy weight example. We could have a null hypothesis that the average yellow candy weight is the same as the weight of all other candy colors. But if in reality the yellow candies would be heavier, let’s say with an effect size of .3, we would need to determine what sample size we would need to get a power of 80% and a alpha of 5%.</p>
+<p><a href="#fig-sample-size-power" class="quarto-xref">Figure&nbsp;<span>4.13</span></a> shows the relation between sample size, power, alpha and effect size. You can play around with the sliders de determine what sample size you would need to obtain a power of 80% for an effect size of .3.</p>
+<div id="fig-sample-size-power" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sample-size-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/sample-size-power2/" width="100%" height="385px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sample-size-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.13: How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H<sub>0</sub>, left-hand curve) and under the assumed true value of the population mean (H<sub>1</sub>, right-hand curve) for a one-sample <em>t</em> test.
+</figcaption>
+</figure>
+</div>
+<p>For continuous sample statistics, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values.</p>
+<p>The reasoning is again the same as in the discrete case, when we use categorical sample statistics. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.</p>
+<section id="how-to-determine-sample-size" class="level4" data-number="4.2.11.1">
+<h4 data-number="4.2.11.1" class="anchored" data-anchor-id="how-to-determine-sample-size"><span class="header-section-number">4.2.11.1</span> How to determine sample size</h4>
+<p>As stated in <a href="#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a> about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don’t know the true effect size. We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence.</p>
+<p>In research you can take these assumptions into account by conducting a power analysis. A power analysis is a statistical method to determine the sample size you need to get a desired power for a given effect size.</p>
+<p>It can be difficult to specify the effect size that we should expect or that is practically relevant. If there is little prior research comparable to our new project, we cannot reasonably specify an effect size and calculate sample size. Though, if there are meta analyses available for your research topic of interest or you have the effect sizes from a few previous studies, you can use programs such as G*Power to calculate the sample size you need to get a desired power for a given effect size. G*Power is a stand alone program that can be downloaded for free from the internet, and is specifically designed to calculate the required sample size for a wide range of statistical tests.</p>
+<blockquote class="blockquote">
+<p>Download <a href="http://www.gpower.hhu.de/">G*Power here</a></p>
+</blockquote>
+<p>In G*Power you can specify the test you want to conduct, the effect size you expect, the alpha level you want to use, and the power you want to achieve. G*Power will then calculate the sample size you need to get the desired power for the given effect size.</p>
+<p>For our candy color example, we can use G*Power to calculate the sample size we need to get a power of 80% for a given effect size of .3.</p>
+<div id="fig-g-power" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-g-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/g-power.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g-power-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.14: Power analysis in G*Power for a binomial distribution
+</figcaption>
+</figure>
+</div>
+<p>In <a href="#fig-g-power" class="quarto-xref">Figure&nbsp;<span>4.14</span></a> you can see that for the binomial test we have set the proportion p1 to .5 (<span class="math inline">\(H_0\)</span>) and the proportion p2 (<span class="math inline">\(H_A\)</span>) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in <a href="#fig-twobinomN20" class="quarto-xref">Figure&nbsp;<span>4.12</span></a>, though with lines instead of bars.</p>
+<p>As mentioned in <a href="#sec-true-effect-size" class="quarto-xref"><span>Section 4.2.7</span></a> about the true effect size, the sensitivity of a test is determined by the sample size. The larger the sample size, the more sensitive the test will be. This means that if we want to detect a small effect size, we need a large sample size. If we want to detect a large effect size, we can suffice with a smaller sample.</p>
+<p>Try to determine what sample size you would need using <a href="#fig-sample-size-power" class="quarto-xref">Figure&nbsp;<span>4.13</span></a>, if you would want to detect an effect size of .2, .5 or .8 with a power of 80% and an alpha level of 5%. You can see that the sample size ranges from 197 to about 15 for these effect sizes.</p>
+<p>Something to consider is that with extremely large sample sizes you will very easily find significant results. Even if these results are not practically relevant. This is why it is important to determine the sample size you need before you start collecting data.</p>
+</section>
+</section>
+<section id="sec-one-twosidedtests" class="level3 page-columns page-full" data-number="4.2.12">
+<h3 data-number="4.2.12" class="anchored" data-anchor-id="sec-one-twosidedtests"><span class="header-section-number">4.2.12</span> One-Sided and Two-Sided Tests</h3>
+<p>As was explained in <a href="#sec-alternative-hypothesis" class="quarto-xref"><span>Section 4.1.2</span></a>, the alternative hypothesis can be one-sided or two-sided. The choice between a one-sided or two-sided test is based on the research question. In our media literacy example, we could have a one-sided alternative hypothesis that the average media literacy is below 5.5. This would be the case if we hypothesize that children on average score very low on media literacy. We could also have a different hypothesis, that a media literacy intervention program will increase media literacy. Both would be a one-sided alternative hypothesis. We could also have no idea about the media literacy of children, and just want to know if children score below or above 5.5 on media literacy. This would be a two-sided alternative hypothesis. <a href="#eq-MediaAlt" class="quarto-xref">Equation&nbsp;<span>4.4</span></a> formalizes these different hypothesis.</p>
+<p><span id="eq-MediaAlt"><span class="math display">\[
+\begin{eqnarray*}
+\text{Two-sided} \\
+H_{A} &amp; : \theta &amp; \neq 5.5 \\
+\text{One-sided} \\
+H_{A} &amp; : \theta &amp; &lt; 5.5 \\
+H_{A} &amp; : \theta &amp; &gt; 5.5 \\
+\end{eqnarray*}
+\tag{4.4}\]</span></span></p>
+<p>In null hypothesis significance testing, testing one or two-sided has some consequences for the critical values. In a two-sided test, the critical values are on both sides of the null hypothesis value. In a one-sided test, the critical value is only on one side of the null hypothesis value. If we are using an alpha significance level of 5%, the critical value for a two-sided test results in 2.5% on both sides, while for a one sided test the 5% would only be on one side of the null distribution.</p>
+<div id="fig-nonsig-1sided" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nonsig-1sided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/nonsig-1sided/" width="100%" height="310px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nonsig-1sided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.15: One-sided and two-sided tests of a null hypothesis.
+</figcaption>
+</figure>
+</div>
+<p>In the right-sided test of the media literacy hypothesis, the researcher is not interested in demonstrating that average media literacy among children can be lower than 5.5. She only wants to test if it is above 5.5, because an average score above 5.5 indicates that the intervention worked.</p>
+<p>If it is deemed important to note values well over 5.5 as well as values well below 5.5, the alternative hypotheses should be two-sided. Then, a sample average well below 5.5 would also have resulted in a rejection of the null hypothesis.</p>
+<p><a href="#fig-nonsig-1sided" class="quarto-xref">Figure&nbsp;<span>4.15</span></a> shows the <span class="math inline">\(H_0\)</span> distribution of the sample mean 5.5. The dark blue areas represent the 5% probability for a two-sided te st, 2.5% on either side. The light blue areas represent the 5% probability for a one-sided (right-sided) test. The critical value for the one-sided test is 7.8, and the critical values for the two-sided test are 2.9 and 8.1. The critical value is the value that separates the rejection region from the non-rejection region. Where the rejection region are the values on the x-axis that are on the outside of the critical value.</p>
+<p>You can take a sample and see the result of the sample in the figure. You can then determine if the sample mean is significant at a 5% significance level for a right-sided test, and a two-sided test.</p>
+<section id="from-one-sided-to-two-sided-p-values-and-back-again" class="level4 page-columns page-full" data-number="4.2.12.1">
+<h4 data-number="4.2.12.1" class="anchored" data-anchor-id="from-one-sided-to-two-sided-p-values-and-back-again"><span class="header-section-number">4.2.12.1</span> From one-sided to two-sided <em>p</em> values and back again</h4>
+<p>Statistical software like SPSS usually reports either one-sided or two-sided <em>p</em> values. What if a one-sided <em>p</em> value is reported but you need a two-sided <em>p</em> value or the other way around?</p>
+<p>In <a href="#fig-onetwosided" class="quarto-xref">Figure&nbsp;<span>4.16</span></a>, the sample mean is 3.9 and we have .015 probability of finding a sample mean of 3.9 or less if the null hypothesis is true that average media literacy is 5.5 in the population. This probability is the surface under the curve to the left of the solid red line representing the sample mean. It is the one-sided <em>p</em> value that we obtain if we only take into account the possibility that the population mean can be smaller than the hypothesized value. We are only interested in the left tail of the sampling distribution.</p>
+<div id="fig-onetwosided" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-onetwosided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/onetwosided/" width="100%" height="268px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-onetwosided-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.16: Halve a two-sided <em>p</em> value to obtain a one-sided <em>p</em> value, double a one-sided <em>p</em> value to obtain a two-sided <em>p</em> value.
+</figcaption>
+</figure>
+</div>
+<p>In a two-sided test, we have to take into account two different types of outcomes. Our sample outcome can be smaller or larger than the hypothesized population value. The p-value still represents the probability of drawing a random sample with a sample statistic (here the mean) that is as extreme or more extreme than the sample statistics in our current sample. In the one-sided test example described above, more extreme can only mean “even smaller”. In a two-sided test, more extreme means even more distant from the null hypothesis on either end of the sampling distribution.</p>
+<p>In <a href="#fig-onetwosided" class="quarto-xref">Figure&nbsp;<span>4.16</span></a>, you can see tha sample meen as indicated by the solid red line. The dotted red line is the mirror image of the sample mean on the other side of the hypothesized population mean. When testing two-sided, we not only consider the sample mean, but also its mirror opposite. The two-sided <em>p</em> value is the probability of finding a sample mean as extreme or more extreme than the sample mean in the sample, and also its mirror opposite. Hence, the two-sided <em>p</em> value is the sum of the probabilities for both the left tail and the right tail of the sampling distribution. As these tails are symmetrical, the two-sided <em>p</em> value is twice the one-sided <em>p</em> value.</p>
+<p>So, if our statistical software tells us the two-sided <em>p</em> value and we want to have the one-sided <em>p</em> value, we can simply halve the two-sided <em>p</em> value. The two-sided <em>p</em> value is divided equally between the left and right tails. If we are interested in just one tail, we can ignore the half of the <em>p</em> value that is situated in the other tail.</p>
+<p>Be careful if you divide a two-sided <em>p</em> value to obtain a one-sided <em>p</em> value. If your left-sided test hypothesizes that average media literacy is below 5.5 but your sample mean is well above 5.5, the two-sided <em>p</em> value can be below .05. But your left-sided test can never be significant because a sample mean above 5.5 is fully in line with the null hypothesis. Check that the sample outcome is at the correct side of the hypothesized population value.</p>
+<p>You might have already realized that if you use the same alpha criterion for rejecting the null hypothesis (e.g.&nbsp;5%) as is usually done, it is easier to reject a one-sided null hypothesis, because the entire 5% of most extreme samples is located on one side of the distribution, whereas a two-sided null hypothesis would require us to highlight 2.5% of samples in the lower tail of the distribution and 2.5% in the upper tail. To avoid making too many unnecessary type 1 errors (<a href="#sec-cap-chance" class="quarto-xref"><span>Section 4.7.3</span></a>), we should always have a good theoretical justification for using one-sided null hypotheses and tests.</p>
+<p>One final warning: Two-sided tests are only relevant if the probability distribution that you are using to test your hypothesis is symmetrical. If you are using a non-symmetrical distribution, such as the chi-square distribution, or the F-distribution you should always use a one-sided test. This is because such distributions do not have negative values, and the critical values are always on the right side of the distribution. As the F-value, for example, represents a signal to noise ratio, it can never be negative.</p>
+</section>
+</section>
+</section>
+<section id="sec-reporting" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-reporting"><span class="header-section-number">4.3</span> Reporting test results</h2>
+<section id="reporting-to-fellow-scientists" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="reporting-to-fellow-scientists"><span class="header-section-number">4.3.1</span> Reporting to fellow scientists</h3>
+<p>Fellow scientists need to be able to see the precise statistical test results. According to the APA guidelines, we should report the test statistic, the associated degrees of freedom (if any), the value of the test statistic, the <em>p</em> value of the test statistic, and the confidence interval (if any). APA requires a particular format for presenting statistical results and it demands that the results are included at the end of a sentence.</p>
+<p>The statistical results for a <em>t</em> test on one mean, for example, would be:<em>t</em> (67) = 2.73, <em>p</em> = .004, 95% CI [4.13, 4.87].</p>
+<ul>
+<li>The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, <em>N</em> = 89) = 23.14, <em>p</em> = .027.</li>
+<li>The value of the test statistic is 2.73 in this example.</li>
+<li>The <em>p</em> value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities—less than .05—so we need the third decimal here. If SPSS rounds the <em>p</em> value to .000, report: <em>p</em> &lt; .001. Add (one-sided) after the <em>p</em> value if the test is one-sided.</li>
+<li>The 95% confidence interval is 4.13 to 4.87, so we 95% confident that the population mean lies within the CI. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.</li>
+</ul>
+<p>Not all tests produce all results reported in the example above. For example, a <em>z</em> test does not have degrees of freedom and <em>F</em> or chi-squared tests do not have confidence intervals. Exact tests or bootstrap tests usually do not have a test statistic. Just report the items that your statistical software produces, and give them in the correct format.</p>
+</section>
+<section id="reporting-to-the-general-reader" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="reporting-to-the-general-reader"><span class="header-section-number">4.3.2</span> Reporting to the general reader</h3>
+<p>For fellow scientists and especially for the general reader, it is important to read an interpretation of the results that clarifies both the subject of the test and the test results. Make sure that you tell your reader who or what the test is about:</p>
+<ul>
+<li>What is the population that you investigate?<br>
+</li>
+<li>What are the variables?<br>
+</li>
+<li>What are the values of the relevant sample statistics?<br>
+</li>
+<li>Which comparison(s) do you make?<br>
+</li>
+<li>Are the results statistically significant and, if so, what are the estimates for the population?<br>
+</li>
+<li>If the results are statistically significant, how large are the differences or associations?</li>
+</ul>
+<p>A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>“The television station reaches significantly and substantially (61%) more than half of all households in Greece in 2012, <em>z</em> = 4.01, <em>p</em> &lt; .001.”</p>
+</div>
+</div>
+</div>
+<p>The interpretation of this test tells us the population (“all households in Greece”), the variable (“reaching a household”) and the sample statistic of interest (61%, indicating a proportion). It tells us that the result is statistically significant, which a fellow scientist can check with the reported <em>p</em> value.</p>
+<p>Finally, the interpretation tells us that the difference from .5 is substantial. Sometimes, we can express the difference in a number, which is called the <em>effect size</em>, and give a more precise interpretation (see <a href="#sec-power" class="quarto-xref"><span>Section 4.2.3</span></a> for more information).</p>
+</section>
+</section>
+<section id="sec-test-selection" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-test-selection"><span class="header-section-number">4.4</span> Statistical test selection</h2>
+<p>Knowing what statistical test fits your research question is crucial for the success of your research. If you do not know what test to apply or even choose the wrong test, you may draw the wrong conclusions. This can lead to a waste of time and resources, and it can even lead to harm if the wrong conclusions are used to make decisions.</p>
+<p>Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in <a href="#fig-flowchart" class="quarto-xref">Figure&nbsp;<span>4.17</span></a> helps you to identify the right statistical test.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-flowchart" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-flowchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-flowchart-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-flowchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.17: Flow chart for selecting a test in SPSS.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>You use the flow chart by identifying the type of your dependent variable (categorical or numerical) and the number and type of your independent variable (categorical or numerical). The flow chart then guides you to the right statistical test.</p>
+<p>Consider the following example. You want to measure the difference in media literacy between man and women, and want to control for age. You measure media literacy on a scale from 1 to 7, and age in years. You have a numerical dependent variable (media literacy) and a categorical independent (biological sex), and a numerical independent variable (age). As your dependent variable is numerical, you follow the flow chart to the right. As you have two independent variables, you follow the flow chart to the right to indicate that you have both a categorical and numerical independent variable. The flow chart guides you to the <em>F test multiple regression model</em>.</p>
+</section>
+<section id="sec-null-ci" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-null-ci"><span class="header-section-number">4.5</span> Confidence Intervals to test hypotheses</h2>
+<p>In <a href="03-estimation.html" class="quarto-xref"><span>Chapter 3</span></a>, we learned how to calculate a confidence interval for the population mean. We also learned that the confidence interval is a range of values that is likely to contain the true population mean. We learned that the true population mean falls within the confidence in 95% of a hundred samples. We can use this knowledge to test hypotheses. If we, again, have the hypothesis that the average media literacy in the population is 5.5, we can use the confidence interval to test this hypothesis. If we draw a sample and calculate the confidence interval, we can see if the hypothesized population mean falls within the confidence interval. If it does, we can conclude that we are probably right. If it does not, we can conclude that we are probably wrong.</p>
+<p>With the hypothesis that we can improve media literacy through some intervention program, we can also use the confidence interval to test this hypothesis. If the lower bound of the confidence interval is higher than 5.5, we can conclude that the intervention program works.</p>
+<section id="estimation-in-addidion-to-nhst" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="estimation-in-addidion-to-nhst"><span class="header-section-number">4.5.1</span> Estimation in addidion to NHST</h3>
+<p>Following up on a report commissioned by the American Psychological Association APA <span class="citation" data-cites="RefWorks:3934">(<a href="14-references.html#ref-RefWorks:3934" role="doc-biblioref">Wilkinson 1999</a>)</span>, the 6<sup>th</sup> edition of the <em>Publication Manual of the American Psychological Association</em> recommends reporting and interpreting confidence intervals in addition to null hypothesis significance testing.</p>
+<p>Estimation is becoming more important: Assessing the precision of our statements about the population rather than just rejecting or not rejecting our hypothesis about the population. This is an important step forward and it is easy to accomplish with your statistical software.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-ci-nullhyp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ci-nullhyp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-hypothesis_files/figure-html/fig-ci-nullhyp-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ci-nullhyp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.18: What is the most sensible interpretation of the results represented by the confidence interval for the regression coefficient, which estimates brand awareness from campaign exposure?
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><a href="#fig-ci-nullhyp" class="quarto-xref">Figure&nbsp;<span>4.18</span></a> shows six confidence intervals for a population value, for instance, the effect of exposure to advertisements on brand awareness, and the sample result as point estimate (dot). The horizontal axis is labeled by the size of the effect: the difference between the effect in the sample and the absence of an effect according to the null hypothesis.</p>
+<p>A confidence interval shows us whether or not our null hypothesis must be rejected. The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil (<a href="03-estimation.html#sec-fixed-pop-values" class="quarto-xref"><span>Section 3.5.1</span></a>). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1. SPSS usually tests nil hypotheses, this can be adjusted for some tests, but not all. Though it is almost always possible to visualize the confidence interval in graphs created in SPSS.</p>
+<p>Confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis, but the value specified in the null hypothesis is located near one of its boundaries (e.g., Confidence Interval D in <a href="#fig-ci-nullhyp" class="quarto-xref">Figure&nbsp;<span>4.18</span></a>), we do not reject the null hypothesis. However, it still is plausible that the population value is substantially different from the hypothesized value.</p>
+<p>For example, we could interpret Confidence Interval D in <a href="#fig-ci-nullhyp" class="quarto-xref">Figure&nbsp;<span>4.18</span></a> in the following way:</p>
+<blockquote class="blockquote">
+<p>The effect of exposure to advertisements on brand awareness is of moderate size in the sample (<em>b</em>* = 0.28). It is, however, not statistically significant, <em>t</em> (23) = 1.62, <em>p</em> = .119, 95% CI [-0.1, 3.2], meaning that we are not sufficiently confident that there is a positive effect in the population. It is important to note that the sample is small (<em>N</em> = 25– this number is not included in the figure–), so test power is probably low, meaning that it is difficult to reject a false null hypothesis. On the basis of the confidence interval we conclude that the effect can be weak and negative, but the plausible effects are predominantly positive, including strong positive effects. One additional daily exposure may decrease predicted brand awareness by 0.1, but it may also increase brand awareness by up to 3.2 points on a scale from 1 (unaware of the brand) to 7 (highly aware of the brand). The latter effect is substantial: A single additional exposure to advertisements would lead to a substantial change in brand awareness.</p>
+</blockquote>
+<p>We should report that the population value seems to be larger (smaller) than specified in the null hypothesis but that we do not have sufficient confidence in this result because the test is not statistically significant. This is better than reporting that there is no difference because the statistical test is not significant.</p>
+<div id="rmdfisher" class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>The fashion of speaking of a null hypothesis as “accepted when false”, whenever a test of significance gives us no strong reason for rejecting it, and when in fact it is in some way imperfect, shows real ignorance of the research workers’ attitude, by suggesting that in such a case he has come to an irreversible decision.</p>
+<p>The worker’s real attitude in such a case might be, according to the circumstances:</p>
+<ol type="a">
+<li>“The possible deviation from truth of my working hypothesis, to examine which the test is appropriate, seems not to be of sufficient magnitude to warrant any immediate modification.”</li>
+</ol>
+<p>Or it might be:</p>
+<ol start="2" type="a">
+<li>“The deviation is in the direction expected for certain influences which seemed to me not improbable, and to this extent my suspicion has been confirmed; but the body of data available so far is not by itself sufficient to demonstrate their reality.”</li>
+</ol>
+<p><span class="citation" data-cites="RefWorks:3907">(<a href="14-references.html#ref-RefWorks:3907" role="doc-biblioref">Fisher 1955</a>: 73)</span></p>
+<p>Sir Ronald Aylmer Fisher, Wikimedia Commons</p>
+</div>
+</div>
+</div>
+<p>In a similar way, a very narrow confidence interval including the null hypothesis (e.g., Confidence Interval B in <a href="#fig-ci-nullhyp" class="quarto-xref">Figure&nbsp;<span>4.18</span></a>) and a very narrow confidence interval near the null hypothesis but excluding it (e.g., Confidence Interval C in <a href="#fig-ci-nullhyp" class="quarto-xref">Figure&nbsp;<span>4.18</span></a>) should not yield opposite conclusions because the statistical test is significant in the second but not in the first situation. After all, even for the significant situation, we know with high confidence (narrow confidence interval) that the population value is close to the hypothesized value.</p>
+<p>For example, we could interpret Confidence Interval C in <a href="#fig-ci-nullhyp" class="quarto-xref">Figure&nbsp;<span>4.18</span></a> in the following way:</p>
+<blockquote class="blockquote">
+<p>The effect of exposure to advertisements on brand awareness is statistically significant, <em>t</em> (273) = 3.67, <em>p</em> &lt; .001, 95% CI [0.1, 0.5]. On the basis of the confidence interval we are confident that the effect is positive but small (maximum <em>b</em>* = 0.05). One additional daily exposure increases predicted brand awareness by 0.1 to 0.5 on a scale from 1 (unaware of the brand) to 7 (highly aware of the brand). We need a lot of additional exposure to advertisements before brand awareness changes substantially.</p>
+</blockquote>
+<p>In addition, it is good practice to include confidence intervals in research report figures. Especially in figures depicting moderation (see <a href="07-anova.html#sec-anova2way" class="quarto-xref"><span>Section 5.3.1</span></a>), confidence intervals can help to interpret where differences between multiple groups are likely to occur.</p>
+<!-- [ToDo] Ad example and graph to illustrate the above paragraph -->
+<p>Using confidence intervals in this way, we avoid the problem that statistically non-significant effects are not published. Not publishing non-significant results, either because of self-selection by the researcher or selection by journal editors and reviewers, offers a misleading view of research results.</p>
+<p>If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, which brings us to meta-analysis.</p>
+</section>
+<section id="bootstrapped-confidence-intervals" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="bootstrapped-confidence-intervals"><span class="header-section-number">4.5.2</span> Bootstrapped confidence intervals</h3>
+<p>Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.</p>
+<p>Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see <a href="03-estimation.html#sec-bootstrap-confidenceinterval" class="quarto-xref"><span>Section 3.5.2</span></a>). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it. We will encounter this in <a href="11-mediation.html" class="quarto-xref"><span>Chapter 9</span></a> about mediation, where indirect effects are tested with bootstrapped confidence intervals.</p>
+</section>
+</section>
+<section id="sec-bayesian-hypothesis-testing" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="sec-bayesian-hypothesis-testing"><span class="header-section-number">4.6</span> Bayesian hypothesis testing</h2>
+<p>A more radical way of including previous knowledge in statistical inference is <em>Bayesian inference</em>. Bayesian inference regards the sample that we draw as a means to update the knowledge that we already have or think we have on the population. Our previous knowledge is our starting point and we are not going to just discard our previous knowledge if a new sample points in a different direction, as we do when we reject a null hypothesis.</p>
+<p>Think of Bayesian inference as a process similar to predicting the weather. If I try to predict tomorrow’s weather, I am using all my weather experience to make a prediction. If my prediction turns out to be more or less correct, I don’t change the way I predict the weather. But if my prediction is patently wrong, I try to reconsider the way I predict the weather, for example, paying attention to new indicators of weather change.</p>
+<p>Bayesian inference uses a concept of probability that is fundamentally different from the type of inference presented in previous chapters, which is usually called <em>frequentist inference</em>. Bayesian inference does not assume that there is a true population value. Instead, it regards the population value as a random variable, that is, as something with a probability.</p>
+<p>Again, think of predicting the weather. I am not saying to myself: “Let us hypothesize that tomorrow will be a rainy day. If this is correct, what is the probability that the weather today looks like it does?” Instead, I think of the probability that it will rain tomorrow. Bayesian probabilities are much more in line with our everyday concept of probability than the dice-based probabilities of frequentist inference.</p>
+<p>Remember that we are not allowed to interpret the 95% confidence interval as a probability (<a href="03-estimation.html" class="quarto-xref"><span>Chapter 3</span></a>)? We should never conclude that the parameter is between the upper and lower limits of our confidence interval with 95 per cent probability. This is because a parameter does not have a probability in frequentist inference. The <em>credible interval</em> (sometimes called <em>posterior interval</em>) is the Bayesian equivalent of the confidence interval. In Bayesian inference, a parameter has a probability, so we are allowed to say that the parameter lies within the credible interval with 95% probability. This interpretation is much more in line with our intuitive notion of probabilities.</p>
+<p>Bayesian inference is intuitively appealing but it has not yet spread widely in the social and behavioral sciences. Therefore, I merely mention this strand of statistical inference and I refrain from giving details. Its popularity, however, is increasing, so you may come in contact with Bayesian inference sooner or later.</p>
+</section>
+<section id="sec-critical-discussion" class="level2 page-columns page-full" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-critical-discussion"><span class="header-section-number">4.7</span> Critical Discussion</h2>
+<section id="sec-criticismsNHST" class="level3" data-number="4.7.1">
+<h3 data-number="4.7.1" class="anchored" data-anchor-id="sec-criticismsNHST"><span class="header-section-number">4.7.1</span> Criticisms of Null Hypothesis Significance Testing</h3>
+<p>In null hypothesis significance testing, we totally rely on the test’s <em>p</em> value. If this value is below .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch <a href="#vid-video-cumming" class="quarto-xref">Video&nbsp;<span>4.1</span></a>.</p>
+<div id="vid-video-cumming" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-video-cumming-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ez4DgdurRPg" width="100%" height="315" title="The dance of the _p_ values by Geoff Cumming." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-video-cumming-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;4.1: The dance of the <em>p</em> values by Geoff Cumming.
+</figcaption>
+</figure>
+</div>
+<p>As the video indicates, only focusing on the p-value can provide wildly misleading results. Specially with low sample sizes, you can find significant effects that do not correspond with results we find while using confidence intervals. Blindly following the p-value mantra is considered to be bad practice.</p>
+<p>I hope that by now, <a href="#sec-null-hypothesis-significance-testing" class="quarto-xref"><span>Section 4.2</span></a> has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that “studies have found that in many areas of Psychology, the median size effect is .5”. Though blaming the <em>p</em>-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span> distributions in the video it is clear to see that both distributions overlap.</p>
+<p>Most criticism of null hypothesis significance testing focuses on the <em>p</em>-value as a decision criterion. This critique is justified when not taking every aspect of the Neyman Pearson approach into consideration. The result has been an enormous amount of under powered studies and a failure to replicate seminal studies from the last decade.</p>
+</section>
+<section id="statistical-significance-is-not-a-measure-of-effect-size" class="level3 page-columns page-full" data-number="4.7.2">
+<h3 data-number="4.7.2" class="anchored" data-anchor-id="statistical-significance-is-not-a-measure-of-effect-size"><span class="header-section-number">4.7.2</span> Statistical significance is not a measure of effect size</h3>
+<p>When our sample is small, say a few dozens of cases, the power to reject a null hypothesis is rather small, so it often happens that we retain the null hypothesis even if it is wrong. There is a lot of uncertainty about the population if our sample is small. So we must be lucky to draw a sample that is sufficiently at odds with the null hypothesis to reject it.</p>
+<p>If our sample is large or very large (a few thousand cases), small differences between what we expect according to our alternative hypothesis can be statistically significant even if the differences are too small to be of any practical value. A statistically significant result does not have to be practically relevant. All in all, statistical significance on it’s own, does not tell us much about the effect in the population.</p>
+<div id="fig-tiny-effects" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-tiny-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/tiny-effects/" width="100%" height="340px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tiny-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.19: Any effect can be statistically significant.
+</figcaption>
+</figure>
+</div>
+<p>It is a common mistake to think that statistical significance is a measure of the strength, importance, or practical relevance of an effect. In <a href="#vid-video-cumming" class="quarto-xref">Video&nbsp;<span>4.1</span></a>, this mistaken interpretation is expressed by the type of sound associated with a <em>p</em> value: the lower the <em>p</em> value of the test, the more joyous the sound.</p>
+<p>It is wrong to use statistical significance as a measure of strength or importance. In a large sample, even irrelevant results can be significant and in small samples, as demonstrated in the video, results can sometimes be significant and sometimes be insignificant. We have learned in <a href="#sec-binarydecision" class="quarto-xref"><span>Section 4.1</span></a> that our decision is a binary one, so, never forget:</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A statistically significant result ONLY means that the null hypothesis must be rejected.</p>
+</div>
+</div>
+</div>
+<p>If we want to say something about the magnitude of an effect in the population, we should use effect size. All we have is the effect size measured in our sample and a statistical test usually telling us whether or not we should reject the null hypothesis that there is no effect in the population.</p>
+<p>If the statistical test is significant, we conclude that an effect probably exists in the population. We may use the effect size in the sample as a point estimate of the population effect. This effect size should be at the core of our interpretation. Is it large (strong), small (weak), or perhaps tiny and practically irrelevant?</p>
+<p>If the statistical test is not significant, it is tempting to conclude that the null hypothesis is true, namely, that there is no effect in the population. If so, we do not have to interpret the effect that we find in our sample. But this is not right. Finding insufficient evidence for rejecting the null hypothesis does not prove that the null hypothesis is true. Even if the null hypothesis is false, we can draw a sample that does not reject the null hypothesis.</p>
+<p>In a two-sided significance test, the null hypothesis specifies one particular value for the sample outcome. If the outcome is continuous, for instance, a mean or regression coefficient, the null hypothesis can hardly ever be true, strictly speaking. The true population value is very likely not exactly the same as the hypothesized value. It may be only slightly different, but it is different.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>A statistically non-significant result does NOT mean that the null hypothesis is true.</p>
+</div>
+</div>
+</div>
+<p>When we evaluate a <em>p</em> value, we had better take into account the probability that we correctly reject the null hypothesis, which is test power. If test power is low, as it often is in social scientific research with small effect sizes and not very large samples, we should realize that there can be an interesting difference between true and hypothesized population values even if the test is not statistically significant. Though, in recent years, the focus on pre-registration of required sample sizes has increased the power in many studies.</p>
+<p>With low power, we have high probability of not rejecting a false null hypothesis (type II error) even if the true population value is quite different from the hypothesized value. For example, a small sample of candies drawn from a population with average candy weight of 3.0 grams may not reject the null hypothesis that average candy weight is 2.8 grams in the population. The non-significant test result should not make us conclude that there is no interesting effect. The test may not pick up substantively interesting effects.</p>
+<p>In contrast, if our test has very high power, we should expect effects to be statistically significant, even tiny effects that are totally irrelevant from a substantive point of view. For example, an effect of exposure on attitude of 0.01 on a 10-point scale is likely to be statistically significant in a very large sample but it is probably substantively uninteresting.</p>
+<p>In a way, a statistically non-significant result is more interesting than a significant result in a test with high power. If it is easy to get significant results even for small effect sizes (high power), a non-significant result probably indicates that the true effect in the population is very small. In this situation, we are most confident that the effect is close to zero or absent in the population.</p>
+<p>By now, however, you understand that test power is affected by sample size. You should realize that null hypotheses are easily rejected in large samples but they are more difficult to reject in small samples. A significant test result in a small sample suggests a substantive effect in the population but not necessarily so in a large sample. A non-significant test result in a small sample does not mean that the effect size in the population is too small to be of interest. Don’t let your selection of interesting results be guided only by statistical significance.</p>
+</section>
+<section id="sec-cap-chance" class="level3" data-number="4.7.3">
+<h3 data-number="4.7.3" class="anchored" data-anchor-id="sec-cap-chance"><span class="header-section-number">4.7.3</span> Capitalization on Chance</h3>
+<p>The relation between null hypothesis testing and confidence intervals (<a href="#sec-null-ci" class="quarto-xref"><span>Section 4.5</span></a>) may have given the impression that we can test a range of null hypotheses using just one sample and one confidence interval. For instance, we could simultaneously test the null hypotheses that average media literacy among children is 5.5, 4.5, or 3.5. Just check if these values are inside or outside the confidence interval and we are done, right?</p>
+<p>This impression is wrong. The probabilities that we calculate using one sample assume that we only apply one test to the data. If we test the original null hypothesis that average media literacy is 5.5, we run a risk of five per cent to reject the null hypothesis if the null hypothesis is true. The significance level is the probability of making a type I error (<a href="#sec-alpha" class="quarto-xref"><span>Section 4.2.1</span></a>).</p>
+<p>If we apply a second test to the same sample, for example, testing the null hypothesis that average media literacy is 4.5, we again run this risk of five per cent. The probability of not rejecting a true null hypothesis is .95, so the probability of not rejecting two true null hypotheses is .95 * .95 = 0.9025. The risk of rejecting at least one true null hypothesis in two tests is 1 - 0.9025 = .0975. This risk is dramatically higher than the significance level (.05) that we want to use. The situation becomes even worse if we do three or more tests on the same sample.</p>
+<p>The phenomenon that we are dealing with probabilities of making type I errors that are higher (<em>inflated type I errors</em>) than the significance level that we want to use, is called <em>capitalization on chance</em>. Applying more than one test to the same data is one way to capitalize on chance. If you do a lot of tests on the same data, you are likely to find some statistically significant results even if all null hypotheses are true.</p>
+<section id="example-of-capitalization-on-chance" class="level4" data-number="4.7.3.1">
+<h4 data-number="4.7.3.1" class="anchored" data-anchor-id="example-of-capitalization-on-chance"><span class="header-section-number">4.7.3.1</span> Example of capitalization on chance</h4>
+<p>This type of capitalization on chance may occur, for example, if we want to compare average media literacy among three groups: second, fourth, and sixth grade students. We can use a <em>t</em> test to test if average media literacy among fourth grade students is higher than among second grade students. We need a second <em>t</em> test to compare average media literacy of sixth grade students to second grade students, and a third one to compare sixth to fourth grade students.</p>
+<p>If we execute three tests, the probability of rejecting at least one true null hypothesis of no difference is much higher than five per cent if we use a significance level of five per cent for each single <em>t</em> test. In other words, we are more likely to obtain at least one statistically significant result than we want.</p>
+</section>
+<section id="correcting-for-capitalization-on-chance" class="level4" data-number="4.7.3.2">
+<h4 data-number="4.7.3.2" class="anchored" data-anchor-id="correcting-for-capitalization-on-chance"><span class="header-section-number">4.7.3.2</span> Correcting for capitalization on chance</h4>
+<p>We can correct in several ways for this type of capitalization on chance; one such way is the Bonferroni correction. This correction divides the significance level that we use for each test by the number of tests that we do. In our example, we do three <em>t</em> tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each <em>t</em> test is .0167. If a <em>t</em> test’s <em>p</em> value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.</p>
+<p>The Bonferroni correction is a rather stringent correction. However, it has a simple logic that directly links to the problem of capitalization on chance. Therefore, it is a good technique to help understand the problem, which is the main goal we want to attain, here. We will skip better, but more complicated alternatives to the Bonferroni correction.</p>
+<p>It has been argued that we do not have to apply a correction for capitalization on chance if we specify a hypothesis beforehand for each test that we execute. Formulating hypotheses does not solve the problem of capitalization on chance. The probability of rejecting at least one true null hypothesis still increases with the number of tests that we execute. If all hypotheses and associated tests are reported <span class="citation" data-cites="wassersteinASAStatementPValues2016">(as recommended in <a href="14-references.html#ref-wassersteinASAStatementPValues2016" role="doc-biblioref">Wasserstein and Lazar 2016</a>)</span>, however, the reader of the report can evaluate capitalization on chance. If one out of twenty tests at five per cent significance level turns out to be statistically significant, this is what we would expect based on chance if all null hypotheses are true. The evidence for rejecting this null hypothesis is less convincing than if only one test was applied and that test turned out to be statistically significant.</p>
+</section>
+</section>
+<section id="sec-no-random-sample" class="level3" data-number="4.7.4">
+<h3 data-number="4.7.4" class="anchored" data-anchor-id="sec-no-random-sample"><span class="header-section-number">4.7.4</span> What If I Do Not Have a Random Sample?</h3>
+<p>In our approach to statistical inference, we have always assumed that we have drawn a random sample. That in our research we truly sample from the population of interest, not a subset or convenience sample. What if we do not have a random sample? Can we still estimate confidence intervals or test null hypotheses?</p>
+<p>If you carefully read reports of scientific research, you will encounter examples of statistical inference on non-random samples or data that are not samples at all but rather represent an entire population, for instance, all people visiting a particular web site. Here, statistical inference is clearly being applied to data that are not sampled at random from an observable population. The fact that it happens, however, is not a guarantee that it is right.</p>
+<p>We should note that statistical inference based on a random sample is the most convincing type of inference because we know the nature of the uncertainty in the data, namely chance variation introduced by random sampling. Think of exact methods for creating a sampling distribution. If we know the distribution of candy colours in the population of all candies, we can calculate the exact probability of drawing a sample bag with, for example, 25 per cent of all candies being yellow if we carefully draw the sample at random.</p>
+<p>We can calculate the probability because we understand the process of random sampling. For example, we know that each candy has the same probability to be included in the sample. The uncertainty or probabilities arise from the way we designed our data collection, namely as a random sample from a much larger population.</p>
+<p>In summary, we work with an observable population and we know how chance affects our sample if we draw a random sample. We do not have an observable population or we do not know the workings of chance if we want to apply statistical inference to data that are not collected as a random sample. In this situation, we have to substantiate the claim that our data set can be treated as a random sample. For example, we can argue that the data set is a random sample from a population of all people who visit a particular web site. Or that we do not want to infer to the entire population but only to a subset.</p>
+</section>
+<section id="specifying-hypotheses-afterwards" class="level3" data-number="4.7.5">
+<h3 data-number="4.7.5" class="anchored" data-anchor-id="specifying-hypotheses-afterwards"><span class="header-section-number">4.7.5</span> Specifying hypotheses afterwards</h3>
+<p>As journals favor research results that are statistically significant, researchers may be tempted to first look at the data and then formulate a hypothesis. It is easy to specify a null hypothesis that will be rejected. If we first look at the data and then specify a null hypothesis, we can always find a null hypothesis that is rejected. This is called <em>HARKing</em> (Hypothesizing After the Results are Known). This is plain cheating and it must be avoided at all times. The temptation arises because career opportunities are better for researchers that have high citation indices and non significant findings are less likely to be published and cited.</p>
+<p>Nowadays, many journals require that researchers specify their hypotheses before they collect data. This is called <em>pre-registration</em>. Pre-registration is a good way to avoid HARKing. If we specify our hypotheses before we collect data, we cannot be accused of HARKing. We can still test other hypotheses than the ones we pre-registered, but we should report that we did so.</p>
+</section>
+<section id="replication" class="level3" data-number="4.7.6">
+<h3 data-number="4.7.6" class="anchored" data-anchor-id="replication"><span class="header-section-number">4.7.6</span> Replication</h3>
+<p>Replication refers to the process of repeating research to determine whether the results of a previous study are the same. Replication is a cornerstone of the scientific method. In the Nayman-Pearson decision theory, we have seen that in order to accurately determine the true population value, the true effect size, we can use the observed effect size from multiple studies. Through meta analysis, we can combine the results of multiple studies to get a more precise estimate of the population value / true effect size. To enable meta-analysis, the same effects have to be studied in a reasonably comparable manner in multiple studies (i.e.&nbsp;they need to be replicated). The gold standard is a direct replication which exactly repeats all procedures and measures used in the original study. More often, you might see conceptual replications which study the same effect with slightly different procedures or in a slightly different population. Conceptual replications might still add or detract from our confidence about the existence or size of a given effect but usually leave us uncertain about whether any differences in effect size between the original study and conceptual replication are due to the differences between the studies. In any case, making bold claims based on a single study is risky. If we have a single study that shows a significant effect, we should be cautious in interpreting the results. We should wait for a replication of the study to confirm the results.</p>
+<p>Though Bayesian statistics allows to incorporate prior knowledge in the analysis, researchers do actively need to replicate to incorporate new data in the analysis. Running a Bayesian analysis on a single study suffers from the same problems as running a frequentist analysis on a single study. Replication is therefore important in both statistical paradigms.</p>
+</section>
+</section>
+<section id="take-home-points" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">4.8</span> Take home points</h2>
+<p>Hypothesis:</p>
+<ul>
+<li>Statistical inference includes estimation and hypothesis testing.</li>
+<li>Hypothesis testing involves rejecting or not rejecting a hypothesis based on data.</li>
+</ul>
+<p>Null Hypothesis Significance Testing:</p>
+<ul>
+<li>Involves null and alternative hypotheses, significance level, p-values, and test power.</li>
+<li>Importance of sample size and effect sizes.</li>
+</ul>
+<p>Reporting Test Results:</p>
+<ul>
+<li>Emphasizes clarity and transparency.</li>
+<li>Report test statistics, p-values, effect sizes, and confidence intervals.</li>
+</ul>
+<p>Statistical Test Selection:</p>
+<ul>
+<li>Choose tests based on data type, groups compared, and study design.</li>
+<li>Includes decision-making frameworks and examples.</li>
+</ul>
+<p>Confidence Intervals:</p>
+<ul>
+<li>Provide a range of plausible values for population parameters.</li>
+<li>Can be used to infer hypotheses, with bootstrapped intervals as an alternative.</li>
+</ul>
+<p>Bayesian Hypothesis Testing:</p>
+<ul>
+<li>Bayesian approach updates prior beliefs with data.</li>
+<li>Utilizes prior, likelihood, and posterior distributions for decision-making.</li>
+</ul>
+<p>Critical Discussion:</p>
+<ul>
+<li>Examines limitations of null hypothesis significance testing.</li>
+<li>Discusses misinterpretation of p-values, overemphasis on significance, and publication bias.</li>
+</ul>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-RefWorks:3933" class="csl-entry" role="listitem">
+Cohen, Jacob. 1969. <em>Statistical Power Analysis for the Behavioral Sciences</em>. San Diego, CA: Academic Press.
+</div>
+<div id="ref-RefWorks:3883" class="csl-entry" role="listitem">
+Cumming, Geoff. 2012. <em>Understanding the New Statistics: Effect Sizes, Confidence Intervals, and Meta-Analysis</em>. New York: Routledge.
+</div>
+<div id="ref-deGrootMethodologyFoundationsInference1969" class="csl-entry" role="listitem">
+de Groot, Adrianus Dingeman. 1969. <em>Methodology: <span>Foundations</span> of <span>Inference</span> and <span>Research</span> in the <span>Behavioral Sciences</span></em>. Book, Whole. <span>The Hague</span>: <span>Mouton</span>.
+</div>
+<div id="ref-RefWorks:3907" class="csl-entry" role="listitem">
+Fisher, Ronald Aylmer. 1955. <span>“Statistical Methods and Scientific Induction.”</span> <em>Journal of the Royal Statistical Society.Series B (Methodological)</em> 17 (1): 69–78. <a href="http://www.jstor.org/stable/2983785">http://www.jstor.org/stable/2983785</a>.
+</div>
+<div id="ref-RefWorks:3930" class="csl-entry" role="listitem">
+Lehmann, E. L. 1993. <span>“The Fisher, Neyman-Pearson Theories of Testing Hypotheses: One Theory or Two?”</span> <em>Journal of the American Statistical Association</em> 88 (424): 1242–49. <a href="https://doi.org/10.1080/01621459.1993.10476404">https://doi.org/10.1080/01621459.1993.10476404</a>.
+</div>
+<div id="ref-doi:10.1080/19312450701641375" class="csl-entry" role="listitem">
+O’Keefe, Daniel J. 2007. <span>“Brief Report: Post Hoc Power, Observed Power, a Priori Power, Retrospective Power, Prospective Power, Achieved Power: Sorting Out Appropriate Uses of Statistical Power Analyses.”</span> <em>Communication Methods and Measures</em> 1 (4): 291–99. <a href="https://doi.org/10.1080/19312450701641375">https://doi.org/10.1080/19312450701641375</a>.
+</div>
+<div id="ref-sawilowskyNewEffectSize2009" class="csl-entry" role="listitem">
+Sawilowsky, Shlomo. 2009. <span>“New <span>Effect Size Rules</span> of <span>Thumb</span>.”</span> <em>Journal of Modern Applied Statistical Methods</em> 8 (2). <a href="https://doi.org/10.22237/jmasm/1257035100">https://doi.org/10.22237/jmasm/1257035100</a>.
+</div>
+<div id="ref-wassersteinASAStatementPValues2016" class="csl-entry" role="listitem">
+Wasserstein, Ronald L., and Nicole A. Lazar. 2016. <span>“The <span>ASA Statement</span> on p-<span>Values</span>: <span>Context</span>, <span>Process</span>, and <span>Purpose</span>.”</span> <em>The American Statistician</em> 70 (2): 129–33. <a href="https://doi.org/10.1080/00031305.2016.1154108">https://doi.org/10.1080/00031305.2016.1154108</a>.
+</div>
+<div id="ref-RefWorks:3934" class="csl-entry" role="listitem">
+Wilkinson, Leland. 1999. <span>“Statistical Methods in Psychology Journals: Guidelines and Explanations.”</span> <em>American Psychologist</em> 54 (8): 594.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-estimation.html" class="pagination-link" aria-label="Estimating a Parameter">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Estimating a Parameter</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-anova.html" class="pagination-link" aria-label="Moderation with Analysis of Variance (ANOVA)">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/04-hypothesis.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/04-hypothesis.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></div></div></footer></body></html>
