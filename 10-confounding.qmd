@@ -47,10 +47,6 @@ For example, European citizens who are more interested in politics spend more ti
 How do regression coefficients change if new predictors for reading time are added to the model?
 :::
 
-
-
-
-
 ### Partial effect {#sec-partialeffect}  
 
 How does a multiple regression model control the effect of an independent variable for the effects of all other independent variables? Conceptually, the regression model first removes the variation in the dependent variable that is predicted by all other independent variables. Then it determines how well the remaining independent variable predicts the variation that is left (residual variation). This is the variation in outcome scores that can be predicted by this particular independent variable but not by any of the other independent variables in the model.
@@ -71,12 +67,6 @@ Finally, it is important to remember that a confounder, such as age in the prese
 
 Once the confounder (age) is added to the regression model, however, the estimated effects are controlling for the variable formerly known as a confounder. The effects no longer partly represent the effect of the former confounder. In other words, they are no longer confounded by the effect of that variable. The former confounding variable now is a predictor or, if we are not interested in its effects, a _covariate_ or _control variable_ in the regression model.
 
-
-
-
-  
-
-
 ## Indirect Correlation {#sec-indirectcorrelation}
 
 ::: {#fig-mediation-indirectcorrelation .column-page-inset-right}
@@ -87,8 +77,6 @@ Once the confounder (age) is added to the regression model, however, the estimat
 ``` 
 What happens to the regression coefficient for the effect of political interest if we add a confounder to the model? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
 :::
-
-
 
 When is a variable a confounder and when does it change the effect of another predictor a lot if it is added to the regression model? The answer to the first part of this question is easy: A _confounder_ is a variable that is correlated with both the predictor and dependent variable but is not (yet) included in the regression model. Because of the correlations, a confounder establishes an _indirect correlation_ between the predictor and dependent variable.
 
@@ -124,10 +112,6 @@ Let us now turn to the definition of a confounder: A confounder is a variable th
 
 We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of females and males seeing Angelina Jolie in our example experiment, we can end up with more females than males seeing Jolie in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the sex of the participant, so participant sex is a confounder if it is also correlated with the dependent variable (willingness to donate) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders. 
 
-
-
-
-
 ## Two Types of Confounders {#sec-confounders}
 
 ::: {#fig-mediation-confoundertypes .column-page-inset-right}
@@ -138,10 +122,6 @@ We have learned about probabilities and expectations in previous chapters. These
 ``` 
 When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).
 :::
-
-
-
-
 
 In the preceding section, we learned that a partial effect expressed by a regression coefficient may change if a new predictor is added to the regression model. The partial effect of a predictor changes if the added variable is a confounder: It is correlated both with the predictor and dependent variable. In other words, there is an indirect correlation between the predictor and dependent variable due to the confounding variable.
 
@@ -159,7 +139,12 @@ There are two situations in which an indirect correlation can have the opposite 
 
 We start with the first situation and discuss the second situation later on in this section.
 
-```{r suppression1, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="News site use as a confounder of the effect of interest in politics on newspaper reading time.", fig.asp=0.3}
+```{r}
+#| label: fig-suppression1
+#| fig-cap: "News site use as a confounder of the effect of interest in politics on newspaper reading time."
+#| echo: false
+#| warning: false
+
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.38, 0.5, 0.62, 0.7, 0.5), 
@@ -189,7 +174,12 @@ If news site use is not included in the regression model, the standardized regre
 
 If we include this suppressor variable (news site use) in our regression model, we eliminate its suppression of the effect of political interest on newspaper reading time. The negative effect of news site use on reading time is now captured by the regression coefficient for the news site use predictor. The effect of political interest on newspaper reading time is now controlled for the effect of news site use; it no longer includes the indirect correlation due to news site use. In this example, the effect of political interest on newspaper reading time becomes more strongly positive.
 
-```{r suppression2, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="Interest in politics as a confounder of the effect of news site use on newspaper reading time.", fig.asp=0.3}
+```{r}
+#| label: fig-suppression2
+#| fig-cap: "Interest in politics as a confounder of the effect of news site use on newspaper reading time."
+#| echo: false
+#| warning: false
+
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.38, 0.5, 0.62, 0.7, 0.5), 
@@ -224,8 +214,13 @@ Adding a new predictor to a regression model may weaken the effects of other pre
 
 In both situations, regression effects are initially overestimated because the predictors cover part of the effect of an important variable that has not yet been added to the regression model. The part of the effect that is due to the confounding variable is called _spurious_. The confounding variable is called a _reinforcer_ because it makes an effect appear more strongly positive or more strongly negative than it really is as long as the confounder has not been added to the regression model.
 
-:::{#fig-reinforcement1}
-```{r reinforcement1, echo=FALSE, fig.pos='H', fig.align='center',  fig.asp=0.3}
+
+```{r}
+#| label: fig-reinforcement1
+#| fig-cap: "Age as a confounder of the effect of interest in politics on newspaper reading time."
+#| echo: false
+#| warning: false
+
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.39, 0.5, 0.61, 0.7, 0.5), 
@@ -241,8 +236,7 @@ ggplot(variables, aes(x, y)) +
 # Cleanup.
 rm(variables)
 ```
-Age as a confounder of the effect of interest in politics on newspaper reading time.
-:::
+
 
 As an example, the effect of political interest on newspaper reading time may include the effect of age on newspaper reading when age is not (yet) included in the regression model. If older people are more interested in politics and do more newspaper reading, age creates a positive indirect correlation between political interest and newspaper reading. 
 
@@ -250,8 +244,13 @@ If age is not included as a predictor in the regression model, the indirect corr
 
 In @fig-reinforcement1, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (@fig-reinforcement2). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.
 
-:::{#fig-reinforcement2}
-```{r reinforcement2, echo=FALSE, fig.pos='H', fig.align='center', fig.asp=0.3}
+
+```{r}
+#| label: fig-reinforcement2
+#| fig-cap: "Political cynicism as a confounder of the effect of interest in politics on newspaper reading time."
+#| echo: false
+#| warning: false
+
 library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.38, 0.5, 0.62, 0.7, 0.5), 
@@ -267,8 +266,7 @@ ggplot(variables, aes(x, y)) +
 # Cleanup.
 rm(variables)
 ```
-Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.
-:::
+
 
 As with suppression, spuriousness can have surprising results. It may happen that the entire estimated effect of a predictor is spurious. Adding a reinforcer variable to the regression model may make the entire effect of a predictor disappear. In other words, an effect that we initially thought was substantial may turn out to be too weak to be of interest.
 
@@ -292,10 +290,6 @@ To summarize the two types of confounders:
 
 :::
 
-
-
-
-  
 
   
 ## Comparing Regression Models in SPSS {#sec-compmodelSSPSS}
@@ -325,8 +319,6 @@ In the first model, interest in politics is the only predictor. One additional u
 Stepwise regression.
 :::
 
-
-
 ```{r, echo=FALSE, eval=FALSE}
 # "stepwise" regression: Add predictors in blocks (and leave Method at Enter) if you want to specify the order in which predictors are added to the model.
 # Note: basic regression video in Ch. 4, checking assumptions (and plotting regression line) video in Ch. 8.
@@ -337,57 +329,6 @@ Stepwise regression.
 # Interpret output: compare R2 and regression coefficients between models.
 # Check assumptions: See other video.
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- ## Test Your Understanding
-
-```{r mediation-confoundertypes2, fig.pos='H', fig.align='center', fig.cap="When is a regression effect too large and when is it too small due to a confounder? Numbers represent correlations (lines) or standardized regression coefficients (arrows).", echo=FALSE, out.width="775px", screenshot.opts = list(delay = 5), dev="png"}
-# Goal: Intuitive understanding of how the pattern of correlation/effect
-# directions (signs) relates to decrease or increase of partial effect sizes.
-# Adjust app mediation-indirectcorrelation: Add Pol.Cynicism as a fourth
-# confounder (r is -0.18 with political interest and -0.14 with reading time).
-# Colour negative correlations red instead of blue if the associated confouder
-# is selected. This helps to discover that a positive indirect correlation
-# (blue-blue or red-red) decreases the partial effect whereas a negative
-# indirect correlation (blue-red) increases it.
-knitr::include_app("https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/", height="305px")
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
 
 ## Take-Home Points  
 

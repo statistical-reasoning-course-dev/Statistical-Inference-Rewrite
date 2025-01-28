@@ -401,79 +401,16 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 <li><p>The indirect correlation is positive but the effect of the predictor is negative.</p></li>
 </ol>
 <p>We start with the first situation and discuss the second situation later on in this section.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_curve(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_curve(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="10-confounding_files/figure-html/suppression1-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>News site use as a confounder of the effect of interest in politics on newspaper reading time.</figcaption>
+<div id="fig-suppression1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-suppression1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-confounding_files/figure-html/fig-suppression1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-suppression1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.4: News site use as a confounder of the effect of interest in politics on newspaper reading time.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -482,75 +419,16 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 <p>In this situation, the indirect correlation between political interest and newspaper reading time due to news site use is negative: Positive times negative yields a negative. The indirect correlation tells us that people interested in politics use news sites more frequently but people who frequently use news sites read newspapers less often. The indirect correlation clearly contradicts the regression effect of political interest on newspaper reading time, which is positive: People who are more interested in politics spend more time on reading newspapers.</p>
 <p>If news site use is not included in the regression model, the standardized regression effect of political interest more or less adds the indirect correlation to the effect of political interest. Adding a negative amount (indirect correlation), however, is equal to subtracting this amount from the standardized regression coefficient. The positive effect of political interest on reading time is underestimated. In this example, the effect of political interest is <em>suppressed</em> (<em>masked</em>) by the confounder news site use. News site use is a <em>suppressor variable</em>.</p>
 <p>If we include this suppressor variable (news site use) in our regression model, we eliminate its suppression of the effect of political interest on newspaper reading time. The negative effect of news site use on reading time is now captured by the regression coefficient for the news site use predictor. The effect of political interest on newspaper reading time is now controlled for the effect of news site use; it no longer includes the indirect correlation due to news site use. In this example, the effect of political interest on newspaper reading time becomes more strongly positive.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="10-confounding_files/figure-html/suppression2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Interest in politics as a confounder of the effect of news site use on newspaper reading time.</figcaption>
+<div id="fig-suppression2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-suppression2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="10-confounding_files/figure-html/fig-suppression2-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-suppression2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.5: Interest in politics as a confounder of the effect of news site use on newspaper reading time.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -573,170 +451,36 @@ Figure&nbsp;8.3: When is a regression effect too large and when is it too small 
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="sec-spuriousness"><span class="header-section-number">8.3.2</span> Reinforcement and spuriousness</h3>
 <p>Adding a new predictor to a regression model may weaken the effects of other predictors or even change the direction of effects. This happens if the indirect correlation due to a confounder has the same direction (sign) as the regression effect of the predictor in the model without the confounder. Either the indirect correlation and regression effect are both positive or they are both negative.</p>
 <p>In both situations, regression effects are initially overestimated because the predictors cover part of the effect of an important variable that has not yet been added to the regression model. The part of the effect that is due to the confounding variable is called <em>spurious</em>. The confounding variable is called a <em>reinforcer</em> because it makes an effect appear more strongly positive or more strongly negative than it really is as long as the confounder has not been added to the regression model.</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-reinforcement1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-reinforcement1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.01, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="10-confounding_files/figure-html/reinforcement1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="10-confounding_files/figure-html/fig-reinforcement1-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reinforcement1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.4: Age as a confounder of the effect of interest in politics on newspaper reading time.
+Figure&nbsp;8.6: Age as a confounder of the effect of interest in politics on newspaper reading time.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>As an example, the effect of political interest on newspaper reading time may include the effect of age on newspaper reading when age is not (yet) included in the regression model. If older people are more interested in politics and do more newspaper reading, age creates a positive indirect correlation between political interest and newspaper reading.</p>
 <p>If age is not included as a predictor in the regression model, the indirect correlation is attributed to the effect of interest in politics. The estimated effect is too strong. Once we include age as a predictor, the effect of political interest is cleansed of the age effect, so the effect size decreases.</p>
-<p>In <a href="#fig-reinforcement1" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (<a href="#fig-reinforcement2" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.</p>
+<p>In <a href="#fig-reinforcement1" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>, age is positively correlated with both political interest and newspaper reading. But a confounder that is negatively correlated with predictor and outcome has the same impact as a confounder that is positively correlated with predictor and outcome. Political cynicism, for instance, can be negatively correlated with both interest in politics and newspaper reading time (<a href="#fig-reinforcement2" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>). People who are less cynical about politics are more interested in politics and spend more time on reading newspapers. As a result, it looks like political interest strongly increases newspaper reading time but higher newspaper reading time is at least partly due to less political cynicism. Similar scenarios are available if the regression effect and the indirect correlation are negative.</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-reinforcement2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-reinforcement2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[5] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[1], y = variables$y[1], xend = variables$x[3] - : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$x` is discouraged.
-ℹ Use `x` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Use of `variables$y` is discouraged.
-ℹ Use `y` instead.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = variables$x[3] + 0.04, y = variables$y[3], : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="10-confounding_files/figure-html/reinforcement2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="10-confounding_files/figure-html/fig-reinforcement2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-reinforcement2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.5: Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.
+Figure&nbsp;8.7: Political cynicism as a confounder of the effect of interest in politics on newspaper reading time.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>As with suppression, spuriousness can have surprising results. It may happen that the entire estimated effect of a predictor is spurious. Adding a reinforcer variable to the regression model may make the entire effect of a predictor disappear. In other words, an effect that we initially thought was substantial may turn out to be too weak to be of interest.</p>
 <p>Actually, the indirect correlation between a predictor and dependent variable due to a confounding variable can be so strong that a positive effect in a model without the confounder changes into a negative effect in a model that includes the variable. Adding the reinforcer to the model, the effect of the predictor not only moves towards zero (becoming weaker), but it moves beyond zero into a negative effect. It may even move so far beyond zero that the new negative effect is stronger than the reinforced positive effect.</p>
@@ -771,7 +515,7 @@ Figure&nbsp;8.5: Political cynicism as a confounder of the effect of interest in
 <h2 data-number="8.4" class="anchored" data-anchor-id="sec-compmodelSSPSS"><span class="header-section-number">8.4</span> Comparing Regression Models in SPSS</h2>
 <section id="essential-analytics" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
-<p>We can detect confounders by adding each independent variable as a separate <em>Block</em> in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu). The SPSS output estimates a regression model for each block (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>).</p>
+<p>We can detect confounders by adding each independent variable as a separate <em>Block</em> in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu). The SPSS output estimates a regression model for each block (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>).</p>
 <div id="fig-confounderstable" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-confounderstable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -786,11 +530,11 @@ Figure&nbsp;8.5: Political cynicism as a confounder of the effect of interest in
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-confounderstable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.6: SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one.
+Figure&nbsp;8.8: SPSS table of regression models with the independent variables interest in politics, age, and news site use added one by one.
 </figcaption>
 </figure>
 </div>
-<p>In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>, blue box); news site use suppressed the effect of interest in politics in the second model.</p>
+<p>In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (<a href="#fig-confounderstable" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, blue box); news site use suppressed the effect of interest in politics in the second model.</p>
 </section>
 <section id="instructions" class="level3" data-number="8.4.1">
 <h3 data-number="8.4.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">8.4.1</span> Instructions</h3>
@@ -804,39 +548,6 @@ Video&nbsp;8.2: Stepwise regression.
 </figcaption>
 </figure>
 </div>
-<!-- ## Test Your Understanding
-
-
-
-
-::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
-<iframe src="https://sharon-klinkenberg.shinyapps.io/mediation-confoundertypes/?showcase=0" width="775px" height="305px" data-external="1"></iframe>
-:::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
 </section>
 </section>
 <section id="take-home-points" class="level2" data-number="8.5">
