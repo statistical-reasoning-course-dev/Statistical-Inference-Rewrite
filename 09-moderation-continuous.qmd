@@ -65,19 +65,16 @@ We need one interaction variable to include a numerical moderator in a regressio
 
 Although we have an endless number of different moderator values or "groups", we only need one interaction variable. It represents the gradual (linear) change of the effect of the predictor for higher values of the moderator.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + b_1*exposure + b_2*contact + b_3*exposure*contact \\
   attitude = &\ constant + (b_1 + b_3*contact)*exposure + b_2*contact 
 \end{split}
-(\#eq:simplecontact) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-simplecontact}
 
-To see this, it is helpful to inspect the regression equation with rearranged terms [Equation \@ref(eq:simplecontact)]. Every additional contact with smokers adds $b_3$ to the slope $(b_1 + b_3*contact)$ of the exposure effect. The addition is gradual---a little bit of additional contact with smokers changes the exposure effect a little bit---and it is linear: A unit increase in contact adds the same amount to the effect whether the effect is at a low or a high level.
+To see this, it is helpful to inspect the regression equation with rearranged terms [@eq-simplecontact]. Every additional contact with smokers adds $b_3$ to the slope $(b_1 + b_3*contact)$ of the exposure effect. The addition is gradual---a little bit of additional contact with smokers changes the exposure effect a little bit---and it is linear: A unit increase in contact adds the same amount to the effect whether the effect is at a low or a high level.
 
 We can interpret the regression coefficient of the interaction effect ($b_3$) here as the predicted change in the exposure effect (slope) for a one unit difference in contact (the moderator). A positive coefficient indicates that the exposure effect is more positive (or less negative) for higher levels of contact with smokers. A negative coefficient indicates that the effect is more negative (or less positive) for people with more contacts with smokers.
 
@@ -87,18 +84,15 @@ Note that positive and negative are used here in their mathematical meaning, not
 
 In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see @sec-conditional-effects), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only $b_1$ is left as the effect of exposure.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + (b_1 + b_3*contact)*exposure + b_2*contact \\
   attitude = &\ constant + (b_1 + b_3*0)*exposure + b_2*0 \\
   attitude = &\ constant + b_1*exposure
 \end{split}
-(\#eq:conditionaleffect) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-conditionaleffect}
 
 The zero score on the moderator is the *reference value* for the conditional effect of the predictor. Cases that score zero on the moderator are the *reference group* just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (@sec-dichpredictor).
 
@@ -120,13 +114,11 @@ What if there are no people with zero contact? Then, the interpretation of the r
 
 To *mean-center* a variable, you subtract the variable's mean from all scores on the variable. As a result, a mean score on the original variable becomes a zero score on the mean-centered variable.
 
-```{=tex}
-\begin{equation*}
+$$
 \small
   contactcentered = contact - mean(contact)
 \normalsize
-\end{equation*}
-```
+$$
 
 Mean-centering shifts the values of a variable such that the mean of the new variable becomes zero (@fig-mean-centering-plot). Below-average values on the original variable are negative on a mean-centered variable and above-average values are positive. The shape of the distribution remains the same.
 
@@ -178,10 +170,9 @@ Remember that the interaction variable is the product of the predictor and moder
 2. Which variable is the predictor and which is the moderator if you adjust the value of the slider 'Exposure - x'?
 ```
 
-If we want to interpret the conditional effect of contact on attitude ($b_2$), we must realize that this is the effect for people who score zero on the exposure variable if the exposure by contact interaction is included in the regression model. This is clear if we rearrange the regression equation as in Equation \@ref(eq:contactbyexposure).
+If we want to interpret the conditional effect of contact on attitude ($b_2$), we must realize that this is the effect for people who score zero on the exposure variable if the exposure by contact interaction is included in the regression model. This is clear if we rearrange the regression equation as in @eq-contactbyexposure.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + b_1*exposure + b_2*contact + b_3*exposure*contact \\
@@ -189,10 +180,8 @@ If we want to interpret the conditional effect of contact on attitude ($b_2$), w
   attitude = &\ constant + b_1*0 + (b_2 + b_3*0)*contact \\
   attitude = &\ constant + b_2*contact 
   \end{split}
-(\#eq:contactbyexposure) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-contactbyexposure}
 
 But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (@fig-moderator-symmetry). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.
 
