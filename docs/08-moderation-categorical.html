@@ -340,38 +340,19 @@ Video&nbsp;6.1: Introduction to moderation with categorical variables.
 <section id="sec-regression-equation" class="level2 page-columns page-full" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="sec-regression-equation"><span class="header-section-number">6.1</span> The Regression Equation</h2>
 <p>In the social sciences, we usually expect that a particular outcome has several causes. Investigating the effects of an anti-smoking campaign, for instance, we would not assume that a person’s attitude towards smoking depends only on exposure to a particular anti-smoking campaign. It is easy to think of other and perhaps more influential causes such as personal smoking status, contact with people who do or do not smoke, susceptibility to addiction, and so on.</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-concept-smoke" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-concept-smoke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[4] - 0.04, yend = y[4] - : All aesthetics have length 1, but the data has 4 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[4] - 0.04, yend = y[4]), : All aesthetics have length 1, but the data has 4 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[3], y = y[3], xend = x[4] - 0.04, yend = y[4] + : All aesthetics have length 1, but the data has 4 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08-moderation-categorical_files/figure-html/concept-smoke-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="08-moderation-categorical_files/figure-html/fig-concept-smoke-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-concept-smoke-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.1: A conceptual model with some hypothesized causes of attitude towards smoking.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p><a href="#fig-concept-smoke" class="quarto-xref">Figure&nbsp;<span>6.1</span></a> summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable (<span class="math inline">\(y\)</span>) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.</p>
 <p>A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter <span class="math inline">\(y\)</span>) as the sum of a constant, the effects (<span class="math inline">\(b\)</span>) of independent variables or predictors (<span class="math inline">\(x\)</span>), which are <em>predictive effects</em>, and an error term (<span class="math inline">\(e\)</span>), which is also called the <em>residuals</em>, see Equation @ref(eq:regression).</p>
@@ -517,50 +498,81 @@ Figure&nbsp;6.4: What are the predictive effects of smoking status?
 </div>
 <p>In this example, smoking status is measured with three categories: (1) non-smokers, (2) former smokers, and (3) smokers. Let us use the term <em>categorical variable</em> only for variables containing three or more categories or groups. This makes it easy to distinguish them from dichotomous variables. This distinction is important because we can include a dichotomous variable straight away as a predictor in a regression model but we cannot do so for a variable with more than two categories. We can only include such a categorical independent variable if we change it into a set of dichotomies.</p>
 <p>We can create a new dichotomous variable for each group, indicating whether (score 1) or not (score 0) the respondent belongs to this group. In the example, we could create the variables <em>neversmoked</em>, <em>smokesnomore</em>, and <em>smoking</em>. Every respondent would score 1 on one of the three variables and 0 on the other two variables (<a href="#tbl-dummytable" class="quarto-xref">Table&nbsp;<span>6.1</span></a>). These variables are called <em>dummy variables</em> or <em>indicator variables</em>.</p>
-<div id="tbl-dummytable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell">
+<div id="tbl-dummytable" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dummytable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6.1: Dummy variables for a categorical independent variable: One dummy variable is superfluous.
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-dummytable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.1
 </figcaption>
 <div aria-describedby="tbl-dummytable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-screenshot.opts="{&quot;delay&quot;:2}">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table" style="font-size: 12px; width: auto !important; float: right; margin-left: 10px;">
 <thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Original categorical variable:</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">neversmoked</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">smokesnomore</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">smoking</th>
+<tr>
+<th style="text-align:left;">
+Original categorical variable:
+</th>
+<th style="text-align:center;">
+neversmoked
+</th>
+<th style="text-align:center;">
+smokesnomore
+</th>
+<th style="text-align:center;">
+smoking
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">1 - Non-smoker</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
+<tr>
+<td style="text-align:left;">
+1 - Non-smoker
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">2 - Former smoker</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">0</td>
+<tr>
+<td style="text-align:left;">
+2 - Former smoker
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+0
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">3 - Smoker</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">1</td>
+<tr>
+<td style="text-align:left;">
+3 - Smoker
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+1
+</td>
 </tr>
 </tbody>
 </table>
-
-
-</div>
+<p>Dummy variables for a categorical independent variable: One dummy variable is superfluous.</p>
 </div>
 </div>
 </figure>
+</div>
 </div>
 <p>If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables <strong>except one</strong>. In the example, we must include two out of the three dummy variables. Equation @ref(eq:regcat) includes dummy variables for former smokers (<span class="math inline">\(smokesnomore\)</span>) and smokers (<span class="math inline">\(smoking\)</span>).</p>
 <div class="callout callout-style-simple callout-important">
@@ -789,33 +801,19 @@ Video&nbsp;6.5: Inspecting residuals.
 <h2 data-number="6.3" class="anchored" data-anchor-id="sec-categoricalmoderator"><span class="header-section-number">6.3</span> Different Lines for Different Groups</h2>
 <p>What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.</p>
 <p>In a conceptual diagram (<a href="#fig-moderator-concept2" class="quarto-xref">Figure&nbsp;<span>6.10</span></a>), moderation is represented by an arrow pointing at another arrow. The moderator (smoking status) changes the relation between the predictor (campaign exposure) and the dependent variable (attitude towards smoking).</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-moderator-concept2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-moderator-concept2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = x[3], yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), : All aesthetics have length 1, but the data has 3 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08-moderation-categorical_files/figure-html/moderator-concept2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="08-moderation-categorical_files/figure-html/fig-moderator-concept2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-concept2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.10: Conceptual diagram of moderation.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>We used a similar diagram to express moderation in two-way analysis of variance (<a href="07-anova.html#sec-moderationanova" class="quarto-xref"><span>Section 5.4</span></a>). But now at least one of our independent variables is numeric, for example, the number of times the respondent has been exposed to the campaign.</p>
 <p>Analysis of variance (ANOVA) investigates the effects of categorical variables on a numerical dependent variable. It cannot handle numerical independent variables. Although there are ways to include numerical independent variables in analysis of variance, for example, analysis of covariance (ANCOVA), we use regression analysis if we have a numerical dependent variable and at least one numerical independent variable.</p>
@@ -871,38 +869,19 @@ Figure&nbsp;6.12: How does an interaction variable create different regression l
 (\#eq:intvar)
 \normalsize
 \end{equation}\]</span>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-moderator-statistical" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-moderator-statistical-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = xend[1], yend = yend[1]), : All aesthetics have length 1, but the data has 4 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = xend[2], yend = yend[2]), : All aesthetics have length 1, but the data has 4 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[3], y = y[3], xend = xend[3], yend = yend[3]), : All aesthetics have length 1, but the data has 4 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08-moderation-categorical_files/figure-html/moderator-statistical-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="08-moderation-categorical_files/figure-html/fig-moderator-statistical-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-statistical-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.13: Statistical diagram of moderation.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 <p>The smoking status variable is coded 1 for smokers and 0 for non-smokers. For clarity, we name this variable <em>smoker</em> with score 1 for Yes and score 0 for No.&nbsp;We have two different regression equations, one for each group on the dichotomous predictor <em>smoker</em>. Just plug in the two possible values (1 and 0) for this variable. For non-smokers [Equation @ref(eq:intvarnonsmoker)], the interaction variable drops from the model because multiplying by zero yields zero. For non-smokers, our reference group, <span class="math inline">\(b_1\)</span> represents the effect of exposure on attitude. It is called the <em>simple slope</em> of exposure for non-smokers.</p>
 <span class="math display">\[\begin{equation}
@@ -948,76 +927,153 @@ Figure&nbsp;6.13: Statistical diagram of moderation.
 </section>
 <section id="sec-interactioninterpretation" class="level3" data-number="6.3.4">
 <h3 data-number="6.3.4" class="anchored" data-anchor-id="sec-interactioninterpretation"><span class="header-section-number">6.3.4</span> Interpretation and statistical inference</h3>
-<div id="tbl-dich-moderator-output" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell">
+<div id="tbl-dich-moderator-output" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dich-moderator-output-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6.2: Predicting attitude towards smoking: regression analysis results.
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-dich-moderator-output-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.2
 </figcaption>
 <div aria-describedby="tbl-dich-moderator-output-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Beta</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Sig.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Lower Bound</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Upper Bound</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+Beta
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #FDAE61 !important;">(Constant)</td>
-<td style="text-align: right; color: #FDAE61 !important;">0.900</td>
-<td style="text-align: right;">0.357</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">2.521</td>
-<td style="text-align: right;">0.014</td>
-<td style="text-align: right;">0.190</td>
-<td style="text-align: right;">1.610</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #FDAE61 !important;">
+(Constant)
+</td>
+<td style="text-align:right;color: #FDAE61 !important;">
+0.900
+</td>
+<td style="text-align:right;">
+0.357
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+2.521
+</td>
+<td style="text-align:right;">
+0.014
+</td>
+<td style="text-align:right;">
+0.190
+</td>
+<td style="text-align:right;">
+1.610
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left; color: white !important; background-color: #2B83BA !important;">Exposure</td>
-<td style="text-align: right; color: #2B83BA !important;">-0.162</td>
-<td style="text-align: right;">0.061</td>
-<td style="text-align: right;">-0.410</td>
-<td style="text-align: right;">-2.651</td>
-<td style="text-align: right;">0.010</td>
-<td style="text-align: right;">-0.284</td>
-<td style="text-align: right;">-0.040</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #2B83BA !important;">
+Exposure
+</td>
+<td style="text-align:right;color: #2B83BA !important;">
+-0.162
+</td>
+<td style="text-align:right;">
+0.061
+</td>
+<td style="text-align:right;">
+-0.410
+</td>
+<td style="text-align:right;">
+-2.651
+</td>
+<td style="text-align:right;">
+0.010
+</td>
+<td style="text-align:right;">
+-0.284
+</td>
+<td style="text-align:right;">
+-0.040
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #ABDDA4 !important;">Status (smoker = 1, non-smoker = 0)</td>
-<td style="text-align: right; color: #ABDDA4 !important;">1.980</td>
-<td style="text-align: right;">0.738</td>
-<td style="text-align: right;">0.096</td>
-<td style="text-align: right;">2.683</td>
-<td style="text-align: right;">0.009</td>
-<td style="text-align: right;">0.512</td>
-<td style="text-align: right;">3.448</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #ABDDA4 !important;">
+Status (smoker = 1, non-smoker = 0)
+</td>
+<td style="text-align:right;color: #ABDDA4 !important;">
+1.980
+</td>
+<td style="text-align:right;">
+0.738
+</td>
+<td style="text-align:right;">
+0.096
+</td>
+<td style="text-align:right;">
+2.683
+</td>
+<td style="text-align:right;">
+0.009
+</td>
+<td style="text-align:right;">
+0.512
+</td>
+<td style="text-align:right;">
+3.448
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left; color: white !important; background-color: #D7191C !important;">Exposure*Status (smoker)</td>
-<td style="text-align: right; color: #D7191C !important;">-0.327</td>
-<td style="text-align: right;">0.142</td>
-<td style="text-align: right;">-0.238</td>
-<td style="text-align: right;">-2.311</td>
-<td style="text-align: right;">0.023</td>
-<td style="text-align: right;">-0.609</td>
-<td style="text-align: right;">-0.045</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #D7191C !important;">
+Exposure*Status (smoker)
+</td>
+<td style="text-align:right;color: #D7191C !important;">
+-0.327
+</td>
+<td style="text-align:right;">
+0.142
+</td>
+<td style="text-align:right;">
+-0.238
+</td>
+<td style="text-align:right;">
+-2.311
+</td>
+<td style="text-align:right;">
+0.023
+</td>
+<td style="text-align:right;">
+-0.609
+</td>
+<td style="text-align:right;">
+-0.045
+</td>
 </tr>
 </tbody>
 </table>
-
-
-</div>
+<p>Predicting attitude towards smoking: regression analysis results.</p>
 </div>
 </div>
 </figure>
+</div>
 </div>
 <p>In <a href="#tbl-dich-moderator-output" class="quarto-xref">Table&nbsp;<span>6.2</span></a>, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude <strong>for non-smokers</strong>. If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from <a href="#tbl-dich-moderator-output" class="quarto-xref">Table&nbsp;<span>6.2</span></a>.</p>
 <span class="math display">\[\begin{equation}
@@ -1070,133 +1126,200 @@ Figure&nbsp;6.14: When do we have moderation with a categorical moderator?
 </figure>
 </div>
 <p>In <a href="#sec-categorical-predictor" class="quarto-xref"><span>Section 6.1.3</span></a>, we learned that we must create dummy variables for all but one groups of a categorical predictor in a regression model. This is what we have to do also for a categorical moderator. If the effect of a predictor, such as exposure, is moderated by a categorical variable, we have to create an interaction variable for each dummy variable in the equation. To create the interaction variables, we multiply the predictor by each of the dummy variables.</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-categorical-moderator-fig" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-categorical-moderator-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = xend[1], yend = yend[1]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = xend[2], yend = yend[2]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[3], y = y[3], xend = xend[3], yend = yend[3]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = xend[4], yend = yend[4]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[5], y = y[5], xend = xend[5], yend = yend[5]), : All aesthetics have length 1, but the data has 6 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08-moderation-categorical_files/figure-html/categorical-moderator-fig-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="08-moderation-categorical_files/figure-html/fig-categorical-moderator-fig-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-categorical-moderator-fig-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.15: Statistical diagram with a moderator consisting of three groups. Non-smokers are the reference group
 </figcaption>
 </figure>
 </div>
+</div>
+</div>
 <p>In the end, we have an interaction variable for all groups but one on the categorical moderator. <a href="#fig-categorical-moderator-fig" class="quarto-xref">Figure&nbsp;<span>6.15</span></a> shows the statistical diagram. Estimation of the model yields point estimates (regression coefficients), confidence intervals, and <em>p</em> values for all independent variables (<a href="#tbl-cat-moderator-results" class="quarto-xref">Table&nbsp;<span>6.3</span></a>).</p>
-<div id="tbl-cat-moderator-results" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell">
+<div id="tbl-cat-moderator-results" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cat-moderator-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6.3: Predicting attitude towards smoking for three smoking status groups: regression analysis results.
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-cat-moderator-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.3
 </figcaption>
 <div aria-describedby="tbl-cat-moderator-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Sig.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Lower Bound</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Upper Bound</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left;">(Constant)</td>
-<td style="text-align: right;">1.644</td>
-<td style="text-align: right;">0.288</td>
-<td style="text-align: right;">5.717</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">1.072</td>
-<td style="text-align: right;">2.216</td>
+<tr>
+<td style="text-align:left;">
+(Constant)
+</td>
+<td style="text-align:right;">
+1.644
+</td>
+<td style="text-align:right;">
+0.288
+</td>
+<td style="text-align:right;">
+5.717
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+1.072
+</td>
+<td style="text-align:right;">
+2.216
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Exposure</td>
-<td style="text-align: right;">-0.185</td>
-<td style="text-align: right;">0.046</td>
-<td style="text-align: right;">-3.987</td>
-<td style="text-align: right;">0.000</td>
-<td style="text-align: right;">-0.277</td>
-<td style="text-align: right;">-0.093</td>
+<tr>
+<td style="text-align:left;">
+Exposure
+</td>
+<td style="text-align:right;">
+-0.185
+</td>
+<td style="text-align:right;">
+0.046
+</td>
+<td style="text-align:right;">
+-3.987
+</td>
+<td style="text-align:right;">
+0.000
+</td>
+<td style="text-align:right;">
+-0.277
+</td>
+<td style="text-align:right;">
+-0.093
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Former smoker</td>
-<td style="text-align: right;">-1.095</td>
-<td style="text-align: right;">0.544</td>
-<td style="text-align: right;">-2.013</td>
-<td style="text-align: right;">0.048</td>
-<td style="text-align: right;">-2.178</td>
-<td style="text-align: right;">-0.012</td>
+<tr>
+<td style="text-align:left;">
+Former smoker
+</td>
+<td style="text-align:right;">
+-1.095
+</td>
+<td style="text-align:right;">
+0.544
+</td>
+<td style="text-align:right;">
+-2.013
+</td>
+<td style="text-align:right;">
+0.048
+</td>
+<td style="text-align:right;">
+-2.178
+</td>
+<td style="text-align:right;">
+-0.012
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Smoker</td>
-<td style="text-align: right;">1.235</td>
-<td style="text-align: right;">0.521</td>
-<td style="text-align: right;">2.372</td>
-<td style="text-align: right;">0.020</td>
-<td style="text-align: right;">0.199</td>
-<td style="text-align: right;">2.272</td>
+<tr>
+<td style="text-align:left;">
+Smoker
+</td>
+<td style="text-align:right;">
+1.235
+</td>
+<td style="text-align:right;">
+0.521
+</td>
+<td style="text-align:right;">
+2.372
+</td>
+<td style="text-align:right;">
+0.020
+</td>
+<td style="text-align:right;">
+0.199
+</td>
+<td style="text-align:right;">
+2.272
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left;">Exposure*Former smoker</td>
-<td style="text-align: right;">-0.405</td>
-<td style="text-align: right;">0.112</td>
-<td style="text-align: right;">-3.604</td>
-<td style="text-align: right;">0.001</td>
-<td style="text-align: right;">-0.629</td>
-<td style="text-align: right;">-0.181</td>
+<tr>
+<td style="text-align:left;">
+Exposure*Former smoker
+</td>
+<td style="text-align:right;">
+-0.405
+</td>
+<td style="text-align:right;">
+0.112
+</td>
+<td style="text-align:right;">
+-3.604
+</td>
+<td style="text-align:right;">
+0.001
+</td>
+<td style="text-align:right;">
+-0.629
+</td>
+<td style="text-align:right;">
+-0.181
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Exposure*Smoker</td>
-<td style="text-align: right;">-0.304</td>
-<td style="text-align: right;">0.098</td>
-<td style="text-align: right;">-3.116</td>
-<td style="text-align: right;">0.003</td>
-<td style="text-align: right;">-0.498</td>
-<td style="text-align: right;">-0.110</td>
+<tr>
+<td style="text-align:left;">
+Exposure*Smoker
+</td>
+<td style="text-align:right;">
+-0.304
+</td>
+<td style="text-align:right;">
+0.098
+</td>
+<td style="text-align:right;">
+-3.116
+</td>
+<td style="text-align:right;">
+0.003
+</td>
+<td style="text-align:right;">
+-0.498
+</td>
+<td style="text-align:right;">
+-0.110
+</td>
 </tr>
 </tbody>
 </table>
-
-
-</div>
+<p>Predicting attitude towards smoking for three smoking status groups: regression analysis results.</p>
 </div>
 </div>
 </figure>
+</div>
 </div>
 <p>Remember that the effects of predictors that are included in interactions are conditional effects: effects for the reference group or reference value on the other variable involved in the interaction. Non-smokers are the reference group for participant’s smoking status. The <em>p</em> value for the <em>exposure</em> predictor tests the hypothesis that the exposure effect for non-smokers is zero in the population.</p>
 <p>For the two dummy variables <em>Former smoker</em> and <em>Smoker</em>, the null hypothesis is tested that they have the same average attitude in the population as the non-smokers (reference group) if they are not exposed to the anti-smoking campaign. Participants who are not exposed to the campaign (zero exposure) are the reference group here.</p>
@@ -1238,125 +1361,194 @@ Figure&nbsp;6.16: How well do the observations cover the predictor within each c
 </div>
 </div>
 <p>Note that the distinction between predictor, moderator, and covariate is temporary. As soon as we focus on another variable, that variable becomes the predictor and the other predictors become moderators or covariates. The distinction between predictor, moderator, and covariate is just terminology to show on which variable we focus.</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-moderator-covar-statistical" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-moderator-covar-statistical-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[1], y = y[1], xend = xend[1], yend = yend[1]), : All aesthetics have length 1, but the data has 5 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[2], y = y[2], xend = xend[2], yend = yend[2]), : All aesthetics have length 1, but the data has 5 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[3], y = y[3], xend = xend[3], yend = yend[3]), : All aesthetics have length 1, but the data has 5 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_segment(aes(x = x[4], y = y[4], xend = xend[4], yend = yend[4]), : All aesthetics have length 1, but the data has 5 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08-moderation-categorical_files/figure-html/moderator-covar-statistical-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="08-moderation-categorical_files/figure-html/fig-moderator-covar-statistical-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-covar-statistical-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.17: Statistical diagram of moderation with contact as covariate.
 </figcaption>
 </figure>
 </div>
+</div>
+</div>
 <p><a href="#fig-moderator-covar-statistical" class="quarto-xref">Figure&nbsp;<span>6.17</span></a> shows the statistical diagram of a moderation model with contact as covariate and <a href="#tbl-dich-moderator-cov-output" class="quarto-xref">Table&nbsp;<span>6.4</span></a> summarizes the estimated effects. How can we get rid of the moderator and covariate(s), so exposure is left as the only independent variable and we can plot regression lines for exposure effects?</p>
-<div id="tbl-dich-moderator-cov-output" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell">
+<div id="tbl-dich-moderator-cov-output" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dich-moderator-cov-output-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6.4: Predicting attitude towards smoking: regression analysis results with contact as covariate.
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-dich-moderator-cov-output-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.4
 </figcaption>
 <div aria-describedby="tbl-dich-moderator-cov-output-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">B</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Std. Error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Beta</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Sig.</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Lower Bound</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Upper Bound</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+B
+</th>
+<th style="text-align:right;">
+Std. Error
+</th>
+<th style="text-align:right;">
+Beta
+</th>
+<th style="text-align:right;">
+t
+</th>
+<th style="text-align:right;">
+Sig.
+</th>
+<th style="text-align:right;">
+Lower Bound
+</th>
+<th style="text-align:right;">
+Upper Bound
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #FDAE61 !important;">(Constant)</td>
-<td style="text-align: right; color: #FDAE61 !important;">-0.087</td>
-<td style="text-align: right;">0.684</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">-0.127</td>
-<td style="text-align: right;">0.899</td>
-<td style="text-align: right;">-1.448</td>
-<td style="text-align: right;">1.275</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #FDAE61 !important;">
+(Constant)
+</td>
+<td style="text-align:right;color: #FDAE61 !important;">
+-0.087
+</td>
+<td style="text-align:right;">
+0.684
+</td>
+<td style="text-align:right;">
+</td>
+<td style="text-align:right;">
+-0.127
+</td>
+<td style="text-align:right;">
+0.899
+</td>
+<td style="text-align:right;">
+-1.448
+</td>
+<td style="text-align:right;">
+1.275
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left; color: white !important; background-color: #2B83BA !important;">Exposure</td>
-<td style="text-align: right; color: #2B83BA !important;">-0.118</td>
-<td style="text-align: right;">0.066</td>
-<td style="text-align: right;">-0.332</td>
-<td style="text-align: right;">-1.786</td>
-<td style="text-align: right;">0.078</td>
-<td style="text-align: right;">-0.249</td>
-<td style="text-align: right;">0.013</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #2B83BA !important;">
+Exposure
+</td>
+<td style="text-align:right;color: #2B83BA !important;">
+-0.118
+</td>
+<td style="text-align:right;">
+0.066
+</td>
+<td style="text-align:right;">
+-0.332
+</td>
+<td style="text-align:right;">
+-1.786
+</td>
+<td style="text-align:right;">
+0.078
+</td>
+<td style="text-align:right;">
+-0.249
+</td>
+<td style="text-align:right;">
+0.013
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left; color: white !important; background-color: #ABDDA4 !important;">Smoker (0 = no, 1 = yes))</td>
-<td style="text-align: right; color: #ABDDA4 !important;">1.982</td>
-<td style="text-align: right;">0.730</td>
-<td style="text-align: right;">0.095</td>
-<td style="text-align: right;">2.717</td>
-<td style="text-align: right;">0.008</td>
-<td style="text-align: right;">0.530</td>
-<td style="text-align: right;">3.434</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #ABDDA4 !important;">
+Smoker (0 = no, 1 = yes))
+</td>
+<td style="text-align:right;color: #ABDDA4 !important;">
+1.982
+</td>
+<td style="text-align:right;">
+0.730
+</td>
+<td style="text-align:right;">
+0.095
+</td>
+<td style="text-align:right;">
+2.717
+</td>
+<td style="text-align:right;">
+0.008
+</td>
+<td style="text-align:right;">
+0.530
+</td>
+<td style="text-align:right;">
+3.434
+</td>
 </tr>
-<tr class="even">
-<td style="text-align: left; color: white !important; background-color: #D7191C !important;">Exposure*Smoker</td>
-<td style="text-align: right; color: #D7191C !important;">-0.329</td>
-<td style="text-align: right;">0.140</td>
-<td style="text-align: right;">-0.239</td>
-<td style="text-align: right;">-2.348</td>
-<td style="text-align: right;">0.021</td>
-<td style="text-align: right;">-0.607</td>
-<td style="text-align: right;">-0.050</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: #D7191C !important;">
+Exposure*Smoker
+</td>
+<td style="text-align:right;color: #D7191C !important;">
+-0.329
+</td>
+<td style="text-align:right;">
+0.140
+</td>
+<td style="text-align:right;">
+-0.239
+</td>
+<td style="text-align:right;">
+-2.348
+</td>
+<td style="text-align:right;">
+0.021
+</td>
+<td style="text-align:right;">
+-0.607
+</td>
+<td style="text-align:right;">
+-0.050
+</td>
 </tr>
-<tr class="odd">
-<td style="text-align: left; color: white !important; background-color: brown !important;">Contact</td>
-<td style="text-align: right; color: brown !important;">0.152</td>
-<td style="text-align: right;">0.090</td>
-<td style="text-align: right;">0.180</td>
-<td style="text-align: right;">1.683</td>
-<td style="text-align: right;">0.096</td>
-<td style="text-align: right;">-0.028</td>
-<td style="text-align: right;">0.331</td>
+<tr>
+<td style="text-align:left;color: white !important;background-color: brown !important;">
+Contact
+</td>
+<td style="text-align:right;color: brown !important;">
+0.152
+</td>
+<td style="text-align:right;">
+0.090
+</td>
+<td style="text-align:right;">
+0.180
+</td>
+<td style="text-align:right;">
+1.683
+</td>
+<td style="text-align:right;">
+0.096
+</td>
+<td style="text-align:right;">
+-0.028
+</td>
+<td style="text-align:right;">
+0.331
+</td>
 </tr>
 </tbody>
 </table>
-
-
-</div>
+<p>Predicting attitude towards smoking: regression analysis results with contact as covariate.</p>
 </div>
 </div>
 </figure>
+</div>
 </div>
 <p>As a first step, use the estimated values of the regression coefficients in the SPSS output (<a href="#tbl-dich-moderator-cov-output" class="quarto-xref">Table&nbsp;<span>6.4</span></a>) to create a regression equation [Eq. @ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
 <span class="math display">\[\begin{equation}
@@ -1384,33 +1576,19 @@ Table&nbsp;6.4: Predicting attitude towards smoking: regression analysis results
 \end{equation}\]</span>
 <p>The terms with <em>smoker</em> and <em>contact</em> disappear from the equation, so <em>exposure</em> is the only independent variable that remains in the equation. Now, we can draw the simple regression line predicting attitude from exposure for smokers using this equation. Note that this is the regression line for people with average contact with smokers.</p>
 <p>Repeat these steps but plug in the score 0 for the <em>smoker</em> predictor to obtain the simple regression line for non-smokers. <a href="#fig-dich-moderator-cov-plot" class="quarto-xref">Figure&nbsp;<span>6.18</span></a> shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.</p>
+<div class="cell">
+<div class="cell-output-display">
 <div id="fig-dich-moderator-cov-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dich-moderator-cov-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 0.1, y = -4.9, label = paste0("Non-smokers: attitude = ", : All aesthetics have length 1, but the data has 85 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in geom_text(aes(x = 9.9, y = 4.9, label = paste0("Smokers: attitude = ", : All aesthetics have length 1, but the data has 85 rows.
-ℹ Please consider using `annotate()` or provide this layer with data containing
-  a single row.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="08-moderation-categorical_files/figure-html/dich-moderator-cov-plot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" data-fig-pos="H" width="600"></p>
-</figure>
-</div>
-</div>
-</div>
+<img src="08-moderation-categorical_files/figure-html/fig-dich-moderator-cov-plot-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dich-moderator-cov-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;6.18: The effects of exposure on attitude for non-smokers and smokers. Both smokers and non-smokers are assumed to have average contact with smokers.
 </figcaption>
 </figure>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -1458,142 +1636,6 @@ Video&nbsp;6.9: Check common support for a predictor at different moderator valu
 </figcaption>
 </figure>
 </div>
-<!-- ## Test Your Understanding
-
-@fig-regression-predict2 shows how much respondents were exposed to an anti-smoking campaign (horizontal axis) and their attitudes towards smoking, ranging from negative (-5) to positive (5, vertical axis). Attitude towards smoking is predicted from exposure as well as from the respondent's smoking status and daily contacts with smokers as specified by the (red) multiple regression equation. The blue line represents the (blue) simple regression equation, which predicts attitude from exposure for the selected value of smoking status and contact.
-
-
-
-
-::: {.cell layout-align="center" screenshot.opts='{"delay":5}'}
-<iframe src="https://sharon-klinkenberg.shinyapps.io/regression-predict2/?showcase=0" width="775px" height="375px" data-external="1"></iframe>
-:::
-
-::: {.cell}
-::: {.cell-output-display}
-
-`````{=html}
-
-<table class="table caption-top" data-quarto-postprocess="true" style="font-size: 12px; width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>Regression model predicting attitude towards smoking.</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">b</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">SE</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">b\*</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">t</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
-<th style="text-align: center;" data-quarto-table-cell-role="th">95\%CI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Constant</td>
-<td style="text-align: right;">0.550</td>
-<td style="text-align: right;">0.466</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;">1.181</td>
-<td style="text-align: right;">0.241</td>
-<td style="text-align: center;">[-0.377, 1.477]</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Exposure to anti-smoking campaign</td>
-<td style="text-align: right;">-0.137</td>
-<td style="text-align: right;">0.047</td>
-<td style="text-align: right;">-0.242</td>
-<td style="text-align: right;">-2.888</td>
-<td style="text-align: right;">0.005</td>
-<td style="text-align: center;">[-0.231, -0.042]</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Former smoker</td>
-<td style="text-align: right;">-1.139</td>
-<td style="text-align: right;">0.520</td>
-<td style="text-align: right;">-0.269</td>
-<td style="text-align: right;">-2.188</td>
-<td style="text-align: right;">0.032</td>
-<td style="text-align: center;">[-2.174, -0.103]</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Smoker</td>
-<td style="text-align: right;">1.223</td>
-<td style="text-align: right;">0.498</td>
-<td style="text-align: right;">0.302</td>
-<td style="text-align: right;">2.456</td>
-<td style="text-align: right;">0.016</td>
-<td style="text-align: center;">[.232, 2.214]</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Exposure \* Former smoker</td>
-<td style="text-align: right;">-0.402</td>
-<td style="text-align: right;">0.107</td>
-<td style="text-align: right;">-0.442</td>
-<td style="text-align: right;">-3.739</td>
-<td style="text-align: right;">&lt;.001</td>
-<td style="text-align: center;">[-0.616, -0.188]</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Exposure \* Smoker</td>
-<td style="text-align: right;">-0.304</td>
-<td style="text-align: right;">0.093</td>
-<td style="text-align: right;">-0.394</td>
-<td style="text-align: right;">-3.262</td>
-<td style="text-align: right;">0.002</td>
-<td style="text-align: center;">[-0.490, -0.119]</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Contact with smokers</td>
-<td style="text-align: right;">0.171</td>
-<td style="text-align: right;">0.059</td>
-<td style="text-align: right;">0.202</td>
-<td style="text-align: right;">2.910</td>
-<td style="text-align: right;">0.005</td>
-<td style="text-align: center;">[.054, .287]</td>
-</tr>
-</tbody>
-</table>
-
-
-`````
-
-:::
-:::
-
-::: {.cell layout-align="center"}
-::: {.cell-output-display}
-![Four examples of common support.](figures/Q8.5.7.png){fig-align='center' fig-pos='H' width=640px height=478px}
-:::
-:::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
 </section>
 </section>
 <section id="take-home-points" class="level2" data-number="6.5">
