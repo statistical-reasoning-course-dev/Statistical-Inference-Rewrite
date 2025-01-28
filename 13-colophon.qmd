@@ -33,6 +33,12 @@ Many thanks to [Christin Scholz](https://www.linkedin.com/in/christin-scholz-7a0
 
 The 2023 version of the book is archived in the pre 2024 branch of the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/tree/pre_2024-07_archive)
 
+### 2025 Bookdown to quarto migration {-}
+
+In 2025 we migrated the book from [Bookdown](https://bookdown.org) to [Quarto](https://quarto.org). Because we were running into technical issues with incompatible packages, we decided to future proof the book by making the transition to quarto. With a lot of regular expressions, we managed to convert many of the bookdown syntax to quarto.
+
+Thanks to the efforts of [Saurabh Khanna](https://www.linkedin.com/in/saurabh90/), [Sten Paffen](), and [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/) the book is now fully migrated to quarto.
+
 ### Contribute {-}
 
 If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in Rmarkdown and compiled using the bookdown package. The book is hosted on GitHub pages and the source material is maintained from [his github repository](https://github.com/WdeNooy/Statistical-Inference). If you find any typo's or errors, please submit an issue on the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/issues).
