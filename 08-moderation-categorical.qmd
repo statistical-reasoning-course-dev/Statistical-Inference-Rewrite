@@ -71,27 +71,21 @@ rm(variables)
 
 @fig-concept-smoke summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable ($y$) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.
 
-A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter $y$) as the sum of a constant, the effects ($b$) of independent variables or predictors ($x$), which are *predictive effects*, and an error term ($e$), which is also called the *residuals*, see Equation \@ref(eq:regression).
+A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter $y$) as the sum of a constant, the effects ($b$) of independent variables or predictors ($x$), which are *predictive effects*, and an error term ($e$), which is also called the *residuals*, see Equation @eq-regression.
 
-```{=tex}
-\begin{equation} 
+$$
 \small
   y = constant + b_1*x_1 + b_2*x_2 + b_3*x_3 + e 
-  (\#eq:regression) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regression}
 
-If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation. The equation without the error term [Eq. \@ref(eq:regressionpred)] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
+If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation. The equation without the error term [Eq. @eq-regressionpred] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
 
-```{=tex}
-\begin{equation} 
+$$
 \small
   y = constant + b_1*x_1 + b_2*x_2 + b_3*x_3 
-  (\#eq:regressionpred) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regressionpred}
 
 ### A numerical predictor
 
@@ -107,48 +101,39 @@ Predicting attitude towards smoking from exposure to an anti-smoking campaign. T
 :::
 
 
-Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation [Eq. \@ref(eq:regrexample)]. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.
+Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation [Eq. @eq-regrexample]. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.
 
-```{=tex}
-\begin{equation}
+$$
 \small
   attitude = constant + b*exposure 
-  (\#eq:regrexample) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regrexample}
 
-The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (Eq. \@ref(eq:regsmokedummy)) and remember that zero times something yields zero. This reduces the equation to the constant.
+The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (Eq. @eq-regsmokedummy) and remember that zero times something yields zero. This reduces the equation to the constant.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b*0 \\ 
   attitude &= constant + 0 \\
   attitude &= constant
 \end{split}
-  (\#eq:regsmokedummy) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regsmokedummy}
 
 For all persons scoring zero on exposure, the predicted attitude equals the value of the regression constant. This interpretation only makes sense if the predictor can be zero. If, for example, exposure had been measured on a scale ranging from one to seven, nobody can have zero exposure, so the constant has no straightforward meaning.
 
 The unstandardized regression coefficient $b$ represents the predicted difference in the dependent variable for a difference of one unit in the independent variable. For example, plug in the values 1 and 0 for the *exposure* variable in the equation. If we take the difference of the two equations, we are left with $b$. Other terms in the two equations cancel out.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = constant + b*1 \\ 
   \underline{- \mspace{20mu} attitude = constant + b*0} \\
   attitude \mspace{4mu} difference = b*1 - b*0 = b - 0 = b
 \end{split}
-(\#eq:regweight) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regweight}
 
 ::: {.callout-important appearance="simple"}
 
@@ -185,37 +170,31 @@ The interpretation of the effect of a dichotomous independent variable in a regr
 
 It does not make sense to interpret the unstandardized regression coefficient of, for example, smoking status as predicted difference in attitude for a difference of one 'more' smoking status. After all, the 0 and 1 scores do not mean that there is one unit 'more' smoking. Instead, the coefficient indicates that we are dealing with different groups: smokers versus non-smokers.
 
-If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first equation \@ref(eq:regdicho1) represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely $b$.
+If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first equation @eq-regdicho1 represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely $b$.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b*status \\
   attitude_{smokers} &= constant + b*1 \\
   attitude_{smokers} &= constant + b
 \end{split}
-(\#eq:regdicho1) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regdicho1}
 
-Regression equation \@ref(eq:regdicho0) represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.
+Regression equation @eq-regdicho0 represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b*status \\
   attitude_{non-smokers} &= constant + b*0 \\
   attitude_{non-smokers} &= constant + 0 
 \end{split}
-  (\#eq:regdicho0) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regdicho0}
 
-If you compare the final equations for smokers [Eq. \@ref(eq:regdicho1)] and non-smokers [Eq. \@ref(eq:regdicho0)], the only difference is $b$, which is present for smokers but absent for non-smokers. It is the difference between the average score on the dependent variable (attitude) for smokers and the average score for non-smokers. We are testing a mean difference. Actually, this is exactly the same as an independent-samples *t* test!
+If you compare the final equations for smokers [Eq. @eq-regdicho1] and non-smokers [Eq. @eq-regdicho0], the only difference is $b$, which is present for smokers but absent for non-smokers. It is the difference between the average score on the dependent variable (attitude) for smokers and the average score for non-smokers. We are testing a mean difference. Actually, this is exactly the same as an independent-samples *t* test!
 
 ::: {.callout-important appearance="simple"}
 
@@ -261,7 +240,7 @@ knitr::kable(rbind(c("1 - Non-smoker", "1", "0", "0"),
 ```
 
 
-If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables **except one**. In the example, we must include two out of the three dummy variables. Equation \@ref(eq:regcat) includes dummy variables for former smokers ($smokesnomore$) and smokers ($smoking$).
+If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables **except one**. In the example, we must include two out of the three dummy variables. Equation @eq-regcat includes dummy variables for former smokers ($smokesnomore$) and smokers ($smoking$).
 
 ::: {.callout-important appearance="simple"}
 
@@ -271,63 +250,51 @@ The category without dummy variable is the *reference group*.
 
 :::
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b_1*smokesnomore + b_2*smoking
 \end{split}
-(\#eq:regcat) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regcat}
 
 The two dummy variables give us three different regression equations: one for each smoking status category. Just plug in the correct 0 or 1 values for respondents with a particular smoking status.
 
-Let us first create the equation for non-smokers. To this end, we replace both $smokesnomore$ and $smoking$ by 0. As a result, both dummy variables drop from the equation [Eq. \@ref(eq:regcat1)], so the constant is the predicted attitude for non-smokers. The non-smokers are our *reference group* because they are not represented by a dummy variable in the equation.
+Let us first create the equation for non-smokers. To this end, we replace both $smokesnomore$ and $smoking$ by 0. As a result, both dummy variables drop from the equation [Eq. @eq-regcat1], so the constant is the predicted attitude for non-smokers. The non-smokers are our *reference group* because they are not represented by a dummy variable in the equation.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b_1*smokesnomore + b_2*smoking \\
   attitude_{non-smokers} &= constant + b_1*0 + b_2*0 \\
   attitude_{non-smokers} &= constant
 \end{split}
-(\#eq:regcat1) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regcat1}
 
-For former smokers, we plug in 1 for $smokesnomore$ and 0 for $smoking$. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the $smokesnomore$ dummy variable ($b_1$), see Equation \@ref(eq:regcat2). Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient $b_1$ for the $smokesnomore$ dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.
+For former smokers, we plug in 1 for $smokesnomore$ and 0 for $smoking$. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the $smokesnomore$ dummy variable ($b_1$), see Equation @eq-regcat2. Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient $b_1$ for the $smokesnomore$ dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b_1*smokesnomore + b_2*smoking \\
   attitude_{former smokers} &= constant + b_1*1 + b_2*0 \\
   attitude_{former smokers} &= constant + b_1
 \end{split}
-(\#eq:regcat2) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regcat2}
 
-Finally, for smokers, we plug in 0 for $smokesnomore$ and 1 for $smoking$ [Eq. \@ref(eq:regcat3)]. The predicted attitude for smokers equals the constant plus the unstandardized regression coefficient for the $smoking$ dummy variable ($b_2$). This regression coefficient, then, represents the difference in average attitude between smokers and non-smokers (reference group).
+Finally, for smokers, we plug in 0 for $smokesnomore$ and 1 for $smoking$ [Eq. @eq-regcat3]. The predicted attitude for smokers equals the constant plus the unstandardized regression coefficient for the $smoking$ dummy variable ($b_2$). This regression coefficient, then, represents the difference in average attitude between smokers and non-smokers (reference group).
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude &= constant + b_1*smokesnomore + b_2*smoking \\
   attitude_{smokers} &= constant + b_1*0 + b_2*1 \\
   attitude_{smokers} &= constant + b_2
 \end{split}
-(\#eq:regcat3) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-regcat3}
 
 The interpretation of the effects (regression coefficients) for the included dummies is similar to the interpretation for a single dichotomous independent variable such as smoker versus non-smoker. It is the difference between the average score of the group coded 1 on the dummy variable and the average score of the reference group on the dependent variable. The reference group is the group scoring 0 on all dummy variables that represent the categorical independent variable.
 
@@ -335,7 +302,7 @@ If we exclude the dummy variable for the respondents who never smoked, as in the
 
 Which group should we use as reference category, that is, which group should not be represented by a dummy variable in the regression model? This is hard to say in general. If one group is of greatest interest to us, we could use this as the reference group, so all dummy variable effects express differences with this group. Alternatively, if we expect a particular ranking of the average scores, we may pick the group at the highest, lowest or middle rank as the reference group. If you can't decide, run the regression model several times with a different reference group.
 
-Finally, note that we should not include all three dummy variables in the regression model [Eq. \@ref(eq:regcat)]. We can already identify the non-smokers, because they score 0 on both the $smokesnomore$ and $smoking$ dummy variables. Adding the $neversmoked$ dummy variable to the regression model is like including the same independent variable twice. How can the estimation process decide which of the two identical independent variable is responsible for the effect? It can't decide, so the estimation process fails or it drops one of the dummy variables. If this happens, the independent variables are said to be perfectly *multicollinear*.
+Finally, note that we should not include all three dummy variables in the regression model [Eq. @eq-regcat]. We can already identify the non-smokers, because they score 0 on both the $smokesnomore$ and $smoking$ dummy variables. Adding the $neversmoked$ dummy variable to the regression model is like including the same independent variable twice. How can the estimation process decide which of the two identical independent variable is responsible for the effect? It can't decide, so the estimation process fails or it drops one of the dummy variables. If this happens, the independent variables are said to be perfectly *multicollinear*.
 
 ### Sampling distributions and assumptions {#sec-regr-inference}
 
@@ -435,12 +402,6 @@ The plot of residuals by predicted values of the dependent variable tells us mor
 ``` 
 How do residuals tell us that we predict all values equally well?
 :::
-
-
-
-
-
-
 
 The other assumption states that we can predict the dependent variable equally well at all dependent variable levels. In other words, the prediction errors (residuals) are more or less the same at all levels of the dependent variable. This is called *homoscedasticity*. If we have large prediction errors at some levels of the dependent variable, we should also have large prediction errors at other levels. As a result, the vertical width of the residuals by predictions scatter plot should be more or less the same from left to right. The dots representing residuals resemble a more or less rectangular band.
 
@@ -646,18 +607,15 @@ How do we obtain different regression coefficients and lines for smokers and non
 How does an interaction variable create different regression lines for different groups?
 :::
 
-The interaction variable must be included together with the original predictor and moderator variables, see Equation \@ref(eq:intvar). This is also visible in the statistical diagram (@fig-moderator-statistical) for moderation in a regression model.
+The interaction variable must be included together with the original predictor and moderator variables, see Equation @eq-intvar. This is also visible in the statistical diagram (@fig-moderator-statistical) for moderation in a regression model.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker 
 \end{split}
-(\#eq:intvar) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-intvar}
 
 
 ```{r}
@@ -687,25 +645,21 @@ ggplot(variables, aes(x, y)) +
 ```
 
 
-The smoking status variable is coded 1 for smokers and 0 for non-smokers. For clarity, we name this variable *smoker* with score 1 for Yes and score 0 for No. We have two different regression equations, one for each group on the dichotomous predictor *smoker*. Just plug in the two possible values (1 and 0) for this variable. For non-smokers [Equation \@ref(eq:intvarnonsmoker)], the interaction variable drops from the model because multiplying by zero yields zero. For non-smokers, our reference group, $b_1$ represents the effect of exposure on attitude. It is called the *simple slope* of exposure for non-smokers.
+The smoking status variable is coded 1 for smokers and 0 for non-smokers. For clarity, we name this variable *smoker* with score 1 for Yes and score 0 for No. We have two different regression equations, one for each group on the dichotomous predictor *smoker*. Just plug in the two possible values (1 and 0) for this variable. For non-smokers [Equation @eq-intvarnonsmoker], the interaction variable drops from the model because multiplying by zero yields zero. For non-smokers, our reference group, $b_1$ represents the effect of exposure on attitude. It is called the *simple slope* of exposure for non-smokers.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker \\
   attitude_{non-smokers} = &\ constant + b_1*exposure + b_2*0 + b_3*exposure*0 \\
   attitude_{non-smokers} = &\ constant + b_1*exposure
 \end{split}
-(\#eq:intvarnonsmoker)
 \normalsize
-\end{equation}
-```
+$$ {#eq-intvarnonsmoker}
 
-In contrast, the interaction variable remains in the model for smokers [Equation \@ref(eq:intvarsmoker)], who score 1 on smoking status. Note what happens with the coefficient of the exposure effect if we rearrange the terms a little: The exposure effect equals the effect for the reference group of non-smokers ($b_1$) plus the effect of the interaction variable ($b_3$). The simple slope for smokers, then, is ($b_1 + b_3$).
+In contrast, the interaction variable remains in the model for smokers [Equation @eq-intvarsmoker], who score 1 on smoking status. Note what happens with the coefficient of the exposure effect if we rearrange the terms a little: The exposure effect equals the effect for the reference group of non-smokers ($b_1$) plus the effect of the interaction variable ($b_3$). The simple slope for smokers, then, is ($b_1 + b_3$).
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker \\
@@ -713,10 +667,8 @@ In contrast, the interaction variable remains in the model for smokers [Equation
   attitude_{smokers} = &\ constant + b_1*exposure + b_3*exposure + b_2 \\
   attitude_{smokers} = &\ constant + (b_1 + b_3)*exposure + b_2 
 \end{split}
-(\#eq:intvarsmoker) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-intvarsmoker}
 
 The interaction variable changes the slope of the effect of exposure on attitude. More specifically, the regression coefficient of the interaction variable ($b_3$) shows the difference between the simple slope of the exposure effect for smokers ($b_1+b_3$) and the simple slope for non-smokers ($b_1$). 
 
@@ -724,22 +676,19 @@ Let us assume that the unstandardized regression coefficient of the interaction 
 
 ### Conditional effects, not main effects {#sec-conditional-effects}
 
-It is very important to note that the effects of exposure and smoking status in a model with exposure by smoking status interaction are **not** main effects as in analysis of variance. As we have seen in the preceding section [Equation \@ref(eq:intvarnonsmoker)], the regression coefficient $b_1$ for exposure expresses the effect of exposure for non-smokers. It is a *conditional effect*, namely the effect for non-smokers only. Non-smokers are the *reference group* because they score zero on the moderator (*smoker*). This is quite different from a main effect in analysis of variance, which is an average effect over all groups.
+It is very important to note that the effects of exposure and smoking status in a model with exposure by smoking status interaction are **not** main effects as in analysis of variance. As we have seen in the preceding section [Equation @eq-intvarnonsmoker], the regression coefficient $b_1$ for exposure expresses the effect of exposure for non-smokers. It is a *conditional effect*, namely the effect for non-smokers only. Non-smokers are the *reference group* because they score zero on the moderator (*smoker*). This is quite different from a main effect in analysis of variance, which is an average effect over all groups.
 
-In a similar way, the regression coefficient $b_2$ for smoking status expresses the effect for persons who score zero on the exposure predictor. Simply plug in the value 0 for exposure in the regression equation [Eq. \@ref(eq:simplestatus)].
+In a similar way, the regression coefficient $b_2$ for smoking status expresses the effect for persons who score zero on the exposure predictor. Simply plug in the value 0 for exposure in the regression equation [Eq. @eq-simplestatus].
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ constant + b_1*exposure + b_2*smoker + b_3*exposure*smoker\\
   attitude_{no-expo} = &\ constant + b_1*0 + b_2*smoker + b_3*0*smoker \\
   attitude_{no-expo} = &\ constant + b_2*smoker
 \end{split}
-(\#eq:simplestatus) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-simplestatus}
 
 Smoking status is a dichotomy, so its regression coefficient ($b_2$) tells us the average difference in attitude between smokers and non-smokers. Due to the inclusion of the interaction variable, it now tells us the difference in average attitude between smokers and non-smokers **who have zero exposure to the anti-smoking campaign**. Note again that this is a conditional effect, not a main effect.
 
@@ -794,8 +743,7 @@ rm(smokers, model_1, ci, results_2, model_2, z_attitude, z_status2, z_expostatus
 In @tbl-dich-moderator-output, the effect of exposure on attitude depends on the value of smoking status because the model includes an interaction effect of exposure with smoking status (red). Non-smokers are the reference group on the smoking status dummy variable because they are coded 0. Therefore, the regression coefficient for exposure (blue) gives us the effect of exposure on smoking attitude **for non-smokers**. 
 If you want to check this, plug in 0 for the smoking status variable in the regression equation that we may construct from @tbl-dich-moderator-output. 
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ \color{#FDAE61}{constant} + \color{#2B83BA}{b_1*exposure} + \color{#ABDDA4}{b_2*status} + \color{#D7191C}{b_3*exposure*status}\\
@@ -803,10 +751,8 @@ If you want to check this, plug in 0 for the smoking status variable in the regr
   attitude_{non-smoker} = &\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{0} + \color{#D7191C}{0}\\
   attitude_{non-smoker} = &\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure}
 \end{split}
-(\#eq:nonsmokers) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-nonsmokers}
 
 Multiplying by zero yields zero, so for non-smokers, the resulting effect of exposure on attitude is `r report_n(results[2, 1], digits = 2)`. An additional unit of exposure predicts a smoking attitude among non-smokers that is `r report_n(abs(results[2, 1]), digits = 2)` points more negative. More exposure to the campaign goes together with a more negative attitude towards smoking for non-smokers. The *p* value for this effect tests the null hypothesis that the effect is zero in the population. If the exposure effect is statistically significant, we reject this null hypothesis.
 
@@ -814,8 +760,7 @@ Smokers are coded 1 on the (smoking) status variable and non-smokers are coded 0
 
 If you want to check this, plug in 1 for the smoking status variable in the regression equation. Add the two effects of exposure in the equation to obtain the effect of exposure on attitude for smokers.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ \color{#FDAE61}{constant} + \color{#2B83BA}{b_1*exposure} + \color{#ABDDA4}{b_2*status} + \color{#D7191C}{b_3*exposure*status}\\
@@ -825,10 +770,8 @@ If you want to check this, plug in 1 for the smoking status variable in the regr
   attitude_{smoker} = &\ \color{#FDAE61}{0.900} + (\color{#2B83BA}{-0.162} + \color{#D7191C}{-0.327})*exposure + \color{#ABDDA4}{1.980}\\
   attitude_{smoker} = &\ \color{#FDAE61}{0.900} + -0.489*exposure + \color{#ABDDA4}{1.980}
 \end{split}
-(\#eq:smokers) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-smokers}
 
 Now we can compare the slopes (regression coefficients) for the two groups, which gives good insight into the nature of moderation in this example. The effect of exposure on attitude is more strongly negative for smokers (`r report_n(results[2, 1] + results[4, 1], digits = 2)`) than for non-smokers (`r report_n(results[2, 1], digits = 2)`).
 
@@ -1056,24 +999,20 @@ contact_avg = mean(contact)
 rm(model_1, ci, results_2, model_2, z_attitude, z_status2, z_expostatus2, z_exposure, z_contact)
 ```
 
-As a first step, use the estimated values of the regression coefficients in the SPSS output (@tbl-dich-moderator-cov-output) to create a regression equation [Eq. \@ref(eq:intvarcov1)]. Just start at the top of the table and write down the regression coefficients (*B*) and the independent variable names.
+As a first step, use the estimated values of the regression coefficients in the SPSS output (@tbl-dich-moderator-cov-output) to create a regression equation (@eq-intvarcov1). Just start at the top of the table and write down the regression coefficients (*B*) and the independent variable names.
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`*smoker} + \color{#D7191C}{`r report_n(results[4,1], 3)`*exposure*smoker}\\
   &+ \color{brown}{`r report_n(results[5,1], 3)`*contact}
 \end{split}
-(\#eq:intvarcov1) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-intvarcov1}
 
-As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the *smoker* variable. For a numerical covariate such as *contact*, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">`r report_n(mean(smokers$contact),3)`</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation [Eq. \@ref(eq:intvarcov2)].
+As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the *smoker* variable. For a numerical covariate such as *contact*, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">`r report_n(mean(smokers$contact),3)`</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation (@eq-intvarcov2).
 
-```{=tex}
-\begin{equation}
+$$
 \small
 \begin{split}
   attitude = &\ \color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`*smoker} + \color{#D7191C}{`r report_n(results[4,1], 3)`*exposure*smoker}\\
@@ -1083,10 +1022,8 @@ As a second step, choose an interesting value for every independent variable in 
   attitude = &\ (\color{#FDAE61}{`r report_n(results[1,1], 3)`} + \color{#ABDDA4}{`r report_n(results[3,1], 3)`}+ \color{brown}{`r report_n(results[5,1] * round(mean(smokers$contact),3),3)`}) + (\color{#2B83BA}{`r report_n(results[2,1], 3)`*exposure} + \color{#D7191C}{`r report_n(results[4,1], 3)`*exposure})\\
   attitude = &\ `r report_n(round(results[1,1],3) + round(results[3,1],3) + (round(results[5,1],3) * round(mean(smokers$contact),3)),3)` + `r report_n(round(results[2,1],3) + round(results[4,1],3), 3)`*exposure
 \end{split}
-(\#eq:intvarcov2) 
 \normalsize
-\end{equation}
-```
+$$ {#eq-intvarcov2}
 
 The terms with *smoker* and *contact* disappear from the equation, so *exposure* is the only independent variable that remains in the equation. Now, we can draw the simple regression line predicting attitude from exposure for smokers using this equation. Note that this is the regression line for people with average contact with smokers.
 
