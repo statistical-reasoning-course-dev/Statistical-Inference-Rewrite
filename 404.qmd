@@ -1,0 +1,91 @@
+---
+title: Page Not Found
+---
+
+Redirecting you to the correct page.
+
+```{=html, echo=FALSE}
+<script>
+// Get the current URL
+let currentUrl = window.location.href;
+
+function updateURL(url) {
+    // Replace 'fig:' with 'fig-' if present
+    url = url.replace("fig:", "fig-");
+
+    const chapters = [
+        "01-samplingdistr.html",
+        "02-probability.html",
+        "03-estimation.html",
+        "04-hypothesis.html",
+        "07-anova.html",
+        "08-moderation-categorical.html",
+        "09-moderation-continuous.html",
+        "10-confounding.html",
+        "11-mediation.html",
+        "12-Appendix.html",
+        "13-colophon.html",
+        "14-references.html"
+    ];
+
+    // Extract chapter number from URL
+    const chapterMatch = url.match(/(\d+)/);
+    const chapterNumber = chapterMatch ? parseInt(chapterMatch[0], 10) : null;
+
+    // Get anchor from URL
+    const anchorMatch = url.match(/(#.*$)/);
+    const anchor = anchorMatch ? anchorMatch[0] : "";
+
+    // Ensure chapter number is within valid range
+    if (chapterNumber !== null && chapterNumber >= 1 && chapterNumber <= chapters.length) {
+        return `https://shklinkenberg.github.io/Statistical-Inference/${chapters[chapterNumber - 1]}${anchor}`;
+    } else {
+        return url; // Return original URL if invalid chapter number
+    }
+}
+
+// Example usage test:
+const url = "https://shklinkenberg.github.io/Statistical-Inference/11.2-discreterandomvariable.html#fig:random-variable";
+
+
+let newUrl = updateURL(currentUrl)
+
+// alert(newUrl);
+
+
+// Redirect to the new URL
+if (currentUrl !== newUrl) {
+    window.location.replace(newUrl);
+}
+</script>
+```
+
+```{r, eval=FALSE, echo=FALSE}
+url = "https://shklinkenberg.github.io/Statistical-Inference/1.2-discreterandomvariable.html#fig:random-variable"
+
+url = stringr::str_replace(url, "fig:", "fig-") 
+
+chapters = c("01-samplingdistr.html",
+             "02-probability.html",
+             "03-estimation.html",
+             "04-hypothesis.html",
+             "07-anova.html",
+             "08-moderation-categorical.html",
+             "09-moderation-continuous.html",
+             "10-confounding.html",
+             "11-mediation.html",
+             "12-Appendix.html",
+             "13-colophon.html",
+             "14-references.html")
+
+# extract chapter number from url
+chapter.number = stringr::str_extract(url, "[0-9]+")
+
+# Get anchor from url
+anchor = stringr::str_extract(url, "#.*$")
+
+newURL = paste0("https://shklinkenberg.github.io/Statistical-Inference/", chapters[as.numeric(chapter.number)], anchor)
+
+newURL
+```
+
