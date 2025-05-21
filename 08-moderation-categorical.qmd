@@ -40,9 +40,9 @@ To interpret the interaction effect, we must determine the size of the effect of
 
 An interaction effect in a regression model closely resembles an interaction effect in analysis of variance. The effect of a single predictor that is involved in an interaction effect in a regression model, however, is not a main effect as in analysis of variance. It is a conditional effect, namely the effect for one particular value of the moderator, that is, the effect within one particular context. To understand this, we must pay close attention to the regression equation.
 
-## The Regression Equation {#sec-regression-equation}
+## Regression Analysis {#sec-regression-equation}
 
-In the social sciences, we usually expect that a particular outcome has several causes. Investigating the effects of an anti-smoking campaign, for instance, we would not assume that a person's attitude towards smoking depends only on exposure to a particular anti-smoking campaign. It is easy to think of other and perhaps more influential causes such as personal smoking status, contact with people who do or do not smoke, susceptibility to addiction, and so on.
+In the social sciences, we usually expect that a particular outcome has several causes. Investigating the effects of an anti-smoking campaign, for instance, we would not assume that a person's attitude towards smoking depends only on exposure to a particular anti-smoking campaign. It is easy to think of other and perhaps more influential causes such as personal smoking status, contact with people who do or do not smoke, susceptibility to addiction, and so on. Regression analysis with multiple predictor variables is called a *multiple regression analysis*. 
 
 
 ```{r}
@@ -71,6 +71,8 @@ rm(variables)
 
 @fig-concept-smoke summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable ($y$) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.
 
+### The regression equation
+
 A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter $y$) as the sum of a constant, the effects ($b$) of independent variables or predictors ($x$), which are *predictive effects*, and an error term ($e$), which is also called the *residuals*, see Equation @eq-regression.
 
 $$
@@ -79,13 +81,25 @@ $$
 \normalsize
 $$ {#eq-regression}
 
-If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation. The equation without the error term [Eq. @eq-regressionpred] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
+If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation, and we indicate the prediction by adding a hat to outcome variable $\hat{y}$. The equation without the error term [Eq. @eq-regressionpred] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
 
 $$
 \small
-  y = constant + b_1*x_1 + b_2*x_2 + b_3*x_3 
+  \hat{y} = constant + b_1*x_1 + b_2*x_2 + b_3*x_3 
 \normalsize
 $$ {#eq-regressionpred}
+
+Though it is conceptually relevant to understand that the error term represents the difference between what the model predicts and what we actually observe. 
+
+$$
+\small
+  \epsilon = y - \hat{y} 
+\normalsize
+$$ {#eq-error}
+
+From @eq-error we can see that the error, also called the residual, is the difference between the observed value of the dependent variable ($y$) and the predicted value ($\hat{y}$). Thus, the better our model predicts the dependent outcome variable, the smaller the residuals.
+
+The following sections will explain the regression equation in more detail. We will first discuss the regression equation with a single numerical predictor, then we will discuss the regression equation with a single dichotomous predictor, and finally we will discuss the regression equation with a categorical predictor. The latter requires some tricks to be able to include it in a regression model.
 
 ### A numerical predictor
 
@@ -153,7 +167,7 @@ Note that the regression coefficient is calculated for predictor values that occ
 
 We cannot see this in the regression equation, which allows us to plug in -10, 10, or 100 as exposure values. But the values for attitude that we predict from these exposure values are probably nonsensical (if possible at all: -10 exposure?) Our data do not tell us anything about the relation between exposure and anti-smoking attitude for predictor values outside the observed zero to eight range. We should not pretend to know the effects of exposure levels outside this range. It is good practice to check the actual range of predictor values.
 
-### Dichotomous predictors {#sec-dichpredictor}
+### Dichotomous predictor {#sec-dichpredictor}
 
 Instead of a numerical independent variable, we can use a dichotomy as an independent variable in a regression model. The dichotomy is preferably coded as 1 versus 0, for example, 1 for smokers and 0 for non-smokers among our respondents.
 
@@ -304,7 +318,7 @@ Which group should we use as reference category, that is, which group should not
 
 Finally, note that we should not include all three dummy variables in the regression model [Eq. @eq-regcat]. We can already identify the non-smokers, because they score 0 on both the $smokesnomore$ and $smoking$ dummy variables. Adding the $neversmoked$ dummy variable to the regression model is like including the same independent variable twice. How can the estimation process decide which of the two identical independent variable is responsible for the effect? It can't decide, so the estimation process fails or it drops one of the dummy variables. If this happens, the independent variables are said to be perfectly *multicollinear*.
 
-### Sampling distributions and assumptions {#sec-regr-inference}
+### Assumptions for regression analysis {#sec-regr-inference}
 
 ```{r regression-sampling, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap="What happens to regression lines from sample to sample?"}
 # Goal: Understand that regression constant and coefficient(s) have sampling
@@ -332,7 +346,7 @@ If we are working with a random sample or we have other reasons to believe that 
 
 Each regression coefficient as well as the constant may vary from sample to sample drawn from the same population, so we should devise a sampling distribution for each of them. These sampling distributions happen to have a *t* distribution under particular assumptions.
 
-Chapters @sec-param-estim and @sec-hypothesis have extensively discussed how confidence intervals and *p* values are constructed and how they must be interpreted. So we focus now on the assumptions under which the *t* distribution is a good approximation of the sampling distribution of a regression coefficient.
+@sec-param-estim and @sec-hypothesis have extensively discussed how confidence intervals and *p* values are constructed and how they must be interpreted. So we focus now on the assumptions under which the *t* distribution is a good approximation of the sampling distribution of a regression coefficient.
 
 #### Independent observations
 
@@ -383,7 +397,6 @@ The regression models that we estimate assume a linear model. This means that an
 How do residuals tell us whether the relation is linear?
 :::
 
-
 The relation between an independent and dependent variable, for example, exposure and attitude towards smoking, does not have to be linear. It can be curved or have some other fancy shape. Then, the linearity assumption is not met. A straight regression line does not nicely fit such data.
 
 We can see this in a graph showing the (standardized) residuals (vertical axis) against the (standardized) predicted values of the dependent variable (on the horizontal axis), as exemplified by the lower plot in @fig-pred-linearity. Note that the residuals represent prediction errors. If our regression predictions are systematically too low at some levels of the dependent variable and too high at other levels, the residuals are not nicely distributed around zero for all predicted levels of the dependent variable. This is what you see if the association is curved or U-shaped.
@@ -413,10 +426,32 @@ If the prediction errors are not more or less equal for all levels of the predic
 Why do we use the residuals and predicted values instead of a scatterplot for each dependent-independent variable pair to assess linearity and homoscedasticity? The reason is that some independent variables may predict low values and other independent variables may predict high values. This is perfectly OK if together they predict low and high values equally well.
 ```
 
+#### Checking regression assumptions with SPSS
 
-## Regression Analysis in SPSS {#sec-SPSS-regression}
 
-#### Essential Analytics {.unnumbered}
+@vid-SPSSregassumpt shows how to check the assumptions of regression analysis in SPSS. The example is based on the *smokers.sav* data set, which contains data on smoking status and attitude towards smoking. The video shows how to inspect the residuals and the predicted values of the dependent variable.
+
+::: {#vid-SPSSregassumpt}
+
+{{< video https://www.youtube.com/embed/hx2qdaVhlaM
+    width="100%"
+    height="315" 
+>}}
+
+Inspecting residuals.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+# Goal: Inspecting residuals.  (see Chapter 4 on hypothesis testing for video about regression basics.)
+# Example: smokers.sav, predict the attitude towards smoking from exposure to an anti-smoking campaign and respondent's smoking status.
+# Technique: regression analysis
+# SPSS menu: linear regression, add plots
+# Interpret output = check assumptions: Chart Editor of zresid * zpred plot: add reference line at 0 and perhaps at +2 and -2 to inspect shape of residual distribution.
+```
+
+### Regression Analysis in SPSS {#sec-SPSS-regression}
 
 In SPSS, we use the *Linear* option in the *Regression* submenu for regression analysis. For a moderation model, we first use the *Compute Variable* option in the *Transform* menu to calculate an interaction variable: we multiply (using `*`) the predictor variable by the moderator variable. The interaction variable is included in the regression model as an independent variable, just like the predictor, moderator, and any other independent variables (covariates).
 
@@ -444,7 +479,9 @@ knitr::include_graphics("figures/S8_AE2.png")
 Simple regression lines showing the effect of exposure on attitude towards smoking for former smokers and people who never smoked (in an urban environment).
 :::
 
-### Instructions
+#### SPSS Simple regression with a numeric predictor
+
+@vid-SPSSregsimple shows how to run and interpret a simple regression analysis with one numeric predictor in SPSS. The video shows how to run a regression analysis with confidence intervals for the regression coefficients. The example is based on the *consumers.sav* data set, which contains data on brand awareness by advertisement exposure.
 
 ::: {#vid-SPSSregsimple}
 
@@ -468,7 +505,9 @@ Asymmetric association as prediction
 # Check assumptions: in chapter on moderation with regression analysis?
 ```
 
-------------------------------------------------------------------------
+#### SPSS Simple regression with a categorical predictor
+
+@vid-SPSSregdummy2 shows how to create dummy variables in SPSS. The example is based on the *smokers.sav* data set, which contains data on smoking status and attitude towards smoking. The video shows two ways of creating dummy variables: the *Transform > Create Dummy Variables* option and the *Transform > Recode into Different Variables* option. The first option is preferred because it is easier to use.
 
 ::: {#vid-SPSSregdummy2}
 
@@ -490,7 +529,7 @@ Creating dummy variables in SPSS.
 # Inspect results: new variables, coded 0/1.
 ```
 
-------------------------------------------------------------------------
+@vid-SPSSregdummy shows how to use dummy variables in a regression model in SPSS. The example is based on the *smokers.sav* data set, which contains data on smoking status and attitude towards smoking. The video shows how to run a regression analysis with dummy variables.
 
 ::: {#vid-SPSSregdummy}
 
@@ -512,30 +551,9 @@ Using dummy variables in a regression model in SPSS.
 # Interpret results: unstandardized regression coefficient as average difference with reference category. Don't interpret the standardized regression coefficient.
 ```
 
-------------------------------------------------------------------------
+## Moderation with categorical and continuous predictors {#sec-categoricalmoderator}
 
-::: {#vid-SPSSregassumpt}
-
-{{< video https://www.youtube.com/embed/hx2qdaVhlaM
-    width="100%"
-    height="315" 
->}}
-
-Inspecting residuals.
-:::
-
-
-
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Inspecting residuals.  (see Chapter 4 on hypothesis testing for video about regression basics.)
-# Example: smokers.sav, predict the attitude towards smoking from exposure to an anti-smoking campaign and respondent's smoking status.
-# Technique: regression analysis
-# SPSS menu: linear regression, add plots
-# Interpret output = check assumptions: Chart Editor of zresid * zpred plot: add reference line at 0 and perhaps at +2 and -2 to inspect shape of residual distribution.
-```
-
-
-## Different Lines for Different Groups {#sec-categoricalmoderator}
+> Different Lines for Different Groups
 
 What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.
 
@@ -596,7 +614,7 @@ In the context of a regression model, moderation means **different slopes for di
 
 ### Interaction variable {#sec-interaction-variable}
 
-How do we obtain different regression coefficients and lines for smokers and non-smokers? The statistical trick is quite easy: Include an additional predictor in the model that is the product of the predictor (exposure) and the moderator (smoking status). This new predictor is the *interaction variable*. The regression coefficient of the interaction variable is called the *interaction effect*.
+How do we obtain different regression coefficients and lines for smokers and non-smokers? The statistical trick is quite easy: Include an additional predictor in the model that is the product (multiplication) of the predictor (exposure) and the moderator (smoking status). This new predictor is the *interaction variable*. The regression coefficient of the interaction variable is called the *interaction effect*.
 
 ::: {#fig-interaction-var .column-page-inset-right}
 
@@ -607,7 +625,7 @@ How do we obtain different regression coefficients and lines for smokers and non
 How does an interaction variable create different regression lines for different groups?
 :::
 
-The interaction variable must be included together with the original predictor and moderator variables, see Equation @eq-intvar. This is also visible in the statistical diagram (@fig-moderator-statistical) for moderation in a regression model.
+The interaction variable must be included together with the original predictor and moderator variables, see @eq-intvar. This is also visible in the statistical diagram (@fig-moderator-statistical) for moderation in a regression model.
 
 $$
 \small
@@ -901,6 +919,33 @@ The variation of predictor scores for a particular value of the moderator is cal
 
 It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of @fig-common-support shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of @fig-common-support.
 
+#### SPSS check common support
+
+@vid-SPSSregSupport1 shows how to check common support for a predictor at different moderator values in SPSS. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_), using contact with smokers as a covariate.
+
+::: {#vid-SPSSregSupport1}
+
+{{< video https://www.youtube.com/embed/kxX4rqsyWQQ
+    width="100%"
+    height="315" 
+>}}
+
+Check common support for a predictor at different moderator values in SPSS.
+:::
+
+```{r, echo=FALSE, eval=FALSE}
+# Goal: Check common support for a predictor at different moderator values in SPSS.
+# Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_), use contact with smokers as a covariate.
+# Technique: 
+# SPSS menu: 
+# Interpret output: 
+# Check assumptions: 
+#
+# * Check common support: 
+#   - make histograms of the predictor panelled by the categorical grouping variable ; check that there are observations for more or less all values of the predictor (on the X axis) 
+```
+
+
 ### Visualizing moderation and covariates
 
 A plot with different regression lines for different categories of the moderator is a very useful way of presenting your results. We can, however, only plot a regression line if we have a single independent variable. After all, we only have one horizontal (X) axis in a plot to display a predictor.
@@ -1105,11 +1150,43 @@ ggplot(smokers, aes(x = exposure, y = attitude,
 
 ```
 
+### SPSS categorical moderator {#sec-catmodSPSS}
+
+As described above regression analysis with categorical moderators require dummy variables. It is always possible to manually create dummy variables for categorical moderators. However, the PROCESS add on for SPSS is a very useful tool for estimating moderation models with categorical moderators. It is easy to use and it automatically creates interaction terms and dummy variables for you. The add on is free and can be downloaded from [Andrew Hayes' website](http://www.processmacro.org/download.html).
+
+#### PROCESS with 2 level moderator
+
+In @vid-PROCESS2cat, we show how to use PROCESS to estimate a moderation model with a categorical moderator with two levels. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
+
+In SPSS we go to `Analyze > Regression > PROCESS...`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`, and we click on `OK` to run the analysis.
+
+When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.
+
+The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the `Add Fit Line to subgroups` in the `Chart Editor`. The `Chart Editor` opens when we double click on the plot.
+
+::: {#vid-PROCESS2cat}
+{{< video https://youtu.be/I6_ShDCM0vY?si=mOfkZNJ1zl1RScYd
+    width="100%"
+    height="315"
+>}}
+
+Estimating categorical by numerical moderation with regression in SPSS using PROCESS.
+:::
+
+The @vid-PROCESS2catInterpretation video shows how to interpret the output of PROCESS for a two category moderator. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
+
+::: {#vid-PROCESS2catInterpretation}
+{{< video https://youtu.be/1yLUdqFyXkM
+    width="100%"
+    height="315"
+>}}
+
+Interpreting the output of PROCESS for a two category moderator.
+:::
 
 
-## A Dichotomous or Categorical Moderator in SPSS {#sec-catmodSPSS}
 
-### Instructions
+#### SPSS Instructions A Dichotomous or Categorical 
 
 ::: {#vid-SPSSregpred}
 {{< video https://www.youtube.com/embed/5ORuOV4obUU
@@ -1192,27 +1269,6 @@ Representing moderation by regression lines in a scatterplot in SPSS.
 #     - close the Chart Editor
 ```
 
-::: {#vid-SPSSregSupport1}
-
-{{< video https://www.youtube.com/embed/kxX4rqsyWQQ
-    width="100%"
-    height="315" 
->}}
-
-Check common support for a predictor at different moderator values in SPSS.
-:::
-
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Check common support for a predictor at different moderator values in SPSS.
-# Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_), use contact with smokers as a covariate.
-# Technique: 
-# SPSS menu: 
-# Interpret output: 
-# Check assumptions: 
-#
-# * Check common support: 
-#   - make histograms of the predictor panelled by the categorical grouping variable ; check that there are observations for more or less all values of the predictor (on the X axis) 
-```
 
 
 
