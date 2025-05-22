@@ -263,7 +263,7 @@ window.Quarto = {
   <ul>
   <li><a href="#sec-alpha" id="toc-sec-alpha" class="nav-link" data-scroll-target="#sec-alpha"><span class="header-section-number">4.2.1</span> Alpha</a></li>
   <li><a href="#alpha" id="toc-alpha" class="nav-link" data-scroll-target="#alpha"><span class="header-section-number">4.2.2</span> 1 - Alpha</a></li>
-  <li><a href="#sec-power" id="toc-sec-power" class="nav-link" data-scroll-target="#sec-power"><span class="header-section-number">4.2.3</span> Power</a></li>
+  <li><a href="#sec-power" id="toc-sec-power" class="nav-link" data-scroll-target="#sec-power"><span class="header-section-number">4.2.3</span> Power (true)</a></li>
   <li><a href="#beta" id="toc-beta" class="nav-link" data-scroll-target="#beta"><span class="header-section-number">4.2.4</span> Beta</a></li>
   <li><a href="#sec-test-statistic" id="toc-sec-test-statistic" class="nav-link" data-scroll-target="#sec-test-statistic"><span class="header-section-number">4.2.5</span> Test statistic</a></li>
   <li><a href="#sec-pvalue" id="toc-sec-pvalue" class="nav-link" data-scroll-target="#sec-pvalue"><span class="header-section-number">4.2.6</span> P-value</a></li>
@@ -455,7 +455,7 @@ H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
 <li>Determine the test statistic.</li>
 <li>Determine if <span class="math inline">\(p\)</span>-value <span class="math inline">\(\leq \alpha\)</span>. If so, reject <span class="math inline">\(H_0\)</span>.</li>
 </ol>
-<p>The two decisions can be visualized in a <span class="math inline">\(2 \times 2\)</span> table where in reality <span class="math inline">\(H_0\)</span> can be true or false (<span class="math inline">\(H_A\)</span> is true), and the decision can either be to reject <span class="math inline">\(H_0\)</span> or not. <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject <span class="math inline">\(H_0\)</span> when it is in fact false, and not to reject <span class="math inline">\(H_0\)</span> if it is in reality true. And the red squares indicate that it is a wrong decision to reject <span class="math inline">\(H_0\)</span> when it is actually true (Type I error), or not reject <span class="math inline">\(H_0\)</span> if it is in reality false (Type II error).</p>
+<p>The two decisions can be visualized in a <span class="math inline">\(2 \times 2\)</span> table where in reality <span class="math inline">\(H_0\)</span> can be true or false, and the decision can either be to reject <span class="math inline">\(H_0\)</span> or not. <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject <span class="math inline">\(H_0\)</span> when it is in fact false, and not to reject <span class="math inline">\(H_0\)</span> if it is in reality true. And the red squares indicate that it is a wrong decision to reject <span class="math inline">\(H_0\)</span> when it is actually true (Type I error), or not reject <span class="math inline">\(H_0\)</span> if it is in reality false (Type II error).</p>
 <div id="fig-decisiontable" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-decisiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -480,7 +480,7 @@ Figure&nbsp;4.3: NHST decision table.
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><span class="math inline">\(H_A\)</span> Distribution
+<li><span class="math inline">\(H_T\)</span> True distribution
 <ul>
 <li>One fifth of the candies in the bag are yellow</li>
 <li>The parameter of the candy machine is .2</li>
@@ -592,8 +592,8 @@ Figure&nbsp;4.6: Sampling distribution of average media literacy according to th
 <p>Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this critical value to look at the power.</p>
 </section>
 <section id="sec-power" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="sec-power"><span class="header-section-number">4.2.3</span> Power</h3>
-<p>The power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In figure (fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.</p>
+<h3 data-number="4.2.3" class="anchored" data-anchor-id="sec-power"><span class="header-section-number">4.2.3</span> Power (true)</h3>
+<p>The true power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the <span class="math inline">\(2 \times 2\)</span> decision table in <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a>, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In <a href="#fig-nulldistributionalpha" class="quarto-xref">Figure&nbsp;<span>4.5</span></a>, based on the null distribution, we determined our type I error to be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.</p>
 <p>As the right column of <a href="#fig-decisiontable" class="quarto-xref">Figure&nbsp;<span>4.3</span></a> only states that <span class="math inline">\(H_0 = \text{FALSE}\)</span>, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In <a href="#fig-altdistributionpower" class="quarto-xref">Figure&nbsp;<span>4.7</span></a>, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -603,13 +603,13 @@ Figure&nbsp;4.6: Sampling distribution of average media literacy according to th
 <img src="04-hypothesis_files/figure-html/fig-altdistributionpower-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-altdistributionpower-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.7: HA binomial distributions with critical values.
+Figure&nbsp;4.7: True binomial distributions with critical values.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true, if the parameter truly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, if our sample originates from the alternative hypothesis, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null when this specific alternative is true is only 11%.</p>
+<p>With this distribution based on the actually true population parameter, deciding to reject the null would be a good decision. Though, we can also see that if this is true, if the parameter truly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if this hypothesis is true, if our sample originates from this distribution, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null is only 11%.</p>
 <blockquote class="blockquote">
 <p>The only way to increase the power is to increase the sample size of the study, or increase the type I error.</p>
 </blockquote>
