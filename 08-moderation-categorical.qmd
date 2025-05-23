@@ -593,7 +593,7 @@ Use regression analysis if you have a numerical dependent variable and at least 
 
 In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (@sec-moderationcont) presents regression models in which both the predictor and the moderator are numerical.
 
-### A dichotomous moderator and numerical predictor
+### A dichotomous moderator
 
 ::: {#fig-dichotomous-moderator}
 
@@ -612,7 +612,7 @@ Our moderator (smoker vs. non-smoker) is a dichotomous variable but our predicto
 
 In the context of a regression model, moderation means **different slopes for different groups**. The slope of the regression line is the regression coefficient, which expresses the effect of the predictor on the dependent variable. If we have different effects in different contexts (moderation), we must have different regression coefficients for different groups.
 
-### Interaction variable {#sec-interaction-variable}
+#### Interaction variable {#sec-interaction-variable}
 
 How do we obtain different regression coefficients and lines for smokers and non-smokers? The statistical trick is quite easy: Include an additional predictor in the model that is the product (multiplication) of the predictor (exposure) and the moderator (smoking status). This new predictor is the *interaction variable*. The regression coefficient of the interaction variable is called the *interaction effect*.
 
@@ -692,7 +692,7 @@ The interaction variable changes the slope of the effect of exposure on attitude
 
 Let us assume that the unstandardized regression coefficient of the interaction effect is -0.3. This means that the effect of exposure on attitude is more strongly negative (or less positive) for smokers than for non-smokers. One additional unit of exposure decreases the predicted attitude for smokers by 0.3 **more** than for non-smokers.
 
-### Conditional effects, not main effects {#sec-conditional-effects}
+#### Conditional effects, not main effects {#sec-conditional-effects}
 
 It is very important to note that the effects of exposure and smoking status in a model with exposure by smoking status interaction are **not** main effects as in analysis of variance. As we have seen in the preceding section [Equation @eq-intvarnonsmoker], the regression coefficient $b_1$ for exposure expresses the effect of exposure for non-smokers. It is a *conditional effect*, namely the effect for non-smokers only. Non-smokers are the *reference group* because they score zero on the moderator (*smoker*). This is quite different from a main effect in analysis of variance, which is an average effect over all groups.
 
@@ -710,7 +710,7 @@ $$ {#eq-simplestatus}
 
 Smoking status is a dichotomy, so its regression coefficient ($b_2$) tells us the average difference in attitude between smokers and non-smokers. Due to the inclusion of the interaction variable, it now tells us the difference in average attitude between smokers and non-smokers **who have zero exposure to the anti-smoking campaign**. Note again that this is a conditional effect, not a main effect.
 
-### Interpretation and statistical inference {#sec-interactioninterpretation}
+#### Interpretation and statistical inference {#sec-interactioninterpretation}
 
 ```{r}
 #| label: tbl-dich-moderator-output
@@ -810,6 +810,38 @@ Let us conclude the interpretation with a warning. The standardized regression c
 rm(report_n, results)
 ```
 
+#### PROCESS with 2 level moderator (Dichotomous)
+
+In @vid-PROCESS2cat, we show how to use PROCESS to estimate a moderation model with a categorical moderator with two levels. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
+
+In SPSS we go to `Analyze > Regression > PROCESS...`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`, and we click on `OK` to run the analysis.
+
+When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.
+
+The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the `Add Fit Line to subgroups` in the `Chart Editor`. The `Chart Editor` opens when we double click on the plot.
+
+::: {#vid-PROCESS2cat}
+{{< video https://youtu.be/I6_ShDCM0vY?si=mOfkZNJ1zl1RScYd
+    width="100%"
+    height="315"
+>}}
+
+Estimating categorical by numerical moderation with regression in SPSS using PROCESS.
+:::
+
+The @vid-PROCESS2catInterpretation video shows how to interpret the output of PROCESS for a two category moderator. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
+
+::: {#vid-PROCESS2catInterpretation}
+{{< video https://youtu.be/1yLUdqFyXkM
+    width="100%"
+    height="315"
+>}}
+
+Interpreting the output of PROCESS for a two category moderator.
+:::
+
+
+
 ### A categorical moderator
 
 What if we have three or more groups on our moderator? For example, smoking status measured with three categories: (1) never smoked, (2) formerly smoked, (3) currently smoking? Does the effect of exposure on attitude vary between non-smokers, participants who stopped smoking, and those who are still smoking?
@@ -899,7 +931,63 @@ Interaction predictors show effect differences. In @tbl-cat-moderator-results, t
 
 If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.
 
-### Common support {#sec-commonsupportdichotomous}
+#### SPSS categorical moderator {#sec-catmodSPSS}
+
+As described above regression analysis with categorical moderators requires dummy variables. It is always possible to manually create dummy variables for categorical moderators as shown in @vid-SPSSregpred. However, the PROCESS macro for SPSS is a very useful tool for estimating moderation models with categorical moderators. It is easy to use and it automatically creates interaction terms and dummy variables for you. The add on is free and can be downloaded from [Andrew Hayes' website](http://www.processmacro.org/download.html).
+
+::: {#vid-SPSSregpred}
+{{< video https://www.youtube.com/embed/5ORuOV4obUU
+    width="100%"
+    height="315" 
+>}}
+
+Creating dummy variables for categorical by numerical interaction predictors (2 methods).
+:::
+
+```{r, echo=FALSE, eval=FALSE}
+# Goal: Creating categorical by numerical interaction predictors (2 methods).
+# Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable status2 and status3), use contact with smokers as a covariate.
+# SPSS menu: Transform > Compute Variable for status2 (already 0/1 variable) ; Transform > Create Dummy Variables for status3 (3 categories)
+# Interpret output: none.
+
+# Create interaction predictors (also for cont*cont interaction variables in addition to interactions with dummies) and dummies for main effects in one go: 
+#   - ensure that categorical variables are marked as Nominal or Ordinal in Variable View
+#   - command Transform > Create Dummy Variables ; select (numerical) predictor and (categorical) moderator under 'Create Dummy Variables for:'
+#   - under Create main-effect dummies (option checked by default) specify a short name for both variables, separated with a comma ; the name of the numerical variable is irrelevant but must be specified
+#   - ensure that the option _Do not create dummies for scale variables values_ is selected under Measurement Level Usage
+#   - select the _Create dummies for all two-way interactions_ option under Two-Way Interactions and give a short name, e.g., interact
+#   - Note: this procedure can also be used to create a numerical by numerical interaction variable
+```
+
+#### SPSS PROCESS with more than 2 levels in moderator (Categorical)
+
+If we have more than two levels in our moderator, we can use the same procedure as above. In the dialog box of PROCESS, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status3) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`.
+
+In addition we have to let PROCESS know that we have a categorical moderator with more than two levels. We do this by clicking the `Multicategorical` button and indicating that the `Moderator variable W` is multicatigorical. Click `continue` and click on `OK` to run the analysis. @vid-SPSSrunModmorecat shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels.
+
+::: {#vid-SPSSrunModmorecat}
+{{< video https://youtu.be/WA7hSVy2bpA
+    width="100%"
+    height="315" 
+>}}
+
+Running a moderation analysis in SPSS using PROCESS with a categorical moderator with more than 2 levels and a continuous predictor.
+:::
+
+When the analysis is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.
+
+@vid-SPSSinterpretModmorecat shows how to interpret the output of PROCESS for a categorical moderator with more than two levels. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status3_).
+
+::: {#vid-SPSSinterpretModmorecat}
+{{< video https://youtu.be/WA7hSVy2bpA
+    width="100%"
+    height="315" 
+>}}
+
+Interpretation of SPSS PROCESS output with a categorical moderator with more than 2 levels and a continuous predictor.
+:::
+
+#### Common support {#sec-commonsupportdichotomous}
 
 In a regression model with moderation, we have to interpret the effect of a predictor involved in an interaction at a particular value of the moderator (@sec-conditional-effects). The estimated effect at a particular value of the moderator can only be trusted if there are quite some observations at or near this value of the moderator. In addition, these observations should cover the full range of values on the predictor. After all, the effect that we estimate must tell us whether high values on the predictor go together with higher (or lower) values on the dependent variable than low values on the predictor.
 
@@ -919,7 +1007,7 @@ The variation of predictor scores for a particular value of the moderator is cal
 
 It is recommended to check the number of observations per value of the moderator. For a categorical moderator, such as smoking status, a scatter plot of the dependent variable (vertical axis) by predictor (horizontal axis) with dots coloured according to the moderator category may do the job. The left panel of @fig-common-support shows an example. Check that there are observations for more or less all values of the predictor in each color. If the scatter plot is hard to read, create a histogram of predictor values grouped by moderator categories, as in the right panel of @fig-common-support.
 
-#### SPSS check common support
+##### SPSS check common support
 
 @vid-SPSSregSupport1 shows how to check common support for a predictor at different moderator values in SPSS. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_), using contact with smokers as a covariate.
 
@@ -946,7 +1034,7 @@ Check common support for a predictor at different moderator values in SPSS.
 ```
 
 
-### Visualizing moderation and covariates
+#### Visualizing moderation and covariates
 
 A plot with different regression lines for different categories of the moderator is a very useful way of presenting your results. We can, however, only plot a regression line if we have a single independent variable. After all, we only have one horizontal (X) axis in a plot to display a predictor.
 
@@ -1150,89 +1238,11 @@ ggplot(smokers, aes(x = exposure, y = attitude,
 
 ```
 
-### SPSS categorical moderator {#sec-catmodSPSS}
+##### SPSS visualizing interaction
 
-As described above regression analysis with categorical moderators require dummy variables. It is always possible to manually create dummy variables for categorical moderators. However, the PROCESS add on for SPSS is a very useful tool for estimating moderation models with categorical moderators. It is easy to use and it automatically creates interaction terms and dummy variables for you. The add on is free and can be downloaded from [Andrew Hayes' website](http://www.processmacro.org/download.html).
+Though PROCESS can visualize the interaction between a continuous predictor and a categorical moderator, you sometimes want to have some more control over the plot. In this case, you can use the `Graphs > Legacy Dialogs > Scatter/Dot` menu in SPSS to create a scatterplot with regression lines for different groups of the moderator.
 
-#### PROCESS with 2 level moderator
-
-In @vid-PROCESS2cat, we show how to use PROCESS to estimate a moderation model with a categorical moderator with two levels. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
-
-In SPSS we go to `Analyze > Regression > PROCESS...`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`, and we click on `OK` to run the analysis.
-
-When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.
-
-The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the `Add Fit Line to subgroups` in the `Chart Editor`. The `Chart Editor` opens when we double click on the plot.
-
-::: {#vid-PROCESS2cat}
-{{< video https://youtu.be/I6_ShDCM0vY?si=mOfkZNJ1zl1RScYd
-    width="100%"
-    height="315"
->}}
-
-Estimating categorical by numerical moderation with regression in SPSS using PROCESS.
-:::
-
-The @vid-PROCESS2catInterpretation video shows how to interpret the output of PROCESS for a two category moderator. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status2_).
-
-::: {#vid-PROCESS2catInterpretation}
-{{< video https://youtu.be/1yLUdqFyXkM
-    width="100%"
-    height="315"
->}}
-
-Interpreting the output of PROCESS for a two category moderator.
-:::
-
-
-
-#### SPSS Instructions A Dichotomous or Categorical 
-
-::: {#vid-SPSSregpred}
-{{< video https://www.youtube.com/embed/5ORuOV4obUU
-    width="100%"
-    height="315" 
->}}
-
-Creating categorical by numerical interaction predictors (2 methods).
-:::
-
-
-
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Creating categorical by numerical interaction predictors (2 methods).
-# Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable status2 and status3), use contact with smokers as a covariate.
-# SPSS menu: Transform > Compute Variable for status2 (already 0/1 variable) ; Transform > Create Dummy Variables for status3 (3 categories)
-# Interpret output: none.
-
-# Create interaction predictors (also for cont*cont interaction variables in addition to interactions with dummies) and dummies for main effects in one go: 
-#   - ensure that categorical variables are marked as Nominal or Ordinal in Variable View
-#   - command Transform > Create Dummy Variables ; select (numerical) predictor and (categorical) moderator under 'Create Dummy Variables for:'
-#   - under Create main-effect dummies (option checked by default) specify a short name for both variables, separated with a comma ; the name of the numerical variable is irrelevant but must be specified
-#   - ensure that the option _Do not create dummies for scale variables values_ is selected under Measurement Level Usage
-#   - select the _Create dummies for all two-way interactions_ option under Two-Way Interactions and give a short name, e.g., interact
-#   - Note: this procedure can also be used to create a numerical by numerical interaction variable
-```
-
-::: {#vid-SPSSregcatmod}
-
-{{< video https://www.youtube.com/embed/9Yf2rHgoBt8
-    width="100%"
-    height="315" 
->}}
-
-Estimating categorical by numerical moderation with regression in SPSS.
-:::
-
-
-
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Estimating categorical by numerical moderation with regression in SPSS.
-# Example: smokers.sav, predict the attitude towards smoking from exposure moderated by smoking status (variable _status2_), use contact with smokers as a covariate.
-# SPSS menu: linear regression, include descriptives for means and standard deviations of covariates for making reference lines.
-# Interpret output: use unstandardized regression coefficients because they show the average difference in slope (effect size) ; do not use the standardized regression coefficients that SPSS reports: they are calculated in the wrong way if the regression model includes an interaction variable. As a result, they are meaningless ; better interpret the regression lines in a scatterplot, see another video
-# Check assumptions: See other video.
-```
+@vid-SPSSregmodlines shows how to visualize the interaction between a continuous predictor and a categorical moderator in SPSS. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable _status3_), using contact with smokers as a covariate.
 
 ::: {#vid-SPSSregmodlines}
 
@@ -1241,10 +1251,8 @@ Estimating categorical by numerical moderation with regression in SPSS.
     height="315" 
 >}}
 
-Representing moderation by regression lines in a scatterplot in SPSS.
+Visualizing moderation by regression lines in a scatterplot in SPSS.
 :::
-
-
 
 ```{r, echo=FALSE, eval=FALSE}
 # Goal: Representing moderation by regression lines in a scatterplot in SPSS.
@@ -1268,6 +1276,13 @@ Representing moderation by regression lines in a scatterplot in SPSS.
 #     - if you like, add label to lines describing the moderator group: Options > Text Box
 #     - close the Chart Editor
 ```
+
+
+
+
+
+
+
 
 
 
