@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -284,8 +319,8 @@ window.Quarto = {
   </ul></li>
   <li><a href="#a-categorical-moderator" id="toc-a-categorical-moderator" class="nav-link" data-scroll-target="#a-categorical-moderator"><span class="header-section-number">6.2.2</span> A categorical moderator</a>
   <ul class="collapse">
-  <li><a href="#sec-catmodSPSS" id="toc-sec-catmodSPSS" class="nav-link" data-scroll-target="#sec-catmodSPSS"><span class="header-section-number">6.2.2.1</span> SPSS categorical moderator</a></li>
-  <li><a href="#spss-process-with-more-than-2-levels-in-moderator-categorical" id="toc-spss-process-with-more-than-2-levels-in-moderator-categorical" class="nav-link" data-scroll-target="#spss-process-with-more-than-2-levels-in-moderator-categorical"><span class="header-section-number">6.2.2.2</span> SPSS PROCESS with more than 2 levels in moderator (Categorical)</a></li>
+  <li><a href="#sec-catmodSPSS" id="toc-sec-catmodSPSS" class="nav-link" data-scroll-target="#sec-catmodSPSS"><span class="header-section-number">6.2.2.1</span> SPSS dummy variables for interaction</a></li>
+  <li><a href="#process-with-more-than-2-levels-in-moderator-categorical" id="toc-process-with-more-than-2-levels-in-moderator-categorical" class="nav-link" data-scroll-target="#process-with-more-than-2-levels-in-moderator-categorical"><span class="header-section-number">6.2.2.2</span> PROCESS with more than 2 levels in moderator (Categorical)</a></li>
   <li><a href="#sec-commonsupportdichotomous" id="toc-sec-commonsupportdichotomous" class="nav-link" data-scroll-target="#sec-commonsupportdichotomous"><span class="header-section-number">6.2.2.3</span> Common support</a></li>
   <li><a href="#visualizing-moderation-and-covariates" id="toc-visualizing-moderation-and-covariates" class="nav-link" data-scroll-target="#visualizing-moderation-and-covariates"><span class="header-section-number">6.2.2.4</span> Visualizing moderation and covariates</a></li>
   </ul></li>
@@ -1126,7 +1161,18 @@ Exposure*Status (smoker)
 </section>
 <section id="process-with-2-level-moderator-dichotomous" class="level4" data-number="6.2.1.4">
 <h4 data-number="6.2.1.4" class="anchored" data-anchor-id="process-with-2-level-moderator-dichotomous"><span class="header-section-number">6.2.1.4</span> PROCESS with 2 level moderator (Dichotomous)</h4>
-<p>In <a href="#vid-PROCESS2cat" class="quarto-xref">Video&nbsp;<span>6.6</span></a>, we show how to use PROCESS to estimate a moderation model with a categorical moderator with two levels. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status2</em>).</p>
+<p>As SPSS cannot apply statistical inference to indirect effects, we need to use the PROCESS macro developed for this purpose <span class="citation" data-cites="RefWorks:3873">(<a href="14-references.html#ref-RefWorks:3873" role="doc-biblioref">Hayes 2013</a>)</span>. Instructions on how to add PROCESS to your SPSS installation can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref">Appendix&nbsp;<span>2</span></a>. To run the analysis below, PWOCESS needs to be installed in SPSS.</p>
+<p>In <a href="#vid-PROCESS2cat" class="quarto-xref">Video&nbsp;<span>6.6</span></a>, we show how to use PROCESS to estimate a moderation model with a categorical moderator with two levels. The example uses the <a href="data/smokers4.sav">smokers.sav</a> data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status2</em>).</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Instructions on how to add PROCESS to your SPSS installation can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref">Appendix&nbsp;<span>2</span></a>.</p>
+</div>
+</div>
+</div>
 <p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS...</code>. In the dialog box, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status2) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate code to visualize interaction</code>, and we click on <code>OK</code> to run the analysis.</p>
 <p>When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (<code>File &gt; New &gt; Syntax</code>), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.</p>
 <p>The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the <code>Add Fit Line to subgroups</code> in the <code>Chart Editor</code>. The <code>Chart Editor</code> opens when we double click on the plot.</p>
@@ -1140,17 +1186,88 @@ Video&nbsp;6.6: Estimating categorical by numerical moderation with regression i
 </figcaption>
 </figure>
 </div>
-<p>The <a href="#vid-PROCESS2catInterpretation" class="quarto-xref">Video&nbsp;<span>6.7</span></a> video shows how to interpret the output of PROCESS for a two category moderator. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status2</em>).</p>
+<p><a href="#vid-PROCESS2catInterpretation" class="quarto-xref">Video&nbsp;<span>6.7</span></a> shows how to interpret the output of PROCESS for a two category moderator. The example uses the <a href="data/smokers4.sav">smokers.sav</a> data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status2</em>).</p>
 <div id="vid-PROCESS2catInterpretation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-PROCESS2catInterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/1yLUdqFyXkM" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/dA1od_IuArI" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-PROCESS2catInterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Video&nbsp;6.7: Interpreting the output of PROCESS for a two category moderator.
 </figcaption>
 </figure>
 </div>
+<p>The <code>Model Summary</code> of the PROCESS <a href="#out-process-model-summary" class="quarto-xref">Output&nbsp;<span>6.1</span></a>, contains the <span class="math inline">\(R\)</span>, <span class="math inline">\(R^2\)</span>, indicating a correlation between the observed and predicted values of the dependent variable (attitude), and the predicted values of the dependent variable (attitude), which explains 23.58% of the variance. The <span class="math inline">\(F\)</span> test indicates that the model is statistically significant.</p>
+<div id="out-process-model-summary" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-out figure">
+<div aria-describedby="out-process-model-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Model Summary </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          R       R-sq        MSE          F        df1        df2          p </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      .4856      .2358     2.2022     8.3301     3.0000    81.0000      .0001</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-out" id="out-process-model-summary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Output&nbsp;6.1: PROCESS Model Summary output.
+</figcaption>
+</figure>
+</div>
+<p>The ‘Model’ <a href="#out-process-model-coefficients" class="quarto-xref">Output&nbsp;<span>6.2</span></a> contains the regression coefficients for the predictor (exposure), the moderator (status2), and the interaction variable <code>Int_1</code> (exposure*status2). The collumn <code>coeff</code> contains the unstandardized regression coefficients, the column <code>se</code> contains the standard errors of the coefficients, the column <code>t</code> contains the t-values, and the column <code>p</code> contains the p-values. The columns <code>LLCI</code> and <code>ULCI</code> contain the lower and upper limits of the confidence intervals for the coefficients. The <code>Product terms key</code> shows the interaction variable <code>Int_1</code> and the variables that are multiplied to create the interaction variable. As <code>status2</code> is a dichotomous variable with values 0 or 1, the interaction term is either the exposure <span class="math inline">\(\times\)</span> 1 or is cancelled out as exposure is multiplied by 0.</p>
+<div id="out-process-model-coefficients" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-out figure">
+<div aria-describedby="out-process-model-coefficients-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Model </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              coeff         se          t          p       LLCI       ULCI </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>constant      .8998      .3568     2.5215      .0136      .1898     1.6098 </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>exposure     -.1620      .0611    -2.6506      .0097     -.2835     -.0404 </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>status2      1.9798      .7379     2.6830      .0088      .5116     3.4479 </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Int_1        -.3271      .1415    -2.3109      .0234     -.6087     -.0455 </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>Product terms key: </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> Int_1    :        exposure x        status2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-out" id="out-process-model-coefficients-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Output&nbsp;6.2: PROCESS Model beta coefficients output.
+</figcaption>
+</figure>
+</div>
+<p>The benefit of using PROCESS is that it provides the conditional effects of the predictor (exposure) at different values of the moderator (status2). With a dichotomous moderator, we have two values: 0 (non-smokers) and 1 (smokers). The conditional effects are shown in the <code>Conditional effects of the focal predictor at values of the moderator(s)</code> table <a href="#out-process-conditional-effects" class="quarto-xref">Output&nbsp;<span>6.3</span></a>. The column <code>Effect</code> contains the conditional effect of exposure on attitude for non-smokers and smokers.</p>
+<div id="out-process-conditional-effects" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-out figure">
+<div aria-describedby="out-process-conditional-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Conditional effects of the focal predictor at values of the moderator(s): </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="in">    status2     Effect         se          t          p       LLCI       ULCI </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000     -.1620      .0611    -2.6506      .0097     -.2835     -.0404 </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">     1.0000     -.4890      .1277    -3.8307      .0003     -.7430     -.2350 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-out" id="out-process-conditional-effects-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Output&nbsp;6.3: PROCESS Model conditional effects output.
+</figcaption>
+</figure>
+</div>
+<p>With conditional effects, we mean the effect of exposure on attitude for non-smokers and smokers, the regression slopes at level 0 and level 1 of the moderator. These beta coefficients in the <code>Effect</code> column are the simplified regression slopes for the two groups.</p>
+<p><span id="eq-process-output"><span class="math display">\[
+\small
+\begin{split}
+  attitude = &amp;\ \color{#FDAE61}{constant} + \color{#2B83BA}{b_1*exposure} + \color{#ABDDA4}{b_2*status} + \color{#D7191C}{b_3*exposure*status}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{1.980*1} + \color{#D7191C}{-0.327*exposure*1}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#ABDDA4}{1.980} + \color{#D7191C}{-0.327*exposure}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#2B83BA}{-0.162*exposure} + \color{#D7191C}{-0.327*exposure} + \color{#ABDDA4}{1.980}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + (\color{#2B83BA}{-0.162} + \color{#D7191C}{-0.327})*exposure + \color{#ABDDA4}{1.980}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#000000}{-0.489*exposure} + \color{#ABDDA4}{1.980}\\
+  attitude_{smoker} = &amp;\ \color{#FDAE61}{0.900} + \color{#ABDDA4}{1.980} \color{#000000}{-0.489*exposure}\\
+  attitude_{smoker} = &amp;\ \color{#000000}{2.880} + \color{#000000}{-0.489*exposure}\\
+  attitude_{smoker} = &amp;\ \color{#000000}{2.880} - \color{#000000}{0.489*exposure}  
+\end{split}
+\normalsize
+\tag{6.19}\]</span></span></p>
+<p>As we can see from <a href="#out-process-conditional-effects" class="quarto-xref">Output&nbsp;<span>6.3</span></a>, the slope (effect) for smokers is -0.490, which is the sum of the slope for non-smokers (-0.162) and the interaction effect (-0.327). Plugging in the values in the regression <a href="#eq-process-output" class="quarto-xref">Equation&nbsp;<span>6.19</span></a>, and simplifying, we can see on the bottom line, that the slope for exposure is, given some rounding, indeed -0.489.</p>
+<p>In addition, PROCESS also provides the upper and lower limits of the confidence intervals, and the <span class="math inline">\(p\)</span>-value for the conditional effects. With this we can statistically test the null hypothesis that the conditional effect is zero. And we can see that the confidence intervals of the conditional effects do not include zero.</p>
 </section>
 </section>
 <section id="a-categorical-moderator" class="level3 page-columns page-full" data-number="6.2.2">
@@ -1368,8 +1485,8 @@ Exposure*Smoker
 <p>Interaction predictors show effect differences. In <a href="#tbl-cat-moderator-results" class="quarto-xref">Table&nbsp;<span>6.3</span></a>, the interaction predictors test the null hypotheses that the effect of exposure on attitude is equal for former smokers and non-smokers (<em>Exposure*Former smoker</em>) or for smokers and non-smokers (<em>Exposure*Smoker</em>) in the population.</p>
 <p>If we would like to know whether the exposure effect for former smokers is significantly different from zero, we have to rerun the regression model using former smokers as reference group. This new model would also tell us whether the exposure effect for former smokers is significantly different from the exposure effect for people who are still smoking.</p>
 <section id="sec-catmodSPSS" class="level4" data-number="6.2.2.1">
-<h4 data-number="6.2.2.1" class="anchored" data-anchor-id="sec-catmodSPSS"><span class="header-section-number">6.2.2.1</span> SPSS categorical moderator</h4>
-<p>As described above regression analysis with categorical moderators requires dummy variables. It is always possible to manually create dummy variables for categorical moderators as shown in <a href="#vid-SPSSregpred" class="quarto-xref">Video&nbsp;<span>6.8</span></a>. However, the PROCESS macro for SPSS is a very useful tool for estimating moderation models with categorical moderators. It is easy to use and it automatically creates interaction terms and dummy variables for you. The add on is free and can be downloaded from <a href="http://www.processmacro.org/download.html">Andrew Hayes’ website</a>.</p>
+<h4 data-number="6.2.2.1" class="anchored" data-anchor-id="sec-catmodSPSS"><span class="header-section-number">6.2.2.1</span> SPSS dummy variables for interaction</h4>
+<p>As described above, regression analysis with categorical moderators requires dummy and interaction variables. It is always possible to manually create dummy variables for categorical moderators as shown in <a href="#vid-SPSSregpred" class="quarto-xref">Video&nbsp;<span>6.8</span></a>. However, the PROCESS macro for SPSS is a very useful tool for estimating moderation models with categorical moderators. It is easy to use and it automatically creates interaction terms and dummy variables for you. The add on is free and can be downloaded from <a href="http://www.processmacro.org/download.html">Andrew Hayes’ website</a>.</p>
 <div id="vid-SPSSregpred" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSregpred-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1381,9 +1498,20 @@ Video&nbsp;6.8: Creating dummy variables for categorical by numerical interactio
 </figure>
 </div>
 </section>
-<section id="spss-process-with-more-than-2-levels-in-moderator-categorical" class="level4" data-number="6.2.2.2">
-<h4 data-number="6.2.2.2" class="anchored" data-anchor-id="spss-process-with-more-than-2-levels-in-moderator-categorical"><span class="header-section-number">6.2.2.2</span> SPSS PROCESS with more than 2 levels in moderator (Categorical)</h4>
-<p>If we have more than two levels in our moderator, we can use the same procedure as above. In the dialog box of PROCESS, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status3) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate code to visualize interaction</code>.</p>
+<section id="process-with-more-than-2-levels-in-moderator-categorical" class="level4" data-number="6.2.2.2">
+<h4 data-number="6.2.2.2" class="anchored" data-anchor-id="process-with-more-than-2-levels-in-moderator-categorical"><span class="header-section-number">6.2.2.2</span> PROCESS with more than 2 levels in moderator (Categorical)</h4>
+<p>If we have more than two levels in our moderator, we can use the same procedure as with the dichotomous analysis. <a href="#vid-SPSSrunModmorecat" class="quarto-xref">Video&nbsp;<span>6.9</span></a> shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels. The example uses the <a href="data/smokers4.sav">smokers.sav</a> data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status3</em>).</p>
+<p>In the dialog box of PROCESS, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status3) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate code to visualize interaction</code>.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Instructions on how to add PROCESS to your SPSS installation can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref">Appendix&nbsp;<span>2</span></a>.</p>
+</div>
+</div>
+</div>
 <p>In addition we have to let PROCESS know that we have a categorical moderator with more than two levels. We do this by clicking the <code>Multicategorical</code> button and indicating that the <code>Moderator variable W</code> is multicatigorical. Click <code>continue</code> and click on <code>OK</code> to run the analysis. <a href="#vid-SPSSrunModmorecat" class="quarto-xref">Video&nbsp;<span>6.9</span></a> shows how to use PROCESS to estimate a moderation model with a categorical moderator with more than two levels.</p>
 <div id="vid-SPSSrunModmorecat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
@@ -1396,11 +1524,11 @@ Video&nbsp;6.9: Running a moderation analysis in SPSS using PROCESS with a categ
 </figure>
 </div>
 <p>When the analysis is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (<code>File &gt; New &gt; Syntax</code>), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.</p>
-<p><a href="#vid-SPSSinterpretModmorecat" class="quarto-xref">Video&nbsp;<span>6.10</span></a> shows how to interpret the output of PROCESS for a categorical moderator with more than two levels. The example uses the smokers.sav data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status3</em>).</p>
+<p><a href="#vid-SPSSinterpretModmorecat" class="quarto-xref">Video&nbsp;<span>6.10</span></a> shows how to interpret the output of PROCESS for a categorical moderator with more than two levels. The example uses the <a href="data/smokers4.sav">smokers.sav</a> data set, predicting the attitude towards smoking from exposure moderated by smoking status (variable <em>status3</em>).</p>
 <div id="vid-SPSSinterpretModmorecat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSinterpretModmorecat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/WA7hSVy2bpA" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/1yLUdqFyXkM" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSinterpretModmorecat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Video&nbsp;6.10: Interpretation of SPSS PROCESS output with a categorical moderator with more than 2 levels and a continuous predictor.
@@ -1646,7 +1774,7 @@ Contact
 </figure>
 </div>
 </div>
-<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (<a href="#tbl-dich-moderator-cov-output" class="quarto-xref">Table&nbsp;<span>6.4</span></a>) to create a regression equation (<a href="#eq-intvarcov1" class="quarto-xref">Equation&nbsp;<span>6.19</span></a>). Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
+<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (<a href="#tbl-dich-moderator-cov-output" class="quarto-xref">Table&nbsp;<span>6.4</span></a>) to create a regression equation (<a href="#eq-intvarcov1" class="quarto-xref">Equation&nbsp;<span>6.20</span></a>). Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
 <p><span id="eq-intvarcov1"><span class="math display">\[
 \small
 \begin{split}
@@ -1654,8 +1782,8 @@ Contact
   &amp;+ \color{brown}{0.152*contact}
 \end{split}
 \normalsize
-\tag{6.19}\]</span></span></p>
-<p>As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the <em>smoker</em> variable. For a numerical covariate such as <em>contact</em>, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">5.091</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation (<a href="#eq-intvarcov2" class="quarto-xref">Equation&nbsp;<span>6.20</span></a>).</p>
+\tag{6.20}\]</span></span></p>
+<p>As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the <em>smoker</em> variable. For a numerical covariate such as <em>contact</em>, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">5.091</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation (<a href="#eq-intvarcov2" class="quarto-xref">Equation&nbsp;<span>6.21</span></a>).</p>
 <p><span id="eq-intvarcov2"><span class="math display">\[
 \small
 \begin{split}
@@ -1667,7 +1795,7 @@ Contact
   attitude = &amp;\ 2.669 + -0.447*exposure
 \end{split}
 \normalsize
-\tag{6.20}\]</span></span></p>
+\tag{6.21}\]</span></span></p>
 <p>The terms with <em>smoker</em> and <em>contact</em> disappear from the equation, so <em>exposure</em> is the only independent variable that remains in the equation. Now, we can draw the simple regression line predicting attitude from exposure for smokers using this equation. Note that this is the regression line for people with average contact with smokers.</p>
 <p>Repeat these steps but plug in the score 0 for the <em>smoker</em> predictor to obtain the simple regression line for non-smokers. <a href="#fig-dich-moderator-cov-plot" class="quarto-xref">Figure&nbsp;<span>6.18</span></a> shows the two regression lines and their equations. The effect of exposure on attitude is more strongly negative for smokers than for non-smokers.</p>
 <div class="cell">
@@ -1722,6 +1850,9 @@ Video&nbsp;6.12: Visualizing moderation by regression lines in a scatterplot in 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-RefWorks:3838" class="csl-entry" role="listitem">
 Hainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. <span>“How Much Should We Trust Estimates from Multiplicative Interaction Models? Simple Tools to Improve Empirical Practice.”</span> <a href="https://doi.org/10.2139/ssrn.2739221">https://doi.org/10.2139/ssrn.2739221</a>.
+</div>
+<div id="ref-RefWorks:3873" class="csl-entry" role="listitem">
+Hayes, Andrew F. 2013. <em>Introduction to Mediation, Moderation, and Conditional Process Analysis: A Regression-Based Approach</em>. Guilford Press.
 </div>
 </div>
 </section>
