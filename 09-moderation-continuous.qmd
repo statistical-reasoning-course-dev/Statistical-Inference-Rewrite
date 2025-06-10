@@ -147,6 +147,33 @@ With mean-centered numerical moderators, a conditional effect in the presence of
 
 Remember that the interaction variable is the product of the predictor and moderator (@sec-interaction-variable). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.
 
+#### SPSS manually mean center a variable
+
+@vid-SPSSregcenter shows how to mean-center a variable in SPSS. The example data set is smokers.sav, which contains the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
+
+::: {#vid-SPSSregcenter}
+
+{{< video https://www.youtube.com/embed/yk1Uq1VHjpY
+    width="100%"
+    height="315" 
+>}}
+
+Mean-centering numerical variables.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+# Goal: Mean-centering numerical variables (both predictor and moderator) in SPSS.
+# Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
+# SPSS menu: 
+#  1. determine average score on a variable: Analyze > Descriptive Statistics > Frequencies ; select Statistics > Mean (and Minimum, Maximum to check range) and unselect Display frequency tables
+#  2. create a new variable with the average subtracted: Transform > Compute, select variable, give new name (indicating centering), and subtract value of average from Frequencies output
+#  3. Calculate the interaction predictor from the two mean-centered variables.
+# Inspect output: descriptives (and unstandardized coefficients) in regression analysis ;  never mind rounding errors or differences due to listwise deletion of missing values)
+```
+
+
 ### Symmetry of predictor and moderator
 
 ```{r symmetry-predictor-moderator, eval=FALSE, echo=FALSE, fig.pos='H', fig.align='center', fig.cap=""}
@@ -296,7 +323,7 @@ The regression model yields a *p* value and confidence interval for the predicto
 
 If the moderator variable *contact* is mean-centered, the *p* value tests the null hypothesis that the effect of exposure is zero for people who have average contact with smokers. The confidence interval tells us that the effect of exposure on attitude for people with average contacts with smokers in the population ranges between `r report_n(results[2,6],2)` and `r report_n(results[2,7],2)` with 95% confidence. If the moderator is not mean-centered, the results apply to people who have no contact with smokers.
 
-Note that mean-centering of the moderator changes, so to speak, the regression line that we test. Instead of testing the effect of exposure for people with no smoker contact, we test the effect for people with average contact with smokers if the moderator is mean-centered. If we would like to get the *p* value or confidence interval for the regression line at one standard deviation above (or below) the mean, we have to center the moderator at that value before we estimate the regression model. In this course, however, we will not do so.
+Note that mean-centering of the moderator changes, so to speak, the regression line that we test. Instead of testing the effect of exposure for people with no smoker contact, we test the effect for people with average contact with smokers if the moderator is mean-centered. If we would like to get the *p* value or confidence interval for the regression line at one standard deviation above (or below) the mean, we can use the PROCESS macro in SPSS to get the conditional effect at these levels of the moderator.
 
 ```{r echo=FALSE}
 #Cleanup.
@@ -333,6 +360,29 @@ rm(smokers)
 
 
 According to @fig-cont-moderator-support, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.
+
+#### SPSS check common support
+
+The video below (@vid-SPSSregSupport2) shows how to check common support of the predictor variable in the data for three groups of the moderator variable. 
+
+::: {#vid-SPSSregSupport2}
+
+{{< video https://www.youtube.com/embed/x45Tv6nvta4
+    width="100%"
+    height="315" 
+>}}
+
+Checking common support with a continuous moderator.
+:::
+
+```{r, echo=FALSE, eval=FALSE}
+# Goal: Checking common support with a continuous moderator; group moderator in 3 groups (terciles) and create (panelled) histograms for the predictor scores in each moderator group
+# Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
+# SPSS menu: Transform > Visual Binning
+# Interpret output: 
+
+# : (for enthusiasts?) don't interpret the standardized regression coefficients (Beta) for interaction variables in SPSS because they are calculated in the wrong way ; the predictor and moderator variables are multiplied to obtain the interaction variable and aferwards they are standardized ; instead, the predictor and moderator variables should be standardized before they are multiplied ; if you want to interpret the standardized regression coefficients, you have to standardize _all_ numerical variables yourself (Analyze > Descriptive Statistics > Descriptives with option 'Save standardized values as variables' checked) before you calculate the interaction variable and include them in the regression analysis ; in this situation, the output of the regression analysis lists the standardized regression weights in the column 'Unstandardized Coefficients'. 
+```
 
 ### Assumptions
 
@@ -443,8 +493,9 @@ knitr::kable(table, booktabs = TRUE, align = c("l", "c")) %>%
            general_title = "Note.", title_format = c("italic"),
            symbol_title = "",
            footnote_as_chunk = T) %>%
-  kable_styling(font_size = 12, full_width = F, position = "float_right",
-                latex_options = c("HOLD_position"))
+  kable_styling(font_size = 12)
+# , full_width = F, position = "float_right",
+#                 latex_options = c("HOLD_position"))
 ```
 
 
@@ -579,7 +630,7 @@ Do not report that common support of the predictor at different moderator values
 
 Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.
 
-## A Numerical Moderator in SPSS {#sec-RegressionContModSPSS}
+## SPSS Moderation with numerical moderators {#sec-RegressionContModSPSS}
 
 #### Essential Analytics {.unnumbered}
 
@@ -609,31 +660,25 @@ knitr::include_graphics("figures/S9_AE2.png")
 Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers.
 :::
 
-### Instructions
+### PROCESS moderation with two continuous variables
 
-::: {#vid-SPSSregcenter}
+For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.
 
-{{< video https://www.youtube.com/embed/yk1Uq1VHjpY
-    width="100%"
-    height="315" 
->}}
+In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `exposure` as the predictor `X variable`, `contact` as the moderator `M variable`, and `attitude` as the dependent `Moderator variable W`.
 
-Mean-centering numerical variables.
+Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
+
+The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accepting the risk of incorrect output by indicating this under `long variable names`.
+
+Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.
+
+::: {.callout-note}
+The PROCESS macro only outputs the conditional effects *if* the interaction effect is statistically significant.
 :::
 
 
 
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Mean-centering numerical variables (both predictor and moderator) in SPSS.
-# Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
-# SPSS menu: 
-#  1. determine average score on a variable: Analyze > Descriptive Statistics > Frequencies ; select Statistics > Mean (and Minimum, Maximum to check range) and unselect Display frequency tables
-#  2. create a new variable with the average subtracted: Transform > Compute, select variable, give new name (indicating centering), and subtract value of average from Frequencies output
-#  3. Calculate the interaction predictor from the two mean-centered variables.
-# Inspect output: descriptives (and unstandardized coefficients) in regression analysis ;  never mind rounding errors or differences due to listwise deletion of missing values)
-```
 
-------------------------------------------------------------------------
 
 ::: {#vid-SPSSreglines2}
 
@@ -655,26 +700,9 @@ Graph regression lines for different moderator values.
 # Interpret results. 
 ```
 
-------------------------------------------------------------------------
 
-::: {#vid-SPSSregSupport2}
 
-{{< video https://www.youtube.com/embed/x45Tv6nvta4
-    width="100%"
-    height="315" 
->}}
 
-Checking common support with a continuous moderator.
-:::
-
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Checking common support with a continuous moderator; group moderator in 3 groups (terciles) and create (panelled) histograms for the predictor scores in each moderator group
-# Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
-# SPSS menu: Transform > Visual Binning
-# Interpret output: 
-
-# : (for enthusiasts?) don't interpret the standardized regression coefficients (Beta) for interaction variables in SPSS because they are calculated in the wrong way ; the predictor and moderator variables are multiplied to obtain the interaction variable and aferwards they are standardized ; instead, the predictor and moderator variables should be standardized before they are multiplied ; if you want to interpret the standardized regression coefficients, you have to standardize _all_ numerical variables yourself (Analyze > Descriptive Statistics > Descriptives with option 'Save standardized values as variables' checked) before you calculate the interaction variable and include them in the regression analysis ; in this situation, the output of the regression analysis lists the standardized regression weights in the column 'Unstandardized Coefficients'. 
-```
 
 ## Take-Home Points
 
