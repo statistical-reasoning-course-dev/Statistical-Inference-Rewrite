@@ -288,7 +288,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#sec-cont-moderator-regression" id="toc-sec-cont-moderator-regression" class="nav-link" data-scroll-target="#sec-cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</a>
+  <li><a href="#sec-cont-moderator-regression" id="toc-sec-cont-moderator-regression" class="nav-link" data-scroll-target="#sec-cont-moderator-regression"><span class="header-section-number">7.1</span> Numerical Moderator</a>
   <ul>
   <li><a href="#sec-interpret-cont-interaction" id="toc-sec-interpret-cont-interaction" class="nav-link" data-scroll-target="#sec-interpret-cont-interaction"><span class="header-section-number">7.1.1</span> Interaction variable</a></li>
   <li><a href="#sec-conditional-effect-cont" id="toc-sec-conditional-effect-cont" class="nav-link" data-scroll-target="#sec-conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</a></li>
@@ -306,14 +306,13 @@ window.Quarto = {
   <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"><span class="header-section-number">7.1.8</span> Assumptions</a></li>
   <li><a href="#higher-order-interaction-effects" id="toc-higher-order-interaction-effects" class="nav-link" data-scroll-target="#higher-order-interaction-effects"><span class="header-section-number">7.1.9</span> Higher-order interaction effects</a></li>
   <li><a href="#spss-moderation-analysis-in-process" id="toc-spss-moderation-analysis-in-process" class="nav-link" data-scroll-target="#spss-moderation-analysis-in-process"><span class="header-section-number">7.1.10</span> SPSS moderation analysis in PROCESS</a></li>
-  <li><a href="#sec-reportmoderation" id="toc-sec-reportmoderation" class="nav-link" data-scroll-target="#sec-reportmoderation"><span class="header-section-number">7.1.11</span> Reporting Regression Results</a></li>
   </ul></li>
-  <li><a href="#sec-RegressionContModSPSS" id="toc-sec-RegressionContModSPSS" class="nav-link" data-scroll-target="#sec-RegressionContModSPSS"><span class="header-section-number">7.2</span> SPSS Moderation with numerical moderators</a>
+  <li><a href="#sec-RegressionContModSPSS" id="toc-sec-RegressionContModSPSS" class="nav-link" data-scroll-target="#sec-RegressionContModSPSS"><span class="header-section-number">7.2</span> Numerical and categorical moderators</a>
   <ul>
-  <li><a href="#essential-analytics" id="toc-essential-analytics" class="nav-link" data-scroll-target="#essential-analytics">Essential Analytics</a></li>
-  <li><a href="#spss-process-moderation-with-two-continuous-variables" id="toc-spss-process-moderation-with-two-continuous-variables" class="nav-link" data-scroll-target="#spss-process-moderation-with-two-continuous-variables"><span class="header-section-number">7.2.1</span> SPSS PROCESS moderation with two continuous variables</a></li>
+  <li><a href="#spss-numerical-and-categorical-moderator-with-process" id="toc-spss-numerical-and-categorical-moderator-with-process" class="nav-link" data-scroll-target="#spss-numerical-and-categorical-moderator-with-process"><span class="header-section-number">7.2.1</span> SPSS numerical and categorical moderator with PROCESS</a></li>
   </ul></li>
-  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">7.3</span> Take-Home Points</a></li>
+  <li><a href="#sec-reportmoderation" id="toc-sec-reportmoderation" class="nav-link" data-scroll-target="#sec-reportmoderation"><span class="header-section-number">7.3</span> Reporting Results</a></li>
+  <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">7.4</span> Take-Home Points</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/09-moderation-continuous.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/09-moderation-continuous.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -373,7 +372,7 @@ Video&nbsp;7.1: Introduction to moderation with numerical variables.
 <p>Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.</p>
 </section>
 <section id="sec-cont-moderator-regression" class="level2 page-columns page-full" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="sec-cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</h2>
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-cont-moderator-regression"><span class="header-section-number">7.1</span> Numerical Moderator</h2>
 <p>With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?</p>
 <div id="fig-continuous-moderator" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -457,6 +456,28 @@ Figure&nbsp;7.3: Histograms of the original contacts with smokers variable and t
 </div>
 <p>With mean-centered numerical moderators, a conditional effect in the presence of interaction always makes sense. It is the effect of the predictor for respondents who have an average score on the moderator because they score zero on the mean-centered variable. An average score always falls within the range of scores that actually occur. If we mean-center the moderator variable contact with smokers, the regression coefficient <span class="math inline">\(b_1\)</span> for exposure expresses the effect of exposure on attitude for people with average contacts with smokers. This makes sense.</p>
 <p>Remember that the interaction variable is the product of the predictor and moderator (<a href="08-moderation-categorical.html#sec-interaction-variable" class="quarto-xref"><span>Section 6.2.1.1</span></a>). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.</p>
+<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
+<div id="fig-meancentertable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S9_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
+</figcaption>
+</figure>
+</div>
+<p>It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
+<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
+<p>The regression coefficient of the interaction effect (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
 <section id="spss-manually-mean-center-a-variable" class="level4" data-number="7.1.3.1">
 <h4 data-number="7.1.3.1" class="anchored" data-anchor-id="spss-manually-mean-center-a-variable"><span class="header-section-number">7.1.3.1</span> SPSS manually mean center a variable</h4>
 <p><a href="#vid-SPSSregcenter" class="quarto-xref">Video&nbsp;<span>7.2</span></a> shows how to mean-center a variable in SPSS. The example data set is smokers.sav, which contains the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.</p>
@@ -485,7 +506,7 @@ Video&nbsp;7.2: Mean-centering numerical variables.
   \end{split}
 \normalsize
 \tag{7.3}\]</span></span></p>
-<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (<a href="#fig-moderator-symmetry" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
+<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (<a href="#fig-moderator-symmetry" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-moderator-symmetry" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -494,7 +515,7 @@ Video&nbsp;7.2: Mean-centering numerical variables.
 <img src="09-moderation-continuous_files/figure-html/fig-moderator-symmetry-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-symmetry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: Two conceptual diagrams of moderation for the same interaction effect.
+Figure&nbsp;7.5: Two conceptual diagrams of moderation for the same interaction effect.
 </figcaption>
 </figure>
 </div>
@@ -669,7 +690,7 @@ Exposure*Contact (mean-centered)
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuous-interaction-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.5: Which moderator values are helpful for visualizing moderation?
+Figure&nbsp;7.6: Which moderator values are helpful for visualizing moderation?
 </figcaption>
 </figure>
 </div>
@@ -691,13 +712,13 @@ Figure&nbsp;7.5: Which moderator values are helpful for visualizing moderation?
 <img src="09-moderation-continuous_files/figure-html/fig-cont-moderator-support-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cont-moderator-support-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.6: Common support of the predictor variable (exposure) at three levels of the moderator variable (contact).
+Figure&nbsp;7.7: Common support of the predictor variable (exposure) at three levels of the moderator variable (contact).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>According to <a href="#fig-cont-moderator-support" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
+<p>According to <a href="#fig-cont-moderator-support" class="quarto-xref">Figure&nbsp;<span>7.7</span></a>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
 <section id="spss-check-common-support" class="level4" data-number="7.1.7.1">
 <h4 data-number="7.1.7.1" class="anchored" data-anchor-id="spss-check-common-support"><span class="header-section-number">7.1.7.1</span> SPSS check common support</h4>
 <p>The video below (<a href="#vid-SPSSregSupport2" class="quarto-xref">Video&nbsp;<span>7.3</span></a>) shows how to check common support of the predictor variable in the data for three groups of the moderator variable.</p>
@@ -747,7 +768,7 @@ Video&nbsp;7.4: Running a moderation analysis with PROCESS in SPSS.
 </figcaption>
 </figure>
 </div>
-<p>Process produces the output in plain text. It covers the <code>Model Summary</code>, the <code>Model</code>, a seperate ANOVA test for the interaction, the conditianal effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator, and the Johnson-Neyman output. <a href="#vid-InterpretModerationWithProcess" class="quarto-xref">Video&nbsp;<span>7.5</span></a> shows you how to interpret the output of the PROCESS macro in SPSS.</p>
+<p>PROCESS produces the output in plain text. It covers the <code>Model Summary</code>, the <code>Model</code>, a seperate ANOVA test for the interaction, the conditianal effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator, and the Johnson-Neyman output. <a href="#vid-InterpretModerationWithProcess" class="quarto-xref">Video&nbsp;<span>7.5</span></a> shows you how to interpret the output of the PROCESS macro in SPSS.</p>
 <div id="vid-InterpretModerationWithProcess" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-InterpretModerationWithProcess-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -786,6 +807,7 @@ Video&nbsp;7.5: Running a moderation analysis with PROCESS in SPSS.
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">          Mod var: unemot   (W) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator are reported in the <code>Conditional effects of focal predictor at values of the moderator(s)</code> section. The conditional effect is the effect (regression slope) of the predictor on the dependent variable at these particular values of the moderator. The p-value indicates whether this effect is significantly different from zero.</p>
+<p>Because we asked PROCESS to mean center, the moderator values in the first column are not the original values of the moderator variable, but the mean-centered values. To interpret the results, we can add the mean of the moderator to the mean-centered values. We need to use SPSS to calculate the mean for the variable <code>unemot</code> in the data file through <code>Analysis &gt; Descriptive Statistics &gt; Descriptives...</code>, select the variable <code>unemot</code>, and make sure the mean is ticked in the <code>Options</code> tab. The mean of unemotional traits is 7.81, we can use this to describe the results below as the effect at one standard deviation below the mean (7.81 - 4.12 = 3.69), at the mean (7.81), and one standard deviation above the mean (7.81 + 4.12 = 11.93).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Conditional effects of the focal predictor at values of the moderator(s): </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
@@ -801,7 +823,7 @@ Video&nbsp;7.5: Running a moderation analysis with PROCESS in SPSS.
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    -2.7902    29.0000    71.0000 </span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    -1.0680    40.0000    60.0000 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The next section reports the conditional effect of the predictor at many values of the moderator, it includes the standard error, t-value, p-value, and confidence intervals.</p>
+<p>The next section of the PROCESS output reports the conditional effect of the predictor at many values of the moderator, it includes the standard error, t-value, p-value, and confidence intervals. The <code>Effect</code> column provides the beta coefficient for the predictor at the corresponding moderator value as indicated in the first column on the left side of the effect value. For example the first row indicates that the effect of gaming on aggression is -2.4446 at a value of -8.5075 for unemotional traits. This means that for people with such a low amount of unemotional traits, the effect of gaming on aggression is negative, i.e., more gaming leads to less aggression. The columns on the right side test whether this effect is significantly different from zero, and provides the lower and upper bound of the confidence interval. This is provided for the entire range of <strong>mean centered</strong> moderator values in each row. Note that if you choose <strong>not</strong> to mean center the moderator, the values in the first column will be the original values of the moderator variable.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="an">Conditional effect of focal predictor at values of the moderator:</span><span class="co"> </span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">     unemot     Effect         se          t          p       LLCI       ULCI </span></span>
@@ -828,7 +850,7 @@ Video&nbsp;7.5: Running a moderation analysis with PROCESS in SPSS.
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">     9.3978     4.1794      .3032    13.7851      .0000     3.5776     4.7812 </span></span>
 <span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">    10.3925     4.5474      .3261    13.9432      .0000     3.9000     5.1948 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Finally, the output contains the data for visualizing the conditional effect of the focal predictor. The data can be used to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis. By pasting this into a syntax editor and executing it, we can create a plot that visualizes the regression slopes (conditional effects) at different levels of the moderator.</p>
+<p>Finally, the output contains the data for visualizing the conditional effect of the focal predictor. The data can be used to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis. By pasting this into a syntax editor and executing it, we can create a plot that visualizes the regression slopes (conditional effects) at the 3 levels of the moderator, one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="an">Data for visualizing the conditional effect of the focal predictor:</span><span class="co"> </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Paste text below into a SPSS syntax window and execute to produce plot. </span>
@@ -850,11 +872,61 @@ Video&nbsp;7.5: Running a moderation analysis with PROCESS in SPSS.
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a> gaming   WITH     agress   BY       unemot   . </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec-reportmoderation" class="level3" data-number="7.1.11">
-<h3 data-number="7.1.11" class="anchored" data-anchor-id="sec-reportmoderation"><span class="header-section-number">7.1.11</span> Reporting Regression Results</h3>
-<p>If we report a regression model, we first present the significance test and predictive power of the entire regression model. We may report that the regression model is statistically significant, <em>F</em> (7, 142) = 28.64, <em>p</em> &lt; 0.001, so the regression model very likely helps to predict attitude towards smoking in the population.</p>
-<p>How well does the regression model predict attitude towards smoking? The effect size of a regression model or its predictive power is summarized by <span class="math inline">\(R^2\)</span> (<em>R Square</em>), which is the proportion of the variance in the dependent variable scores (attitude towards smoking) that can be predicted with the regression model. In this example, <span class="math inline">\(R^2\)</span> is 0.59, so the regression model predicts 59% of the variance in attitude towards smoking among the respondents. In communication research, <span class="math inline">\(R^2\)</span> is usually smaller.</p>
-<p><span class="math inline">\(R^2\)</span> tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use <em>Adjusted R Square</em>. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is 0.56 (not reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>).</p>
+</section>
+<section id="sec-RegressionContModSPSS" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-RegressionContModSPSS"><span class="header-section-number">7.2</span> Numerical and categorical moderators</h2>
+<p>In the smokers dataset we not only have the results from the anti-smoking campaign, and contact with smokers, but also information about the smoking status of the participants, which could be non-smoker, former smoker, or smoker. We can use this information to test whether the effect of exposure to the anti-smoking campaign on attitude towards smoking is not only moderated by the amount of contact with smokers but also by the smoking status. In other words, we want to know whether the moderating effect of contact with smokers on the effect of exposure on attitude is different for smokers, former smokers, and non-smokers.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-moderator-concept3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="09-moderation-continuous_files/figure-html/fig-moderator-concept3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: Conceptual diagram of the estimated moderation model.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="spss-numerical-and-categorical-moderator-with-process" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="spss-numerical-and-categorical-moderator-with-process"><span class="header-section-number">7.2.1</span> SPSS numerical and categorical moderator with PROCESS</h3>
+<p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/smokers5.sav">smokers.sav</a> data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select the <code>Model Number 1</code> for a simple moderation model with one moderator. We select <code>exposure</code> as the predictor <code>X variable</code>, <code>contact</code> as the moderator <code>M variable</code>, and <code>attitude</code> as the dependent <code>Moderator variable W</code>.</p>
+<p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code> and tick the <code>Johnson-Neyman output</code> box. click <code>continue</code> to set these options.</p>
+<p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
+<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The PROCESS macro only outputs the conditional effects <em>if</em> the interaction effect is statistically significant.</p>
+</div>
+</div>
+<div id="vid-SPSSreglines2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ZKlFyu5HIjk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.6: Graph regression lines for different moderator values.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-reportmoderation" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-reportmoderation"><span class="header-section-number">7.3</span> Reporting Results</h2>
+<p>If we report a regression model, we first present the significance test and predictive power of the entire regression model. We may report that the regression model is statistically significant, <em>F</em> (7, 77) = 20.44, <em>p</em> &lt; 0.001, so the regression model very likely helps to predict attitude towards smoking in the population.</p>
+<p>How well does the regression model predict attitude towards smoking? The effect size of a regression model or its predictive power is summarized by <span class="math inline">\(R^2\)</span> (<em>R Square</em>), which is the proportion of the variance in the dependent variable scores (attitude towards smoking) that can be predicted with the regression model. In this example, <span class="math inline">\(R^2\)</span> is 0.65, so the regression model predicts 65% of the variance in attitude towards smoking among the respondents. In communication research, <span class="math inline">\(R^2\)</span> is usually smaller.</p>
+<p><span class="math inline">\(R^2\)</span> tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use <em>Adjusted R Square</em>. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is 0.62 (not reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>).</p>
 <div class="cell">
 <div id="tbl-report-moderation-table" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -882,10 +954,10 @@ B
 Constant
 </td>
 <td style="text-align:left;">
--1.08***
+-0.82***
 </td>
 <td style="text-align:center;">
-[-1.32, -0.85]
+[-1.16, -0.47]
 </td>
 </tr>
 <tr>
@@ -893,10 +965,10 @@ Constant
 Exposure
 </td>
 <td style="text-align:left;">
--0.18***
+-0.17**
 </td>
 <td style="text-align:center;">
-[-0.26, -0.10]
+[-0.29, -0.06]
 </td>
 </tr>
 <tr>
@@ -904,10 +976,10 @@ Exposure
 Contact
 </td>
 <td style="text-align:left;">
-0.21***
+0.22**
 </td>
 <td style="text-align:center;">
-[ 0.12, 0.30]
+[ 0.08, 0.35]
 </td>
 </tr>
 <tr>
@@ -915,10 +987,10 @@ Contact
 Former smoker
 </td>
 <td style="text-align:left;">
--1.38***
+-1.58***
 </td>
 <td style="text-align:center;">
-[-1.74, -1.01]
+[-2.07, -1.09]
 </td>
 </tr>
 <tr>
@@ -926,10 +998,10 @@ Former smoker
 Smoker
 </td>
 <td style="text-align:left;">
-0.10
+0.05
 </td>
 <td style="text-align:center;">
-[-0.41, 0.60]
+[-0.63, 0.74]
 </td>
 </tr>
 <tr>
@@ -937,10 +1009,10 @@ Smoker
 Exposure * Contact
 </td>
 <td style="text-align:left;">
-0.06***
+0.08**
 </td>
 <td style="text-align:center;">
-[ 0.02, 0.09]
+[ 0.03, 0.13]
 </td>
 </tr>
 <tr>
@@ -948,10 +1020,10 @@ Exposure * Contact
 Exposure * Former smoker
 </td>
 <td style="text-align:left;">
--0.20**
+-0.22*
 </td>
 <td style="text-align:center;">
-[-0.33, -0.07]
+[-0.40, -0.05]
 </td>
 </tr>
 <tr>
@@ -959,10 +1031,10 @@ Exposure * Former smoker
 Exposure * Smoker
 </td>
 <td style="text-align:left;">
--0.02
+-0.03
 </td>
 <td style="text-align:center;">
-[-0.17, 0.13]
+[-0.25, 0.19]
 </td>
 </tr>
 <tr>
@@ -970,17 +1042,17 @@ Exposure * Smoker
 R<sup>2</sup>
 </td>
 <td style="text-align:left;">
-0.59
+0.65
 </td>
 <td style="text-align:center;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-F (7, 142)
+F (7, 77)
 </td>
 <td style="text-align:left;">
-28.64***
+20.44***
 </td>
 <td style="text-align:center;">
 </td>
@@ -1006,27 +1078,13 @@ F (7, 142)
 </div>
 </div>
 <p>As a next step, we discuss the size, statistical significance, and confidence intervals of the regression coefficients. If a predictor is involved in one or more interaction effects, we must be very clear about the reference value or reference group to which the effect applies. In the example below, non-smokers are the reference group on the smoking status variable because they are not represented by a dummy variable. Average number of contacts with smokers is the reference value on the contact variable because this variable is mean-centered.</p>
-<p>Exposure, in our example, has a negative predictive effect on attitude towards smoking (<em>b</em> = -0.18) for non-smokers with average contacts with smokers, <em>t</em> = -4.37, p &lt; .001, 95% CI [-0.26, -0.10]. Note that SPSS does not report the degrees of freedom for the <em>t</em> test on a regression coefficient, so we cannot report them.</p>
+<p>Exposure, in our example, has a negative predictive effect on attitude towards smoking (<em>b</em> = -0.17) for non-smokers with average contacts with smokers, <em>t</em> = -2.94, p = 0.004, 95% CI [-0.29, -0.06]. Note that SPSS does not report the degrees of freedom for the <em>t</em> test on a regression coefficient, so we cannot report them.</p>
 <p>Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>. Note that <em>t</em> and <em>p</em> values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.</p>
-<p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.06, p &lt; .001) and by smoking status (<em>b</em> = -0.20, p = 0.003 for former smoker).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-moderator-concept3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="09-moderation-continuous_files/figure-html/fig-moderator-concept3-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.7: Conceptual diagram of the estimated moderation model.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is -0.20.</p>
-<p>For a numerical moderator, we can interpret the general pattern reflected by the interaction effect. A positive interaction effect, such as 0.06 for the interaction between exposure and smoker contact, signals that the effect of exposure is more strongly positive or less strongly negative at higher levels of contact with smokers.</p>
+<p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.08, p = 0.002) and by smoking status (<em>b</em> = -0.22, p = 0.014 for former smoker).</p>
+<p>The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is -0.22.</p>
+<p>For a numerical moderator, we can interpret the general pattern reflected by the interaction effect. A positive interaction effect, such as 0.08 for the interaction between exposure and smoker contact, signals that the effect of exposure is more strongly positive or less strongly negative at higher levels of contact with smokers.</p>
 <p>This interpretation in terms of effect differences remains difficult to understand. It is recommended to select some interesting values for the moderator and report the size of the effect for each value. For a categorical moderator, each category is of interest. For a numerical moderator, the mean and one standard deviation below and above the mean are usually interesting values. The regression coefficients show whether the effect is positive, negative, or nearly zero at different values of the moderator.</p>
-<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>), not the original predictor.</p>
+<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>), not the original predictor.</p>
 <div id="fig-report-moderator-visual" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-report-moderator-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -1058,43 +1116,14 @@ Figure&nbsp;7.7: Conceptual diagram of the estimated moderation model.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-report-moderator-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.8: The effect of exposure on attitude towards smoking.
+Figure&nbsp;7.9: The effect of exposure on attitude towards smoking.
 </figcaption>
 </figure>
 </div>
-<p>The left panel in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
-<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
+<p>The left panel in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
+<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
 <p>Do not report that common support of the predictor at different moderator values is good. If it is bad, warn the reader that we cannot fully trust the estimated moderation because we do not have a nice range of predictor values within each level of the moderator. If the predictor is supported only within a restricted range, you may report this range.</p>
 <p>Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.</p>
-</section>
-</section>
-<section id="sec-RegressionContModSPSS" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="sec-RegressionContModSPSS"><span class="header-section-number">7.2</span> SPSS Moderation with numerical moderators</h2>
-<section id="essential-analytics" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
-<p>As in <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
-<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
-<div id="fig-meancentertable" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/S9_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.9: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
-</figcaption>
-</figure>
-</div>
-<p>It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
-<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
-<p>The regression coefficient of the interaction effect (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
 <p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
 <div id="fig-nummoderatorplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1115,40 +1144,8 @@ Figure&nbsp;7.10: Plot of the effect of exposure on attitude towards smoking for
 </figure>
 </div>
 </section>
-<section id="spss-process-moderation-with-two-continuous-variables" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="spss-process-moderation-with-two-continuous-variables"><span class="header-section-number">7.2.1</span> SPSS PROCESS moderation with two continuous variables</h3>
-<p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/smokers.sav">smokers.sav</a> data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.</p>
-<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select the <code>Model Number 1</code> for a simple moderation model with one moderator. We select <code>exposure</code> as the predictor <code>X variable</code>, <code>contact</code> as the moderator <code>M variable</code>, and <code>attitude</code> as the dependent <code>Moderator variable W</code>.</p>
-<p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code> and tick the <code>Johnson-Neyman output</code> box. click <code>continue</code> to set these options.</p>
-<p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accepting the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
-<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The PROCESS macro only outputs the conditional effects <em>if</em> the interaction effect is statistically significant.</p>
-</div>
-</div>
-<div id="vid-SPSSreglines2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ZKlFyu5HIjk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.6: Graph regression lines for different moderator values.
-</figcaption>
-</figure>
-</div>
-</section>
-</section>
-<section id="take-home-points" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">7.3</span> Take-Home Points</h2>
+<section id="take-home-points" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">7.4</span> Take-Home Points</h2>
 <ul>
 <li><p>An interaction variable represents moderation in a regression model also if the moderator is numerical.</p></li>
 <li><p>An interaction variable is the product of the predictor and moderator.</p></li>

@@ -39,7 +39,7 @@ This interpretation is quite abstract and not easy to understand. It is better t
 
 Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.
 
-## A Numerical Moderator {#sec-cont-moderator-regression}
+## Numerical Moderator {#sec-cont-moderator-regression}
 
 With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?
 
@@ -146,6 +146,21 @@ ggplot(df) +
 With mean-centered numerical moderators, a conditional effect in the presence of interaction always makes sense. It is the effect of the predictor for respondents who have an average score on the moderator because they score zero on the mean-centered variable. An average score always falls within the range of scores that actually occur. If we mean-center the moderator variable contact with smokers, the regression coefficient $b_1$ for exposure expresses the effect of exposure on attitude for people with average contacts with smokers. This makes sense.
 
 Remember that the interaction variable is the product of the predictor and moderator (@sec-interaction-variable). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.
+
+The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (@fig-meancentertable, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
+
+:::{#fig-meancentertable}
+```{r meancentertable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center',}
+knitr::include_graphics("figures/S9_AE1.png")
+```
+SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
+:::
+
+It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
+
+The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (@fig-meancentertable, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
+
+The regression coefficient of the interaction effect (@fig-meancentertable, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
 
 #### SPSS manually mean center a variable
 
@@ -496,7 +511,7 @@ Running a moderation analysis with PROCESS in SPSS.
 :::
 
 
-Process produces the output in plain text. It covers the `Model Summary`, the `Model`, a seperate ANOVA test for the interaction, the conditianal effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator, and the Johnson-Neyman output. @vid-InterpretModerationWithProcess shows you how to interpret the output of the PROCESS macro in SPSS.
+PROCESS produces the output in plain text. It covers the `Model Summary`, the `Model`, a seperate ANOVA test for the interaction, the conditianal effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator, and the Johnson-Neyman output. @vid-InterpretModerationWithProcess shows you how to interpret the output of the PROCESS macro in SPSS.
 
 ::: {#vid-InterpretModerationWithProcess}
 {{< video https://youtu.be/XqmmPGWANhg?si=W5GhDjbVSlZzRjBR
@@ -542,6 +557,8 @@ X*W      .6364   195.2424     1.0000    96.0000      .0000
 
 The conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator are reported in the `Conditional effects of focal predictor at values of the moderator(s)` section. The conditional effect is the effect (regression slope) of the predictor on the dependent variable at these particular values of the moderator. The p-value indicates whether this effect is significantly different from zero.
 
+Because we asked PROCESS to mean center, the moderator values in the first column are not the original values of the moderator variable, but the mean-centered values. To interpret the results, we can add the mean of the moderator to the mean-centered values. We need to use SPSS to calculate the mean for the variable `unemot` in the data file through `Analysis > Descriptive Statistics > Descriptives...`, select the variable `unemot`, and make sure the mean is ticked in the `Options` tab. The mean of unemotional traits is 7.81, we can use this to describe the results below as the effect at one standard deviation below the mean (7.81 - 4.12 = 3.69), at the mean (7.81), and one standard deviation above the mean (7.81 + 4.12 = 11.93).
+
 ```{md}
 Conditional effects of the focal predictor at values of the moderator(s): 
  
@@ -560,7 +577,7 @@ Moderator value(s) defining Johnson-Neyman significance region(s):
     -1.0680    40.0000    60.0000 
 ```
 
-The next section reports the conditional effect of the predictor at many values of the moderator, it includes the standard error, t-value, p-value, and confidence intervals.
+The next section of the PROCESS output reports the conditional effect of the predictor at many values of the moderator, it includes the standard error, t-value, p-value, and confidence intervals. The `Effect` column provides the beta coefficient for the predictor at the corresponding moderator value as indicated in the first column on the left side of the effect value. For example the first row indicates that the effect of gaming on aggression is -2.4446 at a value of -8.5075 for unemotional traits. This means that for people with such a low amount of unemotional traits, the effect of gaming on aggression is negative, i.e., more gaming leads to less aggression. The columns on the right side test whether this effect is significantly different from zero, and provides the lower and upper bound of the confidence interval. This is provided for the entire range of **mean centered** moderator values in each row. Note that if you choose **not** to mean center the moderator, the values in the first column will be the original values of the moderator variable.
 
 ```{md}
 Conditional effect of focal predictor at values of the moderator: 
@@ -589,7 +606,7 @@ Conditional effect of focal predictor at values of the moderator:
     10.3925     4.5474      .3261    13.9432      .0000     3.9000     5.1948 
 ```
 
-Finally, the output contains the data for visualizing the conditional effect of the focal predictor. The data can be used to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis. By pasting this into a syntax editor and executing it, we can create a plot that visualizes the regression slopes (conditional effects) at different levels of the moderator.
+Finally, the output contains the data for visualizing the conditional effect of the focal predictor. The data can be used to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis. By pasting this into a syntax editor and executing it, we can create a plot that visualizes the regression slopes (conditional effects) at the 3 levels of the moderator, one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator.
 
 ```{md}
 Data for visualizing the conditional effect of the focal predictor: 
@@ -613,12 +630,86 @@ GRAPH/SCATTERPLOT=
 ```
 
 
-### Reporting Regression Results {#sec-reportmoderation}
+
+
+## Numerical and categorical moderators {#sec-RegressionContModSPSS}
+
+In the smokers dataset we not only have the results from the anti-smoking campaign, and contact with smokers, but also information about the smoking status of the participants, which could be non-smoker, former smoker, or smoker. We can use this information to test whether the effect of exposure to the anti-smoking campaign on attitude towards smoking is not only moderated by the amount of contact with smokers but also by the smoking status. In other words, we want to know whether the moderating effect of contact with smokers on the effect of exposure on attitude is different for smokers, former smokers, and non-smokers.
+
+```{r}
+#| label: fig-moderator-concept3
+#| fig-cap: "Conceptual diagram of the estimated moderation model."
+#| echo: false
+#| warning: false
+
+# Create coordinates for the variable names.
+variables <- data.frame(x = c(0.32, 0.41, 0.5, 0.68), 
+                        y = c(.1, .3, .3, .1),
+                        hjust = c(1, 0.5, 0.5, 0),
+                        label = c("Exposure", "Contact", "Smoking status", "Attitude"))
+ggplot(variables, aes(x, y)) + 
+  # exposure effect
+  geom_segment(aes(x = x[1], y = y[1], xend = x[4], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+  # contact moderation
+  geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+  # former smoker moderation
+  geom_segment(aes(x = x[3], y = y[3], xend = x[3], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+  # smoker moderation
+#  geom_segment(aes(x = x[4], y = y[4], xend = x[4], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+  geom_label(aes(label=label, hjust = hjust)) + 
+  coord_cartesian(xlim = c(0.27, 0.83), ylim = c(0, 0.4)) +
+  theme_void()
+# Cleanup.
+rm(variables)
+```
+
+
+### SPSS numerical and categorical moderator with PROCESS
+
+For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.
+
+In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `exposure` as the predictor `X variable`, `contact` as the moderator `M variable`, and `attitude` as the dependent `Moderator variable W`.
+
+Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
+
+The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under `long variable names`.
+
+Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.
+
+::: {.callout-note}
+The PROCESS macro only outputs the conditional effects *if* the interaction effect is statistically significant.
+:::
+
+
+
+
+
+::: {#vid-SPSSreglines2}
+
+{{< video https://www.youtube.com/embed/ZKlFyu5HIjk
+    width="100%"
+    height="315" 
+>}}
+
+Graph regression lines for different moderator values.
+:::
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+# Goal: Graph regression lines for different moderator values in a scatterplot.
+# Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers (both mean-centered), smoking status as covariate.
+# Techniques: using reference lines for M, M - SD, and M + SD ; with mean-centered moderator, add SD to obtain reference line for M - SD and M + SD.
+# SPSS menu: {after having applied} regression analysis with descriptives, reconstruct regression equation, calculate mean of moderator minus one SD and plug into the equation ; use mean or reference value for covariat(s) ; Graphs > Legacy Dialogs > Scatter/Dot > Simple Scatter, in the Chart Editor, add reference line (Options > Reference Line from Equation)
+# Interpret results. 
+```
+
+## Reporting Results {#sec-reportmoderation}
 
 ```{r report-moderation-calculation, echo=FALSE}
 # Generate data with categorical*continuous and continuous*continuous moderation.
 # Number of observations.
-n <- 150
+n <- 85
 # Create predictors
 set.seed(4932)
 exposure <- runif(n)*10
@@ -715,32 +806,7 @@ Instead of presenting the numerical results in the text, we may summarize them i
 
 A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in @tbl-report-moderation-table, the effect of exposure on attitude seems to be moderated by contact with smokers (*b* = `r report_n(results[6,1])`, `r ifelse(results[6,4] < .0005, "p < .001", paste0("p = ", report_n(results[6,4], digits=3)))`) and by smoking status (*b* = `r report_n(results[7,1])`, `r ifelse(results[7,4] < .0005, "p < 0.001", paste0("p = ", report_n(results[7,4], digits=3)))` for former smoker).
 
-```{r}
-#| label: fig-moderator-concept3
-#| fig-cap: "Conceptual diagram of the estimated moderation model."
-#| echo: false
-#| warning: false
 
-# Create coordinates for the variable names.
-variables <- data.frame(x = c(0.32, 0.41, 0.5, 0.59, 0.68), 
-                        y = c(.1, .3, .3, .3, .1),
-                        hjust = c(1, 0.5, 0.5, 0.5, 0),
-                        label = c("Exposure", "Contact", "Former \nsmoker", "Smoker", "Attitude"))
-ggplot(variables, aes(x, y)) + 
-  # exposure effect
-  geom_segment(aes(x = x[1], y = y[1], xend = x[5], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  # contact moderation
-  geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  # former smoker moderation
-  geom_segment(aes(x = x[3], y = y[3], xend = x[3], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  # smoker moderation
-  geom_segment(aes(x = x[4], y = y[4], xend = x[4], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
-  geom_label(aes(label=label, hjust = hjust)) + 
-  coord_cartesian(xlim = c(0.27, 0.83), ylim = c(0, 0.4)) +
-  theme_void()
-# Cleanup.
-rm(variables)
-```
 
 The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is `r report_n(results[7,1])`.
 
@@ -837,26 +903,7 @@ Do not report that common support of the predictor at different moderator values
 
 Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.
 
-## SPSS Moderation with numerical moderators {#sec-RegressionContModSPSS}
 
-#### Essential Analytics {.unnumbered}
-
-As in @sec-moderationcat, we calculate an interaction variable as the product of the predictor and moderator (the *Compute Variable* option in the *Transform* menu) and we use it as one of the independent variables in a linear regression model (the *Linear* option in the *Regression* submenu).
-
-The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score **for cases that score zero on the moderator**. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (@fig-meancentertable, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.
-
-:::{#fig-meancentertable}
-```{r meancentertable, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center',}
-knitr::include_graphics("figures/S9_AE1.png")
-```
-SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
-:::
-
-It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
-
-The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (@fig-meancentertable, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
-
-The regression coefficient of the interaction effect (@fig-meancentertable, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
 
 Communicate the results of a numerical moderator in a scatterplot (*Scatter/Dot* in the *Legacy Dialogs* submenu of the *Graphs* menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (@fig-nummoderatorplot). Get the mean and standard deviation of the moderator variable with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics* and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the *Reference Line from Equation* option in the *Options* menu of the  *Chart Editor*.
 
@@ -866,49 +913,6 @@ knitr::include_graphics("figures/S9_AE2.png")
 ```
 Plot of the effect of exposure on attitude towards smoking for three levels of the moderator variable: contact with smokers.
 :::
-
-### SPSS PROCESS moderation with two continuous variables
-
-For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.
-
-In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `exposure` as the predictor `X variable`, `contact` as the moderator `M variable`, and `attitude` as the dependent `Moderator variable W`.
-
-Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
-
-The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accepting the risk of incorrect output by indicating this under `long variable names`.
-
-Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.
-
-::: {.callout-note}
-The PROCESS macro only outputs the conditional effects *if* the interaction effect is statistically significant.
-:::
-
-
-
-
-
-::: {#vid-SPSSreglines2}
-
-{{< video https://www.youtube.com/embed/ZKlFyu5HIjk
-    width="100%"
-    height="315" 
->}}
-
-Graph regression lines for different moderator values.
-:::
-
-
-
-```{r, echo=FALSE, eval=FALSE}
-# Goal: Graph regression lines for different moderator values in a scatterplot.
-# Example: smokers.sav, the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers (both mean-centered), smoking status as covariate.
-# Techniques: using reference lines for M, M - SD, and M + SD ; with mean-centered moderator, add SD to obtain reference line for M - SD and M + SD.
-# SPSS menu: {after having applied} regression analysis with descriptives, reconstruct regression equation, calculate mean of moderator minus one SD and plug into the equation ; use mean or reference value for covariat(s) ; Graphs > Legacy Dialogs > Scatter/Dot > Simple Scatter, in the Chart Editor, add reference line (Options > Reference Line from Equation)
-# Interpret results. 
-```
-
-
-
 
 
 ## Take-Home Points
