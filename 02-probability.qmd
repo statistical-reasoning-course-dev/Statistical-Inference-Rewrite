@@ -451,6 +451,18 @@ Bootstrapping is more or less the only way to get a sampling distribution for th
 
 ### Instructions
 
+The last approach we will show you in SPSS is bootstrapping. In the video below you will see several analyses to which we add bootstrapping. 
+
+Remember your birthday party with a lot of candy that sparks new questions every couple of minutes? This time one friend is getting a bit nauseous from the candy and another friend is doing just fine. They conclude they both have been eating the same amount of candy but one has a preference for strawberry flavoured and the other for lemon flavoured. Could it be that the friend who is constantly eating red candies has been eating more cnady than the friend that has been eating yellow candies? According to your friends, that could only be true if the red candies weigh more than the yellow candies.
+
+In this case, we are investigating whether yellow and red candies weigh the same amount. Thus, we have two variables: candy colour (red and yellow; two categories) and candy weight (continuous). As you can see in @sec-test-selection, we can investigate these variables with an independent t-test. This independent t-test is shown in the video.
+
+As you might remember from the exact approach, this data set contains more candy colours than red and yellow. It is important that we define the groups so that this analysis only includes red and yellow candies. Otherwise we will not find an answer to the question we have proposed above.
+
+You might also remember from the theoretical approach that there are certain conditions we need to meet in order to be able to execute an independent samples t-test. Let's say your friends have been eating quite some candy and therefore we do not have 30 yellow and 30 red candies left. Consequently, we do not meet the conditions. This leads us to resort to bootstrapping to still be able to use the independent sample t-test. Via the _bootstrap_ button, we can check _perform bootstrapping_. Usually, we use 5000 bootstrap samples and 95% bias corrected confidence intervals. Please note that bootstrapping is random and therefore bootstrap results can always differ a little bit from each other, you might see this when working together with a friend or checking your answers on the preparatory assignments. Numbers can differ a little bit, this will not happen when we use the same seed - but we do not use that option in this course.
+
+Check out the video for the step by step on how to perform an independent t-test with bootstrapping, more details and additional information.
+
 ::: {#vid-SPSSbootstrap1}
 
 {{< video https://www.youtube.com/embed/-6nQsBK4-E8
