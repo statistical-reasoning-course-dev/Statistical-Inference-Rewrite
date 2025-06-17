@@ -123,6 +123,17 @@ We will interpret the results in the next video.
 Perform an exact test in SPSS.
 :::
 
+As said, we will interpret the results of an Exact test in SPSS in the video below.
+
+The video shows you the different tables that yield from the analysis. Output from an analysis often starts with a type of summary. Here you can check things similar to descriptive analyses (e.g., case numbers, means, etc.). In the case of an exact test, we see the numbers of cases in the first table _case processing summary_.
+
+The second table shows us the crosstabulation with the added percentages for all columns. The percentages alone can already give you a direction to where your results are headed. These numbers can really help with interpreting your results later on.
+
+In the third table, _chi square tests_, we can see our test statistics and values like the p-value. In the third row you can find the Fisher's Exact Test. This row is the row of results we will report for this test. The p-value tells us whether an effect is significant or not based on this sample. We use the criterium of a p-value below .05 to be significant. There is more to this, but we will elaborate in Chapter 4. If you find a significant results, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups are differing from each other and in which way. It can help you make sense of the association you have just tested.
+
+The fourth table, _symmetric measures_, shows us the effect size. In this case we conclude there is a moderate association between candy stickiness and colour.
+
+In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend te be stickier than red and yellow candies. Tell that to your friend who is hosting the next birthday party!
 
 
 ```{r, echo=FALSE, eval=FALSE}
