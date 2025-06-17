@@ -111,7 +111,7 @@ Then we show how how to do an Exact test while testing a proportion. This is don
 
 Lastly, the crosstabs option is shown. This is the method you will probably use the most. Here we select the _Exact_ option with the five minute time limit, but we also select _Chi-Square_ in the _Statistics_ dialog. In the _Statistics_ dialog we also select an effect size, you usually use four. For at least one nominal variable in your reserach, we use Cramer's V for a symmetrical association and Lambda for an asymmetrical association. For all ordinal variables in your research, we use Gamma (van Goodman en Kruskal) for a symmetrical association and Somer's d for an asymmetrical association. Thus, for this example (two nominal variables and a symmetrical association) we use _Phi and Cramer's V_. Under the _Cells..._ dialog, we select the _obersved counts_ and the _column_ percentages. Then you can run the analysis, do not forget to click _paste_ instead of _OK_ as we want to work with a syntax. With a syntax you can always check your work.
 
-We will interpret the results in the next video.
+Check the video for the step by step on how to perform the exact approach in SPSS, the details and some additional information.
 
 ::: {#vid-SPSSExact1}
 
@@ -123,7 +123,7 @@ We will interpret the results in the next video.
 Perform an exact test in SPSS.
 :::
 
-As said, we will interpret the results of an Exact test in SPSS in the video below.
+In the video below, we will interpret the results of an Exact test in SPSS.
 
 The video shows you the different tables that yield from the analysis. Output from an analysis often starts with a type of summary. Here you can check things similar to descriptive analyses (e.g., case numbers, means, etc.). In the case of an exact test, we see the numbers of cases in the first table _case processing summary_.
 
@@ -134,6 +134,8 @@ In the third table, _chi square tests_, we can see our test statistics and value
 The fourth table, _symmetric measures_, shows us the effect size. In this case we conclude there is a moderate association between candy stickiness and colour.
 
 In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend te be stickier than red and yellow candies. Tell that to your friend who is hosting the next birthday party!
+
+Check the video for the step by step on how to interpret the exact approach in SPSS, the details and some additional information.
 
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -461,7 +463,7 @@ As you might remember from the exact approach, this data set contains more candy
 
 You might also remember from the theoretical approach that there are certain conditions we need to meet in order to be able to execute an independent samples t-test. Let's say your friends have been eating quite some candy and therefore we do not have 30 yellow and 30 red candies left. Consequently, we do not meet the conditions. This leads us to resort to bootstrapping to still be able to use the independent sample t-test. Via the _bootstrap_ button, we can check _perform bootstrapping_. Usually, we use 5000 bootstrap samples and 95% bias corrected confidence intervals. Please note that bootstrapping is random and therefore bootstrap results can always differ a little bit from each other, you might see this when working together with a friend or checking your answers on the preparatory assignments. Numbers can differ a little bit, this will not happen when we use the same seed - but we do not use that option in this course.
 
-Check out the video for the step by step on how to perform an independent t-test with bootstrapping, more details and additional information.
+Check out the video for the step by step on how to perform an independent t-test with bootstrapping, the details and some additional information.
 
 ::: {#vid-SPSSbootstrap1}
 
@@ -473,7 +475,17 @@ Check out the video for the step by step on how to perform an independent t-test
 Perform bootstrapping in SPSS.
 :::
 
+Now that you have run the analysis in SPSS, we want to show you how to interpret this results. And thus, hwo to answer the question whether yellow and red candies weigh the same amount. 
 
+As with the Fisher's exact test, the output starts - after a table with some bootstrap specifications - with a summary type table including descriptive like results. The _group statistics_, here we can find the number of cases (candies), means, standard deviations, etc.. The means can already give you a sense of and a grip on your results, which can help with interpretation later on.
+
+The table below, _independent samples test_, shows us the results of the independent samples t-test, including Leven's F-test, the test statistic, p-value and bootstrapped confidence interval. Levene's F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which menas that the effect of candy colour on candy weight is not significant. 
+
+The second part of the _independent samples test_ shows us the mean difference which is very small, this makes sense given the fact that we found a not significant result. The bootstrapped confidence intervals show that the zero falls in the 95% interval. This means that there is a likelihood that the mean difference could be zero. Thus, looking at the intervals we would also conclude that the effect is not significant. 
+
+In conclusion, the results show us that we could conclude that the hypothesis made by your friends gets no support from our data. Red and yellow candies seem to weigh approximately the same. You could have already seen this coming after looking at the mean values.
+
+Check out the video for the step by step on how to interpret an independent t-test with bootstrapping, the details and some additional information.
 
 ```{r, echo=FALSE, eval=FALSE}
 # Perform bootstrapping in SPSS.
