@@ -360,7 +360,7 @@ Clustered data should also not be considered as independent observations. Think,
 
 #### Identically distributed observations
 
-To check the assumption of identically distributed observations, we inspect the residuals. Remember, the residuals are represented by the error term ($e$) in the regression equation. They are the difference between the scores that we observe for our respondents and the scores that we predict for them with our regression model.
+To check the assumption of identically distributed observations, we inspect the residuals. Remember, the residuals are represented by the error term ($e$) in the regression equation. They are the difference between the scores that we observe for our respondents and the scores that we predict for them with our regression model ($y - \hat{y}$).
 
 ::: {#fig-resid-normal .column-page-inset-right}
 
@@ -552,8 +552,6 @@ Using dummy variables in a regression model in SPSS.
 ```
 
 ## Moderation with categorical and continuous predictors {#sec-categoricalmoderator}
-
-> Different Lines for Different Groups
 
 What if the effect of campaign exposure on attitude towards smoking may be different in different contexts, e.g., for people who smoke themselves and people who do not smoke? Perhaps, the campaign is more effective among smokers than among non-smokers or the other way around. If so, the effect of campaign exposure is moderated by the smoking status of the participants.
 
