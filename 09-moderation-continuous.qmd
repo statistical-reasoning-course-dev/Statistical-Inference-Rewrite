@@ -666,19 +666,17 @@ rm(variables)
 
 ### SPSS numerical and categorical moderator with PROCESS
 
-For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.
+For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.
 
-In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `exposure` as the predictor `X variable`, `contact` as the moderator `M variable`, and `attitude` as the dependent `Moderator variable W`.
+In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select `Model Number 2` for a moderation model with two moderators and a second order interaction. We select `exposure` as the predictor `X variable`, and `attitude` as the dependent `Y variable`. We set `contact` as the continuous numerical `Moderator variable W`, and `status3` as the `Moderator variable Z`. The variable `status3` is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the `Multicategorical` butten and ticking the `Multicategorical` for `Variable Z`. You can leave the `Coding system` at `Indicator`.
 
-Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
+Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD`, but we can leave the `Johnson-Neyman output` un-ticked. Click `continue` to set these options.
 
 The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under `long variable names`.
 
-Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.
+Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. Video XX will show how to run the analysis in SPSS.
 
-::: {.callout-note}
-The PROCESS macro only outputs the conditional effects *if* the interaction effect is statistically significant.
-:::
+
 
 
 
@@ -703,6 +701,92 @@ Graph regression lines for different moderator values.
 # SPSS menu: {after having applied} regression analysis with descriptives, reconstruct regression equation, calculate mean of moderator minus one SD and plug into the equation ; use mean or reference value for covariat(s) ; Graphs > Legacy Dialogs > Scatter/Dot > Simple Scatter, in the Chart Editor, add reference line (Options > Reference Line from Equation)
 # Interpret results. 
 ```
+
+The results produced by the PROCESS macro are similar to the results of the previous example, but now we have two moderators. The output contains the regression coefficients for the predictor, moderators, and interaction variables, as well as the conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean.
+
+Because we have a categorical moderator, we have to identify the reference group for the categorical moderator. The PROCESS macro creates the two required dummy variables `Z1` and `Z2` for the categorical moderator `status3`. We can use the first section of the output to determine the reference group. The matrix below shows the coding of the categorical moderator variable `status3` for the analysis. Dummy variables `Z1` has the value 1 in the second row, indicating the status category 1 to be on. This category corresponded to being a former smoker. The dummy variable `Z2` has the value 1 in the third row, indicating the status category 2 to be on. This category corresponds to being a smoker. The first row is the reference group, which is non-smoker (status3 = 0). Hence `Z1` represents the former smoker group, and `Z2` represents the smoker group.
+
+```{md}
+Model  : 2 
+    Y  : attitude 
+    X  : exposure 
+    W  : contact 
+    Z  : status3 
+ 
+Sample 
+Size:  85 
+ 
+Coding of categorical Z variable for analysis: 
+ status3      Z1      Z2 
+    .000    .000    .000 
+   1.000   1.000    .000 
+   2.000    .000   1.000
+```
+
+The `Product terms key` section indicates the interaction variables that are created by PROCESS. The interaction variable `Int_1` is the product of the predictor `exposure` and the continuous moderator `contact`. The interaction variables `Int_2` and `Int_3` are the products of the predictor `exposure` and the dummy variables `Z1` (former smoker) and `Z2` (smoker), respectively. These interaction variables represent the interaction effect of the predictor with the categorical moderator.
+
+```{md}
+Product terms key: 
+ Int_1    :        exposure x        contact 
+ Int_2    :        exposure x        Z1 
+ Int_3    :        exposure x        Z2 
+```
+
+The `Model Summary` section provides the overall model fit statistics, including the R-squared value, which indicates the proportion of variance explained by the model, and the F-statistic for the overall model significance. The `Model` section provides the regression coefficients for the predictor, moderators, and interaction variables, along with their standard errors, and confidence intervals. Along with the t-values, p-values testing the for the null hypothesis that the beta coefficients are zero. The coefficients indicate the effect of each variable on the dependent variable `attitude`.
+
+```{md}
+Model Summary 
+          R       R-sq        MSE          F        df1        df2          p 
+      .8063      .6502     1.0719    20.4440     7.0000    77.0000      .0000 
+ 
+Model 
+              coeff         se          t          p       LLCI       ULCI 
+constant     -.8151      .1749    -4.6594      .0000    -1.1634     -.4667 
+exposure     -.1715      .0584    -2.9374      .0044     -.2878     -.0552 
+contact       .2165      .0666     3.2513      .0017      .0839      .3491 
+Int_1         .0802      .0251     3.1968      .0020      .0302      .1301 
+Z1          -1.5775      .2451    -6.4358      .0000    -2.0656    -1.0894 
+Z2            .0524      .3428      .1530      .8788     -.6302      .7351 
+Int_2        -.2210      .0880    -2.5126      .0141     -.3961     -.0459 
+Int_3        -.0285      .1098     -.2598      .7957     -.2471      .1901
+```
+
+The `Test(s) of highest order unconditional interaction(s)` section provides the F-test for the interaction effect, which tests the increase in explained variance by the interactions.
+
+```{md}
+Test(s) of highest order unconditional interaction(s): 
+        R2-chng          F        df1        df2          p 
+X*W       .0464    10.2197     1.0000    77.0000      .0020 
+X*Z       .0311     3.4235     2.0000    77.0000      .0376 
+BOTH      .0718     5.2675     3.0000    77.0000      .0023
+```
+
+Finally, the `Conditional effects of focal predictor at values of the moderator(s)` section provides the conditional effects of the predictor at the mean, one standard deviation below the mean, and one standard deviation above the mean of the continuous moderator `contact`, for each level of the categorical moderator `status3`. The conditional effects are reported for each combination of the categorical moderator levels and the continuous moderator values. The p-values indicate whether the conditional effect is significantly different from zero.
+
+::: {.callout-note}
+The PROCESS macro only outputs the conditional effects **if** the interaction effect is statistically significant.
+:::
+
+```{md}
+Conditional effects of the focal predictor at values of the moderator(s): 
+ 
+    contact    status3     Effect         se          t          p       LLCI       ULCI 
+    -1.8271      .0000     -.3180      .0640    -4.9663      .0000     -.4455     -.1905 
+    -1.8271     1.0000     -.5390      .0823    -6.5490      .0000     -.7029     -.3751 
+    -1.8271     2.0000     -.3465      .1083    -3.1989      .0020     -.5623     -.1308 
+      .0000      .0000     -.1715      .0584    -2.9374      .0044     -.2878     -.0552 
+      .0000     1.0000     -.3925      .0672    -5.8391      .0000     -.5263     -.2586 
+      .0000     2.0000     -.2000      .0912    -2.1927      .0314     -.3817     -.0184 
+     1.8271      .0000     -.0250      .0832     -.3004      .7647     -.1906      .1406 
+     1.8271     1.0000     -.2460      .0804    -3.0595      .0031     -.4061     -.0859 
+     1.8271     2.0000     -.0535      .0954     -.5606      .5767     -.2436      .1365
+```
+
+The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in video XX below.
+
+::: {.callout-note}
+The graphs produced by PROCESS, for categorical moderators, are only visualized correctly if the `Measure` in the `Variable View` in SPSS is set to `Nominal` for the categorical moderator variable.
+:::
 
 ## Reporting Results {#sec-reportmoderation}
 
@@ -903,9 +987,7 @@ Do not report that common support of the predictor at different moderator values
 
 Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.
 
-
-
-Communicate the results of a numerical moderator in a scatterplot (*Scatter/Dot* in the *Legacy Dialogs* submenu of the *Graphs* menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (@fig-nummoderatorplot). Get the mean and standard deviation of the moderator variable with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics* and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the *Reference Line from Equation* option in the *Options* menu of the  *Chart Editor*.
+Communicate the results of a numerical moderator in a scatterplot with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (@fig-nummoderatorplot). The PROCESS macro provides the syntax for these plots.
 
 :::{#fig-nummoderatorplot}
 ```{r nummoderatorplot, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center'}

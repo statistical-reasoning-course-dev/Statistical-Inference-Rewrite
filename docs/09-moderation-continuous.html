@@ -892,11 +892,72 @@ Figure&nbsp;7.8: Conceptual diagram of the estimated moderation model.
 </div>
 <section id="spss-numerical-and-categorical-moderator-with-process" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="spss-numerical-and-categorical-moderator-with-process"><span class="header-section-number">7.2.1</span> SPSS numerical and categorical moderator with PROCESS</h3>
-<p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/smokers5.sav">smokers.sav</a> data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers.</p>
-<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select the <code>Model Number 1</code> for a simple moderation model with one moderator. We select <code>exposure</code> as the predictor <code>X variable</code>, <code>contact</code> as the moderator <code>M variable</code>, and <code>attitude</code> as the dependent <code>Moderator variable W</code>.</p>
-<p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code> and tick the <code>Johnson-Neyman output</code> box. click <code>continue</code> to set these options.</p>
+<p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/smokers5.sav">smokers.sav</a> data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select <code>Model Number 2</code> for a moderation model with two moderators and a second order interaction. We select <code>exposure</code> as the predictor <code>X variable</code>, and <code>attitude</code> as the dependent <code>Y variable</code>. We set <code>contact</code> as the continuous numerical <code>Moderator variable W</code>, and <code>status3</code> as the <code>Moderator variable Z</code>. The variable <code>status3</code> is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the <code>Multicategorical</code> butten and ticking the <code>Multicategorical</code> for <code>Variable Z</code>. You can leave the <code>Coding system</code> at <code>Indicator</code>.</p>
+<p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code>, but we can leave the <code>Johnson-Neyman output</code> un-ticked. Click <code>continue</code> to set these options.</p>
 <p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
-<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator.</p>
+<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. Video XX will show how to run the analysis in SPSS.</p>
+<div id="vid-SPSSreglines2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ZKlFyu5HIjk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.6: Graph regression lines for different moderator values.
+</figcaption>
+</figure>
+</div>
+<p>The results produced by the PROCESS macro are similar to the results of the previous example, but now we have two moderators. The output contains the regression coefficients for the predictor, moderators, and interaction variables, as well as the conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean.</p>
+<p>Because we have a categorical moderator, we have to identify the reference group for the categorical moderator. The PROCESS macro creates the two required dummy variables <code>Z1</code> and <code>Z2</code> for the categorical moderator <code>status3</code>. We can use the first section of the output to determine the reference group. The matrix below shows the coding of the categorical moderator variable <code>status3</code> for the analysis. Dummy variables <code>Z1</code> has the value 1 in the second row, indicating the status category 1 to be on. This category corresponded to being a former smoker. The dummy variable <code>Z2</code> has the value 1 in the third row, indicating the status category 2 to be on. This category corresponds to being a smoker. The first row is the reference group, which is non-smoker (status3 = 0). Hence <code>Z1</code> represents the former smoker group, and <code>Z2</code> represents the smoker group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="an">Model  :</span><span class="co"> 2 </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">    Y  : attitude </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">    X  : exposure </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    W  : contact </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Z  : status3 </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>Sample </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Size:  85 </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Coding of categorical Z variable for analysis: </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a> status3      Z1      Z2 </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    .000    .000    .000 </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>   1.000   1.000    .000 </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>   2.000    .000   1.000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>Product terms key</code> section indicates the interaction variables that are created by PROCESS. The interaction variable <code>Int_1</code> is the product of the predictor <code>exposure</code> and the continuous moderator <code>contact</code>. The interaction variables <code>Int_2</code> and <code>Int_3</code> are the products of the predictor <code>exposure</code> and the dummy variables <code>Z1</code> (former smoker) and <code>Z2</code> (smoker), respectively. These interaction variables represent the interaction effect of the predictor with the categorical moderator.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="an">Product terms key:</span><span class="co"> </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> Int_1    :        exposure x        contact </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a> Int_2    :        exposure x        Z1 </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> Int_3    :        exposure x        Z2 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>Model Summary</code> section provides the overall model fit statistics, including the R-squared value, which indicates the proportion of variance explained by the model, and the F-statistic for the overall model significance. The <code>Model</code> section provides the regression coefficients for the predictor, moderators, and interaction variables, along with their standard errors, and confidence intervals. Along with the t-values, p-values testing the for the null hypothesis that the beta coefficients are zero. The coefficients indicate the effect of each variable on the dependent variable <code>attitude</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Model Summary </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>          R       R-sq        MSE          F        df1        df2          p </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      .8063      .6502     1.0719    20.4440     7.0000    77.0000      .0000 </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>Model </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>              coeff         se          t          p       LLCI       ULCI </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>constant     -.8151      .1749    -4.6594      .0000    -1.1634     -.4667 </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>exposure     -.1715      .0584    -2.9374      .0044     -.2878     -.0552 </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>contact       .2165      .0666     3.2513      .0017      .0839      .3491 </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>Int_1         .0802      .0251     3.1968      .0020      .0302      .1301 </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Z1          -1.5775      .2451    -6.4358      .0000    -2.0656    -1.0894 </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>Z2            .0524      .3428      .1530      .8788     -.6302      .7351 </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>Int_2        -.2210      .0880    -2.5126      .0141     -.3961     -.0459 </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>Int_3        -.0285      .1098     -.2598      .7957     -.2471      .1901</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>Test(s) of highest order unconditional interaction(s)</code> section provides the F-test for the interaction effect, which tests the increase in explained variance by the interactions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Test(s) of highest order unconditional interaction(s): </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        R2-chng          F        df1        df2          p </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>X*W       .0464    10.2197     1.0000    77.0000      .0020 </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>X*Z       .0311     3.4235     2.0000    77.0000      .0376 </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>BOTH      .0718     5.2675     3.0000    77.0000      .0023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, the <code>Conditional effects of focal predictor at values of the moderator(s)</code> section provides the conditional effects of the predictor at the mean, one standard deviation below the mean, and one standard deviation above the mean of the continuous moderator <code>contact</code>, for each level of the categorical moderator <code>status3</code>. The conditional effects are reported for each combination of the categorical moderator levels and the continuous moderator values. The p-values indicate whether the conditional effect is significantly different from zero.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -907,18 +968,36 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The PROCESS macro only outputs the conditional effects <em>if</em> the interaction effect is statistically significant.</p>
+<p>The PROCESS macro only outputs the conditional effects <strong>if</strong> the interaction effect is statistically significant.</p>
 </div>
 </div>
-<div id="vid-SPSSreglines2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ZKlFyu5HIjk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Conditional effects of the focal predictor at values of the moderator(s): </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="in">    contact    status3     Effect         se          t          p       LLCI       ULCI </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="in">    -1.8271      .0000     -.3180      .0640    -4.9663      .0000     -.4455     -.1905 </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="in">    -1.8271     1.0000     -.5390      .0823    -6.5490      .0000     -.7029     -.3751 </span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="in">    -1.8271     2.0000     -.3465      .1083    -3.1989      .0020     -.5623     -.1308 </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000      .0000     -.1715      .0584    -2.9374      .0044     -.2878     -.0552 </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000     1.0000     -.3925      .0672    -5.8391      .0000     -.5263     -.2586 </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000     2.0000     -.2000      .0912    -2.1927      .0314     -.3817     -.0184 </span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271      .0000     -.0250      .0832     -.3004      .7647     -.1906      .1406 </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271     1.0000     -.2460      .0804    -3.0595      .0031     -.4061     -.0859 </span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271     2.0000     -.0535      .0954     -.5606      .5767     -.2436      .1365</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.6: Graph regression lines for different moderator values.
-</figcaption>
-</figure>
+<p>The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in video XX below.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The graphs produced by PROCESS, for categorical moderators, are only visualized correctly if the <code>Measure</code> in the <code>Variable View</code> in SPSS is set to <code>Nominal</code> for the categorical moderator variable.</p>
+</div>
 </div>
 </section>
 </section>
@@ -1124,7 +1203,7 @@ Figure&nbsp;7.9: The effect of exposure on attitude towards smoking.
 <p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
 <p>Do not report that common support of the predictor at different moderator values is good. If it is bad, warn the reader that we cannot fully trust the estimated moderation because we do not have a nice range of predictor values within each level of the moderator. If the predictor is supported only within a restricted range, you may report this range.</p>
 <p>Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.</p>
-<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
+<p>Communicate the results of a numerical moderator in a scatterplot with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>). The PROCESS macro provides the syntax for these plots.</p>
 <div id="fig-nummoderatorplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nummoderatorplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
