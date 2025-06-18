@@ -156,8 +156,6 @@ knitr::include_graphics("figures/S9_AE1.png")
 SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
 :::
 
-It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
-
 The effect of exposure on attitude changes if we mean-center the moderator variable *contact* (@fig-meancentertable, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.
 
 The regression coefficient of the interaction effect (@fig-meancentertable, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.
@@ -165,6 +163,8 @@ The regression coefficient of the interaction effect (@fig-meancentertable, blue
 #### SPSS manually mean center a variable
 
 @vid-SPSSregcenter shows how to mean-center a variable in SPSS. The example data set is smokers.sav, which contains the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.
+
+To mean-center a variable, we first obtain the value of the variable's mean with the *Statistics* option in the *Frequencies* submenu of *Descriptive Statistics*. Next, we use the *Compute Variable* option in the *Transform* menu to subtract this mean from the original variable.
 
 ::: {#vid-SPSSregcenter}
 
@@ -496,7 +496,7 @@ In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we
 
 Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
 
-The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accepting the risk of incorrect output by indicating this under `long variable names`.
+The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under `long variable names`.
 
 Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. @vid-RunModerationWithProcess below shows how to run the analysis in SPSS.
 
@@ -541,7 +541,7 @@ unemot       -.2163      .1089    -1.9869      .0498     -.4324     -.0002
 Int_1         .3699      .0265    13.9729      .0000      .3174      .4225 
 ```
 
-The higher order unconditional interaction effect is reported in the `Test(s) of highest order unconditional interaction(s)` section. This is the F-test for the interaction effect, which tests the proportion explained variance by the interaction to the total amount of variance in the model.
+The higher order unconditional interaction effect is reported in the `Test(s) of highest order unconditional interaction(s)` section. This is the F-test for change in explained variance of the interaction term.
 
 ```{md} 
 Product terms key: 
@@ -666,7 +666,7 @@ rm(variables)
 
 ### SPSS numerical and categorical moderator with PROCESS
 
-For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the number of contacts that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.
+For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the amount of contact that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.
 
 In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select `Model Number 2` for a moderation model with two moderators and a second order interaction. We select `exposure` as the predictor `X variable`, and `attitude` as the dependent `Y variable`. We set `contact` as the continuous numerical `Moderator variable W`, and `status3` as the `Moderator variable Z`. The variable `status3` is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the `Multicategorical` butten and ticking the `Multicategorical` for `Variable Z`. You can leave the `Coding system` at `Indicator`.
 
@@ -704,7 +704,7 @@ Graph regression lines for different moderator values.
 
 The results produced by the PROCESS macro are similar to the results of the previous example, but now we have two moderators. The output contains the regression coefficients for the predictor, moderators, and interaction variables, as well as the conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean.
 
-Because we have a categorical moderator, we have to identify the reference group for the categorical moderator. The PROCESS macro creates the two required dummy variables `Z1` and `Z2` for the categorical moderator `status3`. We can use the first section of the output to determine the reference group. The matrix below shows the coding of the categorical moderator variable `status3` for the analysis. Dummy variables `Z1` has the value 1 in the second row, indicating the status category 1 to be on. This category corresponded to being a former smoker. The dummy variable `Z2` has the value 1 in the third row, indicating the status category 2 to be on. This category corresponds to being a smoker. The first row is the reference group, which is non-smoker (status3 = 0). Hence `Z1` represents the former smoker group, and `Z2` represents the smoker group.
+Because we have a categorical moderator, we have to identify the reference group for the categorical moderator. The PROCESS macro creates the two required dummy variables `Z1` and `Z2` for the categorical moderator `status3`. We can use the first section of the output to determine the reference group. The matrix below shows the coding of the categorical moderator variable `status3` for the analysis. Dummy variables `Z1` has the value 1 in the second row, indicating the status category 1 to be active. This category corresponded to being a former smoker. The dummy variable `Z2` has the value 1 in the third row, indicating the status category 2 to be active. This category corresponds to being a smoker. The first row is the reference group, which is non-smoker (status3 = 0). Hence `Z1` represents the former smoker group, and `Z2` represents the smoker group.
 
 ```{md}
 Model  : 2 
