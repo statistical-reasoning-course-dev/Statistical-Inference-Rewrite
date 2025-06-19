@@ -896,14 +896,14 @@ Figure&nbsp;7.8: Conceptual diagram of the estimated moderation model.
 <p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select <code>Model Number 2</code> for a moderation model with two moderators and a second order interaction. We select <code>exposure</code> as the predictor <code>X variable</code>, and <code>attitude</code> as the dependent <code>Y variable</code>. We set <code>contact</code> as the continuous numerical <code>Moderator variable W</code>, and <code>status3</code> as the <code>Moderator variable Z</code>. The variable <code>status3</code> is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the <code>Multicategorical</code> butten and ticking the <code>Multicategorical</code> for <code>Variable Z</code>. You can leave the <code>Coding system</code> at <code>Indicator</code>.</p>
 <p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code>, but we can leave the <code>Johnson-Neyman output</code> un-ticked. Click <code>continue</code> to set these options.</p>
 <p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
-<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. Video XX will show how to run the analysis in SPSS.</p>
-<div id="vid-SPSSreglines2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. <a href="#vid-SPSSrunModContCat" class="quarto-xref">Video&nbsp;<span>7.6</span></a> will show how to run the analysis in SPSS.</p>
+<div id="vid-SPSSrunModContCat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ZKlFyu5HIjk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div aria-describedby="vid-SPSSrunModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/mdxtRyMcb-4" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.6: Graph regression lines for different moderator values.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSrunModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.6: Moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
 </figcaption>
 </figure>
 </div>

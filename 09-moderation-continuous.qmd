@@ -674,7 +674,7 @@ Under `Options`, we select `Generate code for visualizing interactions`, we can 
 
 The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under `long variable names`.
 
-Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. Video XX will show how to run the analysis in SPSS.
+Finally, we click `OK` to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. @vid-SPSSrunModContCat will show how to run the analysis in SPSS.
 
 
 
@@ -682,14 +682,14 @@ Finally, we click `OK` to run the analysis. The output will contain the regressi
 
 
 
-::: {#vid-SPSSreglines2}
+::: {#vid-SPSSrunModContCat}
 
-{{< video https://www.youtube.com/embed/ZKlFyu5HIjk
+{{< video https://youtu.be/mdxtRyMcb-4
     width="100%"
     height="315" 
 >}}
 
-Graph regression lines for different moderator values.
+Moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
 :::
 
 
