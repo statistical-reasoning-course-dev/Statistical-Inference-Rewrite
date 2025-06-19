@@ -782,7 +782,19 @@ Conditional effects of the focal predictor at values of the moderator(s):
      1.8271     2.0000     -.0535      .0954     -.5606      .5767     -.2436      .1365
 ```
 
-The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in video XX below.
+The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in @id-SPSSintModContCat below.
+
+
+::: {#vid-SPSSintModContCat}
+
+{{< video https://youtu.be/6s1pzj90lBw
+    width="100%"
+    height="315" 
+>}}
+
+Interpreting the results of a moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
+:::
+
 
 ::: {.callout-note}
 The graphs produced by PROCESS, for categorical moderators, are only visualized correctly if the `Measure` in the `Variable View` in SPSS is set to `Nominal` for the categorical moderator variable.
