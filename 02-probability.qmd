@@ -85,7 +85,7 @@ It is usually wise to set a limit to the time you allow your computer to work on
 
 ## Exact Approaches in SPSS {#sec-SPSS-exact}
 
-### Introduction {#exact-intro}
+### Introduction {#sec-exact-intro}
 
 To perform an exact approach in SPSS, let us set an example for a research. In a preceding paragraph we suggested the question _are yellow candies more often sticky than red candies_? If we want to investigate this, we have two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). These two variables are both categorical (with two categories).
 
@@ -103,9 +103,9 @@ In the video below you can see how to perform an Exact test in SPSS.
 
 Let's say you are having some friends over and put some candy out on the table. During the night you and your friends notice some candies being way stickier than other candies. One of your friends makes the observations that it seems to differ by candy colour. You are sceptical and want to investigate this.
 
-You might recognize that this example, and the video below, shows the example of candy colour and candy stickiness as described in @exact-intro. Thus, we still have two categorical variables which both have two categories. Hence, we have a 2x2 contingency table and perform an Exact test. Three ways are shown.
+You might recognize that this example, and the video below, shows the example of candy colour and candy stickiness as described in @sec-exact-intro. Thus, we still have two categorical variables which both have two categories. Hence, we have a 2x2 contingency table and perform an Exact test. Three ways are shown.
 
-First we show you the approach via the _nonparametric tests > legacy dialogs > chi-square test_, where you only have to select the _Exact_ option and the time limit of five minutes. 
+First we show you the approach via the `nonparametric tests > legacy dialogs > chi-square test`, where you only have to select the `Exact` option and the time limit of five minutes. 
 
 Then we show how how to do an Exact test while testing a proportion. This is done via _nonparametric tests > legacy dialogs > binomial test_. Again, you select the _Exact_ option with a five minute time limit. 
 
