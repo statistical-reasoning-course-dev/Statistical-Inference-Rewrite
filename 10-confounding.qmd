@@ -294,7 +294,7 @@ To summarize the two types of confounders:
   
 ## Comparing Regression Models in SPSS {#sec-compmodelSSPSS}
 
-#### Essential Analytics {.unnumbered}
+#### Essential Analytics {#sec-essanalconfounders}
 
 We can detect confounders by adding each independent variable as a separate *Block* in a linear regression model (the *Linear* option in the *Regression* submenu). The SPSS output estimates a regression model for each block (@fig-confounderstable).
 
@@ -308,6 +308,20 @@ SPSS table of regression models with the independent variables interest in polit
 In the first model, interest in politics is the only predictor. One additional unit of interest in politics adds 1.13 to the predicted newspaper time per day (@fig-confounderstable, red box). If age is added as a predictor in the second model, the effect of interest in politics decreases from 1.13 to 0.32 (@fig-confounderstable, green box). Age reinforced the effect of interest in politics in the first model. The third model adds the predictor variable news site use. Now, the effect of interest in politics increases from 0.32 to 0.53 (@fig-confounderstable, blue box); news site use suppressed the effect of interest in politics in the second model.
 
 ###  Instructions
+
+In the video below we will demonstrate how to identify confounders by comparing regression models in SPSS. 
+
+Let us imagine the situation where we are part of a political communication research team. Elections are coming up and we are interested in whether people are reading the news, getting information on the elections and campaigns, and which factors might be of influence there. Our main interest is the relationship between newspaper reading time and news site use. We will be adding education and age as possible confounders in our model. By adding them into the model, these possible confounders become covariates.
+
+We will conduct what we call a _stepwise regression_. This means we will add the predictors to the SPSS model one by one, as we discussed in @sec-essanalconfounders. We perform a regression as always, through `analyse > regression > linear`. We add readingtime as the `dependent variable`. In the `independent(s)` window, we add newssite - click `next`, we add education - click `next` - and we add age. In the `Statistics` dialog, we click `confidence interval`, 95%. Then we run the analysis, please remember to first click `paste` and then run the analysis through the syntax file.
+
+In the video the assumptions of regression analysis are not getting checked since this is not the focus of this chapter. Which is why we are not getting into those settings at the moment. Please refer to Chapter 6 and 7 if you want to get into the assumptions.
+
+In the output we can see the table _Variables Entered/Removed_, here we can see if we entered the variables in the correct order. In the next table, the _Model Summary_ we can collect details on the R and R-squared of the different models. R-squared is the explained variance. The table _Coefficients_ provides us with the other regression output; the unstandardized regression coefficient, the standard error, the standardized regression coefficient, the t-value, the p-value and the confidence interval.
+
+In the _Coeffcients_ table we can compare the models to explore whether our added variables were confounders. Please note that we can only compare subsequent models. Meaning in this output we can compare model 2 to model 1 and we can compare model 3 to model 2. We are unable to compare model 3 to model 1. If we look at the results of model 3 compared to model 2, we see that the unstandardized regression coefficients of both news site use and education level (in years) move closer to zero. The unstandardized regression coefficient of News site use become less negative (the unstandardized regression coeffcient of -5.770 becomes -1.297) and the unstandardized regression coefficient of Education level becomes less positive (the unstandardized regression coefficient of .463 becomes .176). In other words, the individual effects of both news site use and education level become weaker once we add the variable age. Hence, based on comparing the results of model 3 to model 2, we can conclude that the predictor age (a covariate in model 3) was a reinforcing confounder in model 2. 
+
+Watch the video below for the step by step instructions, more details and additional information.
 
 ::: {#vid-SPSSregconfound}
 
