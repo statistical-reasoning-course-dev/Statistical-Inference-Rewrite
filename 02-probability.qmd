@@ -29,7 +29,7 @@ How do we get a sampling distribution without drawing many samples ourselves?
 
 In the previous chapter, we drew a large number of samples from a population to obtain the sampling distribution of a sample statistic, for instance, the proportion of yellow candies or average candy weight in the sample. The procedure is quite simple: Draw a sample, calculate the desired sample statistic, add the sample statistic value to the sampling distribution, and repeat this thousands of times.  
 
-Although this procedure is simple, it is not practical. In a research project, we would have to draw thousands of samples and administer a survey to each sample or collect data on the sample in some other way. This requires too much time and money to be of any practical value. So how do we create a sampling distribution, if we only collect data for a single sample? This chapter presents three ways of doing this: bootstrapping, exact approaches, and theoretical approximations.
+Although this procedure is simple, it is not practical. In a research project, we would have to draw thousands of samples and administer a survey to each sample or collect data on the sample in some other way. This requires too much time and money to be of any practical value. So how do we create a sampling distribution, if we only collect data for a single sample? This chapter presents three ways of doing this: exact approaches, theoretical approximations, and bootstrapping.
 
 After studying this chapter, you should know the limitations of the three methods of creating a sampling distribution, when to use which method, and how to check the conditions for using a method.
 
@@ -105,13 +105,13 @@ Let's say you are having some friends over and put some candy out on the table. 
 
 You might recognize that this example, and the video below, shows the example of candy colour and candy stickiness as described in @sec-exact-intro. Thus, we still have two categorical variables which both have two categories. Hence, we have a 2x2 contingency table and perform an Exact test. Three ways are shown.
 
-First we show you the approach via the `nonparametric tests > legacy dialogs > chi-square test`, where you only have to select the `Exact` option and the time limit of five minutes. 
+First we show you the approach via the `analyze > nonparametric tests > legacy dialogs > chi-square test`, where you only have to select the `Exact` option and the time limit of five minutes. 
 
-Then we show how how to do an Exact test while testing a proportion. This is done via _nonparametric tests > legacy dialogs > binomial test_. Again, you select the _Exact_ option with a five minute time limit. 
+Then we show how how to do an Exact test while testing a proportion. This is done via `analyze > nonparametric tests > legacy dialogs > binomial test`. Again, you select the `Exact` option with a five minute time limit. 
 
-Lastly, the crosstabs option is shown. This is the method you will probably use the most. Here we select the _Exact_ option with the five minute time limit, but we also select _Chi-Square_ in the _Statistics_ dialog. In the _Statistics_ dialog we also select an effect size, you usually use four. For at least one nominal variable in your reserach, we use Cramer's V for a symmetrical association and Lambda for an asymmetrical association. For all ordinal variables in your research, we use Gamma (van Goodman en Kruskal) for a symmetrical association and Somer's d for an asymmetrical association. Thus, for this example (two nominal variables and a symmetrical association) we use _Phi and Cramer's V_. Under the _Cells..._ dialog, we select the _obersved counts_ and the _column_ percentages. Then you can run the analysis, do not forget to click _paste_ instead of _OK_ as we want to work with a syntax. With a syntax you can always check your work.
+Lastly, the crosstabs option is shown. This is the method you will probably use the most. Here we select the _Exact_ option with the five minute time limit, but we also select `Chi-Square` in the `Statistics` dialog. In the `Statistics` dialog we also select an effect size, you usually use four. For at least one nominal variable in your reserach, we use Cramer's V for a symmetrical association and Lambda for an asymmetrical association. For all ordinal variables in your research, we use Gamma (van Goodman en Kruskal) for a symmetrical association and Somer's d for an asymmetrical association. Thus, for this example (two nominal variables and a symmetrical association) we use `Phi and Cramer's V`. Under the `Cells...` dialog, we select the `obersved counts` and the `column` percentages. Then you can run the analysis, do not forget to click `paste` instead of `OK` as we want to work with a syntax. With a syntax you can always check your work.
 
-Check the video for the step by step on how to perform the exact approach in SPSS, the details and some additional information.
+Watch the video for the step by step on how to perform the exact approach in SPSS, the details and some additional information.
 
 ::: {#vid-SPSSExact1}
 
@@ -135,7 +135,7 @@ The fourth table, _symmetric measures_, shows us the effect size. In this case w
 
 In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend te be stickier than red and yellow candies. Tell that to your friend who is hosting the next birthday party!
 
-Check the video for the step by step on how to interpret the exact approach in SPSS, the details and some additional information.
+Watch the video for the step by step on how to interpret the exact approach in SPSS, the details and some additional information.
 
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -181,7 +181,7 @@ Interpret exact test results in SPSS.
 
 ## Theoretical Approximations of the Sampling Distribution {#sec-theoretical-approx}
 
-Because bootstrapping and exact approaches to the sampling distribution require quite a lot of computing power, these methods were not practical in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the _normal distribution_ or the closely related _(Student) t distribution_. The mathematical functions are called _theoretical probability distributions_. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.
+You have learned that the exact approach requires a lot of computer power, which is not such a practical method in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the _normal distribution_ or the closely related _(Student) t distribution_. The mathematical functions are called _theoretical probability distributions_. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.
 
 ::: {#fig-normal-approximation}
 
@@ -346,11 +346,11 @@ By default, SPSS uses a theoretical probability distribution to approximate the 
 
 In one case, SPSS automatically selects an exact approach if the conditions for a theoretical approximation are not met. If you apply a chi-squared test to a contingency table in SPSS, SPSS will automatically apply Fisher's exact test if the table has two rows and two columns. In all other cases, you have to select bootstrapping or an exact approach yourself if the conditions for a theoretical approximation are not met.
 
-We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters.
+We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters. The default approach in SPSS means that if we conduct an analysis in SPSS without changing the settings to include an exact approach or bootstrapping (which you will learn in the next paragraph), we are using a theoertical approximation on our data.
 
 ## The Bootstrap Approximation of the Sampling Distribution {#sec-boot-approx}
 
-The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
+The third way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called _bootstrap samples_. The technique was developed by Bradley Efron [-@RefWorks:3956; -@RefWorks:3957]. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.  
 
 ::: {#fig-bootstrapping .column-page-inset-right}
 
@@ -461,9 +461,9 @@ In this case, we are investigating whether yellow and red candies weigh the same
 
 As you might remember from the exact approach, this data set contains more candy colours than red and yellow. It is important that we define the groups so that this analysis only includes red and yellow candies. Otherwise we will not find an answer to the question we have proposed above.
 
-You might also remember from the theoretical approach that there are certain conditions we need to meet in order to be able to execute an independent samples t-test. Let's say your friends have been eating quite some candy and therefore we do not have 30 yellow and 30 red candies left. Consequently, we do not meet the conditions. This leads us to resort to bootstrapping to still be able to use the independent sample t-test. Via the _bootstrap_ button, we can check _perform bootstrapping_. Usually, we use 5000 bootstrap samples and 95% bias corrected confidence intervals. Please note that bootstrapping is random and therefore bootstrap results can always differ a little bit from each other, you might see this when working together with a friend or checking your answers on the preparatory assignments. Numbers can differ a little bit, this will not happen when we use the same seed - but we do not use that option in this course.
+You might also remember from the theoretical approach that there are certain conditions we need to meet in order to be able to execute an independent samples t-test. Let's say your friends have been eating quite some candy and therefore we do not have 30 yellow and 30 red candies left. Consequently, we do not meet the conditions. This leads us to resort to bootstrapping to still be able to use the independent sample t-test. Via the  `bootstrap` button, we can check `perform bootstrapping`. Usually, we use 5000 bootstrap samples and 95% bias corrected confidence intervals. Please note that bootstrapping is random and therefore bootstrap results can always differ a little bit from each other, you might see this when working together with a friend or checking your answers on the preparatory assignments. Numbers can differ a little bit, this will not happen when we use the same seed - but we do not use that option in this course.
 
-Check out the video for the step by step on how to perform an independent t-test with bootstrapping, the details and some additional information.
+Watch the video for the step by step on how to perform an independent t-test with bootstrapping, the details and some additional information.
 
 ::: {#vid-SPSSbootstrap1}
 
@@ -485,7 +485,7 @@ The second part of the _independent samples test_ shows us the mean difference w
 
 In conclusion, the results show us that we could conclude that the hypothesis made by your friends gets no support from our data. Red and yellow candies seem to weigh approximately the same. You could have already seen this coming after looking at the mean values.
 
-Check out the video for the step by step on how to interpret an independent t-test with bootstrapping, the details and some additional information.
+Watch the video for the step by step on how to interpret an independent t-test with bootstrapping, the details and some additional information.
 
 ```{r, echo=FALSE, eval=FALSE}
 # Perform bootstrapping in SPSS.
