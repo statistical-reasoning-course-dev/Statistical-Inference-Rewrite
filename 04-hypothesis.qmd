@@ -176,7 +176,7 @@ The Neyman Pearson approach is about choosing your desired probability of making
 6. Determine the test statistic.
 7. Determine if $p$-value $\leq \alpha$. If so, reject $H_0$.
 
-The two decisions can be visualized in a $2 \times 2$ table where in reality $H_0$ can be true or false ($H_A$ is true), and the decision can either be to reject $H_0$ or not. @fig-decisiontable illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is in fact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
+The two decisions can be visualized in a $2 \times 2$ table where in reality $H_0$ can be true or false, and the decision can either be to reject $H_0$ or not. @fig-decisiontable illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is in fact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
 
 ![NHST decision table.](figures/decision_table.svg){width=300 #fig-decisiontable fig-align="left"}
 
@@ -199,7 +199,7 @@ As the candy factory produces bags with ten candies, we can look at both probabi
     
 ::: {.column width="50%"}    
     
-* $H_A$ Distribution
+* $H_T$ True distribution
     * One fifth of the candies in the bag are yellow
     * The parameter of the candy machine is .2
     * With expected value 2 out of 10
@@ -233,7 +233,7 @@ barplot( rbind(dbinom(0:10, 10, .5),
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
 
-legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+legend("topright", legend=c("H0","HT"), fill=c(colh0, colha))
 
 ```
 
@@ -336,20 +336,20 @@ The decision to not reject the null hypothesis when it is in reality true is ind
 
 Now that we have determined our critical value (for our particular sample size) based on our desired alpha, significance level, we can use this critical value to look at the power.
 
-### Power {#sec-power}
+### Power (true) {#sec-power}
 
-The power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the $2 \times 2$ decision table in @fig-decisiontable, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In figure \ref(fig:nulldistributionalpha) we determined our type I error could be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.
+The true power is the probability of making the correct decision to reject the null hypothesis when it is in fact false. In the $2 \times 2$ decision table in @fig-decisiontable, this corresponds to the top right quadrant. As we have already set our decision criterion by choosing our alpha level in the previous step, we already know when we decide to reject the null hypothesis. In @fig-nulldistributionalpha, based on the null distribution, we determined our type I error to be 0.2%, if we would reject the null hypothesis if we would draw 0 or 10 yellow candies. The critical value would in that case be between 0 and 1 and 9 and 10. We use this same critical value to determine the power of the test, as it establishes our decision boundary.
 
 As the right column of @fig-decisiontable only states that $H_0 = \text{FALSE}$, it does not state what this entails. Within the Neyman Pearson approach, this would be the true population value with its associated probability distribution. We already established that this would be the distribution with a parameter value of .2. In @fig-altdistributionpower, we see that our decision criterion is still the same. That we decide to reject the null when we sample 0 or 10 yellow candies. But the distribution has now changed.  
 
 ```{r}
 #| label: fig-altdistributionpower
-#| fig-cap: "HA binomial distributions with critical values."
+#| fig-cap: "True binomial distributions with critical values."
 #| echo: false
 #| warning: false
 
 
-title = expression(paste("Alternative distributions ", theta, " = .2"))
+title = expression(paste("True distributions ", theta, " = .2"))
 
 colh0 = 'yellow'
 colha = 'lightyellow'
@@ -384,7 +384,7 @@ text(12.1, .1, "Critial value", col='darkgreen', pos=3, srt=-90)
 
 ```
 
-If this alternative distribution would actually be true, deciding to reject the null would be a good decision. Though, we can also see that if this alternative is true, if the parameter truly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if the alternative hypothesis is true, if our sample originates from the alternative hypothesis, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null when this specific alternative is true is only 11%.
+With this distribution based on the actually true population parameter, deciding to reject the null would be a good decision. Though, we can also see that if this is true, if the parameter truly is .2, getting a bag with 0 or 10 yellow candies does not happen that often. The probabilities for 10 yellow candies is almost none, and the probability for getting 0 yellow candies is about 11%. This means that if this hypothesis is true, if our sample originates from this distribution, we would only make the decision to reject the null hypothesis in 11% of the samples we get out of it. So, the power of the test, correctly rejecting the null is only 11%.
 
 > The only way to increase the power is to increase the sample size of the study, or increase the type I error.
 

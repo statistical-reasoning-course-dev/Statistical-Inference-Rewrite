@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -52,15 +52,16 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./03-estimation.html" rel="next">
 <link href="./01-samplingdistr.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4824bc4fcff8d7c1e04965ee072d4f81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -97,7 +98,7 @@ div.csl-indent {
 <link rel="stylesheet" href="styleX.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -224,17 +225,17 @@ div.csl-indent {
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#exact-approaches-to-the-sampling-distribution" id="toc-exact-approaches-to-the-sampling-distribution" class="nav-link" data-scroll-target="#exact-approaches-to-the-sampling-distribution"><span class="header-section-number">2.1</span> Exact Approaches to the Sampling Distribution</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#exact-approaches-for-categorical-data" id="toc-exact-approaches-for-categorical-data" class="nav-link" data-scroll-target="#exact-approaches-for-categorical-data"><span class="header-section-number">2.1.1</span> Exact approaches for categorical data</a></li>
-  <li><a href="#computer-intensive" id="toc-computer-intensive" class="nav-link" data-scroll-target="#computer-intensive"><span class="header-section-number">2.1.2</span> Computer-intensive</a></li>
+  <li><a href="#sec-comp-int" id="toc-sec-comp-int" class="nav-link" data-scroll-target="#sec-comp-int"><span class="header-section-number">2.1.2</span> Computer-intensive</a></li>
   </ul></li>
   <li><a href="#sec-SPSS-exact" id="toc-sec-SPSS-exact" class="nav-link" data-scroll-target="#sec-SPSS-exact"><span class="header-section-number">2.2</span> Exact Approaches in SPSS</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">2.2.1</span> Introduction</a></li>
+  <ul>
+  <li><a href="#sec-exact-intro" id="toc-sec-exact-intro" class="nav-link" data-scroll-target="#sec-exact-intro"><span class="header-section-number">2.2.1</span> Introduction</a></li>
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">2.2.2</span> Instructions</a></li>
   </ul></li>
   <li><a href="#sec-theoretical-approx" id="toc-sec-theoretical-approx" class="nav-link" data-scroll-target="#sec-theoretical-approx"><span class="header-section-number">2.3</span> Theoretical Approximations of the Sampling Distribution</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#reasons-for-a-bell-shaped-probability-distribution" id="toc-reasons-for-a-bell-shaped-probability-distribution" class="nav-link" data-scroll-target="#reasons-for-a-bell-shaped-probability-distribution"><span class="header-section-number">2.3.1</span> Reasons for a bell-shaped probability distribution</a></li>
   <li><a href="#sec-cond-probdistr" id="toc-sec-cond-probdistr" class="nav-link" data-scroll-target="#sec-cond-probdistr"><span class="header-section-number">2.3.2</span> Conditions for the use of theoretical probability distributions</a></li>
   <li><a href="#sec-cond-check" id="toc-sec-cond-check" class="nav-link" data-scroll-target="#sec-cond-check"><span class="header-section-number">2.3.3</span> Checking conditions</a></li>
@@ -244,13 +245,13 @@ div.csl-indent {
   </ul></li>
   <li><a href="#spss-and-theoretical-approximation-of-the-sampling-distribution" id="toc-spss-and-theoretical-approximation-of-the-sampling-distribution" class="nav-link" data-scroll-target="#spss-and-theoretical-approximation-of-the-sampling-distribution"><span class="header-section-number">2.4</span> SPSS and Theoretical Approximation of the Sampling Distribution</a></li>
   <li><a href="#sec-boot-approx" id="toc-sec-boot-approx" class="nav-link" data-scroll-target="#sec-boot-approx"><span class="header-section-number">2.5</span> The Bootstrap Approximation of the Sampling Distribution</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#sampling-with-and-without-replacement" id="toc-sampling-with-and-without-replacement" class="nav-link" data-scroll-target="#sampling-with-and-without-replacement"><span class="header-section-number">2.5.1</span> Sampling with and without replacement</a></li>
   <li><a href="#limitations-to-bootstrapping" id="toc-limitations-to-bootstrapping" class="nav-link" data-scroll-target="#limitations-to-bootstrapping"><span class="header-section-number">2.5.2</span> Limitations to bootstrapping</a></li>
   <li><a href="#any-sample-statistic-can-be-bootstrapped" id="toc-any-sample-statistic-can-be-bootstrapped" class="nav-link" data-scroll-target="#any-sample-statistic-can-be-bootstrapped"><span class="header-section-number">2.5.3</span> Any sample statistic can be bootstrapped</a></li>
   </ul></li>
   <li><a href="#sec-boot-spss" id="toc-sec-boot-spss" class="nav-link" data-scroll-target="#sec-boot-spss"><span class="header-section-number">2.6</span> Bootstrapping in SPSS</a>
-  <ul class="collapse">
+  <ul>
   <li><a href="#instructions-1" id="toc-instructions-1" class="nav-link" data-scroll-target="#instructions-1"><span class="header-section-number">2.6.1</span> Instructions</a></li>
   </ul></li>
   <li><a href="#when-do-we-use-which-approach-to-the-sampling-distribution" id="toc-when-do-we-use-which-approach-to-the-sampling-distribution" class="nav-link" data-scroll-target="#when-do-we-use-which-approach-to-the-sampling-distribution"><span class="header-section-number">2.7</span> When Do We Use Which Approach to the Sampling Distribution?</a></li>
@@ -310,7 +311,7 @@ Video&nbsp;2.1: Introduction to probability models.
 </div>
 </div>
 <p>In the previous chapter, we drew a large number of samples from a population to obtain the sampling distribution of a sample statistic, for instance, the proportion of yellow candies or average candy weight in the sample. The procedure is quite simple: Draw a sample, calculate the desired sample statistic, add the sample statistic value to the sampling distribution, and repeat this thousands of times.</p>
-<p>Although this procedure is simple, it is not practical. In a research project, we would have to draw thousands of samples and administer a survey to each sample or collect data on the sample in some other way. This requires too much time and money to be of any practical value. So how do we create a sampling distribution, if we only collect data for a single sample? This chapter presents three ways of doing this: bootstrapping, exact approaches, and theoretical approximations.</p>
+<p>Although this procedure is simple, it is not practical. In a research project, we would have to draw thousands of samples and administer a survey to each sample or collect data on the sample in some other way. This requires too much time and money to be of any practical value. So how do we create a sampling distribution, if we only collect data for a single sample? This chapter presents three ways of doing this: exact approaches, theoretical approximations, and bootstrapping.</p>
 <p>After studying this chapter, you should know the limitations of the three methods of creating a sampling distribution, when to use which method, and how to check the conditions for using a method.</p>
 </section>
 <section id="exact-approaches-to-the-sampling-distribution" class="level2" data-number="2.1">
@@ -390,8 +391,6 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </figure>
@@ -407,24 +406,31 @@ Table&nbsp;2.1: Number of heads for a toss of three coins.
 <p>A proportion is based on frequencies and frequencies are discrete (integer values), so we can use an exact approach to create a sampling distribution for one proportion such as the proportion of yellow candies in the example above. The exact approach uses the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial probability</a> formula to calculate probabilities. Consult the internet if you want to know this formula; we are not going to use it in this course.</p>
 <p>Exact approaches are also available for the association between two categorical (nominal or ordinal) variables in a contingency table: Do some combinations of values for the two variables occur relatively frequently? For example, are yellow candies more often sticky than red candies? If candies are either sticky or not sticky and they have one out of a limited set of colours, we have two categorical variables. We can create an exact probability distribution for the combination of colour and stickiness. The <em>Fisher-exact test</em> is an example of an exact approach to the sampling distribution of the association between two categorical variables.</p>
 </section>
-<section id="computer-intensive" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="computer-intensive"><span class="header-section-number">2.1.2</span> Computer-intensive</h3>
+<section id="sec-comp-int" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="sec-comp-int"><span class="header-section-number">2.1.2</span> Computer-intensive</h3>
 <p>The exact approach can be applied to discrete variables because they have a limited number of values. Discrete variables are usually measured at the nominal or ordinal level. If the number of categories becomes large, a lot of computing time can be needed to calculate the probabilities of all possible sample statistic outcomes. Exact approaches are said to be <em>computer-intensive</em>.</p>
 <p>It is usually wise to set a limit to the time you allow your computer to work on an exact sampling distribution because otherwise the problem may keep your computer occupied for hours or days. In this course, we will set the time limit in SPSS on 5 minutes (<a href="#sec-SPSS-exact" class="quarto-xref"><span>Section 2.2</span></a>)</p>
 </section>
 </section>
 <section id="sec-SPSS-exact" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="sec-SPSS-exact"><span class="header-section-number">2.2</span> Exact Approaches in SPSS</h2>
-<section id="introduction" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">2.2.1</span> Introduction</h3>
-<p>To perform an exact approach in SPSS, let us set an example for a research. In a preceding paragraph we suggested the question <em>are yellow candies more often sticky than red candies</em>? If we want to investigate this, we have two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). Thus, these two variables are both categorical (with two categories).</p>
-<p>We can create an exact probability distribution for the combination of colour and stickiness.</p>
-<p>If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an <em>Exact</em> button. You will find this in the dialog window for contingenxy table (<em>Analyze &gt; descriptive statistics &gt; crosstabs</em>) and in several legacy dialogs for non-parametric tests (<em>Analyze &gt; nonparametric tests &gt; legacy diologs</em>). In the Exact dialog, you check the <em>Exact</em> option and SPSS automatically sets an upper limit of five minutes to the execution of the command. You can leave this at five minutes.</p>
-<p>As established, we have two categorical variables with two groups. Looking at the test selection table, we know that we use a Chi Square test to investigate these variables. Thus, within the dialog window <em>contingency tables</em> we select Chi-sqaure in the <em>Statistics</em> dialog and the option <em>Exact</em> in the <em>Exact</em> dialog.</p>
-<p><em>Note</em> a Fisher’s exact test is automatically run when there is a 2x2 contingency table, when we perform this test on larger contingency tables we need to select the <em>Exact</em> option, which is why we teach it to you here.</p>
+<section id="sec-exact-intro" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="sec-exact-intro"><span class="header-section-number">2.2.1</span> Introduction</h3>
+<p>To perform an exact approach in SPSS, let us set an example for a research. In a preceding paragraph we suggested the question <em>are yellow candies more often sticky than red candies</em>? If we want to investigate this, we have two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). These two variables are both categorical (with two categories).</p>
+<p>Thus, we can create an exact probability distribution for the combination of colour and stickiness.</p>
+<p>If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an <code>Exact</code> button. We can find this in the dialog window for creating a contingency table (<code>Analyze &gt; descriptive statistics &gt; crosstab</code>) and in several legacy dialogs for non-parametric tests (<code>Analyze &gt; nonparametric tests &gt; legacy diologs</code>). In the Exact dialog, we check the <code>Exact</code> option and SPSS automatically sets an upper limit of five minutes to the execution of the command. We can leave this at five minutes (see <a href="#sec-comp-int" class="quarto-xref"><span>Section 2.1.2</span></a> for why we have to do this).</p>
+<p>As established, we have two categorical variables with two categories. Looking at the test selection table (<a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a>), we know that we use a Chi Square test to investigate these variables. Thus, within the dialog window <code>crosstabs</code> we open the <code>Statistics</code> dialog to select Chi-sqaure and we open the <code>Exact</code> dialog to select the option <code>Exact</code>.</p>
+<p><em>Note</em>. A Fisher’s exact test is automatically run when there is a 2x2 contingency table. When we perform this test on larger contingency tables we need to select the <code>Exact</code> option, which is why we teach it to you here.</p>
 </section>
 <section id="instructions" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="instructions"><span class="header-section-number">2.2.2</span> Instructions</h3>
+<p>In the video below you can see how to perform an Exact test in SPSS.</p>
+<p>Let’s say you are having some friends over and put some candy out on the table. During the night you and your friends notice some candies being way stickier than other candies. One of your friends makes the observations that it seems to differ by candy colour. You are sceptical and want to investigate this.</p>
+<p>You might recognize that this example, and the video below, shows the example of candy colour and candy stickiness as described in <a href="#sec-exact-intro" class="quarto-xref"><span>Section 2.2.1</span></a>. Thus, we still have two categorical variables which both have two categories. Hence, we have a 2x2 contingency table and perform an Exact test. Three ways are shown.</p>
+<p>First we show you the approach via the <code>analyze &gt; nonparametric tests &gt; legacy dialogs &gt; chi-square test</code>, where you only have to select the <code>Exact</code> option and the time limit of five minutes.</p>
+<p>Then we show how how to do an Exact test while testing a proportion. This is done via <code>analyze &gt; nonparametric tests &gt; legacy dialogs &gt; binomial test</code>. Again, you select the <code>Exact</code> option with a five minute time limit.</p>
+<p>Lastly, the crosstabs option is shown. This is the method you will probably use the most. Here we select the <em>Exact</em> option with the five minute time limit, but we also select <code>Chi-Square</code> in the <code>Statistics</code> dialog. In the <code>Statistics</code> dialog we also select an effect size, you usually use four. For at least one nominal variable in your reserach, we use Cramer’s V for a symmetrical association and Lambda for an asymmetrical association. For all ordinal variables in your research, we use Gamma (van Goodman en Kruskal) for a symmetrical association and Somer’s d for an asymmetrical association. Thus, for this example (two nominal variables and a symmetrical association) we use <code>Phi and Cramer's V</code>. Under the <code>Cells...</code> dialog, we select the <code>obersved counts</code> and the <code>column</code> percentages. Then you can run the analysis, do not forget to click <code>paste</code> instead of <code>OK</code> as we want to work with a syntax. With a syntax you can always check your work.</p>
+<p>Watch the video for the step by step on how to perform the exact approach in SPSS, the details and some additional information.</p>
 <div id="vid-SPSSExact1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSExact1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -435,6 +441,13 @@ Video&nbsp;2.2: Perform an exact test in SPSS.
 </figcaption>
 </figure>
 </div>
+<p>In the video below, we will interpret the results of an Exact test in SPSS.</p>
+<p>The video shows you the different tables that yield from the analysis. Output from an analysis often starts with a type of summary. Here you can check things similar to descriptive analyses (e.g., case numbers, means, etc.). In the case of an exact test, we see the numbers of cases in the first table <em>case processing summary</em>.</p>
+<p>The second table shows us the crosstabulation with the added percentages for all columns. The percentages alone can already give you a direction to where your results are headed. These numbers can really help with interpreting your results later on.</p>
+<p>In the third table, <em>chi square tests</em>, we can see our test statistics and values like the p-value. In the third row you can find the Fisher’s Exact Test. This row is the row of results we will report for this test. The p-value tells us whether an effect is significant or not based on this sample. We use the criterium of a p-value below .05 to be significant. There is more to this, but we will elaborate in Chapter 4. If you find a significant results, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups are differing from each other and in which way. It can help you make sense of the association you have just tested.</p>
+<p>The fourth table, <em>symmetric measures</em>, shows us the effect size. In this case we conclude there is a moderate association between candy stickiness and colour.</p>
+<p>In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend te be stickier than red and yellow candies. Tell that to your friend who is hosting the next birthday party!</p>
+<p>Watch the video for the step by step on how to interpret the exact approach in SPSS, the details and some additional information.</p>
 <div id="vid-SPSSExact2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSExact2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -449,7 +462,7 @@ Video&nbsp;2.3: Interpret exact test results in SPSS.
 </section>
 <section id="sec-theoretical-approx" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="sec-theoretical-approx"><span class="header-section-number">2.3</span> Theoretical Approximations of the Sampling Distribution</h2>
-<p>Because bootstrapping and exact approaches to the sampling distribution require quite a lot of computing power, these methods were not practical in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the <em>normal distribution</em> or the closely related <em>(Student) t distribution</em>. The mathematical functions are called <em>theoretical probability distributions</em>. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.</p>
+<p>You have learned that the exact approach requires a lot of computer power, which is not such a practical method in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the <em>normal distribution</em> or the closely related <em>(Student) t distribution</em>. The mathematical functions are called <em>theoretical probability distributions</em>. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.</p>
 <div id="fig-normal-approximation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normal-approximation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -490,7 +503,7 @@ Figure&nbsp;2.2: How does the shape of the sampling distribution of sample propo
 <p>The rule of thumb for using the normal distribution as the sampling distribution of a sample proportion combines the two aspects by multiplying them and requiring the resulting product to be larger than five. If the probability of drawing a yellow candy is .2 and our sample size is 30, the product is .2 * 30 = 6, which is larger than five. So we may use the normal distribution as approximation of the sampling distribution.</p>
 <p>Note that this rule of thumb uses one minus the probability, if the probability is larger than .5. In other words, it uses the smaller of two probabilities: the probability that an observation has the characteristic and the probability that it has not. For example, if we want to test the probability of drawing a candy that is not yellow, the probability is .8 and we use 1 - 0.8 = 0.2, which is then multiplied by the sample size.</p>
 <p>Apart from the <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal distribution</a>, there are several other theoretical probability distributions. We have the <a href="https://en.wikipedia.org/wiki/Binomial_distribution"><em>binomial distribution</em></a> for a proportion, the <a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution"><em>t distribution</em></a> for one or two sample means, regression coefficients, and correlation coefficients, the <a href="https://en.wikipedia.org/wiki/F-distribution"><em>F distribution</em></a> for comparison of variances and comparing means for three or more groups (analysis of variance, ANOVA), and the <a href="https://en.wikipedia.org/wiki/Chi-squared_distribution"><em>chi-squared distribution</em></a> for frequency tables and contingency tables.</p>
-<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in <a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, <a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>).</p>
+<p>For most of these theoretical probability distributions, sample size is important. The larger the sample, the better. There are additional conditions that must be satisfied such as the distribution of the variable in the population. The rules of thumb are summarized in <a href="#tbl-thumb" class="quarto-xref">Table&nbsp;<span>2.2</span></a>. Bootstrapping and exact tests can be used if conditions for theoretical probability distributions have not been met. Special conditions apply to regression analysis (see <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, <a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.5</span></a>).</p>
 <div class="cell">
 <div id="tbl-thumb" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -571,8 +584,6 @@ Table&nbsp;2.2: ules of thumb for using theoretical probability distributions.
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </figure>
@@ -639,11 +650,11 @@ Figure&nbsp;2.4: Dependent samples.
 <h2 data-number="2.4" class="anchored" data-anchor-id="spss-and-theoretical-approximation-of-the-sampling-distribution"><span class="header-section-number">2.4</span> SPSS and Theoretical Approximation of the Sampling Distribution</h2>
 <p>By default, SPSS uses a theoretical probability distribution to approximate the sampling distribution. It chooses the correct theoretical distribution but you yourself should check if the conditions for using this distribution are met. For example, is the sample large enough or is it plausible that the variable is normally distributed in the population?</p>
 <p>In one case, SPSS automatically selects an exact approach if the conditions for a theoretical approximation are not met. If you apply a chi-squared test to a contingency table in SPSS, SPSS will automatically apply Fisher’s exact test if the table has two rows and two columns. In all other cases, you have to select bootstrapping or an exact approach yourself if the conditions for a theoretical approximation are not met.</p>
-<p>We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters.</p>
+<p>We are not going to practice with theoretical approximations in SPSS, now. Because theoretical approximation is the default approach in SPSS, we will encounter it in the exercises in later chapters. The default approach in SPSS means that if we conduct an analysis in SPSS without changing the settings to include an exact approach or bootstrapping (which you will learn in the next paragraph), we are using a theoertical approximation on our data.</p>
 </section>
 <section id="sec-boot-approx" class="level2 page-columns page-full" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="sec-boot-approx"><span class="header-section-number">2.5</span> The Bootstrap Approximation of the Sampling Distribution</h2>
-<p>The first way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called <em>bootstrap samples</em>. The technique was developed by Bradley Efron <span class="citation" data-cites="RefWorks:3956 RefWorks:3957">(<a href="14-references.html#ref-RefWorks:3956" role="doc-biblioref">1979</a>; <a href="14-references.html#ref-RefWorks:3957" role="doc-biblioref">1987</a>)</span>. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.</p>
+<p>The third way to obtain a sampling distribution is still based on the idea of drawing a large number of samples. However, we only draw one sample from the population for which we collect data. As a next step, we draw a large number of samples from our initial sample. The samples drawn in the second step are called <em>bootstrap samples</em>. The technique was developed by Bradley Efron <span class="citation" data-cites="RefWorks:3956 RefWorks:3957">(<a href="14-references.html#ref-RefWorks:3956" role="doc-biblioref">1979</a>; <a href="14-references.html#ref-RefWorks:3957" role="doc-biblioref">1987</a>)</span>. For each bootstrap sample, we calculate the sample statistic of interest and we collect these as our sampling distribution. We usually want about 5,000 bootstrap samples for our sampling distribution.</p>
 <div id="fig-bootstrapping" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bootstrapping-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -711,6 +722,12 @@ Figure&nbsp;2.7: How is bootstrapping influenced by sample size? In the populati
 <h2 data-number="2.6" class="anchored" data-anchor-id="sec-boot-spss"><span class="header-section-number">2.6</span> Bootstrapping in SPSS</h2>
 <section id="instructions-1" class="level3" data-number="2.6.1">
 <h3 data-number="2.6.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">2.6.1</span> Instructions</h3>
+<p>The last approach we will show you in SPSS is bootstrapping. In the video below you will see several analyses to which we add bootstrapping.</p>
+<p>Remember your birthday party with a lot of candy that sparks new questions every couple of minutes? This time one friend is getting a bit nauseous from the candy and another friend is doing just fine. They conclude they both have been eating the same amount of candy but one has a preference for strawberry flavoured and the other for lemon flavoured. Could it be that the friend who is constantly eating red candies has been eating more cnady than the friend that has been eating yellow candies? According to your friends, that could only be true if the red candies weigh more than the yellow candies.</p>
+<p>In this case, we are investigating whether yellow and red candies weigh the same amount. Thus, we have two variables: candy colour (red and yellow; two categories) and candy weight (continuous). As you can see in <a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a>, we can investigate these variables with an independent t-test. This independent t-test is shown in the video.</p>
+<p>As you might remember from the exact approach, this data set contains more candy colours than red and yellow. It is important that we define the groups so that this analysis only includes red and yellow candies. Otherwise we will not find an answer to the question we have proposed above.</p>
+<p>You might also remember from the theoretical approach that there are certain conditions we need to meet in order to be able to execute an independent samples t-test. Let’s say your friends have been eating quite some candy and therefore we do not have 30 yellow and 30 red candies left. Consequently, we do not meet the conditions. This leads us to resort to bootstrapping to still be able to use the independent sample t-test. Via the <code>bootstrap</code> button, we can check <code>perform bootstrapping</code>. Usually, we use 5000 bootstrap samples and 95% bias corrected confidence intervals. Please note that bootstrapping is random and therefore bootstrap results can always differ a little bit from each other, you might see this when working together with a friend or checking your answers on the preparatory assignments. Numbers can differ a little bit, this will not happen when we use the same seed - but we do not use that option in this course.</p>
+<p>Watch the video for the step by step on how to perform an independent t-test with bootstrapping, the details and some additional information.</p>
 <div id="vid-SPSSbootstrap1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSbootstrap1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -721,6 +738,12 @@ Video&nbsp;2.4: Perform bootstrapping in SPSS.
 </figcaption>
 </figure>
 </div>
+<p>Now that we have run the analysis in SPSS, we want to show you how to interpret this results. And thus, how to answer the question whether yellow and red candies weigh the same amount.</p>
+<p>As with the Fisher’s exact test, the output starts - after a table with some bootstrap specifications - with a summary type table including descriptive like results. The <em>group statistics</em>, here we can find the number of cases (candies), means, standard deviations, etc. The means can already give you a sense of and a grip on your results, which can help with interpretation later on.</p>
+<p>The table below, <em>independent samples test</em>, shows us the results of the independent samples t-test, including Leven’s F-test, the test statistic, p-value and bootstrapped confidence interval. Levene’s F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which menas that the effect of candy colour on candy weight is not significant.</p>
+<p>The second part of the <em>independent samples test</em> shows us the mean difference which is very small, this makes sense given the fact that we found a not significant result. The bootstrapped confidence intervals show that the zero falls in the 95% interval. This means that there is a likelihood that the mean difference could be zero. Thus, looking at the intervals we would also conclude that the effect is not significant.</p>
+<p>In conclusion, the results show us that we could conclude that the hypothesis made by your friends gets no support from our data. Red and yellow candies seem to weigh approximately the same. We could have already seen this coming after looking at the mean values.</p>
+<p>Watch the video for the step by step on how to interpret an independent t-test with bootstrapping, the details and some additional information.</p>
 <div id="vid-SPSSbootstrap2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSbootstrap2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -776,244 +799,247 @@ Efron, Bradley. 1987. <span>“Better Bootstrap Confidence Intervals.”</span> 
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1021,185 +1047,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01-samplingdistr.html" class="pagination-link" aria-label="Sampling Distribution">

@@ -373,7 +373,23 @@ It is also possible to construct the entire sampling distribution in exact appro
 
 ## Confidence Intervals in SPSS {#sec-SPSS-CI}
 
+Now that you have learned about confidence intervals, it is useful to know how to add these confidence intervals to all analyses that you will execute in the future.
+
 ### Instruction
+
+In the video below we will show you how to set confidence intervals in SPSS for several analyses. Think about t-tests (Chapter 2), ANOVA's (Chapter 5) and regression analyses (Chapter 6, 7, 8, and 9). Since you have learned what confidence intervals are, and after this paragraph you also know how to implement the correct settings in SPSS we will ask of you to always report the confidence intervals of your results in addition to the test statistic, p-value and effect size. This provides a more complete picture of the research findings, we will elaborate more on this in the next Chapter.
+
+When we execute a t-test the 95% confidence interval is already set as default option. We would only have to change this setting if we would like a confidence interval with a different confidence level (e.g., 90%). In @fig-interval-level we showcased the effect of the confidence level on the precision of the interval.
+
+In the case of an ANOVA, the confidence interval is not necessary for the F-statistic. However if we conduct a post-hoc test we do automatically get a confidence interval of 95%. This time we can change the confidence interval by adjusting the significance level in the `Post Hoc` dialog. When we use General Linear Model, which we do for two-way ANOVA, we can find the significance level option under the `options` dialog.
+
+When we conduct a regression analysis, we have to specifically ask for and turn on the option of confidence intervals. This can be done in the `Statistics` dialog. We have the opportunity to change the confidence level.
+
+Lastly, when we want a confidence interval for a correlation coefficient we need to use the option `bootstrap`. Bootstrapping has been introduced in @sec-boot-approx. Be aware that in every analysis we have the opportunity to bootstrap the intervals, how to add bootstrapping is shown in this video: @vid-SPSSbootstrap1 in @sec-boot-spss.
+
+_Note_ The confidence level is the relative width of the interval in terms of percentages, e.g. 90%, 95% or 99%. The confidence interval is the absolute width of the interval, thus the values belonging to the percentages, e.g. 4.3 to 5.6.
+
+Watch the video below for the step by step instructions, details and additional information.
 
 ::: {#vid-SPSSconflevel}
 

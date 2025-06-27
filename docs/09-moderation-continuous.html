@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.45">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -52,15 +87,16 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./10-confounding.html" rel="next">
 <link href="./08-moderation-categorical.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-4824bc4fcff8d7c1e04965ee072d4f81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -126,7 +162,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styleX.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -252,23 +288,30 @@ window.Quarto = {
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#sec-cont-moderator-regression" id="toc-sec-cont-moderator-regression" class="nav-link" data-scroll-target="#sec-cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</a>
-  <ul class="collapse">
+  <li><a href="#sec-cont-moderator-regression" id="toc-sec-cont-moderator-regression" class="nav-link" data-scroll-target="#sec-cont-moderator-regression"><span class="header-section-number">7.1</span> Numerical Moderator</a>
+  <ul>
   <li><a href="#sec-interpret-cont-interaction" id="toc-sec-interpret-cont-interaction" class="nav-link" data-scroll-target="#sec-interpret-cont-interaction"><span class="header-section-number">7.1.1</span> Interaction variable</a></li>
   <li><a href="#sec-conditional-effect-cont" id="toc-sec-conditional-effect-cont" class="nav-link" data-scroll-target="#sec-conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</a></li>
-  <li><a href="#mean-centering" id="toc-mean-centering" class="nav-link" data-scroll-target="#mean-centering"><span class="header-section-number">7.1.3</span> Mean-centering</a></li>
+  <li><a href="#mean-centering" id="toc-mean-centering" class="nav-link" data-scroll-target="#mean-centering"><span class="header-section-number">7.1.3</span> Mean-centering</a>
+  <ul class="collapse">
+  <li><a href="#spss-manually-mean-center-a-variable" id="toc-spss-manually-mean-center-a-variable" class="nav-link" data-scroll-target="#spss-manually-mean-center-a-variable"><span class="header-section-number">7.1.3.1</span> SPSS manually mean center a variable</a></li>
+  </ul></li>
   <li><a href="#symmetry-of-predictor-and-moderator" id="toc-symmetry-of-predictor-and-moderator" class="nav-link" data-scroll-target="#symmetry-of-predictor-and-moderator"><span class="header-section-number">7.1.4</span> Symmetry of predictor and moderator</a></li>
-  <li><a href="#visualization-of-the-interaction-effect" id="toc-visualization-of-the-interaction-effect" class="nav-link" data-scroll-target="#visualization-of-the-interaction-effect"><span class="header-section-number">7.1.5</span> Visualization of the interaction effect</a></li>
-  <li><a href="#statistical-inference-on-conditional-effects" id="toc-statistical-inference-on-conditional-effects" class="nav-link" data-scroll-target="#statistical-inference-on-conditional-effects"><span class="header-section-number">7.1.6</span> Statistical inference on conditional effects</a></li>
-  <li><a href="#common-support" id="toc-common-support" class="nav-link" data-scroll-target="#common-support"><span class="header-section-number">7.1.7</span> Common support</a></li>
+  <li><a href="#statistical-inference-on-conditional-effects" id="toc-statistical-inference-on-conditional-effects" class="nav-link" data-scroll-target="#statistical-inference-on-conditional-effects"><span class="header-section-number">7.1.5</span> Statistical inference on conditional effects</a></li>
+  <li><a href="#effect-at-different-moderator-values" id="toc-effect-at-different-moderator-values" class="nav-link" data-scroll-target="#effect-at-different-moderator-values"><span class="header-section-number">7.1.6</span> Effect at different moderator values</a></li>
+  <li><a href="#common-support" id="toc-common-support" class="nav-link" data-scroll-target="#common-support"><span class="header-section-number">7.1.7</span> Common support</a>
+  <ul class="collapse">
+  <li><a href="#spss-check-common-support" id="toc-spss-check-common-support" class="nav-link" data-scroll-target="#spss-check-common-support"><span class="header-section-number">7.1.7.1</span> SPSS check common support</a></li>
+  </ul></li>
   <li><a href="#assumptions" id="toc-assumptions" class="nav-link" data-scroll-target="#assumptions"><span class="header-section-number">7.1.8</span> Assumptions</a></li>
   <li><a href="#higher-order-interaction-effects" id="toc-higher-order-interaction-effects" class="nav-link" data-scroll-target="#higher-order-interaction-effects"><span class="header-section-number">7.1.9</span> Higher-order interaction effects</a></li>
+  <li><a href="#spss-moderation-analysis-in-process" id="toc-spss-moderation-analysis-in-process" class="nav-link" data-scroll-target="#spss-moderation-analysis-in-process"><span class="header-section-number">7.1.10</span> SPSS moderation analysis in PROCESS</a></li>
   </ul></li>
-  <li><a href="#sec-reportmoderation" id="toc-sec-reportmoderation" class="nav-link" data-scroll-target="#sec-reportmoderation"><span class="header-section-number">7.2</span> Reporting Regression Results</a></li>
-  <li><a href="#sec-RegressionContModSPSS" id="toc-sec-RegressionContModSPSS" class="nav-link" data-scroll-target="#sec-RegressionContModSPSS"><span class="header-section-number">7.3</span> A Numerical Moderator in SPSS</a>
-  <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">7.3.1</span> Instructions</a></li>
+  <li><a href="#sec-RegressionContModSPSS" id="toc-sec-RegressionContModSPSS" class="nav-link" data-scroll-target="#sec-RegressionContModSPSS"><span class="header-section-number">7.2</span> Numerical and categorical moderators</a>
+  <ul>
+  <li><a href="#spss-numerical-and-categorical-moderator-with-process" id="toc-spss-numerical-and-categorical-moderator-with-process" class="nav-link" data-scroll-target="#spss-numerical-and-categorical-moderator-with-process"><span class="header-section-number">7.2.1</span> SPSS numerical and categorical moderator with PROCESS</a></li>
   </ul></li>
+  <li><a href="#sec-reportmoderation" id="toc-sec-reportmoderation" class="nav-link" data-scroll-target="#sec-reportmoderation"><span class="header-section-number">7.3</span> Reporting Results</a></li>
   <li><a href="#take-home-points" id="toc-take-home-points" class="nav-link" data-scroll-target="#take-home-points"><span class="header-section-number">7.4</span> Take-Home Points</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/09-moderation-continuous.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/09-moderation-continuous.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
@@ -329,7 +372,7 @@ Video&nbsp;7.1: Introduction to moderation with numerical variables.
 <p>Just like a model with a dichotomous or categorical moderator, the effect of a predictor that is involved in moderation is a conditional effect. In other words, it is the effect of that predictor conditioned under one particular value of the moderator, namely the value zero. Unfortunately, zero is not always a meaningful value for the moderator. If it does not exist or appears rarely on the moderator, it is better to mean-center the moderator. Mean-centering a variable changes the scores such that the mean of the original variable becomes zero on the mean-centered variable. The value zero is always meaningful for a mean-centered variable because it represents the mean score on the original variable. With a mean-centered moderator, the regression coefficient of the predictor always makes sense.</p>
 </section>
 <section id="sec-cont-moderator-regression" class="level2 page-columns page-full" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="sec-cont-moderator-regression"><span class="header-section-number">7.1</span> A Numerical Moderator</h2>
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-cont-moderator-regression"><span class="header-section-number">7.1</span> Numerical Moderator</h2>
 <p>With a categorical moderator, it is quite obvious for which values of the moderator we are going to calculate and depict the effect of the predictor on the dependent variable. If smoking status moderates the effect of exposure on attitude towards smoking, we will inspect a regression line for each smoking status category: smokers, former smokers, and non-smokers. But what if the moderator is a numerical variable, for example, the intensity of contact with smokers?</p>
 <div id="fig-continuous-moderator" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -363,7 +406,7 @@ Figure&nbsp;7.1: How do contact values affect the conditional effect of exposure
 </section>
 <section id="sec-conditional-effect-cont" class="level3" data-number="7.1.2">
 <h3 data-number="7.1.2" class="anchored" data-anchor-id="sec-conditional-effect-cont"><span class="header-section-number">7.1.2</span> Conditional effect</h3>
-<p>In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see <a href="08-moderation-categorical.html#sec-conditional-effects" class="quarto-xref"><span>Section 6.3.3</span></a>), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only <span class="math inline">\(b_1\)</span> is left as the effect of exposure.</p>
+<p>In the presence of an interaction effect of exposure and contact, the regression coefficients for exposure and contact represent conditional effects (see <a href="08-moderation-categorical.html#sec-conditional-effects" class="quarto-xref"><span>Section 6.2.1.2</span></a>), namely, the effects for cases that score zero on the other variable. Plug in zero for the moderator and you will see that all terms with a moderator drop from the equation and only <span class="math inline">\(b_1\)</span> is left as the effect of exposure.</p>
 <p><span id="eq-conditionaleffect"><span class="math display">\[
 \small
 \begin{split}
@@ -373,7 +416,7 @@ Figure&nbsp;7.1: How do contact values affect the conditional effect of exposure
 \end{split}
 \normalsize
 \tag{7.2}\]</span></span></p>
-<p>The zero score on the moderator is the <em>reference value</em> for the conditional effect of the predictor. Cases that score zero on the moderator are the <em>reference group</em> just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (<a href="08-moderation-categorical.html#sec-dichpredictor" class="quarto-xref"><span>Section 6.1.2</span></a>).</p>
+<p>The zero score on the moderator is the <em>reference value</em> for the conditional effect of the predictor. Cases that score zero on the moderator are the <em>reference group</em> just like cases scoring zero on all dummy variables are the reference group in a model with a categorical moderator (<a href="08-moderation-categorical.html#sec-dichpredictor" class="quarto-xref"><span>Section 6.1.3</span></a>).</p>
 </section>
 <section id="mean-centering" class="level3 page-columns page-full" data-number="7.1.3">
 <h3 data-number="7.1.3" class="anchored" data-anchor-id="mean-centering"><span class="header-section-number">7.1.3</span> Mean-centering</h3>
@@ -412,7 +455,43 @@ Figure&nbsp;7.3: Histograms of the original contacts with smokers variable and t
 </div>
 </div>
 <p>With mean-centered numerical moderators, a conditional effect in the presence of interaction always makes sense. It is the effect of the predictor for respondents who have an average score on the moderator because they score zero on the mean-centered variable. An average score always falls within the range of scores that actually occur. If we mean-center the moderator variable contact with smokers, the regression coefficient <span class="math inline">\(b_1\)</span> for exposure expresses the effect of exposure on attitude for people with average contacts with smokers. This makes sense.</p>
-<p>Remember that the interaction variable is the product of the predictor and moderator (<a href="08-moderation-categorical.html#sec-interaction-variable" class="quarto-xref"><span>Section 6.3.2</span></a>). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.</p>
+<p>Remember that the interaction variable is the product of the predictor and moderator (<a href="08-moderation-categorical.html#sec-interaction-variable" class="quarto-xref"><span>Section 6.2.1.1</span></a>). If any or both of these are mean-centered, you should multiply the mean-centered variable(s) to create the interaction variable.</p>
+<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
+<div id="fig-meancentertable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S9_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
+</figcaption>
+</figure>
+</div>
+<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
+<p>The regression coefficient of the interaction effect (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
+<section id="spss-manually-mean-center-a-variable" class="level4" data-number="7.1.3.1">
+<h4 data-number="7.1.3.1" class="anchored" data-anchor-id="spss-manually-mean-center-a-variable"><span class="header-section-number">7.1.3.1</span> SPSS manually mean center a variable</h4>
+<p><a href="#vid-SPSSregcenter" class="quarto-xref">Video&nbsp;<span>7.2</span></a> shows how to mean-center a variable in SPSS. The example data set is smokers.sav, which contains the effect of campaign exposure on attitude towards smoking moderated by contacts that people have with smokers.</p>
+<p>To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
+<div id="vid-SPSSregcenter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSregcenter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/yk1Uq1VHjpY" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSregcenter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.2: Mean-centering numerical variables.
+</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="symmetry-of-predictor-and-moderator" class="level3" data-number="7.1.4">
 <h3 data-number="7.1.4" class="anchored" data-anchor-id="symmetry-of-predictor-and-moderator"><span class="header-section-number">7.1.4</span> Symmetry of predictor and moderator</h3>
@@ -427,7 +506,7 @@ Figure&nbsp;7.3: Histograms of the original contacts with smokers variable and t
   \end{split}
 \normalsize
 \tag{7.3}\]</span></span></p>
-<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (<a href="#fig-moderator-symmetry" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
+<p>But wait a minute, this is what we would do if contact was the predictor and exposure the moderator. That is a completely different situation, is it not? No, technically it does not make a difference which variable is the predictor and which is the moderator (<a href="#fig-moderator-symmetry" class="quarto-xref">Figure&nbsp;<span>7.5</span></a>). The predictor and moderator are symmetric. The difference is only in our theoretical expectations and in our interpretation.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-moderator-symmetry" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -436,36 +515,18 @@ Figure&nbsp;7.3: Histograms of the original contacts with smokers variable and t
 <img src="09-moderation-continuous_files/figure-html/fig-moderator-symmetry-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-symmetry-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: Two conceptual diagrams of moderation for the same interaction effect.
+Figure&nbsp;7.5: Two conceptual diagrams of moderation for the same interaction effect.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>For example, let us assume that the regression coefficient of the interaction effect of exposure and contact is 0.2. We can interpret this regression coefficient with contact as moderator and exposure as predictor: An additional unit of contact with smokers increases the effect of exposure on attitude by 0.2. But we can also interpret it with exposure as moderator and contact as predictor: An additional unit of exposure increases the effect of contact with smokers on attitude by 0.2.</p>
-<p>The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to <em>mean-center both the predictor and moderator if they are numerical</em>. In case of a dichotomous or categorical moderator (<a href="08-moderation-categorical.html#sec-categoricalmoderator" class="quarto-xref"><span>Section 6.3</span></a>), the predictor can also be mean-centered.</p>
+<p>The conditional effect of the moderator, as stated above, is the effect of the moderator if the predictor is zero. This interpretation makes sense only if there are cases with zero scores on the predictor. In the current example, the scores on exposure range from 0 to 10, so zero exposure is meaningful. But it represents a borderline score with perhaps a very atypical effect of contact on attitude or few observations. For these reasons, it is recommended to <em>mean-center both the predictor and moderator if they are numerical</em>. In case of a dichotomous or categorical moderator (<a href="08-moderation-categorical.html#sec-categoricalmoderator" class="quarto-xref"><span>Section 6.2</span></a>), the predictor can also be mean-centered.</p>
 </section>
-<section id="visualization-of-the-interaction-effect" class="level3 page-columns page-full" data-number="7.1.5">
-<h3 data-number="7.1.5" class="anchored" data-anchor-id="visualization-of-the-interaction-effect"><span class="header-section-number">7.1.5</span> Visualization of the interaction effect</h3>
-<p>It can be quite tricky to interpret regression coefficients in a regression model that contains interaction effects. The safest strategy is to draw regression lines for different values of the moderator. But what are interesting values if the moderator is numerical?</p>
-<div id="fig-continuous-interaction-visualization" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-continuous-interaction-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-interaction-visualization/" width="100%" height="308px" style="border:none;">
-</iframe>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuous-interaction-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.5: Which moderator values are helpful for visualizing moderation?
-</figcaption>
-</figure>
-</div>
-<p>As we have seen in <a href="#sec-interpret-cont-interaction" class="quarto-xref"><span>Section 7.1.1</span></a>, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.</p>
-<p>The size of the interaction effect tells us the moderation trend, for instance, people who are more around smokers tend to be less opposed to smoking if they are exposed to the anti-smoking campaign. But we do not know how much an anti-smoking attitude is fostered by exposure to a campaign and whether exposure to the campaign increases anti-smoking attitude for everyone. Perhaps, people hanging out with smokers a lot may even get a more positive attitude towards smoking from campaign exposure.</p>
-<p>We can be more specific about exposure effects at different levels of contact with smokers if we pick some interesting values of the moderator and calculate the conditional effects at these levels.</p>
-<p>The minimum or maximum values of the moderator are usually not very interesting. We tend to have few observations for these values, so our confidence in the estimated effect at that level is low. Instead, the values one standard deviation below and above the mean of the moderator are popular values to be picked. One standard deviation below the mean (M - SD) indicates a low value, the mean (M) indicates a central value, and one standard deviation above the mean (M + SD) indicates a high value.</p>
-</section>
-<section id="statistical-inference-on-conditional-effects" class="level3" data-number="7.1.6">
-<h3 data-number="7.1.6" class="anchored" data-anchor-id="statistical-inference-on-conditional-effects"><span class="header-section-number">7.1.6</span> Statistical inference on conditional effects</h3>
+<section id="statistical-inference-on-conditional-effects" class="level3" data-number="7.1.5">
+<h3 data-number="7.1.5" class="anchored" data-anchor-id="statistical-inference-on-conditional-effects"><span class="header-section-number">7.1.5</span> Statistical inference on conditional effects</h3>
+<p>Conditional effect refers to the effect (beta coefficients) of a predictor on the dependent variable for a particular value of the moderator. If we want to test whether the conditional effect is significantly different from zero, we can use the same procedure as for testing the significance of a regression coefficient. We can use a t-test to test whether the regression coefficient is significantly different from zero and look at the upper and lower bounds of the confidence interval for the regression coefficient.</p>
 <div class="cell">
 <div id="tbl-cont-moderator-output" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -508,24 +569,24 @@ Upper Bound
 (Constant)
 </td>
 <td style="text-align:right;">
-0.169
+0.283
 </td>
 <td style="text-align:right;">
-0.204
+0.186
 </td>
 <td style="text-align:right;">
 </td>
 <td style="text-align:right;">
-0.825
+1.528
 </td>
 <td style="text-align:right;">
-0.412
+0.130
 </td>
 <td style="text-align:right;">
--0.238
+-0.086
 </td>
 <td style="text-align:right;">
-0.575
+0.653
 </td>
 </tr>
 <tr>
@@ -533,25 +594,25 @@ Upper Bound
 Exposure (mean-centered)
 </td>
 <td style="text-align:right;">
--0.174
+-0.181
 </td>
 <td style="text-align:right;">
 0.063
 </td>
 <td style="text-align:right;">
--0.308
+-0.321
 </td>
 <td style="text-align:right;">
--2.740
+-2.858
 </td>
 <td style="text-align:right;">
-0.008
+0.005
 </td>
 <td style="text-align:right;">
--0.300
+-0.307
 </td>
 <td style="text-align:right;">
--0.048
+-0.055
 </td>
 </tr>
 <tr>
@@ -559,51 +620,25 @@ Exposure (mean-centered)
 Contact (mean-centered)
 </td>
 <td style="text-align:right;">
-0.159
+0.160
 </td>
 <td style="text-align:right;">
-0.094
+0.095
 </td>
 <td style="text-align:right;">
-0.188
+0.190
 </td>
 <td style="text-align:right;">
-1.685
+1.690
 </td>
 <td style="text-align:right;">
-0.096
+0.095
 </td>
 <td style="text-align:right;">
--0.029
+-0.028
 </td>
 <td style="text-align:right;">
-0.347
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Status (smoker)
-</td>
-<td style="text-align:right;">
-0.533
-</td>
-<td style="text-align:right;">
-0.405
-</td>
-<td style="text-align:right;">
-0.131
-</td>
-<td style="text-align:right;">
-1.318
-</td>
-<td style="text-align:right;">
-0.191
-</td>
-<td style="text-align:right;">
--0.272
-</td>
-<td style="text-align:right;">
-1.338
+0.349
 </td>
 </tr>
 <tr>
@@ -611,25 +646,25 @@ Status (smoker)
 Exposure*Contact (mean-centered)
 </td>
 <td style="text-align:right;">
-0.018
+0.019
 </td>
 <td style="text-align:right;">
 0.034
 </td>
 <td style="text-align:right;">
-0.063
+0.066
 </td>
 <td style="text-align:right;">
-0.533
+0.555
 </td>
 <td style="text-align:right;">
-0.595
+0.581
 </td>
 <td style="text-align:right;">
 -0.049
 </td>
 <td style="text-align:right;">
-0.085
+0.086
 </td>
 </tr>
 </tbody>
@@ -640,14 +675,35 @@ Exposure*Contact (mean-centered)
 </figure>
 </div>
 </div>
-<p>The regression model yields a <em>p</em> value and confidence interval for the predictor at the reference value of the moderator. In the model estimated in <a href="#tbl-cont-moderator-output" class="quarto-xref">Table&nbsp;<span>7.1</span></a>, for instance, we obtain a <em>p</em> value of 0.008 and a 95% confidence interval of [-0.30, -0.05] for the effect of exposure on attitude. This is the conditional effect of exposure on attitude for cases that score zero on the moderator variable (contact with smokers).</p>
-<p>If the moderator variable <em>contact</em> is mean-centered, the <em>p</em> value tests the null hypothesis that the effect of exposure is zero for people who have average contact with smokers. The confidence interval tells us that the effect of exposure on attitude for people with average contacts with smokers in the population ranges between -0.30 and -0.05 with 95% confidence. If the moderator is not mean-centered, the results apply to people who have no contact with smokers.</p>
-<p>Note that mean-centering of the moderator changes, so to speak, the regression line that we test. Instead of testing the effect of exposure for people with no smoker contact, we test the effect for people with average contact with smokers if the moderator is mean-centered. If we would like to get the <em>p</em> value or confidence interval for the regression line at one standard deviation above (or below) the mean, we have to center the moderator at that value before we estimate the regression model. In this course, however, we will not do so.</p>
+<p>The regression model yields a <em>p</em> value and confidence interval for the predictor at the reference value of the moderator. In the model estimated in <a href="#tbl-cont-moderator-output" class="quarto-xref">Table&nbsp;<span>7.1</span></a>, for instance, we obtain a <em>p</em> value of 0.005 and a 95% confidence interval of [-0.31, -0.05] for the effect of exposure on attitude. This is the conditional effect of exposure on attitude for cases that score zero on the moderator variable (contact with smokers).</p>
+<p>If the moderator variable <em>contact</em> is mean-centered, the <em>p</em> value tests the null hypothesis that the effect of exposure is zero for people who have average contact with smokers. The confidence interval tells us that the effect of exposure on attitude for people with average contacts with smokers in the population ranges between -0.31 and -0.05 with 95% confidence. If the moderator is not mean-centered, the results apply to people who have no contact with smokers.</p>
+<p>Mean-centering of the moderator changes, so to speak, the regression line that we test. Instead of testing the effect of exposure for people with no smoker contact, we test the effect for people with average contact with smokers if the moderator is mean-centered. We might also be interested in the effect of exposure for people with more or less contact with smokers. In that case, we can calculate the conditional effect of exposure at different levels of contact with smokers. This is explained in the next section.</p>
+<p>Looking at <a href="#tbl-cont-moderator-output" class="quarto-xref">Table&nbsp;<span>7.1</span></a>, we see that the regression coefficient for the interaction effect of exposure and contact is not significantly different from zero. This means that the effect of exposure on attitude is not moderated by contact with smokers. The effect of exposure on attitude is the same for people who have more contact with smokers.</p>
+</section>
+<section id="effect-at-different-moderator-values" class="level3 page-columns page-full" data-number="7.1.6">
+<h3 data-number="7.1.6" class="anchored" data-anchor-id="effect-at-different-moderator-values"><span class="header-section-number">7.1.6</span> Effect at different moderator values</h3>
+<p>It can be quite tricky to interpret regression coefficients in a regression model that contains interaction effects. The safest strategy is to draw regression lines for different values of the moderator. But what are interesting values if the moderator is numerical?</p>
+<div id="fig-continuous-interaction-visualization" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-continuous-interaction-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/continuous-interaction-visualization/" width="100%" height="308px" style="border:none;">
+</iframe>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-continuous-interaction-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: Which moderator values are helpful for visualizing moderation?
+</figcaption>
+</figure>
+</div>
+<p>As we have seen in <a href="#sec-interpret-cont-interaction" class="quarto-xref"><span>Section 7.1.1</span></a>, the regression coefficient of an interaction effect with a numerical moderator can be directly interpreted. It represents the predicted difference in the unstandardized effect size for a one unit increase in the moderator. For example, one more contact with a smoker increases the exposure effect by 0.04.</p>
+<p>The size of the interaction effect tells us the moderation trend, for instance, people who are more around smokers tend to be less opposed to smoking if they are exposed to the anti-smoking campaign. But we do not know how much an anti-smoking attitude is fostered by exposure to a campaign and whether exposure to the campaign increases anti-smoking attitude for everyone. Perhaps, people hanging out with smokers a lot may even get a more positive attitude towards smoking from campaign exposure.</p>
+<p>We can be more specific about exposure effects at different levels of contact with smokers if we pick some interesting values of the moderator and calculate the conditional effects at these levels.</p>
+<p>The minimum or maximum values of the moderator are usually not very interesting. We tend to have few observations for these values, so our confidence in the estimated effect at that level is low. Instead, the values one standard deviation below and above the mean of the moderator are popular values to be picked. One standard deviation below the mean (M - SD) indicates a low value, the mean (M) indicates a central value, and one standard deviation above the mean (M + SD) indicates a high value.</p>
+<p>Performing inferential statistics on the conditional effects at these values requires the use of the PROCESS macro in SPSS again. The macro calculates the conditional effects at different values of the moderator and provides confidence intervals for these effects.</p>
 </section>
 <section id="common-support" class="level3" data-number="7.1.7">
 <h3 data-number="7.1.7" class="anchored" data-anchor-id="common-support"><span class="header-section-number">7.1.7</span> Common support</h3>
-<p>In <a href="08-moderation-categorical.html#sec-commonsupportdichotomous" class="quarto-xref"><span>Section 6.3.6</span></a>, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.</p>
-<p>With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. <span class="citation" data-cites="RefWorks:3838">(<a href="14-references.html#ref-RefWorks:3838" role="doc-biblioref">2016</a>)</span> recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects. Create a histogram for the predictor in each of these groups to check common support of moderation in the data, as explained in <a href="08-moderation-categorical.html#vid-SPSSregSupport1" class="quarto-xref">Video&nbsp;<span>6.9</span></a>.</p>
+<p>In <a href="08-moderation-categorical.html#sec-commonsupportdichotomous" class="quarto-xref"><span>Section 6.2.2.3</span></a>, we checked the support of the predictor in the data for different groups of the moderator. The basic idea is that we can only sensibly estimate and interpret a conditional effect at a moderator level if we have observations over the entire range of the predictor. For each moderator group, we checked the distribution of the predictor.</p>
+<p>With a numerical moderator we can also do this if we group moderator scores. Hainmueller et al. <span class="citation" data-cites="RefWorks:3838">(<a href="14-references.html#ref-RefWorks:3838" role="doc-biblioref">2016</a>)</span> recommend creating three groups, each containing one third of all observations. These low, medium, and high groups correspond more or less with the minus one standard deviation/mean/plus one standard deviation values that we used for visualizing and testing conditional effects.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-cont-moderator-support" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -656,17 +712,31 @@ Exposure*Contact (mean-centered)
 <img src="09-moderation-continuous_files/figure-html/fig-cont-moderator-support-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cont-moderator-support-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.6: Common support of the predictor variable (exposure) at three levels of the moderator variable (contact).
+Figure&nbsp;7.7: Common support of the predictor variable (exposure) at three levels of the moderator variable (contact).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>According to <a href="#fig-cont-moderator-support" class="quarto-xref">Figure&nbsp;<span>7.6</span></a>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
+<p>According to <a href="#fig-cont-moderator-support" class="quarto-xref">Figure&nbsp;<span>7.7</span></a>, the predictor variable exposure covers the entire range from 0 to 10 at medium and high contact levels. At low contact level, however, the lowest exposure score is 1 instead of zero. In all, we have common support for moderation of the exposure effect by contact for exposure scores from 1 to 10. This is quite a broad range but we should note that we have few observations of low exposure at the low contact level as well as few observations of high exposure at the high contact level.</p>
+<section id="spss-check-common-support" class="level4" data-number="7.1.7.1">
+<h4 data-number="7.1.7.1" class="anchored" data-anchor-id="spss-check-common-support"><span class="header-section-number">7.1.7.1</span> SPSS check common support</h4>
+<p>The video below (<a href="#vid-SPSSregSupport2" class="quarto-xref">Video&nbsp;<span>7.3</span></a>) shows how to check common support of the predictor variable in the data for three groups of the moderator variable.</p>
+<div id="vid-SPSSregSupport2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSregSupport2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/x45Tv6nvta4" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSregSupport2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.3: Checking common support with a continuous moderator.
+</figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="assumptions" class="level3" data-number="7.1.8">
 <h3 data-number="7.1.8" class="anchored" data-anchor-id="assumptions"><span class="header-section-number">7.1.8</span> Assumptions</h3>
-<p>The general assumptions for regression analysis (<a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.4</span></a>) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.</p>
+<p>The general assumptions for regression analysis (<a href="08-moderation-categorical.html#sec-regr-inference" class="quarto-xref"><span>Section 6.1.5</span></a>) also apply to a regression model with a moderator (interaction effect). The checks are the same: See if the residuals are more or less normally distributed and check the residuals by predicted values plot.</p>
 <p>Note that the linearity assumption also applies to the interaction effect. If the interaction effect is positive, the exposure (predictor) effect must be higher for higher values of contact with smokers (moderator). More precisely, a unit difference on the moderator should result in a fixed increase (or decrease) of the effect of the predictor. You may have noticed this linear change in the effect size in <a href="#fig-continuous-moderator" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> at the beginning of this section on numerical moderators.</p>
 <p>It is difficult to check this assumption, so let us not pursue this here. Just remember that the interaction effect is assumed to be linear: a gradually increasing or decreasing effect of the predictor at higher moderator values.</p>
 </section>
@@ -675,12 +745,277 @@ Figure&nbsp;7.6: Common support of the predictor variable (exposure) at three le
 <p>An interaction effect with one moderator, whether numerical or categorical, is called <em>first-order interaction</em> or <em>two-way interaction</em>. It is possible to have a moderated effect that is moderated itself by a second moderator. For example, the change in the exposure effect due to a person’s contact with smokers may be different for smokers than for non-smokers. This is called a <em>second-order interaction</em> or <em>three-way interaction</em>. We can include more moderators, yielding even higher-order interactions, such as three or four moderators.</p>
 <p>An interaction variable that is the product of the predictor and two moderators can be used to include a second-order interaction in a regression model. If you include a second-order interaction, you must also include the effects of the variables involved in the interaction as well as all first-order interactions among these variables in the regression model. All in all, these models become very complicated to interpret and they are beyond the scope of the current course.</p>
 </section>
+<section id="spss-moderation-analysis-in-process" class="level3" data-number="7.1.10">
+<h3 data-number="7.1.10" class="anchored" data-anchor-id="spss-moderation-analysis-in-process"><span class="header-section-number">7.1.10</span> SPSS moderation analysis in PROCESS</h3>
+<p>As our previous example for the effect of exposure on attitude towards smoking moderated by contact with smokers did not show a significant interaction effect in <a href="#tbl-cont-moderator-output" class="quarto-xref">Table&nbsp;<span>7.1</span></a>, we will look at another example for running the moderation analysis in SPSS using the PROCESS macro.</p>
+<p>The example covers the effects of playing video games on aggressive behavior moderated by callous unemotional traits.</p>
+<blockquote class="blockquote">
+<p>Video games are among the favourite online activities for young people: two-thirds of 5–16-year-olds have their own video games console, and 88% of boys aged 8–15 own at least one games console. Although playing violent video games can enhance visuospatial acuity, visual memory, probabilistic inference, and mental rotation, compared to games such as Tetris, these games have also been linked to increased aggression in youths Another predictor of aggression and conduct problems is callous-unemotional traits such as lack of guilt, lack of empathy, and callous use of others for personal gain.</p>
+<p>Imagine a scientist wanted to look at the relationship between playing violent video games such as Grand Theft Auto, MadWorld and Manhunt and aggression. She gathered data from 442 youths. She measured their aggressive behaviour, callous unemotional traits, and the number of hours per week they play video games (Field, 2017, sec.&nbsp;11.3.1)</p>
+</blockquote>
+<p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/agression.sav">agression.sav</a> data file for this analysis.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select the <code>Model Number 1</code> for a simple moderation model with one moderator. We select <code>gaming</code> as the predictor <code>X variable</code>, <code>agress</code> as the dependent <code>Y variable</code>, and <code>unemot</code> as the dependent <code>Moderator variable W</code>.</p>
+<p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code> and tick the <code>Johnson-Neyman output</code> box. click <code>continue</code> to set these options.</p>
+<p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
+<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. <a href="#vid-RunModerationWithProcess" class="quarto-xref">Video&nbsp;<span>7.4</span></a> below shows how to run the analysis in SPSS.</p>
+<div id="vid-RunModerationWithProcess" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-RunModerationWithProcess-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/kSqiAhGup0o?si=5k_wn6Uo_9cjmR-Y" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-RunModerationWithProcess-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.4: Running a moderation analysis with PROCESS in SPSS.
+</figcaption>
+</figure>
+</div>
+<p>PROCESS produces the output in plain text. It covers the <code>Model Summary</code>, the <code>Model</code>, a seperate ANOVA test for the interaction, the conditianal effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator, and the Johnson-Neyman output. <a href="#vid-InterpretModerationWithProcess" class="quarto-xref">Video&nbsp;<span>7.5</span></a> shows you how to interpret the output of the PROCESS macro in SPSS.</p>
+<div id="vid-InterpretModerationWithProcess" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-InterpretModerationWithProcess-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/XqmmPGWANhg?si=W5GhDjbVSlZzRjBR" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-InterpretModerationWithProcess-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.5: Running a moderation analysis with PROCESS in SPSS.
+</figcaption>
+</figure>
+</div>
+<p>The model summary indicates the amount of variance explained by the model, the F-test for the overall model, and the significance of the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Model Summary </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          R       R-sq        MSE          F        df1        df2          p </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>      .8289      .6871     9.5143    70.2656     3.0000    96.0000      .0000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next the model coefficients are reported. The coefficients for the predictor, moderator, and interaction variable are reported in the <code>Model</code> section. The coefficients are unstandardized regression coefficients, their standard errors, t-values, p-values, and confidence intervals. Just like we get from a regular SPSS regression analysis. In these results we see that the interaction is significant, as the p-value is below .05. PROCESS therefore also reports the conditional effects.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Model </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>              coeff         se          t          p       LLCI       ULCI </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>constant     5.3788      .3829    14.0491      .0000     4.6189     6.1388 </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>gaming        .7027      .1546     4.5446      .0000      .3958     1.0096 </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>unemot       -.2163      .1089    -1.9869      .0498     -.4324     -.0002 </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Int_1         .3699      .0265    13.9729      .0000      .3174      .4225 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The higher order unconditional interaction effect is reported in the <code>Test(s) of highest order unconditional interaction(s)</code> section. This is the F-test for change in explained variance of the interaction term.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="an">Product terms key:</span><span class="co"> </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> Int_1    :        gaming   x        unemot </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Test(s) of highest order unconditional interaction(s): </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       R2-chng          F        df1        df2          p </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>X*W      .6364   195.2424     1.0000    96.0000      .0000 </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>---------- </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">    Focal predict: gaming   (X) </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">          Mod var: unemot   (W) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator are reported in the <code>Conditional effects of focal predictor at values of the moderator(s)</code> section. The conditional effect is the effect (regression slope) of the predictor on the dependent variable at these particular values of the moderator. The p-value indicates whether this effect is significantly different from zero.</p>
+<p>Because we asked PROCESS to mean center, the moderator values in the first column are not the original values of the moderator variable, but the mean-centered values. To interpret the results, we can add the mean of the moderator to the mean-centered values. We need to use SPSS to calculate the mean for the variable <code>unemot</code> in the data file through <code>Analysis &gt; Descriptive Statistics &gt; Descriptives...</code>, select the variable <code>unemot</code>, and make sure the mean is ticked in the <code>Options</code> tab. The mean of unemotional traits is 7.81, we can use this to describe the results below as the effect at one standard deviation below the mean (7.81 - 4.12 = 3.69), at the mean (7.81), and one standard deviation above the mean (7.81 + 4.12 = 11.93).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Conditional effects of the focal predictor at values of the moderator(s): </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">     unemot     Effect         se          t          p       LLCI       ULCI </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">    -4.1229     -.8226      .1821    -4.5179      .0000    -1.1840     -.4612 </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000      .7027      .1546     4.5446      .0000      .3958     1.0096 </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">     4.1229     2.2280      .1962    11.3546      .0000     1.8385     2.6175 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The Johnson-Neyman output is reported in the <code>Johnson-Neyman significance regions</code> section. This section reports the values of the moderator that define the significance regions for the predictor. The significance region is the range of values of the moderator for which the conditional effect of the predictor is significantly different from zero.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Moderator value(s) defining Johnson-Neyman significance region(s): </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>      Value    % below    % above </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    -2.7902    29.0000    71.0000 </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    -1.0680    40.0000    60.0000 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The next section of the PROCESS output reports the conditional effect of the predictor at many values of the moderator, it includes the standard error, t-value, p-value, and confidence intervals. The <code>Effect</code> column provides the beta coefficient for the predictor at the corresponding moderator value as indicated in the first column on the left side of the effect value. For example the first row indicates that the effect of gaming on aggression is -2.4446 at a value of -8.5075 for unemotional traits. This means that for people with such a low amount of unemotional traits, the effect of gaming on aggression is negative, i.e., more gaming leads to less aggression. The columns on the right side test whether this effect is significantly different from zero, and provides the lower and upper bound of the confidence interval. This is provided for the entire range of <strong>mean centered</strong> moderator values in each row. Note that if you choose <strong>not</strong> to mean center the moderator, the values in the first column will be the original values of the moderator variable.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="an">Conditional effect of focal predictor at values of the moderator:</span><span class="co"> </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">     unemot     Effect         se          t          p       LLCI       ULCI </span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">    -8.5075    -2.4446      .2629    -9.2983      .0000    -2.9665    -1.9228 </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">    -7.5128    -2.0766      .2421    -8.5787      .0000    -2.5571    -1.5961 </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">    -6.5180    -1.7086      .2224    -7.6829      .0000    -2.1501    -1.2672 </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">    -5.5233    -1.3406      .2042    -6.5644      .0000    -1.7460     -.9352 </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">    -4.5286     -.9726      .1880    -5.1734      .0000    -1.3458     -.5994 </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">    -3.5338     -.6046      .1743    -3.4695      .0008     -.9505     -.2587 </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">    -2.7902     -.3295      .1660    -1.9850      .0500     -.6590      .0000 </span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">    -2.5391     -.2366      .1636    -1.4459      .1515     -.5615      .0882 </span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">    -1.5443      .1314      .1568      .8381      .4041     -.1798      .4426 </span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">    -1.0680      .3076      .1550     1.9850      .0500      .0000      .6152 </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">     -.5496      .4994      .1542     3.2395      .0016      .1934      .8054 </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">      .4451      .8674      .1560     5.5600      .0000      .5577     1.1771 </span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">     1.4399     1.2354      .1622     7.6181      .0000      .9135     1.5573 </span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">     2.4346     1.6034      .1722     9.3125      .0000     1.2616     1.9452 </span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co">     3.4293     1.9714      .1854    10.6322      .0000     1.6033     2.3394 </span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">     4.4241     2.3394      .2013    11.6243      .0000     1.9399     2.7389 </span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">     5.4188     2.7074      .2191    12.3561      .0000     2.2725     3.1423 </span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">     6.4136     3.0754      .2386    12.8919      .0000     2.6019     3.5489 </span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">     7.4083     3.4434      .2592    13.2841      .0000     2.9289     3.9579 </span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co">     8.4030     3.8114      .2808    13.5722      .0000     3.2540     4.3688 </span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">     9.3978     4.1794      .3032    13.7851      .0000     3.5776     4.7812 </span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">    10.3925     4.5474      .3261    13.9432      .0000     3.9000     5.1948 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, the output contains the data for visualizing the conditional effect of the focal predictor. The data can be used to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis. By pasting this into a syntax editor and executing it, we can create a plot that visualizes the regression slopes (conditional effects) at the 3 levels of the moderator, one standard deviation below the mean, at the mean, and one standard deviation above the mean of the moderator.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="an">Data for visualizing the conditional effect of the focal predictor:</span><span class="co"> </span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Paste text below into a SPSS syntax window and execute to produce plot. </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>DATA LIST FREE/ </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   gaming     unemot     agress     . </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>BEGIN DATA. </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    -2.9068    -4.1229     8.6616 </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>      .0000    -4.1229     6.2706 </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>     2.9068    -4.1229     3.8796 </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    -2.9068      .0000     3.3362 </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      .0000      .0000     5.3788 </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     2.9068      .0000     7.4215 </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    -2.9068     4.1229    -1.9893 </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>      .0000     4.1229     4.4871 </span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>     2.9068     4.1229    10.9634 </span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>END DATA. </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>GRAPH/SCATTERPLOT= </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a> gaming   WITH     agress   BY       unemot   . </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="sec-reportmoderation" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="sec-reportmoderation"><span class="header-section-number">7.2</span> Reporting Regression Results</h2>
-<p>If we report a regression model, we first present the significance test and predictive power of the entire regression model. We may report that the regression model is statistically significant, <em>F</em> (7, 142) = 28.64, <em>p</em> &lt; 0.001, so the regression model very likely helps to predict attitude towards smoking in the population.</p>
-<p>How well does the regression model predict attitude towards smoking? The effect size of a regression model or its predictive power is summarized by <span class="math inline">\(R^2\)</span> (<em>R Square</em>), which is the proportion of the variance in the dependent variable scores (attitude towards smoking) that can be predicted with the regression model. In this example, <span class="math inline">\(R^2\)</span> is 0.59, so the regression model predicts 59% of the variance in attitude towards smoking among the respondents. In communication research, <span class="math inline">\(R^2\)</span> is usually smaller.</p>
-<p><span class="math inline">\(R^2\)</span> tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use <em>Adjusted R Square</em>. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is 0.56 (not reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>).</p>
+</section>
+<section id="sec-RegressionContModSPSS" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-RegressionContModSPSS"><span class="header-section-number">7.2</span> Numerical and categorical moderators</h2>
+<p>In the smokers dataset we not only have the results from the anti-smoking campaign, and contact with smokers, but also information about the smoking status of the participants, which could be non-smoker, former smoker, or smoker. We can use this information to test whether the effect of exposure to the anti-smoking campaign on attitude towards smoking is not only moderated by the amount of contact with smokers but also by the smoking status. In other words, we want to know whether the moderating effect of contact with smokers on the effect of exposure on attitude is different for smokers, former smokers, and non-smokers.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-moderator-concept3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="09-moderation-continuous_files/figure-html/fig-moderator-concept3-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: Conceptual diagram of the estimated moderation model.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="spss-numerical-and-categorical-moderator-with-process" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="spss-numerical-and-categorical-moderator-with-process"><span class="header-section-number">7.2.1</span> SPSS numerical and categorical moderator with PROCESS</h3>
+<p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/smokers5.sav">smokers.sav</a> data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the amount of contact that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select <code>Model Number 2</code> for a moderation model with two moderators and a second order interaction. We select <code>exposure</code> as the predictor <code>X variable</code>, and <code>attitude</code> as the dependent <code>Y variable</code>. We set <code>contact</code> as the continuous numerical <code>Moderator variable W</code>, and <code>status3</code> as the <code>Moderator variable Z</code>. The variable <code>status3</code> is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the <code>Multicategorical</code> butten and ticking the <code>Multicategorical</code> for <code>Variable Z</code>. You can leave the <code>Coding system</code> at <code>Indicator</code>.</p>
+<p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code>, but we can leave the <code>Johnson-Neyman output</code> un-ticked. Click <code>continue</code> to set these options.</p>
+<p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
+<p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. <a href="#vid-SPSSrunModContCat" class="quarto-xref">Video&nbsp;<span>7.6</span></a> will show how to run the analysis in SPSS.</p>
+<div id="vid-SPSSrunModContCat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSrunModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/mdxtRyMcb-4" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSrunModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.6: Moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
+</figcaption>
+</figure>
+</div>
+<p>The results produced by the PROCESS macro are similar to the results of the previous example, but now we have two moderators. The output contains the regression coefficients for the predictor, moderators, and interaction variables, as well as the conditional effects of the predictor at one standard deviation below the mean, at the mean, and one standard deviation above the mean.</p>
+<p>Because we have a categorical moderator, we have to identify the reference group for the categorical moderator. The PROCESS macro creates the two required dummy variables <code>Z1</code> and <code>Z2</code> for the categorical moderator <code>status3</code>. We can use the first section of the output to determine the reference group. The matrix below shows the coding of the categorical moderator variable <code>status3</code> for the analysis. Dummy variables <code>Z1</code> has the value 1 in the second row, indicating the status category 1 to be active. This category corresponded to being a former smoker. The dummy variable <code>Z2</code> has the value 1 in the third row, indicating the status category 2 to be active. This category corresponds to being a smoker. The first row is the reference group, which is non-smoker (status3 = 0). Hence <code>Z1</code> represents the former smoker group, and <code>Z2</code> represents the smoker group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="an">Model  :</span><span class="co"> 2 </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">    Y  : attitude </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">    X  : exposure </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">    W  : contact </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Z  : status3 </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>Sample </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Size:  85 </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Coding of categorical Z variable for analysis: </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a> status3      Z1      Z2 </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    .000    .000    .000 </span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>   1.000   1.000    .000 </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>   2.000    .000   1.000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>Product terms key</code> section indicates the interaction variables that are created by PROCESS. The interaction variable <code>Int_1</code> is the product of the predictor <code>exposure</code> and the continuous moderator <code>contact</code>. The interaction variables <code>Int_2</code> and <code>Int_3</code> are the products of the predictor <code>exposure</code> and the dummy variables <code>Z1</code> (former smoker) and <code>Z2</code> (smoker), respectively. These interaction variables represent the interaction effect of the predictor with the categorical moderator.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="an">Product terms key:</span><span class="co"> </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a> Int_1    :        exposure x        contact </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a> Int_2    :        exposure x        Z1 </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> Int_3    :        exposure x        Z2 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>Model Summary</code> section provides the overall model fit statistics, including the R-squared value, which indicates the proportion of variance explained by the model, and the F-statistic for the overall model significance. The <code>Model</code> section provides the regression coefficients for the predictor, moderators, and interaction variables, along with their standard errors, and confidence intervals. Along with the t-values, p-values testing the for the null hypothesis that the beta coefficients are zero. The coefficients indicate the effect of each variable on the dependent variable <code>attitude</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Model Summary </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>          R       R-sq        MSE          F        df1        df2          p </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      .8063      .6502     1.0719    20.4440     7.0000    77.0000      .0000 </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>Model </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>              coeff         se          t          p       LLCI       ULCI </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>constant     -.8151      .1749    -4.6594      .0000    -1.1634     -.4667 </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>exposure     -.1715      .0584    -2.9374      .0044     -.2878     -.0552 </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>contact       .2165      .0666     3.2513      .0017      .0839      .3491 </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>Int_1         .0802      .0251     3.1968      .0020      .0302      .1301 </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Z1          -1.5775      .2451    -6.4358      .0000    -2.0656    -1.0894 </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>Z2            .0524      .3428      .1530      .8788     -.6302      .7351 </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>Int_2        -.2210      .0880    -2.5126      .0141     -.3961     -.0459 </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>Int_3        -.0285      .1098     -.2598      .7957     -.2471      .1901</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>Test(s) of highest order unconditional interaction(s)</code> section provides the F-test for the interaction effect, which tests the increase in explained variance by the interactions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>Test(s) of highest order unconditional interaction(s): </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        R2-chng          F        df1        df2          p </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>X*W       .0464    10.2197     1.0000    77.0000      .0020 </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>X*Z       .0311     3.4235     2.0000    77.0000      .0376 </span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>BOTH      .0718     5.2675     3.0000    77.0000      .0023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Finally, the <code>Conditional effects of focal predictor at values of the moderator(s)</code> section provides the conditional effects of the predictor at the mean, one standard deviation below the mean, and one standard deviation above the mean of the continuous moderator <code>contact</code>, for each level of the categorical moderator <code>status3</code>. The conditional effects are reported for each combination of the categorical moderator levels and the continuous moderator values. The p-values indicate whether the conditional effect is significantly different from zero.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The PROCESS macro only outputs the conditional effects <strong>if</strong> the interaction effect is statistically significant.</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>Conditional effects of the focal predictor at values of the moderator(s): </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="in">    contact    status3     Effect         se          t          p       LLCI       ULCI </span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="in">    -1.8271      .0000     -.3180      .0640    -4.9663      .0000     -.4455     -.1905 </span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="in">    -1.8271     1.0000     -.5390      .0823    -6.5490      .0000     -.7029     -.3751 </span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="in">    -1.8271     2.0000     -.3465      .1083    -3.1989      .0020     -.5623     -.1308 </span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000      .0000     -.1715      .0584    -2.9374      .0044     -.2878     -.0552 </span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000     1.0000     -.3925      .0672    -5.8391      .0000     -.5263     -.2586 </span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="in">      .0000     2.0000     -.2000      .0912    -2.1927      .0314     -.3817     -.0184 </span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271      .0000     -.0250      .0832     -.3004      .7647     -.1906      .1406 </span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271     1.0000     -.2460      .0804    -3.0595      .0031     -.4061     -.0859 </span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271     2.0000     -.0535      .0954     -.5606      .5767     -.2436      .1365</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in <span class="citation" data-cites="id-SPSSintModContCat">(<a href="14-references.html#ref-id-SPSSintModContCat" role="doc-biblioref"><strong>id-SPSSintModContCat?</strong></a>)</span> below.</p>
+<div id="vid-SPSSintModContCat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-vid figure">
+<div aria-describedby="vid-SPSSintModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/6s1pzj90lBw" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSintModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Video&nbsp;7.7: Interpreting the results of a moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The graphs produced by PROCESS, for categorical moderators, are only visualized correctly if the <code>Measure</code> in the <code>Variable View</code> in SPSS is set to <code>Nominal</code> for the categorical moderator variable.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-reportmoderation" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-reportmoderation"><span class="header-section-number">7.3</span> Reporting Results</h2>
+<p>If we report a regression model, we first present the significance test and predictive power of the entire regression model. We may report that the regression model is statistically significant, <em>F</em> (7, 77) = 20.44, <em>p</em> &lt; 0.001, so the regression model very likely helps to predict attitude towards smoking in the population.</p>
+<p>How well does the regression model predict attitude towards smoking? The effect size of a regression model or its predictive power is summarized by <span class="math inline">\(R^2\)</span> (<em>R Square</em>), which is the proportion of the variance in the dependent variable scores (attitude towards smoking) that can be predicted with the regression model. In this example, <span class="math inline">\(R^2\)</span> is 0.65, so the regression model predicts 65% of the variance in attitude towards smoking among the respondents. In communication research, <span class="math inline">\(R^2\)</span> is usually smaller.</p>
+<p><span class="math inline">\(R^2\)</span> tells us how well the regression model predicts the dependent variable in the sample. Every predictor that we add to the regression model helps to predict results in the sample even if the predictor does not help to predict the dependent variable in the population. For a better idea of the predictive power of the regression model in the population, we may use <em>Adjusted R Square</em>. Adjusted R Square is usually slightly lower than R Square. In the example, Adjusted R Square is 0.62 (not reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>).</p>
 <div class="cell">
 <div id="tbl-report-moderation-table" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -689,7 +1024,7 @@ Table&nbsp;7.2
 </figcaption>
 <div aria-describedby="tbl-report-moderation-table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table style="NAborder-bottom: 0; font-size: 12px; width: auto !important; float: right; margin-left: 10px;" class="table">
+<table style="NAborder-bottom: 0; font-size: 12px; margin-left: auto; margin-right: auto;" class="table">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -708,10 +1043,10 @@ B
 Constant
 </td>
 <td style="text-align:left;">
--1.08***
+-0.82***
 </td>
 <td style="text-align:center;">
-[-1.32, -0.85]
+[-1.16, -0.47]
 </td>
 </tr>
 <tr>
@@ -719,10 +1054,10 @@ Constant
 Exposure
 </td>
 <td style="text-align:left;">
--0.18***
+-0.17**
 </td>
 <td style="text-align:center;">
-[-0.26, -0.10]
+[-0.29, -0.06]
 </td>
 </tr>
 <tr>
@@ -730,10 +1065,10 @@ Exposure
 Contact
 </td>
 <td style="text-align:left;">
-0.21***
+0.22**
 </td>
 <td style="text-align:center;">
-[ 0.12, 0.30]
+[ 0.08, 0.35]
 </td>
 </tr>
 <tr>
@@ -741,10 +1076,10 @@ Contact
 Former smoker
 </td>
 <td style="text-align:left;">
--1.38***
+-1.58***
 </td>
 <td style="text-align:center;">
-[-1.74, -1.01]
+[-2.07, -1.09]
 </td>
 </tr>
 <tr>
@@ -752,10 +1087,10 @@ Former smoker
 Smoker
 </td>
 <td style="text-align:left;">
-0.10
+0.05
 </td>
 <td style="text-align:center;">
-[-0.41, 0.60]
+[-0.63, 0.74]
 </td>
 </tr>
 <tr>
@@ -763,10 +1098,10 @@ Smoker
 Exposure * Contact
 </td>
 <td style="text-align:left;">
-0.06***
+0.08**
 </td>
 <td style="text-align:center;">
-[ 0.02, 0.09]
+[ 0.03, 0.13]
 </td>
 </tr>
 <tr>
@@ -774,10 +1109,10 @@ Exposure * Contact
 Exposure * Former smoker
 </td>
 <td style="text-align:left;">
--0.20**
+-0.22*
 </td>
 <td style="text-align:center;">
-[-0.33, -0.07]
+[-0.40, -0.05]
 </td>
 </tr>
 <tr>
@@ -785,10 +1120,10 @@ Exposure * Former smoker
 Exposure * Smoker
 </td>
 <td style="text-align:left;">
--0.02
+-0.03
 </td>
 <td style="text-align:center;">
-[-0.17, 0.13]
+[-0.25, 0.19]
 </td>
 </tr>
 <tr>
@@ -796,17 +1131,17 @@ Exposure * Smoker
 R<sup>2</sup>
 </td>
 <td style="text-align:left;">
-0.59
+0.65
 </td>
 <td style="text-align:center;">
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-F (7, 142)
+F (7, 77)
 </td>
 <td style="text-align:left;">
-28.64***
+20.44***
 </td>
 <td style="text-align:center;">
 </td>
@@ -832,27 +1167,13 @@ F (7, 142)
 </div>
 </div>
 <p>As a next step, we discuss the size, statistical significance, and confidence intervals of the regression coefficients. If a predictor is involved in one or more interaction effects, we must be very clear about the reference value or reference group to which the effect applies. In the example below, non-smokers are the reference group on the smoking status variable because they are not represented by a dummy variable. Average number of contacts with smokers is the reference value on the contact variable because this variable is mean-centered.</p>
-<p>Exposure, in our example, has a negative predictive effect on attitude towards smoking (<em>b</em> = -0.18) for non-smokers with average contacts with smokers, <em>t</em> = -4.37, p &lt; .001, 95% CI [-0.26, -0.10]. Note that SPSS does not report the degrees of freedom for the <em>t</em> test on a regression coefficient, so we cannot report them.</p>
+<p>Exposure, in our example, has a negative predictive effect on attitude towards smoking (<em>b</em> = -0.17) for non-smokers with average contacts with smokers, <em>t</em> = -2.94, p = 0.004, 95% CI [-0.29, -0.06]. Note that SPSS does not report the degrees of freedom for the <em>t</em> test on a regression coefficient, so we cannot report them.</p>
 <p>Instead of presenting the numerical results in the text, we may summarize them in an APA style table, such as <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>. Note that <em>t</em> and <em>p</em> values are not reported in this table, the focus is on the confidence intervals. The significance level is indicated by stars.</p>
-<p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.06, p &lt; .001) and by smoking status (<em>b</em> = -0.20, p = 0.003 for former smoker).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-moderator-concept3" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="09-moderation-continuous_files/figure-html/fig-moderator-concept3-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-moderator-concept3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.7: Conceptual diagram of the estimated moderation model.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is -0.20.</p>
-<p>For a numerical moderator, we can interpret the general pattern reflected by the interaction effect. A positive interaction effect, such as 0.06 for the interaction between exposure and smoker contact, signals that the effect of exposure is more strongly positive or less strongly negative at higher levels of contact with smokers.</p>
+<p>A sizable and statistically significant interaction effect signals that an effect is moderated. In the example reported in <a href="#tbl-report-moderation-table" class="quarto-xref">Table&nbsp;<span>7.2</span></a>, the effect of exposure on attitude seems to be moderated by contact with smokers (<em>b</em> = 0.08, p = 0.002) and by smoking status (<em>b</em> = -0.22, p = 0.014 for former smoker).</p>
+<p>The regression coefficients for interaction effects must be interpreted as effect differences. For a categorical moderator, the coefficient describes the effect size difference between the category represented by the dummy variable and the reference group. The negative effect of exposure is stronger for former smokers than for the reference group non-smokers. The average difference is -0.22.</p>
+<p>For a numerical moderator, we can interpret the general pattern reflected by the interaction effect. A positive interaction effect, such as 0.08 for the interaction between exposure and smoker contact, signals that the effect of exposure is more strongly positive or less strongly negative at higher levels of contact with smokers.</p>
 <p>This interpretation in terms of effect differences remains difficult to understand. It is recommended to select some interesting values for the moderator and report the size of the effect for each value. For a categorical moderator, each category is of interest. For a numerical moderator, the mean and one standard deviation below and above the mean are usually interesting values. The regression coefficients show whether the effect is positive, negative, or nearly zero at different values of the moderator.</p>
-<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>), not the original predictor.</p>
+<p>Visualize the regression lines for different values of the moderator in addition to presenting the numerical results. If the regression model contains covariates, mention the values that you have used for the covariates. Select one of the categories for a categorical covariate. For numerical covariates, the mean is a good choice. If you are working with mean-centered predictors, be sure to use the mean-centered predictor for the horizontal axis (as in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>), not the original predictor.</p>
 <div id="fig-report-moderator-visual" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-report-moderator-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -884,43 +1205,15 @@ Figure&nbsp;7.7: Conceptual diagram of the estimated moderation model.
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-report-moderator-visual-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.8: The effect of exposure on attitude towards smoking.
+Figure&nbsp;7.9: The effect of exposure on attitude towards smoking.
 </figcaption>
 </figure>
 </div>
-<p>The left panel in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
-<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
+<p>The left panel in <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a> clearly shows that the effect of exposure on attitude is more or less the same for non-smokers and smokers. The effect is different for former smokers, for whom the exposure effect is more strongly negative. It is more difficult to communicate this conclusion with the table of regression coefficients.</p>
+<p>Check that the predictor has good support at the selected values of the moderator. In the left-hand plot of <a href="#fig-report-moderator-visual" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, the groups (colours) vary nicely over the entire range of the predictor <em>exposure</em>, so that is okay. We need histograms to check common support for the right-hand plot.</p>
 <p>Do not report that common support of the predictor at different moderator values is good. If it is bad, warn the reader that we cannot fully trust the estimated moderation because we do not have a nice range of predictor values within each level of the moderator. If the predictor is supported only within a restricted range, you may report this range.</p>
 <p>Finally, inspect the residual plots but do not include them in the report. Warn the reader if the assumptions of the linear regression model have not been met. Do not mention the assumptions if they have been met.</p>
-</section>
-<section id="sec-RegressionContModSPSS" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="sec-RegressionContModSPSS"><span class="header-section-number">7.3</span> A Numerical Moderator in SPSS</h2>
-<section id="essential-analytics" class="level4 unnumbered">
-<h4 class="unnumbered anchored" data-anchor-id="essential-analytics">Essential Analytics</h4>
-<p>As in <a href="08-moderation-categorical.html" class="quarto-xref"><span>Chapter 6</span></a>, we calculate an interaction variable as the product of the predictor and moderator (the <em>Compute Variable</em> option in the <em>Transform</em> menu) and we use it as one of the independent variables in a linear regression model (the <em>Linear</em> option in the <em>Regression</em> submenu).</p>
-<p>The regression coefficient of the predictor tells us how much the predicted value of the dependent variable changes for a one unit increase in the predictor score <strong>for cases that score zero on the moderator</strong>. For example, one additional unit of exposure to the campaign decreases the attitude towards smoking by (-)0.53 for people with zero contacts with smokers (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, red box). The cases that score zero on the moderator (here: people with zero contacts with smokers) are the reference group; zero is the reference value.</p>
-<div id="fig-meancentertable" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/S9_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-meancentertable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.9: SPSS table of regression effects for a model in which the effect of exposure is moderated by contact with smokers: with the original variables (left) and with the moderator mean-centered (right).
-</figcaption>
-</figure>
-</div>
-<p>It is wise to mean-center the moderator variable before we use it. To mean-center a variable, we first obtain the value of the variable’s mean with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em>. Next, we use the <em>Compute Variable</em> option in the <em>Transform</em> menu to subtract this mean from the original variable.</p>
-<p>The effect of exposure on attitude changes if we mean-center the moderator variable <em>contact</em> (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, green box). People with an average number of contacts with smokers score zero on the mean-centered variable, so they are the new reference group. Among people with an average number of contacts with smokers, one additional unit of exposure decreases the predicted attitude by (-)0.31.</p>
-<p>The regression coefficient of the interaction effect (<a href="#fig-meancentertable" class="quarto-xref">Figure&nbsp;<span>7.9</span></a>, blue box) tells us how much the effect of the predictor changes if the moderator increases by one unit. One additional contact with a smoker increases the effect of exposure on attitude by 0.04, making it 0.04 less strongly negative or more strongly positive.</p>
-<p>Communicate the results of a numerical moderator in a scatterplot (<em>Scatter/Dot</em> in the <em>Legacy Dialogs</em> submenu of the <em>Graphs</em> menu) with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>). Get the mean and standard deviation of the moderator variable with the <em>Statistics</em> option in the <em>Frequencies</em> submenu of <em>Descriptive Statistics</em> and plug these values in the regression equation along with suitable values of any covariates. Add the resulting (simple) regression equations to the scatterplot with the <em>Reference Line from Equation</em> option in the <em>Options</em> menu of the <em>Chart Editor</em>.</p>
+<p>Communicate the results of a numerical moderator in a scatterplot with regression lines for the effect of the predictor at three moderator values: the mean value of the moderator, one standard deviation below the mean and one standard deviation above the mean (<a href="#fig-nummoderatorplot" class="quarto-xref">Figure&nbsp;<span>7.10</span></a>). The PROCESS macro provides the syntax for these plots.</p>
 <div id="fig-nummoderatorplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nummoderatorplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -939,42 +1232,6 @@ Figure&nbsp;7.10: Plot of the effect of exposure on attitude towards smoking for
 </figcaption>
 </figure>
 </div>
-</section>
-<section id="instructions" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">7.3.1</span> Instructions</h3>
-<div id="vid-SPSSregcenter" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-SPSSregcenter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/yk1Uq1VHjpY" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSregcenter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.2: Mean-centering numerical variables.
-</figcaption>
-</figure>
-</div>
-<hr>
-<div id="vid-SPSSreglines2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ZKlFyu5HIjk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSreglines2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.3: Graph regression lines for different moderator values.
-</figcaption>
-</figure>
-</div>
-<hr>
-<div id="vid-SPSSregSupport2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-SPSSregSupport2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/x45Tv6nvta4" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSregSupport2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.4: Checking common support with a continuous moderator.
-</figcaption>
-</figure>
-</div>
-</section>
 </section>
 <section id="take-home-points" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="take-home-points"><span class="header-section-number">7.4</span> Take-Home Points</h2>
@@ -997,244 +1254,247 @@ Hainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. <span>“How Much Shou
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-          // target, if specified
-          link.setAttribute("target", "_blank");
-          if (link.getAttribute("rel") === null) {
-            link.setAttribute("rel", "noopener");
-          }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1242,185 +1502,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./08-moderation-categorical.html" class="pagination-link" aria-label="Regression Analysis And A Categorical Moderator">
