@@ -91,11 +91,11 @@ To perform an exact approach in SPSS, let us set an example for a research. In a
 
 Thus, we can create an exact probability distribution for the combination of colour and stickiness. 
 
-If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an _Exact_ button. You will find this in the dialog window for creating a contingency table (_Analyze > descriptive statistics > crosstabs_) and in several legacy dialogs for non-parametric tests (_Analyze > nonparametric tests > legacy diologs_). In the Exact dialog, you check the _Exact_ option and SPSS automatically sets an upper limit of five minutes to the execution of the command. You can leave this at five minutes (see @sec-comp-int for why we have to do this).
+If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an `Exact` button. We can find this in the dialog window for creating a contingency table (`Analyze > descriptive statistics > crosstab`) and in several legacy dialogs for non-parametric tests (`Analyze > nonparametric tests > legacy diologs`). In the Exact dialog, we check the `Exact` option and SPSS automatically sets an upper limit of five minutes to the execution of the command. We can leave this at five minutes (see @sec-comp-int for why we have to do this).
 
-As established, we have two categorical variables with two categories. Looking at the test selection table (@sec-test-selection), we know that we use a Chi Square test to investigate these variables. Thus, within the dialog window _crosstabs_ we open the _Statistics_ dialog to select Chi-sqaure and we open the _Exact_ dialog to select the option _Exact_.
+As established, we have two categorical variables with two categories. Looking at the test selection table (@sec-test-selection), we know that we use a Chi Square test to investigate these variables. Thus, within the dialog window `crosstabs` we open the `Statistics` dialog to select Chi-sqaure and we open the `Exact` dialog to select the option `Exact`.
 
-_Note_. A Fisher's exact test is automatically run when there is a 2x2 contingency table. When we perform this test on larger contingency tables we need to select the _Exact_ option, which is why we teach it to you here.
+_Note_. A Fisher's exact test is automatically run when there is a 2x2 contingency table. When we perform this test on larger contingency tables we need to select the `Exact` option, which is why we teach it to you here.
 
 ### Instructions
 
@@ -475,15 +475,15 @@ Watch the video for the step by step on how to perform an independent t-test wit
 Perform bootstrapping in SPSS.
 :::
 
-Now that you have run the analysis in SPSS, we want to show you how to interpret this results. And thus, hwo to answer the question whether yellow and red candies weigh the same amount. 
+Now that we have run the analysis in SPSS, we want to show you how to interpret this results. And thus, how to answer the question whether yellow and red candies weigh the same amount. 
 
-As with the Fisher's exact test, the output starts - after a table with some bootstrap specifications - with a summary type table including descriptive like results. The _group statistics_, here we can find the number of cases (candies), means, standard deviations, etc.. The means can already give you a sense of and a grip on your results, which can help with interpretation later on.
+As with the Fisher's exact test, the output starts - after a table with some bootstrap specifications - with a summary type table including descriptive like results. The _group statistics_, here we can find the number of cases (candies), means, standard deviations, etc. The means can already give you a sense of and a grip on your results, which can help with interpretation later on.
 
 The table below, _independent samples test_, shows us the results of the independent samples t-test, including Leven's F-test, the test statistic, p-value and bootstrapped confidence interval. Levene's F-test is above .05 which leads us to conclude that equal variances are assumed (we will talk more about this during ANOVA, in chapter 5). This means we look at the upper row for our results. The t-value has a corresponding p-value that is also above .05 which menas that the effect of candy colour on candy weight is not significant. 
 
 The second part of the _independent samples test_ shows us the mean difference which is very small, this makes sense given the fact that we found a not significant result. The bootstrapped confidence intervals show that the zero falls in the 95% interval. This means that there is a likelihood that the mean difference could be zero. Thus, looking at the intervals we would also conclude that the effect is not significant. 
 
-In conclusion, the results show us that we could conclude that the hypothesis made by your friends gets no support from our data. Red and yellow candies seem to weigh approximately the same. You could have already seen this coming after looking at the mean values.
+In conclusion, the results show us that we could conclude that the hypothesis made by your friends gets no support from our data. Red and yellow candies seem to weigh approximately the same. We could have already seen this coming after looking at the mean values.
 
 Watch the video for the step by step on how to interpret an independent t-test with bootstrapping, the details and some additional information.
 
