@@ -87,37 +87,66 @@ In analysis of variance, then, we are simply interested in differences between g
 
 ```{r}
 #| label: fig-anova-meansplot
-#| fig-cap: "A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows."
+#| fig-cap: "A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser (Error bars = 95% Confidence Intervals). As a reading instruction, effects of endorsers are represented by arrows and dashed lines."
 #| echo: false
 #| warning: false
 
-# Insert means plot for celebrity endorsement example.
-d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie"), levels = c("Nobody","Clooney","Jolie")), willingness_av = c(3, 6, 7), const = 1)
-ggplot(d, aes(endorser, willingness_av)) + 
+source('data/simulate_donors.R')
+sim_data=simulate_data(Nobody_avg=3,Clooney_avg=6,Jolie_avg=7)
+
+# Define your color palette
+brewercolors <- brewer.pal(n = 8, name = "Set1") %>% setNames(c("Red", "Blue", "Green", "Purple", "Orange", "Yellow", "Brown", "Pink"))
+
+# Summarize the simulated data
+d <- sim_data %>%
+  group_by(endorser) %>%
+  summarise(
+    willingness_av = mean(willingness),
+    se = sd(willingness) / sqrt(n()),
+    lower = willingness_av - qt(0.975, df = n()-1) * se,
+    upper = willingness_av + qt(0.975, df = n()-1) * se,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    const = "line_group",  # for line connection
+    endorser=factor(endorser, levels=c('Nobody','Clooney','Jolie'))
+  )
+
+baseline <- d$willingness_av[d$endorser == "Nobody"]
+clooney <- d$willingness_av[d$endorser == "Clooney"] 
+jolie <- d$willingness_av[d$endorser == "Jolie"] 
+ggplot(data.frame(d), aes(endorser, willingness_av)) + 
   geom_point(size = 3, color=brewercolors["Blue"]) + 
   geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
-  geom_segment(aes(x = 1, xend = 3, y = d[1,2], yend = d[1,2]),
-               linetype = "dashed", color = "black") +
-  geom_segment(aes(x = 2, xend = 2, y = d[1,2], yend = (d[2,2] - 0.1)),
+  geom_segment(aes(x = 1, xend = 3.1, y = baseline, yend = baseline),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 2.1, xend = 2.1, y = baseline, yend = clooney),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 2.02, y = (d[1,2] + d[2,2])/2,
+   geom_segment(aes(x = 1.7, xend = 2.3, y = clooney, yend = clooney),
+               linetype = "dashed", color = "darkgrey") +
+  geom_label(aes(x = 1.8, y = (baseline + clooney)/2,
             label = "Clooney effect",
-            hjust = 0), color = "darkgrey"
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
-  geom_segment(aes(x = 3, xend = 3, y = d[1,2], yend = (d[3,2] - 0.1)),
+  geom_segment(aes(x = 3.1, xend = 3.1, y = baseline, yend = jolie),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 2.98, y = (d[1,2] + d[3,2])/2,
+  geom_segment(aes(x = 2.7, xend = 3.2, y = jolie, yend = jolie),
+               linetype = "dashed", color = "darkgrey") +
+  geom_label(aes(x = 2.8, y = (baseline + jolie)/2,
             label = "Jolie effect",
-            hjust = 1), color = "darkgrey"
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
   theme_general() + 
-  scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + labs(x = "Endorser", y = "Average willingness to donate")
+  scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + labs(x = "Endorser", y = "Average willingness to donate") +
+  # Error bars
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1, color = brewercolors["Blue"]) 
+
 rm(d)
 ```
 
@@ -267,7 +296,7 @@ Interpret the effects by comparing mean scores on the dependent variable among g
 ```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center'}
 knitr::include_graphics("figures/S7_AE2.png")
 ```
-SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.
+SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink arrows and dotted lines have been added manually to aid the interpretation.
 :::
 
 ::: {#vid-SPSS1way}
@@ -356,71 +385,103 @@ A two-way analysis of variance tests the effects of both factors on the dependen
 
 ```{r}
 #| label: fig-anova-meansplot2
-#| fig-cap: "Means plots for the main effects of endorser and sex on willingness to donate. As a reading instruction, effects of endorsers and of being female are represented by arrows."
+#| fig-cap: "Means plots for the main effects of endorser and sex on willingness to donate (Error bars = 95% Confidence Intervals). As a reading instruction, effects of endorsers and of being female are represented by arrows and dashed lines."
 #| echo: false
 #| warning: false
 
+sim_data <- simulate_data(ClooneyFemale_avg=6.5,ClooneyMale_avg=5,
+                   JolieFemale_avg=8.5,JolieMale_avg=7,
+                   NobodyFemale_avg=4.5,NobodyMale_avg=3)
 
-# Insert means plot for celebrity endorsement example.
-d <- data.frame(
-  endorser = factor(c("Nobody","Nobody","Clooney","Clooney","Jolie","Jolie"), 
-                    levels = c("Nobody","Clooney","Jolie")),
-  sex = factor(rep(c("Women", "Men"), 3)),
-  willingness_av = c(4.5, 3, 6.5, 5, 8.5, 7), const = 1)
+d <- sim_data %>%
+  group_by(endorser) %>%
+  summarise(
+    willingness_av = mean(willingness),
+    se = sd(willingness) / sqrt(n()),
+    lower = willingness_av - qt(0.975, df = n()-1) * se,
+    upper = willingness_av + qt(0.975, df = n()-1) * se,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    const = "line_group",  # for line connection
+    endorser=factor(endorser, levels=c('Nobody','Clooney','Jolie'))
+  ) %>% arrange(endorser)
+
 library(ggplot2)
-d2 <- d %>% group_by(endorser) %>%
-  summarise(willing = mean(willingness_av),
-            const = max(const))
+
 # Plot for main effect endorser.
-ggplot(d2, aes(endorser, willing)) + 
+ggplot(d, aes(endorser, willingness_av)) + 
     geom_point(size = 3, color=brewercolors["Blue"]) + 
     geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
-    geom_segment(aes(x = 1, xend = 3, y = willing[[1]], yend = willing[[1]]),
-               linetype = "dashed", color = "black") +
-    geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - 0.1)),
+    geom_segment(aes(x = 1, xend = 3.1, y = willingness_av[[1]], yend = willingness_av[[1]]),
+               linetype = "dashed", color = "darkgrey") +
+    geom_segment(aes(x = 2.1, xend = 2.1, y = willingness_av[[1]], yend = (willingness_av[[2]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-    geom_text(aes(x = 2.02, y = (willing[[1]] + willing[[2]])/2,
+  geom_segment(aes(x = 1.7, xend = 2.3, y = willingness_av[[2]], yend = willingness_av[[2]]),
+               linetype = "dashed", color = "darkgrey")+
+    geom_label(aes(x = 1.8, y = (willingness_av[[1]] + willingness_av[[2]])/2,
             label = "Clooney effect",
-            hjust = 0), color = "darkgrey", size =5
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
-    geom_segment(aes(x = 3, xend = 3, y = willing[[1]], yend = (willing[[3]] - 0.1)),
+    geom_segment(aes(x = 3.1, xend = 3.1, y = willingness_av[[1]], yend = (willingness_av[[3]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-    geom_text(aes(x = 2.98, y = (willing[[1]] + willing[[3]])/2,
+  geom_segment(aes(x = 2.7, xend = 3.3, y = willingness_av[[3]], yend = willingness_av[[3]]),
+               linetype = "dashed", color = "darkgrey")+
+    geom_label(aes(x = 2.8, y = (willingness_av[[1]] + willingness_av[[3]])/2,
             label = "Jolie effect",
-            hjust = 1), color = "darkgrey", size =5
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
     theme_general() + 
     theme(text = element_text(size = 18)) +
     scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-    labs(x = "Endorser", y = "Average willingness to donate")
+    labs(x = "Endorser", y = "Average willingness to donate")+
+  # Error bars
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1, color = brewercolors["Blue"]) 
+
+
+
 # Plot for main effect sex.
-d %>% group_by(sex) %>%
-  summarise(willing = mean(willingness_av),
-            const = max(const)) %>%
-  ggplot(aes(sex, willing)) + 
+d=sim_data %>% group_by(sex) %>%
+  summarise(willingness_av = mean(willingness),
+            se = sd(willingness) / sqrt(n()),
+            lower = willingness_av - qt(0.975, df = n()-1) * se,
+            upper = willingness_av + qt(0.975, df = n()-1) * se,
+            .groups = "drop") %>%
+  mutate(
+    const = "line_group",  # for line connection
+    sex = factor(sex,levels=c('male','female'))
+    )%>% arrange(sex)
+
+a=ggplot(d,aes(sex, willingness_av)) + 
     geom_point(size = 3, color=brewercolors["Blue"]) + 
     geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
-    geom_segment(aes(x = 1, xend = 2, y = willing[[1]], yend = willing[[1]]),
-               linetype = "dashed", color = "black") +
-    geom_segment(aes(x = 2, xend = 2, y = willing[[1]], yend = (willing[[2]] - 0.1)),
+    geom_segment(aes(x = 1, xend = 2.1, y = willingness_av[[1]], yend = willingness_av[[1]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 1.8, xend = 2.2, y = willingness_av[[2]], yend = willingness_av[[2]]),
+               linetype = "dashed", color = "darkgrey") +
+    geom_segment(aes(x = 2.1, xend = 2.1, y = willingness_av[[1]], yend = (willingness_av[[2]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-    geom_text(aes(x = 1.98, y = (willing[[1]] + willing[[2]])/2,
+    geom_label(aes(x = 1.7, y = (willingness_av[[1]] + willingness_av[[2]])/2-0.2,
             label = "Effect of being female",
-            hjust = 1), color = "darkgrey", size =5
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
     theme_general() + 
     theme(text = element_text(size = 18)) +
     scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-    labs(x = "Sex", y = "Average willingness to donate")
+    labs(x = "Sex", y = "Average willingness to donate")+
+  # Error bars
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1, color = brewercolors["Blue"]) 
+
+
 rm(d)
 ```
 
@@ -490,42 +551,65 @@ Different "Clooney effects" for female and male participants imply different dif
 
 ```{r}
 #| label: fig-anova-effectstrengthmod
-#| fig-cap: "oderation as a stronger effect within a particular context."
+#| fig-cap: "Moderation as a stronger effect within a particular context."
 #| echo: false
 #| warning: false
 
 # Add means plot with Clooney, Jolie, and Nobody on the x axis, willingness to donate on the y axis, and separate (coloured) lines linking the mean scores for females and males. In the plot, the average for females*Clooney is much higher than males*Clooney but the reverse does not apply to Jolie.
-d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Clooney","Nobody","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(3, 5, 5, 4.5, 9, 6.5))
+
+sim_data<-simulate_data(NobodyMale_avg=3,NobodyFemale_avg=4.5,ClooneyMale_avg=5,ClooneyFemale_avg=9,JolieMale_avg=5,JolieFemale_avg=6.5)
+
 library(ggplot2)
+
+d=sim_data %>% group_by(endorser,sex) %>%
+  summarise(
+    willingness_av = mean(willingness),
+    se = sd(willingness) / sqrt(n()),
+    lower = willingness_av - qt(0.975, df = n()-1) * se,
+    upper = willingness_av + qt(0.975, df = n()-1) * se,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    const = "line_group",  # for line connection
+    endorser=factor(endorser, levels=c('Clooney','Nobody','Jolie'))
+  ) %>% arrange(endorser)
+
 ggplot(d, aes(endorser, willingness_av, colour = sex)) + 
   geom_point(size = 3) + 
   geom_line(aes(group = sex), size = 1) + 
-  geom_segment(aes(x = 0.8, xend = 2.2, y = d[5,3], yend = d[5,3]),
-               linetype = "dashed", color = "black") +
-  geom_segment(aes(x = 2, xend = 2, y = d[4,3], yend = d[5,3]),
+  geom_segment(aes(x = 0.8, xend = 2.2, y = willingness_av[[1]], yend = willingness_av[[1]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 2, xend = 2, y = willingness_av[[3]], yend = willingness_av[[1]]-0.1),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 2.02, y = (d[4,3] + d[5,3])/2,
+  geom_label(aes(x = 1.82, y = (willingness_av[[1]] + willingness_av[[3]])/2,
             label = "Clooney effect\nfor females",
-            hjust = 0), color = "darkgrey"
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
-  geom_segment(aes(x = 0.8, xend = 2.2, y = d[1,3], yend = d[1,3]),
-               linetype = "dashed", color = "black") +
-  geom_segment(aes(x = 1, xend = 1, y = d[1,3], yend = (d[2,3] - 0.1)),
+  geom_segment(aes(x = 0.8, xend = 2.2, y =  willingness_av[[4]], yend =  willingness_av[[4]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 0.8, xend = 1.2, y =  willingness_av[[2]], yend =  willingness_av[[2]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 0.9, xend = 0.9, y = willingness_av[[4]], yend = (willingness_av[[2]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 0.98, y = (d[1,3] + d[2,3])/2,
+  geom_label(aes(x = 0.8, y = (willingness_av[[2]]+willingness_av[[4]])/2-0.2,
             label = "Clooney effect\nfor males",
-            hjust = 1), color = "darkgrey"
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
   theme_general() + 
   scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
   labs(x = "Endorser", y = "Average willingness to donate") +
-  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[5]]))
+  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[2]]))+
+  # Error bars
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1) 
+
+
+
 rm(d)
 ```
 
