@@ -26,9 +26,9 @@ How do we test mean differences for three or more groups and what if group effec
 
 :::
 
-Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity's fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for a specific gender? This study only compares the genders 'male' and 'female'.
+Imagine you are part of a research team interested in health communication. You and your team are investigating a vaccination campaign. The people in your research either receive a campagin making use of autonomy supportive language, a campaign making use of controlling language, or a neutral compaign used as control group. The acceptance of vaccination information is measured after watching either one of the campaign (random assignment). You are interested to see which campagin works best, that is which campaign style leads to the highest acceptance of vaccination information? Or does one campaign style work better when people have higher health literacy?
 
-In this example, we want to compare the outcome scores (average willingness to donate) across more than two groups (participants who saw Clooney, Jolie, or no celebrity). To this end, we use analysis of variance. The null hypothesis tested in analysis of variance states that all groups have the same average outcome score in the population.
+In this example, we first want to compare the outcome scores (average acceptance of vaccination information) across more than two groups (participants who saw the neutral campaign, the autonomy-supportive campaign or the controlling campaign). To this end, we use analysis of variance. The null hypothesis tested in analysis of variance states that all groups have the same average outcome score in the population.
 
 This null hypothesis is similar to the one we test in an independent-samples *t* test for two groups. With three or more groups, we must use the variance of the group means (between-groups variance) to test the null hypothesis. If the between-groups variance is zero, all group means are equal.
 
@@ -36,9 +36,9 @@ In addition to between-groups variance, we have to take into account the varianc
 
 Differences in average outcome scores for groups on one independent variable (usually called *factor* in analysis of variance) are called a main effect. A main effect represents an overall or average effect of a factor. If we have only one factor in our model, for instance, the endorser of the fund-raiser, we apply a one-way analysis of variance. With two factors, we have a two-way analysis of variance, and so on.
 
-With two or more factors, we can have interaction effects in addition to main effects. An interaction effect is the joint effect of two or more factors on the dependent variable. An interaction effect is best understood as different effects of one factor across different groups on another factor. For example, Clooney may increase willingness to donate among females but Jolie works best for males.
+With two or more factors, we can have interaction effects in addition to main effects. An interaction effect is the joint effect of two or more factors on the dependent variable. An interaction effect is best understood as different effects of one factor across different groups on another factor. For example, autonomy supportive language may increase acceptance of vaccination information for people with high health literacy but controlling language might work best for people with low health literacy.
 
-The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., sex) changes the effect of the predictor (e.g., celebrity endorser) on the dependent variable (e.g., willingness to donate).
+The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., health literacy) changes the effect of the predictor (e.g., campaign style) on the dependent variable (e.g., acceptance to vaccination information).
 
 ## Different Means for Three or More Groups
 
