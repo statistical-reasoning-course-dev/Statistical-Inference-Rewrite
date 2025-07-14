@@ -87,63 +87,64 @@ In analysis of variance, then, we are simply interested in differences between g
 
 ```{r}
 #| label: fig-anova-meansplot
-#| fig-cap: "A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser (Error bars = 95% Confidence Intervals). As a reading instruction, effects of endorsers are represented by arrows and dashed lines."
+#| fig-cap: "A means plot showing that average vaccine literacy is higher in the controlling and autonomy supportive language conditions than in the neutral language condition (Error bars = 95% Confidence Intervals). As a reading instruction, effects of language condition are represented by arrows and dashed lines."
 #| echo: false
 #| warning: false
 
-source('data/simulate_donors.R')
-sim_data=simulate_data(Nobody_avg=3,Clooney_avg=6,Jolie_avg=7)
+source('data/simulate_vaccine.R')
+sim_data=simulate_data(Neutral_avg=3,Autonomy_avg=6,Control_avg=7)
 
 # Define your color palette
 brewercolors <- brewer.pal(n = 8, name = "Set1") %>% setNames(c("Red", "Blue", "Green", "Purple", "Orange", "Yellow", "Brown", "Pink"))
 
 # Summarize the simulated data
 d <- sim_data %>%
-  group_by(endorser) %>%
+  group_by(lang_cond) %>%
   summarise(
-    willingness_av = mean(willingness),
-    se = sd(willingness) / sqrt(n()),
-    lower = willingness_av - qt(0.975, df = n()-1) * se,
-    upper = willingness_av + qt(0.975, df = n()-1) * se,
+    accept_av = mean(vacc_acceptance),
+    se = sd(vacc_acceptance) / sqrt(n()),
+    lower = accept_av - qt(0.975, df = n()-1) * se,
+    upper = accept_av + qt(0.975, df = n()-1) * se,
     .groups = "drop"
   ) %>%
   mutate(
     const = "line_group",  # for line connection
-    endorser=factor(endorser, levels=c('Nobody','Clooney','Jolie'))
+    lang_cond=factor(lang_cond, levels=c('Neutral','Autonomy','Control'))
   )
 
-baseline <- d$willingness_av[d$endorser == "Nobody"]
-clooney <- d$willingness_av[d$endorser == "Clooney"] 
-jolie <- d$willingness_av[d$endorser == "Jolie"] 
-ggplot(data.frame(d), aes(endorser, willingness_av)) + 
+baseline <- d$accept_av[d$lang_cond == "Neutral"]
+control <- d$accept_av[d$lang_cond == "Control"] 
+autonomy <- d$accept_av[d$lang_cond == "Autonomy"] 
+
+a=ggplot(data.frame(d), aes(lang_cond, accept_av)) + 
   geom_point(size = 3, color=brewercolors["Blue"]) + 
   geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
   geom_segment(aes(x = 1, xend = 3.1, y = baseline, yend = baseline),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 2.1, xend = 2.1, y = baseline, yend = clooney),
+  geom_segment(aes(x = 2.1, xend = 2.1, y = baseline, yend = autonomy),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-   geom_segment(aes(x = 1.7, xend = 2.3, y = clooney, yend = clooney),
+   geom_segment(aes(x = 1.7, xend = 2.3, y = autonomy, yend = autonomy),
                linetype = "dashed", color = "darkgrey") +
-  geom_label(aes(x = 1.8, y = (baseline + clooney)/2,
-            label = "Clooney effect",
+  geom_label(aes(x = 1.8, y = (baseline + autonomy)/2,
+            label = "Autonomy effect",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
-  geom_segment(aes(x = 3.1, xend = 3.1, y = baseline, yend = jolie),
+  geom_segment(aes(x = 3.1, xend = 3.1, y = baseline, yend = control),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_segment(aes(x = 2.7, xend = 3.2, y = jolie, yend = jolie),
+  geom_segment(aes(x = 2.7, xend = 3.2, y = control, yend = control),
                linetype = "dashed", color = "darkgrey") +
-  geom_label(aes(x = 2.8, y = (baseline + jolie)/2,
-            label = "Jolie effect",
+  geom_label(aes(x = 2.8, y = (baseline + control)/2,
+            label = "Control effect",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
   theme_general() + 
-  scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + labs(x = "Endorser", y = "Average willingness to donate") +
+  scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + labs(x = "Language Condition", y = "Average Vaccine Acceptance") +
   # Error bars
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1, color = brewercolors["Blue"]) 
 
@@ -362,8 +363,8 @@ In an experiment, we can ensure that factors are independent if we have the same
 
 # Table for a balanced 3x2 factorial design.
 # Create data.
-df <- data.frame(Female = rep(2, 3), Male = rep(2, 3))
-row.names(df) <- c("Clooney", "Jolie", "No endorser")
+df <- data.frame(`High Health Literacy` = rep(2, 3), `Low Health Literacy`= rep(2, 3))
+row.names(df) <- c("Autonomy", "Control", "Neutral")
 # Display table.
 knitr::kable(df, booktabs = TRUE) %>%
   kable_styling(font_size = 12, full_width = F, position = "float_right",
@@ -385,99 +386,99 @@ A two-way analysis of variance tests the effects of both factors on the dependen
 
 ```{r}
 #| label: fig-anova-meansplot2
-#| fig-cap: "Means plots for the main effects of endorser and sex on willingness to donate (Error bars = 95% Confidence Intervals). As a reading instruction, effects of endorsers and of being female are represented by arrows and dashed lines."
+#| fig-cap: "Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines."
 #| echo: false
 #| warning: false
 
-sim_data <- simulate_data(ClooneyFemale_avg=6.5,ClooneyMale_avg=5,
-                   JolieFemale_avg=8.5,JolieMale_avg=7,
-                   NobodyFemale_avg=4.5,NobodyMale_avg=3)
+sim_data <- simulate_data(AutonomyHigh_avg=6.5,AutonomyLow_avg=5,
+                   ControlHigh_avg=8.5,ControlLow_avg=7,
+                   NeutralHigh_avg=4.5,NeutralLow_avg=3)
 
 d <- sim_data %>%
-  group_by(endorser) %>%
+  group_by(lang_cond) %>%
   summarise(
-    willingness_av = mean(willingness),
-    se = sd(willingness) / sqrt(n()),
-    lower = willingness_av - qt(0.975, df = n()-1) * se,
-    upper = willingness_av + qt(0.975, df = n()-1) * se,
+    accept_av = mean(vacc_acceptance),
+    se = sd(vacc_acceptance) / sqrt(n()),
+    lower = accept_av - qt(0.975, df = n()-1) * se,
+    upper = accept_av + qt(0.975, df = n()-1) * se,
     .groups = "drop"
   ) %>%
   mutate(
     const = "line_group",  # for line connection
-    endorser=factor(endorser, levels=c('Nobody','Clooney','Jolie'))
-  ) %>% arrange(endorser)
+    lang_cond=factor(lang_cond, levels=c('Neutral','Autonomy','Control'))
+  ) %>% arrange(lang_cond)
 
 library(ggplot2)
 
 # Plot for main effect endorser.
-ggplot(d, aes(endorser, willingness_av)) + 
+ggplot(d, aes(lang_cond, accept_av)) + 
     geom_point(size = 3, color=brewercolors["Blue"]) + 
     geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
-    geom_segment(aes(x = 1, xend = 3.1, y = willingness_av[[1]], yend = willingness_av[[1]]),
+    geom_segment(aes(x = 1, xend = 3.1, y = accept_av[[1]], yend = accept_av[[1]]),
                linetype = "dashed", color = "darkgrey") +
-    geom_segment(aes(x = 2.1, xend = 2.1, y = willingness_av[[1]], yend = (willingness_av[[2]] - 0.1)),
+    geom_segment(aes(x = 2.1, xend = 2.1, y = accept_av[[1]], yend = (accept_av[[2]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_segment(aes(x = 1.7, xend = 2.3, y = willingness_av[[2]], yend = willingness_av[[2]]),
+  geom_segment(aes(x = 1.7, xend = 2.3, y = accept_av[[2]], yend = accept_av[[2]]),
                linetype = "dashed", color = "darkgrey")+
-    geom_label(aes(x = 1.8, y = (willingness_av[[1]] + willingness_av[[2]])/2,
-            label = "Clooney effect",
+    geom_label(aes(x = 1.8, y = (accept_av[[1]] + accept_av[[2]])/2,
+            label = "Autonomy effect",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
-    geom_segment(aes(x = 3.1, xend = 3.1, y = willingness_av[[1]], yend = (willingness_av[[3]] - 0.1)),
+    geom_segment(aes(x = 3.1, xend = 3.1, y = accept_av[[1]], yend = (accept_av[[3]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_segment(aes(x = 2.7, xend = 3.3, y = willingness_av[[3]], yend = willingness_av[[3]]),
+  geom_segment(aes(x = 2.7, xend = 3.3, y = accept_av[[3]], yend = accept_av[[3]]),
                linetype = "dashed", color = "darkgrey")+
-    geom_label(aes(x = 2.8, y = (willingness_av[[1]] + willingness_av[[3]])/2,
-            label = "Jolie effect",
+    geom_label(aes(x = 2.8, y = (accept_av[[1]] + accept_av[[3]])/2,
+            label = "Control effect",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
     theme_general() + 
     theme(text = element_text(size = 18)) +
     scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-    labs(x = "Endorser", y = "Average willingness to donate")+
+    labs(x = "Language Condition", y = "Average Vaccine Acceptance")+
   # Error bars
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1, color = brewercolors["Blue"]) 
 
 
 
 # Plot for main effect sex.
-d=sim_data %>% group_by(sex) %>%
-  summarise(willingness_av = mean(willingness),
-            se = sd(willingness) / sqrt(n()),
-            lower = willingness_av - qt(0.975, df = n()-1) * se,
-            upper = willingness_av + qt(0.975, df = n()-1) * se,
+d=sim_data %>% group_by(health_literacy) %>%
+  summarise(accept_av = mean(vacc_acceptance),
+            se = sd(vacc_acceptance) / sqrt(n()),
+            lower = accept_av - qt(0.975, df = n()-1) * se,
+            upper = accept_av + qt(0.975, df = n()-1) * se,
             .groups = "drop") %>%
   mutate(
     const = "line_group",  # for line connection
-    sex = factor(sex,levels=c('male','female'))
-    )%>% arrange(sex)
+    health_literacy = factor(health_literacy,levels=c('low','high'))
+    )%>% arrange(health_literacy)
 
-a=ggplot(d,aes(sex, willingness_av)) + 
+ggplot(d,aes(health_literacy, accept_av)) + 
     geom_point(size = 3, color=brewercolors["Blue"]) + 
     geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
-    geom_segment(aes(x = 1, xend = 2.1, y = willingness_av[[1]], yend = willingness_av[[1]]),
+    geom_segment(aes(x = 1, xend = 2.1, y = accept_av[[1]], yend = accept_av[[1]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 1.8, xend = 2.2, y = willingness_av[[2]], yend = willingness_av[[2]]),
+  geom_segment(aes(x = 1.8, xend = 2.2, y = accept_av[[2]], yend = accept_av[[2]]),
                linetype = "dashed", color = "darkgrey") +
-    geom_segment(aes(x = 2.1, xend = 2.1, y = willingness_av[[1]], yend = (willingness_av[[2]] - 0.1)),
+    geom_segment(aes(x = 2.1, xend = 2.1, y = accept_av[[1]], yend = (accept_av[[2]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-    geom_label(aes(x = 1.7, y = (willingness_av[[1]] + willingness_av[[2]])/2-0.2,
-            label = "Effect of being female",
+    geom_label(aes(x = 1.7, y = (accept_av[[1]] + accept_av[[2]])/2-0.2,
+            label = "Effect of high health literacy",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
     theme_general() + 
     theme(text = element_text(size = 18)) +
     scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-    labs(x = "Sex", y = "Average willingness to donate")+
+    labs(x = "Health Literacy", y = "Average Vaccine Acceptance")+
   # Error bars
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1, color = brewercolors["Blue"]) 
 
@@ -512,7 +513,7 @@ library(ggplot2)
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7), 
                         y = c(.1, .3, .1),
-                        label = c("Endorser", "Sex", "Willingness"))
+                        label = c("Language Condition", "Health Literacy", "Vaccine Acceptance"))
 ggplot(variables, aes(x, y)) + 
   geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.05, yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
   geom_segment(aes(x = x[2], y = y[2], xend = x[2], yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
@@ -555,55 +556,55 @@ Different "Clooney effects" for female and male participants imply different dif
 #| echo: false
 #| warning: false
 
-# Add means plot with Clooney, Jolie, and Nobody on the x axis, willingness to donate on the y axis, and separate (coloured) lines linking the mean scores for females and males. In the plot, the average for females*Clooney is much higher than males*Clooney but the reverse does not apply to Jolie.
+# Add means plot with Autonomy, Control, and Neutral on the x axis, vaccine acceptance on the y axis, and separate (coloured) lines linking the mean scores for high literacy and low literacy. In the plot, the average for high literacy*Autonomy is much higher than low literacy*Autonomy but the reverse does not apply to Control.
 
-sim_data<-simulate_data(NobodyMale_avg=3,NobodyFemale_avg=4.5,ClooneyMale_avg=5,ClooneyFemale_avg=9,JolieMale_avg=5,JolieFemale_avg=6.5)
+sim_data<-simulate_data(NeutralLow_avg=3,NeutralHigh_avg=4.5,AutonomyLow_avg=5,AutonomyHigh_avg=9,ControlLow_avg=5,ControlHigh_avg=6.5)
 
 library(ggplot2)
 
-d=sim_data %>% group_by(endorser,sex) %>%
+d=sim_data %>% group_by(lang_cond,health_literacy) %>%
   summarise(
-    willingness_av = mean(willingness),
-    se = sd(willingness) / sqrt(n()),
-    lower = willingness_av - qt(0.975, df = n()-1) * se,
-    upper = willingness_av + qt(0.975, df = n()-1) * se,
+    accept_av = mean(vacc_acceptance),
+    se = sd(vacc_acceptance) / sqrt(n()),
+    lower = accept_av - qt(0.975, df = n()-1) * se,
+    upper = accept_av + qt(0.975, df = n()-1) * se,
     .groups = "drop"
   ) %>%
   mutate(
     const = "line_group",  # for line connection
-    endorser=factor(endorser, levels=c('Clooney','Nobody','Jolie'))
-  ) %>% arrange(endorser)
+    lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
+  ) %>% arrange(lang_cond)
 
-ggplot(d, aes(endorser, willingness_av, colour = sex)) + 
+ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
-  geom_line(aes(group = sex), size = 1) + 
-  geom_segment(aes(x = 0.8, xend = 2.2, y = willingness_av[[1]], yend = willingness_av[[1]]),
+  geom_line(aes(group = health_literacy), size = 1) + 
+  geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 2, xend = 2, y = willingness_av[[3]], yend = willingness_av[[1]]-0.1),
+  geom_segment(aes(x = 2, xend = 2, y = accept_av[[3]], yend = accept_av[[1]]-0.1),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_label(aes(x = 1.82, y = (willingness_av[[1]] + willingness_av[[3]])/2,
-            label = "Clooney effect\nfor females",
+  geom_label(aes(x = 1.82, y = (accept_av[[1]] + accept_av[[3]])/2,
+            label = "Autonomy effect\nfor high literacy",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
-  geom_segment(aes(x = 0.8, xend = 2.2, y =  willingness_av[[4]], yend =  willingness_av[[4]]),
+  geom_segment(aes(x = 0.8, xend = 2.2, y =  accept_av[[4]], yend =  accept_av[[4]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 0.8, xend = 1.2, y =  willingness_av[[2]], yend =  willingness_av[[2]]),
+  geom_segment(aes(x = 0.8, xend = 1.2, y =  accept_av[[2]], yend =  accept_av[[2]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 0.9, xend = 0.9, y = willingness_av[[4]], yend = (willingness_av[[2]] - 0.1)),
+  geom_segment(aes(x = 0.9, xend = 0.9, y = accept_av[[4]], yend = (accept_av[[2]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_label(aes(x = 0.8, y = (willingness_av[[2]]+willingness_av[[4]])/2-0.2,
-            label = "Clooney effect\nfor males",
+  geom_label(aes(x = 0.8, y = (accept_av[[2]]+accept_av[[4]])/2-0.2,
+            label = "Autonomy effect\nfor low literacy",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
   theme_general() + 
   scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-  labs(x = "Endorser", y = "Average willingness to donate") +
+  labs(x = "Language Condition", y = "Average Vaccine Acceptance") +
   scale_color_manual(values=c(brewercolors[[1]], brewercolors[[2]]))+
   # Error bars
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1) 
