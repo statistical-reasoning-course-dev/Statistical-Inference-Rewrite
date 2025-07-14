@@ -575,7 +575,7 @@ d=sim_data %>% group_by(lang_cond,health_literacy) %>%
     lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
   ) %>% arrange(lang_cond)
 
-ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
+a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
   geom_line(aes(group = health_literacy), size = 1) + 
   geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
@@ -604,12 +604,10 @@ ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
             ) +
   theme_general() + 
   scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-  labs(x = "Language Condition", y = "Average Vaccine Acceptance") +
+  labs(x = "Language Condition", y = "Average Vaccine Acceptance",color='Health Literacy') +
   scale_color_manual(values=c(brewercolors[[1]], brewercolors[[2]]))+
   # Error bars
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1) 
-
-
 
 rm(d)
 ```
@@ -634,38 +632,57 @@ In the other type of moderation, the effect in one group is the opposite of the 
 #| warning: false
 
 
-# Add means plot with Clooney, Jolie, and Nobody on the x axis, willingness to donate on the y axis, and separate (coloured) lines linking the mean scores for females and males. In the plot, the average for females*Clooney is much higher than males*Clooney but the reverse does not apply to Jolie.
-d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Clooney","Nobody","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(5, 3.5, 7, 6, 7.5, 9))
+# Add means plot with Autonomy, Control, and Neutral on the x axis, vaccine acceptance on the y axis, and separate (coloured) lines linking the mean scores for high and low health literacy. In the plot, the average for high literacy*Autonomy is much higher than low literacy*Autonomy but the reverse does not apply to Control.
+
+sim_data<-simulate_data(NeutralLow_avg=5,NeutralHigh_avg=6,AutonomyLow_avg=3.5,AutonomyHigh_avg=7.5,ControlLow_avg=7,ControlHigh_avg=9)
+
 library(ggplot2)
-ggplot(d, aes(endorser, willingness_av, colour = sex)) + 
+
+d=sim_data %>% group_by(lang_cond,health_literacy) %>%
+  summarise(
+    accept_av = mean(vacc_acceptance),
+    se = sd(vacc_acceptance) / sqrt(n()),
+    lower = accept_av - qt(0.975, df = n()-1) * se,
+    upper = accept_av + qt(0.975, df = n()-1) * se,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    const = "line_group",  # for line connection
+    lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
+  ) %>% arrange(lang_cond)
+
+a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
-  geom_line(aes(group = sex), size = 1) + 
-  geom_segment(aes(x = 0.8, xend = 2.2, y = d[5,3], yend = d[5,3]),
-               linetype = "dashed", color = "black") +
-  geom_segment(aes(x = 2, xend = 2, y = d[4,3], yend = d[5,3]),
+  geom_line(aes(group = health_literacy), size = 1) + 
+  geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 2, xend = 2, y = accept_av[[3]], yend = accept_av[[1]]-0.1),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 1.98, y = (d[4,3] + d[5,3])/2,
-            label = "Clooney effect\nfor females",
-            hjust = 1), color = "darkgrey"
+  geom_label(aes(x = 1.5, y = 8.2,
+            label = "Autonomy effect\nfor high literacy",
+            hjust = 0), color = "darkgrey",fill='white'
             ) +
-  geom_segment(aes(x = 0.8, xend = 2.2, y = d[1,3], yend = d[1,3]),
-               linetype = "dashed", color = "black") +
-  geom_segment(aes(x = 1, xend = 1, y = d[1,3], yend = (d[2,3] + 0.1)),
+  geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[4]], yend = accept_av[[4]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 1, xend = 1, y = accept_av[[2]], yend = (accept_av[[4]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 0.98, y = (d[1,3] + d[2,3])/2,
-            label = "Clooney effect\nfor males",
-            hjust = 1), color = "darkgrey"
+  geom_label(aes(x = 0.7, y = 5.5,
+            label = "Autonomy effect\nfor low literacy",
+            hjust = 0), color = "darkgrey"
             ) +
   theme_general() + 
   scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-  labs(x = "Endorser", y = "Average willingness to donate") +
-  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[5]]))
+  labs(x = "Language Condition", y = "Average Vaccine Acceptance",color='Health Literacy') +
+  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[2]]))+
+  # Error bars
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1) 
+
 rm(d)
 ```
 
