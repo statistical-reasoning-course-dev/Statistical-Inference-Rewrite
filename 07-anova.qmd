@@ -575,7 +575,7 @@ d=sim_data %>% group_by(lang_cond,health_literacy) %>%
     lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
   ) %>% arrange(lang_cond)
 
-a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
+ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
   geom_line(aes(group = health_literacy), size = 1) + 
   geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
@@ -651,7 +651,7 @@ d=sim_data %>% group_by(lang_cond,health_literacy) %>%
     lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
   ) %>% arrange(lang_cond)
 
-a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
+ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
   geom_line(aes(group = health_literacy), size = 1) + 
   geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
@@ -665,9 +665,11 @@ a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
             label = "Autonomy effect\nfor high literacy",
             hjust = 0), color = "darkgrey",fill='white'
             ) +
-  geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[4]], yend = accept_av[[4]]),
+  geom_segment(aes(x = 0.7, xend = 2.2, y = accept_av[[4]], yend = accept_av[[4]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 1, xend = 1, y = accept_av[[2]], yend = (accept_av[[4]] - 0.1)),
+  geom_segment(aes(x = 0.7, xend = 1.3, y = accept_av[[2]], yend = accept_av[[2]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 0.8, xend = 0.8, y = accept_av[[2]], yend = (accept_av[[4]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
@@ -686,7 +688,6 @@ a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
 rm(d)
 ```
 
-
 In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (@fig-anova-effectdirmod2). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.
 
 ```{r}
@@ -696,35 +697,61 @@ In an extreme situation, the effect in one group can compensate for the effect i
 #| warning: false
 
 
-# Add means plot with Clooney, Jolie, and Nobody on the x axis, willingness to donate on the y axis, and separate (coloured) lines linking the mean scores for females and males. In the plot, the average for females*Clooney is much higher than males*Clooney but the reverse does not apply to Jolie.
-d <- data.frame(endorser = factor(c("Nobody","Clooney","Jolie","Nobody","Clooney","Jolie"), levels = c("Clooney","Nobody","Jolie")), sex = as.factor(c(rep("male", 3), rep("female", 3))), willingness_av = c(6, 3, 9, 6, 9, 3))
+# Add means plot with Autonomy, Control and Neutral on the x axis, vaccine acceptance on the y axis, and separate (coloured) lines linking the mean scores for high and low health literacy. In the plot, the average for high literacy*Autonomuy is much higher than low literacy*Autonomy but the reverse does not apply to Control.
+
+sim_data<-simulate_data(NeutralLow_avg=6,NeutralHigh_avg=6,AutonomyLow_avg=3,AutonomyHigh_avg=9,ControlLow_avg=9,ControlHigh_avg=3)
+
 library(ggplot2)
-ggplot(d, aes(endorser, willingness_av, colour = sex)) + 
+
+d=sim_data %>% group_by(lang_cond,health_literacy) %>%
+  summarise(
+    accept_av = mean(vacc_acceptance),
+    se = sd(vacc_acceptance) / sqrt(n()),
+    lower = accept_av - qt(0.975, df = n()-1) * se,
+    upper = accept_av + qt(0.975, df = n()-1) * se,
+    .groups = "drop"
+  ) %>%
+  mutate(
+    const = "line_group",  # for line connection
+    lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
+  ) %>% arrange(lang_cond)
+
+ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
-  geom_point(aes(x = endorser, y = 6), size = 3, color = "darkgrey") +
-  geom_line(aes(group = sex), size = 1) + 
-  geom_segment(aes(x = 0.8, xend = 3.2, y = d[1,3], yend = d[1,3]),
-               linetype = "dashed", color = "black") +
-  geom_segment(aes(x = 1, xend = 1, y = d[4,3], yend = (d[5,3] - 0.1)),
+  #geom_point(aes(x = lang_cond, y = 6), size = 3, color = "darkgrey") +
+  geom_line(aes(group = health_literacy), size = 1) + 
+  geom_segment(aes(x = 0.7, xend = 2, y = accept_av[[3]], yend = accept_av[[3]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 2, xend = 3.2, y = accept_av[[4]], yend = accept_av[[4]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 0.8, xend = 0.8, y = accept_av[[3]], yend = (accept_av[[1]] - 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 0.98, y = (d[4,3] + d[5,3])/2,
-            label = "Clooney effect\nfor females",
-            hjust = 1), color = "darkgrey") +
-  geom_segment(aes(x = 3, xend = 3, y = d[4,3], yend = d[6,3]),
+  geom_segment(aes(x = 0.7, xend = 1.3, y = accept_av[[1]], yend = accept_av[[1]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 2.7, xend = 3.3, y = accept_av[[5]], yend = accept_av[[5]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_label(aes(x = 0.6, y = (accept_av[[1]] + accept_av[[3]])/2,
+            label = "Autonomy effect\nfor high literacy",
+            hjust = 0), color = "darkgrey", fill='white') +
+  geom_segment(aes(x = 3.2, xend = 3.2, y = accept_av[[4]], yend = accept_av[[5]]+0.1),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
                                  type = "closed")) +
-  geom_text(aes(x = 3.02, y = (d[4,3] + d[6,3])/2,
-            label = "Jolie effect\nfor females",
+  geom_label(aes(x = 2.7, y = (accept_av[[4]] + accept_av[[5]])/2,
+            label = "Control effect\nfor high literacy",
             hjust = 0), color = "darkgrey") +
   theme_general() + 
   scale_y_continuous(limits = c(1, 10), breaks = c(1, 5, 10)) + 
-  labs(x = "Endorser", y = "Average willingness to donate") + 
-  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[5]]))
+  labs(x = "Language Condition", y = "Average Vaccine Acceptance", color='Health Literacy') + 
+  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[2]]))+
+  # Error bars
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1) 
+
+
 rm(d)
 ```
 
@@ -784,19 +811,23 @@ The main purpose of reporting a two-way analysis of variance is to show the read
 # Basic colours and layout.
 #source("apps/plottheme/styling.R")
 # Create effect sizes.
-donors <- haven::read_spss("data/donors.sav")
-donors$sex <- factor(donors$sex, labels = names(attributes(donors$sex)$labels))
-donors$endorser <- factor(donors$endorser, labels = names(attributes(donors$endorser)$labels))
-d <- donors %>% group_by(sex, endorser) %>%
-  summarise(mean_willing = mean(willing_post), .groups = "drop_last")
-ggplot(d, aes(x = endorser, y = mean_willing, group = sex, color = sex)) + 
+vaccine <- haven::read_spss("data/vaccine.sav")
+vaccine$health_literacy <- factor(vaccine$health_literacy, labels = names(attributes(vaccine$health_literacy)$labels))
+vaccine$lang_cond <- factor(vaccine$lang_cond, labels = names(attributes(vaccine$lang_cond)$labels))
+d <- vaccine %>% group_by(health_literacy, lang_cond) %>%
+  summarise(mean_accept = mean(accept_post),
+            se = sd(accept_post) / sqrt(n()),
+    lower = mean_accept - qt(0.975, df = n()-1) * se,
+    upper = mean_accept + qt(0.975, df = n()-1) * se,
+    .groups = "drop_last")
+ggplot(d, aes(x = lang_cond, y = mean_accept, group = health_literacy, color = health_literacy)) + 
   geom_path(size = 1) + 
   geom_point(size = 3) + 
   theme_general() + 
-  xlab("Endorser") + 
-  ylab("Average willingnss to donate") + 
+  labs(x="Language Condition",y="Average Vaccine Acceptance",color='Health Literacy') + 
   scale_y_continuous(limits = c(1, 10), breaks = seq(1, 10)) + 
-  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[5]]))
+  scale_color_manual(values=c(brewercolors[[1]], brewercolors[[2]]))+
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.1) 
 # Cleanup.
 rm(d)
 ```
@@ -826,9 +857,11 @@ A two-way analysis of variance may produce many numeric results to report. It is
 #| echo: false
 #| warning: false
 
-results <- anova(lm(willing_post ~ sex*endorser, data = donors))
+results <- anova(lm(accept_post ~ health_literacy*lang_cond, data = vaccine))
 results <- cbind(round(results[,2], digits = 2), round(results[,1], digits = 0), round(results[,3:4], digits = 2), round(results[,5], digits = 3))
-row.names(results)[3] <- "endorser*sex"
+row.names(results)[1] <- "health literacy"
+row.names(results)[2] <- "language condition"
+row.names(results)[3] <- "language condition*health literacy"
 row.names(results)[4] <- "error"
 results[5,] <- c(round(sum(results[,1]), digits = 2), round(sum(results[,2]), digits = 2), NA, NA, NA)
 row.names(results)[5] <- "Total"
