@@ -671,7 +671,7 @@ a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
                linetype = "dashed", color = "darkgrey") +
   geom_segment(aes(x = 0.7, xend = 1.3, y = accept_av[[2]], yend = accept_av[[2]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 0.8, xend = 0.8, y = accept_av[[2]], yend = (accept_av[[4]] - 0.1)),
+  geom_segment(aes(x = 0.8, xend = 0.8, y = accept_av[[4]], yend = (accept_av[[2]] + 0.1)),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
