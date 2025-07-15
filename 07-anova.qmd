@@ -627,7 +627,7 @@ In the other type of moderation, the effect in one group is the opposite of the 
 
 ```{r}
 #| label: fig-anova-effectdirmod1
-#| fig-cap: "Moderation as a positive  effect in one context and a negative effect in another context."
+#| fig-cap: "Moderation as a positive effect in one context and a negative effect in another context."
 #| echo: false
 #| warning: false
 
@@ -651,12 +651,12 @@ d=sim_data %>% group_by(lang_cond,health_literacy) %>%
     lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
   ) %>% arrange(lang_cond)
 
-ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
+a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
   geom_line(aes(group = health_literacy), size = 1) + 
   geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 2, xend = 2, y = accept_av[[3]], yend = accept_av[[1]]-0.1),
+  geom_segment(aes(x = 1.8, xend = 1.8, y = accept_av[[3]], yend = accept_av[[1]]-0.1),
                color = "darkgrey",
                arrow = arrow(length = unit(2,"mm"),
                                  # ends = "both",
@@ -666,6 +666,8 @@ ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
             hjust = 0), color = "darkgrey",fill='white'
             ) +
   geom_segment(aes(x = 0.7, xend = 2.2, y = accept_av[[4]], yend = accept_av[[4]]),
+               linetype = "dashed", color = "darkgrey") +
+  geom_segment(aes(x = 1.7, xend = 2.3, y = accept_av[[3]], yend = accept_av[[3]]),
                linetype = "dashed", color = "darkgrey") +
   geom_segment(aes(x = 0.7, xend = 1.3, y = accept_av[[2]], yend = accept_av[[2]]),
                linetype = "dashed", color = "darkgrey") +

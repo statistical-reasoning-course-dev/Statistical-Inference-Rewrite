@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -52,16 +52,15 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./08-moderation-categorical.html" rel="next">
 <link href="./04-hypothesis.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4824bc4fcff8d7c1e04965ee072d4f81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -91,8 +90,6 @@ div.csl-indent {
 }</script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="site_libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="site_libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -127,7 +124,7 @@ window.Quarto = {
 <link rel="stylesheet" href="styleX.css">
 </head>
 
-<body class="nav-sidebar docked quarto-light">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -347,13 +344,13 @@ Video&nbsp;5.1: Introduction to analysis of variance.
 </div>
 </div>
 </div>
-<p>Imagine an experiment in which participants watch a video promoting a charity. They see George Clooney, Angelina Jolie, or no celebrity endorse the charity’s fund-raiser. Afterwards, their willingness to donate to the charity is measured. Which campaign works best, that is, produces highest average willingness to donate? Or does one campaign work better for a specific gender? This study only compares the genders ‘male’ and ‘female’.</p>
-<p>In this example, we want to compare the outcome scores (average willingness to donate) across more than two groups (participants who saw Clooney, Jolie, or no celebrity). To this end, we use analysis of variance. The null hypothesis tested in analysis of variance states that all groups have the same average outcome score in the population.</p>
+<p>Imagine you are part of a research team interested in health communication. You and your team are investigating a vaccination campaign. The people in your research either receive a campagin making use of autonomy supportive language, a campaign making use of controlling language, or a neutral compaign used as control group. The acceptance of vaccination information is measured after watching either one of the campaign (random assignment). You are interested to see which campagin works best, that is which campaign style leads to the highest acceptance of vaccination information? Or does one campaign style work better when people have higher health literacy?</p>
+<p>In this example, we first want to compare the outcome scores (average acceptance of vaccination information) across more than two groups (participants who saw the neutral campaign, the autonomy-supportive campaign or the controlling campaign). To this end, we use analysis of variance. The null hypothesis tested in analysis of variance states that all groups have the same average outcome score in the population.</p>
 <p>This null hypothesis is similar to the one we test in an independent-samples <em>t</em> test for two groups. With three or more groups, we must use the variance of the group means (between-groups variance) to test the null hypothesis. If the between-groups variance is zero, all group means are equal.</p>
 <p>In addition to between-groups variance, we have to take into account the variance of outcome scores within groups (within-groups variance). Within-groups variance is related to the fact that we may obtain different group means even if we draw random samples from populations with the same means. The ratio of between-groups variance over within-groups variance gives us the <em>F</em> test statistic, which has an <em>F</em> distribution.</p>
 <p>Differences in average outcome scores for groups on one independent variable (usually called <em>factor</em> in analysis of variance) are called a main effect. A main effect represents an overall or average effect of a factor. If we have only one factor in our model, for instance, the endorser of the fund-raiser, we apply a one-way analysis of variance. With two factors, we have a two-way analysis of variance, and so on.</p>
-<p>With two or more factors, we can have interaction effects in addition to main effects. An interaction effect is the joint effect of two or more factors on the dependent variable. An interaction effect is best understood as different effects of one factor across different groups on another factor. For example, Clooney may increase willingness to donate among females but Jolie works best for males.</p>
-<p>The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., sex) changes the effect of the predictor (e.g., celebrity endorser) on the dependent variable (e.g., willingness to donate).</p>
+<p>With two or more factors, we can have interaction effects in addition to main effects. An interaction effect is the joint effect of two or more factors on the dependent variable. An interaction effect is best understood as different effects of one factor across different groups on another factor. For example, autonomy supportive language may increase acceptance of vaccination information for people with high health literacy but controlling language might work best for people with low health literacy.</p>
+<p>The phenomenon that a variable can have different effects for different groups on another variable is called moderation. We usually think of one factor as the predictor (or independent variable) and the other factor as the moderator. The moderator (e.g., health literacy) changes the effect of the predictor (e.g., campaign style) on the dependent variable (e.g., acceptance to vaccination information).</p>
 </section>
 <section id="different-means-for-three-or-more-groups" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="different-means-for-three-or-more-groups"><span class="header-section-number">5.1</span> Different Means for Three or More Groups</h2>
@@ -396,23 +393,9 @@ Figure&nbsp;5.2: How do group means relate to effect size?
 </div>
 <p>A group’s average score on the dependent variable represents the group’s score level. The group averages in <a href="#fig-anova-means" class="quarto-xref">Figure&nbsp;<span>5.2</span></a> tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.</p>
 <p>Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.</p>
-<p>If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in <a href="10-confounding.html" class="quarto-xref"><span>Chapter 8</span></a>). Mean differences are said to represent the <em>effect</em> of experimental treatment in analysis of variance.</p>
+<p>If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in <span class="quarto-unresolved-ref">?sec-confounder</span>). Mean differences are said to represent the <em>effect</em> of experimental treatment in analysis of variance.</p>
 <p>Analysis of variance was developed for the analysis of randomized experiments, where effects can be interpreted as causal effects. Note, however, that analysis of variance can also be applied to non-experimental data. Although mean differences are still called effects in the latter type of analysis, these do not have to be causal effects.</p>
-<p>In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as <a href="#fig-anova-meansplot" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-anova-meansplot" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-anova-meansplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="07-anova_files/figure-html/fig-anova-meansplot-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.3: A means plot showing that average willingness to donate is higher with a celebrity endorser than without a celebrity endorser. As a reading instruction, effects of endorsers are represented by arrows.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
+<p>In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as <span class="quarto-unresolved-ref">?fig-anova-meansplot</span>, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.</p>
 <p>Effect size in an analysis of variance refers to the overall differences between group means. We use eta<sup>2</sup> as effect size, which gives the proportion of variance in the dependent variable (willingness to donate) explained or predicted by the group variable (experimental condition).</p>
 <p>This proportion is informative and precise. If you want to classify the effect size in more general terms, you should take the square root of eta<sup>2</sup> to obtain <em>eta</em>. As a measure of association, eta can be interpreted with the following rules of thumb:</p>
 <ul>
@@ -423,7 +406,7 @@ Figure&nbsp;5.3: A means plot showing that average willingness to donate is high
 </section>
 <section id="sec-between-variance" class="level3" data-number="5.1.2">
 <h3 data-number="5.1.2" class="anchored" data-anchor-id="sec-between-variance"><span class="header-section-number">5.1.2</span> Between-groups variance and within-groups variance</h3>
-<p>For a better understanding of eta<sup>2</sup> and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> adds overall average willingness to donate to the plot (horizontal black line) with participants’ scores and average experimental group scores (coloured horizontal lines).</p>
+<p>For a better understanding of eta<sup>2</sup> and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> adds overall average willingness to donate to the plot (horizontal black line) with participants’ scores and average experimental group scores (coloured horizontal lines).</p>
 <div id="fig-anova-between" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-between-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -431,19 +414,19 @@ Figure&nbsp;5.3: A means plot showing that average willingness to donate is high
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-between-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.4: Which part of score differences tells us about the differences between groups?
+Figure&nbsp;5.3: Which part of score differences tells us about the differences between groups?
 </figcaption>
 </figure>
 </div>
-<p>Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. Once we have our data, we first have a look at the percentage of variance that is explained, eta<sup>2</sup>. What does it mean if we say that a percentage of the variance is explained when we interpret eta<sup>2</sup>?</p>
-<p>The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a> express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.</p>
-<p>The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.</p>
-<p>If we know the group to which a participant belongs—which celebrity she saw endorsing the fundraising campaign—we can use the average outcome score for the group as the predicted outcome for each group member—her willingness to donate due to the endorser she saw. The predicted group scores are represented by the coloured horizontal lines for group means in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>.</p>
-<p>Now what part of the variance in outcome scores (dotted black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant’s willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant’s experimental treatment.</p>
-<p>So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the <em>between-groups variance</em>.</p>
-<p>Playing with the group means in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>, you may have noticed that eta<sup>2</sup> is high if there are large differences between group means. In this situation we have high between-groups variance—large black arrows—so we can predict a lot of the variation in outcome scores between participants.</p>
+<p>Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>. Once we have our data, we first have a look at the percentage of variance that is explained, eta<sup>2</sup>. What does it mean if we say that a percentage of the variance is explained when we interpret eta<sup>2</sup>?</p>
+<p>The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a> express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.</p>
+<p>The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.</p>
+<p>If we know the group to which a participant belongs—which celebrity she saw endorsing the fundraising campaign—we can use the average outcome score for the group as the predicted outcome for each group member—her willingness to donate due to the endorser she saw. The predicted group scores are represented by the coloured horizontal lines for group means in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>.</p>
+<p>Now what part of the variance in outcome scores (dotted black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant’s willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant’s experimental treatment.</p>
+<p>So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the <em>between-groups variance</em>.</p>
+<p>Playing with the group means in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>, you may have noticed that eta<sup>2</sup> is high if there are large differences between group means. In this situation we have high between-groups variance—large black arrows—so we can predict a lot of the variation in outcome scores between participants.</p>
 <p>In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in <a href="#sec-anova-model" class="quarto-xref"><span>Section 5.1.3</span></a>, zero between-groups variance is central to the null hypothesis in analysis of variance.</p>
-<p>The experimental treatment predicts that a participant’s willingness equals the average willingness of the participant’s group. It cannot predict or explain that a participant’s willingness score is slightly different from her group mean (the red double-sided arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.4</span></a>). <em>Within-groups variance</em> in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as “Error”.</p>
+<p>The experimental treatment predicts that a participant’s willingness equals the average willingness of the participant’s group. It cannot predict or explain that a participant’s willingness score is slightly different from her group mean (the red double-sided arrows in <a href="#fig-anova-between" class="quarto-xref">Figure&nbsp;<span>5.3</span></a>). <em>Within-groups variance</em> in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as “Error”.</p>
 </section>
 <section id="sec-anova-model" class="level3" data-number="5.1.3">
 <h3 data-number="5.1.3" class="anchored" data-anchor-id="sec-anova-model"><span class="header-section-number">5.1.3</span> <em>F</em> test on the model</h3>
@@ -462,7 +445,7 @@ Figure&nbsp;5.4: Which part of score differences tells us about the differences 
 <h4 data-number="5.1.4.1" class="anchored" data-anchor-id="independent-samples"><span class="header-section-number">5.1.4.1</span> Independent samples</h4>
 <p>The first assumption is that the groups can be regarded as independent samples. As in an independent-samples <em>t</em> test, it must be possible <em>in principle</em> to draw a separate sample for each group in the analysis. Because this is a matter of principle instead of how we actually draw the sample, we have to argue that the assumption is reasonable. We cannot check the assumption against the data.</p>
 <p>Here is an example of an argument that we can make. In an experiment, we usually draw one sample of participants and, as a next step, we assign participants randomly to one of the experimental conditions. We could have easily drawn a separate sample for each experimental group. For example, we first draw a participant for the first condition: seeing George Clooney endorsing the fundraising campaign. Next, we draw a participant for the second condition, e.g., Angelina Jolie. The two draws are independent: whomever we have drawn for the Clooney condition is irrelevant to whom we draw for the Jolie condition. Therefore, draws are independent and the samples can be regarded as independent.</p>
-<p>Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples <em>t</em> tests (see <a href="02-probability.html#sec-dependentsamples" class="quarto-xref"><span>Section 2.3.6</span></a>). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.</p>
+<p>Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples <em>t</em> tests (see <span class="quarto-unresolved-ref">?sec-dependentsamples</span>). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.</p>
 </section>
 <section id="homogeneous-population-variances" class="level4" data-number="5.1.4.2">
 <h4 data-number="5.1.4.2" class="anchored" data-anchor-id="homogeneous-population-variances"><span class="header-section-number">5.1.4.2</span> Homogeneous population variances</h4>
@@ -481,7 +464,7 @@ Figure&nbsp;5.4: Which part of score differences tells us about the differences 
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-posthoc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.5: Which groups have different average outcome scores in the population? The <em>p</em> values belong to independent-samples <em>t</em> tests on the means of two groups.
+Figure&nbsp;5.4: Which groups have different average outcome scores in the population? The <em>p</em> values belong to independent-samples <em>t</em> tests on the means of two groups.
 </figcaption>
 </figure>
 </div>
@@ -491,7 +474,7 @@ Figure&nbsp;5.5: Which groups have different average outcome scores in the popul
 <p>With a statistically significant <em>F</em> test for the analysis of variance model, several questions remain to be answered. Does an endorser increase or decrease the willingness to donate? Are both endorsers equally effective? The <em>F</em> test does not provide answers to these questions. We have to compare groups one by one to see which condition (endorser) is associated with a higher level of willingness to donate.</p>
 <p>In a pairwise comparison, we have two groups, for instance, participants confronted with George Clooney and participants who did not see a celebrity endorse the fund raiser. We want to compare the two groups on a numeric dependent variable, namely their willingness to donate. An independent-samples <em>t</em> test is appropriate here.</p>
 <p>With three groups, we can make three pairs: Clooney versus Jolie, Clooney versus nobody, and Jolie versus nobody. We have to execute three <em>t</em> tests on the same data. We already know that there are most likely differences in average scores, so the <em>t</em> tests are executed after the fact, in Latin <em>post hoc</em>. Hence the name <em>post-hoc tests</em>.</p>
-<p>Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. <a href="04-hypothesis.html#sec-cap-chance" class="quarto-xref"><span>Section 4.7.3</span></a> discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples <em>t</em> tests that we execute if the analysis of variance <em>F</em> test is statistically significant.</p>
+<p>Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. <span class="quarto-unresolved-ref">?sec-cap-chance</span> discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples <em>t</em> tests that we execute if the analysis of variance <em>F</em> test is statistically significant.</p>
 <p>The Bonferroni correction divides the significance level by the number of tests that we do. In our example, we do three <em>t</em> tests on pairs of groups, so we divide the significance level of five per cent by three. The resulting significance level for each <em>t</em> test is .0167. If a <em>t</em> test’s <em>p</em> value is below .0167, we reject the null hypothesis, but we do not reject it otherwise.</p>
 </section>
 <section id="two-steps-in-analysis-of-variance" class="level4" data-number="5.1.5.2">
@@ -502,7 +485,7 @@ Figure&nbsp;5.5: Which groups have different average outcome scores in the popul
 <section id="contradictory-results" class="level4" data-number="5.1.5.3">
 <h4 data-number="5.1.5.3" class="anchored" data-anchor-id="contradictory-results"><span class="header-section-number">5.1.5.3</span> Contradictory results</h4>
 <p>It may happen that the <em>F</em> test on the model is statistically significant but none of the post-hoc tests is statistically significant. This mainly happens when the <em>p</em> value of the <em>F</em> test is near .05. Perhaps the correction for capitalization on chance is too strong; this is known to be the case with the Bonferroni correction. Alternatively, the sample can be too small for the post-hoc test. Note that we have fewer observations in a post-hoc test than in the <em>F</em> test because we only look at two of the groups.</p>
-<p>This situation illustrates the limitations of null hypothesis significance tests (<a href="04-hypothesis.html#sec-critical-discussion" class="quarto-xref"><span>Section 4.7</span></a>). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the <em>F</em> and <em>t</em> tests have contradictory results.</p>
+<p>This situation illustrates the limitations of null hypothesis significance tests (<span class="quarto-unresolved-ref">?sec-critical-discussion</span>). Remember that the 5 per cent significance level remains an arbitrary boundary and statistical significance depends a lot on sample size. So do not panic if the <em>F</em> and <em>t</em> tests have contradictory results.</p>
 <p>A statistically significant <em>F</em> test tells us that we may be quite confident that at least two group means are different in the population. If none of the post-hoc <em>t</em> tests is statistically significant, we should note that it is difficult to pinpoint the differences. Nevertheless, we should report the sample means of the groups (and their standard deviations) as well as the confidence intervals of their differences as reported in the post-hoc test. The two groups that have most different sample means are most likely to have different population means.</p>
 </section>
 </section>
@@ -526,16 +509,16 @@ Figure&nbsp;5.5: Which groups have different average outcome scores in the popul
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.6: SPSS table of main and interaction effects in a two-way analysis of variance.
+Figure&nbsp;5.5: SPSS table of main and interaction effects in a two-way analysis of variance.
 </figcaption>
 </figure>
 </div>
-<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. <a href="#fig-ANOVAtable" class="quarto-xref">Figure&nbsp;<span>5.6</span></a> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of endorser is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
+<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. <a href="#fig-ANOVAtable" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of campaign style is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
 <p>Interpret the effects by comparing mean scores on the dependent variable among groups:</p>
 <ol type="1">
-<li><p>If there are two groups on a factor, for example, females and males, compare the two group means: Which group scores higher? For example, females score on average 5.05 on willingness to donate whereas the average willingness is only 4.19 for males. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
-<li><p>If a factor has more than two groups, for example, Jolie, Clooney, and no celebrity endorser, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
-<li><p>If you want to interpret an interaction effect, create means plots such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.7</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of sex on willingness to donate (the difference between the mean score of females and the mean score of males) is larger for Clooney (pink box in the middle) than for no celebrity endorser (pink box on the left), and it is smallest for Angelina Jolie (pink box on the right). Similarly, we see that the effect of seeing Clooney instead of no celebrity endorser is larger for females (right-hand panel, pink box on the right) than for males (right-hand panel, pink box on the left).</p></li>
+<li><p>If there are two groups on a factor, for example, low and high health literacy, compare the two group means: Which group scores higher? For example, people with high health literacy score on average 5.05 on acceptance of vaccination information whereas the average acceptance is only 4.19 for people with low health literacy. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
+<li><p>If a factor has more than two groups, for example, neutral, controlling or autonomy supportive language, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
+<li><p>If you want to interpret an interaction effect, create means plots such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of health literacy on acceptance of vaccination information (the difference between the mean score of people with low health literacy and the mean score of people with high health literacy) is larger for autonomy supportive language (pink box in the middle) than for neutral language (pink box on the left), and it is smallest for controlling language (pink box on the right). Similarly, we see that the effect of seeing the autonomy supportive campagin instead of the neutral campaign is larger for people with high healthy literacy (right-hand panel, pink box on the right) than for people with low health literacy (right-hand panel, pink box on the left).</p></li>
 </ol>
 <div id="fig-ANOVAplots" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -551,7 +534,7 @@ Figure&nbsp;5.6: SPSS table of main and interaction effects in a two-way analysi
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.7: SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink boxes have been added manually to aid the interpretation.
+Figure&nbsp;5.6: SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink arrows and dotted lines have been added manually to aid the interpretation.
 </figcaption>
 </figure>
 </div>
@@ -577,7 +560,7 @@ Video&nbsp;5.2: Execute one-way analysis of variance in SPSS.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.8: How do group means inform us about (main) effects in analysis of variance?
+Figure&nbsp;5.7: How do group means inform us about (main) effects in analysis of variance?
 </figcaption>
 </figure>
 </div>
@@ -607,17 +590,17 @@ Table&nbsp;5.1
 <th style="text-align:left;">
 </th>
 <th style="text-align:right;">
-Female
+High.Health.Literacy
 </th>
 <th style="text-align:right;">
-Male
+Low.Health.Literacy
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-Clooney
+Autonomy
 </td>
 <td style="text-align:right;">
 2
@@ -628,7 +611,7 @@ Clooney
 </tr>
 <tr>
 <td style="text-align:left;">
-Jolie
+Control
 </td>
 <td style="text-align:right;">
 2
@@ -639,7 +622,7 @@ Jolie
 </tr>
 <tr>
 <td style="text-align:left;">
-No endorser
+Neutral
 </td>
 <td style="text-align:right;">
 2
@@ -671,7 +654,7 @@ No endorser
 <img src="07-anova_files/figure-html/fig-anova-meansplot2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.9: Means plots for the main effects of endorser and sex on willingness to donate. As a reading instruction, effects of endorsers and of being female are represented by arrows.
+Figure&nbsp;5.8: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
 </figcaption>
 </figure>
 </div>
@@ -683,7 +666,7 @@ Figure&nbsp;5.9: Means plots for the main effects of endorser and sex on willing
 <img src="07-anova_files/figure-html/fig-anova-meansplot2-2.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.10: Means plots for the main effects of endorser and sex on willingness to donate. As a reading instruction, effects of endorsers and of being female are represented by arrows.
+Figure&nbsp;5.9: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
 </figcaption>
 </figure>
 </div>
@@ -698,7 +681,7 @@ Figure&nbsp;5.10: Means plots for the main effects of endorser and sex on willin
 <p>In the preceding section, we have analyzed the effects both of endorser and sex on willingness to donate to a fund raiser. The two main effects isolate the influence of endorser on willingness from the effect of sex and the other way around. This assumes that endorser and sex have an effect on their own, a general effect.</p>
 <p>We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? We could hypothesize that males and females might react differently towards seeing a male or female celebrity, either because they find one of them more attractive or because they identify better with one or the other. Thus, we could expect that one endorser is more effective among female participants and the other among male participants.</p>
 <p>If the effect of a factor is different for different groups on another factor, the first factor’s effect is <em>moderated</em> by the second factor. The phenomenon that effects are moderated is called <em>moderation</em>. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.</p>
-<p>With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. <a href="#fig-anova-diagram" class="quarto-xref">Figure&nbsp;<span>5.11</span></a> shows the conceptual diagram for participant’s sex moderating the effect of endorsing celebrity on willingness to donate.</p>
+<p>With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. <a href="#fig-anova-diagram" class="quarto-xref">Figure&nbsp;<span>5.10</span></a> shows the conceptual diagram for participant’s sex moderating the effect of endorsing celebrity on willingness to donate.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -707,7 +690,7 @@ Figure&nbsp;5.10: Means plots for the main effects of endorser and sex on willin
 <img src="07-anova_files/figure-html/fig-anova-diagram-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.11: Conceptual diagram of moderation.
+Figure&nbsp;5.10: Conceptual diagram of moderation.
 </figcaption>
 </figure>
 </div>
@@ -716,7 +699,7 @@ Figure&nbsp;5.11: Conceptual diagram of moderation.
 <section id="types-of-moderation" class="level3 page-columns page-full" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="types-of-moderation"><span class="header-section-number">5.4.1</span> Types of moderation</h3>
 <p>Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the <strong>Totals</strong> row and column contain the means for each factor separately, for example the means for males and females (factor sex) or the means for the endorsers (factor endorser). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.</p>
-<p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (<a href="#fig-anova-moderation" class="quarto-xref">Figure&nbsp;<span>5.12</span></a>).</p>
+<p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (<a href="#fig-anova-moderation" class="quarto-xref">Figure&nbsp;<span>5.11</span></a>).</p>
 <div id="fig-anova-moderation" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -724,7 +707,7 @@ Figure&nbsp;5.11: Conceptual diagram of moderation.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.12: How can we recognize main effects and moderation in a means plot?
+Figure&nbsp;5.11: How can we recognize main effects and moderation in a means plot?
 </figcaption>
 </figure>
 </div>
@@ -742,7 +725,7 @@ Figure&nbsp;5.12: How can we recognize main effects and moderation in a means pl
 <img src="07-anova_files/figure-html/fig-anova-effectstrengthmod-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectstrengthmod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.13: oderation as a stronger effect within a particular context.
+Figure&nbsp;5.12: Moderation as a stronger effect within a particular context.
 </figcaption>
 </figure>
 </div>
@@ -755,22 +738,8 @@ Figure&nbsp;5.13: oderation as a stronger effect within a particular context.
 </section>
 <section id="effect-direction-moderation" class="level4" data-number="5.4.1.2">
 <h4 data-number="5.4.1.2" class="anchored" data-anchor-id="effect-direction-moderation"><span class="header-section-number">5.4.1.2</span> Effect direction moderation</h4>
-<p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In <a href="#fig-anova-effectdirmod1" class="quarto-xref">Figure&nbsp;<span>5.14</span></a>, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this <em>effect direction moderation</em>. Males reverse the Clooney effect that we find for females.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div id="fig-anova-effectdirmod1" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-anova-effectdirmod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="07-anova_files/figure-html/fig-anova-effectdirmod1-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectdirmod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.14: Moderation as a positive effect in one context and a negative effect in another context.
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (<a href="#fig-anova-effectdirmod2" class="quarto-xref">Figure&nbsp;<span>5.15</span></a>). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.</p>
+<p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In <span class="quarto-unresolved-ref">?fig-anova-effectdirmod1</span>, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this <em>effect direction moderation</em>. Males reverse the Clooney effect that we find for females.</p>
+<p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (<a href="#fig-anova-effectdirmod2" class="quarto-xref">Figure&nbsp;<span>5.13</span></a>). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-effectdirmod2" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -779,7 +748,7 @@ Figure&nbsp;5.14: Moderation as a positive effect in one context and a negative 
 <img src="07-anova_files/figure-html/fig-anova-effectdirmod2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectdirmod2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.15: Moderation as opposite effects in different contexts.
+Figure&nbsp;5.13: Moderation as opposite effects in different contexts.
 </figcaption>
 </figure>
 </div>
@@ -792,7 +761,7 @@ Figure&nbsp;5.15: Moderation as opposite effects in different contexts.
 <section id="testing-main-and-interaction-effects" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="testing-main-and-interaction-effects"><span class="header-section-number">5.4.2</span> Testing main and interaction effects</h3>
 <p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see <a href="#sec-anova2way" class="quarto-xref"><span>Section 5.3.1</span></a>), for example a main effect of sex and a main effect of endorser.</p>
-<p>For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.16</span></a>, we compare average willingness to donate for combinations of endorser and participant’s sex. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
+<p>For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.14</span></a>, we compare average willingness to donate for combinations of endorser and participant’s sex. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
 <div id="fig-anova-interaction" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -800,12 +769,12 @@ Figure&nbsp;5.15: Moderation as opposite effects in different contexts.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.16: How can we recognize main effects and moderation in a means plot?
+Figure&nbsp;5.14: How can we recognize main effects and moderation in a means plot?
 </figcaption>
 </figure>
 </div>
-<p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.16</span></a> is not relevant to moderation.</p>
-<p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.16</span></a> because the willingness scores of the individual participants are not shown.</p>
+<p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.14</span></a> is not relevant to moderation.</p>
+<p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.14</span></a> because the willingness scores of the individual participants are not shown.</p>
 <p>We can use the between-groups and within-groups variances to execute an <em>F</em> test just like the <em>F</em> test we use for main effects. The <em>null hypothesis</em> of the <em>F</em> test on an interaction effect states that the subgroups have the same population averages if we correct for the main effects. Our statistical software takes care of this correction if we include the main effects in the model, which we should always do.</p>
 <p>Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of endorser is the same for both sexes in the population. Or, the other way around, that the effect of sex is the same for different endorser groups in the population.</p>
 <div class="callout callout-style-simple callout-important">
@@ -836,7 +805,7 @@ Figure&nbsp;5.16: How can we recognize main effects and moderation in a means pl
 <img src="07-anova_files/figure-html/fig-2way-meansplot-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2way-meansplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.17: An example of a means plot.
+Figure&nbsp;5.15: An example of a means plot.
 </figcaption>
 </figure>
 </div>
@@ -886,7 +855,7 @@ p
 <tbody>
 <tr>
 <td style="text-align:left;">
-sex
+health literacy
 </td>
 <td style="text-align:right;">
 26.37
@@ -906,7 +875,7 @@ sex
 </tr>
 <tr>
 <td style="text-align:left;">
-endorser
+language condition
 </td>
 <td style="text-align:right;">
 38.05
@@ -926,7 +895,7 @@ endorser
 </tr>
 <tr>
 <td style="text-align:left;">
-endorser*sex
+language condition*health literacy
 </td>
 <td style="text-align:right;">
 20.60
@@ -1047,247 +1016,244 @@ McCracken, Grant. 1989. <span>“Who Is the Celebrity Endorser? Cultural Foundat
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-  window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
-    const isCodeAnnotation = (el) => {
-      for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
-          return true;
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
       }
-      return false;
-    }
-    const onCopySuccess = function(e) {
-      // button target
-      const button = e.trigger;
-      // don't keep focus
-      button.blur();
-      // flash "checked"
-      button.classList.add('code-copy-button-checked');
-      var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
-      let tooltip;
-      if (window.bootstrap) {
-        button.setAttribute("data-bs-toggle", "tooltip");
-        button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
-            customClass: "code-copy-button-tooltip",
-            offset: [0, -8]});
-        tooltip.show();    
-      }
-      setTimeout(function() {
-        if (tooltip) {
-          tooltip.hide();
-          button.removeAttribute("data-bs-title");
-          button.removeAttribute("data-bs-toggle");
-          button.removeAttribute("data-bs-placement");
-        }
-        button.setAttribute("title", currentTitle);
-        button.classList.remove('code-copy-button-checked');
-      }, 1000);
-      // clear code selection
-      e.clearSelection();
-    }
-    const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
-        }
-        return codeEl.innerText;
-    }
-    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-      text: getTextToCopy
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
     });
-    clipboard.on('success', onCopySuccess);
-    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-        text: getTextToCopy,
-        container: window.document.getElementById('quarto-embedded-source-code-modal')
-      });
-      clipboardModal.on('success', onCopySuccess);
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
-      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
-      var isInternal = (href) => {
-          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-      }
-      // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-      for (var i=0; i<links.length; i++) {
-        const link = links[i];
-        if (!isInternal(link.href)) {
-          // undo the damage that might have been done by quarto-nav.js in the case of
-          // links that we want to consider external
-          if (link.dataset.originalHref !== undefined) {
-            link.href = link.dataset.originalHref;
-          }
-            // target, if specified
-            link.setAttribute("target", "_blank");
-            if (link.getAttribute("rel") === null) {
-              link.setAttribute("rel", "noopener");
-            }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
         }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
       }
-    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-      const config = {
-        allowHTML: true,
-        maxWidth: 500,
-        delay: 100,
-        arrow: false,
-        appendTo: function(el) {
-            return el.parentElement;
-        },
-        interactive: true,
-        interactiveBorder: 10,
-        theme: 'quarto',
-        placement: 'bottom-start',
-      };
-      if (contentFn) {
-        config.content = contentFn;
-      }
-      if (onTriggerFn) {
-        config.onTrigger = onTriggerFn;
-      }
-      if (onUntriggerFn) {
-        config.onUntrigger = onUntriggerFn;
-      }
-      window.tippy(el, config); 
     }
-    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-    for (var i=0; i<noterefs.length; i++) {
-      const ref = noterefs[i];
-      tippyHover(ref, function() {
-        // use id or data attribute instead here
-        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-        try { href = new URL(href).hash; } catch {}
-        const id = href.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note) {
-          return note.innerHTML;
-        } else {
-          return "";
-        }
-      });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
     }
-    const xrefs = window.document.querySelectorAll('a.quarto-xref');
-    const processXRef = (id, note) => {
-      // Strip column container classes
-      const stripColumnClz = (el) => {
-        el.classList.remove("page-full", "page-columns");
-        if (el.children) {
-          for (const child of el.children) {
-            stripColumnClz(child);
-          }
-        }
-      }
-      stripColumnClz(note)
-      if (id === null || id.startsWith('sec-')) {
-        // Special case sections, only their first couple elements
-        const container = document.createElement("div");
-        if (note.children && note.children.length > 2) {
-          container.appendChild(note.children[0].cloneNode(true));
-          for (let i = 1; i < note.children.length; i++) {
-            const child = note.children[i];
-            if (child.tagName === "P" && child.innerText === "") {
-              continue;
-            } else {
-              container.appendChild(child.cloneNode(true));
-              break;
-            }
-          }
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(container);
-          }
-          return container.innerHTML
-        } else {
-          if (window.Quarto?.typesetMath) {
-            window.Quarto.typesetMath(note);
-          }
-          return note.innerHTML;
-        }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
       } else {
-        // Remove any anchor links if they are present
-        const anchorLink = note.querySelector('a.anchorjs-link');
-        if (anchorLink) {
-          anchorLink.remove();
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
         }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        if (note.classList.contains("callout")) {
-          return note.outerHTML;
-        } else {
-          return note.innerHTML;
-        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
       }
     }
-    for (var i=0; i<xrefs.length; i++) {
-      const xref = xrefs[i];
-      tippyHover(xref, undefined, function(instance) {
-        instance.disable();
-        let url = xref.getAttribute('href');
-        let hash = undefined; 
-        if (url.startsWith('#')) {
-          hash = url;
-        } else {
-          try { hash = new URL(url).hash; } catch {}
-        }
-        if (hash) {
-          const id = hash.replace(/^#\/?/, "");
-          const note = window.document.getElementById(id);
-          if (note !== null) {
-            try {
-              const html = processXRef(id, note.cloneNode(true));
-              instance.setContent(html);
-            } finally {
-              instance.enable();
-              instance.show();
-            }
-          } else {
-            // See if we can fetch this
-            fetch(url.split('#')[0])
-            .then(res => res.text())
-            .then(html => {
-              const parser = new DOMParser();
-              const htmlDoc = parser.parseFromString(html, "text/html");
-              const note = htmlDoc.getElementById(id);
-              if (note !== null) {
-                const html = processXRef(id, note);
-                instance.setContent(html);
-              } 
-            }).finally(() => {
-              instance.enable();
-              instance.show();
-            });
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
           }
         } else {
-          // See if we can fetch a full url (with no hash to target)
-          // This is a special case and we should probably do some content thinning / targeting
-          fetch(url)
+          // See if we can fetch this
+          fetch(url.split('#')[0])
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.querySelector('main.content');
+            const note = htmlDoc.getElementById(id);
             if (note !== null) {
-              // This should only happen for chapter cross references
-              // (since there is no id in the URL)
-              // remove the first header
-              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-                note.children[0].remove();
-              }
-              const html = processXRef(null, note);
+              const html = processXRef(id, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -1295,161 +1261,185 @@ McCracken, Grant. 1989. <span>“Who Is the Celebrity Endorser? Cultural Foundat
             instance.show();
           });
         }
-      }, function(instance) {
-      });
-    }
-        let selectedAnnoteEl;
-        const selectorForAnnotation = ( cell, annotation) => {
-          let cellAttr = 'data-code-cell="' + cell + '"';
-          let lineAttr = 'data-code-annotation="' +  annotation + '"';
-          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-          return selector;
-        }
-        const selectCodeLines = (annoteEl) => {
-          const doc = window.document;
-          const targetCell = annoteEl.getAttribute("data-target-cell");
-          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-          const lineIds = lines.map((line) => {
-            return targetCell + "-" + line;
-          })
-          let top = null;
-          let height = null;
-          let parent = null;
-          if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
-            }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
-            }
-            selectedAnnoteEl = annoteEl;
-          }
-        };
-        const unselectCodeLines = () => {
-          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-          elementsIds.forEach((elId) => {
-            const div = window.document.getElementById(elId);
-            if (div) {
-              div.remove();
-            }
-          });
-          selectedAnnoteEl = undefined;
-        };
-          // Handle positioning of the toggle
-      window.addEventListener(
-        "resize",
-        throttle(() => {
-          elRect = undefined;
-          if (selectedAnnoteEl) {
-            selectCodeLines(selectedAnnoteEl);
-          }
-        }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-        // Attach click handler to the DT
-        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-        for (const annoteDlNode of annoteDls) {
-          annoteDlNode.addEventListener('click', (event) => {
-            const clickedEl = event.target;
-            if (clickedEl !== selectedAnnoteEl) {
-              unselectCodeLines();
-              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-              if (activeEl) {
-                activeEl.classList.remove('code-annotation-active');
-              }
-              selectCodeLines(clickedEl);
-              clickedEl.classList.add('code-annotation-active');
-            } else {
-              // Unselect the line
-              unselectCodeLines();
-              clickedEl.classList.remove('code-annotation-active');
-            }
-          });
-        }
-    const findCites = (el) => {
-      const parentEl = el.parentElement;
-      if (parentEl) {
-        const cites = parentEl.dataset.cites;
-        if (cites) {
-          return {
-            el,
-            cites: cites.split(' ')
-          };
-        } else {
-          return findCites(el.parentElement)
-        }
       } else {
-        return undefined;
-      }
-    };
-    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-    for (var i=0; i<bibliorefs.length; i++) {
-      const ref = bibliorefs[i];
-      const citeInfo = findCites(ref);
-      if (citeInfo) {
-        tippyHover(citeInfo.el, function() {
-          var popup = window.document.createElement('div');
-          citeInfo.cites.forEach(function(cite) {
-            var citeDiv = window.document.createElement('div');
-            citeDiv.classList.add('hanging-indent');
-            citeDiv.classList.add('csl-entry');
-            var biblioDiv = window.document.getElementById('ref-' + cite);
-            if (biblioDiv) {
-              citeDiv.innerHTML = biblioDiv.innerHTML;
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
             }
-            popup.appendChild(citeDiv);
-          });
-          return popup.innerHTML;
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
         });
       }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
     }
-  });
-  </script>
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./04-hypothesis.html" class="pagination-link" aria-label="Hypothesis testing">
