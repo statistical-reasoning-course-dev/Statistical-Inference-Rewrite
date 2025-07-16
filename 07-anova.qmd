@@ -153,7 +153,7 @@ This proportion is informative and precise. If you want to classify the effect s
 
 ### Between-groups variance and within-groups variance {#sec-between-variance}
 
-For a better understanding of eta^2^ and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. @fig-anova-between adds overall average willingness to donate to the plot (horizontal black line) with participants' scores and average experimental group scores (coloured horizontal lines).
+For a better understanding of eta^2^ and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. @fig-anova-between adds overall average acceptance of vaccination information to the plot (horizontal black line) with participants' scores and average experimental group scores (coloured horizontal lines).
 
 ::: {#fig-anova-between}
 
@@ -165,15 +165,15 @@ Which part of score differences tells us about the differences between groups?
 :::
 
 
-Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in @fig-anova-between. Once we have our data, we first have a look at the percentage of variance that is explained, eta^2^. What does it mean if we say that a percentage of the variance is explained when we interpret eta^2^?
+Let us assume that we have measured acceptance of vaccination information for a sample of 12 participants in our study as depicted in @fig-anova-between. Once we have our data, we first have a look at the percentage of variance that is explained, eta^2^. What does it mean if we say that a percentage of the variance is explained when we interpret eta^2^?
 
 The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in @fig-anova-between express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.
 
-The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in @fig-anova-between) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.
+The goal of our experiment is to explain why some of our participants have an acceptance of vaccination information that is far above the grand mean (horizontal black line in @fig-anova-between) while others score a lot lower. We hypothesized that participants are influenced by the campaign style (language used) that they have seen. If a certain campaign style has a positive effect, the average acceptance should be higher for participants confronted with this campaign style.
 
-If we know the group to which a participant belongs---which celebrity she saw endorsing the fundraising campaign---we can use the average outcome score for the group as the predicted outcome for each group member---her willingness to donate due to the endorser she saw. The predicted group scores are represented by the coloured horizontal lines for group means in @fig-anova-between.
+If we know the group to which a participant belongs---which language was used in the campaign they saw---we can use the average outcome score for the group as the predicted outcome for each group member---their acceptance of vaccination information due to the language used in the campaign they saw. The predicted group scores are represented by the coloured horizontal lines for group means in @fig-anova-between.
 
-Now what part of the variance in outcome scores (dotted black arrows in @fig-anova-between) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant's willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant's experimental treatment.
+Now what part of the variance in outcome scores (dotted black arrows in @fig-anova-between) is explained by the experimental treatment? If we use the experimental treatment as predictor of acceptance of vaccination information, we predict that a participant's acceptance equals their group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant's experimental treatment.
 
 So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in @fig-anova-between. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the *between-groups variance*.
 
@@ -181,7 +181,7 @@ Playing with the group means in @fig-anova-between, you may have noticed that et
 
 In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in @sec-anova-model, zero between-groups variance is central to the null hypothesis in analysis of variance.
 
-The experimental treatment predicts that a participant's willingness equals the average willingness of the participant's group. It cannot predict or explain that a participant's willingness score is slightly different from her group mean (the red double-sided arrows in @fig-anova-between). *Within-groups variance* in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as "Error".
+The experimental treatment predicts that a participant's acceptance equals the average acceptance of the participant's group. It cannot predict or explain that a participant's acceptance score is slightly different from their group mean (the red double-sided arrows in @fig-anova-between). *Within-groups variance* in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as "Error".
 
 ### *F* test on the model {#sec-anova-model}
 
