@@ -54,7 +54,7 @@ In statistical terminology, we have a categorical independent variable (or: fact
 
 ### Mean differences as effects {#sec-anova-meandiffs}
 
-@fig-anova-means shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.
+@fig-anova-means shows the acceptance of vaccination information scores for twelve participants in our experiment. Four participants saw a campaign with autonomy supportive language, four saw a campaign with contolling language, and four saw a campaign with neutral language.
 
 ::: {#fig-anova-means}
 
@@ -66,15 +66,15 @@ How do group means relate to effect size?
 :::
 
 
-A group's average score on the dependent variable represents the group's score level. The group averages in @fig-anova-means tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.
+A group's average score on the dependent variable represents the group's score level. The group averages in @fig-anova-means tell us for which campaign style the average acceptance of vaccination information is higher and for which campaign style it is lower.
 
-Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.
+Random assignment of test participants to experimental groups (e.g., which campaign is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who saw a campaign with autonomy supportive language should have more or less the same average age, knowledge, and so on as participants who saw a campaign with controlling or neutral language. After all, each experimental group is just a random sample of participants.
 
 If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in @sec-confounder). Mean differences are said to represent the *effect* of experimental treatment in analysis of variance.
 
 Analysis of variance was developed for the analysis of randomized experiments, where effects can be interpreted as causal effects. Note, however, that analysis of variance can also be applied to non-experimental data. Although mean differences are still called effects in the latter type of analysis, these do not have to be causal effects.
 
-In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as @fig-anova-meansplot, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.
+In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as @fig-anova-meansplot, aids interpretation and helps communicating results to the reader. On average, participants who saw a campaign with autonomy supportive or controlling language have higher acceptance of vaccination information than participants who saw a campaign with neutral language.
 
 ```{r}
 #| label: fig-anova-meansplot
@@ -143,7 +143,7 @@ rm(d)
 ```
 
 
-Effect size in an analysis of variance refers to the overall differences between group means. We use eta^2^ as effect size, which gives the proportion of variance in the dependent variable (willingness to donate) explained or predicted by the group variable (experimental condition).
+Effect size in an analysis of variance refers to the overall differences between group means. We use eta^2^ as effect size, which gives the proportion of variance in the dependent variable (acceptance of vaccination information) explained or predicted by the group variable (experimental condition).
 
 This proportion is informative and precise. If you want to classify the effect size in more general terms, you should take the square root of eta^2^ to obtain *eta*. As a measure of association, eta can be interpreted with the following rules of thumb:
 
