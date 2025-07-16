@@ -42,27 +42,15 @@ The phenomenon that a variable can have different effects for different groups o
 
 ## Different Means for Three or More Groups
 
-Elaboration Likelihood Model (ELM; Petty & Cacioppo, 1980) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy. In the ELM health literacy corresponds with the factor ''ability'' (@ XXX).
+Elaboration Likelihood Model (ELM; Petty & Cacioppo, 1980) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In the ELM health literacy can correspond with the factor 'ability'. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy (@RefWorks:5051).
 
+Imagine that we want to test if the language that is used in a campaign makes a difference to people's acceptance of vaccination information. We will be using either autonomy supportive language or controlling language in the campagin, and we will include a campaign with neutral language. 
 
-Celebrity endorsement theory states that celebrities who publicly state that they favour a product, candidate, or cause, help to persuade consumers to adopt or support the product, candidate, or cause [for a review, see @RefWorks:3940; for an alternative approach, see @RefWorks:3941].
+Let us design an experiment to investigate the effects of the language used in a campaign (campaign style). We sample a number of people (participants), whom we assign randomly to one of three groups (campaigns). We show a campaign with autonomy supportive language to one group, a campaign with controlling language to another group, and the third group (*the control group*) sees a campaign with neutral language. So we have three experimental conditions (Autonomy supportive, controlling, neutral) as our independent variable.
 
-Imagine that we want to test if the celebrity who endorses a fund raiser in a fund-raising campaign makes a difference to people's willingness to donate. We will be using the celebrities George Clooney and Angelina Jolie, and we will compare campaigns with one of them to a campaign without celebrity endorsement.
+Our dependent variable is a numeric scale assessing the participant's acceptance of vaccination information on a scale from 1 ("The least acceptance") to 10 ("The most acceptance"). We will compare the average outcome scores among groups. If groups with autonomy supportive or controlling language have a systematically higher average acceptance of vaccination information than the group with neutral language, we conclude that the language used in a campaign has an (positive) effect on acceptance of information.
 
-::: {#fig-clooneyjolie}
-```{r clooneyjolie, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center'}
-# Include portraits: Clooney, Jolie.
-knitr::include_graphics("figures/ClooneyJolie.png")
-```
-
-George Clooney and Angelina Jolie. Photo Clooney by Angela George [CC BY-SA 3.0](https://upload.wikimedia.org/wikipedia/commons/3/32/GeorgeClooneyHWoFJan12.jpg). Photo Jolie by Foreign and Commonwealth Office [CC BY 2.0](https://upload.wikimedia.org/wikipedia/commons/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg), via Wikimedia Commons.
-:::
-
-Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group (*the control group*) sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.
-
-Our dependent variable is a numeric scale assessing the participant's willingness to donate to the fund raiser on a scale from 1 ("absolutely certain that I will not donate") to 10 ("absolutely certain that I will donate"). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.
-
-In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data [@RefWorks:3955], so it is widely used in the context of experiments.
+In statistical terminology, we have a categorical independent variable (or: factor) and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data [@RefWorks:3955], so it is widely used in the context of experiments.
 
 ### Mean differences as effects {#sec-anova-meandiffs}
 
