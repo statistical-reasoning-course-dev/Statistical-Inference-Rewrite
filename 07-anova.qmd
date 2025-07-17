@@ -724,7 +724,7 @@ ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
   geom_line(aes(group = health_literacy), size = 1) + 
   geom_segment(aes(x = 0.7, xend = 2, y = accept_av[[3]], yend = accept_av[[3]]),
                linetype = "dashed", color = "darkgrey") +
-  geom_segment(aes(x = 2, xend = 3.2, y = accept_av[[4]], yend = accept_av[[4]]),
+  geom_segment(aes(x = 2, xend = 3.3, y = accept_av[[3]], yend = accept_av[[3]]),
                linetype = "dashed", color = "darkgrey") +
   geom_segment(aes(x = 0.8, xend = 0.8, y = accept_av[[3]], yend = (accept_av[[1]] - 0.1)),
                color = "darkgrey",
