@@ -42,28 +42,19 @@ The phenomenon that a variable can have different effects for different groups o
 
 ## Different Means for Three or More Groups
 
-Celebrity endorsement theory states that celebrities who publicly state that they favour a product, candidate, or cause, help to persuade consumers to adopt or support the product, candidate, or cause [for a review, see @RefWorks:3940; for an alternative approach, see @RefWorks:3941].
+Elaboration Likelihood Model (ELM; Petty & Cacioppo, 1980) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In the ELM health literacy can correspond with the factor 'ability'. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy (@RefWorks:5051).
 
-Imagine that we want to test if the celebrity who endorses a fund raiser in a fund-raising campaign makes a difference to people's willingness to donate. We will be using the celebrities George Clooney and Angelina Jolie, and we will compare campaigns with one of them to a campaign without celebrity endorsement.
+Imagine that we want to test if the language that is used in a campaign makes a difference to people's acceptance of vaccination information. We will be using either autonomy supportive language or controlling language in the campagin, and we will include a campaign with neutral language. 
 
-::: {#fig-clooneyjolie}
-```{r clooneyjolie, echo=FALSE, out.width="50%", fig.pos='H', fig.align='center'}
-# Include portraits: Clooney, Jolie.
-knitr::include_graphics("figures/ClooneyJolie.png")
-```
+Let us design an experiment to investigate the effects of the language used in a campaign (campaign style). We sample a number of people (participants), whom we assign randomly to one of three groups (campaigns). We show a campaign with autonomy supportive language to one group, a campaign with controlling language to another group, and the third group (*the control group*) sees a campaign with neutral language. So we have three experimental conditions (Autonomy supportive, controlling, neutral) as our independent variable.
 
-George Clooney and Angelina Jolie. Photo Clooney by Angela George [CC BY-SA 3.0](https://upload.wikimedia.org/wikipedia/commons/3/32/GeorgeClooneyHWoFJan12.jpg). Photo Jolie by Foreign and Commonwealth Office [CC BY 2.0](https://upload.wikimedia.org/wikipedia/commons/a/ad/Angelina_Jolie_2_June_2014_%28cropped%29.jpg), via Wikimedia Commons.
-:::
+Our dependent variable is a numeric scale assessing the participant's acceptance of vaccination information on a scale from 1 ("The least acceptance") to 10 ("The most acceptance"). We will compare the average outcome scores among groups. If groups with autonomy supportive or controlling language have a systematically higher average acceptance of vaccination information than the group with neutral language, we conclude that the language used in a campaign has an (positive) effect on acceptance of information.
 
-Let us design an experiment to investigate the effects of celebrity endorsement. We sample a number of people (participants), whom we assign randomly to one of three groups. We show a campaign video with George Clooney to one group, a video with Angelina Jolie to another group, and the third group (*the control group*) sees a campaign video without celebrity endorsement. So we have three experimental conditions (Clooney, Jolie, no endorser) as our independent variable.
-
-Our dependent variable is a numeric scale assessing the participant's willingness to donate to the fund raiser on a scale from 1 ("absolutely certain that I will not donate") to 10 ("absolutely certain that I will donate"). We will compare the average outcome scores among groups. If groups with Clooney or Jolie as endorser have systematically higher average willingness to donate than the group without celebrity endorsement, we conclude that celebrity endorsement has a positive effect.
-
-In statistical terminology, we have a categorical independent (or predictor) variable and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data [@RefWorks:3955], so it is widely used in the context of experiments.
+In statistical terminology, we have a categorical independent variable (or: factor) and a numerical dependent variable. In experiments, we usually have a very limited set of treatment levels, so our independent variable is categorical. For nuanced results, we usually want to have a numeric dependent variable. Analysis of variance was developed for this kind of data [@RefWorks:3955], so it is widely used in the context of experiments.
 
 ### Mean differences as effects {#sec-anova-meandiffs}
 
-@fig-anova-means shows the willingness to donate scores for twelve participants in our experiment. Four participants saw Clooney, four saw Jolie, and four did not see a celebrity endorser in the video that they watched.
+@fig-anova-means shows the acceptance of vaccination information scores for twelve participants in our experiment. Four participants saw a campaign with autonomy supportive language, four saw a campaign with contolling language, and four saw a campaign with neutral language.
 
 ::: {#fig-anova-means}
 
@@ -75,15 +66,15 @@ How do group means relate to effect size?
 :::
 
 
-A group's average score on the dependent variable represents the group's score level. The group averages in @fig-anova-means tell us for which celebrity the average willingness to donate is higher and for which situation it is lower.
+A group's average score on the dependent variable represents the group's score level. The group averages in @fig-anova-means tell us for which campaign style the average acceptance of vaccination information is higher and for which campaign style it is lower.
 
-Random assignment of test participants to experimental groups (e.g., which video is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who see Clooney should have more or less the same average age, knowledge, and so on as participants who see Jolie or no celebrity. After all, each experimental group is just a random sample of participants.
+Random assignment of test participants to experimental groups (e.g., which campaign is shown) creates groups that are in principle equal on all imaginable characteristics except the experimental treatment(s) administered by the researcher. Participants who saw a campaign with autonomy supportive language should have more or less the same average age, knowledge, and so on as participants who saw a campaign with controlling or neutral language. After all, each experimental group is just a random sample of participants.
 
 If random assignment was done successfully, differences between group means can only be caused by the experimental treatment (we will discuss this in more detail in @sec-confounder). Mean differences are said to represent the *effect* of experimental treatment in analysis of variance.
 
 Analysis of variance was developed for the analysis of randomized experiments, where effects can be interpreted as causal effects. Note, however, that analysis of variance can also be applied to non-experimental data. Although mean differences are still called effects in the latter type of analysis, these do not have to be causal effects.
 
-In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as @fig-anova-meansplot, aids interpretation and helps communicating results to the reader. On average, participants who saw Clooney or Jolie have higher willingness to donate than participants who did not see a celebrity endorser.
+In analysis of variance, then, we are simply interested in differences between group means. The conclusion for a sample is easy: Which groups have higher average score on the dependent variable and for which are they lower? A means plot, such as @fig-anova-meansplot, aids interpretation and helps communicating results to the reader. On average, participants who saw a campaign with autonomy supportive or controlling language have higher acceptance of vaccination information than participants who saw a campaign with neutral language.
 
 ```{r}
 #| label: fig-anova-meansplot
@@ -152,7 +143,7 @@ rm(d)
 ```
 
 
-Effect size in an analysis of variance refers to the overall differences between group means. We use eta^2^ as effect size, which gives the proportion of variance in the dependent variable (willingness to donate) explained or predicted by the group variable (experimental condition).
+Effect size in an analysis of variance refers to the overall differences between group means. We use eta^2^ as effect size, which gives the proportion of variance in the dependent variable (acceptance of vaccination information) explained or predicted by the group variable (experimental condition).
 
 This proportion is informative and precise. If you want to classify the effect size in more general terms, you should take the square root of eta^2^ to obtain *eta*. As a measure of association, eta can be interpreted with the following rules of thumb:
 
@@ -162,7 +153,7 @@ This proportion is informative and precise. If you want to classify the effect s
 
 ### Between-groups variance and within-groups variance {#sec-between-variance}
 
-For a better understanding of eta^2^ and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. @fig-anova-between adds overall average willingness to donate to the plot (horizontal black line) with participants' scores and average experimental group scores (coloured horizontal lines).
+For a better understanding of eta^2^ and the statistical test of an analysis of variance model, we have to compare the individual scores to the group averages and to the overall average. @fig-anova-between adds overall average acceptance of vaccination information to the plot (horizontal black line) with participants' scores and average experimental group scores (coloured horizontal lines).
 
 ::: {#fig-anova-between}
 
@@ -174,15 +165,15 @@ Which part of score differences tells us about the differences between groups?
 :::
 
 
-Let us assume that we have measured willingness to donate for a sample of 12 participants in our study as depicted in @fig-anova-between. Once we have our data, we first have a look at the percentage of variance that is explained, eta^2^. What does it mean if we say that a percentage of the variance is explained when we interpret eta^2^?
+Let us assume that we have measured acceptance of vaccination information for a sample of 12 participants in our study as depicted in @fig-anova-between. Once we have our data, we first have a look at the percentage of variance that is explained, eta^2^. What does it mean if we say that a percentage of the variance is explained when we interpret eta^2^?
 
 The variance that we want to explain consists of the differences between the scores of the participants on the dependent variable and the overall or grand mean of all outcome scores. Remember that a variance measures deviations from the mean. The dotted black arrows in @fig-anova-between express the distances between outcome scores and the grand average. Squaring, summing, and averaging these distances over all observations gives us the total variance in outcome scores.
 
-The goal of our experiment is to explain why some of our participants have a willingness to donate that is far above the grand mean (horizontal black line in @fig-anova-between) while others score a lot lower. We hypothesized that participants are influenced by the endorser they have seen. If an endorser has a positive effect, the average willingness should be higher for participants confronted with this endorser.
+The goal of our experiment is to explain why some of our participants have an acceptance of vaccination information that is far above the grand mean (horizontal black line in @fig-anova-between) while others score a lot lower. We hypothesized that participants are influenced by the campaign style (language used) that they have seen. If a certain campaign style has a positive effect, the average acceptance should be higher for participants confronted with this campaign style.
 
-If we know the group to which a participant belongs---which celebrity she saw endorsing the fundraising campaign---we can use the average outcome score for the group as the predicted outcome for each group member---her willingness to donate due to the endorser she saw. The predicted group scores are represented by the coloured horizontal lines for group means in @fig-anova-between.
+If we know the group to which a participant belongs---which language was used in the campaign they saw---we can use the average outcome score for the group as the predicted outcome for each group member---their acceptance of vaccination information due to the language used in the campaign they saw. The predicted group scores are represented by the coloured horizontal lines for group means in @fig-anova-between.
 
-Now what part of the variance in outcome scores (dotted black arrows in @fig-anova-between) is explained by the experimental treatment? If we use the experimental treatment as predictor of willingness to donate, we predict that a participant's willingness equals her group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant's experimental treatment.
+Now what part of the variance in outcome scores (dotted black arrows in @fig-anova-between) is explained by the experimental treatment? If we use the experimental treatment as predictor of acceptance of vaccination information, we predict that a participant's acceptance equals their group average (horizontal coloured line) instead of the overall average (horizontal black line), which we use if we do not take into account the participant's experimental treatment.
 
 So the difference between the overall average and the group average is what we predict and explain by the experimental treatment. This difference is represented by the solid black arrows in @fig-anova-between. The variance of the predicted scores is obtained if we average the squared sizes of the solid black arrows for all participants. This variance is called the *between-groups variance*.
 
@@ -190,13 +181,13 @@ Playing with the group means in @fig-anova-between, you may have noticed that et
 
 In contrast, small differences between group averages allow us to predict only a small part of the variation in outcome scores. If all group means are equal, we can predict none of the variation in outcome scores because the between-groups variance is zero. As we will see in @sec-anova-model, zero between-groups variance is central to the null hypothesis in analysis of variance.
 
-The experimental treatment predicts that a participant's willingness equals the average willingness of the participant's group. It cannot predict or explain that a participant's willingness score is slightly different from her group mean (the red double-sided arrows in @fig-anova-between). *Within-groups variance* in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as "Error".
+The experimental treatment predicts that a participant's acceptance equals the average acceptance of the participant's group. It cannot predict or explain that a participant's acceptance score is slightly different from their group mean (the red double-sided arrows in @fig-anova-between). *Within-groups variance* in outcome scores is what we cannot predict with our experimental treatment; it is prediction error. In some SPSS output, it is therefore labeled as "Error".
 
 ### *F* test on the model {#sec-anova-model}
 
-Average group scores tell us whether the experimental treatment has effects within the sample (@sec-anova-meandiffs). If the group who saw Angelina Jolie as endorser has higher average willingness to donate than the group who did not see an endorser, we conclude that Angelina Jolie makes a difference in the sample. But how about the population?
+Average group scores tell us whether the experimental treatment has effects within the sample (@sec-anova-meandiffs). If the group who saw a campaign with controlling language has higher average acceptance of vaccination information than the group who saw a campaign with neutral language, we conclude that using controlling language makes a difference in the sample. But how about the population?
 
-If we want to test whether the difference that we find in the sample also applies to the population, we use the null hypothesis that all average outcome scores are equal in the population from which the samples were drawn. In our example, the null hypothesis states that people in the population who would see George Clooney as endorser are on average just as willing to donate as people who would see Angelina Jolie or who would not see a celebrity endorser at all.
+If we want to test whether the difference that we find in the sample also applies to the population, we use the null hypothesis that all average outcome scores are equal in the population from which the samples were drawn. In our example, the null hypothesis states that people in the population who would see a campaign with autonomy supportive language are on average accepting the vaccination information just as much as people who would see a campaign with controlling or neutral language.
 
 We use the variance in group means as the number that expresses the differences between group means. If all groups have the same average outcome score, the between-groups variance is zero. The larger the differences, the larger the between-groups variance (see @sec-between-variance).
 
@@ -216,7 +207,7 @@ There are two important assumptions that we must make if we use the *F* distribu
 
 The first assumption is that the groups can be regarded as independent samples. As in an independent-samples *t* test, it must be possible *in principle* to draw a separate sample for each group in the analysis. Because this is a matter of principle instead of how we actually draw the sample, we have to argue that the assumption is reasonable. We cannot check the assumption against the data.
 
-Here is an example of an argument that we can make. In an experiment, we usually draw one sample of participants and, as a next step, we assign participants randomly to one of the experimental conditions. We could have easily drawn a separate sample for each experimental group. For example, we first draw a participant for the first condition: seeing George Clooney endorsing the fundraising campaign. Next, we draw a participant for the second condition, e.g., Angelina Jolie. The two draws are independent: whomever we have drawn for the Clooney condition is irrelevant to whom we draw for the Jolie condition. Therefore, draws are independent and the samples can be regarded as independent.
+Here is an example of an argument that we can make. In an experiment, we usually draw one sample of participants and, as a next step, we assign participants randomly to one of the experimental conditions. We could have easily drawn a separate sample for each experimental group. For example, we first draw a participant for the first condition: seeing an autonomy supportive campaign. Next, we draw a participant for the second condition, e.g., the controlling campaign. The two draws are independent: whomever we have drawn for the autonomy supportive condition is irrelevant to whom we draw for the controlling condition. Therefore, draws are independent and the samples can be regarded as independent.
 
 Situations where samples cannot be regarded as independent are the same as in the case of dependent/paired-samples *t* tests (see @sec-dependentsamples). For example, samples of first and second observations in a repeated measurement design should not be regarded as independent samples. Some analysis of variance models can handle repeated measurements but we do not discuss them here.
 
@@ -242,15 +233,15 @@ Which groups have different average outcome scores in the population? The _p_ va
 :::
 
 
-If the *F* test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average willingness to donate is equal for people who saw George Clooney, Angelina Jolie, or no endorser for the fund raiser. In other words, we *reject* the null hypothesis that the endorser does *not* matter to willingness to donate.
+If the *F* test is statistically significant, we reject the null hypothesis that all groups have the same population mean on the dependent variable. In our current example, we reject the null hypothesis that average acceptance of vaccination information is equal for people who saw a campaign with autonomy supportive, controlling or neutral language. In other words, we *reject* the null hypothesis that the campaign style (or lagnuage used) does *not* matter to acceptance of vaccination information.
 
 #### Pairwise comparisons as post-hoc tests
 
-With a statistically significant *F* test for the analysis of variance model, several questions remain to be answered. Does an endorser increase or decrease the willingness to donate? Are both endorsers equally effective? The *F* test does not provide answers to these questions. We have to compare groups one by one to see which condition (endorser) is associated with a higher level of willingness to donate.
+With a statistically significant *F* test for the analysis of variance model, several questions remain to be answered. Does a controlling campaign style increase or decrease the acceptance of vaccination information? Are both campaign styles equally effective? The *F* test does not provide answers to these questions. We have to compare groups one by one to see which condition (campaign style) is associated with a higher level of acceptance of vaccination information.
 
-In a pairwise comparison, we have two groups, for instance, participants confronted with George Clooney and participants who did not see a celebrity endorse the fund raiser. We want to compare the two groups on a numeric dependent variable, namely their willingness to donate. An independent-samples *t* test is appropriate here.
+In a pairwise comparison, we have two groups, for instance, participants confronted with an autonomy supportive campaign and participants who saw a campaign with neutral language. We want to compare the two groups on a numeric dependent variable, namely their acceptance of vaccination information. An independent-samples *t* test is appropriate here.
 
-With three groups, we can make three pairs: Clooney versus Jolie, Clooney versus nobody, and Jolie versus nobody. We have to execute three *t* tests on the same data. We already know that there are most likely differences in average scores, so the *t* tests are executed after the fact, in Latin *post hoc*. Hence the name *post-hoc tests*.
+With three groups, we can make three pairs: autonomy supportive versus controlling, autonomy supportive versus neutral, and controlling versus neutral. We have to execute three *t* tests on the same data. We already know that there are most likely differences in average scores, so the *t* tests are executed after the fact, in Latin *post hoc*. Hence the name *post-hoc tests*.
 
 Applying more than one test to the same data increases the probability of finding at least one statistically significant difference even if there are no differences at all in the population. @sec-cap-chance discussed this phenomenon as capitalization on chance and it offered a way to correct for this problem, namely Bonferroni correction. We ought to apply this correction to the independent-samples *t* tests that we execute if the analysis of variance *F* test is statistically significant.
 
@@ -260,7 +251,7 @@ The Bonferroni correction divides the significance level by the number of tests 
 
 Analysis of variance, then, consists of two steps. In the first step, we test the general null hypothesis that all groups have equal average scores on the dependent variable in the population. If we cannot reject this null hypothesis, we have too little evidence to conclude that there are differences between the groups. Our analysis of variance stops here, although it is recommended to report the confidence intervals of the group means to inform the reader. Perhaps our sample was just too small to reject the null hypothesis.
 
-If the *F* test is statistically significant, we proceed to the second step. Here, we apply independent-samples *t* tests with Bonferroni correction to each pair of groups to see which groups have significantly different means. In our example, we would compare the Clooney and Jolie groups to the group without celebrity endorser to see if celebrity endorsement increases willingness to donate to the fund raiser, and, if so, how much. In addition, we would compare the Clooney and Jolie groups to see if one celebrity is more effective than the other.
+If the *F* test is statistically significant, we proceed to the second step. Here, we apply independent-samples *t* tests with Bonferroni correction to each pair of groups to see which groups have significantly different means. In our example, we would compare the autonomy supportive and controlling groups to the group with neutral language to see if a strong campaign style increases acceptance of vaccination information, and, if so, how much. In addition, we would compare the autonomy supportive and controlling groups to see if one campaign style is more effective than the other.
 
 #### Contradictory results
 
