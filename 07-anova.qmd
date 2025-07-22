@@ -42,7 +42,7 @@ The phenomenon that a variable can have different effects for different groups o
 
 ## Different Means for Three or More Groups
 
-Elaboration Likelihood Model (ELM; Petty & Cacioppo, 1980) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In the ELM health literacy can correspond with the factor 'ability'. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy (@RefWorks:5051).
+Elaboration Likelihood Model (ELM; @RefWorks:5051) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In the ELM health literacy can correspond with the factor 'ability'. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy (@RefWorks:5051).
 
 Imagine that we want to test if the language that is used in a campaign makes a difference to people's acceptance of vaccination information. We will be using either autonomy supportive language or controlling language in the campagin, and we will include a campaign with neutral language. 
 
@@ -485,13 +485,13 @@ We could have used two separate one-way analyses of variance to test the same ef
 
 ## Moderation: Group-Level Differences that Depend on Context {#sec-moderationanova}
 
-In the preceding section, we have analyzed the effects both of endorser and sex on willingness to donate to a fund raiser. The two main effects isolate the influence of endorser on willingness from the effect of sex and the other way around. This assumes that endorser and sex have an effect on their own, a general effect.
+In the preceding section, we have analyzed the effects both of campaign style and health literacy on acceptance of vaccination information. The two main effects isolate the influence of campaign style on acceptance of vaccination information from the effect of health literacy and the other way around. This assumes that campaign style and health literacy have an effect on their own, a general effect.
 
-We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? We could hypothesize that males and females might react differently towards seeing a male or female celebrity, either because they find one of them more attractive or because they identify better with one or the other. Thus, we could expect that one endorser is more effective among female participants and the other among male participants.
+We should, however, wonder whether campaign style always has the same effect. Even if there is a general effect of campaign style on acceptance of vaccination information, is this effect the same for people with high and people with low health literacy? We could hypothesize that people with high and people with low health literacy might react differently towards language that is used in a vaccination campaign, for instance because people with a higher ability to process information are more persuaded by message quality than cues like authority (i.e., a controlling campaign style). Thus, we could expect that one campaign style is more effective among people with low health literacy and another campaign style is more effective among people with high health literacy.
 
 If the effect of a factor is different for different groups on another factor, the first factor's effect is *moderated* by the second factor. The phenomenon that effects are moderated is called *moderation*. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.
 
-With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. @fig-anova-diagram shows the conceptual diagram for participant's sex moderating the effect of endorsing celebrity on willingness to donate.
+With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. @fig-anova-diagram shows the conceptual diagram for participant's health literacy moderating the effect of campaign style on acceptance of vaccination information. In this diagram, campaign style is the predictor and health literacy the moderator.
 
 
 ```{r}
@@ -518,9 +518,9 @@ rm(variables)
 
 ### Types of moderation
 
-Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the **Totals** row and column contain the means for each factor separately, for example the means for males and females (factor sex) or the means for the endorsers (factor endorser). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.
+Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the **Totals** row and column contain the means for each factor separately, for example the means for low and high (factor health literacy) or the means for the language used in the campaigns (factor campaign style). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.
 
-In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (@fig-anova-moderation).
+In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three camapign styles. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an campaign-literacy combination, and we link the means that belong to the same moderator group, for example, the means for people with high and the means for people with low health literacy (@fig-anova-moderation).
 
 ::: {#fig-anova-moderation .column-page-inset-right}
 
@@ -536,11 +536,11 @@ Moderation happens a lot in communication science for the simple reason that the
 
 #### Effect strength moderation
 
-Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as *effect strength moderation*. In our current example, we would hypothesize that the effect of George Clooney as an endorser is stronger for female participants than for male participants.
+Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as *effect strength moderation*. In our current example, we would hypothesize that the effect of using controlling language is stronger for partcipants with low health literacy than for participants with high health literacy.
 
-In analysis of variance, effects are differences between average outcome scores. The effect of Clooney on willingness to donate, for instance, is the difference between the average willingness score of participants exposed to Clooney and the average score of participants who were not exposed to a celebrity endorser.
+In analysis of variance, effects are differences between average outcome scores. The effect of controlling language on acceptance of vaccination information, for instance, is the difference between the average acceptance of vaccination information of participants exposed to controlling language and the average score of participants who were exposed to neutral language in their campaign.
 
-Different "Clooney effects" for female and male participants imply different differences! The difference in average willingness scores between females exposed to Clooney and females who are not exposed to an endorser is different from the difference in average scores for males. We have four subgroups with average willingness scores that we have to compare. We have six subgroups if we also include endorsement by Angelina Jolie.
+Different "controlling effects" for participants with low and participants with high health literacy imply different differences! The difference in average acceptance scores between people with low health literacy exposed to controlling language and people with low health literacy who are exposed to neutral language is different from the difference in average acceptance scores for people with high health literacy. We have four subgroups with average acceptance scores that we have to compare. We have six subgroups if we also include the autonomy supportive effect.
 
 ```{r}
 #| label: fig-anova-effectstrengthmod
@@ -606,7 +606,7 @@ rm(d)
 
 A means plot is a very convenient tool to interpret different differences. Connect the means of the subgroups by lines that belong to the same group on the factor you use as moderator. Each line in the plot represents the effect differences within one moderator group. If a line goes up or down, predictor groups have different means, so the predictor has an effect within that moderator group. A flat (horizontal) line tells us that there is no effect at all within that moderator group
 
-The distances between the lines show the difference of the differences. If the lines for females and males are parallel, the difference between endorsers is the same for females and males. Then, the effects are the same and there is *no* moderation. In contrast, if the lines are not parallel but diverge or converge, the differences are different for females and males and there is moderation.
+The distances between the lines show the difference of the differences. If the lines for people with low and people with high health literacy are parallel, the difference between camapign styles is the same for people with low and people with high health literacy. Then, the effects are the same and there is *no* moderation. In contrast, if the lines are not parallel but diverge or converge, the differences are different for peopple with low and people with high health literacy and there is moderation.
 
 A special case of effect strength moderation is the situation in which the effect is absent (zero) in one context and present in another context. A trivial example would be the effect of an anti-smoking campaign on smoking frequency. For smokers (one context), smoking frequency may go down with campaign exposure and the campaign may have an effect. For non-smokers (another context), smoking frequency cannot go down and the campaign cannot have this effect.
 
@@ -614,7 +614,7 @@ Except for trivial cases such as the effect of anti-smoking campaigns on non-smo
 
 #### Effect direction moderation
 
-In the other type of moderation, the effect in one group is the opposite of the effect in another group. In @fig-anova-effectdirmod1, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this *effect direction moderation*. Males reverse the Clooney effect that we find for females.
+In the other type of moderation, the effect in one group is the opposite of the effect in another group. In @fig-anova-effectdirmod1, for example, autonomy supportive language increases the average acceptance of vaccination information among people with high health literacy in comparison to the group who was exposed to neutral language. In contrast, average acceptance for people with low health literacy exposed to the autonomy supportive campaign is lower than the average for people with low health literacy exposed to the campaign with neutral language. Let us call this *effect direction moderation*. People with low health literacy reverse the autonomy supportive effect that we find for people with high health literacy.
 
 
 ```{r}
@@ -682,7 +682,7 @@ a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
 rm(d)
 ```
 
-In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (@fig-anova-effectdirmod2). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.
+In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (@fig-anova-effectdirmod2). Imagine that controlling language convinces people with low health literacy to accept vaccination information but discourage people with high health literacy to accept vaccination information because it diminishes the quality for them. The other way around, autonomy supportive language could work better on people with high health literacy but discourage people with low health literacy as it might be perceived as too vague.
 
 ```{r}
 #| label: fig-anova-effectdirmod2
@@ -750,15 +750,15 @@ rm(d)
 ```
 
 
-In this situation, the main effect of endorser on willingness to donate is around zero. If we average over females and males, we obtain the means represented by the three grey dots. There is no net difference between Clooney, Jolie, and the condition without an endorser.
+In this situation, the main effect of camapign style on acceptance of vaccination information is around zero. If we average over people with low and people with high health literacy, we obtain the means represented by the three grey dots. There is no net difference between autonomy supportive, controlling, and neutral language used in a campaign.
 
-This does not mean that the endorser does not matter. On the contrary, the interaction effects tell us that the endorser is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the willingness to donate among particular target groups.
+This does not mean that the camapign style does not matter. On the contrary, the interaction effects tell us that the campaign style is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the acceptnace of vaccination information among particular target groups.
 
 ### Testing main and interaction effects
 
-The effect of a single factor is called a main effect, as we learned in @sec-maineffects. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see @sec-anova2way), for example a main effect of sex and a main effect of endorser.
+The effect of a single factor is called a main effect, as we learned in @sec-maineffects. A main effect reflects the difference between means for groups within one factor. The main effect of health literacy, for instance, can be that people with high health literacy are on average more willing to accept vaccination information than people with low health literacy. A two-way analysis of variance includes two main effects, one for each factor (see @sec-anova2way), for example a main effect of health literacy and a main effect of campaign style.
 
-For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In @fig-anova-interaction, we compare average willingness to donate for combinations of endorser and participant's sex. The effect of differences among subgroups on the dependent variable is called an *interaction effect*. Just like a main effect, an interaction effect is tested with an *F* test and its effect size is expressed by eta^2^.
+For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In @fig-anova-interaction, we compare average acceptance of vaccination information for combinations of campaign style and participant's health literacy. The effect of differences among subgroups on the dependent variable is called an *interaction effect*. Just like a main effect, an interaction effect is tested with an *F* test and its effect size is expressed by eta^2^.
 
 ::: {#fig-anova-interaction}
 
@@ -770,13 +770,13 @@ How can we recognize main effects and moderation in a means plot?
 :::
 
 
-Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in @fig-anova-interaction is not relevant to moderation.
+Interpretation of moderation requires some training because we must look beyond main effects. The fact that people with high health literacy score on average higher than people with low health literacy is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in @fig-anova-interaction is not relevant to moderation.
 
-Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in @fig-anova-interaction because the willingness scores of the individual participants are not shown.
+Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in @fig-anova-interaction because the acceptance scores of the individual participants are not shown.
 
 We can use the between-groups and within-groups variances to execute an *F* test just like the *F* test we use for main effects. The *null hypothesis* of the *F* test on an interaction effect states that the subgroups have the same population averages if we correct for the main effects. Our statistical software takes care of this correction if we include the main effects in the model, which we should always do.
 
-Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of endorser is the same for both sexes in the population. Or, the other way around, that the effect of sex is the same for different endorser groups in the population.
+Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of camapign style is the same for both levels of health literacy in the population. Or, the other way around, that the effect of health literacy is the same for different camapign styles in the population.
 
 ::: {.callout-important appearance="simple"}
 
