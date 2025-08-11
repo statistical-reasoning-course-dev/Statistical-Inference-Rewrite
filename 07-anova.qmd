@@ -653,7 +653,7 @@ d=sim_data %>% group_by(lang_cond,health_literacy) %>%
     lang_cond=factor(lang_cond, levels=c('Autonomy','Neutral','Control'))
   ) %>% arrange(lang_cond)
 
-a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
+ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) + 
   geom_point(size = 3) + 
   geom_line(aes(group = health_literacy), size = 1) + 
   geom_segment(aes(x = 0.8, xend = 2.2, y = accept_av[[1]], yend = accept_av[[1]]),
