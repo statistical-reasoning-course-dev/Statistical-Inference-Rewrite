@@ -107,7 +107,7 @@ baseline <- d$accept_av[d$lang_cond == "Neutral"]
 control <- d$accept_av[d$lang_cond == "Control"] 
 autonomy <- d$accept_av[d$lang_cond == "Autonomy"] 
 
-a=ggplot(data.frame(d), aes(lang_cond, accept_av)) + 
+ggplot(data.frame(d), aes(lang_cond, accept_av)) + 
   geom_point(size = 3, color=brewercolors["Blue"]) + 
   geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
   geom_segment(aes(x = 1, xend = 3.1, y = baseline, yend = baseline),
@@ -348,7 +348,7 @@ In an experiment, we can ensure that factors are independent if we have the same
 
 ```{r}
 #| label: tbl-anova-balanced
-#| fig-cap: "Number of observations per subgroup in a balanced 3x2 factorial design."
+#| tbl-cap: "Number of observations per subgroup in a balanced 3x2 factorial design."
 #| echo: false
 #| warning: false
 
