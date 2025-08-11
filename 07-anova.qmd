@@ -34,7 +34,7 @@ This null hypothesis is similar to the one we test in an independent-samples *t*
 
 In addition to between-groups variance, we have to take into account the variance of outcome scores within groups (within-groups variance). Within-groups variance is related to the fact that we may obtain different group means even if we draw random samples from populations with the same means. The ratio of between-groups variance over within-groups variance gives us the *F* test statistic, which has an *F* distribution.
 
-Differences in average outcome scores for groups on one independent variable (usually called *factor* in analysis of variance) are called a main effect. A main effect represents an overall or average effect of a factor. If we have only one factor in our model, for instance, the endorser of the fund-raiser, we apply a one-way analysis of variance. With two factors, we have a two-way analysis of variance, and so on.
+Differences in average outcome scores for groups on one independent variable (usually called *factor* in analysis of variance) are called a main effect. A main effect represents an overall or average effect of a factor. If we have only one factor in our model, for instance, the language used in a vaccination campaign, we apply a one-way analysis of variance. With two factors, we have a two-way analysis of variance, and so on.
 
 With two or more factors, we can have interaction effects in addition to main effects. An interaction effect is the joint effect of two or more factors on the dependent variable. An interaction effect is best understood as different effects of one factor across different groups on another factor. For example, autonomy supportive language may increase acceptance of vaccination information for people with high health literacy but controlling language might work best for people with low health literacy.
 
@@ -42,7 +42,7 @@ The phenomenon that a variable can have different effects for different groups o
 
 ## Different Means for Three or More Groups
 
-Elaboration Likelihood Model (ELM; Petty & Cacioppo, 1980) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In the ELM health literacy can correspond with the factor 'ability'. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy (@RefWorks:5051).
+Elaboration Likelihood Model (ELM; @RefWorks:5051) suggests that people with higher ability to process information are more persuaded by message quality than cues like authority. In the ELM health literacy can correspond with the factor 'ability'. In other words, people with low health literacy might sooner accept information from a source with controlling language than people with high health literacy (@RefWorks:5051).
 
 Imagine that we want to test if the language that is used in a campaign makes a difference to people's acceptance of vaccination information. We will be using either autonomy supportive language or controlling language in the campagin, and we will include a campaign with neutral language. 
 
@@ -291,6 +291,18 @@ knitr::include_graphics("figures/S7_AE2.png")
 SPSS means plots of the interaction effect of sex and endorser on willingness to donate. Note that the pink arrows and dotted lines have been added manually to aid the interpretation.
 :::
 
+In the video below we walk you through conducting and interpreting an one-way analysis of variance in SPSS. In this example you are again part of a communication reserach team, however this team we are diving into a persuasive communication question. The research question that is discussed in the video below is 'does the person endorsing a campaign matter to the willingness to donate to a charity for people seeing the campaign?'. The data set includes the variable *endorser*, which is a categorical variable. Participants are either watching a campaign with George Clooney, Angelina Jolie or nobody (that is, not a celebrity). You are researching whether the endorser of a fundraising campaign has an effect on people's willingness to donate. The willigness to donate has been measured before (*willing_pre*) and after (*willing_post*) watching the campaign.
+
+When we want to research the effect of a categorical variable (endorser) on a numerical variable (willing_post), we use a one-way analysis of variance (see the test selection table @sec-test-selection). You can get the one-way ANOVA window by clicking `Analyze > Compare Means > One-Way ANOVA`. The dependent variable is the willignness to donate after watching the campaign, so this variable should be added to the `Dependent List:`. The independent variable, also called factor in ANOVA, is the celebrity endoring the campaign which should be added to `Factor:`. Before running your ANOVA, we select some additional options. Select `Post Hoc...` and select the `Bonferroni` correction for multiple testing. Under `Options...` we select `Descriptive` to obtain the group means and `Homogeneity of variance test` for Levene's *F*-test to check assumptions. You would only select bootstrapping if you cannot use the theoretical approximation fo the *F*-distribution (revise Chapter 2 if needed). You can select `Estimate effect size for overall tests` if you want to obtain eta^2^. Please click `paste` and run the command from your syntax.
+
+In the output we can start interpreting our results. The first table, `Descriptives` provides us with the group means. Here we can immediately see that the willingness to donate is lower when there is no celebrity endorsing the campaign. In this table we can also check the group sizes, an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You can see that the `Test of Homogeneity of Variances` is not significant indicating the assumption is met on both fronts (equal group sizes and equal variances).
+
+To interpret the actual test results, we study the `ANOVA` table. We can see the between groups and within groups results, you find the *F*-value in the `Between Groups` row, with a *p*-value below .05 indicating a significant result. The table below the ANOVA table, `ANOVA Effect Sizes` provides an insight in the size of the effect - i.e., the size of the difference between the groups. Eta-squared is the effect size that we report for ANOVA, as reported in the video all versions above SPSS v26 show the *partial* eta-squared meaning that you need to calculate eta-squared by hand. We will walk you through this process later in this chapter.
+
+As said we have found a significant *F*-value indicating that there is a significant difference between the groups. We have a factor with three groups (Clooney, Jolie and Nobody) thus we need further analysis to tell which group(s) differ. For this we inspect the `Post Hoc Tests`, in the table ``Multiple Comparisons`. Here you can see the results of several *t*-tests (as you might remember from @sec-test-selection we can compare two groups on a numerical variable with a *t*-test). The *p*-values in this table are corrected for capitalizartion on chance due to multiple testing (that is why we selected `Bonferroni` earlier). These results show us that the groups *Nobody* and *Clooney* differ significantly from each other, and so do the groups *Nobody* and *Jolie* (i.e., both comparisons have a *p*-value below .05 and the confidence interval does not include the zero). The difference between *Clooney* and *Jolie* is not significant (i.e., the *p*-value is larger than .05 and the confidence interval includes the zero). It can help to also take a look at the `Means Plots` which allows you to visualize the effects.
+
+Please watch the video for the step-by-step guidance and some additional details.
+
 ::: {#vid-SPSS1way}
 
 {{< video https://www.youtube.com/embed/_2MmzWRcm2k
@@ -300,8 +312,6 @@ SPSS means plots of the interaction effect of sex and endorser on willingness to
 
 Execute one-way analysis of variance in SPSS.
 :::
-
-
 
 ```{r, echo=FALSE, eval=FALSE}
 # Execute one-way analysis of variance in SPSS with Analyze > Compare Means > One-Way ANOVA {or use general Linear Model also for one-way? (MCRS probably uses Compare Means because it only disucsses one-way ANOVA) - between & within variance not labeled as such!).
@@ -316,7 +326,7 @@ Execute one-way analysis of variance in SPSS.
 
 ## Different Means for Two Factors
 
-The participants in the experiment do not only differ because they see different endorsers in the charity video. In addition, there can be personal characteristics that could cause differences. In this experiment, the researchers will look into sex, where only the sexes 'male' and 'female' will be taken into account. The researchers can then answer the question: Does participant's sex matter to the effect of the endorser on willingness to donate?
+The participants in the experiment do not only differ because they see different campaign styles. In addition, there can be personal characteristics that could cause differences. In this experiment, the researchers will look into health literacy, categorizing the participants in two group: low and high health literacy. The researchers can then answer the question: Does one's level of health literacy matter to the effect of the language used in campaigns on acceptance of vaccination information?
 
 ::: {#fig-anova-twoway}
 
@@ -328,23 +338,23 @@ How do group means inform us about (main) effects in analysis of variance?
 :::
 
 
-In the preceding section, we have looked at the effect of a single factor on willingness to donate, namely, the endorser to whom participants are exposed. Thus, we take into account two variables: one independent variable and one dependent variable. This is an example of *bivariate analysis*.
+In the preceding section, we have looked at the effect of a single factor on acceptance of vaccination information, namely, the language used in a campaign to which participants are exposed. Thus, we take into account two variables: one independent variable and one dependent variable. This is an example of *bivariate analysis*.
 
-Usually, however, we expect an outcome to depend on more than one variable. Willingness to donate does not depend only on the celebrity endorsing a fundraising campaign. It is easy to think of more factors, such as a person's available budget, her personal level of altruism, and so on.
+Usually, however, we expect an outcome to depend on more than one variable. Acceptance of vaccination information does not depend only on the language used in a campaign. It is easy to think of more factors, such as a person's previous experience with vaccins, their personal health, their beliefs, and so on.
 
-It is straightforward to include more factors in an analysis of variance. These can be additional experimental treatments in the context of an experiment as well as participant characteristics that are not manipulated by the researcher. For example, we may hypothesize that females are generally more charitable than males.
+It is straightforward to include more factors in an analysis of variance. These can be additional experimental treatments in the context of an experiment as well as participant characteristics that are not manipulated by the researcher. For example, we may hypothesize that people with high health literacy are generally more accepting of vaccination information than people with low health literacy.
 
 ### Two-way analysis of variance {#sec-anova2way}
 
-If we use one factor, the analysis is called one-way analysis of variance. With two factors, it is called two-way analysis of variance, and with three factors... well, you probably already guessed that name.
+If we use one factor, the analysis is called one-way analysis of variance. With two factors, it is called two-way analysis of variance, and with three factors... well, you probably already guessed that name. An analysis of variance with two or more factors can also be called a multi-way or factorial analysis of variance.
 
-A two-way analysis of variance using a factor with three levels, for instance, exposure to three different endorsers, and a second factor with two levels, for example, female versus male, is called a 3x2 (say: three by two) factorial design.
+A two-way analysis of variance using a factor with three levels, for instance, exposure to three different campaign styles, and a second factor with two levels, for example, low versus high health literacy, is called a 3x2 (say: three by two) factorial design.
 
 ### Balanced design {#sec-balanced}
 
-In analysis of variance with two or more factors, it is quite nice if the factors are statistically independent from one another. In other words, it is nice if the scores on one factor are not associated with scores on another factor. This is called a *balanced design*.
+In analysis of variance with two or more factors, we aim to have a *balanced design*. A balanced design in analysis of variance exists when there is an equal number of observations. It is important that this equal number of observations exists across every combination of factor levels. This means that each group being compared in the analysis has the same number of data points (in our case: participants). In an experiment, we can ensure a balanced design if we have the same number of participants in each combination of levels on all factors. In other words, a factorial design is balanced if we have the same number of observations in each subgroup. A subgroup contains the participants that have the same level on both factors just like a cell in a contingency table. 
 
-In an experiment, we can ensure that factors are independent if we have the same number of participants in each combination of levels on all factors. In other words, a factorial design is balanced if we have the same number of observations in each subgroup. A subgroup contains the participants that have the same level on both factors just like a cell in a contingency table.
+Balanced designs are important because they lead to more robust results. In addition, a balanced design indicates statistical independence. Statistical independence entails that the factors do not influence each other, meaning that the effect of one factor does not change based on the level of another factor. In other words, knowing the value or effect of one factor provides no information about the value of the other factor. We aim for statistical independence in analysis of variance.
 
 ```{r}
 #| label: tbl-anova-balanced
@@ -364,16 +374,17 @@ knitr::kable(df, booktabs = TRUE) %>%
 rm(df)
 ```
 
-
-@tbl-anova-balanced shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate statistical independence. In the example, the distributions are the same across columns (and rows), so the factors are statistically independent.
+@tbl-anova-balanced shows an example of a balanced 3x2 factorial design. Each subgroup (cell) contains two participants (cases). Equal distributions of frequencies across columns or across rows indicate a balanced design. In the example, we see a balanced design with equal distributions across columns (and rows). This means that the factors are statisically independent.
 
 In practice, it may not always be possible to have exactly the same number of observations for each subgroup. A participant may drop out from the experiment, a measurement may go wrong, and so on. If the numbers of observations are more or less the same for all subgroups, the factors are nearly independent, which is okay. We can use the same rule of thumb for a balanced design as for the conditions of an *F* test in analysis of variance: If the size of the smallest subgroup is less than ten per cent smaller than the size of the largest group, we call a factorial design balanced.
 
-A balanced design is nice but not necessary. Unbalanced designs can be analyzed but estimation is more complicated (a problem for the computer, not for us) and the assumption of equal population variances for all groups (Levene's *F* test) is more important (a problem for us, not for the computer) because we do not have equal group sizes. Note that the requirement of equal group sizes applies to the *subgroups* in a two-way analysis of variance. With a balanced design, we ensure that we have the same number of observations in all subgroups, so we are on the safe side.
+An example: if @tbl-anova-balanced would read 10-9-9 for both columns, the largest subgroup exists of 10 participants. Ten per cent of the largest group (10) is one participant. The smallest group (9) differs the maximum of 1 participant from the largest group. Thus the design would still be balanced. If one group would exist of eight participants, the difference of two participants would exceed the ten per cent of one participant and therefore be unbalanced.
+
+A balanced design is desired but not necessary. Unbalanced designs can be analyzed but estimation is more complicated (a problem for the computer, not for us) and the assumption of equal population variances for all groups (Levene's *F* test) is more important (a problem for us, not for the computer) because we do not have equal group sizes. Note that the requirement of equal group sizes applies to the *subgroups* in a two-way analysis of variance. With a balanced design, we ensure that we have the same number of observations in all subgroups, so we are on the safe side.
 
 ### Main effects in two-way analysis of variance {#sec-maineffects}
 
-A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to Clooney have the same average willingness to donate in the population as participants exposed to Jolie or those who are not exposed to an endorser. At the same time, it tests the null hypothesis that females and males have the same average willingness to donate in the population.
+A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to an autonomy supportive campaign have the same average acceptance of vaccination information in the population as participants exposed to a controlling campaign or those who are exposed to a neutral campaign. At the same time, it tests the null hypothesis that people with low health literacy and people with high health literacy have the same average acceptance of vaccination information in the population.
 
 ```{r}
 #| label: fig-anova-meansplot2
@@ -477,20 +488,20 @@ ggplot(d,aes(health_literacy, accept_av)) +
 rm(d)
 ```
 
-The tested effects are main effects because they represent the effect of one factor. They express an overall or average difference between the mean scores of the groups on the dependent variable. The main effect of the endorser factor shows the mean differences for endorser groups if we do not distinguish between females and males. Likewise, the main effect for sex shows the average difference in willingness to donate between females and males without taking into account the endorser to whom they were exposed.
+The tested effects are main effects because they represent the effect of one factor. They express an overall or average difference between the mean scores of the groups on the dependent variable. The main effect of the campaign style factor shows the mean differences for campaign groups if we do not distinguish between low and high health literacy. Likewise, the main effect for health literacy shows the average difference in acceptance of vaccination information between low and high health literacy without taking into account the language used in the campaign to which they were exposed.
 
-We could have used two separate one-way analyses of variance to test the same effects. Moreover, we could have tested the difference between females and males with an independent-samples *t* test. The results would have been the same (if the design is balanced.) But there is an important advantage to using a two-way analysis of variance, to which we turn in the next section.
+We could have used two separate one-way analyses of variance to test the same effects. Moreover, we could have tested the difference between low and high health literacy with an independent-samples *t* test. The results would have been the same (if the design is balanced.) But there is an important advantage to using a two-way analysis of variance, to which we turn in the next section.
 
 
 ## Moderation: Group-Level Differences that Depend on Context {#sec-moderationanova}
 
-In the preceding section, we have analyzed the effects both of endorser and sex on willingness to donate to a fund raiser. The two main effects isolate the influence of endorser on willingness from the effect of sex and the other way around. This assumes that endorser and sex have an effect on their own, a general effect.
+In the preceding section, we have analyzed the effects both of campaign style and health literacy on acceptance of vaccination information. The two main effects isolate the influence of campaign style on acceptance of vaccination information from the effect of health literacy and the other way around. This assumes that campaign style and health literacy have an effect on their own, a general effect.
 
-We should, however, wonder whether endorser always has the same effect. Even if there is a general effect of endorser on willingness to donate, is this effect the same for females and males? We could hypothesize that males and females might react differently towards seeing a male or female celebrity, either because they find one of them more attractive or because they identify better with one or the other. Thus, we could expect that one endorser is more effective among female participants and the other among male participants.
+We should, however, wonder whether campaign style always has the same effect. Even if there is a general effect of campaign style on acceptance of vaccination information, is this effect the same for people with high and people with low health literacy? We could hypothesize that people with high and people with low health literacy might react differently towards language that is used in a vaccination campaign, for instance because people with a higher ability to process information are more persuaded by message quality than cues like authority (i.e., a controlling campaign style). Thus, we could expect that one campaign style is more effective among people with low health literacy and another campaign style is more effective among people with high health literacy.
 
 If the effect of a factor is different for different groups on another factor, the first factor's effect is *moderated* by the second factor. The phenomenon that effects are moderated is called *moderation*. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.
 
-With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. @fig-anova-diagram shows the conceptual diagram for participant's sex moderating the effect of endorsing celebrity on willingness to donate.
+With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. @fig-anova-diagram shows the conceptual diagram for participant's health literacy moderating the effect of campaign style on acceptance of vaccination information. In this diagram, campaign style is the predictor and health literacy the moderator.
 
 
 ```{r}
@@ -517,9 +528,9 @@ rm(variables)
 
 ### Types of moderation
 
-Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the **Totals** row and column contain the means for each factor separately, for example the means for males and females (factor sex) or the means for the endorsers (factor endorser). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.
+Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the **Totals** row and column contain the means for each factor separately, for example the means for low and high (factor health literacy) or the means for the language used in the campaigns (factor campaign style). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.
 
-In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three endorsers. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an endorser-sex combination, and we link the means that belong to the same moderator group, for example, the means for females and the means for males (@fig-anova-moderation).
+In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three camapign styles. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an campaign-literacy combination, and we link the means that belong to the same moderator group, for example, the means for people with high and the means for people with low health literacy (@fig-anova-moderation).
 
 ::: {#fig-anova-moderation .column-page-inset-right}
 
@@ -535,11 +546,11 @@ Moderation happens a lot in communication science for the simple reason that the
 
 #### Effect strength moderation
 
-Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as *effect strength moderation*. In our current example, we would hypothesize that the effect of George Clooney as an endorser is stronger for female participants than for male participants.
+Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as *effect strength moderation*. In our current example, we would hypothesize that the effect of using controlling language is stronger for partcipants with low health literacy than for participants with high health literacy.
 
-In analysis of variance, effects are differences between average outcome scores. The effect of Clooney on willingness to donate, for instance, is the difference between the average willingness score of participants exposed to Clooney and the average score of participants who were not exposed to a celebrity endorser.
+In analysis of variance, effects are differences between average outcome scores. The effect of controlling language on acceptance of vaccination information, for instance, is the difference between the average acceptance of vaccination information of participants exposed to controlling language and the average score of participants who were exposed to neutral language in their campaign.
 
-Different "Clooney effects" for female and male participants imply different differences! The difference in average willingness scores between females exposed to Clooney and females who are not exposed to an endorser is different from the difference in average scores for males. We have four subgroups with average willingness scores that we have to compare. We have six subgroups if we also include endorsement by Angelina Jolie.
+Different "controlling effects" for participants with low and participants with high health literacy imply different differences! The difference in average acceptance scores between people with low health literacy exposed to controlling language and people with low health literacy who are exposed to neutral language is different from the difference in average acceptance scores for people with high health literacy. We have four subgroups with average acceptance scores that we have to compare. We have six subgroups if we also include the autonomy supportive effect.
 
 ```{r}
 #| label: fig-anova-effectstrengthmod
@@ -605,7 +616,7 @@ rm(d)
 
 A means plot is a very convenient tool to interpret different differences. Connect the means of the subgroups by lines that belong to the same group on the factor you use as moderator. Each line in the plot represents the effect differences within one moderator group. If a line goes up or down, predictor groups have different means, so the predictor has an effect within that moderator group. A flat (horizontal) line tells us that there is no effect at all within that moderator group
 
-The distances between the lines show the difference of the differences. If the lines for females and males are parallel, the difference between endorsers is the same for females and males. Then, the effects are the same and there is *no* moderation. In contrast, if the lines are not parallel but diverge or converge, the differences are different for females and males and there is moderation.
+The distances between the lines show the difference of the differences. If the lines for people with low and people with high health literacy are parallel, the difference between camapign styles is the same for people with low and people with high health literacy. Then, the effects are the same and there is *no* moderation. In contrast, if the lines are not parallel but diverge or converge, the differences are different for peopple with low and people with high health literacy and there is moderation.
 
 A special case of effect strength moderation is the situation in which the effect is absent (zero) in one context and present in another context. A trivial example would be the effect of an anti-smoking campaign on smoking frequency. For smokers (one context), smoking frequency may go down with campaign exposure and the campaign may have an effect. For non-smokers (another context), smoking frequency cannot go down and the campaign cannot have this effect.
 
@@ -613,7 +624,7 @@ Except for trivial cases such as the effect of anti-smoking campaigns on non-smo
 
 #### Effect direction moderation
 
-In the other type of moderation, the effect in one group is the opposite of the effect in another group. In @fig-anova-effectdirmod1, for example, Clooney increases the average willingness to donate among females in comparison to the group who did not see a celebrity endorser. In contrast, average willingness for male Clooney viewers is lower than the average for males without endorser. Let us call this *effect direction moderation*. Males reverse the Clooney effect that we find for females.
+In the other type of moderation, the effect in one group is the opposite of the effect in another group. In @fig-anova-effectdirmod1, for example, autonomy supportive language increases the average acceptance of vaccination information among people with high health literacy in comparison to the group who was exposed to neutral language. In contrast, average acceptance for people with low health literacy exposed to the autonomy supportive campaign is lower than the average for people with low health literacy exposed to the campaign with neutral language. Let us call this *effect direction moderation*. People with low health literacy reverse the autonomy supportive effect that we find for people with high health literacy.
 
 
 ```{r}
@@ -681,7 +692,7 @@ a=ggplot(d, aes(lang_cond, accept_av, colour = health_literacy)) +
 rm(d)
 ```
 
-In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (@fig-anova-effectdirmod2). Imagine that George Clooney convinces females to donate but discourages males to donate because his charms backfires on men (pure jealousy, perhaps.) Similarly, Angelina Jolie may have opposite effects on females and males.
+In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (@fig-anova-effectdirmod2). Imagine that controlling language convinces people with low health literacy to accept vaccination information but discourage people with high health literacy to accept vaccination information because it diminishes the quality for them. The other way around, autonomy supportive language could work better on people with high health literacy but discourage people with low health literacy as it might be perceived as too vague.
 
 ```{r}
 #| label: fig-anova-effectdirmod2
@@ -749,15 +760,15 @@ rm(d)
 ```
 
 
-In this situation, the main effect of endorser on willingness to donate is around zero. If we average over females and males, we obtain the means represented by the three grey dots. There is no net difference between Clooney, Jolie, and the condition without an endorser.
+In this situation, the main effect of camapign style on acceptance of vaccination information is around zero. If we average over people with low and people with high health literacy, we obtain the means represented by the three grey dots. There is no net difference between autonomy supportive, controlling, and neutral language used in a campaign.
 
-This does not mean that the endorser does not matter. On the contrary, the interaction effects tell us that the endorser is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the willingness to donate among particular target groups.
+This does not mean that the camapign style does not matter. On the contrary, the interaction effects tell us that the campaign style is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the acceptnace of vaccination information among particular target groups.
 
 ### Testing main and interaction effects
 
-The effect of a single factor is called a main effect, as we learned in @sec-maineffects. A main effect reflects the difference between means for groups within one factor. The main effect of sex, for instance, can be that females are on average more willing to donate than males. A two-way analysis of variance includes two main effects, one for each factor (see @sec-anova2way), for example a main effect of sex and a main effect of endorser.
+The effect of a single factor is called a main effect, as we learned in @sec-maineffects. A main effect reflects the difference between means for groups within one factor. The main effect of health literacy, for instance, can be that people with high health literacy are on average more willing to accept vaccination information than people with low health literacy. A two-way analysis of variance includes two main effects, one for each factor (see @sec-anova2way), for example a main effect of health literacy and a main effect of campaign style.
 
-For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In @fig-anova-interaction, we compare average willingness to donate for combinations of endorser and participant's sex. The effect of differences among subgroups on the dependent variable is called an *interaction effect*. Just like a main effect, an interaction effect is tested with an *F* test and its effect size is expressed by eta^2^.
+For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In @fig-anova-interaction, we compare average acceptance of vaccination information for combinations of campaign style and participant's health literacy. The effect of differences among subgroups on the dependent variable is called an *interaction effect*. Just like a main effect, an interaction effect is tested with an *F* test and its effect size is expressed by eta^2^.
 
 ::: {#fig-anova-interaction}
 
@@ -769,13 +780,13 @@ How can we recognize main effects and moderation in a means plot?
 :::
 
 
-Interpretation of moderation requires some training because we must look beyond main effects. The fact that females score on average higher than males is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in @fig-anova-interaction is not relevant to moderation.
+Interpretation of moderation requires some training because we must look beyond main effects. The fact that people with high health literacy score on average higher than people with low health literacy is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in @fig-anova-interaction is not relevant to moderation.
 
-Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in @fig-anova-interaction because the willingness scores of the individual participants are not shown.
+Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in @fig-anova-interaction because the acceptance scores of the individual participants are not shown.
 
 We can use the between-groups and within-groups variances to execute an *F* test just like the *F* test we use for main effects. The *null hypothesis* of the *F* test on an interaction effect states that the subgroups have the same population averages if we correct for the main effects. Our statistical software takes care of this correction if we include the main effects in the model, which we should always do.
 
-Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of endorser is the same for both sexes in the population. Or, the other way around, that the effect of sex is the same for different endorser groups in the population.
+Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of camapign style is the same for both levels of health literacy in the population. Or, the other way around, that the effect of health literacy is the same for different camapign styles in the population.
 
 ::: {.callout-important appearance="simple"}
 
@@ -827,19 +838,19 @@ rm(d)
 
 For the statistically informed reader, you should include the following information somewhere in your report:
 
--   That you used analysis of variance and the analysis of variance type (one-way or two-way).
+-   That you used analysis of variance and the analysis of variance type (one-way, two-way, or multi-way).
 
--   The test result for every effect, consisting of the test name (*F*), the degrees of freedom, and the significance (p value). APA prescribes the following format if you report the test result within your text: *F* (*df1*, *df2*) = F value, *p* = p value. Note that *df1* is the degrees of freedom of the factor (between-groups) and *df2* is the degrees of freedom of the error (within-groups).
+-   The test results for every effect, consisting of the test name (*F*), the degrees of freedom, and the significance (*p*-value). APA prescribes the following format if you report the test result within your text: *F* (*df1*, *df2*) = F-value, *p* = p-value. Note that *df1* is the degrees of freedom of the factor (between-groups) and *df2* is the degrees of freedom of the error (within-groups).
 
--   For each effect report eta-squared (eta^2^) and interpret it in terms of effect size. If you have to calculate eta-squared by hand, divide the between-groups sum of squares of an effect by the total sum of squares (SPSS: corrected total). If SPSS calculates eta-squared, also report the confidence interval for eta-squared.
+-   For each effect report eta-squared (*eta^2^*) and interpret it in terms of effect size. If you have to calculate eta-squared by hand, divide the between-groups sum of squares of an effect by the total sum of squares (SPSS: corrected total). If SPSS calculates eta-squared, also report the confidence interval for eta-squared.
 
--   For each effect worth interpretation, clarify which group or subgroup scores higher. Report the group means and their standard deviations or the mean difference with its confidence interval and *p* value (from the post-hoc tests) here. Note that the SPSS menu only supplies post-hoc tests for main effects of factors with more than two levels (groups).
+-   For each effect worth interpretation, clarify which group or subgroup scores higher. Report the group means and their standard deviations or the mean difference with its confidence interval and *p*-value (from the post-hoc tests) here. Note that the SPSS menu only supplies post-hoc tests for main effects of factors with more than two levels (groups).
 
--   Pay special attention to an interaction effect. Explain how an effect (differences between groups) of the predictor differs across groups on the moderator. This results in sentences containing three variables. For example: "Clooney as endorser increases willingness to donate more among women than among men." Do you recognize the three variables (predictor, moderator, and dependent variable) here?
+-   Pay special attention to an interaction effect. Explain how an effect (differences between groups) of the predictor differs across groups on the moderator. This results in sentences containing three variables. For example: "Autonomy supportive language increases acceptance of vaccination information more among people with high health literacy than among people with low health literacy." Do you recognize the three variables (predictor, moderator, and dependent variable) here?
 
--   As always, don't forget to mention the units (cases) and the meaning of the variables (factors and outcome). They describe the topic of the analysis.
+-   As always, do not forget to mention the units (cases) and the meaning of the variables (factors and outcome). They describe the topic of the analysis.
 
--   Report it if the main assumption is violated, that is, if you have (sub)groups of unequal size and the test on homogeneous variances is statistically significant. Report Levene's test just like you report the *F* test of a main effect (see above). If the assumption is violated, we still report and interpret the results of the analysis of variance but we warn that the results may not be trustworthy.
+-   Report it if the main assumption is violated, that is, if you have (sub)groups of unequal size (i.e., an unbalanced design) and the test on homogeneous variances (Leven's *F*-test) is statistically significant. Report Levene's test just like you report the *F* test of a main effect (see above). If the assumption is violated, we still report and interpret the results of the analysis of variance but we warn that the results may not be trustworthy and should be treated with caution.
 
 A two-way analysis of variance may produce many numeric results to report. It is recommended to present them as a table (in the text or in an appendix). If you report the table, include the error, the sums of squares and mean squares in the same way that SPSS reports them. @tbl-2way-table presents an example.
 
@@ -872,6 +883,18 @@ rm(results, donors)
 
 ### Instructions
 
+You have learned how to execute an one-way analysis of variance, and now it is time to execute a two-way analysis of variance in SPSS. In the video below we teach you how to perform and interpret the analysis. In the video we will elaborate on the dataset that we have used for our one-way analysis of variance (does the endorser for a fundraiser campaign have an effect on the willingness to donate?). The persuasive communication research team is adding a second variable, a moderator: gender (in the dataset called 'sex'). This study is only taking men and women into account (in the dataset called 'male' and 'female'). When conducting a two-way analysis of variance we are able to answer the questions whether the effect of endorser on willingness to donate is different for men and women. We have two categorical independent variables (or factors) and one numerical dependent variable (follow the test selection table to a two-way analysis of variance @sec-test-selection). 
+
+To perform a two-way (or multi-way) analysis of variance, we select `Analyze > General Linear Model > Univariate`. The numerical dependent variable *willing_post* is added to `Dependent Variable:` and the categorical factors *endorser* and *sex* are added to the `Fixed Factor(s):`. If you see the variable labels instead of the variable names, simply do a right mouse click and select `show variable names`. For our additional setting, we select `Plots...` and add the predictor (*endorser*) to the `Horizontal Axis:` and the moderator (*sex*) to `Seperate Lines:`. As stated earlier in this chapter, we usually add the moderator as separate lines but if you have good reason to switch them (e.g., easier interpretation): you can. Do not forget to click `Add` and `Continue`. As before we also select `Post Hoc...`, we only need to add *endorser* since *sex* only consist of two groups. Hopefully you remember we see *t*-test results in our post hoc table, meaning we are comparing two groups, this is not necessary to do when the variable only has two groups to begin with. Thus, add *endorser* to `Post Hoc Tests for:`, select `Bonerroni` and click `Continue`. Under options we select `Descriptive statistics` (for our group means) and `homogeneity tests` (for Levene's *F*-test for our assumption check). Then, as always, click `paste` and run the command through the syntax.
+
+When we inspect the output, we start with the first tables including `Descriptive Statistics`. In this table all the group means are provided and we can check whether we have equal subgroup sizes (meaning a balanced design, indicating statistical independence for our variables). The subgroup sizes range from 22 to 25, our largest group (25) indicates an allowed difference of 2.5. The difference of 3 participants is slightly above our allowed difference. This means we also take a look at the Levene's *F*-test in the next table. The table shows a not significant results (the *p*-value is above .05), meaning we have met our assumption of equal variances. 
+
+For the actual test results, we take a look at the table of `Tests of Between-Subjects Effects`. Here we can see that both the main effects (rows: endorser and sex) are significant and so does the interaction effect (row: endorser*sex). If you want to know more about these effects, we can look at the `Descriptive Statistics` table to check the means of the variable *sex*. Here we can see that participants who identified as female have a higher average willingness to donate than participants who identified as male. When we want to know more about the endorser effect, we take a look at the `Post Hoc Tests` in the table `Multiple Comparisons` where we can find our *t*-tests. Like the one-way analysis of variance had already showed us: the groups *Clooney* and *Nobody* and *Jolie* and *Nobody* differ significantly from each other (the *p*-values are below .05 and the confidence intervals do not include the zero). To make sense of the significant interaction effect, it usually helps to tak e alook at the `Profile Plots`. Here the lines represent the two groups of our moderator, you can see that the green line is almost always above the blue line (representing the women having a higher average willingness to donate than the men). The effect of seeing George Clooney in the campaign is positive for both groups of our moderator (both average willingness to donate scores go up), but the effect is stronger for the women. The effect of seeing Angelina Jolie is positive for both groups of our moderator compared to the *Nobody* group, but for women we see that George Clooney has a stronger effect than Angelina Jolie and for men we see that Angelina Jolie has a stronger effect than George Clooney. 
+
+In conclusion, there is a significant main effect for the endorser in a fundraiser campaign on the willingness to donate. Seeing a celebrity has a signigicant positive effect on the willingness to donate compared to seeing no celebrity. There is also a significant main effect for a person's gender, when comparing men and women we see that women on average have a significantly higher willigness to donate than men. Additionally, there is a significant interaction effect for endorser and gender on willigness to donate. More specifically, seeing a celebrity has a positive effect on both men and women but women seem to have a stronger positive effect when seeing George Clooney than when they see Angelina Jolie and men have a stronger positive effect when seeing Angelina Jolie than when they see George Clooney.
+
+Please watch the video below for step-by-step instructions and for additional details.
+
 ::: {#vid-SPSS2way}
 
 {{< video https://www.youtube.com/embed/BUqAm1H7FW8
@@ -896,6 +919,10 @@ Executure two-way analysis of variance in SPSS
 ```
 
 ------------------------------------------------------------------------
+
+We told you before that you had to calculate eta-squared (eta^2^) yourself if you are working with a SPSS version above 26. We are assuming all of you are, so in the video below we show you the calculation of eta^2^. Eta-squared is the measure of association, or effect size, belonging to ANOVA. We need the `Test of Between-Subjects Effects` table in the ANOVA output to calculate eta^2^. You devide the Sum of Squares for the between groups by the total Sum of Squares (SS). We calculate eta^2^per effect. Thus, if we want to calculate eta^2^ for the interaction effect we devide the SS for the interaction effect (20.602) by the total SS (389.566). *Beware* we use the correctal total here. The eta^2^ for the interaction effect is 0.05 (or 5,3% of the variance in willingness to donate is explained by the interaction effect). 
+
+Watch the video below for a step-by-step instruction for calculating the eta^2^ of the endorser main effect and the visual details.
 
 ::: {#vid-SPSSeta2}
 
