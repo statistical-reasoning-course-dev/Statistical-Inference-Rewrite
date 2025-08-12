@@ -110,16 +110,13 @@ effect of the predictor (e.g., campaign style) on the dependent variable
 
 Communication scientists have shown that campaign messages are more
 likely to be effective if they are designed based on theoretical
-insights (DOI: <https://doi.org/10.1111/j.1460-2466.2006.00280.x>). For
-instance, Protection Motivation Theory \[DOI:
-<https://doi.org/10.1080/00223980.1975.9915803>\] suggests that
+insights [@fishbeinRoleTheoryDeveloping2006]. For instance, Protection
+Motivation Theory [@rogersProtectionMotivationTheory1975] suggests that
 controlling language including threats can be persuasive by motivating
 people to take action to avoid harm and Self-Determination Theory
-**\[CITATION: Deci, Edward L., and Richard M. Ryan. *Intrinsic
-motivation and self-determination in human behavior*. Springer Science &
-Business Media, 2013\]** supports the idea that autonomy-supportive
-language exerts impact by fostering a sense of choice and personal
-motivation.
+[@deciIntrinsicMotivationSelfDetermination2013] supports the idea that
+autonomy-supportive language exerts impact by fostering a sense of
+choice and personal motivation.
 
 Imagine that we want to test if using theory to design language used in
 a campaign makes a difference to people's vaccine acceptance. We will be
@@ -590,76 +587,10 @@ means.
 
 ### Instructions
 
-In SPSS, we use the *One-Way ANOVA* option in the *Compare Means*
-submenu for one-way analysis of variance and the *Univariate* option in
-the *General Linear Model* submenu for two-way analysis of variance.
-
-::: {#fig-ANOVAtable}
-```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center'}
-knitr::include_graphics("figures/S7_AE1.png")
-```
-
-SPSS table of main and interaction effects in a two-way analysis of
-variance.
-:::
-
-The significance tests on the main effects and interaction effect are
-reported in the **Tests of Between-Subjects Effects** table.
-@fig-ANOVAtable offers an example. The tests on the main effects are in
-the red box and the green box contains the test on the interaction
-effect. The APA-style summary of the main effect of campaign style
-(variable: *lang_cond*) is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ =
-.10. Note the two degrees of freedom in between the brackets, which are
-marked by a blue ellipse in the figure. You get the effect size eta^2^
-by dividing the sum of squares of an effect by the corrected total sum
-of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
-
-Interpret the effects by comparing mean scores on the dependent variable
-among groups:
-
-1.  If there are two groups on a factor, for example, low and high
-    health literacy, compare the two group means: Which group scores
-    higher? For example, people with high health literacy score on
-    average 5.05 on vaccine acceptance whereas the average acceptance is
-    only 4.19 for people with low health literacy. The *F* test shows
-    whether or not the difference between the two groups is
-    statistically significant.
-
-2.  If a factor has more than two groups, for example, neutral,
-    controlling or autonomy supportive language, use post-hoc
-    comparisons with Bonferroni correction. The results tell you which
-    group scores on average higher than another group and whether the
-    difference is statistically significant if we correct for
-    capitalization on chance.
-
-3.  If you want to interpret an interaction effect, create means plots
-    such as @fig-ANOVAplots. Compare the differences between means
-    across groups. In the left panel, for example, we see that the
-    effect of health literacy on acceptance of vaccination information
-    (the difference between the mean score of people with low health
-    literacy and the mean score of people with high health literacy) is
-    larger for autonomy supportive language (pink box in the middle)
-    than for neutral language (pink box on the left), and it is smallest
-    for controlling language (pink box on the right). Similarly, we see
-    that the effect of seeing the autonomy supportive campagin instead
-    of the neutral campaign is larger for people with high healthy
-    literacy (right-hand panel, pink box on the right) than for people
-    with low health literacy (right-hand panel, pink box on the left).
-
-::: {#fig-ANOVAplots}
-```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center'}
-knitr::include_graphics("figures/S7_AE2.png")
-```
-
-SPSS means plots of the interaction effect of health literacy and
-campaign style on vaccine acceptance. Note that the pink arrows and
-dotted lines have been added manually to aid the interpretation.
-:::
-
-In the video below we walk you through conducting and interpreting an
-one-way analysis of variance in SPSS. In this example you are again part
-of a communication reserach team, however this team we are diving into a
-persuasive communication question. The research question that is
+In the video below we walk you through conducting and interpreting a
+one-way analysis of variance in SPSS. In this example, you are again
+part of a communication research team, however this team we are diving
+into a persuasive communication question. The research question that is
 discussed in the video below is 'does the person endorsing a campaign
 matter to the willingness to donate to a charity for people seeing the
 campaign?'. The data set includes the variable *endorser*, which is a
@@ -1596,20 +1527,86 @@ rm(results, donors)
 ### Instructions
 
 You have learned how to execute an one-way analysis of variance, and now
-it is time to execute a two-way analysis of variance in SPSS. In the
-video below we teach you how to perform and interpret the analysis. In
-the video we will elaborate on the dataset that we have used for our
-one-way analysis of variance (does the endorser for a fundraiser
-campaign have an effect on the willingness to donate?). The persuasive
-communication research team is adding a second variable, a moderator:
-gender (in the dataset called 'sex'). This study is only taking men and
-women into account (in the dataset called 'male' and 'female'). When
-conducting a two-way analysis of variance we are able to answer the
-questions whether the effect of endorser on willingness to donate is
-different for men and women. We have two categorical independent
-variables (or factors) and one numerical dependent variable (follow the
-test selection table to a two-way analysis of variance
-@sec-test-selection).
+it is time to execute a two-way analysis of variance in SPSS.
+
+In SPSS, we use the *Univariate* option in the *General Linear Model*
+submenu for two-way analysis of variance.
+
+::: {#fig-ANOVAtable}
+```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center'}
+knitr::include_graphics("figures/S7_AE1.png")
+```
+
+SPSS table of main and interaction effects in a two-way analysis of
+variance.
+:::
+
+The significance tests on the main effects and interaction effect are
+reported in the **Tests of Between-Subjects Effects** table.
+@fig-ANOVAtable offers an example. The tests on the main effects are in
+the red box and the green box contains the test on the interaction
+effect. The APA-style summary of the main effect of campaign style
+(variable: *lang_cond*) is: *F* (2, 137) = 8.43, *p* \< .001, eta^2^ =
+.10. Note the two degrees of freedom in between the brackets, which are
+marked by a blue ellipse in the figure. You get the effect size eta^2^
+by dividing the sum of squares of an effect by the corrected total sum
+of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.
+
+Interpret the effects by comparing mean scores on the dependent variable
+among groups:
+
+1.  If there are two groups on a factor, for example, low and high
+    health literacy, compare the two group means: Which group scores
+    higher? For example, people with high health literacy score on
+    average 5.05 on vaccine acceptance whereas the average acceptance is
+    only 4.19 for people with low health literacy. The *F* test shows
+    whether or not the difference between the two groups is
+    statistically significant.
+
+2.  If a factor has more than two groups, for example, neutral,
+    controlling or autonomy supportive language, use post-hoc
+    comparisons with Bonferroni correction. The results tell you which
+    group scores on average higher than another group and whether the
+    difference is statistically significant if we correct for
+    capitalization on chance.
+
+3.  If you want to interpret an interaction effect, create means plots
+    such as @fig-ANOVAplots. Compare the differences between means
+    across groups. In the left panel, for example, we see that the
+    effect of health literacy on acceptance of vaccination information
+    (the difference between the mean score of people with low health
+    literacy and the mean score of people with high health literacy) is
+    larger for autonomy supportive language (pink box in the middle)
+    than for neutral language (pink box on the left), and it is smallest
+    for controlling language (pink box on the right). Similarly, we see
+    that the effect of seeing the autonomy supportive campagin instead
+    of the neutral campaign is larger for people with high healthy
+    literacy (right-hand panel, pink box on the right) than for people
+    with low health literacy (right-hand panel, pink box on the left).
+
+::: {#fig-ANOVAplots}
+```{r ANOVAplots, echo=FALSE, out.width="100%", fig.pos='H', fig.align='center'}
+knitr::include_graphics("figures/S7_AE2.png")
+```
+
+SPSS means plots of the interaction effect of health literacy and
+campaign style on vaccine acceptance. Note that the pink arrows and
+dotted lines have been added manually to aid the interpretation.
+:::
+
+In the video below we walk you through how to perform and interpret a
+two-way analysis of variance in SPSS. In the video we will elaborate on
+the dataset that we have used for our one-way analysis of variance (does
+the endorser for a fundraiser campaign have an effect on the willingness
+to donate?). The persuasive communication research team is adding a
+second variable, a moderator: gender (in the dataset called 'sex'). This
+study is only taking men and women into account (in the dataset called
+'male' and 'female'). When conducting a two-way analysis of variance we
+are able to answer the questions whether the effect of endorser on
+willingness to donate is different for men and women. We have two
+categorical independent variables (or factors) and one numerical
+dependent variable (follow the test selection table to a two-way
+analysis of variance @sec-test-selection).
 
 To perform a two-way (or multi-way) analysis of variance, we select
 `Analyze > General Linear Model > Univariate`. The numerical dependent

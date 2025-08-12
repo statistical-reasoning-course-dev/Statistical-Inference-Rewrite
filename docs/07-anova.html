@@ -356,7 +356,7 @@ Video&nbsp;5.1: Introduction to analysis of variance.
 </section>
 <section id="different-means-for-three-or-more-groups" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="different-means-for-three-or-more-groups"><span class="header-section-number">5.1</span> Different Means for Three or More Groups</h2>
-<p>Communication scientists have shown that campaign messages are more likely to be effective if they are designed based on theoretical insights (DOI: <a href="https://doi.org/10.1111/j.1460-2466.2006.00280.x" class="uri">https://doi.org/10.1111/j.1460-2466.2006.00280.x</a>). For instance, Protection Motivation Theory [DOI: <a href="https://doi.org/10.1080/00223980.1975.9915803" class="uri">https://doi.org/10.1080/00223980.1975.9915803</a>] suggests that controlling language including threats can be persuasive by motivating people to take action to avoid harm and Self-Determination Theory <strong>[CITATION: Deci, Edward L., and Richard M. Ryan.&nbsp;<em>Intrinsic motivation and self-determination in human behavior</em>. Springer Science &amp; Business Media, 2013]</strong> supports the idea that autonomy-supportive language exerts impact by fostering a sense of choice and personal motivation.</p>
+<p>Communication scientists have shown that campaign messages are more likely to be effective if they are designed based on theoretical insights <span class="citation" data-cites="fishbeinRoleTheoryDeveloping2006">(<a href="14-references.html#ref-fishbeinRoleTheoryDeveloping2006" role="doc-biblioref">Fishbein and Cappella 2006</a>)</span>. For instance, Protection Motivation Theory <span class="citation" data-cites="rogersProtectionMotivationTheory1975">(<a href="14-references.html#ref-rogersProtectionMotivationTheory1975" role="doc-biblioref">Rogers 1975</a>)</span> suggests that controlling language including threats can be persuasive by motivating people to take action to avoid harm and Self-Determination Theory <span class="citation" data-cites="deciIntrinsicMotivationSelfDetermination2013">(<a href="14-references.html#ref-deciIntrinsicMotivationSelfDetermination2013" role="doc-biblioref">Deci and Ryan 2013</a>)</span> supports the idea that autonomy-supportive language exerts impact by fostering a sense of choice and personal motivation.</p>
 <p>Imagine that we want to test if using theory to design language used in a campaign makes a difference to people’s vaccine acceptance. We will be using either autonomy supportive language or controlling language in the theory-based campaigns, and we will include a campaign with neutral language as a control condition.</p>
 <p>Let us design an experiment to investigate the effects of the language used in a campaign (campaign style). We sample a number of people (participants) and then randomly assign each participant to the campaign with autonomy supportive language, the campaign with controlling language, or the campaign with neutral language (control group). Our independent variable <em>campaign style</em> is a factor with three experimental conditions (autonomy supportive, controlling, neutral).</p>
 <p>Our dependent variable is vaccine acceptance, a numeric scale from 1 (“Would definitely refuse to get the vaccine”) to 10 (“Would definitely get the vaccine as soon as possible”). We will compare the average outcome scores among groups. If groups with autonomy supportive or controlling language have a systematically higher average vaccine acceptance than the group with neutral language, we conclude that using theory to design campaign language has a positive effect on vaccine acceptance.</p>
@@ -492,51 +492,7 @@ Figure&nbsp;5.4: Which groups have different average outcome scores in the popul
 <h2 data-number="5.2" class="anchored" data-anchor-id="sec-onewaySPSS"><span class="header-section-number">5.2</span> One-Way Analysis of Variance in SPSS</h2>
 <section id="instructions" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">5.2.1</span> Instructions</h3>
-<p>In SPSS, we use the <em>One-Way ANOVA</em> option in the <em>Compare Means</em> submenu for one-way analysis of variance and the <em>Univariate</em> option in the <em>General Linear Model</em> submenu for two-way analysis of variance.</p>
-<div id="fig-ANOVAtable" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/S7_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" data-fig-pos="H"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.5: SPSS table of main and interaction effects in a two-way analysis of variance.
-</figcaption>
-</figure>
-</div>
-<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. <a href="#fig-ANOVAtable" class="quarto-xref">Figure&nbsp;<span>5.5</span></a> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of campaign style (variable: <em>lang_cond</em>) is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
-<p>Interpret the effects by comparing mean scores on the dependent variable among groups:</p>
-<ol type="1">
-<li><p>If there are two groups on a factor, for example, low and high health literacy, compare the two group means: Which group scores higher? For example, people with high health literacy score on average 5.05 on vaccine acceptance whereas the average acceptance is only 4.19 for people with low health literacy. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
-<li><p>If a factor has more than two groups, for example, neutral, controlling or autonomy supportive language, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
-<li><p>If you want to interpret an interaction effect, create means plots such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.6</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of health literacy on acceptance of vaccination information (the difference between the mean score of people with low health literacy and the mean score of people with high health literacy) is larger for autonomy supportive language (pink box in the middle) than for neutral language (pink box on the left), and it is smallest for controlling language (pink box on the right). Similarly, we see that the effect of seeing the autonomy supportive campagin instead of the neutral campaign is larger for people with high healthy literacy (right-hand panel, pink box on the right) than for people with low health literacy (right-hand panel, pink box on the left).</p></li>
-</ol>
-<div id="fig-ANOVAplots" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="figures/S7_AE2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.6: SPSS means plots of the interaction effect of health literacy and campaign style on vaccine acceptance. Note that the pink arrows and dotted lines have been added manually to aid the interpretation.
-</figcaption>
-</figure>
-</div>
-<p>In the video below we walk you through conducting and interpreting an one-way analysis of variance in SPSS. In this example you are again part of a communication reserach team, however this team we are diving into a persuasive communication question. The research question that is discussed in the video below is ‘does the person endorsing a campaign matter to the willingness to donate to a charity for people seeing the campaign?’. The data set includes the variable <em>endorser</em>, which is a categorical variable. Participants are either watching a campaign with George Clooney, Angelina Jolie or nobody (that is, not a celebrity). You are researching whether the endorser of a fundraising campaign has an effect on people’s willingness to donate. The willigness to donate has been measured before (<em>willing_pre</em>) and after (<em>willing_post</em>) watching the campaign.</p>
+<p>In the video below we walk you through conducting and interpreting a one-way analysis of variance in SPSS. In this example, you are again part of a communication research team, however this team we are diving into a persuasive communication question. The research question that is discussed in the video below is ‘does the person endorsing a campaign matter to the willingness to donate to a charity for people seeing the campaign?’. The data set includes the variable <em>endorser</em>, which is a categorical variable. Participants are either watching a campaign with George Clooney, Angelina Jolie or nobody (that is, not a celebrity). You are researching whether the endorser of a fundraising campaign has an effect on people’s willingness to donate. The willigness to donate has been measured before (<em>willing_pre</em>) and after (<em>willing_post</em>) watching the campaign.</p>
 <p>When we want to research the effect of a categorical variable (endorser) on a numerical variable (willing_post), we use a one-way analysis of variance (see the test selection table <span class="quarto-unresolved-ref">?sec-test-selection</span>). You can get the one-way ANOVA window by clicking <code>Analyze &gt; Compare Means &gt; One-Way ANOVA</code>. The dependent variable is the willignness to donate after watching the campaign, so this variable should be added to the <code>Dependent List:</code>. The independent variable, also called factor in ANOVA, is the celebrity endoring the campaign which should be added to <code>Factor:</code>. Before running your ANOVA, we select some additional options. Select <code>Post Hoc...</code> and select the <code>Bonferroni</code> correction for multiple testing. Under <code>Options...</code> we select <code>Descriptive</code> to obtain the group means and <code>Homogeneity of variance test</code> for Levene’s <em>F</em>-test to check assumptions. You would only select bootstrapping if you cannot use the theoretical approximation fo the <em>F</em>-distribution (revise Chapter 2 if needed). You can select <code>Estimate effect size for overall tests</code> if you want to obtain eta<sup>2</sup>. Please click <code>paste</code> and run the command from your syntax.</p>
 <p>In the output we can start interpreting our results. The first table, <code>Descriptives</code> provides us with the group means. Here we can immediately see that the willingness to donate is lower when there is no celebrity endorsing the campaign. In this table we can also check the group sizes, an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You can see that the <code>Test of Homogeneity of Variances</code> is not significant indicating the assumption is met on both fronts (equal group sizes and equal variances).</p>
 <p>To interpret the actual test results, we study the <code>ANOVA</code> table. We can see the between groups and within groups results, you find the <em>F</em>-value in the <code>Between Groups</code> row, with a <em>p</em>-value below .05 indicating a significant result. The table below the ANOVA table, <code>ANOVA Effect Sizes</code> provides an insight in the size of the effect - i.e., the size of the difference between the groups. Eta-squared is the effect size that we report for ANOVA, as reported in the video all versions above SPSS v26 show the <em>partial</em> eta-squared meaning that you need to calculate eta-squared by hand. We will walk you through this process later in this chapter.</p>
@@ -556,7 +512,7 @@ Video&nbsp;5.2: Execute one-way analysis of variance in SPSS.
 </section>
 <section id="different-means-for-two-factors" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="different-means-for-two-factors"><span class="header-section-number">5.3</span> Different Means for Two Factors</h2>
-<p>The participants in the experiment do not only differ because they see different campaign styles. In addition, there can be personal characteristics that could cause differences. In this experiment, the researchers will look into health literacy, categorizing the participants in two group: low and high health literacy. The researchers can then answer the question: Does one’s level of health literacy matter to the effect of the language used in campaigns on acceptance of vaccination information?</p>
+<p>The participants in the experiment do not only differ because they see different campaign styles. In addition, personal characteristics could impact how participants perceive each campaign. In our example, we are particularly interested in participants’ health literacy, categorizing the participants in two groups: low and high health literacy. We can then ask the question: Does the effect of the language used in campaigns on vaccine acceptance differ between people with low and those with high health literacy?</p>
 <div id="fig-anova-twoway" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -564,13 +520,13 @@ Video&nbsp;5.2: Execute one-way analysis of variance in SPSS.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-twoway-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.7: How do group means inform us about (main) effects in analysis of variance?
+Figure&nbsp;5.5: How do group means inform us about (main) effects in analysis of variance?
 </figcaption>
 </figure>
 </div>
 <p>In the preceding section, we have looked at the effect of a single factor on acceptance of vaccination information, namely, the language used in a campaign to which participants are exposed. Thus, we take into account two variables: one independent variable and one dependent variable. This is an example of <em>bivariate analysis</em>.</p>
-<p>Usually, however, we expect an outcome to depend on more than one variable. Acceptance of vaccination information does not depend only on the language used in a campaign. It is easy to think of more factors, such as a person’s previous experience with vaccins, their personal health, their beliefs, and so on.</p>
-<p>It is straightforward to include more factors in an analysis of variance. These can be additional experimental treatments in the context of an experiment as well as participant characteristics that are not manipulated by the researcher. For example, we may hypothesize that people with high health literacy are generally more accepting of vaccination information than people with low health literacy.</p>
+<p>Usually, however, we expect an outcome to depend on more than one variable. Vaccine acceptance does not only depend on the language used in a campaign. It is easy to think of more factors, such as a person’s previous experience with vaccines, their personal health, their beliefs, and so on.</p>
+<p>It is straightforward to include more factors in an analysis of variance. These can be additional experimental treatments in the context of an experiment as well as participant characteristics that are not manipulated by the researcher. For example, we may hypothesize that people with high health literacy are generally more accepting of vaccines than people with low health literacy.</p>
 <section id="sec-anova2way" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="sec-anova2way"><span class="header-section-number">5.3.1</span> Two-way analysis of variance</h3>
 <p>If we use one factor, the analysis is called one-way analysis of variance. With two factors, it is called two-way analysis of variance, and with three factors… well, you probably already guessed that name. An analysis of variance with two or more factors can also be called a multi-way or factorial analysis of variance.</p>
@@ -628,7 +584,7 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 </section>
 <section id="sec-maineffects" class="level3" data-number="5.3.3">
 <h3 data-number="5.3.3" class="anchored" data-anchor-id="sec-maineffects"><span class="header-section-number">5.3.3</span> Main effects in two-way analysis of variance</h3>
-<p>A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that participants exposed to an autonomy supportive campaign have the same average acceptance of vaccination information in the population as participants exposed to a controlling campaign or those who are exposed to a neutral campaign. At the same time, it tests the null hypothesis that people with low health literacy and people with high health literacy have the same average acceptance of vaccination information in the population.</p>
+<p>A two-way analysis of variance tests the effects of both factors on the dependent variable in one go. It tests the null hypothesis that people exposed to an autonomy supportive campaign have the same average vaccine acceptance in the population as people exposed to a controlling campaign and as those who are exposed to a neutral campaign. It also tests the null hypothesis that people with low health literacy and people with high health literacy have the same average vaccine acceptance in the population.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-meansplot2-1" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -637,7 +593,7 @@ Table&nbsp;5.1: Number of observations per subgroup in a balanced 3x2 factorial 
 <img src="07-anova_files/figure-html/fig-anova-meansplot2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot2-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.8: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
+Figure&nbsp;5.6: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
 </figcaption>
 </figure>
 </div>
@@ -649,22 +605,22 @@ Figure&nbsp;5.8: Means plots for the main effects of language condition and heal
 <img src="07-anova_files/figure-html/fig-anova-meansplot2-2.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-meansplot2-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.9: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
+Figure&nbsp;5.7: Means plots for the main effects of language condition and health literacy on vaccine acceptance (Error bars = 95% Confidence Intervals). As a reading instruction, effects of langugae conditions and having high health literacy are represented by arrows and dashed lines.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>The tested effects are main effects because they represent the effect of one factor. They express an overall or average difference between the mean scores of the groups on the dependent variable. The main effect of the campaign style factor shows the mean differences for campaign groups if we do not distinguish between low and high health literacy. Likewise, the main effect for health literacy shows the average difference in acceptance of vaccination information between low and high health literacy without taking into account the language used in the campaign to which they were exposed.</p>
+<p>The tested effects are main effects because they represent the effect of one factor. They express an overall or average difference between the mean scores of the groups on the dependent variable. The main effect of the campaign style factor shows the mean differences for campaign groups if we do not distinguish between low and high health literacy. Likewise, the main effect for health literacy shows the average difference in vaccine acceptance between those with low and those with high health literacy without taking into account the language used in the campaign to which they were exposed.</p>
 <p>We could have used two separate one-way analyses of variance to test the same effects. Moreover, we could have tested the difference between low and high health literacy with an independent-samples <em>t</em> test. The results would have been the same (if the design is balanced.) But there is an important advantage to using a two-way analysis of variance, to which we turn in the next section.</p>
 </section>
 </section>
 <section id="sec-moderationanova" class="level2 page-columns page-full" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="sec-moderationanova"><span class="header-section-number">5.4</span> Moderation: Group-Level Differences that Depend on Context</h2>
-<p>In the preceding section, we have analyzed the effects both of campaign style and health literacy on acceptance of vaccination information. The two main effects isolate the influence of campaign style on acceptance of vaccination information from the effect of health literacy and the other way around. This assumes that campaign style and health literacy have an effect on their own, a general effect.</p>
-<p>We should, however, wonder whether campaign style always has the same effect. Even if there is a general effect of campaign style on acceptance of vaccination information, is this effect the same for people with high and people with low health literacy? We could hypothesize that people with high and people with low health literacy might react differently towards language that is used in a vaccination campaign, for instance because people with a higher ability to process information are more persuaded by message quality than cues like authority (i.e., a controlling campaign style). Thus, we could expect that one campaign style is more effective among people with low health literacy and another campaign style is more effective among people with high health literacy.</p>
-<p>If the effect of a factor is different for different groups on another factor, the first factor’s effect is <em>moderated</em> by the second factor. The phenomenon that effects are moderated is called <em>moderation</em>. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor and the moderator.</p>
-<p>With moderation, factors have a combined effect. The context (group score on one factor) affects the effect of the other factor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. <a href="#fig-anova-diagram" class="quarto-xref">Figure&nbsp;<span>5.10</span></a> shows the conceptual diagram for participant’s health literacy moderating the effect of campaign style on acceptance of vaccination information. In this diagram, campaign style is the predictor and health literacy the moderator.</p>
+<p>In the preceding section, we have analyzed the effects both of campaign style and health literacy on vaccine acceptance. The two main effects isolate the influence of campaign style on acceptance of vaccination information from the effect of health literacy and the other way around.</p>
+<p>But does campaign style always have the same effect? Even if there is a main effect of campaign style on vaccine acceptance across all participants, it is possible that this effect differs when we are zooming in to specific sub-groups of our sample, for instance comparing people high and those with low health literacy. In other words, do people with high and people with low health literacy differ in their response to different campaign styles? For instance, people with a health literacy might feel confident in their ability to find and use health information in order to make their own, informed decisions about health behaviors like vaccination. These individuals might prefer autonomy-supportive over controlling communication styles. Individuals with low health literacy might not show this preference for autonomy-supportive language as they might feel less confident to use that autonomy to make complicated decisions on their own. Thus, we could expect that the effect of campaign style differs between those with high and low health literacy.</p>
+<p>If the effect of a factor is different for different groups on another factor, the first factor’s effect is <em>moderated</em> by the second factor. The phenomenon that effects are moderated is called <em>moderation</em>. Both factors are independent variables. To distinguish between them, we will henceforth refer to them as the predictor (here: campaign style) and the moderator (here: health literacy).</p>
+<p>With moderation, factors have a combined effect. The context (group score on the moderator) affects the effect of the other predictor on the dependent variable. The conceptual diagram for moderation expresses the effect of the moderator on the effect of the predictor as an arrow pointing at another arrow. <a href="#fig-anova-diagram" class="quarto-xref">Figure&nbsp;<span>5.8</span></a> shows the conceptual diagram for participant’s health literacy moderating the effect of campaign style on vaccine acceptance.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-diagram" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -673,7 +629,7 @@ Figure&nbsp;5.9: Means plots for the main effects of language condition and heal
 <img src="07-anova_files/figure-html/fig-anova-diagram-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-diagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.10: Conceptual diagram of moderation.
+Figure&nbsp;5.8: Conceptual diagram of moderation.
 </figcaption>
 </figure>
 </div>
@@ -682,7 +638,7 @@ Figure&nbsp;5.10: Conceptual diagram of moderation.
 <section id="types-of-moderation" class="level3 page-columns page-full" data-number="5.4.1">
 <h3 data-number="5.4.1" class="anchored" data-anchor-id="types-of-moderation"><span class="header-section-number">5.4.1</span> Types of moderation</h3>
 <p>Moderation as different effects for different groups is best interpreted using a cross-tabulation of group means, which is visualized as a means plot. In a group means table, the <strong>Totals</strong> row and column contain the means for each factor separately, for example the means for low and high (factor health literacy) or the means for the language used in the campaigns (factor campaign style). These means represent the main effects. In contrast, the means in the cells of the table are the means of the subgroups, which represent moderation. Draw them in a means plot for easy interpretation.</p>
-<p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three camapign styles. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an campaign-literacy combination, and we link the means that belong to the same moderator group, for example, the means for people with high and the means for people with low health literacy (<a href="#fig-anova-moderation" class="quarto-xref">Figure&nbsp;<span>5.11</span></a>).</p>
+<p>In a means plot, we use the groups of the predictor on the horizontal axis, for example, the three camapign styles. The average score on the dependent variable is used as the vertical axis. Finally, we plot the average scores for every predictor-moderator group, for instance, an campaign-literacy combination, and we link the means that belong to the same moderator group, for example, the means for people with high and the means for people with low health literacy (<a href="#fig-anova-moderation" class="quarto-xref">Figure&nbsp;<span>5.9</span></a>).</p>
 <div id="fig-anova-moderation" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -690,16 +646,16 @@ Figure&nbsp;5.10: Conceptual diagram of moderation.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-moderation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.11: How can we recognize main effects and moderation in a means plot?
+Figure&nbsp;5.9: How can we recognize main effects and moderation in a means plot?
 </figcaption>
 </figure>
 </div>
 <p>Moderation happens a lot in communication science for the simple reason that the effects of messages are stronger for people who are more susceptible to the message. If you know more people who have adopted a new product or a healthy/risky lifestyle, you are more likely to be persuaded by media campaigns to also adopt that product or lifestyle. If you are more impressionable in general, media messages are more effective.</p>
 <section id="effect-strength-moderation" class="level4" data-number="5.4.1.1">
 <h4 data-number="5.4.1.1" class="anchored" data-anchor-id="effect-strength-moderation"><span class="header-section-number">5.4.1.1</span> Effect strength moderation</h4>
-<p>Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as <em>effect strength moderation</em>. In our current example, we would hypothesize that the effect of using controlling language is stronger for partcipants with low health literacy than for participants with high health literacy.</p>
-<p>In analysis of variance, effects are differences between average outcome scores. The effect of controlling language on acceptance of vaccination information, for instance, is the difference between the average acceptance of vaccination information of participants exposed to controlling language and the average score of participants who were exposed to neutral language in their campaign.</p>
-<p>Different “controlling effects” for participants with low and participants with high health literacy imply different differences! The difference in average acceptance scores between people with low health literacy exposed to controlling language and people with low health literacy who are exposed to neutral language is different from the difference in average acceptance scores for people with high health literacy. We have four subgroups with average acceptance scores that we have to compare. We have six subgroups if we also include the autonomy supportive effect.</p>
+<p>Moderation refers to contexts that strengthen or diminish the effect of, for instance, a media campaign. Let us refer to this type of moderation as <em>effect strength moderation</em>. In our current example, we would hypothesize that the effect of using controlling language is stronger for participants with low health literacy than for participants with high health literacy.</p>
+<p>In analysis of variance, effects are differences between average outcome scores. The effect of controlling language on vaccine acceptance, for instance, is the difference between the average vaccine of participants exposed to controlling language and the average score of participants who were exposed to a campaign with neutral language.</p>
+<p>Different effects of controlling language for participants with low and participants with high health literacy imply different differences! The difference in average vavvince acceptance scores between people with low health literacy exposed to controlling language and people with low health literacy who are exposed to neutral language is different from the difference in average acceptance scores for people with high health literacy. We have four subgroups with average acceptance scores that we have to compare. We have six subgroups if we also include the autonomy supportive effect.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-effectstrengthmod" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -708,20 +664,20 @@ Figure&nbsp;5.11: How can we recognize main effects and moderation in a means pl
 <img src="07-anova_files/figure-html/fig-anova-effectstrengthmod-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectstrengthmod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.12: Moderation as a stronger effect within a particular context.
+Figure&nbsp;5.10: Moderation as a stronger effect within a particular context.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <p>A means plot is a very convenient tool to interpret different differences. Connect the means of the subgroups by lines that belong to the same group on the factor you use as moderator. Each line in the plot represents the effect differences within one moderator group. If a line goes up or down, predictor groups have different means, so the predictor has an effect within that moderator group. A flat (horizontal) line tells us that there is no effect at all within that moderator group</p>
-<p>The distances between the lines show the difference of the differences. If the lines for people with low and people with high health literacy are parallel, the difference between camapign styles is the same for people with low and people with high health literacy. Then, the effects are the same and there is <em>no</em> moderation. In contrast, if the lines are not parallel but diverge or converge, the differences are different for peopple with low and people with high health literacy and there is moderation.</p>
+<p>The distances between the lines show the difference of the differences. If the lines for people with low and people with high health literacy are parallel, the difference between campaign styles is the same for people with low and people with high health literacy. Then, the effects are the same and there is <em>no</em> moderation. In contrast, if the lines are not parallel but diverge or converge, the differences are different for people with low and people with high health literacy and there is moderation.</p>
 <p>A special case of effect strength moderation is the situation in which the effect is absent (zero) in one context and present in another context. A trivial example would be the effect of an anti-smoking campaign on smoking frequency. For smokers (one context), smoking frequency may go down with campaign exposure and the campaign may have an effect. For non-smokers (another context), smoking frequency cannot go down and the campaign cannot have this effect.</p>
 <p>Except for trivial cases such as the effect of anti-smoking campaigns on non-smokers, it does not make much sense to distinguish sharply between moderation in which the effect is strengthened and moderation in which the effect is present versus absent. In non-trivial cases, it is very rare that an effect is precisely zero. (See Holbert and Park <span class="citation" data-cites="HolbertConceptualizingOrganizingPositing2019">(<a href="14-references.html#ref-HolbertConceptualizingOrganizingPositing2019" role="doc-biblioref">2019</a>)</span> for a different view on this matter.)</p>
 </section>
 <section id="effect-direction-moderation" class="level4" data-number="5.4.1.2">
 <h4 data-number="5.4.1.2" class="anchored" data-anchor-id="effect-direction-moderation"><span class="header-section-number">5.4.1.2</span> Effect direction moderation</h4>
-<p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In <a href="#fig-anova-effectdirmod1" class="quarto-xref">Figure&nbsp;<span>5.13</span></a>, for example, autonomy supportive language increases the average acceptance of vaccination information among people with high health literacy in comparison to the group who was exposed to neutral language. In contrast, average acceptance for people with low health literacy exposed to the autonomy supportive campaign is lower than the average for people with low health literacy exposed to the campaign with neutral language. Let us call this <em>effect direction moderation</em>. People with low health literacy reverse the autonomy supportive effect that we find for people with high health literacy.</p>
+<p>In the other type of moderation, the effect in one group is the opposite of the effect in another group. In <a href="#fig-anova-effectdirmod1" class="quarto-xref">Figure&nbsp;<span>5.11</span></a>, for example, autonomy supportive language increases the average vaccine acceptance among people with high health literacy in comparison to the group who was exposed to neutral language. In contrast, average acceptance for people with low health literacy exposed to the autonomy supportive campaign is lower than the average for people with low health literacy exposed to the campaign with neutral language. Let us call this <em>effect direction moderation</em>. People with low health literacy reverse the autonomy supportive effect that we find for people with high health literacy.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-effectdirmod1" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -730,13 +686,13 @@ Figure&nbsp;5.12: Moderation as a stronger effect within a particular context.
 <img src="07-anova_files/figure-html/fig-anova-effectdirmod1-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectdirmod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.13: Moderation as a positive effect in one context and a negative effect in another context.
+Figure&nbsp;5.11: Moderation as a positive effect in one context and a negative effect in another context.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (<a href="#fig-anova-effectdirmod2" class="quarto-xref">Figure&nbsp;<span>5.14</span></a>). Imagine that controlling language convinces people with low health literacy to accept vaccination information but discourage people with high health literacy to accept vaccination information because it diminishes the quality for them. The other way around, autonomy supportive language could work better on people with high health literacy but discourage people with low health literacy as it might be perceived as too vague.</p>
+<p>In an extreme situation, the effect in one group can compensate for the effect in another group if it is about as strong but of the opposite direction (<a href="#fig-anova-effectdirmod2" class="quarto-xref">Figure&nbsp;<span>5.12</span></a>). Imagine that controlling language convinces people with low health literacy to accept vaccination by giving them the confident guidance they need but discourages people with high health literacy to accept vaccination because it robs them of their independence. In contrast, autonomy supportive language could work better for people with high health literacy, because it preserves their freedom to make their own decision, but discourage people with low health literacy, because it does not meet their need for clarity.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-anova-effectdirmod2" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -745,20 +701,20 @@ Figure&nbsp;5.13: Moderation as a positive effect in one context and a negative 
 <img src="07-anova_files/figure-html/fig-anova-effectdirmod2-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-effectdirmod2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.14: Moderation as opposite effects in different contexts.
+Figure&nbsp;5.12: Moderation as opposite effects in different contexts.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>In this situation, the main effect of camapign style on acceptance of vaccination information is around zero. If we average over people with low and people with high health literacy, we obtain the means represented by the three grey dots. There is no net difference between autonomy supportive, controlling, and neutral language used in a campaign.</p>
-<p>This does not mean that the camapign style does not matter. On the contrary, the interaction effects tell us that the campaign style is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the acceptnace of vaccination information among particular target groups.</p>
+<p>In this situation, the main effect of campaign style on vaccine acceptance is close to zero. If we average over people with low and people with high health literacy, we obtain the means represented by the three grey dots. There is no net difference between autonomy supportive, controlling, and neutral language used in a campaign.</p>
+<p>This does not mean that the campaign style does not matter. On the contrary, the interaction effect tells us that one campaign style is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the vaccine acceptance among particular target groups.</p>
 </section>
 </section>
 <section id="testing-main-and-interaction-effects" class="level3" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="testing-main-and-interaction-effects"><span class="header-section-number">5.4.2</span> Testing main and interaction effects</h3>
-<p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of health literacy, for instance, can be that people with high health literacy are on average more willing to accept vaccination information than people with low health literacy. A two-way analysis of variance includes two main effects, one for each factor (see <a href="#sec-anova2way" class="quarto-xref"><span>Section 5.3.1</span></a>), for example a main effect of health literacy and a main effect of campaign style.</p>
-<p>For moderation, however, we compare average scores of subgroups, that is, groups that combine a level on one factor with a level on another factor. In <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.15</span></a>, we compare average acceptance of vaccination information for combinations of campaign style and participant’s health literacy. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
+<p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of health literacy, for instance, could be that people with high health literacy are, on average, more willing to accept vaccination than people with low health literacy. A two-way analysis of variance includes two main effects, one for each factor (see <a href="#sec-anova2way" class="quarto-xref"><span>Section 5.3.1</span></a>), for example a main effect of health literacy and a main effect of campaign style.</p>
+<p>For moderation, however, we compare average scores of subgroups. For instance, people exposed to the controlling language campaign can be split into two sub-groups: those with high or low health literacy. Expressed more formally, sub-groups combine a level on one factor with a level on another factor. In <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a>, we compare average vaccine acceptance for combinations of campaign style and participant’s health literacy. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
 <div id="fig-anova-interaction" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -766,14 +722,14 @@ Figure&nbsp;5.14: Moderation as opposite effects in different contexts.
 </iframe>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.15: How can we recognize main effects and moderation in a means plot?
+Figure&nbsp;5.13: How can we recognize main effects and moderation in a means plot?
 </figcaption>
 </figure>
 </div>
-<p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that people with high health literacy score on average higher than people with low health literacy is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.15</span></a> is not relevant to moderation.</p>
-<p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.15</span></a> because the acceptance scores of the individual participants are not shown.</p>
+<p>Interpretation of moderation requires some training because we must look beyond main effects. The fact that people with high health literacy score on average higher than people with low health literacy is irrelevant to moderation but it does affect all subgroup mean scores. So the fact that the red line is above the blue line in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a> is not relevant to moderation.</p>
+<p>Moderation concerns the differences between subgroups that remain if we remove the overall differences between groups, that is, the differences that are captured by the main effects. The remaining differences between subgroup average scores provide us with a between-groups variance. In addition, the variation of outcome scores within subgroups yields a within-groups variance. Note that within-groups variance is not visible in <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a> because the vaccine acceptance scores of the individual participants are not shown.</p>
 <p>We can use the between-groups and within-groups variances to execute an <em>F</em> test just like the <em>F</em> test we use for main effects. The <em>null hypothesis</em> of the <em>F</em> test on an interaction effect states that the subgroups have the same population averages if we correct for the main effects. Our statistical software takes care of this correction if we include the main effects in the model, which we should always do.</p>
-<p>Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of camapign style is the same for both levels of health literacy in the population. Or, the other way around, that the effect of health literacy is the same for different camapign styles in the population.</p>
+<p>Alternatively, we can formulate the null hypothesis of the test on the interaction effect as equal effects of the predictor for all moderator groups in the population. In the current example, the null hypothesis could be that the effect of campaign style is the same for both levels of health literacy in the population. Or, that the effect of health literacy is the same for different campaign styles in the population.</p>
 <div class="callout callout-style-simple callout-important">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -802,7 +758,7 @@ Figure&nbsp;5.15: How can we recognize main effects and moderation in a means pl
 <img src="07-anova_files/figure-html/fig-2way-meansplot-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-2way-meansplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;5.16: An example of a means plot.
+Figure&nbsp;5.14: An example of a means plot.
 </figcaption>
 </figure>
 </div>
@@ -958,7 +914,52 @@ Total
 <h2 data-number="5.6" class="anchored" data-anchor-id="sec-twowaySPSS"><span class="header-section-number">5.6</span> Two-Way Analysis of Variance in SPSS</h2>
 <section id="instructions-1" class="level3" data-number="5.6.1">
 <h3 data-number="5.6.1" class="anchored" data-anchor-id="instructions-1"><span class="header-section-number">5.6.1</span> Instructions</h3>
-<p>You have learned how to execute an one-way analysis of variance, and now it is time to execute a two-way analysis of variance in SPSS. In the video below we teach you how to perform and interpret the analysis. In the video we will elaborate on the dataset that we have used for our one-way analysis of variance (does the endorser for a fundraiser campaign have an effect on the willingness to donate?). The persuasive communication research team is adding a second variable, a moderator: gender (in the dataset called ‘sex’). This study is only taking men and women into account (in the dataset called ‘male’ and ‘female’). When conducting a two-way analysis of variance we are able to answer the questions whether the effect of endorser on willingness to donate is different for men and women. We have two categorical independent variables (or factors) and one numerical dependent variable (follow the test selection table to a two-way analysis of variance <span class="quarto-unresolved-ref">?sec-test-selection</span>).</p>
+<p>You have learned how to execute an one-way analysis of variance, and now it is time to execute a two-way analysis of variance in SPSS.</p>
+<p>In SPSS, we use the <em>Univariate</em> option in the <em>General Linear Model</em> submenu for two-way analysis of variance.</p>
+<div id="fig-ANOVAtable" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S7_AE1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.15: SPSS table of main and interaction effects in a two-way analysis of variance.
+</figcaption>
+</figure>
+</div>
+<p>The significance tests on the main effects and interaction effect are reported in the <strong>Tests of Between-Subjects Effects</strong> table. <a href="#fig-ANOVAtable" class="quarto-xref">Figure&nbsp;<span>5.15</span></a> offers an example. The tests on the main effects are in the red box and the green box contains the test on the interaction effect. The APA-style summary of the main effect of campaign style (variable: <em>lang_cond</em>) is: <em>F</em> (2, 137) = 8.43, <em>p</em> &lt; .001, eta<sup>2</sup> = .10. Note the two degrees of freedom in between the brackets, which are marked by a blue ellipse in the figure. You get the effect size eta<sup>2</sup> by dividing the sum of squares of an effect by the corrected total sum of squares (in purple ellipses in the figure): 37.456 / 389.566 = 0.10.</p>
+<p>Interpret the effects by comparing mean scores on the dependent variable among groups:</p>
+<ol type="1">
+<li><p>If there are two groups on a factor, for example, low and high health literacy, compare the two group means: Which group scores higher? For example, people with high health literacy score on average 5.05 on vaccine acceptance whereas the average acceptance is only 4.19 for people with low health literacy. The <em>F</em> test shows whether or not the difference between the two groups is statistically significant.</p></li>
+<li><p>If a factor has more than two groups, for example, neutral, controlling or autonomy supportive language, use post-hoc comparisons with Bonferroni correction. The results tell you which group scores on average higher than another group and whether the difference is statistically significant if we correct for capitalization on chance.</p></li>
+<li><p>If you want to interpret an interaction effect, create means plots such as <a href="#fig-ANOVAplots" class="quarto-xref">Figure&nbsp;<span>5.16</span></a>. Compare the differences between means across groups. In the left panel, for example, we see that the effect of health literacy on acceptance of vaccination information (the difference between the mean score of people with low health literacy and the mean score of people with high health literacy) is larger for autonomy supportive language (pink box in the middle) than for neutral language (pink box on the left), and it is smallest for controlling language (pink box on the right). Similarly, we see that the effect of seeing the autonomy supportive campagin instead of the neutral campaign is larger for people with high healthy literacy (right-hand panel, pink box on the right) than for people with low health literacy (right-hand panel, pink box on the left).</p></li>
+</ol>
+<div id="fig-ANOVAplots" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/S7_AE2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%" data-fig-pos="H"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ANOVAplots-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.16: SPSS means plots of the interaction effect of health literacy and campaign style on vaccine acceptance. Note that the pink arrows and dotted lines have been added manually to aid the interpretation.
+</figcaption>
+</figure>
+</div>
+<p>In the video below we walk you through how to perform and interpret a two-way analysis of variance in SPSS. In the video we will elaborate on the dataset that we have used for our one-way analysis of variance (does the endorser for a fundraiser campaign have an effect on the willingness to donate?). The persuasive communication research team is adding a second variable, a moderator: gender (in the dataset called ‘sex’). This study is only taking men and women into account (in the dataset called ‘male’ and ‘female’). When conducting a two-way analysis of variance we are able to answer the questions whether the effect of endorser on willingness to donate is different for men and women. We have two categorical independent variables (or factors) and one numerical dependent variable (follow the test selection table to a two-way analysis of variance <span class="quarto-unresolved-ref">?sec-test-selection</span>).</p>
 <p>To perform a two-way (or multi-way) analysis of variance, we select <code>Analyze &gt; General Linear Model &gt; Univariate</code>. The numerical dependent variable <em>willing_post</em> is added to <code>Dependent Variable:</code> and the categorical factors <em>endorser</em> and <em>sex</em> are added to the <code>Fixed Factor(s):</code>. If you see the variable labels instead of the variable names, simply do a right mouse click and select <code>show variable names</code>. For our additional setting, we select <code>Plots...</code> and add the predictor (<em>endorser</em>) to the <code>Horizontal Axis:</code> and the moderator (<em>sex</em>) to <code>Seperate Lines:</code>. As stated earlier in this chapter, we usually add the moderator as separate lines but if you have good reason to switch them (e.g., easier interpretation): you can. Do not forget to click <code>Add</code> and <code>Continue</code>. As before we also select <code>Post Hoc...</code>, we only need to add <em>endorser</em> since <em>sex</em> only consist of two groups. Hopefully you remember we see <em>t</em>-test results in our post hoc table, meaning we are comparing two groups, this is not necessary to do when the variable only has two groups to begin with. Thus, add <em>endorser</em> to <code>Post Hoc Tests for:</code>, select <code>Bonerroni</code> and click <code>Continue</code>. Under options we select <code>Descriptive statistics</code> (for our group means) and <code>homogeneity tests</code> (for Levene’s <em>F</em>-test for our assumption check). Then, as always, click <code>paste</code> and run the command through the syntax.</p>
 <p>When we inspect the output, we start with the first tables including <code>Descriptive Statistics</code>. In this table all the group means are provided and we can check whether we have equal subgroup sizes (meaning a balanced design, indicating statistical independence for our variables). The subgroup sizes range from 22 to 25, our largest group (25) indicates an allowed difference of 2.5. The difference of 3 participants is slightly above our allowed difference. This means we also take a look at the Levene’s <em>F</em>-test in the next table. The table shows a not significant results (the <em>p</em>-value is above .05), meaning we have met our assumption of equal variances.</p>
 <p>For the actual test results, we take a look at the table of <code>Tests of Between-Subjects Effects</code>. Here we can see that both the main effects (rows: endorser and sex) are significant and so does the interaction effect (row: endorser<em>sex). If you want to know more about these effects, we can look at the <code>Descriptive Statistics</code> table to check the means of the variable</em> sex<em>. Here we can see that participants who identified as female have a higher average willingness to donate than participants who identified as male. When we want to know more about the endorser effect, we take a look at the <code>Post Hoc Tests</code> in the table <code>Multiple Comparisons</code> where we can find our</em> t<em>-tests. Like the one-way analysis of variance had already showed us: the groups</em> Clooney* and <em>Nobody</em> and <em>Jolie</em> and <em>Nobody</em> differ significantly from each other (the <em>p</em>-values are below .05 and the confidence intervals do not include the zero). To make sense of the significant interaction effect, it usually helps to tak e alook at the <code>Profile Plots</code>. Here the lines represent the two groups of our moderator, you can see that the green line is almost always above the blue line (representing the women having a higher average willingness to donate than the men). The effect of seeing George Clooney in the campaign is positive for both groups of our moderator (both average willingness to donate scores go up), but the effect is stronger for the women. The effect of seeing Angelina Jolie is positive for both groups of our moderator compared to the <em>Nobody</em> group, but for women we see that George Clooney has a stronger effect than Angelina Jolie and for men we see that Angelina Jolie has a stronger effect than George Clooney.</p>
@@ -1004,11 +1005,20 @@ Video&nbsp;5.4: Calculating <span class="math inline">\(\eta^2\)</span> from SPS
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-deciIntrinsicMotivationSelfDetermination2013" class="csl-entry" role="listitem">
+Deci, Edward L., and Richard M. Ryan. 2013. <em>Intrinsic <span>Motivation</span> and <span>Self</span>-<span>Determination</span> in <span>Human</span> <span>Behavior</span></em>. Springer Science &amp; Business Media.
+</div>
+<div id="ref-fishbeinRoleTheoryDeveloping2006" class="csl-entry" role="listitem">
+Fishbein, M., and J. N. Cappella. 2006. <span>“The Role of Theory in Developing Effective Health Communications.”</span> <em>Journal of Communication</em> 56 (s1): S1–17. <a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1460-2466.2006.00280.x/full">http://onlinelibrary.wiley.com/doi/10.1111/j.1460-2466.2006.00280.x/full</a>.
+</div>
 <div id="ref-RefWorks:3955" class="csl-entry" role="listitem">
 Fisher, R. A. 1919. <span>“The Correlation Between Relatives on the Supposition of Mendelian Inheritance.”</span> <em>Transactions of the Royal Society of Edinburgh</em> 52 (2): 399–433. <a href="https://doi.org/10.1017/S0080456800012163">https://doi.org/10.1017/S0080456800012163</a>.
 </div>
 <div id="ref-HolbertConceptualizingOrganizingPositing2019" class="csl-entry" role="listitem">
 Holbert, R. Lance, and Esul Park. 2019. <span>“Conceptualizing, <span>Organizing</span>, and <span>Positing Moderation</span> in <span>Communication Research</span>.”</span> <em>Communication Theory</em>, April. <a href="https://doi.org/10.1093/ct/qtz006">https://doi.org/10.1093/ct/qtz006</a>.
+</div>
+<div id="ref-rogersProtectionMotivationTheory1975" class="csl-entry" role="listitem">
+Rogers, R. W. 1975. <span>“A <span>Protection</span> <span>Motivation</span> <span>Theory</span> of <span>Fear</span> <span>Appeals</span> and <span>Attitude</span> <span>Change1</span>: <span>The</span> <span>Journal</span> of <span>Psychology</span>: <span>Vol</span> 91, <span>No</span> 1.”</span> <em>THe Journal of Psychology</em> 91 (1): 93–114. <a href="https://www.tandfonline.com/doi/abs/10.1080/00223980.1975.9915803?casa_token=tnl4hHdJsB0AAAAA:T1RIciCaIhUSOxB2By3Ah9nZPbufTPANLbbdgCujfE-yZr6cugamG3pBECgsGroUDXf02-k1XlEzOw">https://www.tandfonline.com/doi/abs/10.1080/00223980.1975.9915803?casa_token=tnl4hHdJsB0AAAAA:T1RIciCaIhUSOxB2By3Ah9nZPbufTPANLbbdgCujfE-yZr6cugamG3pBECgsGroUDXf02-k1XlEzOw</a>.
 </div>
 </div>
 </section>
