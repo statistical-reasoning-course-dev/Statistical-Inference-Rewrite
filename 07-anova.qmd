@@ -601,6 +601,24 @@ effect on people's willingness to donate. The willigness to donate has
 been measured before (*willing_pre*) and after (*willing_post*) watching
 the campaign.
 
+::: {#vid-SPSS1way}
+{{< video https://youtu.be/ADkZ650mhEg
+width="100%" height="315" >}}
+
+Execute one-way analysis of variance in SPSS.
+:::
+
+```{r, echo=FALSE, eval=FALSE}
+# Execute one-way analysis of variance in SPSS with Analyze > Compare Means > One-Way ANOVA {or use general Linear Model also for one-way? (MCRS probably uses Compare Means because it only disucsses one-way ANOVA) - between & within variance not labeled as such!).
+# Goal: association as level differences between three or more groups: Does the endorser matter to the level of willingness to donate to a fund raiser?
+# Example: donors.sav, outcome is willingness to donate (post), predictor (grouping variable) is endorser (0, 1).
+# Technique: one-way ANOVA.
+# SPSS menu: Compare Means ; post hoc: Bonferroni ; options: descriptives, homogeneity of variance test, means plot.
+# Paste & Run.
+# Check assumptions: F test homogeneous population variances or groups of equal size ; post-hoc t tests: each group more than 30 observations or normally distributed.
+# Interpret output: F test on the null hypothesis that all groups have equal population means - point out between groups sum of squares? ; post-hoc t test for pairwise comparison of (population) means ; test result and significance, confidence interval.
+```
+
 When we want to research the effect of a categorical variable (endorser)
 on a numerical variable (willing_post), we use a one-way analysis of
 variance (see the test selection table @sec-test-selection). You can get
@@ -620,7 +638,16 @@ needed). You can select `Estimate effect size for overall tests` if you
 want to obtain eta^2^. Please click `paste` and run the command from
 your syntax.
 
-In the output we can start interpreting our results. The first table,
+In addition to the SPSS analysis, it is always a good idea to visualize the results of your analysis. You can do this by creating a means plot with error bars to clearly show the differences between the groups. @vid-SPSS1way-visualization below shows you how to create a means plot in SPSS.
+
+::: {#vid-SPSS1way-visualization}
+{{< video https://youtu.be/zVrjqicFVR0
+width="100%" height="315" >}}
+
+Visualizing the results of a one-way analysis of variance in SPSS.
+:::
+
+In the output we can start interpreting our results. @vid-SPSS1way-interpretation runs us through the interpretation of the output. The first table,
 `Descriptives` provides us with the group means. Here we can immediately
 see that the willingness to donate is lower when there is no celebrity
 endorsing the campaign. In this table we can also check the group sizes,
@@ -628,6 +655,13 @@ an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You
 can see that the `Test of Homogeneity of Variances` is not significant
 indicating the assumption is met on both fronts (equal group sizes and
 equal variances).
+
+::: {#vid-SPSS1way-interpretation}
+{{< video https://youtu.be/JDqJbRIiBgk
+width="100%" height="315" >}}
+
+Interpreting the output of a one-way analysis of variance in SPSS.
+:::
 
 To interpret the actual test results, we study the `ANOVA` table. We can
 see the between groups and within groups results, you find the *F*-value
@@ -657,25 +691,14 @@ not significant (i.e., the *p*-value is larger than .05 and the
 confidence interval includes the zero). It can help to also take a look
 at the `Means Plots` which allows you to visualize the effects.
 
-Please watch the video for the step-by-step guidance and some additional
-details.
 
-::: {#vid-SPSS1way}
-{{< video https://www.youtube.com/embed/_2MmzWRcm2k width="100%" height="315" >}}
 
-Execute one-way analysis of variance in SPSS.
-:::
 
-```{r, echo=FALSE, eval=FALSE}
-# Execute one-way analysis of variance in SPSS with Analyze > Compare Means > One-Way ANOVA {or use general Linear Model also for one-way? (MCRS probably uses Compare Means because it only disucsses one-way ANOVA) - between & within variance not labeled as such!).
-# Goal: association as level differences between three or more groups: Does the endorser matter to the level of willingness to donate to a fund raiser?
-# Example: donors.sav, outcome is willingness to donate (post), predictor (grouping variable) is endorser (0, 1).
-# Technique: one-way ANOVA.
-# SPSS menu: Compare Means ; post hoc: Bonferroni ; options: descriptives, homogeneity of variance test, means plot.
-# Paste & Run.
-# Check assumptions: F test homogeneous population variances or groups of equal size ; post-hoc t tests: each group more than 30 observations or normally distributed.
-# Interpret output: F test on the null hypothesis that all groups have equal population means - point out between groups sum of squares? ; post-hoc t test for pairwise comparison of (population) means ; test result and significance, confidence interval.
-```
+
+
+
+
+
 
 ## Different Means for Two Factors
 
@@ -1608,6 +1631,23 @@ categorical independent variables (or factors) and one numerical
 dependent variable (follow the test selection table to a two-way
 analysis of variance @sec-test-selection).
 
+::: {#vid-SPSS2way}
+{{< video https://youtu.be/uPPLlBNJo2Q width="100%" height="315" >}}
+
+Executure two-way analysis of variance in SPSS
+:::
+
+```{r, echo=FALSE, eval=FALSE}
+# Video to executure two-way analysis of variance in SPSS
+# Goal: Test for moderation with categorical predictors (and a numerical dependent variable) 
+# Example: donors.sav, does the effect of celebrity endorsement on adults' willingness to donate differ for females and males?
+# Technique: 2-way analysis of variance
+# SPSS menu: GENERAL LINEAR MODEL > UNIVARIATE ; variables under Dependent Variable and Fixed Factor(s) ; PLOTS predictor under ‘Horizontal Axis’ and  under ‘Separate lines’ ; POST HOC Bonferroni ; OPTIONS ‘Descriptive Statistics’ and 'Homogeneity tests'. 
+# Paste & Run.
+# Check assumptions: F test homogeneous population variances or groups of equal size ; post-hoc t tests: each group more than 30 observations or normally distributed.
+# Interpret output: F tests for main effects and interaction effect, statistical significance, effect sizes: manual calculation of eta2, plot for interaction effect.
+```
+
 To perform a two-way (or multi-way) analysis of variance, we select
 `Analyze > General Linear Model > Univariate`. The numerical dependent
 variable *willing_post* is added to `Dependent Variable:` and the
@@ -1630,7 +1670,16 @@ our group means) and `homogeneity tests` (for Levene's *F*-test for our
 assumption check). Then, as always, click `paste` and run the command
 through the syntax.
 
-When we inspect the output, we start with the first tables including
+In addition to the analysis we would also like to visualize the the results. We again use the chart builden in SPSS. @vid-SPSS2way-visualization shows you how to visualize the interaction effect and how to add error bars to interpret the results.
+
+::: {#vid-SPSS2way-visualization}
+{{< video https://youtu.be/De7jqg5d_wI width="100%" height="315" >}}
+
+Visualize two-way analysis of variance in SPSS
+:::
+
+
+When we inspect the output in @vid-SPSS2way-interaction, we start with the first tables including
 `Descriptive Statistics`. In this table all the group means are provided
 and we can check whether we have equal subgroup sizes (meaning a
 balanced design, indicating statistical independence for our variables).
@@ -1640,6 +1689,12 @@ slightly above our allowed difference. This means we also take a look at
 the Levene's *F*-test in the next table. The table shows a not
 significant results (the *p*-value is above .05), meaning we have met
 our assumption of equal variances.
+
+::: {#vid-SPSS2way-interaction}
+{{< video https://youtu.be/vtaNps4tSTA width="100%" height="315" >}}
+
+Interpreting the independent two-way analysis of variance in SPSS
+:::
 
 For the actual test results, we take a look at the table of
 `Tests of Between-Subjects Effects`. Here we can see that both the main
@@ -1684,22 +1739,7 @@ Angelina Jolie than when they see George Clooney.
 Please watch the video below for step-by-step instructions and for
 additional details.
 
-::: {#vid-SPSS2way}
-{{< video https://www.youtube.com/embed/BUqAm1H7FW8 width="100%" height="315" >}}
 
-Executure two-way analysis of variance in SPSS
-:::
-
-```{r, echo=FALSE, eval=FALSE}
-# Video to executure two-way analysis of variance in SPSS
-# Goal: Test for moderation with categorical predictors (and a numerical dependent variable) 
-# Example: donors.sav, does the effect of celebrity endorsement on adults' willingness to donate differ for females and males?
-# Technique: 2-way analysis of variance
-# SPSS menu: GENERAL LINEAR MODEL > UNIVARIATE ; variables under Dependent Variable and Fixed Factor(s) ; PLOTS predictor under ‘Horizontal Axis’ and  under ‘Separate lines’ ; POST HOC Bonferroni ; OPTIONS ‘Descriptive Statistics’ and 'Homogeneity tests'. 
-# Paste & Run.
-# Check assumptions: F test homogeneous population variances or groups of equal size ; post-hoc t tests: each group more than 30 observations or normally distributed.
-# Interpret output: F tests for main effects and interaction effect, statistical significance, effect sizes: manual calculation of eta2, plot for interaction effect.
-```
 
 ------------------------------------------------------------------------
 
@@ -1721,9 +1761,9 @@ Watch the video below for a step-by-step instruction for calculating the
 eta^2^ of the endorser main effect and the visual details.
 
 ::: {#vid-SPSSeta2}
-{{< video https://www.youtube.com/embed/NWn8ty5BnDE width="100%" height="315" >}}
+{{< video https://youtu.be/7K4x87watb8 width="100%" height="315" >}}
 
-Calculating $\eta^2$ from SPSS output.
+Calculating $\eta^2$ and partial $\eta^2$ from SPSS output.
 :::
 
 ## Take-Home Points
