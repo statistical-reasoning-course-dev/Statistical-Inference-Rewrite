@@ -588,19 +588,20 @@ means.
 ### Instructions
 
 In the video below we walk you through conducting and interpreting a
-one-way analysis of variance in SPSS. We will continue using our vaccination campaign example. The research question that is
-discussed in the video below is 'Does the style of language used in a campaign vaccine acceptance among people seeing the
-campaign?'. The data set includes the variable *lang_cond* (language condition), which is a
+one-way analysis of variance in SPSS. We will continue using our
+vaccination campaign example. The research question that is discussed in
+the video below is 'Does the style of language used in a campaign
+vaccine acceptance among people seeing the campaign?'. The data set
+includes the variable *lang_cond* (language condition), which is a
 categorical variable. Participants are either watching a campaign with
-autonomy supportive language, controlling language or neutral. You
-are researching whether the language style used in the campaign has an
-effect on people's vaccine acceptance. Vaccine acceptance has
-been measured before (*accept_pre*) and after (*accept_post*) watching
-the campaign.
+autonomy supportive language, controlling language or neutral. You are
+researching whether the language style used in the campaign has an
+effect on people's vaccine acceptance. Vaccine acceptance has been
+measured before (*accept_pre*) and after (*accept_post*) watching the
+campaign.
 
 ::: {#vid-SPSS1way}
-{{< video https://youtu.be/ADkZ650mhEg
-width="100%" height="315" >}}
+{{< video https://youtu.be/ADkZ650mhEg width="100%" height="315" >}}
 
 Execute one-way analysis of variance in SPSS.
 :::
@@ -616,18 +617,18 @@ Execute one-way analysis of variance in SPSS.
 # Interpret output: F test on the null hypothesis that all groups have equal population means - point out between groups sum of squares? ; post-hoc t test for pairwise comparison of (population) means ; test result and significance, confidence interval.
 ```
 
-When we want to research the effect of a categorical variable (campaign style)
-on a numerical variable (accept_post), we use a one-way analysis of
-variance (see the test selection table @sec-test-selection). You can get
-the one-way ANOVA window by clicking
+When we want to research the effect of a categorical variable (campaign
+style) on a numerical variable (accept_post), we use a one-way analysis
+of variance (see the test selection table @sec-test-selection). You can
+get the one-way ANOVA window by clicking
 `Analyze > Compare Means > One-Way ANOVA`. The dependent variable is the
-vaccine acceptance after watching the campaign, so this variable
-should be added to the `Dependent List:`. The independent variable, also
-called factor in ANOVA, is the campaign style (i.e. the type of language used) of the campaign which
-should be added to `Factor:`. Before running your ANOVA, we select some
-additional options. Select `Post Hoc...` and select the `Bonferroni`
-correction for multiple testing. Under `Options...` we select
-`Descriptive` to obtain the group means and
+vaccine acceptance after watching the campaign, so this variable should
+be added to the `Dependent List:`. The independent variable, also called
+factor in ANOVA, is the campaign style (i.e. the type of language used)
+of the campaign which should be added to `Factor:`. Before running your
+ANOVA, we select some additional options. Select `Post Hoc...` and
+select the `Bonferroni` correction for multiple testing. Under
+`Options...` we select `Descriptive` to obtain the group means and
 `Homogeneity of variance test` for Levene's *F*-test to check
 assumptions. You would only select bootstrapping if you cannot use the
 theoretical approximation for the *F*-distribution (revise Chapter 2 if
@@ -635,26 +636,31 @@ needed). You can select `Estimate effect size for overall tests` if you
 want to obtain eta^2^. Please click `paste` and run the command from
 your syntax.
 
-In addition to the SPSS analysis, it is always a good idea to visualize the results of your analysis. You can do this by creating a means plot with error bars to clearly show the differences between the groups. @vid-SPSS1way-visualization below shows you how to create a means plot in SPSS.
+In addition to the SPSS analysis, it is always a good idea to visualize
+the results of your analysis. You can do this by creating a means plot
+with error bars to clearly show the differences between the groups.
+@vid-SPSS1way-visualization below shows you how to create a means plot
+in SPSS.
 
 ::: {#vid-SPSS1way-visualization}
-{{< video https://youtu.be/zVrjqicFVR0
-width="100%" height="315" >}}
+{{< video https://youtu.be/zVrjqicFVR0 width="100%" height="315" >}}
 
 Visualizing the results of a one-way analysis of variance in SPSS.
 :::
 
-In the output we can start interpreting our results. @vid-SPSS1way-interpretation runs us through the interpretation of the output. The first table,
-`Descriptives` provides us with the group means. Here we can immediately
-see that the vaccine acceptance is lower for those who viewed the campaign with neutral language. In this table we can also check the group sizes,
-an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You
-can see that the `Test of Homogeneity of Variances` is not significant
-indicating the assumption is met on both fronts (equal group sizes and
-equal variances).
+In the output we can start interpreting our results.
+@vid-SPSS1way-interpretation runs us through the interpretation of the
+output. The first table, `Descriptives` provides us with the group
+means. Here we can immediately see that the vaccine acceptance is lower
+for those who viewed the campaign with neutral language. In this table
+we can also check the group sizes, an assumption for ANOVA, the sizes
+are fairly equal (45, 49, 49). You can see that the
+`Test of Homogeneity of Variances` is not significant indicating the
+assumption is met on both fronts (equal group sizes and equal
+variances).
 
 ::: {#vid-SPSS1way-interpretation}
-{{< video https://youtu.be/JDqJbRIiBgk
-width="100%" height="315" >}}
+{{< video https://youtu.be/JDqJbRIiBgk width="100%" height="315" >}}
 
 Interpreting the output of a one-way analysis of variance in SPSS.
 :::
@@ -672,29 +678,21 @@ process later in this chapter.
 
 As said we have found a significant *F*-value indicating that there is a
 significant difference between the groups. We have a factor with three
-groups (Autonomy Supportive, Controlling, Neutral) thus we need further analysis to tell
-which group(s) differ. For this we inspect the `Post Hoc Tests`, in the
-table \``Multiple Comparisons`. Here you can see the results of several
-*t*-tests (as you might remember from @sec-test-selection we can compare
-two groups on a numerical variable with a *t*-test). The *p*-values in
-this table are corrected for capitalization on chance due to multiple
-testing (that is why we selected `Bonferroni` earlier). These results
-show us that the groups *Neutral* and *Autonomy Supportive* differ significantly from
-each other, and so do the groups *Neutral* and *Controlling* (i.e., both
+groups (Autonomy Supportive, Controlling, Neutral) thus we need further
+analysis to tell which group(s) differ. For this we inspect the
+`Post Hoc Tests`, in the table \``Multiple Comparisons`. Here you can
+see the results of several *t*-tests (as you might remember from
+@sec-test-selection we can compare two groups on a numerical variable
+with a *t*-test). The *p*-values in this table are corrected for
+capitalization on chance due to multiple testing (that is why we
+selected `Bonferroni` earlier). These results show us that the groups
+*Neutral* and *Autonomy Supportive* differ significantly from each
+other, and so do the groups *Neutral* and *Controlling* (i.e., both
 comparisons have a *p*-value below .05 and the confidence interval does
-not include the zero). The difference between *Autonomy Supportive* and *Controlling* is
-not significant (i.e., the *p*-value is larger than .05 and the
-confidence interval includes the zero). It can help to also take a look
-at the `Means Plots` which allows you to visualize the effects.
-
-
-
-
-
-
-
-
-
+not include the zero). The difference between *Autonomy Supportive* and
+*Controlling* is not significant (i.e., the *p*-value is larger than .05
+and the confidence interval includes the zero). It can help to also take
+a look at the `Means Plots` which allows you to visualize the effects.
 
 ## Different Means for Two Factors
 
@@ -1545,10 +1543,22 @@ rm(results, donors)
 
 ### Instructions
 
-You have learned how to execute an one-way analysis of variance, and now it is time to execute a two-way analysis of variance in SPSS. We keep using our vaccination campaign example. A two-way analysis of variance allows us to answer the question: Does the effect of campaign style on vaccine acceptance differ between people with high and those with low health literacy? This is a moderation or interaction effect. We have two categorical independent variables (or factors) and one numerical dependent variable. The first factor is the campaign style (three levels: autonomy supportive, neutral, and controlling language). The second factor is health literacy (two levels: low and high). The dependent variable is vaccine acceptance.
+You have learned how to execute an one-way analysis of variance, and now
+it is time to execute a two-way analysis of variance in SPSS. We keep
+using our vaccination campaign example. A two-way analysis of variance
+allows us to answer the question: Does the effect of campaign style on
+vaccine acceptance differ between people with high and those with low
+health literacy? This is a moderation or interaction effect. We have two
+categorical independent variables (or factors) and one numerical
+dependent variable. The first factor is the campaign style (three
+levels: autonomy supportive, neutral, and controlling language). The
+second factor is health literacy (two levels: low and high). The
+dependent variable is vaccine acceptance.
 
 In SPSS, we use the *Univariate* option in the *General Linear Model*
-submenu for two-way analysis of variance. This will be described in detail in the video below. Let's first take a closer look at the output provided by SPSS.
+submenu for two-way analysis of variance. This will be described in
+detail in the video below. Let's first take a closer look at the output
+provided by SPSS.
 
 ::: {#fig-ANOVAtable}
 ```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center'}
@@ -1614,7 +1624,15 @@ dotted lines have been added manually to aid the interpretation.
 
 In the video below we walk you through how to perform and interpret a
 two-way analysis of variance in SPSS. In the video we will elaborate on
-the dataset that we have used for our one-way analysis of variance (does the language style used in a vaccination campaign have an effect on vaccine acceptance?). The persuasive communication research team is adding a second variable, a moderator: health literacy (in the dataset called 'health_literacy'). Participants are divided in two groups (those with high and low health literacy). When conducting a two-way analysis of variance we are able to answer the questions whether the effect of campaign style (called 'lang_cond') on vaccine acceptance is different for people with high and low levels of health literacy. 
+the dataset that we have used for our one-way analysis of variance (does
+the language style used in a vaccination campaign have an effect on
+vaccine acceptance?). The persuasive communication research team is
+adding a second variable, a moderator: health literacy (in the dataset
+called 'health_literacy'). Participants are divided in two groups (those
+with high and low health literacy). When conducting a two-way analysis
+of variance we are able to answer the questions whether the effect of
+campaign style (called 'lang_cond') on vaccine acceptance is different
+for people with high and low levels of health literacy.
 
 ::: {#vid-SPSS2way}
 {{< video https://youtu.be/uPPLlBNJo2Q width="100%" height="315" >}}
@@ -1641,21 +1659,24 @@ categorical factors *lang_cond* and *health_literacy* are added to the
 variable names, simply do a right mouse click and select
 `show variable names`. For our additional setting, we select `Plots...`
 and add the predictor (*lang_cond*) to the `Horizontal Axis:` and the
-moderator (*health_literacy*) to `Seperate Lines:`. As stated earlier in this
-chapter, we usually add the moderator as separate lines but if you have
-good reason to switch them (e.g., easier interpretation): you can. Do
-not forget to click `Add` and `Continue`. As before we also select
-`Post Hoc...`, we only need to add *lang_cond* since *health_literacy* only consist
-of two groups. Hopefully you remember we see *t*-test results in our
-post hoc table, meaning we are comparing two groups, this is not
-necessary to do when the variable only has two groups to begin with.
-Thus, add *lang_cond* to `Post Hoc Tests for:`, select `Bonerroni` and
-click `Continue`. Under options we select `Descriptive statistics` (for
-our group means) and `homogeneity tests` (for Levene's *F*-test for our
-assumption check). Then, as always, click `paste` and run the command
-through the syntax.
+moderator (*health_literacy*) to `Seperate Lines:`. As stated earlier in
+this chapter, we usually add the moderator as separate lines but if you
+have good reason to switch them (e.g., easier interpretation): you can.
+Do not forget to click `Add` and `Continue`. As before we also select
+`Post Hoc...`, we only need to add *lang_cond* since *health_literacy*
+only consist of two groups. Hopefully you remember we see *t*-test
+results in our post hoc table, meaning we are comparing two groups, this
+is not necessary to do when the variable only has two groups to begin
+with. Thus, add *lang_cond* to `Post Hoc Tests for:`, select `Bonerroni`
+and click `Continue`. Under options we select `Descriptive statistics`
+(for our group means) and `homogeneity tests` (for Levene's *F*-test for
+our assumption check). Then, as always, click `paste` and run the
+command through the syntax.
 
-In addition to the analysis we would also like to visualize the the results. We again use the chart builden in SPSS. @vid-SPSS2way-visualization shows you how to visualize the interaction effect and how to add error bars to interpret the results.
+In addition to the analysis we would also like to visualize the the
+results. We again use the chart builden in SPSS.
+@vid-SPSS2way-visualization shows you how to visualize the interaction
+effect and how to add error bars to interpret the results.
 
 ::: {#vid-SPSS2way-visualization}
 {{< video https://youtu.be/De7jqg5d_wI width="100%" height="315" >}}
@@ -1663,17 +1684,16 @@ In addition to the analysis we would also like to visualize the the results. We 
 Visualize two-way analysis of variance in SPSS
 :::
 
-
-When we inspect the output in @vid-SPSS2way-interaction, we start with the first tables including
-`Descriptive Statistics`. In this table all the group means are provided
-and we can check whether we have equal subgroup sizes (meaning a
-balanced design, indicating statistical independence for our variables).
-The subgroup sizes range from 22 to 25, our largest group (25) indicates
-an allowed difference of 2.5. The difference of 3 participants is
-slightly above our allowed difference. This means we also take a look at
-the Levene's *F*-test in the next table. The table shows a not
-significant results (the *p*-value is above .05), meaning we have met
-our assumption of equal variances.
+When we inspect the output in @vid-SPSS2way-interaction, we start with
+the first tables including `Descriptive Statistics`. In this table all
+the group means are provided and we can check whether we have equal
+subgroup sizes (meaning a balanced design, indicating statistical
+independence for our variables). The subgroup sizes range from 22 to 25,
+our largest group (25) indicates an allowed difference of 2.5. The
+difference of 3 participants is slightly above our allowed difference.
+This means we also take a look at the Levene's *F*-test in the next
+table. The table shows a not significant results (the *p*-value is above
+.05), meaning we have met our assumption of equal variances.
 
 ::: {#vid-SPSS2way-interaction}
 {{< video https://youtu.be/vtaNps4tSTA width="100%" height="315" >}}
@@ -1683,38 +1703,47 @@ Interpreting the independent two-way analysis of variance in SPSS
 
 For the actual test results, we take a look at the table of
 `Tests of Between-Subjects Effects`. Here we can see that both the main
-effects (rows: lang_cond and health_literacy) are significant and so does the
-interaction effect (row: lang_cond*health_literacy). If you want to know more about
-these effects, we can look at the `Descriptive Statistics` table to
-check the means of the variable *health_literacy*. Here we can see that participants
-with high health literacy have a higher average vaccine acceptance
-than participants with low health literacy. When we want to know more
-about the language style effect, we take a look at the `Post Hoc Tests` in the
-table `Multiple Comparisons` where we can find our *t*-tests. Like the
-one-way analysis of variance had already showed us: there are significant differences between the *Autonomy Supportive* and *Neutral* groups and between the *Controlling* and *Neutral* groups (the *p*-values are below .05 and the confidence
-intervals do not include the zero). To make sense of the significant
-interaction effect, it usually helps to take a look at the
-`Profile Plots`. Here the lines represent the two groups of our
+effects (rows: lang_cond and health_literacy) are significant and so
+does the interaction effect (row: lang_cond * health_literacy). If you want to know more about these effects, we can look at the
+`Descriptive Statistics` table to check the means of the variable *health_literacy*. Here we can see that participants with high health
+literacy have a higher average vaccine acceptance than participants with low health literacy. When we want to know more about the language style effect, we take a look at the `Post Hoc Tests` in the table `Multiple Comparisons` where we can find our *t*-tests. Like the one-way analysis of variance had already showed us: there are significant
+differences between the *Autonomy Supportive* and *Neutral* groups and
+between the *Controlling* and *Neutral* groups (the *p*-values are below
+.05 and the confidence intervals do not include the zero). To make sense
+of the significant interaction effect, it usually helps to take a look
+at the `Profile Plots`. Here the lines represent the two groups of our
 moderator, you can see that the green line is almost always above the
-blue line (representing those with high health literacy having a higher average vaccine acceptance than those with low health literacy). The effect of seeing a campaign with autonomy supportive language is positive for both groups of our moderator (both average
-vaccine acceptance scores go up), but the effect is stronger for those with high health literacy. The effect of seeing a campaign with controlling language is positive for both groups
-of our moderator compared to the *Neutral* group, but for those with high health literacy we see
-that autonomy supportive language has a stronger effect than controlling language and for
-participants with low health literacy we see that controlling language has a stronger effect than autonomy supportive language.
+blue line (representing those with high health literacy having a higher
+average vaccine acceptance than those with low health literacy). The
+effect of seeing a campaign with autonomy supportive language is
+positive for both groups of our moderator (both average vaccine
+acceptance scores go up), but the effect is stronger for those with high
+health literacy. The effect of seeing a campaign with controlling
+language is positive for both groups of our moderator compared to the
+*Neutral* group, but for those with high health literacy we see that
+autonomy supportive language has a stronger effect than controlling
+language and for participants with low health literacy we see that
+controlling language has a stronger effect than autonomy supportive
+language.
 
-In conclusion, there is a significant main effect of campaign style on vaccine acceptance. Seeing a campaign that uses a theory-driven language style (either autonomy supportive or controlling language) compared to a campaign with neutral language has a significant positive effect on vaccine acceptance. There is also a significant main effect of person's health literacy. Those with high health literacy
-have, on average, a significantly higher vaccine acceptance than those with low health literacy.
-Additionally, there is a significant interaction effect of campaign style and
-health literacy on vaccine acceptance. More specifically, seeing a theory-driven campaign
-has a positive effect on both health literacy groups but those with high health literacy seem to have a
-stronger positive effect when seeing autonomy supportive language than when they see
-controlling language and those with low health literacy have a stronger positive effect when seeing
-controlling language than when they see autonomy supportive language.
+In conclusion, there is a significant main effect of campaign style on
+vaccine acceptance. Seeing a campaign that uses a theory-driven language
+style (either autonomy supportive or controlling language) compared to a
+campaign with neutral language has a significant positive effect on
+vaccine acceptance. There is also a significant main effect of a
+person's health literacy. On average, those with high health literacy
+have a significantly higher vaccine acceptance than those with low
+health literacy. Additionally, there is a significant interaction effect
+of campaign style and health literacy on vaccine acceptance. More
+specifically, seeing a theory-driven campaign has a positive effect on
+both health literacy groups but those with high health literacy seem to
+have a stronger positive effect when seeing autonomy supportive language
+than when they see controlling language. In contrast, those with low
+health literacy have a stronger positive effect when seeing controlling
+language than when they see autonomy supportive language.
 
 Please watch the video below for step-by-step instructions and for
 additional details.
-
-
 
 ------------------------------------------------------------------------
 
