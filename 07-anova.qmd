@@ -619,14 +619,14 @@ Execute one-way analysis of variance in SPSS.
 # Interpret output: F test on the null hypothesis that all groups have equal population means - point out between groups sum of squares? ; post-hoc t test for pairwise comparison of (population) means ; test result and significance, confidence interval.
 ```
 
-When we want to research the effect of a categorical variable (endorser)
-on a numerical variable (willing_post), we use a one-way analysis of
+When we want to research the effect of a categorical variable (campaign style)
+on a numerical variable (accept_post), we use a one-way analysis of
 variance (see the test selection table @sec-test-selection). You can get
 the one-way ANOVA window by clicking
 `Analyze > Compare Means > One-Way ANOVA`. The dependent variable is the
-willignness to donate after watching the campaign, so this variable
+vaccine acceptance after watching the campaign, so this variable
 should be added to the `Dependent List:`. The independent variable, also
-called factor in ANOVA, is the celebrity endoring the campaign which
+called factor in ANOVA, is the campaign style (i.e. the type of language used) of the campaign which
 should be added to `Factor:`. Before running your ANOVA, we select some
 additional options. Select `Post Hoc...` and select the `Bonferroni`
 correction for multiple testing. Under `Options...` we select
@@ -649,8 +649,7 @@ Visualizing the results of a one-way analysis of variance in SPSS.
 
 In the output we can start interpreting our results. @vid-SPSS1way-interpretation runs us through the interpretation of the output. The first table,
 `Descriptives` provides us with the group means. Here we can immediately
-see that the willingness to donate is lower when there is no celebrity
-endorsing the campaign. In this table we can also check the group sizes,
+see that the vaccine acceptance is lower for those who viewed the campaign with neutral language. In this table we can also check the group sizes,
 an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You
 can see that the `Test of Homogeneity of Variances` is not significant
 indicating the assumption is met on both fronts (equal group sizes and
@@ -676,17 +675,17 @@ process later in this chapter.
 
 As said we have found a significant *F*-value indicating that there is a
 significant difference between the groups. We have a factor with three
-groups (Clooney, Jolie and Nobody) thus we need further analysis to tell
+groups (Autonomy Supportive, Controlling, Neutral) thus we need further analysis to tell
 which group(s) differ. For this we inspect the `Post Hoc Tests`, in the
 table \``Multiple Comparisons`. Here you can see the results of several
 *t*-tests (as you might remember from @sec-test-selection we can compare
 two groups on a numerical variable with a *t*-test). The *p*-values in
-this table are corrected for capitalizartion on chance due to multiple
+this table are corrected for capitalization on chance due to multiple
 testing (that is why we selected `Bonferroni` earlier). These results
-show us that the groups *Nobody* and *Clooney* differ significantly from
-each other, and so do the groups *Nobody* and *Jolie* (i.e., both
+show us that the groups *Neutral* and *Autonomy Supportive* differ significantly from
+each other, and so do the groups *Neutral* and *Controlling* (i.e., both
 comparisons have a *p*-value below .05 and the confidence interval does
-not include the zero). The difference between *Clooney* and *Jolie* is
+not include the zero). The difference between *Autonomy Supportive* and *Controlling* is
 not significant (i.e., the *p*-value is larger than .05 and the
 confidence interval includes the zero). It can help to also take a look
 at the `Means Plots` which allows you to visualize the effects.
@@ -972,7 +971,7 @@ participants, it is possible that this effect differs when we are
 zooming in to specific sub-groups of our sample, for instance comparing
 people high and those with low health literacy. In other words, do
 people with high and people with low health literacy differ in their
-response to different campaign styles? For instance, people with a
+response to different campaign styles? For instance, people with high
 health literacy might feel confident in their ability to find and use
 health information in order to make their own, informed decisions about
 health behaviors like vaccination. These individuals might prefer
@@ -1549,11 +1548,10 @@ rm(results, donors)
 
 ### Instructions
 
-You have learned how to execute an one-way analysis of variance, and now
-it is time to execute a two-way analysis of variance in SPSS.
+You have learned how to execute an one-way analysis of variance, and now it is time to execute a two-way analysis of variance in SPSS. We keep using our vaccination campaign example. A two-way analysis of variance allows us to answer the question: Does the effect of campaign style on vaccine acceptance differ between people with high and those with low health literacy? This is a moderation or interaction effect. We have two categorical independent variables (or factors) and one numerical dependent variable. The first factor is the campaign style (three levels: autonomy supportive, neutral, and controlling language). The second factor is health literacy (two levels: low and high). The dependent variable is vaccine acceptance.
 
 In SPSS, we use the *Univariate* option in the *General Linear Model*
-submenu for two-way analysis of variance.
+submenu for two-way analysis of variance. This will be described in detail in the video below. Let's first take a closer look at the output provided by SPSS.
 
 ::: {#fig-ANOVAtable}
 ```{r ANOVAtable, echo=FALSE, out.width="60%", fig.pos='H', fig.align='center'}
@@ -1619,22 +1617,12 @@ dotted lines have been added manually to aid the interpretation.
 
 In the video below we walk you through how to perform and interpret a
 two-way analysis of variance in SPSS. In the video we will elaborate on
-the dataset that we have used for our one-way analysis of variance (does
-the endorser for a fundraiser campaign have an effect on the willingness
-to donate?). The persuasive communication research team is adding a
-second variable, a moderator: gender (in the dataset called 'sex'). This
-study is only taking men and women into account (in the dataset called
-'male' and 'female'). When conducting a two-way analysis of variance we
-are able to answer the questions whether the effect of endorser on
-willingness to donate is different for men and women. We have two
-categorical independent variables (or factors) and one numerical
-dependent variable (follow the test selection table to a two-way
-analysis of variance @sec-test-selection).
+the dataset that we have used for our one-way analysis of variance (does the language style used in a vaccination campaign have an effect on vaccine acceptance?). The persuasive communication research team is adding a second variable, a moderator: health literacy (in the dataset called 'health_literacy'). Participants are divided in two groups (those with high and low health literacy). When conducting a two-way analysis of variance we are able to answer the questions whether the effect of campaign style (called 'lang_cond') on vaccine acceptance is different for people with high and low levels of health literacy. 
 
 ::: {#vid-SPSS2way}
 {{< video https://youtu.be/uPPLlBNJo2Q width="100%" height="315" >}}
 
-Executure two-way analysis of variance in SPSS
+Execute two-way analysis of variance in SPSS
 :::
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -1650,21 +1638,21 @@ Executure two-way analysis of variance in SPSS
 
 To perform a two-way (or multi-way) analysis of variance, we select
 `Analyze > General Linear Model > Univariate`. The numerical dependent
-variable *willing_post* is added to `Dependent Variable:` and the
-categorical factors *endorser* and *sex* are added to the
+variable *accept_post* is added to `Dependent Variable:` and the
+categorical factors *lang_cond* and *health_literacy* are added to the
 `Fixed Factor(s):`. If you see the variable labels instead of the
 variable names, simply do a right mouse click and select
 `show variable names`. For our additional setting, we select `Plots...`
-and add the predictor (*endorser*) to the `Horizontal Axis:` and the
-moderator (*sex*) to `Seperate Lines:`. As stated earlier in this
+and add the predictor (*lang_cond*) to the `Horizontal Axis:` and the
+moderator (*health_literacy*) to `Seperate Lines:`. As stated earlier in this
 chapter, we usually add the moderator as separate lines but if you have
 good reason to switch them (e.g., easier interpretation): you can. Do
 not forget to click `Add` and `Continue`. As before we also select
-`Post Hoc...`, we only need to add *endorser* since *sex* only consist
+`Post Hoc...`, we only need to add *lang_cond* since *health_literacy* only consist
 of two groups. Hopefully you remember we see *t*-test results in our
 post hoc table, meaning we are comparing two groups, this is not
 necessary to do when the variable only has two groups to begin with.
-Thus, add *endorser* to `Post Hoc Tests for:`, select `Bonerroni` and
+Thus, add *lang_cond* to `Post Hoc Tests for:`, select `Bonerroni` and
 click `Continue`. Under options we select `Descriptive statistics` (for
 our group means) and `homogeneity tests` (for Levene's *F*-test for our
 assumption check). Then, as always, click `paste` and run the command
@@ -1698,43 +1686,33 @@ Interpreting the independent two-way analysis of variance in SPSS
 
 For the actual test results, we take a look at the table of
 `Tests of Between-Subjects Effects`. Here we can see that both the main
-effects (rows: endorser and sex) are significant and so does the
-interaction effect (row: endorser*sex). If you want to know more about
+effects (rows: lang_cond and health_literacy) are significant and so does the
+interaction effect (row: lang_cond*health_literacy). If you want to know more about
 these effects, we can look at the `Descriptive Statistics` table to
-check the means of the variable* sex*. Here we can see that participants
-who identified as female have a higher average willingness to donate
-than participants who identified as male. When we want to know more
-about the endorser effect, we take a look at the `Post Hoc Tests` in the
-table `Multiple Comparisons` where we can find our* t*-tests. Like the
-one-way analysis of variance had already showed us: the groups*
-Clooney\* and *Nobody* and *Jolie* and *Nobody* differ significantly
-from each other (the *p*-values are below .05 and the confidence
+check the means of the variable *health_literacy*. Here we can see that participants
+with high health literacy have a higher average vaccine acceptance
+than participants with low health literacy. When we want to know more
+about the language style effect, we take a look at the `Post Hoc Tests` in the
+table `Multiple Comparisons` where we can find our *t*-tests. Like the
+one-way analysis of variance had already showed us: there are significant differences between the *Autonomy Supportive* and *Neutral* groups and between the *Controlling* and *Neutral* groups (the *p*-values are below .05 and the confidence
 intervals do not include the zero). To make sense of the significant
-interaction effect, it usually helps to tak e alook at the
+interaction effect, it usually helps to take a look at the
 `Profile Plots`. Here the lines represent the two groups of our
 moderator, you can see that the green line is almost always above the
-blue line (representing the women having a higher average willingness to
-donate than the men). The effect of seeing George Clooney in the
-campaign is positive for both groups of our moderator (both average
-willingness to donate scores go up), but the effect is stronger for the
-women. The effect of seeing Angelina Jolie is positive for both groups
-of our moderator compared to the *Nobody* group, but for women we see
-that George Clooney has a stronger effect than Angelina Jolie and for
-men we see that Angelina Jolie has a stronger effect than George
-Clooney.
+blue line (representing those with high health literacy having a higher average vaccine acceptance than those with low health literacy). The effect of seeing a campaign with autonomy supportive language is positive for both groups of our moderator (both average
+vaccine acceptance scores go up), but the effect is stronger for those with high health literacy. The effect of seeing a campaign with controlling language is positive for both groups
+of our moderator compared to the *Neutral* group, but for those with high health literacy we see
+that autonomy supportive language has a stronger effect than controlling language and for
+participants with low health literacy we see that controlling language has a stronger effect than autonomy supportive language.
 
-In conclusion, there is a significant main effect for the endorser in a
-fundraiser campaign on the willingness to donate. Seeing a celebrity has
-a signigicant positive effect on the willingness to donate compared to
-seeing no celebrity. There is also a significant main effect for a
-person's gender, when comparing men and women we see that women on
-average have a significantly higher willigness to donate than men.
-Additionally, there is a significant interaction effect for endorser and
-gender on willigness to donate. More specifically, seeing a celebrity
-has a positive effect on both men and women but women seem to have a
-stronger positive effect when seeing George Clooney than when they see
-Angelina Jolie and men have a stronger positive effect when seeing
-Angelina Jolie than when they see George Clooney.
+In conclusion, there is a significant main effect of campaign style on vaccine acceptance. Seeing a campaign that uses a theory-driven language style (either autonomy supportive or controlling language) compared to a campaign with neutral language has a significant positive effect on vaccine acceptance. There is also a significant main effect of person's health literacy. Those with high health literacy
+have, on average, a significantly higher vaccine acceptance than those with low health literacy.
+Additionally, there is a significant interaction effect of campaign style and
+health literacy on vaccine acceptance. More specifically, seeing a theory-driven campaign
+has a positive effect on both health literacy groups but those with high health literacy seem to have a
+stronger positive effect when seeing autonomy supportive language than when they see
+controlling language and those with low health literacy have a stronger positive effect when seeing
+controlling language than when they see autonomy supportive language.
 
 Please watch the video below for step-by-step instructions and for
 additional details.
@@ -1758,7 +1736,7 @@ effect is 0.05 (or 5,3% of the variance in willingness to donate is
 explained by the interaction effect).
 
 Watch the video below for a step-by-step instruction for calculating the
-eta^2^ of the endorser main effect and the visual details.
+eta^2^ of the campaign style main effect and the visual details.
 
 ::: {#vid-SPSSeta2}
 {{< video https://youtu.be/7K4x87watb8 width="100%" height="315" >}}
