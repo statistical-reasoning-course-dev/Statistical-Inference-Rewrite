@@ -588,17 +588,14 @@ means.
 ### Instructions
 
 In the video below we walk you through conducting and interpreting a
-one-way analysis of variance in SPSS. In this example, you are again
-part of a communication research team, however this team we are diving
-into a persuasive communication question. The research question that is
-discussed in the video below is 'does the person endorsing a campaign
-matter to the willingness to donate to a charity for people seeing the
-campaign?'. The data set includes the variable *endorser*, which is a
+one-way analysis of variance in SPSS. We will continue using our vaccination campaign example. The research question that is
+discussed in the video below is 'Does the style of language used in a campaign vaccine acceptance among people seeing the
+campaign?'. The data set includes the variable *lang_cond* (language condition), which is a
 categorical variable. Participants are either watching a campaign with
-George Clooney, Angelina Jolie or nobody (that is, not a celebrity). You
-are researching whether the endorser of a fundraising campaign has an
-effect on people's willingness to donate. The willigness to donate has
-been measured before (*willing_pre*) and after (*willing_post*) watching
+autonomy supportive language, controlling language or neutral. You
+are researching whether the language style used in the campaign has an
+effect on people's vaccine acceptance. Vaccine acceptance has
+been measured before (*accept_pre*) and after (*accept_post*) watching
 the campaign.
 
 ::: {#vid-SPSS1way}
@@ -610,8 +607,8 @@ Execute one-way analysis of variance in SPSS.
 
 ```{r, echo=FALSE, eval=FALSE}
 # Execute one-way analysis of variance in SPSS with Analyze > Compare Means > One-Way ANOVA {or use general Linear Model also for one-way? (MCRS probably uses Compare Means because it only disucsses one-way ANOVA) - between & within variance not labeled as such!).
-# Goal: association as level differences between three or more groups: Does the endorser matter to the level of willingness to donate to a fund raiser?
-# Example: donors.sav, outcome is willingness to donate (post), predictor (grouping variable) is endorser (0, 1).
+# Goal: association as level differences between three or more groups: Does the language style matter to the level of vaccine acceptance?
+# Example: vaccine.sav, outcome is vaccine acceptance (post), predictor (grouping variable) is lang_cond (0, 1).
 # Technique: one-way ANOVA.
 # SPSS menu: Compare Means ; post hoc: Bonferroni ; options: descriptives, homogeneity of variance test, means plot.
 # Paste & Run.
