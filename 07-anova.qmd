@@ -862,7 +862,7 @@ d <- sim_data %>%
 
 library(ggplot2)
 
-# Plot for main effect endorser.
+# Plot for main effect language condition.
 ggplot(d, aes(lang_cond, accept_av)) + 
     geom_point(size = 3, color=brewercolors["Blue"]) + 
     geom_line(aes(group = const), size = 1, color=brewercolors["Blue"]) + 
@@ -1625,7 +1625,7 @@ Execute two-way analysis of variance in SPSS
 ```{r, echo=FALSE, eval=FALSE}
 # Video to executure two-way analysis of variance in SPSS
 # Goal: Test for moderation with categorical predictors (and a numerical dependent variable) 
-# Example: donors.sav, does the effect of celebrity endorsement on adults' willingness to donate differ for females and males?
+# Example: vaccine.sav, does the effect of language condition on adults' vaccine acceptance differ by health literacy?
 # Technique: 2-way analysis of variance
 # SPSS menu: GENERAL LINEAR MODEL > UNIVARIATE ; variables under Dependent Variable and Fixed Factor(s) ; PLOTS predictor under ‘Horizontal Axis’ and  under ‘Separate lines’ ; POST HOC Bonferroni ; OPTIONS ‘Descriptive Statistics’ and 'Homogeneity tests'. 
 # Paste & Run.
