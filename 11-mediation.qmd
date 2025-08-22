@@ -228,7 +228,7 @@ visNetwork(nodes, edges, width = "100%") %>%
   visEdges(arrows = "to", font = list(size = 30)) %>% 
   visOptions(highlightNearest = list(enabled = TRUE, algorithm = "hierarchical", 
    degree = list(from = 1, to = 0))) %>%
-  visInteraction(dragNodes = TRUE, multiselect = TRUE)
+  visInteraction(dragNodes = FALSE, multiselect = FALSE)
 ```
 
 
@@ -259,6 +259,7 @@ The size of an indirect effect is calculated in exactly the same way as the size
 #| fig-cap: "Path diagram with unstandardized effect sizes and their 95% confidence intervals."
 #| echo: false
 #| warning: false
+#| eval: false
 
 # Causal model/path diagram with unstandardized effect sizes (and 95% confidence intervals). All effects.
 # Display network.
@@ -271,7 +272,7 @@ rm(nodes, edges)
 
 
 
-It may sound weird that we can multiply the unstandardized regression coefficients but it really works. In @fig-pathdiagram-unstandardized, for instance, the unstandardized partial effect of age (measured in tens of years) on interest in politics is `r round(model_2$coefficients[2], digits=2)`. This means that an additional 10 years of life predict an average increase in interest in politics of `r round(model_2$coefficients[2], digits=2)`. 
+It may sound weird that we can multiply the unstandardized regression coefficients but it really works. In @fig-mediation-regression, for instance, the unstandardized partial effect of age (measured in tens of years) on interest in politics is `r round(model_2$coefficients[2], digits=2)`. This means that an additional 10 years of life predict an average increase in interest in politics of `r round(model_2$coefficients[2], digits=2)`. 
 
 In its turn, interest in politics has an unstandardized effect of `r round(model_4$coefficients[3], digits=2)` on reading time (in minutes). An additional unit of interest in politics predicts an average increase in reading time of `r round(model_4$coefficients[3], digits=2)` minutes.
 
@@ -372,7 +373,7 @@ Sometimes, researchers decide that an effect is fully mediated if the direct eff
 
 The distinction between full and partial mediation is a little bit problematic. From a substantive point of view, we may argue that direct effects are probably always mediated. As we have seen in @sec-indirecteffect, a direct effect usually summarizes a causal process that consists of intermediary steps, which is mediation. We may wonder whether it makes theoretical sense to talk about unmediated effects. Do we really believe that age can directly affect newspaper reading time?
 
-If the variables that we entered in the model as mediators do not create any indirect effects, the direct effect is equal to the total effect. We may conclude that the direct effect is not mediated by the mediators that are included in the model. For example, if education, political interest, and news site use do not create indirect effects from age on newspaper reading time (@fig-pathdiagram-unstandardized), we only have the direct effect of age on reading time in our model. However, this effect is very likely to be mediated by other variables that we did not include in the model. We should not conclude that the effect is unmediated because we have not found mediation yet.
+If the variables that we entered in the model as mediators do not create any indirect effects, the direct effect is equal to the total effect. We may conclude that the direct effect is not mediated by the mediators that are included in the model. For example, if education, political interest, and news site use do not create indirect effects from age on newspaper reading time (@fig-mediation-regression), we only have the direct effect of age on reading time in our model. However, this effect is very likely to be mediated by other variables that we did not include in the model. We should not conclude that the effect is unmediated because we have not found mediation yet.
 
 ### Significance of indirect effects
 
