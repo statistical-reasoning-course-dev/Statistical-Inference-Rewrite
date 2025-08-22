@@ -492,7 +492,7 @@ The example covers the effects of playing video games on aggressive behavior mod
 
 For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [agression.sav](data/agression.sav) data file for this analysis.
 
-In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `gaming` as the predictor `X variable`, `agress` as the dependent `Y variable`, and `unemot` as the dependent `Moderator variable W`.
+In SPSS we go to `Analyze > Regression > PROCESS`, in the PROCESS dialog, we select the `Model Number 1` for a simple moderation model with one moderator. We select `gaming` as the predictor `X variable`, `agress` as the dependent `Y variable`, and `unemot` as the dependent `Moderator variable W`.
 
 Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD` and tick the `Johnson-Neyman output` box. click `continue` to set these options.
 
@@ -668,7 +668,7 @@ rm(variables)
 
 For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in @sec-installPROCESS. We use the [smokers.sav](data/smokers5.sav) data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the amount of contact that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.
 
-In SPSS we go to `Analyze > Regression > PROCESS ...`, in the PROCESS dialog, we select `Model Number 2` for a moderation model with two moderators and a second order interaction. We select `exposure` as the predictor `X variable`, and `attitude` as the dependent `Y variable`. We set `contact` as the continuous numerical `Moderator variable W`, and `status3` as the `Moderator variable Z`. The variable `status3` is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the `Multicategorical` butten and ticking the `Multicategorical` for `Variable Z`. You can leave the `Coding system` at `Indicator`.
+In SPSS we go to `Analyze > Regression > PROCESS`, in the PROCESS dialog, we select `Model Number 2` for a moderation model with two moderators and a second order interaction. We select `exposure` as the predictor `X variable`, and `attitude` as the dependent `Y variable`. We set `contact` as the continuous numerical `Moderator variable W`, and `status3` as the `Moderator variable Z`. The variable `status3` is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the `Multicategorical` butten and ticking the `Multicategorical` for `Variable Z`. You can leave the `Coding system` at `Indicator`.
 
 Under `Options`, we select `Generate code for visualizing interactions`, we can mean center our variables by selecting `all variables that define products`, and for `Moderation and conditioning` we select `-1SD, Mean, +1SD`, but we can leave the `Johnson-Neyman output` un-ticked. Click `continue` to set these options.
 

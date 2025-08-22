@@ -818,7 +818,7 @@ In @vid-PROCESS2cat, we show how to use PROCESS to estimate a moderation model w
 Instructions on how to add PROCESS to your SPSS installation can be found in [Appendix -@sec-installPROCESS].
 :::
 
-In SPSS we go to `Analyze > Regression > PROCESS...`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`, and we click on `OK` to run the analysis.
+In SPSS we go to `Analyze > Regression > PROCESS`. In the dialog box, we select the dependent variable (attitude) as `Y variable`, the predictor (exposure) as `X variable`, and the moderator (status2) as `Moderator variable W`. We select `Model 1` for a moderation model with one moderator. Under `Options`, we select `generate code to visualize interaction`, and we click on `OK` to run the analysis.
 
 When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (`File > New > Syntax`), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.
 

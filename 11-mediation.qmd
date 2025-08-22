@@ -578,15 +578,15 @@ Inform the reader that you bootstrapped the indirect effect and report the numbe
 
 ###  Instructions
 
-SPSS cannot apply statistical inference to indirect effects, so we use the PROCESS macro developed for this purpose (@RefWorks:3873). If correctly installed (see below), the macro can be used from within the SPSS Regression menu. Please note that you had better not paste the PROCESS commands to the SPSS syntax because it produces a lot of code that is difficult to understand. Instead, run the PROCESS command directly from the menu and manually add a comment to your SPSS syntax file reminding yourself of the model that you estimated with PROCESS.
+SPSS cannot apply statistical inference to indirect effects, so we use the PROCESS macro developed for this purpose [@RefWorks:3873]. If correctly installed (see below), the macro can be used from within the SPSS Regression menu. Please note that you had better not paste the PROCESS commands to the SPSS syntax because it produces a lot of code that is difficult to understand. Instead, run the PROCESS command directly from the menu and manually add a comment to your SPSS syntax file reminding yourself of the model that you estimated with PROCESS.
 
 Instructions on how to add PROCESS to your SPSS installation can be found in [Appendix -@sec-installPROCESS]. You download the PROCESS macro and install the SPSS custom dialog file. Check the FAQ at the PROCESS website if installation is not successful. If PROCESS is successfully installed, it can be found in the `Analyze > Regression menu`.
 
 ----
 
-In the video below we show you how to perform a single or parallel mediation model with PROCESS. You must have PROCESS installed to follow along.
+In @vid-SPSSmediatpar we show you how to perform a single or parallel mediation model with PROCESS. You must have PROCESS installed to follow along.
 
-A political communication team wants to know which factors could have an impact on people reading the news paper, especially during election time. The team hypothesizes a mediation model with the question whether age (variable: _age_) is related to newspaper reading time (variable: _readingtime_), and whether this association can be explained by one's policital interest (variable: _polinterest_) and/or one's news site use (variable: _newssite_). We can model this with a mediation model, you can find PROCESS under `Analyze > Regresion > PROCESS v4.1`. 
+A political communication team wants to know which factors could have an impact on people reading the news paper, especially during election time. The team hypothesizes a mediation model with the question whether age (variable: _age_) is related to newspaper reading time (variable: _readingtime_), and whether this association can be explained by one's policital interest (variable: _polinterest_) and/or one's news site use (variable: _newssite_). We can model this with a mediation model, you can find PROCESS under `Analyze > Regresion > PROCESS`. 
 
 We need to tell PROCESS that it needs to build a parallel mediation model, we can do so by selecting model number 4 under the `Model number:` dropdown menu. The `Confidence intervals` are set on 95 as default, in most cases that will be the ideal setting. The default `Number of bootstrap samples` being 5000 will also be the used setting in most cases. When implementing the variables, the window is categorized as a conceptual model X > M > Y. The dependent variable is the `Y variable`, in this case: average newspaper reading time. The independet variable is the `X variable`, in this case: age. The mediators, political interest and news site use, can be dragged to the `Mediator(s) M` box. For any additional settings we need to open the `Options` window. Please select `Show total effect model` and `standardized effects`. You can put the `Decimal places in output` to 3 to automatically help you with rounding. The other options are fine as the default option. Before running your analysis, please select `Long variable names` and click `I accept the risk of incorrect output`. This means that a variable like _polinterest_ only shows the first 8 characters, namely _polinter_. This is only a problem if you have two variables that have the exact same first eight characters. That rarely happens, but it is still good to know.
 
@@ -602,7 +602,7 @@ All the way at the bottom of the output, you can find the output for your total 
 
 _Note_ we do not use standardized effects for a dichotomous variable, but just the unstandardized.
 
-For the interpretation of all the other associations and more details, please watch the video below.
+For the interpretation of all the other associations and more details, please watch the @vid-SPSSmediatpar below.
 
 ::: {#vid-SPSSmediatpar}
 
@@ -641,7 +641,7 @@ Estimating a single or parallel mediation model with PROCESS.
 
 ----
 
-Now we move on to executing a serial mediation. The political communication team now wants to test a different theory, what if the mediators are working in a certain order? What if the association between age and news paper reading time are explained by political interest via news site use? we have to create a serial mediation in PROCESS, starting with `Analyze > Regression > PROCESS v4.1`.
+Now we move on to executing a serial mediation. The political communication team now wants to test a different theory, what if the mediators are working in a certain order? What if the association between age and news paper reading time are explained by political interest via news site use? we have to create a serial mediation in PROCESS, starting with `Analyze > Regression > PROCESS`.
 
 To estimate a serial mediation, we use model 6 under the `Model number` dropdown menu. The `Confidence intervals` and `Number of bootstrap samples` keep their default setting of 95 and 5000. We select reading time as our outcome variable (Y), age as our independent variable (X) and political interest and news site use as our mediators (M). Since we model a serial mediation now, the order of the mediators is important. The order should correspond with your mediation model. In this case, first political interest, then news site use. Under `Options` we only select `Standardized effects` and you can opt for 3 `Decimal places in output`. Don't forget the `Long variable names`. Then, run your analysis, do not paste (the syntax is unusable). Do not forget to put a comment in your synyax file.
 
@@ -649,7 +649,7 @@ Let's take a look at the output. In the summary we can again check the input of 
 
 At the bottom we can see the direct and indirect effect again (notice there is no total effect as we did not ask for that this time). There are multiple indirect effect, but the pathway of the indirect effect is also shown at the bottom (e.g., ind1 age > polinter > readingt).
 
-For more details and a step-by-step instruction, please watch the video below.
+For more details and a step-by-step instruction, please watch the @vid-SPSSmediatserial below.
 
 ::: {#vid-SPSSmediatserial}
 
@@ -685,11 +685,11 @@ Estimating a serial mediation model with PROCESS (Model 6).
 
 ----
 
-In the next video we show you how to run a mediation with a covariate. The political communication team now studies the hypothesis that age on reading time is mediated by news site use, while controlling for education and political interest. We start the exact same way as before, `Analyze > Regression > PROCESS v4.1`. We select model 4 as we have a single mediator mediation model. All proceeds like the parallel mediation we showed before, but now we add the variables _education level_ and _interest in politics_ as `covariate(s)`.
+In the next video we show you how to run a mediation with a covariate. The political communication team now studies the hypothesis that age on reading time is mediated by news site use, while controlling for education and political interest. We start the exact same way as before, `Analyze > Regression > PROCESS`. We select model 4 as we have a single mediator mediation model. All proceeds like the parallel mediation we showed before, but now we add the variables _education level_ and _interest in politics_ as `covariate(s)`.
 
 Under options we now select `Effect size` and opt for 3 decimal places again. Do not forget the long variable names and run your analysis (do not paste). Do not forget to place a comment in your syntax file and then take a look at the output.
 
-The output works the same as the two times before, we only have additional independent variables in our output tables because of the covariates. Please watch the video below for a more in depth and detailed discussion of the output.
+The output works the same as the two times before, we only have additional independent variables in our output tables because of the covariates. Please watch @vid-SPSSmediatcov below for a more in depth and detailed discussion of the output.
 
 ::: {#vid-SPSSmediatcov}
 
@@ -726,9 +726,9 @@ Do we remember what we talked about earlier with the outcome variable being the 
 
 In the video we start with the regression model for news paper reading time, so that will be the regression we will discuss here as well. Go through `Analyze > Regression > linear`. Readingtime will be our `Dependent` variable, and the other variables (on the other side of the arrow) are all `Independent(s)`, in this case age, education, polinterest and newssite. Under the `Statistics...` window we select `confidence intervals` in addition to the default settings (estimate and model fit). Under `Plots...` we need the *ZPRED on the X-axis and the *ZRESID on the Y-axis to check our assumptions (you might remember this from our regression assumptions), and we select `Histogram`. Then you paste (as we are not using PROCESS anymore) and then run from your syntax.
 
-In the output we can check the histogram for the assumption of normally distributed residuals, this one seems to be met. In the scatterplot we can check the assumptions of linearity and homoscedascity, which also seem to both be met. All these assumptions should sound familiar as we are checking the assumptions belonging to a regression analysis. Mediation is a type of regression. 
+In the output we can check the histogram for the assumption of normally distributed residuals, this one seems to be met. In the scatterplot we can check the assumptions of linearity and homoscedascity, which also seem to both be met. All these assumptions should sound familiar as we are checking the assumptions belonging to a regression analysis. Mediation is just combined regression analysis. 
 
-For the step by step regression and a repeat of the assumptions (and visuals), please watch the video below.
+For the step by step regression and a repeat of the assumptions (and visuals), please watch the @vid-SPSSpath.
 
 ::: {#vid-SPSSpath}
 
@@ -793,7 +793,7 @@ If you plan to investigate mediation:
 
 ## Combining Mediation and Moderation
 
-Mediation and moderation (Chapters @sec-moderationcat and @sec-moderationcont) can occur in the same model. For example, the effect of age on newspaper reading time mediated by interest in politics can be different for females and males. In other words, the indirect effect is different for females and males.
+Mediation and moderation (@sec-moderationcat and @sec-moderationcont) can occur in the same model. For example, the effect of age on newspaper reading time mediated by interest in politics can be different for females and males. In other words, the indirect effect is different for females and males.
 
 If the indirect effect is different for females and males, at least one of the two direct effects (predictor on mediator or mediator on dependent variable) must be different for females and males. In @fig-causaldiagram5, the direct effect of age on interest in politics is moderated and as a consequence, indirect effects including this effect are moderated. This is called _moderated mediation_. In this example, sex is the moderator and interest in politics is the mediator.
 
