@@ -324,17 +324,6 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>Key concepts: eta-squared, between-groups variance, within-groups variance, <em>F</em> test on analysis of variance model, pairwise comparisons, post-hoc tests, one-way analysis of variance, two-way analysis of variance, balanced design, main effects, moderation, interaction effect.</p>
 </blockquote>
-<p>Watch the micro lecture (<a href="#vid-intro-anova" class="quarto-xref">Video&nbsp;<span>5.1</span></a>) on moderation with analysis of variance for an overview of the chapter.</p>
-<div id="vid-intro-anova" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-vid figure">
-<div aria-describedby="vid-intro-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/klV2FFgH9OU" width="100%" height="360" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-intro-anova-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.1: Introduction to analysis of variance.
-</figcaption>
-</figure>
-</div>
 <section id="summary" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
 <div class="callout callout-style-simple callout-important">
@@ -504,30 +493,30 @@ Figure&nbsp;5.4: Which groups have different average outcome scores in the popul
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/ADkZ650mhEg" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS1way-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.2: Execute one-way analysis of variance in SPSS.
+Video&nbsp;5.1: Execute one-way analysis of variance in SPSS.
 </figcaption>
 </figure>
 </div>
 <p>When we want to research the effect of a categorical variable (campaign style) on a numerical variable (accept_post), we use a one-way analysis of variance (see the test selection table <a href="04-hypothesis.html#sec-test-selection" class="quarto-xref"><span>Section 4.4</span></a>). You can get the one-way ANOVA window by clicking <code>Analyze &gt; Compare Means &gt; One-Way ANOVA</code>. The dependent variable is the vaccine acceptance after watching the campaign, so this variable should be added to the <code>Dependent List:</code>. The independent variable, also called factor in ANOVA, is the campaign style (i.e.&nbsp;the type of language used) of the campaign which should be added to <code>Factor:</code>. Before running your ANOVA, we select some additional options. Select <code>Post Hoc...</code> and select the <code>Bonferroni</code> correction for multiple testing. Under <code>Options...</code> we select <code>Descriptive</code> to obtain the group means and <code>Homogeneity of variance test</code> for Levene’s <em>F</em>-test to check assumptions. You would only select bootstrapping if you cannot use the theoretical approximation for the <em>F</em>-distribution (revise Chapter 2 if needed). You can select <code>Estimate effect size for overall tests</code> if you want to obtain eta<sup>2</sup>. Please click <code>paste</code> and run the command from your syntax.</p>
-<p>In addition to the SPSS analysis, it is always a good idea to visualize the results of your analysis. You can do this by creating a means plot with error bars to clearly show the differences between the groups. <a href="#vid-SPSS1way-visualization" class="quarto-xref">Video&nbsp;<span>5.3</span></a> below shows you how to create a means plot in SPSS.</p>
+<p>In addition to the SPSS analysis, it is always a good idea to visualize the results of your analysis. You can do this by creating a means plot with error bars to clearly show the differences between the groups. <a href="#vid-SPSS1way-visualization" class="quarto-xref">Video&nbsp;<span>5.2</span></a> below shows you how to create a means plot in SPSS.</p>
 <div id="vid-SPSS1way-visualization" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSS1way-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/zVrjqicFVR0" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS1way-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.3: Visualizing the results of a one-way analysis of variance in SPSS.
+Video&nbsp;5.2: Visualizing the results of a one-way analysis of variance in SPSS.
 </figcaption>
 </figure>
 </div>
-<p>In the output we can start interpreting our results. <a href="#vid-SPSS1way-interpretation" class="quarto-xref">Video&nbsp;<span>5.4</span></a> runs us through the interpretation of the output. The first table, <code>Descriptives</code> provides us with the group means. Here we can immediately see that the vaccine acceptance is lower for those who viewed the campaign with neutral language. In this table we can also check the group sizes, an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You can see that the <code>Test of Homogeneity of Variances</code> is not significant indicating the assumption is met on both fronts (equal group sizes and equal variances).</p>
+<p>In the output we can start interpreting our results. <a href="#vid-SPSS1way-interpretation" class="quarto-xref">Video&nbsp;<span>5.3</span></a> runs us through the interpretation of the output. The first table, <code>Descriptives</code> provides us with the group means. Here we can immediately see that the vaccine acceptance is lower for those who viewed the campaign with neutral language. In this table we can also check the group sizes, an assumption for ANOVA, the sizes are fairly equal (45, 49, 49). You can see that the <code>Test of Homogeneity of Variances</code> is not significant indicating the assumption is met on both fronts (equal group sizes and equal variances).</p>
 <div id="vid-SPSS1way-interpretation" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSS1way-interpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/JDqJbRIiBgk" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS1way-interpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.4: Interpreting the output of a one-way analysis of variance in SPSS.
+Video&nbsp;5.3: Interpreting the output of a one-way analysis of variance in SPSS.
 </figcaption>
 </figure>
 </div>
@@ -989,30 +978,30 @@ Figure&nbsp;5.16: SPSS means plots of the interaction effect of health literacy 
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/uPPLlBNJo2Q" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS2way-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.5: Execute two-way analysis of variance in SPSS
+Video&nbsp;5.4: Execute two-way analysis of variance in SPSS
 </figcaption>
 </figure>
 </div>
 <p>To perform a two-way (or multi-way) analysis of variance, we select <code>Analyze &gt; General Linear Model &gt; Univariate</code>. The numerical dependent variable <em>accept_post</em> is added to <code>Dependent Variable:</code> and the categorical factors <em>lang_cond</em> and <em>health_literacy</em> are added to the <code>Fixed Factor(s):</code>. If you see the variable labels instead of the variable names, simply do a right mouse click and select <code>show variable names</code>. For our additional setting, we select <code>Plots...</code> and add the predictor (<em>lang_cond</em>) to the <code>Horizontal Axis:</code> and the moderator (<em>health_literacy</em>) to <code>Seperate Lines:</code>. As stated earlier in this chapter, we usually add the moderator as separate lines but if you have good reason to switch them (e.g., easier interpretation): you can. Do not forget to click <code>Add</code> and <code>Continue</code>. As before we also select <code>Post Hoc...</code>, we only need to add <em>lang_cond</em> since <em>health_literacy</em> only consist of two groups. Hopefully you remember we see <em>t</em>-test results in our post hoc table, meaning we are comparing two groups, this is not necessary to do when the variable only has two groups to begin with. Thus, add <em>lang_cond</em> to <code>Post Hoc Tests for:</code>, select <code>Bonerroni</code> and click <code>Continue</code>. Under options we select <code>Descriptive statistics</code> (for our group means) and <code>homogeneity tests</code> (for Levene’s <em>F</em>-test for our assumption check). Then, as always, click <code>paste</code> and run the command through the syntax.</p>
-<p>In addition to the analysis we would also like to visualize the the results. We again use the chart builden in SPSS. <a href="#vid-SPSS2way-visualization" class="quarto-xref">Video&nbsp;<span>5.6</span></a> shows you how to visualize the interaction effect and how to add error bars to interpret the results.</p>
+<p>In addition to the analysis we would also like to visualize the the results. We again use the chart builden in SPSS. <a href="#vid-SPSS2way-visualization" class="quarto-xref">Video&nbsp;<span>5.5</span></a> shows you how to visualize the interaction effect and how to add error bars to interpret the results.</p>
 <div id="vid-SPSS2way-visualization" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSS2way-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/De7jqg5d_wI" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS2way-visualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.6: Visualize two-way analysis of variance in SPSS
+Video&nbsp;5.5: Visualize two-way analysis of variance in SPSS
 </figcaption>
 </figure>
 </div>
-<p>When we inspect the output in <a href="#vid-SPSS2way-interaction" class="quarto-xref">Video&nbsp;<span>5.7</span></a>, we start with the first tables including <code>Descriptive Statistics</code>. In this table all the group means are provided and we can check whether we have equal subgroup sizes (meaning a balanced design, indicating statistical independence for our variables). The subgroup sizes range from 22 to 25, our largest group (25) indicates an allowed difference of 2.5. The difference of 3 participants is slightly above our allowed difference. This means we also take a look at the Levene’s <em>F</em>-test in the next table. The table shows a not significant results (the <em>p</em>-value is above .05), meaning we have met our assumption of equal variances.</p>
+<p>When we inspect the output in <a href="#vid-SPSS2way-interaction" class="quarto-xref">Video&nbsp;<span>5.6</span></a>, we start with the first tables including <code>Descriptive Statistics</code>. In this table all the group means are provided and we can check whether we have equal subgroup sizes (meaning a balanced design, indicating statistical independence for our variables). The subgroup sizes range from 22 to 25, our largest group (25) indicates an allowed difference of 2.5. The difference of 3 participants is slightly above our allowed difference. This means we also take a look at the Levene’s <em>F</em>-test in the next table. The table shows a not significant results (the <em>p</em>-value is above .05), meaning we have met our assumption of equal variances.</p>
 <div id="vid-SPSS2way-interaction" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSS2way-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/vtaNps4tSTA" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSS2way-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.7: Interpreting the independent two-way analysis of variance in SPSS
+Video&nbsp;5.6: Interpreting the independent two-way analysis of variance in SPSS
 </figcaption>
 </figure>
 </div>
@@ -1028,7 +1017,7 @@ Video&nbsp;5.7: Interpreting the independent two-way analysis of variance in SPS
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/7K4x87watb8" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-SPSSeta2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;5.8: Calculating <span class="math inline">\(\eta^2\)</span> and partial <span class="math inline">\(\eta^2\)</span> from SPSS output.
+Video&nbsp;5.7: Calculating <span class="math inline">\(\eta^2\)</span> and partial <span class="math inline">\(\eta^2\)</span> from SPSS output.
 </figcaption>
 </figure>
 </div>
