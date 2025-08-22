@@ -322,7 +322,7 @@ window.Quarto = {
 
 
 <blockquote class="blockquote">
-<p>Key concepts: eta-squared, between-groups variance, within-groups variance, <em>F</em> test on analysis of variance model, pairwise comparisons, post-hoc tests, one-way analysis of variance, two-way analysis of variance, balanced design, main effects, moderation, interaction effect.</p>
+<p>Key concepts: eta-squared, between-groups variance / explained variance, within-groups variance / unexplained variance, <em>F</em> test on analysis of variance model, signal to noise ratio, pairwise comparisons, post-hoc tests, one-way analysis of variance, two-way analysis of variance, balanced design, main effects, moderation, interaction effect.</p>
 </blockquote>
 <section id="summary" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="summary">Summary</h3>
@@ -713,11 +713,11 @@ Figure&nbsp;5.12: Moderation as opposite effects in different contexts.
 <p>This does not mean that the campaign style does not matter. On the contrary, the interaction effect tells us that one campaign style is effective for one group but counterproductive for another group. The second part of the conclusion is just as important as the first part. The campaigner should avoid decreasing the vaccine acceptance among particular target groups.</p>
 </section>
 </section>
-<section id="testing-main-and-interaction-effects" class="level3" data-number="5.4.2">
+<section id="testing-main-and-interaction-effects" class="level3 page-columns page-full" data-number="5.4.2">
 <h3 data-number="5.4.2" class="anchored" data-anchor-id="testing-main-and-interaction-effects"><span class="header-section-number">5.4.2</span> Testing main and interaction effects</h3>
 <p>The effect of a single factor is called a main effect, as we learned in <a href="#sec-maineffects" class="quarto-xref"><span>Section 5.3.3</span></a>. A main effect reflects the difference between means for groups within one factor. The main effect of health literacy, for instance, could be that people with high health literacy are, on average, more willing to accept vaccination than people with low health literacy. A two-way analysis of variance includes two main effects, one for each factor (see <a href="#sec-anova2way" class="quarto-xref"><span>Section 5.3.1</span></a>), for example a main effect of health literacy and a main effect of campaign style.</p>
 <p>For moderation, however, we compare average scores of subgroups. For instance, people exposed to the controlling language campaign can be split into two sub-groups: those with high or low health literacy. Expressed more formally, sub-groups combine a level on one factor with a level on another factor. In <a href="#fig-anova-interaction" class="quarto-xref">Figure&nbsp;<span>5.13</span></a>, we compare average vaccine acceptance for combinations of campaign style and participant’s health literacy. The effect of differences among subgroups on the dependent variable is called an <em>interaction effect</em>. Just like a main effect, an interaction effect is tested with an <em>F</em> test and its effect size is expressed by eta<sup>2</sup>.</p>
-<div id="fig-anova-interaction" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-anova-interaction" class="column-page-inset-right quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-anova-interaction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/" width="100%" height="380px" style="border:none;">

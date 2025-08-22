@@ -10,8 +10,8 @@ source("R_setup.R")
 
 # Analysis of Variance (ANOVA) and Moderation {#sec-anova}
 
-> Key concepts: eta-squared, between-groups variance, within-groups
-> variance, *F* test on analysis of variance model, pairwise
+> Key concepts: eta-squared, between-groups variance / explained variance, within-groups
+> variance / unexplained variance, *F* test on analysis of variance model, signal to noise ratio, pairwise
 > comparisons, post-hoc tests, one-way analysis of variance, two-way
 > analysis of variance, balanced design, main effects, moderation,
 > interaction effect.
@@ -1349,7 +1349,7 @@ dependent variable is called an *interaction effect*. Just like a main
 effect, an interaction effect is tested with an *F* test and its effect
 size is expressed by eta^2^.
 
-::: {#fig-anova-interaction}
+::: {#fig-anova-interaction .column-page-inset-right}
 ```{=html}
 <iframe src="https://sharon-klinkenberg.shinyapps.io/anova-interaction/" width="100%" height="380px" style="border:none;">
 </iframe>
