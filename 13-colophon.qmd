@@ -27,7 +27,7 @@ In 2024 the book has been partially rewriten. Through the [quality agreements fu
 The following changes have been made:
 
 * Rewrite of @sec-fixed-pop-values by [Xin Gao](https://www.uva.nl/en/profile/g/a/x.gao2/x.gao.html) to more thoroughly explain the concept and reasoning behind confidence intervals. Including the creation of a new Shiny app to demonstrate the concept.
-* Merging and rewrite of the previous chapters on Hypothesis testing, Sample size, and Critical discussion by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). This to place the discussion on pawer, and how this is related to sample size firmly in the context of null hypothesis significance testing.
+* Merging and rewrite of the previous chapters on Hypothesis testing, Sample size, and Critical discussion by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). This to place the discussion on power, and how this is related to sample size firmly in the context of null hypothesis significance testing.
 
 Many thanks to [Christin Scholz](https://www.linkedin.com/in/christin-scholz-7a07264b/) for her elaborate feedback on the rewrite of @sec-hypothesis.
 
@@ -39,9 +39,17 @@ In 2025 we migrated the book from [Bookdown](https://bookdown.org) to [Quarto](h
 
 Thanks to the efforts of [Saurabh Khanna](https://www.linkedin.com/in/saurabh90/), [Sten Paffen](), and [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/) the book is now fully migrated to quarto.
 
+### 2025 Rewrite {-}
+
+In 2025 chapter @sec-anova has been rewritten by [Jolijn van den Hout](https://www.linkedin.com/in/jolijn-van-den-hout-b54b33192/). The chapter has been made more inclusive by replacing the George Clooney and Angelina Jolie example by an example related to Vaccine acceptance. The shiny apps were updated by [Christin Scholz](https://www.linkedin.com/in/christin-scholz-7a07264b/?originalSubdomain=nl). These changes where funded by the College of Communication's DEI initiative at the University of Amsterdam.
+
+In addition the moderation analysis with continuous variables has been rewritten by [Sharon Klinkenberg](https://www.linkedin.com/in/sharonklinkenberg/). The chapter now uses the PROCESS macro by Andrew Hayes to analyse the moderation. Manual calculation of dummy variables and interaction terms has been removed. New videaos have been recorded to explain the new approach.
+
+In all chapters textual explanations have been added to the SPSS videos by [Jolijn van den Hout](https://www.linkedin.com/in/jolijn-van-den-hout-b54b33192/) to improve the readability and accessibility of the book.
+
 ### Contribute {-}
 
-If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in Rmarkdown and compiled using the bookdown package. The book is hosted on GitHub pages and the source material is maintained from [his github repository](https://github.com/WdeNooy/Statistical-Inference). If you find any typo's or errors, please submit an issue on the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/issues).
+If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in quarto markdown and compiled using the quarto package. The book is hosted on GitHub pages and the source material is maintained from [his github repository](https://github.com/WdeNooy/Statistical-Inference). If you find any typo's or errors, please submit an issue on the [GitHub repository](https://github.com/ShKlinkenberg/Statistical-Inference/issues).
 
 ### License {-}
 

@@ -46,25 +46,35 @@ Chapter @sec-hypothesis
 Chapter @sec-anova
 
 * @vid-SPSS1way: One-way analysis of variance (ANOVA) in SPSS.
-* @vid-SPSS2way: Two-way analysis of variance with moderation in SPSS.
+* @vid-SPSS1way-visualization: Visualizing the results of a one-way analysis of variance in SPSS.
+* @vid-SPSS1way-interpretation: Interpreting the output of a one-way analysis of variance in SPSS.
+* @vid-SPSS2way: Execute two-way analysis of variance in SPSS.
+* @vid-SPSS2way-visualization: Visualize two-way analysis of variance in SPSS.
+* @vid-SPSS2way-interaction: Interpreting the independent two-way analysis of variance in SPSS.
 * @vid-SPSSeta2: Calculating eta^2^ from SPSS output.
 
 Chapter @sec-moderationcat
 
-* @vid-SPSSregsimple: Executing and interpreting regression analysis in SPSS.
+* @vid-SPSSregassumpt: Inspecting residuals.
+* @vid-SPSSregsimple}: Asymmetric association as prediction.
 * @vid-SPSSregdummy2: Creating dummy variables in SPSS.
 * @vid-SPSSregdummy: Using dummy variables in a regression model in SPSS.
-* @vid-SPSSregassumpt: Checking assumptions for regression models in SPSS.
-* @vid-SPSSregpred: Creating categorical by numerical interaction predictors for regression in SPSS.
-* @vid-SPSSregcatmod: Estimating categorical by numerical moderation with regression in SPSS.
-* @vid-SPSSregmodlines: Representing moderation by regression lines in a scatterplot in SPSS.
-* @vid-SPSSregSupport1: Checking common support for a predictor at different moderator values in SPSS.
+* @vid-PROCESS2cat: Estimating categorical by numerical moderation with regression in SPSS using PROCESS.
+* @vid-PROCESS2catInterpretation: Interpreting the output of PROCESS for a two category moderator.
+* @vid-SPSSregpred: Creating dummy variables for categorical by numerical interaction predictors (2 methods).
+* @vid-SPSSrunModmorecat: Running a moderation analysis in SPSS using PROCESS with a categorical moderator with more than 2 levels and a continuous predictor.
+* @vid-SPSSinterpretModmorecat: Interpretation of SPSS PROCESS output with a categorical moderator with more than 2 levels and a continuous predictor.
+* @vid-SPSSregSupport1: Check common support for a predictor at different moderator values in SPSS.
+* @vid-SPSSregmodlines: Visualizing moderation by regression lines in a scatterplot in SPSS.
 
 Chapter @sec-moderationcont
 
 * @vid-SPSSregcenter: Mean-centering variables for regression analysis in SPSS.
-* @vid-SPSSreglines2: Regression lines for a numerical moderator in a scatterplot in SPSS.
 * @vid-SPSSregSupport2: Checking common support with a numerical moderator in SPSS.
+* @vid-RunModerationWithProcess: Running a moderation analysis with PROCESS in SPSS.
+* @vid-InterpretModerationWithProcess: Interpreting a moderation analysis with PROCESS in SPSS.
+* @vid-SPSSrunModContCat: Moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
+* @vid-SPSSintModContCat: Interpreting the results of a moderation analysis with a continuous and a categorical moderator in SPSS using the PROCESS macro.
 
 Chapter @sec-confounder
 
@@ -495,3 +505,22 @@ For a paired-samples t test, the unstandardized effect size is reported in the c
 For an independent-samples t test, the situation is less fortuitous because SPSS does not report the pooled sample standard deviation that we need. The pooled sample standard deviation takes a sort of  average of the outcome variable's standard deviations in the two groups. As an approximation, we can calculate Cohen's _d_ as follows: Double the t value and divide it by the square root of the degrees of freedom.
 
 In the example, Cohen's _d_ equals $(2 * 0.651) / \surd(18) = 0.31$. This is a moderate effect size.
+
+## Installing PROCESS {#sec-installPROCESS}
+
+SPSS cannot apply statistical inference to indirect effects, so we use the PROCESS macro developed for this purpose [@RefWorks:3873]. If correctly installed (see below), the macro can be used from within the SPSS Regression menu. Please note that you had better not paste the PROCESS commands to the SPSS syntax because it produces a lot of code that is difficult to understand. Instead, run the PROCESS command directly from the menu and manually add a comment to your SPSS syntax file reminding yourself of the model that you estimated with PROCESS.
+
+[Download the PROCESS macro](http://processmacro.org/download.html) and install the SPSS custom dialog file. Check the [FAQ at the PROCESS website](http://processmacro.org/faq.html) if installation is not successful. If PROCESS is successfully installed, it can be found in the `Analyze > Regression` menu.
+
+@vid-installPROCESS shows how to install the PROCESS macro. The installation is straightforward, but you need to know where to find the right files. The video shows two ways of installing the macro. We recommend the latter method, which is more reliable on different operating systems. This requires you to add the costum dialog through the SPSS menu `Extensions > Utilities > Install Custom Dialog`.
+
+::: {#vid-installPROCESS}
+{{< video https://youtu.be/yTiSbVKbYOo?si=ZYsOxc7OqWtgHx8o
+    width="100%"
+    height="315"
+>}}
+
+How to install the PROCESS macro to SPSS.
+:::
+
+If installation does not work, it is always possible to use the University of Amsterdam's virtual destop environment for students, to use SPSS. The PROCESS macro is already installed there. You can find the virtual desktop environment at [apps.uva.nl](https:/apps.uva.nl). Instructions on how to use the virtual desktop environment can be found [here](https://student.uva.nl/en/topics/free-software-at-apps-uva-nl).

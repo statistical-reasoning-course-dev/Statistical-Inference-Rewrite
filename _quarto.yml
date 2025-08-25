@@ -32,9 +32,10 @@ bibliography: RefList.bib
 
 format:
   html:
-    theme: cosmo
+    theme: united
     link-external-newwindow: true
     toc-location: right
+    toc-depth: 4
     css: styleX.css
   # pdf:
   #   documentclass: scrreprt
@@ -48,3 +49,6 @@ crossref:
     - key: vid
       kind: float
       reference-prefix: Video
+    - key: out
+      kind: float
+      reference-prefix: Output
