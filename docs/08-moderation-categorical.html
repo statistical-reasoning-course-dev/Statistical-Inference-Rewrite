@@ -96,7 +96,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4824bc4fcff8d7c1e04965ee072d4f81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-69255e3cc06b20fce066f627c8fccc8a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -232,7 +232,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of Variance (ANOVA) and Moderation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -405,13 +405,13 @@ Figure&nbsp;6.1: A conceptual model with some hypothesized causes of attitude to
 <p><a href="#fig-concept-smoke" class="quarto-xref">Figure&nbsp;<span>6.1</span></a> summarizes some hypothesized causes of the attitude towards smoking. Attitude towards smoking is measured as a scale, so it is a numerical variable. In linear regression, the dependent variable (<span class="math inline">\(y\)</span>) must be numerical and in principle continuous. There are regression models for other types of dependent variables, for instance, logistic regression for a dichotomous (0/1) dependent variable and Poisson regression for a count dependent variable, but we will not discuss these models.</p>
 <section id="the-regression-equation" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="the-regression-equation"><span class="header-section-number">6.1.1</span> The regression equation</h3>
-<p>A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter <span class="math inline">\(y\)</span>) as the sum of a constant, the effects (<span class="math inline">\(b\)</span>) of independent variables or predictors (<span class="math inline">\(x\)</span>), which are <em>predictive effects</em>, and an error term (<span class="math inline">\(e\)</span>), which is also called the <em>residuals</em>, see Equation <a href="#eq-regression" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>.</p>
+<p>A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter <span class="math inline">\(y\)</span>) as the sum of a constant, the effects (<span class="math inline">\(b\)</span>) of independent variables or predictors (<span class="math inline">\(x\)</span>), which are <em>predictive effects</em>, and an error term (<span class="math inline">\(e\)</span>), which is also called the <em>residuals</em>, see <a href="#eq-regression" class="quarto-xref">Equation&nbsp;<span>6.1</span></a>.</p>
 <p><span id="eq-regression"><span class="math display">\[
 \small
   y = constant + b_1*x_1 + b_2*x_2 + b_3*x_3 + e
 \normalsize
 \tag{6.1}\]</span></span></p>
-<p>If we want to predict the dependent variable (<span class="math inline">\(y\)</span>), we ignore the error term (<span class="math inline">\(e\)</span>) in the equation, and we indicate the prediction by adding a hat to outcome variable <span class="math inline">\(\hat{y}\)</span>. The equation without the error term <a href="#eq-regressionpred" class="quarto-xref">Eq.&nbsp;<span>6.2</span></a> represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in <a href="#sec-regr-inference" class="quarto-xref"><span>Section 6.1.5</span></a>.</p>
+<p>If we want to predict the dependent variable (<span class="math inline">\(y\)</span>), we ignore the error term (<span class="math inline">\(e\)</span>) in the equation, and we indicate the prediction by adding a hat to outcome variable <span class="math inline">\(\hat{y}\)</span>. The equation without the error term (<a href="#eq-regressionpred" class="quarto-xref"><span>6.2</span></a>) represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in <a href="#sec-regr-inference" class="quarto-xref"><span>Section 6.1.5</span></a>.</p>
 <p><span id="eq-regressionpred"><span class="math display">\[
 \small
   \hat{y} = constant + b_1*x_1 + b_2*x_2 + b_3*x_3
@@ -440,13 +440,13 @@ Figure&nbsp;6.2: Predicting attitude towards smoking from exposure to an anti-sm
 </figcaption>
 </figure>
 </div>
-<p>Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation <a href="#eq-regrexample" class="quarto-xref">Eq.&nbsp;<span>6.4</span></a>. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.</p>
+<p>Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example <a href="#eq-regrexample" class="quarto-xref">Equation&nbsp;<span>6.4</span></a>. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.</p>
 <p><span id="eq-regrexample"><span class="math display">\[
 \small
   attitude = constant + b*exposure
 \normalsize
 \tag{6.4}\]</span></span></p>
-<p>The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (Eq. <a href="#eq-regsmokedummy" class="quarto-xref">Equation&nbsp;<span>6.5</span></a>) and remember that zero times something yields zero. This reduces the equation to the constant.</p>
+<p>The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (<a href="#eq-regsmokedummy" class="quarto-xref"><span>6.5</span></a>) and remember that zero times something yields zero. This reduces the equation to the constant.</p>
 <p><span id="eq-regsmokedummy"><span class="math display">\[
 \small
 \begin{split}
@@ -500,7 +500,7 @@ Figure&nbsp;6.3: What is the difference in attitude between non-smokers and smok
 </div>
 <p>The interpretation of the effect of a dichotomous independent variable in a regression model is quite different from the interpretation of a numerical independent variable’s effect.</p>
 <p>It does not make sense to interpret the unstandardized regression coefficient of, for example, smoking status as predicted difference in attitude for a difference of one ‘more’ smoking status. After all, the 0 and 1 scores do not mean that there is one unit ‘more’ smoking. Instead, the coefficient indicates that we are dealing with different groups: smokers versus non-smokers.</p>
-<p>If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first equation <a href="#eq-regdicho1" class="quarto-xref">Equation&nbsp;<span>6.7</span></a> represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely <span class="math inline">\(b\)</span>.</p>
+<p>If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first <a href="#eq-regdicho1" class="quarto-xref">Equation&nbsp;<span>6.7</span></a> represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely <span class="math inline">\(b\)</span>.</p>
 <p><span id="eq-regdicho1"><span class="math display">\[
 \small
 \begin{split}
@@ -510,7 +510,7 @@ Figure&nbsp;6.3: What is the difference in attitude between non-smokers and smok
 \end{split}
 \normalsize
 \tag{6.7}\]</span></span></p>
-<p>Regression equation <a href="#eq-regdicho0" class="quarto-xref">Equation&nbsp;<span>6.8</span></a> represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.</p>
+<p>Regression <a href="#eq-regdicho0" class="quarto-xref">Equation&nbsp;<span>6.8</span></a> represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.</p>
 <p><span id="eq-regdicho0"><span class="math display">\[
 \small
 \begin{split}
@@ -626,7 +626,7 @@ smoking
 </figure>
 </div>
 </div>
-<p>If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables <strong>except one</strong>. In the example, we must include two out of the three dummy variables. Equation <a href="#eq-regcat" class="quarto-xref">Equation&nbsp;<span>6.9</span></a> includes dummy variables for former smokers (<span class="math inline">\(smokesnomore\)</span>) and smokers (<span class="math inline">\(smoking\)</span>).</p>
+<p>If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables <strong>except one</strong>. In the example, we must include two out of the three dummy variables. <a href="#eq-regcat" class="quarto-xref">Equation&nbsp;<span>6.9</span></a> includes dummy variables for former smokers (<span class="math inline">\(smokesnomore\)</span>) and smokers (<span class="math inline">\(smoking\)</span>).</p>
 <div class="callout callout-style-simple callout-important">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -646,7 +646,7 @@ smoking
 \normalsize
 \tag{6.9}\]</span></span></p>
 <p>The two dummy variables give us three different regression equations: one for each smoking status category. Just plug in the correct 0 or 1 values for respondents with a particular smoking status.</p>
-<p>Let us first create the equation for non-smokers. To this end, we replace both <span class="math inline">\(smokesnomore\)</span> and <span class="math inline">\(smoking\)</span> by 0. As a result, both dummy variables drop from the equation <a href="#eq-regcat1" class="quarto-xref">Eq.&nbsp;<span>6.10</span></a>, so the constant is the predicted attitude for non-smokers. The non-smokers are our <em>reference group</em> because they are not represented by a dummy variable in the equation.</p>
+<p>Let us first create the equation for non-smokers. To this end, we replace both <span class="math inline">\(smokesnomore\)</span> and <span class="math inline">\(smoking\)</span> by 0. As a result, both dummy variables drop from the equation (<a href="#eq-regcat1" class="quarto-xref"><span>6.10</span></a>), so the constant is the predicted attitude for non-smokers. The non-smokers are our <em>reference group</em> because they are not represented by a dummy variable in the equation.</p>
 <p><span id="eq-regcat1"><span class="math display">\[
 \small
 \begin{split}
@@ -656,7 +656,7 @@ smoking
 \end{split}
 \normalsize
 \tag{6.10}\]</span></span></p>
-<p>For former smokers, we plug in 1 for <span class="math inline">\(smokesnomore\)</span> and 0 for <span class="math inline">\(smoking\)</span>. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the <span class="math inline">\(smokesnomore\)</span> dummy variable (<span class="math inline">\(b_1\)</span>), see Equation <a href="#eq-regcat2" class="quarto-xref">Equation&nbsp;<span>6.11</span></a>. Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient <span class="math inline">\(b_1\)</span> for the <span class="math inline">\(smokesnomore\)</span> dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.</p>
+<p>For former smokers, we plug in 1 for <span class="math inline">\(smokesnomore\)</span> and 0 for <span class="math inline">\(smoking\)</span>. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the <span class="math inline">\(smokesnomore\)</span> dummy variable (<span class="math inline">\(b_1\)</span>), see <a href="#eq-regcat2" class="quarto-xref">Equation&nbsp;<span>6.11</span></a>. Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient <span class="math inline">\(b_1\)</span> for the <span class="math inline">\(smokesnomore\)</span> dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.</p>
 <p><span id="eq-regcat2"><span class="math display">\[
 \small
 \begin{split}
@@ -879,7 +879,7 @@ Figure&nbsp;6.10: Conceptual diagram of moderation.
 </div>
 </div>
 </div>
-<p>In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (<a href="09-moderation-continuous.html" class="quarto-xref"><span>Chapter 7</span></a>) presents regression models in which both the predictor and the moderator are numerical.</p>
+<p>In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (<a href="09-moderation-continuous.html" class="quarto-xref"><span>7</span></a>) presents regression models in which both the predictor and the moderator are numerical.</p>
 <section id="a-dichotomous-moderator" class="level3 page-columns page-full" data-number="6.2.1">
 <h3 data-number="6.2.1" class="anchored" data-anchor-id="a-dichotomous-moderator"><span class="header-section-number">6.2.1</span> A dichotomous moderator</h3>
 <div id="fig-dichotomous-moderator" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1170,7 +1170,7 @@ Exposure*Status (smoker)
 </div>
 </div>
 </div>
-<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS...</code>. In the dialog box, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status2) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate code to visualize interaction</code>, and we click on <code>OK</code> to run the analysis.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS</code>. In the dialog box, we select the dependent variable (attitude) as <code>Y variable</code>, the predictor (exposure) as <code>X variable</code>, and the moderator (status2) as <code>Moderator variable W</code>. We select <code>Model 1</code> for a moderation model with one moderator. Under <code>Options</code>, we select <code>generate code to visualize interaction</code>, and we click on <code>OK</code> to run the analysis.</p>
 <p>When PROCESS is finished, we can find the output in the SPSS output window. By double clicking on the output, we can select the generated code for visualizing the interaction. Copy the code, open a new syntax window (<code>File &gt; New &gt; Syntax</code>), and paste the code into the new syntax window. We can run this code to create a plot of the interaction.</p>
 <p>The plot shows the scatter plot for the relation between exposure and attitude for the two groups of the moderator (non-smokers and smokers). To add the regression lines, we can use the <code>Add Fit Line to subgroups</code> in the <code>Chart Editor</code>. The <code>Chart Editor</code> opens when we double click on the plot.</p>
 <div id="vid-PROCESS2cat" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -1771,7 +1771,7 @@ Contact
 </figure>
 </div>
 </div>
-<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (<a href="#tbl-dich-moderator-cov-output" class="quarto-xref">Table&nbsp;<span>6.4</span></a>) to create a regression equation (<a href="#eq-intvarcov1" class="quarto-xref">Equation&nbsp;<span>6.20</span></a>). Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
+<p>As a first step, use the estimated values of the regression coefficients in the SPSS output (<a href="#tbl-dich-moderator-cov-output" class="quarto-xref">Table&nbsp;<span>6.4</span></a>) to create a regression (<a href="#eq-intvarcov1" class="quarto-xref">Equation&nbsp;<span>6.20</span></a>). Just start at the top of the table and write down the regression coefficients (<em>B</em>) and the independent variable names.</p>
 <p><span id="eq-intvarcov1"><span class="math display">\[
 \small
 \begin{split}
@@ -1780,7 +1780,7 @@ Contact
 \end{split}
 \normalsize
 \tag{6.20}\]</span></span></p>
-<p>As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the <em>smoker</em> variable. For a numerical covariate such as <em>contact</em>, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">5.091</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation (<a href="#eq-intvarcov2" class="quarto-xref">Equation&nbsp;<span>6.21</span></a>).</p>
+<p>As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the <em>smoker</em> variable. For a numerical covariate such as <em>contact</em>, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">5.091</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the (<a href="#eq-intvarcov2" class="quarto-xref">Equation&nbsp;<span>6.21</span></a>).</p>
 <p><span id="eq-intvarcov2"><span class="math display">\[
 \small
 \begin{split}
@@ -2261,8 +2261,8 @@ Hayes, Andrew F. 2013. <em>Introduction to Mediation, Moderation, and Conditiona
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./07-anova.html" class="pagination-link" aria-label="Moderation with Analysis of Variance (ANOVA)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span>
+      <a href="./07-anova.html" class="pagination-link" aria-label="Analysis of Variance (ANOVA) and Moderation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of Variance (ANOVA) and Moderation</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

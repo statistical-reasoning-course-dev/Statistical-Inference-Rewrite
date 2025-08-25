@@ -96,7 +96,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4824bc4fcff8d7c1e04965ee072d4f81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-69255e3cc06b20fce066f627c8fccc8a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -232,7 +232,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of Variance (ANOVA) and Moderation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -754,7 +754,7 @@ Video&nbsp;7.3: Checking common support with a continuous moderator.
 <p>Imagine a scientist wanted to look at the relationship between playing violent video games such as Grand Theft Auto, MadWorld and Manhunt and aggression. She gathered data from 442 youths. She measured their aggressive behaviour, callous unemotional traits, and the number of hours per week they play video games (Field, 2017, sec.&nbsp;11.3.1)</p>
 </blockquote>
 <p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/agression.sav">agression.sav</a> data file for this analysis.</p>
-<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select the <code>Model Number 1</code> for a simple moderation model with one moderator. We select <code>gaming</code> as the predictor <code>X variable</code>, <code>agress</code> as the dependent <code>Y variable</code>, and <code>unemot</code> as the dependent <code>Moderator variable W</code>.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS</code>, in the PROCESS dialog, we select the <code>Model Number 1</code> for a simple moderation model with one moderator. We select <code>gaming</code> as the predictor <code>X variable</code>, <code>agress</code> as the dependent <code>Y variable</code>, and <code>unemot</code> as the dependent <code>Moderator variable W</code>.</p>
 <p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code> and tick the <code>Johnson-Neyman output</code> box. click <code>continue</code> to set these options.</p>
 <p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
 <p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. <a href="#vid-RunModerationWithProcess" class="quarto-xref">Video&nbsp;<span>7.4</span></a> below shows how to run the analysis in SPSS.</p>
@@ -775,7 +775,7 @@ Video&nbsp;7.4: Running a moderation analysis with PROCESS in SPSS.
 <div class="quarto-video"><iframe data-external="1" src="https://www.youtube.com/embed/XqmmPGWANhg?si=W5GhDjbVSlZzRjBR" width="100%" height="315" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-vid" id="vid-InterpretModerationWithProcess-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Video&nbsp;7.5: Running a moderation analysis with PROCESS in SPSS.
+Video&nbsp;7.5: Interpreting a moderation analysis with PROCESS in SPSS.
 </figcaption>
 </figure>
 </div>
@@ -893,7 +893,7 @@ Figure&nbsp;7.8: Conceptual diagram of the estimated moderation model.
 <section id="spss-numerical-and-categorical-moderator-with-process" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="spss-numerical-and-categorical-moderator-with-process"><span class="header-section-number">7.2.1</span> SPSS numerical and categorical moderator with PROCESS</h3>
 <p>For this example we again use the PROCESS macro for SPSS. Installation instructions can be found in <a href="12-Appendix.html#sec-installPROCESS" class="quarto-xref"><span>Section 2</span></a>. We use the <a href="data/smokers5.sav">smokers.sav</a> data file for this analysis. We will look at the effect of campaign exposure on attitude towards smoking moderated by the amount of contact that people have with smokers and their own smoking status being non-smoker, former smoker or smoker.</p>
-<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS ...</code>, in the PROCESS dialog, we select <code>Model Number 2</code> for a moderation model with two moderators and a second order interaction. We select <code>exposure</code> as the predictor <code>X variable</code>, and <code>attitude</code> as the dependent <code>Y variable</code>. We set <code>contact</code> as the continuous numerical <code>Moderator variable W</code>, and <code>status3</code> as the <code>Moderator variable Z</code>. The variable <code>status3</code> is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the <code>Multicategorical</code> butten and ticking the <code>Multicategorical</code> for <code>Variable Z</code>. You can leave the <code>Coding system</code> at <code>Indicator</code>.</p>
+<p>In SPSS we go to <code>Analyze &gt; Regression &gt; PROCESS</code>, in the PROCESS dialog, we select <code>Model Number 2</code> for a moderation model with two moderators and a second order interaction. We select <code>exposure</code> as the predictor <code>X variable</code>, and <code>attitude</code> as the dependent <code>Y variable</code>. We set <code>contact</code> as the continuous numerical <code>Moderator variable W</code>, and <code>status3</code> as the <code>Moderator variable Z</code>. The variable <code>status3</code> is a categorical variable with three levels: non-smoker (0), former smoker (1), and smoker (2). The PROCESS macro will create dummy variables for the categorical moderator, but we do have to indicate that this variable is categorical by clicking the <code>Multicategorical</code> butten and ticking the <code>Multicategorical</code> for <code>Variable Z</code>. You can leave the <code>Coding system</code> at <code>Indicator</code>.</p>
 <p>Under <code>Options</code>, we select <code>Generate code for visualizing interactions</code>, we can mean center our variables by selecting <code>all variables that define products</code>, and for <code>Moderation and conditioning</code> we select <code>-1SD, Mean, +1SD</code>, but we can leave the <code>Johnson-Neyman output</code> un-ticked. Click <code>continue</code> to set these options.</p>
 <p>The PROCESS macro does not like long variable names, so we recommend to use short variable names in the data file. If you have long variable names, you can change them in the SPSS data editor. You can also accept the risk of incorrect output by indicating this under <code>long variable names</code>.</p>
 <p>Finally, we click <code>OK</code> to run the analysis. The output will contain the regression coefficients for the predictor, moderator, and interaction variable, as well as the Johnson-Neyman output for the moderator. <a href="#vid-SPSSrunModContCat" class="quarto-xref">Video&nbsp;<span>7.6</span></a> will show how to run the analysis in SPSS.</p>
@@ -985,7 +985,7 @@ Note
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271     1.0000     -.2460      .0804    -3.0595      .0031     -.4061     -.0859 </span></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="in">     1.8271     2.0000     -.0535      .0954     -.5606      .5767     -.2436      .1365</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in <span class="citation" data-cites="id-SPSSintModContCat">(<a href="14-references.html#ref-id-SPSSintModContCat" role="doc-biblioref"><strong>id-SPSSintModContCat?</strong></a>)</span> below.</p>
+<p>The output for visualizing the conditional effect of the focal predictor is similar to the previous example. The text can be copied to a syntax file, to create a scatterplot with the predictor on the x-axis, the dependent variable on the y-axis for each level of the categorical moderator. This is shown in <a href="#vid-SPSSintModContCat" class="quarto-xref">Video&nbsp;<span>7.7</span></a> below.</p>
 <div id="vid-SPSSintModContCat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-vid figure">
 <div aria-describedby="vid-SPSSintModContCat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">

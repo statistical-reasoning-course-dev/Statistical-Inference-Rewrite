@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4824bc4fcff8d7c1e04965ee072d4f81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-69255e3cc06b20fce066f627c8fccc8a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-anova.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Moderation with Analysis of Variance (ANOVA)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Analysis of Variance (ANOVA) and Moderation</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -204,6 +204,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#technical-changes" id="toc-technical-changes" class="nav-link" data-scroll-target="#technical-changes">2023 Technical changes</a></li>
   <li><a href="#rewrite" id="toc-rewrite" class="nav-link" data-scroll-target="#rewrite">2024 Rewrite</a></li>
   <li><a href="#bookdown-to-quarto-migration" id="toc-bookdown-to-quarto-migration" class="nav-link" data-scroll-target="#bookdown-to-quarto-migration">2025 Bookdown to quarto migration</a></li>
+  <li><a href="#rewrite-1" id="toc-rewrite-1" class="nav-link" data-scroll-target="#rewrite-1">2025 Rewrite</a></li>
   <li><a href="#contribute" id="toc-contribute" class="nav-link" data-scroll-target="#contribute">Contribute</a></li>
   <li><a href="#license" id="toc-license" class="nav-link" data-scroll-target="#license">License</a></li>
   </ul>
@@ -251,7 +252,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The following changes have been made:</p>
 <ul>
 <li>Rewrite of <a href="03-estimation.html#sec-fixed-pop-values" class="quarto-xref"><span>Reverse reasoning from one sample mean</span></a> by <a href="https://www.uva.nl/en/profile/g/a/x.gao2/x.gao.html">Xin Gao</a> to more thoroughly explain the concept and reasoning behind confidence intervals. Including the creation of a new Shiny app to demonstrate the concept.</li>
-<li>Merging and rewrite of the previous chapters on Hypothesis testing, Sample size, and Critical discussion by <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a>. This to place the discussion on pawer, and how this is related to sample size firmly in the context of null hypothesis significance testing.</li>
+<li>Merging and rewrite of the previous chapters on Hypothesis testing, Sample size, and Critical discussion by <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a>. This to place the discussion on power, and how this is related to sample size firmly in the context of null hypothesis significance testing.</li>
 </ul>
 <p>Many thanks to <a href="https://www.linkedin.com/in/christin-scholz-7a07264b/">Christin Scholz</a> for her elaborate feedback on the rewrite of <a href="04-hypothesis.html" class="quarto-xref"><span>4&nbsp; Hypothesis testing</span></a>.</p>
 <p>The 2023 version of the book is archived in the pre 2024 branch of the <a href="https://github.com/ShKlinkenberg/Statistical-Inference/tree/pre_2024-07_archive">GitHub repository</a></p>
@@ -261,9 +262,15 @@ ul.task-list li input[type="checkbox"] {
 <p>In 2025 we migrated the book from <a href="https://bookdown.org">Bookdown</a> to <a href="https://quarto.org">Quarto</a>. Because we were running into technical issues with incompatible packages, we decided to future proof the book by making the transition to quarto. With a lot of regular expressions, we managed to convert many of the bookdown syntax to quarto.</p>
 <p>Thanks to the efforts of <a href="https://www.linkedin.com/in/saurabh90/">Saurabh Khanna</a>, <a href="">Sten Paffen</a>, and <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a> the book is now fully migrated to quarto.</p>
 </section>
+<section id="rewrite-1" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="rewrite-1">2025 Rewrite</h3>
+<p>In 2025 chapter <a href="07-anova.html" class="quarto-xref"><span>5&nbsp; Analysis of Variance (ANOVA) and Moderation</span></a> has been rewritten by <a href="https://www.linkedin.com/in/jolijn-van-den-hout-b54b33192/">Jolijn van den Hout</a>. The chapter has been made more inclusive by replacing the George Clooney and Angelina Jolie example by an example related to Vaccine acceptance. The shiny apps were updated by <a href="https://www.linkedin.com/in/christin-scholz-7a07264b/?originalSubdomain=nl">Christin Scholz</a>. These changes where funded by the College of Communication’s DEI initiative at the University of Amsterdam.</p>
+<p>In addition the moderation analysis with continuous variables has been rewritten by <a href="https://www.linkedin.com/in/sharonklinkenberg/">Sharon Klinkenberg</a>. The chapter now uses the PROCESS macro by Andrew Hayes to analyse the moderation. Manual calculation of dummy variables and interaction terms has been removed. New videaos have been recorded to explain the new approach.</p>
+<p>In all chapters textual explanations have been added to the SPSS videos by <a href="https://www.linkedin.com/in/jolijn-van-den-hout-b54b33192/">Jolijn van den Hout</a> to improve the readability and accessibility of the book.</p>
+</section>
 <section id="contribute" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="contribute">Contribute</h3>
-<p>If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in Rmarkdown and compiled using the bookdown package. The book is hosted on GitHub pages and the source material is maintained from <a href="https://github.com/WdeNooy/Statistical-Inference">his github repository</a>. If you find any typo’s or errors, please submit an issue on the <a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues">GitHub repository</a>.</p>
+<p>If you would like to contribute to the book, you can fork the GitHub repository and submit a pull request. The book is written in quarto markdown and compiled using the quarto package. The book is hosted on GitHub pages and the source material is maintained from <a href="https://github.com/WdeNooy/Statistical-Inference">his github repository</a>. If you find any typo’s or errors, please submit an issue on the <a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues">GitHub repository</a>.</p>
 </section>
 <section id="license" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="license">License</h3>
