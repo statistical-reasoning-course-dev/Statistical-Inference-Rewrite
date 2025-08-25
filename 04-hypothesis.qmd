@@ -79,7 +79,7 @@ barplot( dbinom(0:10, 10, .5),
          col       = colh0
          # beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          )
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
@@ -113,7 +113,7 @@ barplot( dbinom(0:10, 10, .2),
          col       = colha
          # beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          )
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
@@ -122,7 +122,7 @@ barplot( dbinom(0:10, 10, .2),
 
 ```
 
-Note that the probability distribution for $H_0$ indicates the null assumption about reality, while the probability distribution for $H_A$ is based on the true population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.
+Note that the probability distribution for $H_0$ indicates the null assumption about reality, while the probability distribution for $H_A$ is based on the assumed population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.
 
 When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.
 
@@ -132,12 +132,10 @@ $$
 \begin{eqnarray*}
 \text{Two-sided} \\
 H_{A} & : \theta & \neq .5 \\
-H_{A} & : \hat{x} & \neq \mu \\
 H_{A} & : t & \neq 0 \\
 H_{A} & : \mu_1 & \neq \mu_2 \\
 \text{One-sided} \\
 H_{A} & : \theta & < .5 \\
-H_{A} & : \hat{x} & > 100 \\
 H_{A} & : t & > 0 \\
 H_{A} & : \mu_1 & < \mu_2 \\
 \end{eqnarray*}
@@ -178,7 +176,7 @@ The Neyman Pearson approach is about choosing your desired probability of making
 
 The two decisions can be visualized in a $2 \times 2$ table where in reality $H_0$ can be true or false, and the decision can either be to reject $H_0$ or not. @fig-decisiontable illustrates the correct and incorrect decisions that can be made. The green squares obviously indicate that it is a good decision to reject $H_0$ when it is in fact false, and not to reject $H_0$ if it is in reality true. And the red squares indicate that it is a wrong decision to reject $H_0$ when it is actually true (Type I error), or not reject $H_0$ if it is in reality false (Type II error).
 
-![NHST decision table.](figures/decision_table.svg){width=300 #fig-decisiontable fig-align="left"}
+![NHST decision table.](figures/decision_table.svg){width=500 #fig-decisiontable fig-align="left"}
 
 
 Intuitively it is easy to understand that you would want the probability of an incorrect decision to be low, and the probability of a correct decision to be high. But how do we actually set these probabilities? Let's consider the amount of yellow candies from the candy factory again. In @sec-discreterandomvariable we learned that the factory produces candy bags where one fifth of the candies are supposed to be yellow. Now suppose we don't know this and our null hypothesis would be that half of the candies would be yellow. In @fig-expected-value you can set the parameter values to .5 and .2 and see what the discrete probability distributions look like.
@@ -228,7 +226,7 @@ barplot( rbind(dbinom(0:10, 10, .5),
          col       = rbind(colh0,colha),
          beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          )
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
@@ -243,7 +241,7 @@ Doing research is essentially the same. You collect one sample, and have to dete
 
 ### Alpha {#sec-alpha}
 
-The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is in reality true. In the $2 \times 2$ decision table in @fig-decisiontable, this corresponds to the top left quadrant.
+The first step in the Neyman Pearson approach is to set the desired type I error rate, also known as the significance level, $\alpha$. This is the probability of rejecting the null hypothesis when it is assumed to be true. In the $2 \times 2$ decision table in @fig-decisiontable, this corresponds to the top left quadrant.
 
 As a researcher, you decide how much risk you are willing to take to make a type I error. As the Neyman Pearson approach is a decision framework, you have to set this probability before you start collecting data. The most common value for $\alpha$ is .05, which means that you accept a 5% chance of making a type I error of rejecting the null hypothesis when it is in reality true.
 
@@ -291,7 +289,7 @@ barplot( dbinom(0:10, 10, .5),
          col       = colh0
          # beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          )
 
 lines(c(1.5, 11.9), c(.22, .22), col='green', lwd=20)
@@ -362,7 +360,7 @@ barplot( dbinom(0:10, 10, .2),
          col       = colha
          # beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          )
 
 lines(c(1.5, 11.9), c(.22, .22), col='green', lwd=20)
@@ -584,12 +582,12 @@ barplot( rbind(dbinom(0:10, 10, .5),
          col       = rbind(colh0,colha),
          beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          )
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
 
-legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+legend("topright", legend=c("H0","HT"), fill=c(colh0, colha))
 
 lines(c(8.5, 16.5), c(.23, .23), col='red', lwd=4)
 text(12.5, .23, "True effect size", col='red', pos=3)
@@ -702,7 +700,7 @@ barplot( rbind(dbinom(0:n, n, .5),
          col       = rbind(colh0,colha),
          beside    = TRUE
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          ) -> p
 
 
@@ -718,7 +716,7 @@ legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
 
 ```
 
-@fig-posthocpower shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the alternative distribution when rejecting the null hypothesis on the outside of the critical values.
+@fig-posthocpower shows the post hoc power for a sample of 10 candies. The null hypothesis is that the machine produces bags with 5 yellow candies. The alternative hypothesis is that the machine produces bags with 2 yellow candies. But the post hoc power assumes the found test statistic of 4 candies to be the alternative population parameter of .4. Following the same decision criterion as defined in the previous sections, the post hoc power is almost zero. This is the probability of 0 or 10 yellow candies under the true distribution when rejecting the null hypothesis on the outside of the critical values.
 
 You can imagine that if we look at a different candy bag and we would find 7 yellow candies, the post hoc power would not be the same. The post hoc power does not have much practical use, though SPSS produces this when you ask it, it is obvious that multiple replications of a research study will yield different results. As the true population mean is not a random variable, the actual power is fixed and should not vary.
 
@@ -745,7 +743,7 @@ As stated in @sec-power, the only way to increase the power of a test is to incr
 
 @fig-twobinomN20 still follows the reasoning scheme we have setup earlier. We decide to reject $H_0$ on the outside of our critical values (Red vertical line). We determined the position of the critical value based on our chosen alpha level. Because our outcome space is larger we can be more accurate in striving for an $\alpha = .05$. Our alpha is now 4.1%, we get this by adding the yellow bars 0, 1, 2, 3, 4, 5 and 15 up until 20, under the null distribution. This is not exactly 5 percent, but shifting the critical value inwards, would make the alpha level to high. So, this is close enough.
 
-With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that $H_A$ is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the alternative distribution.
+With this sample size, we can acquire our desired power of 80%. If we would assume our alternative hypothesis to be true, our decision to reject the null when you get 5 or less yellow candies, would be correct 80% of the time. The power of 80% is the sum of the light yellow bars under the assumption that $H_A$ is true on the outside of our critical value. So, the power is the probability of getting 0, 1, 2, 3 ,4 ,5 or 15, 16,17, 18, 19 ,20 yellow candies under the true distribution.
 
 ```{r}
 #| label: fig-twobinomN20
@@ -770,7 +768,7 @@ barplot( rbind(dbinom(0:n, n, .5),
          beside    = TRUE,
          cex.names  = .6
          # density   = c(0, 10)
-         #legend.text = c("H0", "HA")
+         #legend.text = c("H0", "HT")
          ) -> p
 
 
@@ -780,7 +778,7 @@ abline(v = p[1,15]+2, col='darkgreen', lwd=2)
 
 # abline(v = c(6.5,27.5), lty=2, col='red')
 
-legend("topright", legend=c("H0","HA"), fill=c(colh0, colha))
+legend("topright", legend=c("H0","HT"), fill=c(colh0, colha))
 
 ```
 
@@ -798,7 +796,7 @@ The same reasoning is applied when using continuous sample statistics. Let's rev
 How does test power depend on effect size, type of test, significance level, and sample size? Sampling distributions of the sample mean under the null hypothesis (H~0~, left-hand curve) and under the assumed true value of the population mean (H~1~, right-hand curve) for a one-sample _t_ test.
 :::
 
-For continuous sample statistics, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is outside the critical values. 
+For continuous sample statistics, we choose an alpha level, and we can see the critical value in the null distribution. The alpha level of 5% is the area under the curve of the null distribution on the outside of the critical values. The power is the area under the alternative distribution that is on the outside of the critical values. 
 
 The reasoning is again the same as in the discrete case, when we use categorical sample statistics. We first determine our desired alpha and power, make sure our sample size is large enough to get the desired power, for our effect size of interest. Then, when we collect our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
 

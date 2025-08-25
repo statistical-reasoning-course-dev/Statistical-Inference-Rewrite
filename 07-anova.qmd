@@ -619,7 +619,7 @@ select the `Bonferroni` correction for multiple testing. Under
 `Options...` we select `Descriptive` to obtain the group means and
 `Homogeneity of variance test` for Levene's *F*-test to check
 assumptions. You would only select bootstrapping if you cannot use the
-theoretical approximation for the *F*-distribution (revise Chapter 2 if
+theoretical approximation for the *F*-distribution (revisit @sec-probmodels if
 needed). You can select `Estimate effect size for overall tests` if you
 want to obtain eta^2^. Please click `paste` and run the command from
 your syntax.
@@ -695,7 +695,7 @@ health literacy?
 
 ::: {#fig-anova-twoway}
 ```{=html}
-<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/" width="100%" height="558px" style="border:none;">
+<iframe src="https://sharon-klinkenberg.shinyapps.io/anova-twoway/" width="100%" height="400px" style="border:none;">
 </iframe>
 ```
 

@@ -355,7 +355,7 @@ There are theoretical probability distributions that do not work with a standard
 # In questions, point out the symmetry of the normal approximation to the confidence interval versus the asymmetry of the percentile-based confidence interval.
 ```
 
-As you might remember from @sec-boot-approx, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in chapter 11.
+As you might remember from @sec-boot-approx, we simulate a sampling distribution if we bootstrap a statistic, for instance median candy weight in a sample bag. We can use this sampling distribution to construct a confidence interval. For example, we take the values separating the bottom 2.5% and the top 2.5% of all samples in the bootstrapped sampling distribution as the lower and upper limits of the 95% confidence interval. We will encounter the bootstrapping method for confidence intervals around regression coefficient of mediator again in @sec-mediation.
 
 It is also possible to construct the entire sampling distribution in exact approaches to the sampling distribution. Both the standard error and percentiles can be used to create confidence intervals. This can be very demanding in terms of computer time, so exact approaches to the sampling distribution usually only report _p_ values (see @sec-pvalue), not confidence intervals.
 
@@ -377,7 +377,7 @@ Now that you have learned about confidence intervals, it is useful to know how t
 
 ### Instruction
 
-In the video below we will show you how to set confidence intervals in SPSS for several analyses. Think about t-tests (Chapter 2), ANOVA's (Chapter 5) and regression analyses (Chapter 6, 7, 8, and 9). Since you have learned what confidence intervals are, and after this paragraph you also know how to implement the correct settings in SPSS we will ask of you to always report the confidence intervals of your results in addition to the test statistic, p-value and effect size. This provides a more complete picture of the research findings, we will elaborate more on this in the next Chapter.
+In the video below we will show you how to set confidence intervals in SPSS for several analyses. Think about t-tests (@sec-probmodels), ANOVA's (@sec-anova) and regression analyses (@sec-moderationcat, -@sec-moderationcont, -@sec-confounder, and -@sec-mediation). Since you have learned what confidence intervals are, and after this paragraph you also know how to implement the correct settings in SPSS we will ask of you to always report the confidence intervals of your results in addition to the test statistic, p-value and effect size. This provides a more complete picture of the research findings, we will elaborate more on this in the next Chapter.
 
 When we execute a t-test the 95% confidence interval is already set as default option. We would only have to change this setting if we would like a confidence interval with a different confidence level (e.g., 90%). In @fig-interval-level we showcased the effect of the confidence level on the precision of the interval.
 

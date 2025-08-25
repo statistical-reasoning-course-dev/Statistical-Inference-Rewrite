@@ -73,7 +73,7 @@ rm(variables)
 
 ### The regression equation
 
-A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter $y$) as the sum of a constant, the effects ($b$) of independent variables or predictors ($x$), which are *predictive effects*, and an error term ($e$), which is also called the *residuals*, see Equation @eq-regression.
+A regression model translates this conceptual diagram into a statistical model. The statistical regression model is a mathematical function with the dependent variable (also known as the outcome variable, usually referred to with the letter $y$) as the sum of a constant, the effects ($b$) of independent variables or predictors ($x$), which are *predictive effects*, and an error term ($e$), which is also called the *residuals*, see @eq-regression.
 
 $$
 \small
@@ -81,7 +81,7 @@ $$
 \normalsize
 $$ {#eq-regression}
 
-If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation, and we indicate the prediction by adding a hat to outcome variable $\hat{y}$. The equation without the error term [Eq. @eq-regressionpred] represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
+If we want to predict the dependent variable ($y$), we ignore the error term ($e$) in the equation, and we indicate the prediction by adding a hat to outcome variable $\hat{y}$. The equation without the error term (-@eq-regressionpred) represents the regression line that we visualize and interpret in the following subsections. We use the error term only when we discuss the assumptions for statistical inference on a regression model in @sec-regr-inference.
 
 $$
 \small
@@ -115,7 +115,7 @@ Predicting attitude towards smoking from exposure to an anti-smoking campaign. T
 :::
 
 
-Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example equation [Eq. @eq-regrexample]. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.
+Good understanding of the regression equation is necessary for understanding moderation in regression models. So let us have a close look at an example @eq-regrexample. In this example, the dependent variable attitude towards smoking is predicted from a constant and one independent variable, namely exposure to an anti-smoking campaign.
 
 $$
 \small
@@ -123,7 +123,7 @@ $$
 \normalsize
 $$ {#eq-regrexample}
 
-The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (Eq. @eq-regsmokedummy) and remember that zero times something yields zero. This reduces the equation to the constant.
+The constant is the predicted attitude if a person scores zero on all independent variables. To see this, plug in (replace) zero for the predictor in the equation (-@eq-regsmokedummy) and remember that zero times something yields zero. This reduces the equation to the constant.
 
 $$
 \small
@@ -184,7 +184,7 @@ The interpretation of the effect of a dichotomous independent variable in a regr
 
 It does not make sense to interpret the unstandardized regression coefficient of, for example, smoking status as predicted difference in attitude for a difference of one 'more' smoking status. After all, the 0 and 1 scores do not mean that there is one unit 'more' smoking. Instead, the coefficient indicates that we are dealing with different groups: smokers versus non-smokers.
 
-If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first equation @eq-regdicho1 represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely $b$.
+If smoking status is coded as smoker (1) versus non-smoker (0), we effectively have two versions of the regression equation. The first @eq-regdicho1 represents all smokers, so their smoking status score is 1. The smoking status of this group has a fixed contribution to the predicted average attitude, namely $b$.
 
 $$
 \small
@@ -196,7 +196,7 @@ $$
 \normalsize
 $$ {#eq-regdicho1}
 
-Regression equation @eq-regdicho0 represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.
+Regression @eq-regdicho0 represents all non-smokers. Their smoking status score is 0, so the smoking status effect drops from the model.
 
 $$
 \small
@@ -254,7 +254,7 @@ knitr::kable(rbind(c("1 - Non-smoker", "1", "0", "0"),
 ```
 
 
-If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables **except one**. In the example, we must include two out of the three dummy variables. Equation @eq-regcat includes dummy variables for former smokers ($smokesnomore$) and smokers ($smoking$).
+If we want to include a categorical independent variable in a regression model, we must use all dummy variables as independent variables **except one**. In the example, we must include two out of the three dummy variables. @eq-regcat includes dummy variables for former smokers ($smokesnomore$) and smokers ($smoking$).
 
 ::: {.callout-important appearance="simple"}
 
@@ -274,7 +274,7 @@ $$ {#eq-regcat}
 
 The two dummy variables give us three different regression equations: one for each smoking status category. Just plug in the correct 0 or 1 values for respondents with a particular smoking status.
 
-Let us first create the equation for non-smokers. To this end, we replace both $smokesnomore$ and $smoking$ by 0. As a result, both dummy variables drop from the equation [Eq. @eq-regcat1], so the constant is the predicted attitude for non-smokers. The non-smokers are our *reference group* because they are not represented by a dummy variable in the equation.
+Let us first create the equation for non-smokers. To this end, we replace both $smokesnomore$ and $smoking$ by 0. As a result, both dummy variables drop from the equation (-@eq-regcat1), so the constant is the predicted attitude for non-smokers. The non-smokers are our *reference group* because they are not represented by a dummy variable in the equation.
 
 $$
 \small
@@ -286,7 +286,7 @@ $$
 \normalsize
 $$ {#eq-regcat1}
 
-For former smokers, we plug in 1 for $smokesnomore$ and 0 for $smoking$. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the $smokesnomore$ dummy variable ($b_1$), see Equation @eq-regcat2. Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient $b_1$ for the $smokesnomore$ dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.
+For former smokers, we plug in 1 for $smokesnomore$ and 0 for $smoking$. The predicted attitude for former smokers equals the constant plus the unstandardized regression coefficient for the $smokesnomore$ dummy variable ($b_1$), see @eq-regcat2. Remember that the constant represents the non-smokers (reference group), so the unstandardized regression coefficient $b_1$ for the $smokesnomore$ dummy variable shows us the difference between former smokers and non-smokers: How much more positive or more negative the average attitude towards smoking is among former smokers than among non-smokers.
 
 $$
 \small
@@ -589,7 +589,7 @@ Use regression analysis if you have a numerical dependent variable and at least 
 
 :::
 
-In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (@sec-moderationcont) presents regression models in which both the predictor and the moderator are numerical.
+In the current section, we discuss regression models with a numerical predictor and a categorical moderator. The next chapter (-@sec-moderationcont) presents regression models in which both the predictor and the moderator are numerical.
 
 ### A dichotomous moderator
 
@@ -661,7 +661,7 @@ ggplot(variables, aes(x, y)) +
 ```
 
 
-The smoking status variable is coded 1 for smokers and 0 for non-smokers. For clarity, we name this variable *smoker* with score 1 for Yes and score 0 for No. We have two different regression equations, one for each group on the dichotomous predictor *smoker*. Just plug in the two possible values (1 and 0) for this variable. For non-smokers [Equation @eq-intvarnonsmoker], the interaction variable drops from the model because multiplying by zero yields zero. For non-smokers, our reference group, $b_1$ represents the effect of exposure on attitude. It is called the *simple slope* of exposure for non-smokers.
+The smoking status variable is coded 1 for smokers and 0 for non-smokers. For clarity, we name this variable *smoker* with score 1 for Yes and score 0 for No. We have two different regression equations, one for each group on the dichotomous predictor *smoker*. Just plug in the two possible values (1 and 0) for this variable. For non-smokers [@eq-intvarnonsmoker], the interaction variable drops from the model because multiplying by zero yields zero. For non-smokers, our reference group, $b_1$ represents the effect of exposure on attitude. It is called the *simple slope* of exposure for non-smokers.
 
 $$
 \small
@@ -1207,7 +1207,7 @@ contact_avg = mean(contact)
 rm(model_1, ci, results_2, model_2, z_attitude, z_status2, z_expostatus2, z_exposure, z_contact)
 ```
 
-As a first step, use the estimated values of the regression coefficients in the SPSS output (@tbl-dich-moderator-cov-output) to create a regression equation (@eq-intvarcov1). Just start at the top of the table and write down the regression coefficients (*B*) and the independent variable names.
+As a first step, use the estimated values of the regression coefficients in the SPSS output (@tbl-dich-moderator-cov-output) to create a regression (@eq-intvarcov1). Just start at the top of the table and write down the regression coefficients (*B*) and the independent variable names.
 
 $$
 \small
@@ -1218,7 +1218,7 @@ $$
 \normalsize
 $$ {#eq-intvarcov1}
 
-As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the *smoker* variable. For a numerical covariate such as *contact*, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">`r report_n(mean(smokers$contact),3)`</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the equation (@eq-intvarcov2).
+As a second step, choose an interesting value for every independent variable in the equation except the predictor. If we want to have the regression line for smokers, choose 1 for the *smoker* variable. For a numerical covariate such as *contact*, it is recommended to choose the mean. Average contact with smokers happens to be <span style="color:Brown;">`r report_n(mean(smokers$contact),3)`</span> in our example. Now replace the independent variables in the equation by the selected values and simplify the (@eq-intvarcov2).
 
 $$
 \small

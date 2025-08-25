@@ -59,7 +59,7 @@ It is important to note that the effect is only unique in comparison to the othe
 
 If we include a confounder as a new independent variable in the model, the partial effects of other independent variables in the model change. In @fig-mediation-multipleregression, for instance, this happens if you add news site use to a model containing age as a predictor for newspaper reading time. The effects of other independent variables are adjusted to a new situation, namely a situation with news site use as a new independent variable. News site use helps to predict variation in the dependent variable, so the variation left to be explained by age changes. In @sec-confounders, we will learn that regression coefficients can increase and decrease if confounders are included in the model.
 
-If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in @sec-mediation (@sec-causalcriteria).
+If we want to interpret regression coefficients as causal effects, for example, whether news site use causes people to spend less time on reading newspapers, we must ensure that there are no important confounders. We will discuss this in @sec-causalcriteria.
 
 #### Confounders are not included in the regression model
 
@@ -315,7 +315,7 @@ Let us imagine the situation where we are part of a political communication rese
 
 We will conduct what we call a _stepwise regression_. This means we will add the predictors to the SPSS model one by one, as we discussed in @sec-essanalconfounders. We perform a regression as always, through `analyse > regression > linear`. We add readingtime as the `dependent variable`. In the `independent(s)` window, we add newssite - click `next`, we add education - click `next` - and we add age. In the `Statistics` dialog, we click `confidence interval`, 95%. Then we run the analysis, please remember to first click `paste` and then run the analysis through the syntax file.
 
-In the video the assumptions of regression analysis are not getting checked since this is not the focus of this chapter. Which is why we are not getting into those settings at the moment. Please refer to Chapter 6 and 7 if you want to get into the assumptions.
+In the video the assumptions of regression analysis are not getting checked since this is not the focus of this chapter. Which is why we are not getting into those settings at the moment. Please refer to @sec-moderationcat and -@sec-moderationcont if you want to get into the assumptions.
 
 In the output we can see the table _Variables Entered/Removed_, here we can see if we entered the variables in the correct order. In the next table, the _Model Summary_ we can collect details on the R and R-squared of the different models. R-squared is the explained variance. The table _Coefficients_ provides us with the other regression output; the unstandardized regression coefficient, the standard error, the standardized regression coefficient, the t-value, the p-value and the confidence interval.
 
