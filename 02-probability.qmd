@@ -87,31 +87,29 @@ It is usually wise to set a limit to the time you allow your computer to work on
 
 ### Introduction {#sec-exact-intro}
 
-To perform an exact approach in SPSS, let us set an example for a research. In a preceding paragraph we suggested the question _are yellow candies more often sticky than red candies_? If we want to investigate this, we have two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). These two variables are both categorical (with two categories).
+To perform an exact approach in SPSS, let us walk through a research example. Let's say you are having some friends over and put some candy out on the table. During the night you and your friends notice some candies being way stickier than other candies. One of your friends makes the observation that it seems to differ by candy colour. You are sceptical and want to investigate this. 
+
+Your research question is: _Are yellow candies more often sticky than red candies_? It concerns two variables. The first variable is candy colour (yellow versus red) and the second variable is stickiness (sticky versus not sticky). These two variables are both categorical (with two categories).
 
 Thus, we can create an exact probability distribution for the combination of colour and stickiness. 
 
-If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an `Exact` button. We can find this in the dialog window for creating a contingency table (`Analyze > descriptive statistics > crosstab`) and in several legacy dialogs for non-parametric tests (`Analyze > nonparametric tests > legacy diologs`). In the Exact dialog, we check the `Exact` option and SPSS automatically sets an upper limit of five minutes to the execution of the command. We can leave this at five minutes (see @sec-comp-int for why we have to do this).
+If SPSS offers an exact approach of the sampling distribution, the test dialog window contains an `Exact` button. We can find this in the dialog window for creating a contingency table (`Analyze > descriptive statistics > crosstab`) and in several legacy dialogs for non-parametric tests (`Analyze > nonparametric tests > legacy dialogs`). In the Exact dialog, we check the `Exact` option and SPSS automatically sets an upper limit of five minutes to the execution of the command. We can leave this at five minutes (see @sec-comp-int for why we have to do this).
 
-As established, we have two categorical variables with two categories. Looking at the test selection table (@sec-test-selection), we know that we use a Chi Square test to investigate these variables. Thus, within the dialog window `crosstabs` we open the `Statistics` dialog to select Chi-sqaure and we open the `Exact` dialog to select the option `Exact`.
+As established, we have two categorical variables with two categories. To correct statistical test for these variables is a Chi Square test. Don't worry - we will discuss this in more detail later, but you can already have a brief look at the test selection table (@sec-test-selection). Within the dialog window `crosstabs` we open the `Statistics` dialog to select Chi-square and we open the `Exact` dialog to select the option `Exact`.
 
 _Note_. A Fisher's exact test is automatically run when there is a 2x2 contingency table. When we perform this test on larger contingency tables we need to select the `Exact` option, which is why we teach it to you here.
 
 ### Instructions
 
-In the video below you can see how to perform an Exact test in SPSS. 
-
-Let's say you are having some friends over and put some candy out on the table. During the night you and your friends notice some candies being way stickier than other candies. One of your friends makes the observations that it seems to differ by candy colour. You are sceptical and want to investigate this.
-
-You might recognize that this example, and the video below, shows the example of candy colour and candy stickiness as described in @sec-exact-intro. Thus, we still have two categorical variables which both have two categories. Hence, we have a 2x2 contingency table and perform an Exact test. Three ways are shown.
+In the video below you can see how to perform an Exact test in SPSS using our example of the relationship between candy colour and stickiness from the previous @sec-exact-intro. Specifically, we perform an exact test on a 2 (colour: red vs. yellow) x 2 (stickiness: sticky vs. not sticky) contingency table. 
 
 First we show you the approach via the `analyze > nonparametric tests > legacy dialogs > chi-square test`, where you only have to select the `Exact` option and the time limit of five minutes. 
 
 Then we show how how to do an Exact test while testing a proportion. This is done via `analyze > nonparametric tests > legacy dialogs > binomial test`. Again, you select the `Exact` option with a five minute time limit. 
 
-Lastly, the crosstabs option is shown. This is the method you will probably use the most. Here we select the _Exact_ option with the five minute time limit, but we also select `Chi-Square` in the `Statistics` dialog. In the `Statistics` dialog we also select an effect size, you usually use four. For at least one nominal variable in your reserach, we use Cramer's V for a symmetrical association and Lambda for an asymmetrical association. For all ordinal variables in your research, we use Gamma (van Goodman en Kruskal) for a symmetrical association and Somer's d for an asymmetrical association. Thus, for this example (two nominal variables and a symmetrical association) we use `Phi and Cramer's V`. Under the `Cells...` dialog, we select the `obersved counts` and the `column` percentages. Then you can run the analysis, do not forget to click `paste` instead of `OK` as we want to work with a syntax. With a syntax you can always check your work.
+Lastly, the crosstabs option is shown. This is the method you will probably use the most. Here we select the _Exact_ option with the five minute time limit, but we also select `Chi-Square` in the `Statistics` dialog. In the `Statistics` dialog we also select an effect size, you usually use four. For at least one nominal variable in your research, we use Cramer's V for a symmetrical association and Lambda for an asymmetrical association. For all ordinal variables in your research, we use Gamma (van Goodman en Kruskal) for a symmetrical association and Somer's d for an asymmetrical association. Thus, for this example (two nominal variables and a symmetrical association) we use `Phi and Cramer's V`. Under the `Cells...` dialog, we select the `observed counts` and the `column` percentages. Then you can run the analysis. Do not forget to click `paste` instead of `OK` in order to save your syntax. With a syntax you can always check your work.
 
-Watch the video for the step by step on how to perform the exact approach in SPSS, the details and some additional information.
+Watch the video for step by step instructions on how to perform the exact approach in SPSS and some additional information.
 
 ::: {#vid-SPSSExact1}
 
@@ -127,15 +125,15 @@ In the video below, we will interpret the results of an Exact test in SPSS.
 
 The video shows you the different tables that yield from the analysis. Output from an analysis often starts with a type of summary. Here you can check things similar to descriptive analyses (e.g., case numbers, means, etc.). In the case of an exact test, we see the numbers of cases in the first table _case processing summary_.
 
-The second table shows us the crosstabulation with the added percentages for all columns. The percentages alone can already give you a direction to where your results are headed. These numbers can really help with interpreting your results later on.
+The second table shows us the crosstabulation with the added percentages for all columns. The percentages alone can already give you a good idea about the nature of your results and can help you interpret the test statistics. 
 
-In the third table, _chi square tests_, we can see our test statistics and values like the p-value. In the third row you can find the Fisher's Exact Test. This row is the row of results we will report for this test. The p-value tells us whether an effect is significant or not based on this sample. We use the criterium of a p-value below .05 to be significant. There is more to this, but we will elaborate in Chapter 4. If you find a significant results, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups are differing from each other and in which way. It can help you make sense of the association you have just tested.
+In the third table, _chi square tests_, we can see our test statistics and values like the p-value. In the third row you can find Fisher's Exact Test. Here, you find the numbers you need to report the results of your statistical test. The p-value tells us whether an effect is significant or not based on this sample. A p-value that is smaller than .05 is commonly considered to indicate significance. There is more to this, but we will elaborate in Chapter 4. If you find a significant results, like shown in the video, the percentages (in the crosstabulation or second table) can help you interpret which groups differ from each other and in which way. 
 
 The fourth table, _symmetric measures_, shows us the effect size. In this case we conclude there is a moderate association between candy stickiness and colour.
 
-In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend te be stickier than red and yellow candies. Tell that to your friend who is hosting the next birthday party!
+In other words, the significant result in this video combined with the percentages can tell us that according to this data it seems that blue, green and orange candies tend to be stickier than red and yellow candies. Good to know when you are hosting the next birthday party!
 
-Watch the video for the step by step on how to interpret the exact approach in SPSS, the details and some additional information.
+Watch the video for the step by step instructions on how to interpret the exact approach in SPSS and some additional information.
 
 
 ```{r, echo=FALSE, eval=FALSE}
@@ -181,7 +179,7 @@ Interpret exact test results in SPSS.
 
 ## Theoretical Approximations of the Sampling Distribution {#sec-theoretical-approx}
 
-You have learned that the exact approach requires a lot of computer power, which is not such a practical method in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the _normal distribution_ or the closely related _(Student) t distribution_. The mathematical functions are called _theoretical probability distributions_. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.
+You have learned that the exact approach requires a lot of computer power, which was a big problem in the not so very distant pre-computer age. In those days, mathematicians and statisticians discovered that many sampling distributions look a lot like known mathematical functions. For example, the sampling distribution of the sample mean can be quite similar to the well-known bell-shape of the _normal distribution_ or the closely related _(Student) t distribution_. The mathematical functions are called _theoretical probability distributions_. Most statistical tests use a theoretical probability distribution as approximation of the sampling distribution.
 
 ::: {#fig-normal-approximation}
 
@@ -200,9 +198,9 @@ We like to use a theoretical probability distribution as an approximation of the
 
 ### Reasons for a bell-shaped probability distribution
 
-The bell shape of the normal distribution makes sense. Our sample of candies is just as likely to be too heavy, as it is too light, so the sampling distribution of the sample mean should be symmetrical. A normal distribution is symmetrical.
+Let's consider the example of average candy weight as our sample statistic of interest. What would the sample distribution look like if we sampled thousands of candy bags and plotted their average weight? The bell shape of the normal distribution makes sense. Each sample of candies is just as likely to be heavier than the true population average, as it is to be lighter. Thus, we expect the sampling distribution of the sample mean to be symmetrical around the expected value. A normal distribution is symmetrical.
 
-In addition, it is more likely that our sample bag has an average weight that is near the true average candy weight in the population than an average weight that is much larger or much smaller than the true average. Bags with on average extremely heavy or extremely light candies may occur, but they are extremely rare (we are very lucky or very unlucky). From these intuitions we would expect a bell shape for the sampling distribution. 
+In addition, it is more likely that each sample bag of candies has an average weight that is near the true average candy weight in the population than an average weight that is much larger or much smaller than the true average. Bags with an extremely high or low average weight may occur, but they are extremely rare. From these intuitions we would expect a bell shape for the sampling distribution. 
 
 From this argumentation, we conclude that the normal distribution is a reasonable model for the probability distribution of sample means. Actually, it has been proven that the normal distribution exactly represents the sampling distribution in particular cases, for instance the sampling distribution of the mean of a very large sample.
 
@@ -237,7 +235,7 @@ For most of these theoretical probability distributions, sample size is importan
 
 ```{r}
 #| label: tbl-thumb
-#| tbl-cap: "ules of thumb for using theoretical probability distributions."
+#| tbl-cap: "Rules of thumb for using theoretical probability distributions."
 #| echo: false
 #| warning: false
 
