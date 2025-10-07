@@ -92,7 +92,7 @@ barplot( dbinom(0:10, 10, .5),
 
 The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate. This would mean that our expected effect of difference would indeed reflect the true population value.
 
-Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produces bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine's parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (@fig-altdistribution) as we did for the null hypothesis.
+Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produce bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine's parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (@fig-altdistribution) as we did for the null hypothesis.
 
 ```{r}
 #| label: fig-altdistribution
@@ -122,9 +122,9 @@ barplot( dbinom(0:10, 10, .2),
 
 ```
 
-Note that the probability distribution for $H_0$ indicates the null assumption about reality, while the probability distribution for $H_A$ is based on the assumed population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.
+Note that the probability distribution for $H_0$ indicates the null assumption (for instance, that there is no effect), while the probability distribution for $H_A$ is based on the assumed population value. At this stage only the sample size, the number of candies in a bag (N=10), the null assumption and our knowledge about reality has been used to determine the distributions. No data has been gathered yet in determining these distributions.
 
-When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.
+When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, knowledge about what happened to a population (for instance, it was exposed to a public health campaign) and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.
 
 The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. @eq-Halt shows some examples of alternative hypotheses expressed in test statistics.
 
@@ -143,9 +143,9 @@ $$ {#eq-Halt}
 
 The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in @sec-one-twosidedtests.
 
-### Testing hypothesis
+### Testing hypotheses
 
-In the empirical cycle, the researcher tests the hypothesis against data collected for this purpose. The most widely used method for testing hypotheses is null hypothesis significance testing (NHST). As we will read in this chapter, there are other methods that can be used to test hypotheses, such as confidence intervals and Bayesian statistics. 
+In the empirical cycle, the researcher tests a hypothesis against data collected for this purpose. The most widely used method for testing hypotheses is null hypothesis significance testing (NHST). As we will read in this chapter, there are other methods that can be used to test hypotheses, such as confidence intervals and Bayesian statistics. 
 
 All methods serve as decision frameworks that enable researchers to establish rules for evaluating their hypotheses. These rules are determined before data collection and are designed to minimize the risk of incorrect decisions. Null Hypothesis Significance Testing (NHST) manages this risk by defining it probabilistically. Confidence intervals provide a measure of accuracy through their width, while Bayesian statistics express this risk in terms of the credibility interval.
 

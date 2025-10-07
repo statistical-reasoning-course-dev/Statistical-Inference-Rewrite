@@ -290,7 +290,7 @@ Now, increase the number of times of samples (replications) by adjusting the sli
 
 Now, also increase the sample size in @fig-pop-ci-sampling by moving the slider. We see that, in the middle plot, all confidence intervals become narrower. We therefore are much more confident in our estimation of the population mean with a larger sample size. 
 
-Note that the confidence intervals are not of the same with, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.
+Note that the confidence intervals are not of the same width, and that the upper and lower bound for each sample is different. This is because the sample mean is different for each sample, and the standard error is calculated from the sample. It is therefore incorrect to say that you are 95% confident that the population mean is within the specific lower and upper bound of your sample. Instead, you are 95% confident that the interval estimate around the sample mean catches the population mean. This is a subtle difference, but indicates that only repeated sampling is the rationale for the confidence that the population mean is within the interval estimate.
 
 ::: {.callout-important appearance="simple"}
 
@@ -377,7 +377,7 @@ Now that you have learned about confidence intervals, it is useful to know how t
 
 ### Instruction
 
-In the video below we will show you how to set confidence intervals in SPSS for several analyses. Think about t-tests (@sec-probmodels), ANOVA's (@sec-anova) and regression analyses (@sec-moderationcat, -@sec-moderationcont, -@sec-confounder, and -@sec-mediation). Since you have learned what confidence intervals are, and after this paragraph you also know how to implement the correct settings in SPSS we will ask of you to always report the confidence intervals of your results in addition to the test statistic, p-value and effect size. This provides a more complete picture of the research findings, we will elaborate more on this in the next Chapter.
+In the video below we will show you how to set confidence intervals in SPSS for several analyses. Think about t-tests (@sec-probmodels), ANOVA's (@sec-anova) and regression analyses (@sec-moderationcat, -@sec-moderationcont, -@sec-confounder, and -@sec-mediation). From now on, we will ask of you to always report the confidence intervals of your results in addition to the test statistic, p-value and effect size. This provides a more complete picture of the research findings, we will elaborate more on this in the next Chapter.
 
 When we execute a t-test the 95% confidence interval is already set as default option. We would only have to change this setting if we would like a confidence interval with a different confidence level (e.g., 90%). In @fig-interval-level we showcased the effect of the confidence level on the precision of the interval.
 
