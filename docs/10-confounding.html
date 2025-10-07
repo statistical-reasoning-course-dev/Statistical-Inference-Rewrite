@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <link href="./09-moderation-continuous.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-69255e3cc06b20fce066f627c8fccc8a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -84,7 +85,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -125,7 +126,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -375,11 +378,11 @@ Figure&nbsp;8.2: What happens to the regression coefficient for the effect of po
 </section>
 <section id="sec-randomization" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="sec-randomization"><span class="header-section-number">8.2.2</span> Randomization for avoiding confounders</h3>
-<p>There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of <a href="07-anova.html" class="quarto-xref"><span>Chapter 5</span></a>, where participants saw a video clip with Angelina Jolie, George Clooney, or no celebrity endorsing a charity. The video clip with or without a celebrity endorser is the experimental treatment here. If we let chance decide which video clip a participant sees, we randomize the experimental treatment.</p>
-<p>How does this help us to avoid having confounders? The example research aimed to find out whether the celebrity endorser affects the willingness to donate to a charity. The experimental treatment (celebrity endorser video) is the independent variable or predictor variable in the model. If participants’ scores on this variable — in the example, seeing Jolie, Clooney, or no celebrity endorser — are random, the variable is expected not to correlate with any other characteristic of the participants when the experiment starts.</p>
-<p>For example, female and male participants would have the same chance to see Jolie, Clooney, or no endorser. We expect one third of all females and one third of all males to see Jolie, to see Clooney, and to see no endorser. If there is no systematic difference between females and males in this respect, participant’s experimental treatment is not correlated with sex of the participant. The same reasoning applies to every other characteristic of the participant at the start of the experiment: age, hair colour, favourite movie star, and so on. We expect that all of these participant characteristics are not correlated with the experimental treatment variable.</p>
+<p>There is a very important way to minimize the chance of having any confounders at all, namely, randomization in an experiment. Remember the example of <a href="07-anova.html" class="quarto-xref"><span>Chapter 5</span></a>, where participants saw vaccination campaigns that used different language styles (controlling language, autonomy supportive language, and neutral language) to enhance vaccine acceptance. The experimental treatment here is the language style used in the campaign seen by each participant. If we let chance decide which campaign a participant sees, we randomize the experimental treatment.</p>
+<p>How does this help us to avoid having confounders? The example research aimed to find out whether the language style affects vaccine acceptance. The experimental treatment (language style of the campaign) is the independent variable or predictor variable in the model. If participants’ scores on this variable — in the example, seeing a campaign with controlling, autonomy supportive, or neutral language — are random, the variable is expected not to correlate with any other characteristic of the participants when the experiment starts.</p>
+<p>For example, participants with high and those with low health literacy would have the same chance to see a campaign with controlling, autonomy supportive, or neutral language style. We expect one third of all participants with high health literacy and one third of participants with low health literacy to see controlling language, to see autonomy supportive language, and to see neutral language. If there is no systematic difference between those with high and those with low health literacy in this respect, participant’s experimental treatment is not correlated with health literacy of the participant. The same reasoning applies to every other characteristic of the participant at the start of the experiment: age, hair colour, political leaning, and so on. We expect that all of these participant characteristics are not correlated with the experimental treatment variable.</p>
 <p>Let us now turn to the definition of a confounder: A confounder is a variable that is correlated with both the predictor and dependent variable but is not included in the regression model. A confounder must be correlated with the predictor, which is the experimental treatment here. Thanks to experimental randomization, we expect that all participant characteristics that are not included in the experiment do not meet this criterion. There should not be any confounders!</p>
-<p>We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of females and males seeing Angelina Jolie in our example experiment, we can end up with more females than males seeing Jolie in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the sex of the participant, so participant sex is a confounder if it is also correlated with the dependent variable (willingness to donate) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders.</p>
+<p>We have learned about probabilities and expectations in previous chapters. These principles also apply to experimental randomization. Even if we may expect to have equal numbers of those with high and low health literacy seeing a campaign with controlling language in our example experiment, we can end up with more people with high health literacy than people with low health literacy seeing controlling language in our experiment due to chance. In this situation, the experimental treatment variable is correlated with the health literacy of the participant, so participant health literacy is a confounder if it is also correlated with the dependent variable (vaccine acceptance) and not included in the analysis. Experimental randomization does not guarantee that there are no confounders but it is our best instrument to minimize the chance of having confounders.</p>
 </section>
 </section>
 <section id="sec-confounders" class="level2 page-columns page-full" data-number="8.3">
@@ -625,13 +628,14 @@ Video&nbsp;8.2: Stepwise regression.
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

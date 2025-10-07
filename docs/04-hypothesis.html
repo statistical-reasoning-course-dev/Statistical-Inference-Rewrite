@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,14 +54,15 @@ div.csl-indent {
 <link href="./03-estimation.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-69255e3cc06b20fce066f627c8fccc8a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -108,7 +109,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -149,7 +150,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -257,7 +260,7 @@ window.Quarto = {
   <ul>
   <li><a href="#null-hypothesis" id="toc-null-hypothesis" class="nav-link" data-scroll-target="#null-hypothesis"><span class="header-section-number">4.1.1</span> Null hypothesis</a></li>
   <li><a href="#sec-alternative-hypothesis" id="toc-sec-alternative-hypothesis" class="nav-link" data-scroll-target="#sec-alternative-hypothesis"><span class="header-section-number">4.1.2</span> Alternative hypothesis</a></li>
-  <li><a href="#testing-hypothesis" id="toc-testing-hypothesis" class="nav-link" data-scroll-target="#testing-hypothesis"><span class="header-section-number">4.1.3</span> Testing hypothesis</a></li>
+  <li><a href="#testing-hypotheses" id="toc-testing-hypotheses" class="nav-link" data-scroll-target="#testing-hypotheses"><span class="header-section-number">4.1.3</span> Testing hypotheses</a></li>
   </ul></li>
   <li><a href="#sec-null-hypothesis-significance-testing" id="toc-sec-null-hypothesis-significance-testing" class="nav-link" data-scroll-target="#sec-null-hypothesis-significance-testing"><span class="header-section-number">4.2</span> Null Hypothesis Significance Testing</a>
   <ul>
@@ -400,7 +403,7 @@ Figure&nbsp;4.1: Discrete binomial distribution.
 <section id="sec-alternative-hypothesis" class="level3" data-number="4.1.2">
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="sec-alternative-hypothesis"><span class="header-section-number">4.1.2</span> Alternative hypothesis</h3>
 <p>The alternative hypothesis indicates what the researcher expects in terms of effects, differences, deviation from null. It is the operationalization of what you expect to find if your theory would be accurate. This would mean that our expected effect of difference would indeed reflect the true population value.</p>
-<p>Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produces bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine’s parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (<a href="#fig-altdistribution" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>) as we did for the null hypothesis.</p>
+<p>Lets assume for the case of our candy factory example, that the machines parameter is .2. We would expect the machine to produce bags with 2 out of 10 yellow candies, one in five yellow candies per bag. Assuming .2 as the machine’s parameter does not ensure that every bag will contain exactly 2 yellow candies. Some bags will contain 0, 1, 3, 4, 5, 6, 7, 8, 9, or even 10 yellow candies. The probabilities for each can again be visualized using the exact discrete binomial probability distribution (<a href="#fig-altdistribution" class="quarto-xref">Figure&nbsp;<span>4.2</span></a>) as we did for the null hypothesis.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-altdistribution" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -415,8 +418,8 @@ Figure&nbsp;4.2: Discrete alternative binomial distribution.
 </div>
 </div>
 </div>
-<p>Note that the probability distribution for <span class="math inline">\(H_0\)</span> indicates the null assumption about reality, while the probability distribution for <span class="math inline">\(H_A\)</span> is based on the assumed population value. At this stage only the sample size, the amount of candies in a bag (10), the null assumption and our knowledge about reality has been used to determine the distribution. No data has been gathered yet in determining these distributions.</p>
-<p>When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.</p>
+<p>Note that the probability distribution for <span class="math inline">\(H_0\)</span> indicates the null assumption (for instance, that there is no effect), while the probability distribution for <span class="math inline">\(H_A\)</span> is based on the assumed population value. At this stage only the sample size, the number of candies in a bag (N=10), the null assumption and our knowledge about reality has been used to determine the distributions. No data has been gathered yet in determining these distributions.</p>
+<p>When we do research, we do not know the true population value. If we did, no research would be needed of course. What we do have is theories, previous research, knowledge about what happened to a population (for instance, it was exposed to a public health campaign) and other empirical evidence. Based on this, we can make an educated guess about the true population value. This educated guess is expressed as the alternative hypothesis. The alternative hypothesis is the hypothesis that the researcher expects to find if the theory is accurate. It is the hypothesis that the researcher wants to test using data.</p>
 <p>The alternative hypothesis is usually formulated as either not equal to the null hypothesis, or greater than or less than the null hypothesis. <a href="#eq-Halt" class="quarto-xref">Equation&nbsp;<span>4.2</span></a> shows some examples of alternative hypotheses expressed in test statistics.</p>
 <p><span id="eq-Halt"><span class="math display">\[
 \begin{eqnarray*}
@@ -432,9 +435,9 @@ H_{A} &amp; : \mu_1 &amp; &lt; \mu_2 \\
 \tag{4.2}\]</span></span></p>
 <p>The alternative hypothesis can be one-sided or two-sided. A two-sided alternative hypothesis states that the population value is not equal to the null hypothesis. A one-sided alternative hypothesis states that the population value is either greater than or less than the null hypothesis. The choice between a one-sided and two-sided test depends on the research question and the theory. We will cover one and two-sided testing more extensively in <a href="#sec-one-twosidedtests" class="quarto-xref"><span>Section 4.2.12</span></a>.</p>
 </section>
-<section id="testing-hypothesis" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="testing-hypothesis"><span class="header-section-number">4.1.3</span> Testing hypothesis</h3>
-<p>In the empirical cycle, the researcher tests the hypothesis against data collected for this purpose. The most widely used method for testing hypotheses is null hypothesis significance testing (NHST). As we will read in this chapter, there are other methods that can be used to test hypotheses, such as confidence intervals and Bayesian statistics.</p>
+<section id="testing-hypotheses" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="testing-hypotheses"><span class="header-section-number">4.1.3</span> Testing hypotheses</h3>
+<p>In the empirical cycle, the researcher tests a hypothesis against data collected for this purpose. The most widely used method for testing hypotheses is null hypothesis significance testing (NHST). As we will read in this chapter, there are other methods that can be used to test hypotheses, such as confidence intervals and Bayesian statistics.</p>
 <p>All methods serve as decision frameworks that enable researchers to establish rules for evaluating their hypotheses. These rules are determined before data collection and are designed to minimize the risk of incorrect decisions. Null Hypothesis Significance Testing (NHST) manages this risk by defining it probabilistically. Confidence intervals provide a measure of accuracy through their width, while Bayesian statistics express this risk in terms of the credibility interval.</p>
 <p>In the next chapters, we will cover the logic behind NHST, confidence intervals, and Bayesian statistics. We will also discuss how to select the appropriate statistical test for your research question, and how to report the results of your statistical tests.</p>
 </section>
@@ -516,7 +519,7 @@ Table&nbsp;4.1: Probabilities of drawing a certain amount of yellow candies from
 </figcaption>
 <div aria-describedby="tbl-nullprobtable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="table do-not-create-environment cell caption-top table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table do-not-create-environment cell caption-top table-sm table-striped small">
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">#Y</td>
@@ -1283,13 +1286,14 @@ Wilkinson, Leland. 1999. <span>“Statistical Methods in Psychology Journals: Gu
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
