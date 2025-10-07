@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -54,14 +54,15 @@ div.csl-indent {
 <link href="./10-confounding.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-69255e3cc06b20fce066f627c8fccc8a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,7 +113,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -153,7 +154,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -459,8 +462,8 @@ Figure&nbsp;9.4: Causal diagram for the effect of age on newspaper reading time 
 <div id="fig-mediation-regression" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mediation-regression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="htmlwidget-59c89b7fd667f20fcfc7" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-59c89b7fd667f20fcfc7">{"x":{"nodes":{"id":[1,2,3],"x":[0,550,1000],"y":[500,0,500],"label":["Age (/10)","Pol. Interest","Newspaper \n Reading Time"],"shape":["box","box","box"],"font.size":[42,42,42],"shadow":["FALSE","FALSE","FALSE"],"physics":[false,false,false],"borderWidth":[1,1,1],"color.background":["white","white","white"],"color.border":["black","black","black"]},"edges":{"from":[1,1,2],"to":[2,3,3],"label":["0.1 \n [0; 0.19]","5.99 \n [5.64; 6.35]","0.32 \n [-0.09; 0.74]"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to","font":{"size":30}},"interaction":{"dragNodes":false,"multiselect":false,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f10d2205fbfb8f37370b" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f10d2205fbfb8f37370b">{"x":{"nodes":{"id":[1,2,3],"x":[0,550,1000],"y":[500,0,500],"label":["Age (/10)","Pol. Interest","Newspaper \n Reading Time"],"shape":["box","box","box"],"font.size":[42,42,42],"shadow":["FALSE","FALSE","FALSE"],"physics":[false,false,false],"borderWidth":[1,1,1],"color.background":["white","white","white"],"color.border":["black","black","black"]},"edges":{"from":[1,1,2],"to":[2,3,3],"label":["0.1 \n [0; 0.19]","5.99 \n [5.64; 6.35]","0.32 \n [-0.09; 0.74]"]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to","font":{"size":30}},"interaction":{"dragNodes":false,"multiselect":false,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mediation-regression-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.5: Path diagram with unstandardized effect sizes and their 95% confidence intervals.
@@ -980,8 +983,8 @@ Age &gt; News Site Use &gt; Reading Time
 <div id="fig-results-pathdiagram" class="cell-output-display quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-results-pathdiagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div id="htmlwidget-043d53f7db5e48f9dec2" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
-<script type="application/json" data-for="htmlwidget-043d53f7db5e48f9dec2">{"x":{"nodes":{"id":[1,2,3,4,5],"x":[0,100,300,360,1000],"y":[550,0,75,300,550],"label":["Age (/10)","Education","Pol. Interest","News Site Use","Newspaper \n Reading Time"],"shape":["box","box","box","box","box"],"font.size":[42,42,42,42,42],"shadow":["FALSE","FALSE","FALSE","FALSE","FALSE"],"physics":[false,false,false,false,false],"borderWidth":[1,1,1,1,1],"color.background":["white","white","white","white","white"],"color.border":["black","black","black","black","black"]},"edges":{"from":[1,2,3,1,2,3,4],"to":[4,4,4,5,5,5,5],"color.highlight":["#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA"],"shadow":[false,false,false,false,false,false,false],"label":["-0.93","0.06","0.12","Direct: b = 4.54, 95% CI [3.62, 5.47]\nIndirect effect: b = 1.44, 95% CI [0.61, 2.17]","0.06","0.52","-1.55"],"font.color":["#D7191C","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#D7191C"],"font.size":[35,35,35,35,35,35,35]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to"},"interaction":{"dragNodes":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d08be71b6c4455a9f966" style="width:100%;height:480px;" class="visNetwork html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d08be71b6c4455a9f966">{"x":{"nodes":{"id":[1,2,3,4,5],"x":[0,100,300,360,1000],"y":[550,0,75,300,550],"label":["Age (/10)","Education","Pol. Interest","News Site Use","Newspaper \n Reading Time"],"shape":["box","box","box","box","box"],"font.size":[42,42,42,42,42],"shadow":["FALSE","FALSE","FALSE","FALSE","FALSE"],"physics":[false,false,false,false,false],"borderWidth":[1,1,1,1,1],"color.background":["white","white","white","white","white"],"color.border":["black","black","black","black","black"]},"edges":{"from":[1,2,3,1,2,3,4],"to":[4,4,4,5,5,5,5],"color.highlight":["#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA"],"shadow":[false,false,false,false,false,false,false],"label":["-0.93","0.06","0.12","Direct: b = 4.54, 95% CI [3.62, 5.47]\nIndirect effect: b = 1.44, 95% CI [0.61, 2.17]","0.06","0.52","-1.55"],"font.color":["#D7191C","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#2B83BA","#D7191C"],"font.size":[35,35,35,35,35,35,35]},"nodesToDataframe":true,"edgesToDataframe":true,"options":{"width":"100%","height":"100%","nodes":{"shape":"dot"},"manipulation":{"enabled":false},"edges":{"arrows":"to"},"interaction":{"dragNodes":true,"zoomSpeed":1}},"groups":null,"width":"100%","height":null,"idselection":{"enabled":false,"style":"width: 150px; height: 26px","useLabels":true,"main":"Select by id"},"byselection":{"enabled":false,"style":"width: 150px; height: 26px","multiple":false,"hideColor":"rgba(200,200,200,0.5)","highlight":false},"main":null,"submain":null,"footer":null,"background":"rgba(0, 0, 0, 0)","highlight":{"enabled":true,"hoverNearest":false,"degree":{"from":1,"to":0},"algorithm":"hierarchical","hideColor":"rgba(200,200,200,0.5)","labelOnly":true},"collapse":{"enabled":false,"fit":false,"resetHighlight":true,"clusterOptions":null,"keepCoord":true,"labelSuffix":"(cluster)"},"tooltipStay":300,"tooltipStyle":"position: fixed;visibility:hidden;padding: 5px;white-space: nowrap;font-family: verdana;font-size:14px;font-color:#000000;background-color: #f5f4ed;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;border: 1px solid #808074;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);"},"evals":[],"jsHooks":[]}</script>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-results-pathdiagram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;9.10: Unstandardized direct effects for a path model with one mediator and two covariates.
@@ -1202,13 +1205,14 @@ Hayes, Andrew F. 2013. <em>Introduction to Mediation, Moderation, and Conditiona
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
