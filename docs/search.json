@@ -10,6 +10,116 @@
     ]
   },
   {
+    "objectID": "index.html#interactive-content",
+    "href": "index.html#interactive-content",
+    "title": "Statistical Inference",
+    "section": "Interactive Content",
+    "text": "Interactive Content\nThe interactive content in this book replaces simulations that used to be demonstrated during lectures. We expect that doing simulations yourself rather than watching them being done by someone else enhances understanding. We have tried to break down the simulations into smaller steps, confronting the student several times with essentially the same simulation, but with added complexity. We hope that this approach enhances understanding and remembrance and, at the same time, avoids frustration caused by complex dashboards offering all options at once.",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#software",
+    "href": "index.html#software",
+    "title": "Statistical Inference",
+    "section": "Software",
+    "text": "Software\nThis book is specificly written for students who have access to SPSS, but the concepts and techniques are applicable to any software that can do the analyses described in this book. We have included screenshots of SPSS output, but We have tried to keep the interpretation of the output as general as possible. The interactive content is implemented in R, but it is not necessary to understand R code to understand the concepts and techniques presented in this book.",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#compute-variable",
+    "href": "index.html#compute-variable",
+    "title": "Statistical Inference",
+    "section": "Compute variable",
+    "text": "Compute variable\nThe first function we wil be covering is the Transform &gt; Compute Variable... function. This function allows you to create new variables based on existing ones, perform mathematical operations, and apply conditional logic. For example, you can use the compute function to calculate the difference between the post and pre-campaign vaccine acceptance scores.\n\n\n\n\n\n\n\n\n\n\n\n(a) Compute\n\n\n\n\n\n\n\n\n\n\n\n(b) Conditional Logic\n\n\n\n\n\n\n\nFigure 1.1: The Compute Variable dialog box in SPSS.\n\n\n\nAs you can see in Figure 1.1 (a), the Compute Variable dialog box allows you to specify the Target Variable name, the numeric expression for the new variable, or any conditional logic that may apply. In this case, we will create a new variable called accept_change that represents the change in vaccine acceptance from pre- to post-campaign. The numeric expression for this variable will be accept_post - accept_pre. Or calculate the average acceptance score by using one of the built-in functions, such as MEAN(accept_post, accept_pre).\nYou can also use conditional logic to create a new variable based on specific criteria. For example, you could create a new variable called low_exposure that indicates whether a participant’s post-campaign acceptance score is above a certain threshold (e.g., 4 on a 10-point scale). The numeric expression for this variable would be exposure &lt; 4.\nOr you can set specific values for a variable based on conditions. For example, if you would need to make dummy variables for the three campaign conditions, you could make a new variable called lang_supportive_dummy and set it to 1 for participants in the autonomy-supportive condition by setting the Numeric Expression to 1, and use the if dialog box to specify the condition lang_cond = 1 as shown in Figure 1.1 (b). You would repeat this process for the controlling condition by creating lang_controlling_dummy variables. Or beter yet, you could do only the first step and modify the syntax to create the other dummy variables in one go. The syntax for this would look like this:\nIF  (lang_cond = 1) lang_supportive=1.\nIF  (lang_cond = 2) lang_controlling=1.\nEXECUTE.",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#recode",
+    "href": "index.html#recode",
+    "title": "Statistical Inference",
+    "section": "Recode",
+    "text": "Recode",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#visual-binning",
+    "href": "index.html#visual-binning",
+    "title": "Statistical Inference",
+    "section": "Visual binning",
+    "text": "Visual binning",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#merge-files",
+    "href": "index.html#merge-files",
+    "title": "Statistical Inference",
+    "section": "Merge files",
+    "text": "Merge files",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#split-files",
+    "href": "index.html#split-files",
+    "title": "Statistical Inference",
+    "section": "Split files",
+    "text": "Split files",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#select-cases",
+    "href": "index.html#select-cases",
+    "title": "Statistical Inference",
+    "section": "Select cases",
+    "text": "Select cases",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#chart-builder",
+    "href": "index.html#chart-builder",
+    "title": "Statistical Inference",
+    "section": "Chart builder",
+    "text": "Chart builder",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#matrix-scatter-plot",
+    "href": "index.html#matrix-scatter-plot",
+    "title": "Statistical Inference",
+    "section": "Matrix scatter plot",
+    "text": "Matrix scatter plot",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
+    "objectID": "index.html#panel-histogram",
+    "href": "index.html#panel-histogram",
+    "title": "Statistical Inference",
+    "section": "Panel histogram",
+    "text": "Panel histogram",
+    "crumbs": [
+      "Intended Audience and Setting"
+    ]
+  },
+  {
     "objectID": "01-samplingdistr.html",
     "href": "01-samplingdistr.html",
     "title": "1  Sampling Distribution",
@@ -757,26 +867,6 @@
     "text": "Bullock, John G., and Shang E. Ha. 2011. “Mediation Analysis Is\nHarder Than It Looks.” In Cambridge Handbook of Experimental\nPolitical Science, edited by James N. Druckman, Donald P. Green,\nJames H. Kuklinski, and ArthurEditors Lupia. Cambridge University\nPress. https://doi.org/10.1017/CBO9780511921452.035.\n\n\nCohen, Jacob. 1969. Statistical Power Analysis for the Behavioral\nSciences. Academic Press.\n\n\nCumming, Geoff. 2012. Understanding the New Statistics: Effect\nSizes, Confidence Intervals, and Meta-Analysis. Routledge.\n\n\nDavis, James A. 1985. The Logic of Causal Order. Sage.\n\n\nde Groot, Adrianus Dingeman. 1969.\nMethodology: Foundations of Inference and\nResearch in the Behavioral Sciences.\nMouton.\n\n\nDeci, Edward L., and Richard M. Ryan. 2013. Intrinsic\nMotivation and Self-Determination\nin Human Behavior. Springer Science &\nBusiness Media.\n\n\nEfron, B. 1979. “Bootstrap Methods: Another Look at the\nJackknife.” Ann.Statist. 7 (1): 1–26.\n\n\nEfron, Bradley. 1987. “Better Bootstrap Confidence\nIntervals.” Journal of the American Statistical\nAssociation 82 (397): 171–85. https://doi.org/10.1080/01621459.1987.10478410.\n\n\nFishbein, M., and J. N. Cappella. 2006. “The Role of Theory in\nDeveloping Effective Health Communications.” Journal of\nCommunication 56 (s1): S1–17. http://onlinelibrary.wiley.com/doi/10.1111/j.1460-2466.2006.00280.x/full.\n\n\nFisher, R. A. 1919. “The Correlation Between Relatives on the\nSupposition of Mendelian Inheritance.” Transactions of the\nRoyal Society of Edinburgh 52 (2): 399–433. https://doi.org/10.1017/S0080456800012163.\n\n\nFisher, Ronald Aylmer. 1955. “Statistical Methods and Scientific\nInduction.” Journal of the Royal Statistical Society.Series B\n(Methodological) 17 (1): 69–78. http://www.jstor.org/stable/2983785.\n\n\nHainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. How Much\nShould We Trust Estimates from Multiplicative Interaction Models? Simple\nTools to Improve Empirical Practice. https://doi.org/10.2139/ssrn.2739221.\n\n\nHayes, Andrew F. 2013. Introduction to Mediation, Moderation, and\nConditional Process Analysis: A Regression-Based Approach. Guilford\nPress.\n\n\nHoekstra, Rink, Richard D Morey, Jeffrey N Rouder, and Eric-Jan\nWagenmakers. 2014. “Robust Misinterpretation of Confidence\nIntervals.” Psychonomic Bulletin & Review 21:\n1157–64.\n\n\nHolbert, R. Lance, and Esul Park. 2019. “Conceptualizing,\nOrganizing, and Positing Moderation in\nCommunication Research.” Communication\nTheory, ahead of print, April. https://doi.org/10.1093/ct/qtz006.\n\n\nLehmann, E. L. 1993. “The Fisher, Neyman-Pearson Theories of\nTesting Hypotheses: One Theory or Two?” Journal of the\nAmerican Statistical Association 88 (424): 1242–49. https://doi.org/10.1080/01621459.1993.10476404.\n\n\nNeyman, Jerzy. 1937. “Outline of a Theory of Statistical\nEstimation Based on the Classical Theory of Probability.”\nPhilosophical Transactions of the Royal Society of London.Series A,\nMathematical and Physical Sciences 236 (767): 333–80.\n\n\nO’Keefe, Daniel J. 2007. “Brief Report: Post Hoc Power, Observed\nPower, a Priori Power, Retrospective Power, Prospective Power, Achieved\nPower: Sorting Out Appropriate Uses of Statistical Power\nAnalyses.” Communication Methods and Measures 1 (4):\n291–99. https://doi.org/10.1080/19312450701641375.\n\n\nRogers, R. W. 1975. “A Protection\nMotivation Theory of Fear\nAppeals and Attitude Change1:\nThe Journal of Psychology:\nVol 91, No 1.” THe Journal of\nPsychology 91 (1): 93–114. https://www.tandfonline.com/doi/abs/10.1080/00223980.1975.9915803?casa_token=tnl4hHdJsB0AAAAA:T1RIciCaIhUSOxB2By3Ah9nZPbufTPANLbbdgCujfE-yZr6cugamG3pBECgsGroUDXf02-k1XlEzOw.\n\n\nSawilowsky, Shlomo. 2009. “New Effect Size Rules of\nThumb.” Journal of Modern Applied Statistical\nMethods 8 (2). https://doi.org/10.22237/jmasm/1257035100.\n\n\nWasserstein, Ronald L., and Nicole A. Lazar. 2016. “The ASA\nStatement on p-Values: Context,\nProcess, and Purpose.” The American\nStatistician 70 (2): 129–33. https://doi.org/10.1080/00031305.2016.1154108.\n\n\nWilkinson, Leland. 1999. “Statistical Methods in Psychology\nJournals: Guidelines and Explanations.” American\nPsychologist 54 (8): 594.",
     "crumbs": [
       "References"
-    ]
-  },
-  {
-    "objectID": "index.html#interactive-content",
-    "href": "index.html#interactive-content",
-    "title": "Statistical Inference",
-    "section": "Interactive Content",
-    "text": "Interactive Content\nThe interactive content in this book replaces simulations that used to be demonstrated during lectures. We expect that doing simulations yourself rather than watching them being done by someone else enhances understanding. We have tried to break down the simulations into smaller steps, confronting the student several times with essentially the same simulation, but with added complexity. We hope that this approach enhances understanding and remembrance and, at the same time, avoids frustration caused by complex dashboards offering all options at once.",
-    "crumbs": [
-      "Intended Audience and Setting"
-    ]
-  },
-  {
-    "objectID": "index.html#software",
-    "href": "index.html#software",
-    "title": "Statistical Inference",
-    "section": "Software",
-    "text": "Software\nThis book is specificly written for students who have access to SPSS, but the concepts and techniques are applicable to any software that can do the analyses described in this book. We have included screenshots of SPSS output, but We have tried to keep the interpretation of the output as general as possible. The interactive content is implemented in R, but it is not necessary to understand R code to understand the concepts and techniques presented in this book.",
-    "crumbs": [
-      "Intended Audience and Setting"
     ]
   }
 ]
