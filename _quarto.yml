@@ -11,6 +11,7 @@ book:
   page-navigation: true
   repo-url: https://github.com/ShKlinkenberg/Statistical-Inference
   repo-actions: [issue, source, edit]
+  # sharing: [linkedin, facebook]
   chapters:
     - index.qmd
     - 01-samplingdistr.qmd
@@ -32,7 +33,7 @@ bibliography: RefList.bib
 
 format:
   html:
-    theme: united
+    theme: minty
     link-external-newwindow: true
     toc-location: right
     toc-depth: 4
