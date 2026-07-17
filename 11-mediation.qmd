@@ -416,21 +416,30 @@ It may happen that an indirect effect is not statistically significant (the conf
 ```{r}
 #| label: fig-causaldiagram3
 #| fig-cap: "Causal diagram for the effects of age and interest in politics on newspaper reading time: unstandardized estimates with 95% confidence intervals."
+#| eval: true
 #| echo: false
 #| warning: false
+
+library(ggplot2)
 
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7), 
                         y = c(.1, .3, .1),
                         label = c("Age", "Pol.Interest", "Reading Time"))
 ggplot(variables, aes(x, y)) + 
-  geom_segment(aes(x = x[1], y = y[1], xend = x[3] - 0.06, yend = y[1]), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
-  geom_segment(aes(x = x[1], y = y[1], xend = x[2] - 0.04, yend = y[2] - 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
-  geom_segment(aes(x = x[2], y = y[2], xend = x[3] - 0.04, yend = y[3] + 0.04), arrow = arrow(length = unit(0.04, "npc"), type = "closed")) + 
-  geom_label(aes(label=label)) + 
-  geom_text(x = c(0.35, 0.5, 0.65), y = c(.26, .07, .26), label = c(expression(paste(italic("b\n"), " = 0.30,\n95% CI [0.22, 0.38]")), expression(paste("Indirect: ", italic("b"), " = 0.06, 95% CI [-0.02, 0.14]")), expression(paste(italic("b\n"), " = 0.20,\n95% CI [0.12, 0.28]")))) +
+annotate("segment", x = 0.3,  y = 0.1, xend = 0.64, yend = 0.1,  arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+annotate("segment", x = 0.3,  y = 0.1, xend = 0.46, yend = 0.26, arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+annotate("segment", x = 0.5,  y = 0.3, xend = 0.66, yend = 0.14, arrow = arrow(length = unit(0.04, "npc"), type = "closed")) +
+  geom_label(aes(label = label)) + 
+  geom_text(x = c(0.35, 0.5, 0.65), 
+            y = c(0.26, 0.07, 0.26), 
+            label = c(paste("b", " = 0.30,\n95% CI [0.22, 0.38]"),
+                      paste("Indirect: ", "b", " = 0.06, 95% CI [-0.02, 0.14]"), 
+                      paste("b", " = 0.20,\n95% CI [0.12, 0.28]"))
+            ) +
   coord_cartesian(xlim = c(0.2, 0.8), ylim = c(0, 0.4)) +
   theme_void()
+
 # Cleanup.
 rm(variables)
 ```
@@ -448,6 +457,8 @@ We usually have theoretical reasons to expect that a variable mediates an effect
 #| fig-cap: "Causal diagram for  interest in politics as mediator between age and newspaper reading time with education as covariate."
 #| echo: false
 #| warning: false
+
+library(ggplot2)
 
 # Create coordinates for the variable names.
 variables <- data.frame(x = c(0.3, 0.5, 0.7, 0.3), 

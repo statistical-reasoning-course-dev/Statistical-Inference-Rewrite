@@ -2,16 +2,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Wouter de Nooy">
-<meta name="author" content="et al.">
-<meta name="dcterms.date" content="2025-10-07">
+<meta name="author" content="W. de Nooy">
+<meta name="author" content="S. Klinkenberg">
+<meta name="author" content="X. Gao">
+<meta name="author" content="J. van den Hout">
+<meta name="author" content="C. Scholz">
+<meta name="dcterms.date" content="2026-07-17">
 
 <title>Statistical Inference</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -36,15 +42,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="./01-samplingdistr.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-da8f32ed4c15d05d0528d1d77f0704ee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-711f046ac453e80520b498e6af8f9af7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -99,9 +104,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Statistical Inference</a> 
         <div class="sidebar-tools-main">
@@ -208,6 +211,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#intended-audience-and-setting" id="toc-intended-audience-and-setting" class="nav-link" data-scroll-target="#intended-audience-and-setting">Intended Audience and Setting</a></li>
   <li><a href="#interactive-content" id="toc-interactive-content" class="nav-link" data-scroll-target="#interactive-content">Interactive Content</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/blob/main/index.qmd" class="toc-action"><i class="bi empty"></i>View source</a></li><li><a href="https://github.com/ShKlinkenberg/Statistical-Inference/edit/main/index.qmd" class="toc-action"><i class="bi empty"></i>Edit this page</a></li></ul></div></nav>
@@ -228,15 +232,18 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
-             <p>Wouter de Nooy </p>
-             <p>et al. </p>
+             <p>W. de Nooy </p>
+             <p>S. Klinkenberg </p>
+             <p>X. Gao </p>
+             <p>J. van den Hout </p>
+             <p>C. Scholz </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 7, 2025</p>
+      <p class="date">July 17, 2026</p>
     </div>
   </div>
   
@@ -259,6 +266,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="interactive-content" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="interactive-content">Interactive Content</h3>
 <p>The interactive content in this book replaces simulations that used to be demonstrated during lectures. I expect that doing simulations yourself rather than watching them being done by someone else enhances understanding. I have tried to break down the simulations into smaller steps, confronting the student several times with essentially the same simulation, but with added complexity. I hope that this approach enhances understanding and remembrance and, at the same time, avoids frustration caused by complex dashboards offering all options at once.</p>
+</section>
+<section id="software" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="software">Software</h3>
+<p>This book is specificly written for students who have access to SPSS, but the concepts and techniques are applicable to any software that can do the analyses described in this book. I have included screenshots of SPSS output, but I have tried to keep the interpretation of the output as general as possible. The interactive content is implemented in R, but it is not necessary to understand R code to understand the concepts and techniques presented in this book.</p>
 
 
 </section>
