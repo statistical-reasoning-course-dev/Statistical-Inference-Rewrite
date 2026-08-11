@@ -776,11 +776,9 @@ For continuous sample statistics, we choose an alpha level, and we can see the c
 
 The reasoning is again the same as in the discrete case, when we use categorical sample statistics. We first determine our desired alpha and power and make sure our sample size is large enough to get the desired power for our effect size of interest. Then, after collecting our data, we can calculate our test statistic and determine if we can reject the null hypothesis or not, being confident that we will be wrong in our conclusion in 5% of the cases when the null hypothesis is in fact true, and that we will be right in 80% of the cases when the alternative hypothesis is actually true.
 
-THIS SECTION DEMONSTRATES THAT SAMPLE SIZE MAKES A DIFFERENCE, BUT I'M MISSING SOME OF TEXT FROM THE OLD BOOK VERSION THAT EXPLAINS WHY, WHICH WOULD REQUIRE A DEFINITION OF PRECISION AND MAYBE SHOWING HOW THE DISTRIBUTION BECOMES MORE OR LESS PEAKED DEPENDING ON SAMPLE SIZE. OR IS THAT CONTENT SOMEWHERE ELSE NOW?
-
 #### How to determine sample size
 
-As stated in @sec-power about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don't know the true effect size. MAYBE I'M MISUNDERSTANDING THIS, BUT THIS IS AGAIN CONFOUNDING HA WITH HT, WHICH I THINK WAS PREVIOUSLY SEPARATED. NOT RE-WRITING IN CASE I'M MISSING SMTH HERE We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence. You can also consider which effect size would be practically relevant.
+As stated in @sec-power about the power of a test, we already considered that we do not know the parameter for the alternative distribution and that we therefore also don't know the true effect size. We stated that you can make an educated guess about the true effect size based on previous research, theory, or other empirical evidence. You can also consider which effect size would be practically relevant.
 
 In research you can take these assumptions into account by conducting a power analysis. A power analysis is a statistical method to determine the sample size you need to get a desired power for a given effect size. 
 
@@ -794,7 +792,7 @@ For our candy color example, we can use G\*Power to calculate the sample size we
 
 ![Power analysis in G*Power for a binomial distribution](figures/g-power.png){#fig-g-power width=400 fig-align="left"}
 
-In @fig-g-power you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By hitting the calculate button, G\*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in @fig-twobinomN20, though with lines instead of bars.
+In @fig-g-power you can see that for the binomial test we have set the proportion p1 to .5 ($H_0$) and the proportion p2 ($H_A$) to .2, indirectly setting the effect size to .3. We have set the alpha level to 5% and the power to 80%. By clicking the calculate button, G\*Power will calculate the sample size we need. In this case we need 20 candies in the bag to get a power of 80%. The plot shows exactly the same information as in @fig-twobinomN20, though with lines instead of bars.
 
 As mentioned in @sec-true-effect-size about the true effect size, the sensitivity of a test is determined by the sample size. The larger the sample size, the more sensitive the test will be. This means that if we want to detect a small effect size, we need a large sample size. If we want to detect a large effect size, we can suffice with a smaller sample.
 
@@ -927,7 +925,7 @@ Consider the following example. You want to measure the difference in media lite
 
 ## Confidence Intervals to test hypotheses {#sec-null-ci}
 
-In @sec-param-estim, we learned how to calculate a confidence interval for the population mean. We also learned that the confidence interval is a range of values that is likely to contain the true population mean. Specifically, the true population mean falls within the confidence in 95% of random samples. We can use this knowledge to test hypotheses such as the hypothesis that the average media literacy in the population is 5.5. If we draw a sample and calculate the confidence interval, we can see if the hypothesized population mean falls within the confidence interval. If it does, we can conclude that we are probably right. If it does not, we can conclude that we are probably wrong. NOT RE-WRITING BC I WANT TO ALIGN FIRST. THIS DOESN'T FEEL VERY PRECISE. MAYBE BETTER TO SAY: IF IT DOES, WE HAVE NO STRONG REASON TO REJECT THE HYPOTHESIS. IF IT DOES NOT, WE CAN CONCLUDE THAT THE HYPOTHESIS IS UNLIKELY TO BE TRUE. 
+In @sec-param-estim, we learned how to calculate a confidence interval for the population mean. We also learned that the confidence interval is a range of values that is likely to contain the true population mean. Specifically, the true population mean falls within the confidence in 95% of random samples. We can use this knowledge to test hypotheses such as the hypothesis that the average media literacy in the population is 5.5. If we draw a sample and calculate the confidence interval, we can see if the hypothesized population mean falls within the confidence interval. If it does, we have no strong reason to reject the hypothesis. If it does not, we can conclude that the hypothesis is unlikely to be true.
 
 We could also use confidence intervals to test the hypothesis that we can improve media literacy through some intervention program. If the lower bound of the confidence interval is higher than 5.5, we can conclude that the intervention program has a positive effect, although whether that effect is practically relevant depends on context.
 
@@ -980,7 +978,7 @@ rm(d)
 
 @fig-ci-nullhyp shows six confidence intervals for a population value, for instance, the effect of exposure to advertisements on brand awareness, and the sample result as point estimate (dot). The horizontal axis is labeled by the size of the effect: the difference between the sample statistic and a null hypothesis that predicts no effect.
 
-A confidence interval shows us whether or not our null hypothesis must be rejected. The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. By the way, note that a confidence interval allows us to test a null hypothesis other than the nil, a null hypothesis that specifies a population parameter of zero (@sec-fixed-pop-values). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this null hypothesis if the confidence interval of the regression coefficient does not include 0.1. SPSS usually tests nil hypotheses, this can be adjusted for some tests, but not all. Though it is almost always possible to visualize the confidence interval in graphs created in SPSS.
+A confidence interval shows us whether or not our null hypothesis must be rejected. The rule is simple: If the value of the null hypothesis is within the confidence interval, the null hypothesis must not be rejected. Note that a confidence interval allows us to test any hypothesis. It does not have to be a population parameter of zero (@sec-fixed-pop-values). If we hypothesize that the effect of exposure on brand awareness is 0.1, we reject this hypothesis if the confidence interval of the regression coefficient does not include 0.1. SPSS usually tests nil hypotheses, this can be adjusted for some tests, but not all. Though it is almost always possible to visualize the confidence interval in graphs created in SPSS.
 
 In addition to the binary decision to accept or reject the null hypothesis, confidence intervals allow us to draw a more nuanced conclusion. A confidence interval displays our uncertainty about the result. If the confidence interval is wide, we are quite uncertain about the true population value. If a wide confidence interval includes the null hypothesis, but the value specified in the null hypothesis is located near one of its boundaries (e.g., Confidence Interval D in @fig-ci-nullhyp), we do not reject the null hypothesis. However, it still is plausible that the population value is substantially different from the hypothesized value. 
 
@@ -989,26 +987,6 @@ For example, we could interpret Confidence Interval D in @fig-ci-nullhyp in the 
 > The effect of exposure to advertisements on brand awareness is of moderate size in the sample (_b_* = 0.28). It is, however, not statistically significant, _t_ (23) = 1.62, _p_ = .119, 95% CI [-0.1, 3.2], meaning that we are not sufficiently confident that there is a positive effect in the population.  It is important to note that the sample is small (_N_ = 25-- this number is not included in the figure--), so test power is probably low, meaning that it is difficult to reject a false null hypothesis. On the basis of the confidence interval we conclude that the effect can be weak and negative, but the plausible effects are predominantly positive, including strong positive effects. One additional daily exposure may decrease predicted brand awareness by 0.1, but it may also increase brand awareness by up to 3.2 points on a scale from 1 (unaware of the brand) to 7 (highly aware of the brand). The latter effect is substantial: A single additional exposure to advertisements would lead to a substantial change in brand awareness. 
 
 We should report that the population value seems to be larger (smaller) than specified in the null hypothesis but that we do not have sufficient confidence in this result because the test is not statistically significant. This is better than reporting that there is no difference because the statistical test is not significant.  
-
-I FIND THIS A BIT DISRUPTIVELY PLACED. MAYBE MOVE DOWN AS A SORT OF SUMMARY/CONCLUSION?
-
-::: {.callout-important appearance="simple" #rmdfisher}
-
-The fashion of speaking of a null hypothesis as "accepted when false", whenever a test of significance gives us no strong reason for rejecting it, and when in fact it is in some way imperfect, shows real ignorance of the research workers' attitude, by suggesting that in such a case he has come to an irreversible decision.
-
-The worker's real attitude in such a case might be, according to the circumstances:
-
-(a) "The possible deviation from truth of my working hypothesis, to examine which the test is appropriate, seems not to be of sufficient magnitude to warrant any immediate modification."
-
-Or it might be:
-
-(b) "The deviation is in the direction expected for certain influences which seemed to me not improbable, and to this extent my suspicion has been confirmed; but the body of data available so far is not by itself sufficient to demonstrate their reality." 
-
-[@RefWorks:3907: 73]
-
-Sir Ronald Aylmer Fisher, Wikimedia Commons
-
-:::
 
 In a similar way, a very narrow confidence interval including the null hypothesis (e.g., Confidence Interval B in @fig-ci-nullhyp) and a very narrow confidence interval near the null hypothesis but excluding it (e.g., Confidence Interval C in @fig-ci-nullhyp) should not yield opposite conclusions because the statistical test is significant in the second but not in the first situation. After all, even for the significant situation, we know with high confidence (narrow confidence interval) that the population value is close to the hypothesized value.
 
@@ -1022,25 +1000,17 @@ In addition, it is good practice to include confidence intervals in research rep
 
 Using confidence intervals in this way, we avoid the problem that statistically non-significant effects are not published. Not publishing non-significant results, either because of self-selection by the researcher or selection by journal editors and reviewers, offers a misleading view of research results.
 
-If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, which brings us to meta-analysis.
+If results are not published, they cannot be used to design new research projects. For example, effect sizes that are not statistically significant are just as helpful to determine test power and sample size as statistically significant effect sizes. An independent variable without statistically significant effect may have a significant effect in a new research project and should not be discarded if the potential effect size is so substantial that it is practically relevant. Moreover, combining results from several research projects helps making more precise estimates of population values, as covered in @sec-meta-analysis on meta-analysis.
 
 ### Bootstrapped confidence intervals
 
 Using the confidence interval is the easiest and sometimes the only way of testing a null hypothesis if we create the sampling distribution with bootstrapping. For instance, we may use the median as the preferred measure of central tendency rather than the mean if the distribution of scores is quite skewed and the sample is not very large. In this situation, a theoretical probability distribution for the sample median is not known, so we resort to bootstrapping.
 
-```{r null-bootstrap, eval=FALSE, echo=FALSE}
-# Create a (left) skewed sample of media literacy scores (N = 30, such that the sampling dsitribution is skewed?). Generate a sampling distribution of median media literacy scores and display it as a histogram (with narrow bins). Show to vertical lines for the lower and upper limit of the confidence interval and display the percentage of cases to left/middle/right of these lines. Add a range slider, so the user can set the lower and upper limits of the 95% confidence interval for the sample median.
-
-1. @fig-null-bootstrap shows the bootstrapped sampling distribution of sample medians for media literacy of teenagers. Use the sliders to determine the 95% confidence interval of the sample median.
-
-2. Test the null hypothesis that teenager media literacy in the population is 6.0.
-```
-
 Bootstrapping creates an empirical sampling distribution: a lot of samples with a median calculated for each sample. A confidence interval can be created from this sampling distribution (see @sec-bootstrap-confidenceinterval). If our null hypothesis about the population median is included in the 95% confidence interval, we do not reject the null hypothesis. Otherwise, we reject it. We will encounter this in @sec-mediation about mediation, where indirect effects are tested with bootstrapped confidence intervals.
 
 ## Bayesian hypothesis testing {#sec-bayesian-hypothesis-testing}
 
-A more radical way of including previous knowledge in statistical inference is _Bayesian inference_. Bayesian inference regards the sample that we draw as a means to update the knowledge that we already have or think we have on the population. Our previous knowledge is our starting point and we are not going to just discard our previous knowledge if a new sample points in a different direction, as we do when we reject a null hypothesis.  
+A different way of including previous knowledge in statistical inference is _Bayesian inference_. Bayesian inference regards the sample that we draw as a means to update the knowledge that we already have or think we have on the population. Our previous knowledge is our starting point and we are not going to just discard our previous knowledge if a new sample points in a different direction, as we do when we reject a null hypothesis.  
 
 Think of Bayesian inference as a process similar to predicting the weather. If I try to predict tomorrow's weather, I am using all my weather experience to make a prediction. If my prediction turns out to be more or less correct, I don't change the way I predict the weather. But if my prediction is patently wrong, I try to reconsider the way I predict the weather, for example, paying attention to new indicators of weather change.  
 
@@ -1056,7 +1026,7 @@ Bayesian inference is intuitively appealing but it has not yet spread widely in 
 
 ### Criticisms of Null Hypothesis Significance Testing {#sec-criticismsNHST}
 
-In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is below .05 SEE COMMENT ABOVE - TO BE CONSISTENT WITH THE REST OF THE TEXT IT SHOULD BE LESS OR EQUAL TO or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch @vid-video-cumming.
+In null hypothesis significance testing, we totally rely on the test's _p_ value. If this value is equal or smaller than .05 or another significance level we specified for our test, we reject the null hypothesis and we do not reject it otherwise. Based on this decision, we draw a conclusion about the effect in the population. Is this a wise thing to do? Watch @vid-video-cumming.
 
 ::: {#vid-video-cumming}
 {{< video https://www.youtube.com/embed/ez4DgdurRPg 
@@ -1068,9 +1038,9 @@ In null hypothesis significance testing, we totally rely on the test's _p_ value
 The dance of the _p_ values by Geoff Cumming.
 :::
 
-As the video illustrates, only focusing on the p-value can provide wildly misleading results. Specially with small sample sizes, you can find significant effects that do not correspond with results we find while using confidence intervals. Blindly following the p-value mantra is considered to be bad practice. I'M NOT SURE WHICH POINT IS BEING MADE HERE EXACTLY. IS IT JUST THAT THE CONCLUSIONS WE WOULD DRAW FROM P-VALUES ARE NOT ALWAYS THE SAME AS THE ONE'S WE WOULD MAKE BASED ON CONFIDENCE INTERVALS? IT NOW SOUNDS A BIT LIKE THAT THERE IS NO RELATION BETWEEN THE TWO WHICH MAYBE GOES A BIT FAR.
+As the video illustrates, only focusing on the p-value can provide wildly misleading results. Specially with small sample sizes, you can find significant effects that do not correspond with results we find while using confidence intervals. Blindly following the p-value mantra is considered to be bad practice.
 
-I hope that by now, @sec-null-hypothesis-significance-testing has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that "studies have found that in many areas of Psychology, the median size effect is .5". Though blaming the _p_-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the $H_0$ and $H_A$ distributions in the video it is clear to see that both distributions overlap. THERE IS A BIT OF A LOGICAL JUMP HERE BEFORE THE LAST SENTENCE. IS THE POINT TO SAY THAT THE EXAMPLES IN THE VIDEO ARE UNDERPOWERED?
+I hope that by now, @sec-null-hypothesis-significance-testing has prepared you to critically reflect on this video. In his simulation, Cumming correctly states that "studies have found that in many areas of Psychology, the median size effect is .5". Though blaming the _p_-value instead of questionable research practices is a bit misleading. We have learned that we should strive for a power of 80% and set our sample size accordingly. Looking at the overlap of the $H_0$ and $H_A$ distributions in the video it is clear to see that both distributions overlap indicating that the examples is under powered.
 
 Most criticism of null hypothesis significance testing focuses on the _p_-value as a decision criterion. This critique is justified for studies that do not take every aspect of the Neyman-Pearson approach (e.g. power) into consideration. The result has been an enormous amount of underpowered studies and a failure to replicate seminal studies from the last decades. 
 
