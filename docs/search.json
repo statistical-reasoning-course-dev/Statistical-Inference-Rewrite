@@ -40,91 +40,41 @@
     ]
   },
   {
-    "objectID": "index.html#compute-variable",
-    "href": "index.html#compute-variable",
+    "objectID": "index.html#syntax",
+    "href": "index.html#syntax",
     "title": "Statistical Inference",
-    "section": "Compute variable",
-    "text": "Compute variable\nThe first function we wil be covering is the Transform &gt; Compute Variable... function. This function allows you to create new variables based on existing ones, perform mathematical operations, and apply conditional logic. For example, you can use the compute function to calculate the difference between the post and pre-campaign vaccine acceptance scores.\n\n\n\n\n\n\n\n\n\n\n\n(a) Compute\n\n\n\n\n\n\n\n\n\n\n\n(b) Conditional Logic\n\n\n\n\n\n\n\nFigure 1: The Compute Variable dialog box in SPSS.\n\n\n\nAs you can see in Figure 1 (a), the Compute Variable dialog box allows you to specify the Target Variable name, the numeric expression for the new variable, or any conditional logic that may apply. In this case, we will create a new variable called accept_change that represents the change in vaccine acceptance from pre- to post-campaign. The numeric expression for this variable will be accept_post - accept_pre. Or calculate the average acceptance score by using one of the built-in functions, such as MEAN(accept_post, accept_pre).\nYou can also use conditional logic to create a new variable based on specific criteria. For example, you could create a new variable called low_exposure that indicates whether a participant’s post-campaign acceptance score is above a certain threshold (e.g., 4 on a 10-point scale). The numeric expression for this variable would be exposure &lt; 4.\nOr you can set specific values for a variable based on conditions. For example, if you would need to make dummy variables for the three campaign conditions, you could make a new variable called lang_supportive_dummy and set it to 1 for participants in the autonomy-supportive condition by setting the Numeric Expression to 1, and use the if dialog box to specify the condition lang_cond = 1 as shown in Figure 1 (b). You would repeat this process for the controlling condition by creating lang_controlling_dummy variables. Or beter yet, you could do only the first step and modify the syntax to create the other dummy variables in one go. The syntax for this would look like this:\nIF  (lang_cond = 1) lang_supportive=1.\nIF  (lang_cond = 2) lang_controlling=1.\nEXECUTE.",
+    "section": "Syntax",
+    "text": "Syntax\nWhile using SPSS it is good practice to keep a record of the steps you take in your analysis. This can be done by saving the syntax of your commands, which allows you to reproduce your analysis later or share it with others. Producing clear and well-documented syntax is an important skill in data analysis, as it allows for transparency and reproducibility of your work. In SPSS you can produce syntax by clicking on the Paste button in the dialog boxes of the functions you use. This will paste the corresponding syntax into a syntax window, which you can then save and run later. You can also edit the syntax directly in the syntax window, which allows for more flexibility and customization of your analysis. It is good practice to properly comment your syntax, so that you and others can understand what each step of the analysis does. You can add comments in SPSS syntax by using an asterisk (*) at the beginning of a line.\n* Specify the data set to use for this analysis\n* Recode the variable remember to system missing if it is 0\n\nDATASET ACTIVATE DataSet1.\nRECODE remember (0=SYSMIS) INTO only_remember.\nEXECUTE.\nAbove you can see an example of a syntax with comments. The first two lines are comments that explain what the following lines of syntax do. Line 3 is deliberately left blank to separate the comments from the actual syntax. This is relevant because SPSS sometimes does not execute the syntax correctly if there is no separation between comments and syntax. The fourth line specifies the dataset to use for the analysis, and the fifth line recodes the variable remember to system missing if it is 0, creating a new variable called only_remember. The last line executes the recoding command.\nThe syntax file can be saved as a .sps file, which can be opened and run in SPSS at any time.",
     "crumbs": [
       "Introduction"
     ]
   },
   {
-    "objectID": "index.html#recode",
-    "href": "index.html#recode",
+    "objectID": "index.html#example-dataset",
+    "href": "index.html#example-dataset",
     "title": "Statistical Inference",
-    "section": "Recode",
-    "text": "Recode",
+    "section": "Example dataset",
+    "text": "Example dataset\nFor this chapter we will be working with the vaccine.sav dataset, which contains fictitious data on a sample of 143 participants who were surveyed about their attitudes towards vaccination. Table 1 provides a description of the variables in the dataset.\n\n\n\nTable 1: Description of the variables\n\n\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\naccept_post\nRespondent’s vaccine acceptance at the campaign end\n\n\naccept_pre\nRespondent’s vaccine acceptance at the campaign start\n\n\nexposure\nRespondent’s exposure to the campaign\n\n\nremember\nRespondent remembers the campaign?\n\n\nlang_cond\nType of language used in the campaign\n\n\nhealth_literacy\nRespondent’s health literacy\n\n\n\n\n\n\nThe dataset describes a health communication study investigating which campaign strategy is most effective in increasing acceptance of a new vaccine. Researchers developed three versions of a campaign: one using autonomy-supportive language that respects people’s freedom of choice, one using controlling language that pressures or threatens people to accept the vaccine, and one using neutral language that serves as a control condition. They hypothesize that the effectiveness of these strategies may depend on individuals’ health literacy, defined as their ability to find, understand, and use health information to make good health decisions. To test this, participants with either high or low health literacy were randomly assigned to view one of the three campaign versions, and their vaccine acceptance was measured as the main outcome. In addition to vaccine acceptance, the dataset contains information on participants’ exposure to the campaign, whether they remember it, and their health literacy level.",
     "crumbs": [
       "Introduction"
     ]
   },
   {
-    "objectID": "index.html#visual-binning",
-    "href": "index.html#visual-binning",
+    "objectID": "index.html#wrangling",
+    "href": "index.html#wrangling",
     "title": "Statistical Inference",
-    "section": "Visual binning",
-    "text": "Visual binning",
+    "section": "Data wrangling",
+    "text": "Data wrangling\nIn communication science, data wrangling is the process of cleaning and transforming raw data into a format that is suitable for analysis. This process often involves several steps, including importing data, handling missing values, recoding variables, creating new variables, and filtering or selecting cases. In this chapter, we will cover these steps in detail, using the vaccine dataset as an example.\n\nCompute variable\nThe first function we wil be covering is the Transform &gt; Compute Variable... function. This function allows you to create new variables based on existing ones, perform mathematical operations, and apply conditional logic. For example, you can use the compute function to calculate the difference between the post and pre-campaign vaccine acceptance scores.\n\n\n\n\n\n\n\n\n\n\n\n(a) Compute\n\n\n\n\n\n\n\n\n\n\n\n(b) Conditional Logic\n\n\n\n\n\n\n\nFigure 1: The Compute Variable dialog box in SPSS.\n\n\n\nAs you can see in Figure 1 (a), the Compute Variable dialog box allows you to specify the Target Variable name, the numeric expression for the new variable, or any conditional logic that may apply. In this case, we will create a new variable called accept_change that represents the change in vaccine acceptance from pre- to post-campaign. The numeric expression for this variable will be accept_post - accept_pre. Or calculate the average acceptance score by using one of the built-in functions, such as MEAN(accept_post, accept_pre).\nYou can also use conditional logic to create a new variable based on specific criteria. For example, you could create a new variable called low_exposure that indicates whether a participant’s post-campaign acceptance score is above a certain threshold (e.g., 4 on a 10-point scale). The numeric expression for this variable would be exposure &lt; 4.\nOr you can set specific values for a variable based on conditions. For example, if you would need to make dummy variables for the three campaign conditions, you could make a new variable called lang_supportive_dummy and set it to 1 for participants in the autonomy-supportive condition by setting the Numeric Expression to 1, and use the if dialog box to specify the condition lang_cond = 1 as shown in Figure 1 (b). You would repeat this process for the controlling condition by creating lang_controlling_dummy variables. Or beter yet, you could do only the first step and modify the syntax to create the other dummy variables in one go. The syntax for this would look like this:\nIF  (lang_cond = 1) lang_supportive  = 1.\nIF  (lang_cond = 2) lang_controlling = 1.\nEXECUTE.\nIn communication science the compute funciont is often used to combine seperate questionaire items into a single scale score. For example, if you have a 5-item scale measuring vaccine acceptance, you could use the MEAN of SUM function to calculate the new scale score across those items and create a new variable called acceptance_scale. This new variable can then be used in subsequent analyses.\n\n\nRecode\nThe Transform &gt; Recode into Different Variables... function allows you to recode existing variables into new ones, which can be useful for creating categorical variables or grouping continuous variables into categories. For example, you could recode the health_literacy variable into a new variable called health_literacy_group, where participants with scores below a certain threshold are classified as “low” and those above the threshold as “high”.\nThe function is also often used for recoding indicative and contra indicative items in a scale. For example if you would have a single item of a scale that is, in contrast to all the other items, frazed in a negative way, you could recode the item so that it’s score is reversed, and the interpretation of the item aligns with the other items.\nThe recode function lets you specify old and new values for the variable, and you can also use conditional logic to recode values based on specific criteria. In Figure 2 (a) you can see the Recode Variable dialog box, where you can specify the input variable and specify the output variable. Under output variable, you can specify the name and label for the new variable. Make sure to click the Change button to save the output variable settings before proceeding.\nNext you can specify the old and new values for the recoding process by clicking the Old and New Values... button, which opens the Old and New Values dialog box as shown in Figure 2 (b). In this dialog box, you can specify the old values and the corresponding new values for the recoding process. You can use the Range option to recode a range of values into a single category. For example, you could recode all values from 1 to 3 as “low” and all values from 4 to 5 as “high”. In Figure 2 (b) though, we will be recoding everyone that did not remember the campaign that they were exposed to as system missing.\n\n\n\n\n\n\n\n\n\n\n\n(a) Recode\n\n\n\n\n\n\n\n\n\n\n\n(b) Recode set values\n\n\n\n\n\n\n\nFigure 2: The Recode Variable dialog box in SPSS.\n\n\n\nThere is also a Transform &gt; Recode into Same Variables... function, which allows you to recode existing variables in place, without creating new variables. This can be useful for correcting errors or standardizing values within a variable. However, it is important to use this function with caution, as it will overwrite the original variable and its values.\n\n\nVisual binning\n\n\nMerge files\n\n\nSelect cases\n\n\nSplit files",
     "crumbs": [
       "Introduction"
     ]
   },
   {
-    "objectID": "index.html#merge-files",
-    "href": "index.html#merge-files",
+    "objectID": "index.html#visualization",
+    "href": "index.html#visualization",
     "title": "Statistical Inference",
-    "section": "Merge files",
-    "text": "Merge files",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#split-files",
-    "href": "index.html#split-files",
-    "title": "Statistical Inference",
-    "section": "Split files",
-    "text": "Split files",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#select-cases",
-    "href": "index.html#select-cases",
-    "title": "Statistical Inference",
-    "section": "Select cases",
-    "text": "Select cases",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#chart-builder",
-    "href": "index.html#chart-builder",
-    "title": "Statistical Inference",
-    "section": "Chart builder",
-    "text": "Chart builder",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#matrix-scatter-plot",
-    "href": "index.html#matrix-scatter-plot",
-    "title": "Statistical Inference",
-    "section": "Matrix scatter plot",
-    "text": "Matrix scatter plot",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#panel-histogram",
-    "href": "index.html#panel-histogram",
-    "title": "Statistical Inference",
-    "section": "Panel histogram",
-    "text": "Panel histogram",
+    "section": "Visualization",
+    "text": "Visualization\n\nChart builder\n\n\nMatrix scatter plot\n\n\nPanel histogram",
     "crumbs": [
       "Introduction"
     ]
@@ -887,56 +837,6 @@
     "text": "Bullock, John G., and Shang E. Ha. 2011. “Mediation Analysis Is\nHarder Than It Looks.” In Cambridge Handbook of Experimental\nPolitical Science, edited by James N. Druckman, Donald P. Green,\nJames H. Kuklinski, and ArthurEditors Lupia. Cambridge University\nPress. https://doi.org/10.1017/CBO9780511921452.035.\n\n\nCohen, Jacob. 1969. Statistical Power Analysis for the Behavioral\nSciences. Academic Press.\n\n\nCumming, Geoff. 2012. Understanding the New Statistics: Effect\nSizes, Confidence Intervals, and Meta-Analysis. Routledge.\n\n\nDavis, James A. 1985. The Logic of Causal Order. Sage.\n\n\nde Groot, Adrianus Dingeman. 1969.\nMethodology: Foundations of Inference and\nResearch in the Behavioral Sciences.\nMouton.\n\n\nDeci, Edward L., and Richard M. Ryan. 2013. Intrinsic\nMotivation and Self-Determination\nin Human Behavior. Springer Science &\nBusiness Media.\n\n\nEfron, B. 1979. “Bootstrap Methods: Another Look at the\nJackknife.” Ann.Statist. 7 (1): 1–26.\n\n\nEfron, Bradley. 1987. “Better Bootstrap Confidence\nIntervals.” Journal of the American Statistical\nAssociation 82 (397): 171–85. https://doi.org/10.1080/01621459.1987.10478410.\n\n\nField, Andy P. 2024. Discovering Statistics Using IBM SPSS\nStatistics. 6th ed. SAGE Publications.\n\n\nFishbein, M., and J. N. Cappella. 2006. “The Role of Theory in\nDeveloping Effective Health Communications.” Journal of\nCommunication 56 (s1): S1–17. http://onlinelibrary.wiley.com/doi/10.1111/j.1460-2466.2006.00280.x/full.\n\n\nFisher, R. A. 1919. “The Correlation Between Relatives on the\nSupposition of Mendelian Inheritance.” Transactions of the\nRoyal Society of Edinburgh 52 (2): 399–433. https://doi.org/10.1017/S0080456800012163.\n\n\nHainmueller, Jens, Jonathan Mummolo, and Yiqing Xu. 2016. How Much\nShould We Trust Estimates from Multiplicative Interaction Models? Simple\nTools to Improve Empirical Practice. https://doi.org/10.2139/ssrn.2739221.\n\n\nHayes, Andrew F. 2013. Introduction to Mediation, Moderation, and\nConditional Process Analysis: A Regression-Based Approach. Guilford\nPress.\n\n\nHoekstra, Rink, Richard D Morey, Jeffrey N Rouder, and Eric-Jan\nWagenmakers. 2014. “Robust Misinterpretation of Confidence\nIntervals.” Psychonomic Bulletin & Review 21:\n1157–64.\n\n\nHolbert, R. Lance, and Esul Park. 2019. “Conceptualizing,\nOrganizing, and Positing Moderation in\nCommunication Research.” Communication\nTheory, ahead of print, April. https://doi.org/10.1093/ct/qtz006.\n\n\nLehmann, E. L. 1993. “The Fisher, Neyman-Pearson Theories of\nTesting Hypotheses: One Theory or Two?” Journal of the\nAmerican Statistical Association 88 (424): 1242–49. https://doi.org/10.1080/01621459.1993.10476404.\n\n\nNeyman, Jerzy. 1937. “Outline of a Theory of Statistical\nEstimation Based on the Classical Theory of Probability.”\nPhilosophical Transactions of the Royal Society of London.Series A,\nMathematical and Physical Sciences 236 (767): 333–80.\n\n\nO’Keefe, Daniel J. 2007. “Brief Report: Post Hoc Power, Observed\nPower, a Priori Power, Retrospective Power, Prospective Power, Achieved\nPower: Sorting Out Appropriate Uses of Statistical Power\nAnalyses.” Communication Methods and Measures 1 (4):\n291–99. https://doi.org/10.1080/19312450701641375.\n\n\nRains, Stephen A., Timothy R. Levine, and Rene Weber. 2018. “Sixty\nYears of Quantitative Communication Research Summarized: Lessons from\n149 Meta-Analyses.” Annals of the International Communication\nAssociation 42 (2): 105–24. https://doi.org/10.1080/23808985.2018.1446350.\n\n\nRogers, R. W. 1975. “A Protection\nMotivation Theory of Fear\nAppeals and Attitude Change1:\nThe Journal of Psychology:\nVol 91, No 1.” THe Journal of\nPsychology 91 (1): 93–114. https://www.tandfonline.com/doi/abs/10.1080/00223980.1975.9915803?casa_token=tnl4hHdJsB0AAAAA:T1RIciCaIhUSOxB2By3Ah9nZPbufTPANLbbdgCujfE-yZr6cugamG3pBECgsGroUDXf02-k1XlEzOw.\n\n\nSawilowsky, Shlomo. 2009. “New Effect Size Rules of\nThumb.” Journal of Modern Applied Statistical\nMethods 8 (2). https://doi.org/10.22237/jmasm/1257035100.\n\n\nTannenbaum, Melanie B., Justin Hepler, Rick S. Zimmerman, et al. 2015.\n“Appealing to Fear: A Meta-Analysis of Fear Appeal Effectiveness\nand Theories.” Psychological Bulletin (United States)\n141 (6): 1178–204.\n\n\nWasserstein, Ronald L., and Nicole A. Lazar. 2016. “The ASA\nStatement on p-Values: Context,\nProcess, and Purpose.” The American\nStatistician 70 (2): 129–33. https://doi.org/10.1080/00031305.2016.1154108.\n\n\nWilkinson, Leland. 1999. “Statistical Methods in Psychology\nJournals: Guidelines and Explanations.” American\nPsychologist 54 (8): 594.",
     "crumbs": [
       "References"
-    ]
-  },
-  {
-    "objectID": "index.html#wrangling",
-    "href": "index.html#wrangling",
-    "title": "Statistical Inference",
-    "section": "Data wrangling",
-    "text": "Data wrangling\nIn communication science, data wrangling is the process of cleaning and transforming raw data into a format that is suitable for analysis. This process often involves several steps, including importing data, handling missing values, recoding variables, creating new variables, and filtering or selecting cases. In this chapter, we will cover these steps in detail, using the vaccine dataset as an example.\n\nCompute variable\nThe first function we wil be covering is the Transform &gt; Compute Variable... function. This function allows you to create new variables based on existing ones, perform mathematical operations, and apply conditional logic. For example, you can use the compute function to calculate the difference between the post and pre-campaign vaccine acceptance scores.\n\n\n\n\n\n\n\n\n\n\n\n(a) Compute\n\n\n\n\n\n\n\n\n\n\n\n(b) Conditional Logic\n\n\n\n\n\n\n\nFigure 1: The Compute Variable dialog box in SPSS.\n\n\n\nAs you can see in Figure 1 (a), the Compute Variable dialog box allows you to specify the Target Variable name, the numeric expression for the new variable, or any conditional logic that may apply. In this case, we will create a new variable called accept_change that represents the change in vaccine acceptance from pre- to post-campaign. The numeric expression for this variable will be accept_post - accept_pre. Or calculate the average acceptance score by using one of the built-in functions, such as MEAN(accept_post, accept_pre).\nYou can also use conditional logic to create a new variable based on specific criteria. For example, you could create a new variable called low_exposure that indicates whether a participant’s post-campaign acceptance score is above a certain threshold (e.g., 4 on a 10-point scale). The numeric expression for this variable would be exposure &lt; 4.\nOr you can set specific values for a variable based on conditions. For example, if you would need to make dummy variables for the three campaign conditions, you could make a new variable called lang_supportive_dummy and set it to 1 for participants in the autonomy-supportive condition by setting the Numeric Expression to 1, and use the if dialog box to specify the condition lang_cond = 1 as shown in Figure 1 (b). You would repeat this process for the controlling condition by creating lang_controlling_dummy variables. Or beter yet, you could do only the first step and modify the syntax to create the other dummy variables in one go. The syntax for this would look like this:\nIF  (lang_cond = 1) lang_supportive  = 1.\nIF  (lang_cond = 2) lang_controlling = 1.\nEXECUTE.\nIn communication science the compute funciont is often used to combine seperate questionaire items into a single scale score. For example, if you have a 5-item scale measuring vaccine acceptance, you could use the MEAN of SUM function to calculate the new scale score across those items and create a new variable called acceptance_scale. This new variable can then be used in subsequent analyses.\n\n\nRecode\nThe Transform &gt; Recode into Different Variables... function allows you to recode existing variables into new ones, which can be useful for creating categorical variables or grouping continuous variables into categories. For example, you could recode the health_literacy variable into a new variable called health_literacy_group, where participants with scores below a certain threshold are classified as “low” and those above the threshold as “high”.\nThe function is also often used for recoding indicative and contra indicative items in a scale. For example if you would have a single item of a scale that is, in contrast to all the other items, frazed in a negative way, you could recode the item so that it’s score is reversed, and the interpretation of the item aligns with the other items.\nThe recode function lets you specify old and new values for the variable, and you can also use conditional logic to recode values based on specific criteria. In Figure 2 (a) you can see the Recode Variable dialog box, where you can specify the input variable and specify the output variable. Under output variable, you can specify the name and label for the new variable. Make sure to click the Change button to save the output variable settings before proceeding.\nNext you can specify the old and new values for the recoding process by clicking the Old and New Values... button, which opens the Old and New Values dialog box as shown in Figure 2 (b). In this dialog box, you can specify the old values and the corresponding new values for the recoding process. You can use the Range option to recode a range of values into a single category. For example, you could recode all values from 1 to 3 as “low” and all values from 4 to 5 as “high”. In Figure 2 (b) though, we will be recoding everyone that did not remember the campaign that they were exposed to as system missing.\n\n\n\n\n\n\n\n\n\n\n\n(a) Recode\n\n\n\n\n\n\n\n\n\n\n\n(b) Recode set values\n\n\n\n\n\n\n\nFigure 2: The Recode Variable dialog box in SPSS.\n\n\n\nThere is also a Transform &gt; Recode into Same Variables... function, which allows you to recode existing variables in place, without creating new variables. This can be useful for correcting errors or standardizing values within a variable. However, it is important to use this function with caution, as it will overwrite the original variable and its values.\n\n\nVisual binning\n\n\nMerge files\n\n\nSelect cases\n\n\nSplit files",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#spss-visualization",
-    "href": "index.html#spss-visualization",
-    "title": "Statistical Inference",
-    "section": "SPSS visualization",
-    "text": "SPSS visualization\n\nChart builder\n\n\nMatrix scatter plot\n\n\nPanel histogram",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#visualization",
-    "href": "index.html#visualization",
-    "title": "Statistical Inference",
-    "section": "Visualization",
-    "text": "Visualization\n\nChart builder\n\n\nMatrix scatter plot\n\n\nPanel histogram",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#syntax",
-    "href": "index.html#syntax",
-    "title": "Statistical Inference",
-    "section": "Syntax",
-    "text": "Syntax\nWhile using SPSS it is good practice to keep a record of the steps you take in your analysis. This can be done by saving the syntax of your commands, which allows you to reproduce your analysis later or share it with others. Producing clear and well-documented syntax is an important skill in data analysis, as it allows for transparency and reproducibility of your work. In SPSS you can produce syntax by clicking on the Paste button in the dialog boxes of the functions you use. This will paste the corresponding syntax into a syntax window, which you can then save and run later. You can also edit the syntax directly in the syntax window, which allows for more flexibility and customization of your analysis. It is good practice to properly comment your syntax, so that you and others can understand what each step of the analysis does. You can add comments in SPSS syntax by using an asterisk (*) at the beginning of a line.\n* Specify the data set to use for this analysis\n* Recode the variable remember to system missing if it is 0\n\nDATASET ACTIVATE DataSet1.\nRECODE remember (0=SYSMIS) INTO only_remember.\nEXECUTE.\nAbove you can see an example of a syntax with comments. The first two lines are comments that explain what the following lines of syntax do. Line 3 is deliberately left blank to separate the comments from the actual syntax. This is relevant because SPSS sometimes does not execute the syntax correctly if there is no separation between comments and syntax. The fourth line specifies the dataset to use for the analysis, and the fifth line recodes the variable remember to system missing if it is 0, creating a new variable called only_remember. The last line executes the recoding command.",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
-    "objectID": "index.html#example-dataset",
-    "href": "index.html#example-dataset",
-    "title": "Statistical Inference",
-    "section": "Example dataset",
-    "text": "Example dataset\nFor this chapter we will be working with the vaccine.sav dataset, which contains fictitious data on a sample of 143 participants who were surveyed about their attitudes towards vaccination. Table 1 provides a description of the variables in the dataset.\n\n\n\nTable 1: Description of the variables\n\n\n\n\n\n\n\n\n\nVariable\nDescription\n\n\n\n\naccept_post\nRespondent’s vaccine acceptance at the campaign end\n\n\naccept_pre\nRespondent’s vaccine acceptance at the campaign start\n\n\nexposure\nRespondent’s exposure to the campaign\n\n\nremember\nRespondent remembers the campaign?\n\n\nlang_cond\nType of language used in the campaign\n\n\nhealth_literacy\nRespondent’s health literacy\n\n\n\n\n\n\nThe dataset describes a health communication study investigating which campaign strategy is most effective in increasing acceptance of a new vaccine. Researchers developed three versions of a campaign: one using autonomy-supportive language that respects people’s freedom of choice, one using controlling language that pressures or threatens people to accept the vaccine, and one using neutral language that serves as a control condition. They hypothesize that the effectiveness of these strategies may depend on individuals’ health literacy, defined as their ability to find, understand, and use health information to make good health decisions. To test this, participants with either high or low health literacy were randomly assigned to view one of the three campaign versions, and their vaccine acceptance was measured as the main outcome. In addition to vaccine acceptance, the dataset contains information on participants’ exposure to the campaign, whether they remember it, and their health literacy level.",
-    "crumbs": [
-      "Introduction"
     ]
   }
 ]

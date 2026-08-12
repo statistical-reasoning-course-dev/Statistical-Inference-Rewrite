@@ -345,6 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-label="5"></a>RECODE remember (0=SYSMIS) INTO only_remember.</span>
 <span id="cb1-6"><a href="#cb1-6" aria-label="6"></a>EXECUTE.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Above you can see an example of a syntax with comments. The first two lines are comments that explain what the following lines of syntax do. Line 3 is deliberately left blank to separate the comments from the actual syntax. This is relevant because SPSS <em>sometimes</em> does not execute the syntax correctly if there is no separation between comments and syntax. The fourth line specifies the dataset to use for the analysis, and the fifth line recodes the variable <code>remember</code> to system missing if it is 0, creating a new variable called <code>only_remember</code>. The last line executes the recoding command.</p>
+<p>The syntax file can be saved as a <code>.sps</code> file, which can be opened and run in SPSS at any time.</p>
 </section>
 <section id="example-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="example-dataset">Example dataset</h2>
