@@ -1,22 +1,42 @@
+# Introduction {.unnumbered}
+
 This book offers a non-technical but thorough introduction to statistical inference. It discusses a minimal set of concepts needed to understand both the possibilities and pitfalls of estimation, null hypothesis testing, moderation, and mediation analysis. It uses a minimum of formal notation.
 
-## Intended Audience and Setting {.unnumbered}
+## Intended Audience and Setting
 
 This book is written as reading material for a follow-up course in statistics, in the bachelor of Communication Science at the University of Amsterdam. Students enrolled in this course have passed an introductory course in statistics that explained how to change research questions into variables and associations between variables, how to select and execute the correct analysis or test (in SPSS) to answer their research question, and how to interpret the results in a language that is both comprehensible for the average reader and complying with professional standards (APA standard for reporting test results). In addition, they have learned the very basics of inferential statistics: How to decide which null hypothesis to reject based on reported _p_ values, and how to interpret confidence intervals.  
 
-## Interactive Content {.unnumbered}
+## Interactive Content
 
 The interactive content in this book replaces simulations that used to be demonstrated during lectures. We expect that doing simulations yourself rather than watching them being done by someone else enhances understanding. We have tried to break down the simulations into smaller steps, confronting the student several times with essentially the same simulation, but with added complexity. We hope that this approach enhances understanding and remembrance and, at the same time, avoids frustration caused by complex dashboards offering all options at once.
 
-## Software {.unnumbered}
+## Software
 
 This book is specificly written for students who have access to SPSS, but the concepts and techniques are applicable to any software that can do the analyses described in this book. We have included screenshots of SPSS output, but We have tried to keep the interpretation of the output as general as possible. The interactive content is implemented in R, but it is not necessary to understand R code to understand the concepts and techniques presented in this book. 
 
-# SPSS data wrangling and visualization {#wrangling}
+# SPSS basics {.unnumbered}
 
 This chapter covers the basics of data wrangling and visualization in SPSS. It explains how to import data, clean and prepare it for analysis, and perform basic transformations and visualizations. We will cover topics such as handling missing data, recoding variables, and creating new variables, data selection and filtering. The goal is to ensure that you are comfortable with the data preparation process before moving on to more advanced statistical analyses. We will cover these topics in a practical, hands-on manner, with examples and exercises that are structured along a selected set of functions in SPSS.
 
-For this chapter we will be working with the [vaccine.sav](data/vaccine.sav) dataset, which contains fictitiousdata on a sample of 143 participants who were surveyed about their attitudes towards vaccination. @tbl-description provides a description of the variables in the dataset.
+## Syntax
+
+While using SPSS it is good practice to keep a record of the steps you take in your analysis. This can be done by saving the syntax of your commands, which allows you to reproduce your analysis later or share it with others. Producing clear and well-documented syntax is an important skill in data analysis, as it allows for transparency and reproducibility of your work. In SPSS you can produce syntax by clicking on the `Paste` button in the dialog boxes of the functions you use. This will paste the corresponding syntax into a syntax window, which you can then save and run later. You can also edit the syntax directly in the syntax window, which allows for more flexibility and customization of your analysis. It is good practice to properly comment your syntax, so that you and others can understand what each step of the analysis does. You can add comments in SPSS syntax by using an asterisk (*) at the beginning of a line.
+
+```{.default code-line-numbers="true"}
+* Specify the data set to use for this analysis
+* Recode the variable remember to system missing if it is 0
+
+DATASET ACTIVATE DataSet1.
+RECODE remember (0=SYSMIS) INTO only_remember.
+EXECUTE.
+```
+Above you can see an example of a syntax with comments. The first two lines are comments that explain what the following lines of syntax do. Line 3 is deliberately left blank to separate the comments from the actual syntax. This is relevant because SPSS _sometimes_ does not execute the syntax correctly if there is no separation between comments and syntax. The fourth line specifies the dataset to use for the analysis, and the fifth line recodes the variable `remember` to system missing if it is 0, creating a new variable called `only_remember`. The last line executes the recoding command.
+
+The syntax file can be saved as a `.sps` file, which can be opened and run in SPSS at any time.
+
+## Example dataset
+
+For this chapter we will be working with the [vaccine.sav](data/vaccine.sav) dataset, which contains fictitious data on a sample of 143 participants who were surveyed about their attitudes towards vaccination. @tbl-description provides a description of the variables in the dataset.
 
 Table: Description of the variables {#tbl-description}
 
@@ -31,15 +51,19 @@ health_literacy | Respondent's health literacy
 
 The dataset describes a health communication study investigating which campaign strategy is most effective in increasing acceptance of a new vaccine. Researchers developed three versions of a campaign: one using autonomy-supportive language that respects people’s freedom of choice, one using controlling language that pressures or threatens people to accept the vaccine, and one using neutral language that serves as a control condition. They hypothesize that the effectiveness of these strategies may depend on individuals’ health literacy, defined as their ability to find, understand, and use health information to make good health decisions. To test this, participants with either high or low health literacy were randomly assigned to view one of the three campaign versions, and their vaccine acceptance was measured as the main outcome. In addition to vaccine acceptance, the dataset contains information on participants’ exposure to the campaign, whether they remember it, and their health literacy level.
 
-## Compute variable
+## Data wrangling {#wrangling}
+
+In communication science, data wrangling is the process of cleaning and transforming raw data into a format that is suitable for analysis. This process often involves several steps, including importing data, handling missing values, recoding variables, creating new variables, and filtering or selecting cases. In this chapter, we will cover these steps in detail, using the vaccine dataset as an example.
+
+### Compute variable
 
 The first function we wil be covering is the `Transform > Compute Variable...` function. This function allows you to create new variables based on existing ones, perform mathematical operations, and apply conditional logic. For example, you can use the `compute` function to calculate the difference between the post and pre-campaign vaccine acceptance scores.
 
 ::: {#fig-compute layout-ncol=2}
 
-![Compute](figures/compute.png){#fig-compute-left cap="The Compute Variable dialog box in SPSS." width=400 fig-align="left"}
+![Compute](figures/compute.png){#fig-compute-left cap="The Compute Variable dialog box in SPSS." width=400 fig-align="left" .lightbox}
 
-![Conditional Logic](figures/compute_if.png){#fig-compute-right cap="The Conditional Logic dialog box in SPSS." width=400 fig-align="left"}
+![Conditional Logic](figures/compute_if.png){#fig-compute-right cap="The Conditional Logic dialog box in SPSS." width=400 fig-align="left" .lightbox}
 
 The Compute Variable dialog box in SPSS.
 :::
@@ -50,25 +74,49 @@ You can also use conditional logic to create a new variable based on specific cr
 
 Or you can set specific values for a variable based on conditions. For example, if you would need to make dummy variables for the three campaign conditions, you could make a new variable called `lang_supportive_dummy` and set it to 1 for participants in the autonomy-supportive condition by setting the `Numeric Expression` to `1`, and use the `if` dialog box to specify the condition `lang_cond = 1` as shown in @fig-compute-right. You would repeat this process for the controlling condition by creating `lang_controlling_dummy` variables. Or beter yet, you could do only the first step and modify the syntax to create the other dummy variables in one go. The syntax for this would look like this:
 
-```{}
-IF  (lang_cond = 1) lang_supportive=1.
-IF  (lang_cond = 2) lang_controlling=1.
+```default
+IF  (lang_cond = 1) lang_supportive  = 1.
+IF  (lang_cond = 2) lang_controlling = 1.
 EXECUTE.
 ```
-## Recode
 
-## Visual binning
+In communication science the compute funciont is often used to combine seperate questionaire items into a single scale score. For example, if you have a 5-item scale measuring vaccine acceptance, you could use the `MEAN` of `SUM` function to calculate the new scale score across those items and create a new variable called `acceptance_scale`. This new variable can then be used in subsequent analyses.
 
-## Merge files
+### Recode
 
-## Split files
+The `Transform > Recode into Different Variables...` function allows you to recode existing variables into new ones, which can be useful for creating categorical variables or grouping continuous variables into categories. For example, you could recode the `health_literacy` variable into a new variable called `health_literacy_group`, where participants with scores below a certain threshold are classified as "low" and those above the threshold as "high". 
 
-## Select cases
+The function is also often used for recoding indicative and contra indicative items in a scale. For example if you would have a single item of a scale that is, in contrast to all the other items, frazed in a negative way, you could recode the item so that it's score is reversed, and the interpretation of the item aligns with the other items.
 
-## Chart builder
+The recode function lets you specify old and new values for the variable, and you can also use conditional logic to recode values based on specific criteria. In @fig-recode-left you can see the Recode Variable dialog box, where you can specify the input variable and specify the output variable. Under output variable, you can specify the name and label for the new variable. Make sure to click the `Change` button to save the output variable settings before proceeding.
 
-## Matrix scatter plot
+Next you can specify the old and new values for the recoding process by clicking the `Old and New Values...` button, which opens the Old and New Values dialog box as shown in @fig-recode-right. In this dialog box, you can specify the old values and the corresponding new values for the recoding process. You can use the `Range` option to recode a range of values into a single category. For example, you could recode all values from 1 to 3 as "low" and all values from 4 to 5 as "high". In @fig-recode-right though, we will be recoding everyone that did not remember the campaign that they were exposed to as system missing.
 
-## Panel histogram
+::: {#fig-recode layout-ncol=2}
+
+![Recode](figures/recode_2.png){#fig-recode-left cap="The Recode Variable dialog box in SPSS." width=400 fig-align="left" .lightbox}
+
+![Recode set values](figures/recode_1.png){#fig-recode-right cap="The Old and New Values dialog box in SPSS." width=400 fig-align="left" .lightbox}
+
+The Recode Variable dialog box in SPSS.
+:::
+
+There is also a `Transform > Recode into Same Variables...` function, which allows you to recode existing variables in place, without creating new variables. This can be useful for correcting errors or standardizing values within a variable. However, it is important to use this function with caution, as it will overwrite the original variable and its values.
+
+### Visual binning
+
+### Merge files
+
+### Select cases
+
+### Split files
+
+## Visualization
+
+### Chart builder
+
+### Matrix scatter plot
+
+### Panel histogram
 
 
