@@ -902,24 +902,356 @@ Finally, the interpretation tells us that the difference from .5 is substantial.
 
 Knowing what statistical test fits your research question is crucial for the success of your research. If you do not know what test to apply or even choose the wrong test, you may draw the wrong conclusions. This can lead to a waste of time and resources, and it can even lead to harm if the wrong conclusions are used to make decisions.
 
-Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main  distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables. Once you have identified the variables, the flow chart in @fig-flowchart helps you to identify the right statistical test.
+Statistics such as means, proportions, variances, and correlations are calculated on variables. For translating a research hypothesis into a statistical hypothesis, the researcher has to recognize the dependent and independent variables addressed by the research hypothesis and their variable types. The main  distinction is between dichotomies (two groups), (other) categorical variables (three or more groups), and numerical variables.
 
-```{r}
-#| label: fig-flowchart
-#| fig-cap: "Flow chart for selecting a test in SPSS."
-#| echo: false
-#| warning: false
-#| fig-width: 12
+For identifying the right statistical test, you can ask yourself the following questions:
 
-#Create and draw flow chart for selecting tests in SPSS.
-source("flowchart.R")
-#Show plot.
-p
-#Cleanup.
-rm(p, x, y)
+::: {.callout-important appearance="simple"}
+
+1. How many dependent variables do you have?
+2. What is the type of your dependent variable(s)?
+    * Continuous (interval or ratio)
+    * Categorical (nominal or ordinal)
+3. How many independent variables do you have?
+4. What is the type of your independent variable(s)?
+    * Continuous (interval or ratio)
+    * Categorical (nominal or ordinal)
+    * Combination of continuous and categorical
+5. If categorical, how many levels does it have?
+6. How is the data sampled
+    * Independently (Different groups of participants)
+    * Dependently (Same participants measured multiple times / repeated measures)
+    * Combination of independent and dependent
+7. Does the data meet the parametric assumptions of the test?
+
+:::
+
+Once you have identified the variables, the interactive flow chart in @fig-flowchart helps you to identify the right statistical test. A [PDF of the flow chart is available for download here](https://shklinkenberg.github.io/statistical-test-selection/mermaid_flowchart_pdf.pdf). The flow chart is an extended version of the flowchart by @field2024spss _Discovering Statistics_.
+
+::: {#fig-flowchart .column-page-inset-right}
+
+**Legend:** Click any node to expand/collapse. Scroll to zoom. Drag to pan.
+<br>
+<span style="background:#fff3cd;padding:2px 8px;border:1px solid #555">Has hidden children</span>
+<span style="background:#fff;padding:2px 8px;border:1px solid #555">Expanded decision</span>
+<span style="background:#cce5ff;padding:2px 8px;border:1px solid #333">Parametric test</span>
+<span style="background:#d4edda;padding:2px 8px;border:1px solid #333">Non-parametric test</span>
+
+```{ojs}
+//| echo: false
+
+d3 = require("d3@7")
+
+treeData = FileAttachment("https://shklinkenberg.github.io/statistical-test-selection/test_selection_tree.json").json()
+
+chart = {
+  const width = 960;
+  const height = 400;
+  const dx = 80;
+  const dy = 250;
+  const margin = { top: 20, right: 250, bottom: 20, left: 100 };
+
+  const root = d3.hierarchy(treeData);
+
+  // Collapse everything, then expand just the root
+  root.descendants().forEach(d => {
+    if (d.children) {
+      d._children = d.children;
+      d.children = null;
+    }
+  });
+  root.children = root._children;
+  root._children = null;
+
+  root.x0 = 0;
+  root.y0 = 0;
+
+  const svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .style("font", "12px sans-serif")
+    .style("user-select", "none")
+    .style("border", "1px solid #ddd");
+
+  const container = svg.append("g")
+    .attr("transform", `translate(${margin.left},${height / 2})`);
+
+  const gLink = container.append("g")
+    .attr("fill", "none")
+    .attr("stroke", "#999")
+    .attr("stroke-opacity", 0.5)
+    .attr("stroke-width", 1.5);
+
+  const gNode = container.append("g")
+    .attr("cursor", "pointer")
+    .attr("pointer-events", "all");
+
+  const zoom = d3.zoom()
+    .scaleExtent([0.2, 4])
+    .on("zoom", (event) => {
+      container.attr("transform", event.transform);
+    });
+
+  svg.call(zoom);
+  svg.call(zoom.transform, d3.zoomIdentity.translate(margin.left, height / 2));
+
+  // Box dimensions for test nodes
+  const boxWidth = 220;
+  const boxPadding = 8;
+  const maxCharsPerLine = 32;
+  const lineHeight = 14;
+  const fontSize = 10;
+
+  // Wrap label text into lines
+  function wrapText(label, maxChars) {
+    const clean = label.replace(/<br>/g, " ");
+    const words = clean.split(/\s+/);
+    const lines = [];
+    let currentLine = "";
+    for (const word of words) {
+      if (currentLine.length + word.length + 1 > maxChars && currentLine.length > 0) {
+        lines.push(currentLine);
+        currentLine = word;
+      } else {
+        currentLine = currentLine.length > 0 ? currentLine + " " + word : word;
+      }
+    }
+    if (currentLine) lines.push(currentLine);
+    return lines;
+  }
+
+  // Compute box height based on text
+  function boxHeightForNode(d) {
+    const lines = wrapText(d.data.label, maxCharsPerLine);
+    return Math.max(30, lines.length * lineHeight + boxPadding * 2);
+  }
+
+  function diagonal(s, d) {
+    return `M${s.y},${s.x}
+            C${(s.y + d.y) / 2},${s.x}
+             ${(s.y + d.y) / 2},${d.x}
+             ${d.y},${d.x}`;
+  }
+
+  function update(source) {
+    const duration = 400;
+    const treeLayout = d3.tree().nodeSize([dx, dy]);
+    treeLayout(root);
+
+    const nodes = root.descendants().reverse();
+    const links = root.links();
+
+    // ---- NODES ----
+    const node = gNode.selectAll("g.node")
+      .data(nodes, d => d.data.id);
+
+    const nodeEnter = node.enter().append("g")
+      .attr("class", "node")
+      .attr("transform", `translate(${source.y0},${source.x0})`)
+      .attr("fill-opacity", 0)
+      .attr("stroke-opacity", 0)
+      .on("click", (event, d) => {
+        event.stopPropagation();
+        if (d._children) {
+          d.children = d._children;
+          d._children = null;
+        } else if (d.children) {
+          d._children = d.children;
+          d.children = null;
+        }
+        update(d);
+      });
+
+    nodeEnter.each(function(d) {
+      const g = d3.select(this);
+      if (d.data.shape === "decision") {
+        g.append("rect")
+          .attr("class", "node-shape")
+          .attr("width", 22)
+          .attr("height", 22)
+          .attr("x", -11)
+          .attr("y", -11)
+          .attr("transform", "rotate(45)")
+          .attr("fill", "#fff")
+          .attr("stroke", "#555")
+          .attr("stroke-width", 1.5);
+      } else {
+        const bh = boxHeightForNode(d);
+        g.append("rect")
+          .attr("class", "node-shape")
+          .attr("width", boxWidth)
+          .attr("height", bh)
+          .attr("x", -boxWidth / 2)
+          .attr("y", -bh / 2)
+          .attr("rx", 5)
+          .attr("fill", "#cce5ff")
+          .attr("stroke", "#333")
+          .attr("stroke-width", 1);
+
+        // Wrapped text
+        const lines = wrapText(d.data.label, maxCharsPerLine);
+        const textEl = g.append("text")
+          .attr("text-anchor", "middle")
+          .style("font-size", `${fontSize}px`);
+
+        const totalHeight = lines.length * lineHeight;
+        const startY = -totalHeight / 2 + lineHeight / 2;
+
+        lines.forEach((line, i) => {
+          textEl.append("tspan")
+            .attr("x", 0)
+            .attr("dy", i === 0 ? `${startY}px` : `${lineHeight}px`)
+            .text(line);
+        });
+      }
+    });
+
+    // Decision node labels (only for decision nodes — box text is handled above)
+    nodeEnter.filter(d => d.data.shape === "decision")
+      .append("text")
+      .attr("dy", "0.32em")
+      .attr("x", 20)
+      .attr("text-anchor", "start")
+      .style("font-size", "11px")
+      .html(d => d.data.label.replace(/<br>/g, " "))
+      .clone(true).lower()
+        .attr("stroke-linejoin", "round")
+        .attr("stroke-width", 3)
+        .attr("stroke", "white");
+
+    nodeEnter.transition().duration(duration)
+      .attr("transform", d => `translate(${d.y},${d.x})`)
+      .attr("fill-opacity", 1)
+      .attr("stroke-opacity", 1);
+
+    node.transition().duration(duration)
+      .attr("transform", d => `translate(${d.y},${d.x})`)
+      .attr("fill-opacity", 1)
+      .attr("stroke-opacity", 1);
+
+    node.merge(nodeEnter).select(".node-shape")
+      .attr("fill", d => {
+        if (d.data.shape === "decision") {
+          return d._children ? "#fff3cd" : "#fff";
+        }
+        const id = d.data.id;
+        const isNonParam = id.startsWith("Robust") ||
+                           id.startsWith("Bootstrap") ||
+                           id.startsWith("Boot");
+        return isNonParam ? "#d4edda" : "#cce5ff";
+      });
+
+    node.exit().transition().duration(duration).remove()
+      .attr("transform", `translate(${source.y},${source.x})`)
+      .attr("fill-opacity", 0)
+      .attr("stroke-opacity", 0);
+
+    // ---- LINKS ----
+    const link = gLink.selectAll("path.link")
+      .data(links, d => d.target.data.id);
+
+    const linkEnter = link.enter().append("path")
+      .attr("class", "link")
+      .attr("d", () => {
+        const o = { x: source.x0 !== undefined ? source.x0 : 0,
+                    y: source.y0 !== undefined ? source.y0 : 0 };
+        return diagonal(o, o);
+      });
+
+    link.merge(linkEnter).transition().duration(duration)
+      .attr("d", d => {
+        const s = { x: d.source.x, y: d.source.y };
+        const isBox = d.target.data.shape !== "decision";
+        const t = {
+          x: d.target.x,
+          y: isBox ? d.target.y - boxWidth / 2 : d.target.y
+        };
+        return diagonal(s, t);
+      });
+
+    link.exit().transition().duration(duration).remove()
+      .attr("d", () => {
+        const o = { x: source.x, y: source.y };
+        return diagonal(o, o);
+      });
+
+    // ---- EDGE LABELS ----
+    const edgeLabel = gLink.selectAll("text.edge-label")
+      .data(links, d => d.target.data.id);
+
+    const edgeLabelEnter = edgeLabel.enter().append("text")
+      .attr("class", "edge-label")
+      .attr("text-anchor", "middle")
+      .attr("dy", -5)
+      .style("font-size", "10px")
+      .style("fill", "#666")
+      .attr("x", source.y0 !== undefined ? source.y0 : 0)
+      .attr("y", source.x0 !== undefined ? source.x0 : 0)
+      .style("fill-opacity", 0)
+      .text(d => d.target.data.edge_label || "");
+
+    edgeLabel.merge(edgeLabelEnter).transition().duration(duration)
+      .attr("x", d => {
+        const isBox = d.target.data.shape !== "decision";
+        const targetY = isBox ? d.target.y - boxWidth / 2 : d.target.y;
+        return (d.source.y + targetY) / 2;
+      })
+      .attr("y", d => (d.source.x + d.target.x) / 2)
+      .style("fill-opacity", 1);
+
+    edgeLabel.exit().transition().duration(duration).remove()
+      .attr("x", source.y)
+      .attr("y", source.x)
+      .style("fill-opacity", 0);
+
+    root.eachBefore(d => {
+      d.x0 = d.x;
+      d.y0 = d.y;
+    });
+  }
+
+  update(root);
+
+  return svg.node();
+}
 ```
 
-You use the flow chart by identifying the type of your dependent variable (categorical or numerical) and the number and type of your independent variable (categorical or numerical). The flow chart then guides you to the right statistical test.
+Flow chart for statistical test selection.
+:::
+
+The test selection can also be represented in a table format. @tbl-test-selection provides an interactive table that allows you use the filters in the top row to type your statistical test selection criteria and find the appropriate statistical test. The full [PDF of the table is available for download here](https://shklinkenberg.github.io/statistical-test-selection/table_typst.pdf).
+
+```{css, echo=FALSE}
+#small-table,
+#small-table_wrapper {
+  font-size: 10px;
+  text-align: left;
+}
+```
+
+```{r}
+#| label: tbl-test-selection
+#| tbl-cap: "Statistical test selection table. Use the search box to filter the table."
+#| column: page-inset-right
+#| echo: false
+#| warning: false
+
+library("readr")
+data_wide_read <- read_csv2("https://shklinkenberg.github.io/statistical-test-selection/test_selection_scheme_wide.csv")
+
+# install.packages("DT")
+library(DT)
+
+datatable(data_wide_read,
+          elementId  = "small-table",
+          filter     = "top",
+          rownames   = FALSE,
+          options    = list(pageLength = 25,
+                            dom        = "t",
+                            scrollX    = TRUE
+                            )
+)
+```
 
 Consider the following example. You want to measure the difference in media literacy between man and women, and want to control for age. You measure media literacy on a scale from 1 to 7, and age in years. You have a numerical dependent variable (media literacy) and a categorical independent (biological sex), and a numerical independent variable (age). As your dependent variable is numerical, you follow the flow chart to the right. As you have two independent variables, you follow the flow chart to the right to indicate that you have both a categorical and numerical independent variable. The flow chart guides you to the _F test multiple regression model_. 
 
