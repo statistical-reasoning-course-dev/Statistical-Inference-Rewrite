@@ -140,11 +140,20 @@ The `Data > Merge Files > Add Cases...` option allows you to combine datasets by
 
 The dataset [vaccine_2.sav](data/vaccine_2.sav) contains an additional two participants with the same variables as the `vaccine.sav` dataset. We can use the `Data > Merge Files > Add Cases...` function to add these two cases to the original dataset. You first need to specify the location of the second dataset just like in @fig-add-variables-left, and then ensure that the variables in both datasets are consistent and have the same names and formats. After adding cases, you will have a new dataset that contains all the cases from both datasets, with each case matched based on the variable names. As can be seen in @fig-add-cases, SPSS suggest to leave out the variable `age` because it is not present in the `vaccine_2.sav` dataset. Though in some cases it could be useful to retain the age variable, and leave the values for the two new cases as system missing. In that case you would need to select `age` in the `Unpaired Variables` box and move it to the right box.
 
-
-
-
-
 ### Select cases
+
+SPSS allows you to run analyses on a subset of your data by using the `Data > Select Cases...` function. This function allows you to specify criteria for selecting cases based on specific variables or conditions. For example, you could select only participants with high health literacy or only those who were exposed to the campaign. You can also use logical operators (e.g., AND, OR) to combine multiple criteria for case selection.
+
+::: {#fig-select-cases layout-ncol=2}
+
+![Select cases.](figures/select_cases_1.png){#fig-select-cases-left width=400 fig-align="left" .lightbox}
+
+![Specify selection criteria.](figures/select_cases_2.png){#fig-select-cases-right width=400 fig-align="left" .lightbox}
+
+Selecting cases based on specific criteria in SPSS.
+:::
+
+We could decide to only run our subsequent analyses on participants who remember the campaign. In that case we would select `If condition is satisfied` and click on the `If...` button to specify the condition as shown in @fig-select-cases-left. In the dialog box that appears, you can move the variable `remember` to the expression box and specify the condition `remember = 1`, as shown in @fig-select-cases-right. You can see the result in the data view, where a new variable called `filter_$` is created, indicating which cases are selected (1) and which are not (0). The data view will also show a diagonal line through the unselected cases, indicating that they are excluded from the analysis. You can also choose to filter out unselected cases or delete them from the dataset entirely. Though it is generally recommended to filter out unselected cases rather than deleting them, as this allows you to retain the original dataset for future analyses and transparency. If you would like to continue analyzing all data again, the selection criteria should be removed by selecting `All cases` in the Select Cases dialog box.
 
 ### Split files
 

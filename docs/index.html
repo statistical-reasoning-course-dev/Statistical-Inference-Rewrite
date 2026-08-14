@@ -589,6 +589,43 @@ Figure&nbsp;5: Add cases from another dataset in SPSS.
 </section>
 <section id="select-cases" class="level3">
 <h3 class="anchored" data-anchor-id="select-cases">Select cases</h3>
+<p>SPSS allows you to run analyses on a subset of your data by using the <code>Data &gt; Select Cases...</code> function. This function allows you to specify criteria for selecting cases based on specific variables or conditions. For example, you could select only participants with high health literacy or only those who were exposed to the campaign. You can also use logical operators (e.g., AND, OR) to combine multiple criteria for case selection.</p>
+<div id="fig-select-cases" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-select-cases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-select-cases" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-select-cases-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-select-cases-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/select_cases_1.png" class="lightbox" data-gallery="fig-select-cases" title="Figure&nbsp;6&nbsp;(a): Select cases."><img src="figures/select_cases_1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-ref-parent="fig-select-cases" width="400"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-select-cases-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Select cases.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-select-cases" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-select-cases-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-select-cases-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="figures/select_cases_2.png" class="lightbox" data-gallery="fig-select-cases" title="Figure&nbsp;6&nbsp;(b): Specify selection criteria."><img src="figures/select_cases_2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-ref-parent="fig-select-cases" width="400"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-select-cases-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Specify selection criteria.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-select-cases-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: Selecting cases based on specific criteria in SPSS.
+</figcaption>
+</figure>
+</div>
+<p>We could decide to only run our subsequent analyses on participants who remember the campaign. In that case we would select <code>If condition is satisfied</code> and click on the <code>If...</code> button to specify the condition as shown in <a href="#fig-select-cases-left" class="quarto-xref">Figure&nbsp;<span>6 (a)</span></a>. In the dialog box that appears, you can move the variable <code>remember</code> to the expression box and specify the condition <code>remember = 1</code>, as shown in <a href="#fig-select-cases-right" class="quarto-xref">Figure&nbsp;<span>6 (b)</span></a>. You can see the result in the data view, where a new variable called <code>filter_$</code> is created, indicating which cases are selected (1) and which are not (0). The data view will also show a diagonal line through the unselected cases, indicating that they are excluded from the analysis. You can also choose to filter out unselected cases or delete them from the dataset entirely. Though it is generally recommended to filter out unselected cases rather than deleting them, as this allows you to retain the original dataset for future analyses and transparency. If you would like to continue analyzing all data again, the selection criteria should be removed by selecting <code>All cases</code> in the Select Cases dialog box.</p>
 </section>
 <section id="split-files" class="level3">
 <h3 class="anchored" data-anchor-id="split-files">Split files</h3>
