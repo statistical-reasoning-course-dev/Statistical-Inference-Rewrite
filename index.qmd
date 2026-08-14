@@ -36,12 +36,13 @@ The syntax file can be saved as a `.sps` file, which can be opened and run in SP
 
 ## Example dataset
 
-For this chapter we will be working with the [vaccine.sav](data/vaccine.sav) dataset, which contains fictitious data on a sample of 143 participants who were surveyed about their attitudes towards vaccination. @tbl-description provides a description of the variables in the dataset.
+For this chapter we will be working with the [vaccine.sav](data/vaccine_1.sav) dataset, which contains fictitious data on a sample of 143 participants who were surveyed about their attitudes towards vaccination. @tbl-description provides a description of the variables in the dataset.
 
 Table: Description of the variables {#tbl-description}
 
 Variable        | Description
 :---------------|:------------------------------------------------
+id              | Unique identifier for each participant
 accept_post     | Respondent's vaccine acceptance at the campaign end
 accept_pre      | Respondent's vaccine acceptance at the campaign start
 exposure        | Respondent's exposure to the campaign
@@ -105,7 +106,43 @@ There is also a `Transform > Recode into Same Variables...` function, which allo
 
 ### Visual binning
 
+The `Transform > Visual Binning...` function allows you to create categorical variables from continuous variables by specifying cut points or ranges. This can be useful for creating groups or categories based on a continuous variable. We could for example use the Visual Binning function to create a new variable called `exposure_group` to categorize participants into low, medium, and high exposure groups based on their exposure scores. Specifying two cut points by equal percentiles would create three groups: low exposure (0-33rd percentile), medium exposure (34th-66th percentile), and high exposure (67th-100th percentile). In such cases SPSS will automatically create a new variable with the specified cut points and assign the appropriate group labels to each participant based on their exposure scores.
+
+::: {#fig-binning layout-ncol=2}
+
+![Visual Binning](figures/binning_1.png){#fig-binning-left cap="The Visual Binning dialog box in SPSS." width=400 fig-align="left" .lightbox}
+
+![Set visual binning properties](figures/binning_2.png){#fig-binning-right cap="Using the set cut points based on percentiles" width=400 fig-align="left" .lightbox}
+
+The Visual Binning dialog box in SPSS.
+:::
+
+In the Visual Binning dialog box in @fig-binning-left, you can specify the input variable and the output variable name and label. You can use the `Make Cutpoints` button to specify the cut points for the new variable. In @fig-binning-right, you can see how to set the cut points based on percentiles. You can also specify the labels for each group in the `Value Labels` section of the dialog box.
+
 ### Merge files
+
+While doing research it is often necessary to combine data from multiple sources or datasets. The `Data > Merge Files > Add Variables...` function in SPSS allows you to merge two or more datasets based on a common identifier or key variable. This can be useful for combining data from different time points, different studies, or different sources. A key variable is a variable in your dataset that uniquely identifies each case or participant. For example, if you have two datasets containing information about the same participants, you could use a unique participant ID as the key variable to merge the datasets together. A studentnumber is a good example of a key variable, as it uniquely identifies each student in the university's database. When merging datasets, it is important to ensure that the key variable is consistent across all datasets and that there are no duplicate or missing values.
+
+The dataset [Vaccine_age.sav](data/vaccine_age.sav) contains the same unique `id` variable as the `vaccine.sav` dataset, and it also contains the participants' age. We can use the `Data > Merge Files > Add Variables...` function to merge these two datasets. You first need to specify the location of the second dataset, as shown in @fig-add-variables-left, and then select the key variable to match cases between the two datasets as shown in @fig-add-variables-right. In this case, we will use the `id` variable as the key variable to merge the datasets. After merging, you will have a new dataset that contains all the variables from both datasets, with each case matched based on the `id` variable.
+
+::: {#fig-merge-var layout-ncol=2}
+
+![Select dataset.](figures/add_var_1.png){#fig-add-variables-left width=400 fig-align="left" .lightbox}
+
+![Merge files based on key variable.](figures/add_var_2.png){#fig-add-variables-right width=400 fig-align="left" .lightbox}
+
+Adding variables from another dataset in SPSS.
+:::
+
+The `Data > Merge Files > Add Cases...` option allows you to combine datasets by adding cases (rows) from one dataset to another. This can be useful when you have multiple datasets with the same variables but different participants. When adding cases, it is important to ensure that the variables in both datasets are consistent and have the same names and formats.
+
+![Add cases from another dataset in SPSS.](figures/add_cases.png){#fig-add-cases width=400 fig-align="left" .lightbox}
+
+The dataset [vaccine_2.sav](data/vaccine_2.sav) contains an additional two participants with the same variables as the `vaccine.sav` dataset. We can use the `Data > Merge Files > Add Cases...` function to add these two cases to the original dataset. You first need to specify the location of the second dataset just like in @fig-add-variables-left, and then ensure that the variables in both datasets are consistent and have the same names and formats. After adding cases, you will have a new dataset that contains all the cases from both datasets, with each case matched based on the variable names. As can be seen in @fig-add-cases, SPSS suggest to leave out the variable `age` because it is not present in the `vaccine_2.sav` dataset. Though in some cases it could be useful to retain the age variable, and leave the values for the two new cases as system missing. In that case you would need to select `age` in the `Unpaired Variables` box and move it to the right box.
+
+
+
+
 
 ### Select cases
 
