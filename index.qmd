@@ -165,7 +165,33 @@ The final data wrangling function we will cover is the `Data > Split File...` fu
 
 ## Visualization
 
+Communication science often involves visualizing data to better understand patterns, relationships, and trends. SPSS provides a variety of visualization options, including bar charts, line graphs, scatter plots, and histograms. In this section, we will cover some of the basic visualization techniques in SPSS. Visualizing data is not only an inportant skill in communicating your research findings, but it is also an important step in the data analysis process. Visualizations can help you identify outliers, trends, and patterns in your data that may not be immediately apparent from summary statistics alone.
+
 ### Chart builder
+
+The `Graphs > Chart Builder...` function in SPSS allows you to create a wide range of visualizations, including bar charts, line graphs, scatter plots, and histograms. The Chart Builder provides a drag-and-drop interface that makes it easy to create customized visualizations based on your data. You can specify the variables to be plotted, choose the chart type, and customize the appearance of the chart.
+
+The interface allows you to drag and drop varibles from the variable list into the appropriate axes or chart elements. Depending on the specified measure of the variable (nominal, ordinal, or scale), SPSS will set the appropriate axis options. This also means that if the variable is not specified correctly in the variable view of the data file, the chart may not display the proper options.
+
+::: {#fig-chart-builder layout-ncol=2}
+
+![Line chart.](figures/chart_builder_line.png){#fig-chart-builder-line width=400 fig-align="left" .lightbox}
+
+![Scatter plot.](figures/char_builder_scatter_fit_line.png){#fig-chart-builder-scatter width=400 fig-align="left" .lightbox}
+
+SPSS Chart Builder dialog box, showing the options for creating a line chart and a scatter plot.
+:::
+
+In @fig-chart-builder-line we made a plot showing the average campaign exposure for each of the three campaign conditions, in combination with the health literacy level of the participants. By putting the campaign condition on the x-axis, and having the health literacy level as a separately colored line, we are visualizing the interaction between these two variables. Note that we also opted to show the confidence intervals around the means, which can be done by clicking on the `Element Properties` button in the Chart Builder dialog box and selecting the `Display error bars` option. One thing to notice is that the preview in the Chart Builder dialog box does not show the real data. Only after making the chart, the chart will be added to the SPSS output file.
+
+In @fig-chart-builder-scatter we made a scatter plot showing the relationship between campaign exposure and post-campaign vaccine acceptance. By putting the exposure variable on the x-axis and the post-campaign acceptance variable on the y-axis and setting campaign condition as the grouping variable, we can visualize the association between these two variables for all campaign conditions. We also opted to add a regression line to the scatter plot, which can be done by clicking on the `Element Properties` button in the Chart Builder dialog box and selecting the `Point1` option from the `Edit Properties of:` list. at the bottom right of the dialog box, we can select `subgroups` in the `Linear Fit Lines` box. These regression lines will help to visualize the overall trend in the data and can provide insight into the strength and direction of the relationship between the two variables. From @fig-scatter-plot-1 it is evident that the regression lines ar parrallel, which suggests that there is no interaction between campaign condition and exposure in predicting post-campaign vaccine acceptance.
+
+![Scatter plot with regression lines](figures/scatter_plot.png){#fig-scatter-plot-1 width=400 fig-align="left" .lightbox .column-margin}
+
+Under the `Element Properties`, `Chart Appearance` and `Chart Options` buttons, you can customize the appearance of the chart, including the colors, fonts, and labels. You can also change titles, legends, and axis labels. We recommend that you try out these options to see how they affect the appearance of the chart. You can also use the `Chart Editor` in the SPSS output file to make further customizations to the chart after it has been created.
+
+
+
 
 ### Matrix scatter plot
 
