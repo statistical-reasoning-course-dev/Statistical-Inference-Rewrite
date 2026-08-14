@@ -157,6 +157,12 @@ We could decide to only run our subsequent analyses on participants who remember
 
 ### Split files
 
+The final data wrangling function we will cover is the `Data > Split File...` function. This function allows you to split your dataset into separate groups based on a categorical variable, and run analyses separately for each group. For example, you could split the dataset by health literacy level (high vs. low) and run separate analyses for each group. This can be useful for exploring differences between groups or testing for interactions between variables.
+
+![Split files dialog box in SPSS.](figures/split_files.png){#fig-split-files width=400 fig-align="left" .lightbox}
+
+@fig-split-files shows the Split File dialog box, where you can specify the grouping variable and the analysis options. You can choose to sort the data by the grouping variable or keep the original order of cases. You can also choose to display the results for each group in separate tables or combine them into a single table. If you want to continue analyzing all data again, the split file option should be removed by selecting `Analyze all cases, do not create groups` in the Split File dialog box.
+
 ## Visualization
 
 ### Chart builder
