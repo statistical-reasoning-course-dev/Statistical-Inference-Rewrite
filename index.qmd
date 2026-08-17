@@ -184,17 +184,52 @@ SPSS Chart Builder dialog box, showing the options for creating a line chart and
 
 In @fig-chart-builder-line we made a plot showing the average campaign exposure for each of the three campaign conditions, in combination with the health literacy level of the participants. By putting the campaign condition on the x-axis, and having the health literacy level as a separately colored line, we are visualizing the interaction between these two variables. Note that we also opted to show the confidence intervals around the means, which can be done by clicking on the `Element Properties` button in the Chart Builder dialog box and selecting the `Display error bars` option. One thing to notice is that the preview in the Chart Builder dialog box does not show the real data. Only after making the chart, the chart will be added to the SPSS output file.
 
+::: {#fig-repeated layout-ncol=2}
+
+![Adding repeated variables to the y-axis.](figures/repeated_1.png){#fig-repeated-left width=400 fig-align="left" .lightbox}
+
+![Using the repeated measures as categories on the x-axis.](figures/repeated_2.png){#fig-repeated-right width=400 fig-align="left" .lightbox}
+
+SPSS Chart Builder dialog box, adding multiple repeated variables to a line chart.
+:::
+
+For visualizing repeated measures, such as the pre- and post-campaign vaccine acceptance scores, the chart builder uses a slightly different approach. In order to properly get the pre and post categories on the x-axis, we need to add the repeated measures variables to the y-axis one at a time, as can be seen in @fig-repeated-left. Adding the second variable to the y-axis will show you a plus sign followed by the dialog box in @fig-repeated-right, where you can specify the repeated measures variable as a category on the x-axis. In this case, we will specify the `accept_pre` and `accept_post` variables as the repeated measures variables, and set the `accept_pre` variable as the first category on the x-axis. This will create a line chart that shows the change in vaccine acceptance from pre- to post-campaign for each of the three campaign conditions. An important note is that the error bars that are produced by clicking the `Display error bars` option in the Chart Builder dialog box are not corrected for repeated measures. The width of the error bars are overly wide and should therefor not be used without correcting for repeated measures. This book does not cover repeated measures analysis, but if you would ever want to visualize repeated measures data with corrected error bars, you can watch [this video](https://youtu.be/_H2eITeUH_4?si=_TTGZiecTeKQoy5M) on how to do this in SPSS.
+
+
 In @fig-chart-builder-scatter we made a scatter plot showing the relationship between campaign exposure and post-campaign vaccine acceptance. By putting the exposure variable on the x-axis and the post-campaign acceptance variable on the y-axis and setting campaign condition as the grouping variable, we can visualize the association between these two variables for all campaign conditions. We also opted to add a regression line to the scatter plot, which can be done by clicking on the `Element Properties` button in the Chart Builder dialog box and selecting the `Point1` option from the `Edit Properties of:` list. at the bottom right of the dialog box, we can select `subgroups` in the `Linear Fit Lines` box. These regression lines will help to visualize the overall trend in the data and can provide insight into the strength and direction of the relationship between the two variables. From @fig-scatter-plot-1 it is evident that the regression lines ar parrallel, which suggests that there is no interaction between campaign condition and exposure in predicting post-campaign vaccine acceptance.
 
 ![Scatter plot with regression lines](figures/scatter_plot.png){#fig-scatter-plot-1 width=400 fig-align="left" .lightbox .column-margin}
 
 Under the `Element Properties`, `Chart Appearance` and `Chart Options` buttons, you can customize the appearance of the chart, including the colors, fonts, and labels. You can also change titles, legends, and axis labels. We recommend that you try out these options to see how they affect the appearance of the chart. You can also use the `Chart Editor` in the SPSS output file to make further customizations to the chart after it has been created.
 
+The different chart types in the Chart Builder dialog box are organized into categories, such as `Bar`, `Line`, `Area`, `Pie`, `Scatter/Dot`, and `Histogram`. Each category contains several chart types that can be used to visualize different types of data. For example, the `Bar` category contains bar charts, stacked bar charts, and clustered bar charts, while the `Scatter/Dot` category contains scatter plots, bubble plots, and dot plots. The `Histogram` category contains histograms and density plots. All are useful for visualizing different types of data and relationships between variables. The choice of chart type will depend on the research question, the type of data being analyzed, and the audience for the visualization.
 
-
+SPSS provides several other options under `Graphs`, some aditional methods that will be use throughout this book are the `Graphs > Scatter/Dot...` and `Graphs > Histogram...` functions. These provide a more traditional interface for creating scatter plots and histograms, and they offer additional customization options that may not be available in the Chart Builder dialog box. The legacy dialogs are also useful for creating scatter plots with multiple variables or for creating histograms with specific bin widths or ranges.
 
 ### Matrix scatter plot
 
+![Scatter plot matrix.](figures/scatter_matrix_3.png){#fig-scatter-matrix-3 width=400 fig-align="left" .lightbox .column-margin}
+
+The scatter plot matrix allows you to visualize the relationships between multiple variables in a single plot as can be seen in @fig-scatter-matrix-3. This can be useful for exploring correlations and identifying patterns in the data. This plot is usefull for checking assumptions of linearity and homoscedasticity, which are important for many statistical analyses. The scatter plot matrix can also help identify outliers or influential points that may affect the results of the analysis. 
+
+::: {#fig-scatter-matrix layout-ncol=2}
+
+![Selecting scatter plot matrix from dialog](figures/scatter_matrix_1.png){#fig-scatter-matrix-left width=400 fig-align="left" .lightbox}
+
+![Scatter plot matrix options.](figures/scatter_matrix_2.png){#fig-scatter-matrix-right width=400 fig-align="left" .lightbox}
+
+SPSS Scatter and Dot dialog box, showing the options for creating a scatter plot matrix.
+:::
+
+You can find the scatter plot matrix under `Graphs > Scatter/Dot...` and then selecting the `Matrix Scatter` option. In the dialog box that appears, you can select the variables to be included in the matrix scatter plot. @fig-scatter-matrix-left shows how to select the matrix scatter plot option from the Scatter and Dot dialog box, and @fig-scatter-matrix-right shows the options for creating the scatter plot matrix. You can specify the variables to be plotted on the y-axis, as well as the grouping variable that can either be displayed in colums or rows.
+
 ### Panel histogram
 
+![Panel histogram.](figures/panel_hist_2.png){#fig-panel-hist-2 width=400 fig-align="left" .lightbox .column-margin}
+
+The panel histogram allows you to visualize the distribution of a variable across different groups or categories. This can be useful for comparing distributions and identifying differences between groups. The panel histogram can also help identify skewness, kurtosis, and other characteristics of the distribution that may affect the results of the analysis. It can also be useful for checking for @sec-commonsupportdichotomous by stacking the histograms of the different groups on top of each other as can be seen in @fig-panel-hist-2.
+
+![Panel histogram options.](figures/panel_hist_1.png){#fig-panel-hist-1 width=400 fig-align="left" .lightbox}
+
+The panel histogram can be created using the `Graphs > Histogram...` function in SPSS. In the dialog box that appears in @fig-panel-hist-1, you can select the variable to be plotted on the x-axis, as well as the grouping variable that will create separate panels for each group.
 
