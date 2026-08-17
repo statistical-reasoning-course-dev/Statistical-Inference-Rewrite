@@ -866,12 +866,13 @@ One final warning: Two-sided tests are only relevant if the probability distribu
 
 Fellow scientists need to be able to see the precise statistical test results. According to the APA guidelines, we should report the test statistic, the associated degrees of freedom (if any), the value of the test statistic, the _p_ value of the test statistic, and the confidence interval (if any). APA requires a particular format for presenting statistical results and it demands that the results are included at the end of a sentence.  
 
-The statistical results for a _t_ test on one mean, for example, would be:_t_ (67) = 2.73, _p_ = .004, 95% CI [4.13, 4.87].
+The statistical results for a _t_ test on one mean, for example, would be:_t_ (67) = 2.73, _p_ = .004, _d_ = .34,  95% CI [4.13, 4.87].
 
 * The degrees of freedom are between parentheses directly after the name of the test statistic. Chi-squared tests add sample size to the degrees of freedom, for instance: chi-squared (12, _N_ = 89) = 23.14, _p_ = .027.
 * The value of the test statistic is 2.73 in this example.
 * The _p_ value is .004. Note that we report all results with two decimal places except probabilities, which are reported with three decimals. We are usually interested in small probabilities---less than .05---so we need the third decimal here. If SPSS rounds the _p_ value to .000, report: _p_ < .001. Add (one-sided) after the _p_ value if the test is one-sided.
-* The 95% confidence interval is 4.13 to 4.87, so we 95% confident that the population mean lies within the CI. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.
+* The 95% confidence interval is 4.13 to 4.87, so we are 95% confident that the population mean lies within the CI. Add (bootstrapped) after the confidence interval if the confidence interval is bootstrapped.
+* Effect size should be added when available.
 
 Not all tests produce all results reported in the example above. For example, a _z_ test does not have degrees of freedom and _F_ or chi-squared tests do not have confidence intervals. Exact tests or bootstrap tests usually do not have a test statistic. Just report the items that your statistical software produces, and give them in the correct format.
 
@@ -884,7 +885,7 @@ For fellow scientists and especially for the general reader, it is important to 
 * What are the values of the relevant sample statistics?  
 * Which comparison(s) do you make?  
 * Are the results statistically significant and, if so, what are the estimates for the population?  
-* If the results are statistically significant, how large are the differences or associations?
+* How large are the differences or associations?
 
 A test on one proportion, for example, the proportion of all households reached by a television station, could be reported as follows:  
 
@@ -1254,7 +1255,7 @@ datatable(data_wide_read,
 )
 ```
 
-Consider the following example. You want to measure the difference in media literacy between man and women, and want to control for age. You measure media literacy on a scale from 1 to 7, and age in years. You have a continuous dependent variable (media literacy) and a categorical independent (biological sex), and a continuous independent variable (age). As your dependent variable is continuous, you follow the flow chart to the right. As you have two independent variables, you follow the flow chart to the right to indicate that you have both a categorical and numerical independent variable. The flow chart indicates that you should use a linear regression analysis or ANCOVA to test your hypothesis. You can also use the table to find the appropriate test. You filter the table for a continuous dependent variable, a categorical independent variable, and a continuous independent variable.
+Consider the following example. You want to measure the difference in media literacy between men and women, and want to control for age. You measure media literacy on a scale from 1 to 7, and age in years. You have a continuous dependent variable (media literacy) and a categorical independent (biological sex), and a continuous independent variable (age). As your dependent variable is continuous, you follow the flow chart to the right. As you have two independent variables, you follow the flow chart to the right to indicate that you have both a categorical and numerical independent variable. The flow chart indicates that you should use a linear regression analysis or ANCOVA to test your hypothesis. You can also use the table to find the appropriate test. You filter the table for a continuous dependent variable, a categorical independent variable, and a continuous independent variable.
 
 ## Confidence Intervals to test hypotheses {#sec-null-ci}
 
