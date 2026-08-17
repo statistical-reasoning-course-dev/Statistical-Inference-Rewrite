@@ -406,6 +406,7 @@ Table&nbsp;1: Description of the variables
 <section id="wrangling" class="level2">
 <h2 class="anchored" data-anchor-id="wrangling">Data wrangling</h2>
 <p>In communication science, data wrangling is the process of cleaning and transforming raw data into a format that is suitable for analysis. This process often involves several steps, including importing data, handling missing values, recoding variables, creating new variables, and filtering or selecting cases. In this chapter, we will cover these steps in detail, using the vaccine dataset as an example.</p>
+<p>The different data wrangling functions that we will be covering below, somethimes provide overlapping functionality. Some things are done more easily in one function, while other things are done more easily in another function. We will cover the different functions and their specific use cases, so that you can choose the most appropriate function for your data wrangling needs.</p>
 <section id="compute-variable" class="level3">
 <h3 class="anchored" data-anchor-id="compute-variable">Compute variable</h3>
 <p>The first function we wil be covering is the <code>Transform &gt; Compute Variable...</code> function. This function allows you to create new variables based on existing ones, perform mathematical operations, and apply conditional logic. For example, you can use the <code>compute</code> function to calculate the difference between the post and pre-campaign vaccine acceptance scores.</p>
@@ -414,7 +415,7 @@ Table&nbsp;1: Description of the variables
 <div aria-describedby="fig-compute-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-compute" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-compute-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-cap="The Compute Variable dialog box in SPSS." data-fig-align="left">
+<div id="fig-compute-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap="The Compute Variable dialog box in SPSS.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-compute-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="figures/compute.png" class="lightbox" data-gallery="fig-compute" title="Figure&nbsp;1&nbsp;(a): Compute"><img src="figures/compute.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-cap="The Compute Variable dialog box in SPSS." data-ref-parent="fig-compute" width="400"></a>
@@ -426,7 +427,7 @@ Table&nbsp;1: Description of the variables
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-compute" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-compute-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-cap="The Conditional Logic dialog box in SPSS." data-fig-align="left">
+<div id="fig-compute-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap="The Conditional Logic dialog box in SPSS.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-compute-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="figures/compute_if.png" class="lightbox" data-gallery="fig-compute" title="Figure&nbsp;1&nbsp;(b): Conditional Logic"><img src="figures/compute_if.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-cap="The Conditional Logic dialog box in SPSS." data-ref-parent="fig-compute" width="400"></a>
@@ -450,12 +451,12 @@ Figure&nbsp;1: The Compute Variable dialog box in SPSS.
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>IF  (lang_cond = 1) lang_supportive  = 1.</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>IF  (lang_cond = 2) lang_controlling = 1.</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>EXECUTE.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>In communication science the compute funciont is often used to combine seperate questionaire items into a single scale score. For example, if you have a 5-item scale measuring vaccine acceptance, you could use the <code>MEAN</code> of <code>SUM</code> function to calculate the new scale score across those items and create a new variable called <code>acceptance_scale</code>. This new variable can then be used in subsequent analyses.</p>
+<p>In communication science the compute funciont is often used to combine seperate questionaire items into a single scale score. For example, if you have a 5-item scale measuring vaccine acceptance, you could use the <code>MEAN</code> or <code>SUM</code> function to calculate the new scale score across those items and create a new variable called <code>acceptance_scale</code>. This new variable can then be used in subsequent analyses.</p>
 </section>
 <section id="recode" class="level3">
 <h3 class="anchored" data-anchor-id="recode">Recode</h3>
 <p>The <code>Transform &gt; Recode into Different Variables...</code> function allows you to recode existing variables into new ones, which can be useful for creating categorical variables or grouping continuous variables into categories. For example, you could recode the <code>health_literacy</code> variable into a new variable called <code>health_literacy_group</code>, where participants with scores below a certain threshold are classified as “low” and those above the threshold as “high”.</p>
-<p>The function is also often used for recoding indicative and contra indicative items in a scale. For example if you would have a single item of a scale that is, in contrast to all the other items, frazed in a negative way, you could recode the item so that it’s score is reversed, and the interpretation of the item aligns with the other items.</p>
+<p>The function is also often used for recoding indicative and contra indicative items in a scale. For example if you would have a single item of a scale that is, in contrast to all the other items, phrased in a negative way, you could recode the item so that it’s score is reversed, and the interpretation of the item aligns with the other items.</p>
 <p>The recode function lets you specify old and new values for the variable, and you can also use conditional logic to recode values based on specific criteria. In <a href="#fig-recode-left" class="quarto-xref">Figure&nbsp;<span>2 (a)</span></a> you can see the Recode Variable dialog box, where you can specify the input variable and specify the output variable. Under output variable, you can specify the name and label for the new variable. Make sure to click the <code>Change</code> button to save the output variable settings before proceeding.</p>
 <p>Next you can specify the old and new values for the recoding process by clicking the <code>Old and New Values...</code> button, which opens the Old and New Values dialog box as shown in <a href="#fig-recode-right" class="quarto-xref">Figure&nbsp;<span>2 (b)</span></a>. In this dialog box, you can specify the old values and the corresponding new values for the recoding process. You can use the <code>Range</code> option to recode a range of values into a single category. For example, you could recode all values from 1 to 3 as “low” and all values from 4 to 5 as “high”. In <a href="#fig-recode-right" class="quarto-xref">Figure&nbsp;<span>2 (b)</span></a> though, we will be recoding everyone that did not remember the campaign that they were exposed to as system missing.</p>
 <div id="fig-recode" class="quarto-layout-panel">
@@ -463,7 +464,7 @@ Figure&nbsp;1: The Compute Variable dialog box in SPSS.
 <div aria-describedby="fig-recode-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-recode" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-recode-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-cap="The Recode Variable dialog box in SPSS." data-fig-align="left">
+<div id="fig-recode-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap="The Recode Variable dialog box in SPSS.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-recode-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="figures/recode_2.png" class="lightbox" data-gallery="fig-recode" title="Figure&nbsp;2&nbsp;(a): Recode"><img src="figures/recode_2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-cap="The Recode Variable dialog box in SPSS." data-ref-parent="fig-recode" width="400"></a>
@@ -475,7 +476,7 @@ Figure&nbsp;1: The Compute Variable dialog box in SPSS.
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-recode" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-recode-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-cap="The Old and New Values dialog box in SPSS." data-fig-align="left">
+<div id="fig-recode-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap="The Old and New Values dialog box in SPSS.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-recode-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="figures/recode_1.png" class="lightbox" data-gallery="fig-recode" title="Figure&nbsp;2&nbsp;(b): Recode set values"><img src="figures/recode_1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-cap="The Old and New Values dialog box in SPSS." data-ref-parent="fig-recode" width="400"></a>
@@ -503,7 +504,7 @@ Figure&nbsp;2: The Recode Variable dialog box in SPSS.
 <div aria-describedby="fig-binning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-binning" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-binning-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-cap="The Visual Binning dialog box in SPSS." data-fig-align="left">
+<div id="fig-binning-left" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap="The Visual Binning dialog box in SPSS.">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-binning-left-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="figures/binning_1.png" class="lightbox" data-gallery="fig-binning" title="Figure&nbsp;3&nbsp;(a): Visual Binning"><img src="figures/binning_1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-cap="The Visual Binning dialog box in SPSS." data-ref-parent="fig-binning" width="400"></a>
@@ -515,7 +516,7 @@ Figure&nbsp;2: The Recode Variable dialog box in SPSS.
 </div>
 </div>
 <div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-binning" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-binning-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-cap="Using the set cut points based on percentiles" data-fig-align="left">
+<div id="fig-binning-right" class="lightbox quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap="Using the set cut points based on percentiles">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-binning-right-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <a href="figures/binning_2.png" class="lightbox" data-gallery="fig-binning" title="Figure&nbsp;3&nbsp;(b): Set visual binning properties"><img src="figures/binning_2.png" class="img-fluid quarto-figure quarto-figure-left figure-img" data-cap="Using the set cut points based on percentiles" data-ref-parent="fig-binning" width="400"></a>
@@ -649,7 +650,7 @@ Figure&nbsp;7: Split files dialog box in SPSS.
 <section id="chart-builder" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="chart-builder">Chart builder</h3>
 <p>The <code>Graphs &gt; Chart Builder...</code> function in SPSS allows you to create a wide range of visualizations, including bar charts, line graphs, scatter plots, and histograms. The Chart Builder provides a drag-and-drop interface that makes it easy to create customized visualizations based on your data. You can specify the variables to be plotted, choose the chart type, and customize the appearance of the chart.</p>
-<p>The interface allows you to drag and drop varibles from the variable list into the appropriate axes or chart elements. Depending on the specified measure of the variable (nominal, ordinal, or scale), SPSS will set the appropriate axis options. This also means that if the variable is not specified correctly in the variable view of the data file, the chart may not display the proper options.</p>
+<p>The interface allows you to drag and drop variables from the variable list into the appropriate axes or chart elements. Depending on the specified measure of the variable (nominal, ordinal, or scale), SPSS will set the appropriate axis options. This also means that if the variable is not specified correctly in the variable view of the data file, the chart may not display the proper options.</p>
 <div id="fig-chart-builder" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chart-builder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
