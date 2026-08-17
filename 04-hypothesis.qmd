@@ -622,13 +622,17 @@ $$
 d = \frac{\bar{x} - \mu_{H_0}}{s_x}
 $$ {#eq-CoD}
 
-Using an inventory of published results of tests on one or two means, @RefWorks:3933 proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs) for Cohen's *d*:
+Cohen's *d* can take values above one. These are not errors, they reflect very strong or huge effects [@sawilowskyNewEffectSize2009]. Using an inventory of published results of tests on one or two means, @RefWorks:3933 proposed rules of thumb for standardized effect sizes (ignore a negative sign if it occurs) for Cohen's *d*.:
 
 * 0.2: weak (small) effect,
 * 0.5: moderate (medium) effect,
 * 0.8: strong (large) effect.
 
-Note that Cohen's *d* can take values above one. These are not errors, they reflect very strong or huge effects [@sawilowskyNewEffectSize2009].
+Note that these are generally not used as precise cut-offs, but rather rough guidelines. That is an effect somewhere close to 0.5 might be called "medium", while an effect between 0.5 and 0.8 (e.g. 0.65) might be called "moderate to strong".
+
+
+
+
 
 #### Association as effect size {#sec-assoc-size}
 
