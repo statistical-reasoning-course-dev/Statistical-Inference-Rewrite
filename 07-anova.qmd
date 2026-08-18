@@ -262,7 +262,7 @@ vaccination information) explained or predicted by the group variable
 
 This proportion is informative and precise. If you want to classify the
 effect size in more general terms, you should take the square root of
-eta^2^ to obtain *eta*. As a measure of association, eta^2^ can be
+eta^2^ to obtain *eta*. As a measure of association, eta can be
 interpreted with the following rules of thumb:
 
 - 0 – 0.1: non to weak effect
@@ -482,7 +482,7 @@ dependent variable. In our current example, we reject the null
 hypothesis that average vaccine acceptance is equal for people who saw a
 campaign with autonomy supportive, controlling or neutral language. In
 other words, we *reject* the null hypothesis that the campaign style (or
-lagnuage used) does *not* matter to vaccine acceptance.
+language used) does *not* matter to vaccine acceptance.
 
 #### Pairwise comparisons as post-hoc tests
 
@@ -1048,21 +1048,14 @@ hypothesize that the effect of using controlling language is stronger
 for participants with low health literacy than for participants with
 high health literacy.
 
-In analysis of variance, effects are differences between average outcome
-scores. The effect of controlling language on vaccine acceptance, for
-instance, is the difference between the average vaccine of participants
-exposed to controlling language and the average score of participants
-who were exposed to a campaign with neutral language.
-
 Different effects of controlling language for participants with low and
 participants with high health literacy imply different differences! The
 difference in average vaccine acceptance scores between people with low
 health literacy exposed to controlling language and people with low
 health literacy who are exposed to neutral language is different from
 the difference in average acceptance scores for people with high health
-literacy. We have four subgroups with average acceptance scores that we
-have to compare. We have six subgroups if we also include the autonomy
-supportive effect.
+literacy. We have six subgroups with average acceptance scores that we
+have to compare.
 
 ```{r}
 #| label: fig-anova-effectstrengthmod
